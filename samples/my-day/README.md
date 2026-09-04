@@ -216,4 +216,4 @@ samples/my-day/
 
 _Part of the **SharePoint Copilot Apps** sample gallery - complex UX in the Copilot canvas, powered by SPFx. See [aka.ms/spfx](https://aka.ms/spfx)._
 
-![Visitor statistics](https://m365-visitor-stats.azurewebsites.net/spfx-copilot-apps/samples/my-day)
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/my-day" />

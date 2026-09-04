@@ -5,6 +5,7 @@ import {
   renderReadme,
   resolveThumbnailPath,
   selectPrimaryImage,
+  validateVisitorStatsTracker,
 } from '../../scripts/gallery-model.mjs';
 
 describe('gallery metadata', () => {
@@ -49,5 +50,17 @@ describe('gallery metadata', () => {
     );
     expect(() => renderReadme('demo', '[Root](../../README.md)'))
       .toThrow('Unsafe README link in demo: ../../README.md');
+  });
+
+  it('requires one sample-specific visitor tracker as the final README entry', () => {
+    const tracker = '<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/demo" />';
+
+    expect(() => validateVisitorStatsTracker('demo', `# Demo\n\n${tracker}\n`)).not.toThrow();
+    expect(() => validateVisitorStatsTracker('demo', `${tracker}\n\nMore content\n`))
+      .toThrow('README must end with');
+    expect(() => validateVisitorStatsTracker('demo', tracker.replace('/demo', '/other')))
+      .toThrow('README must end with');
+    expect(() => validateVisitorStatsTracker('demo', `${tracker}\n${tracker}`))
+      .toThrow('README must contain exactly one visitor-stats tracker');
   });
 });

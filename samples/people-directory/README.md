@@ -124,3 +124,5 @@ Alongside Fluent UI v9 (`@fluentui/react-components`, used for the overall layou
 - [Publish SharePoint Framework applications to the Marketplace](https://learn.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
 - [Heft Documentation](https://heft.rushstack.io/)
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/people-directory" />

@@ -9,6 +9,7 @@ import sharp from 'sharp';
 const REPOSITORY_URL = 'https://github.com/pnp/spfx-copilot-components';
 const OLD_REPOSITORY_SLUG = 'pnp/spfx-copilot-apps';
 const REPOSITORY_SLUG = 'pnp/spfx-copilot-components';
+const VISITOR_STATS_BASE_URL = 'https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components';
 
 function assert(condition, message) {
   if (!condition) {
@@ -42,6 +43,15 @@ function repositoryTarget(slug, target, raw) {
 
 export function normalizeRepositoryUrl(value) {
   return typeof value === 'string' ? value.replace(OLD_REPOSITORY_SLUG, REPOSITORY_SLUG) : value;
+}
+
+export function validateVisitorStatsTracker(slug, markdown) {
+  const expectedTracker = `<img src="${VISITOR_STATS_BASE_URL}/samples/${slug}" />`;
+  const finalLine = markdown.trimEnd().split(/\r?\n/).at(-1);
+  assert(finalLine === expectedTracker, `${slug}: README must end with ${expectedTracker}`);
+
+  const trackerCount = (markdown.match(/m365-visitor-stats\.azurewebsites\.net/g) ?? []).length;
+  assert(trackerCount === 1, `${slug}: README must contain exactly one visitor-stats tracker`);
 }
 
 export function selectPrimaryImage(thumbnails) {
@@ -200,6 +210,8 @@ export async function generateGallery({ repositoryRoot, siteRoot }) {
 
   for (const slug of slugs) {
     const sampleRoot = path.join(samplesRoot, slug);
+    const readmeMarkdown = await readFile(path.join(sampleRoot, 'README.md'), 'utf8');
+    validateVisitorStatsTracker(slug, readmeMarkdown);
     const samplePath = path.join(sampleRoot, 'assets', 'sample.json');
     if (!(await exists(samplePath))) {
       excludedSamples.push({ slug, reason: 'Missing assets/sample.json' });
@@ -234,7 +246,7 @@ export async function generateGallery({ repositoryRoot, siteRoot }) {
     components.push(normalizeSample(
       slug,
       sample,
-      await readFile(path.join(sampleRoot, 'README.md'), 'utf8'),
+      readmeMarkdown,
       imageMetadata,
     ));
   }

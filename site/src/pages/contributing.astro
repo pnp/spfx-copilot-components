@@ -14,7 +14,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="steps-band">
     <ol class="container getting-started-steps">
       <li><strong>1</strong><div><h2>Fork and branch</h2><p>Work from the latest main branch and keep the pull request focused.</p></div></li>
-      <li><strong>2</strong><div><h2>Add the sample</h2><p>Include source, a complete README, metadata, and at least one referenced gallery image.</p></div></li>
+      <li><strong>2</strong><div><h2>Add the sample</h2><p>Include source, a complete README ending with its sample-specific view tracker, metadata, and at least one referenced gallery image.</p></div></li>
       <li><strong>3</strong><div><h2>Validate and submit</h2><p>Run the gallery validation, then open a pull request with the scenario and test details.</p></div></li>
     </ol>
   </section>
@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     ├── assets/
     │   └── sample.json
     ├── src/
-    └── README.md</code></pre></div>
+    └── README.md</code></pre><p>End the README with <code>https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/your-sample-name</code>. Pull request validation requires the URL slug to match the sample folder.</p></div>
     <div><p class="eyebrow">Gallery metadata</p><h2>Reference the image you want featured</h2><p>The gallery uses the first image in <code>thumbnails</code> by ascending <code>order</code>. The file can have any name; its URL, alt text, and local file must be valid.</p><nav class="stacked-links"><a href="https://github.com/pnp/spfx-copilot-components/blob/main/templates/README-template.md">README template <ArrowRight size={16} aria-hidden="true" /></a><a href="https://github.com/pnp/spfx-copilot-components/blob/main/templates/sample-template.json">Metadata template <ArrowRight size={16} aria-hidden="true" /></a></nav></div>
   </section>
 </BaseLayout>

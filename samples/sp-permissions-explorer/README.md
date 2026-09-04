@@ -120,3 +120,5 @@ If you encounter any issues using this solution, please open an issue in this re
 
 ---
 
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/sp-permissions-explorer" />
+

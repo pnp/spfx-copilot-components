@@ -268,5 +268,4 @@ samples/time-off-absence/
 
 _Part of the **SharePoint Copilot Apps** sample gallery - complex UX in the Copilot canvas, powered by SPFx. See [aka.ms/spfx](https://aka.ms/spfx)._
 
-
-<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-apps/samples/time-off-absence" />
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/time-off-absence" />

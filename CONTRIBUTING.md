@@ -39,6 +39,16 @@ samples/
     └── README.md
 ```
 
+### README view tracking
+
+Every sample `README.md` must end with exactly one sample-specific view tracker. Replace `your-sample-name` with the sample folder name and keep this as the final nonblank line:
+
+```html
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/your-sample-name" />
+```
+
+Pull request validation rejects missing trackers, stale repository prefixes, folder-name mismatches, duplicate trackers, and content placed after the tracker.
+
 ## Submitting your pull request
 
 - Keep each pull request focused on a single sample or a single logical change.

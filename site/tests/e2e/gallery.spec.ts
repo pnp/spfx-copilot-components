@@ -1,6 +1,10 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type APIRequestContext } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.route('https://m365-visitor-stats.azurewebsites.net/**', (route) => route.abort());
+});
+
 async function fetchCatalog(request: APIRequestContext) {
   const response = await request.get('./catalog.json');
   expect(response.ok()).toBeTruthy();
@@ -45,6 +49,28 @@ test('component detail exposes source, download, and documentation', async ({ pa
   await expect(page.getByRole('link', { name: 'Download sample' })).toHaveAttribute('href', /download-partial/);
   await expect(page.getByRole('link', { name: /View source/ })).toHaveAttribute('href', /spfx-copilot-components/);
   await expect(page.getByRole('heading', { level: 2, name: 'Setup and implementation' })).toBeVisible();
+});
+
+test('tracks visits using the current site route', async ({ page }) => {
+  const tracker = page.locator('img[data-visitor-stats]');
+
+  await page.goto('./');
+  await expect(tracker).toHaveAttribute(
+    'src',
+    'https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/',
+  );
+
+  await page.goto('./contributors/');
+  await expect(tracker).toHaveAttribute(
+    'src',
+    'https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/contributors',
+  );
+
+  await page.goto('./samples/apps-directory/');
+  await expect(tracker).toHaveAttribute(
+    'src',
+    'https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/apps-directory',
+  );
 });
 
 test('defaults to light, switches themes accessibly, and persists the preference', async ({ page }) => {

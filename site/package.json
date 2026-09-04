@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "generate": "node scripts/generate-gallery.mjs",
+    "validate:readme-trackers": "node scripts/validate-readme-trackers.mjs",
     "dev": "npm run generate && astro dev",
     "start": "npm run dev",
     "build": "npm run generate && astro build",

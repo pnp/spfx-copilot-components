@@ -79,3 +79,5 @@ This Microsoft 365 Roadmap Copilot Agent provides the following capabilities:
 - [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
 - [Heft Documentation](https://heft.rushstack.io/)
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/copilot-m365-roadmap-features" />

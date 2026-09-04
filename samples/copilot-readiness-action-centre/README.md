@@ -165,4 +165,4 @@ For packaging tips (Zod → JSON Schema, white Teams outline icons, and agent va
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
-![Visitor statistics](https://m365-visitor-stats.azurewebsites.net/spfx-copilot-apps/samples/copilot-readiness-action-centre)
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/copilot-readiness-action-centre" />

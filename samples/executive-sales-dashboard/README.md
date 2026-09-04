@@ -143,3 +143,5 @@ src/copilotComponents/execDashboard/
 ---
 
 _Part of the **SharePoint Copilot Apps** sample gallery — interactive UX in the Copilot canvas, powered by SPFx. See [aka.ms/spfx](https://aka.ms/spfx)._
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/executive-sales-dashboard" />

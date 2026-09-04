@@ -379,3 +379,5 @@ The shared control is distributed through [`@spteck/react-controls-v2`](https://
 ## License and disclaimer
 
 This sample is provided as-is without warranties. Review Graph permissions, tenant governance, data retention, accessibility, and content security requirements before using it in production.
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/photos" />
