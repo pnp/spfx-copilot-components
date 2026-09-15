@@ -430,3 +430,5 @@ met by the current package and evidence files.
 
 GA publication still requires the external authenticated-tenant and publisher/media approvals listed
 under **Implementation status** and in [todo.md](todo.md).
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-procurement-command-center" />

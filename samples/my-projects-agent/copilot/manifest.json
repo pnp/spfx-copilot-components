@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "b2e7cb79-ae52-4fdd-9da0-c362b53bcb04",
+  "developer": {
+    "name": "João Mendes",
+    "websiteUrl": "https://github.com/joaojmendes",
+    "privacyUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/my-projects-agent/PRIVACY.md",
+    "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/LICENSE"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Planner Projects",
+    "full": "My Planner Projects Agent"
+  },
+  "description": {
+    "short": "Find and create Microsoft Planner projects.",
+    "full": "Review accessible Planner plans, surface active or overdue work, and prepare editable plans from supported project templates before explicit creation."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "myprojectsAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

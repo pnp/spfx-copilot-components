@@ -1,0 +1,1 @@
+export const PLANNER_APP_URL = 'https://planner.cloud.microsoft/';

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "My Planner Projects Agent",
+  "description": "Finds Planner work and prepares editable basic plans from Planner project templates for explicit creation.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "My projects",
+      "text": "What Planner projects do I have?"
+    },
+    {
+      "title": "My active work",
+      "text": "Which projects have active tasks assigned to me?"
+    },
+    {
+      "title": "My overdue work",
+      "text": "Which projects have overdue tasks assigned to me?"
+    },
+    {
+      "title": "Recent projects",
+      "text": "Which projects did I work on last week?"
+    },
+    {
+      "title": "Create a software project",
+      "text": "Create a software project called Customer portal starting next Monday."
+    },
+    {
+      "title": "Create a new project",
+      "text": "Create new and let me choose a template and group."
+    }
+  ],
+  "actions": [
+    {
+      "id": "myprojectsAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

@@ -522,3 +522,5 @@ Implementation status and validation evidence are tracked in [todo.md](todo.md) 
 [assets/release-evidence.json](assets/release-evidence.json). The local gate currently reports 19 tests,
 zero warnings, 75 visual captures, zero visual failures, 25 unique layout identities, one production
 bundle, and zero duplicate media. Local evidence does not claim authenticated host behavior.
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-customer-resolution-center" />
