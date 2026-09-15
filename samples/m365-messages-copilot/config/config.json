@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "m365-messages-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/m365Messages/M365MessagesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/m365Messages/M365MessagesCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {}
+}

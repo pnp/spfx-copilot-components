@@ -1,0 +1,81 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-m365-messages-copilot",
+    "source": "pnp",
+    "title": "M365 Messages",
+    "shortDescription": "Review Microsoft 365 service announcements in Copilot through an interactive MCP App.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/m365-messages-copilot",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/m365-messages-copilot",
+    "longDescription": [
+      "M365 Messages Copilot is an SPFx Copilot Component that brings Microsoft 365 service announcement messages into Microsoft 365 Copilot through an interactive MCP App. It obtains a delegated Microsoft Entra token, connects to a remote MCP server, and renders the returned experience securely in the Copilot canvas.",
+      "Users can browse announcements in inline or full-screen views, switch layouts, paginate, sort and filter messages, and open detailed announcement content. The sample demonstrates authenticated MCP Streamable HTTP communication, MCP App resource rendering, host-driven theming, and delegated access to a multi-tenant API."
+    ],
+    "creationDateTime": "2026-09-15",
+    "updateDateTime": "2026-09-15",
+    "products": [
+      "SharePoint",
+      "Microsoft 365 Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.3"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "inline-anonymized.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-messages-copilot/assets/inline-anonymized.png",
+        "alt": "M365 Messages Copilot displaying Microsoft 365 service announcements as cards in an inline Copilot response."
+      },
+      {
+        "name": "expand-anonymized.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-messages-copilot/assets/expand-anonymized.png",
+        "alt": "Full-screen M365 Messages Copilot view showing a sortable list of Microsoft 365 service announcements."
+      },
+      {
+        "name": "details-anonymized.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-messages-copilot/assets/details-anonymized.png",
+        "alt": "M365 Messages Copilot full-screen view with the details dialog open for a selected service announcement."
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "joaojmendes",
+        "pictureUrl": "https://github.com/joaojmendes.png",
+        "name": "João Mendes"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of SharePoint Copilot Apps",
+        "description": "Extend Microsoft 365 Copilot with interactive experiences built with the SharePoint Framework.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/overview-copilot-apps"
+      },
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Create, test, package, and deploy an SPFx Copilot Component.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Microsoft Graph service communications API overview",
+        "description": "Learn about Microsoft 365 service health and service announcement information in Microsoft Graph.",
+        "url": "https://learn.microsoft.com/graph/service-communications-concept-overview"
+      }
+    ]
+  }
+]

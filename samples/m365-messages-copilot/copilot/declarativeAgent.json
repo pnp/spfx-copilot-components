@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "M365 Messages",
+  "description": "Review Microsoft 365 service announcements in an interactive experience.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "View service messages",
+      "text": "Show my Microsoft 365 service announcement messages."
+    }
+  ],
+  "actions": [
+    {
+      "id": "m365MessagesAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

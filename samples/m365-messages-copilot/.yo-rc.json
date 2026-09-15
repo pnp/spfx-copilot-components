@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.21.1",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.3",
+    "libraryName": "m365-messages-copilot",
+    "libraryId": "5f73984b-c5cd-44e4-b333-38280f9a71c7",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "m365-messages-copilot",
+    "solutionShortDescription": "M365 Messages MCP App host for Microsoft 365 Copilot",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "copilotComponent"
+  }
+}

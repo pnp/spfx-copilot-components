@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "788ffe41-bb31-4016-930f-5eb63ca4599e",
+  "alias": "M365MessagesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ShowM365Messages",
+      "description": {
+        "default": "Show an interactive Microsoft 365 service announcement experience. The embedded UI manages pagination, filtering, sorting, and message details."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/m365Messages/M365MessagesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
