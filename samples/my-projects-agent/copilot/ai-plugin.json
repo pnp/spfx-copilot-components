@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "myprojects",
+  "name_for_human": "Planner Projects",
+  "description_for_human": "Find, review, and create Microsoft Planner projects",
+  "description_for_model": "Use MyprojectsTool to find accessible Planner projects and tasks. Use CreatePlannerProjectTool to prepare an editable basic Planner project from the most suitable supported template; the rendered Create button is the only confirmation that writes to Graph.",
+  "contact_email": "joao.j.mendes@spteck.com"
+}

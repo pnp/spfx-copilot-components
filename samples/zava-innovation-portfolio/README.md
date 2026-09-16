@@ -554,3 +554,5 @@ still requires the external prerequisites listed above.
 
 This implementation supersedes the earlier 30-inline-component, interim 10-tool, and 14-tool proposals.
 The approved 16 operational tools plus one capability explorer are the current release catalog.
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-innovation-portfolio" />

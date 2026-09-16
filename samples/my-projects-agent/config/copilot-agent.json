@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "My Planner Projects Agent"
+      },
+      "description": {
+        "default": "Finds Planner projects and highlights urgent or on-hold work."
+      },
+      "components": [
+        "0452de39-61e2-43e2-a15a-c1b482a9e5d3"
+      ]
+    }
+  ]
+}

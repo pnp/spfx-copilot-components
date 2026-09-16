@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "0452de39-61e2-43e2-a15a-c1b482a9e5d3",
+  "alias": "MyprojectsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "MyprojectsTool",
+      "description": {
+        "default": "Finds and displays the user's Microsoft Planner projects. Use all for a project overview, urgent for incomplete tasks that are overdue or due within seven days, and onHold for incomplete tasks in On hold, Hold, In hold, or Blocked buckets. A selected project opens its native Planner board in fullscreen."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/myprojects/MyprojectsCopilotComponentProperties.js:default;"
+      }
+    },
+    {
+      "name": "CreatePlannerProjectTool",
+      "description": {
+        "default": "Prepares an editable review for a new basic Microsoft Planner project. Resolves relative dates to an exact date, recommends a blank, simple, project management, software development, business plan, or employee onboarding template, lets the user select a Microsoft 365 group, and creates the plan only after an explicit button click."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/myprojects/MyprojectsCopilotComponentProperties.js:createProjectPropertiesJsonSchema;"
+      }
+    }
+  ]
+}

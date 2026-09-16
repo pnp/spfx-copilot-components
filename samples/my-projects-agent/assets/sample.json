@@ -1,0 +1,82 @@
+[
+  {
+    "name": "pnp-spfx-copilot-component-my-projects-agent",
+    "source": "pnp",
+    "title": "My Planner Projects Agent",
+    "shortDescription": "Review accessible Planner projects and prepare new plans with explicit user confirmation in Microsoft 365 Copilot.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/my-projects-agent",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/my-projects-agent",
+    "longDescription": [
+      "My Planner Projects Agent helps users review accessible Planner projects, surface overdue or upcoming work, and open a selected project in Planner.",
+      "It can prepare a new Planner plan from supported templates and creates the plan, buckets, and tasks only after the user confirms. The component uses delegated Microsoft Graph permissions and sends Planner data only to Microsoft 365 services."
+    ],
+    "creationDateTime": "2026-09-15",
+    "updateDateTime": "2026-09-15",
+    "products": [
+      "SharePoint",
+      "Microsoft Planner",
+      "Microsoft 365 Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.3"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "inline.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-projects-agent/assets/inline.png",
+        "alt": "My Planner Projects Agent inline image"
+      },
+       {
+        "name": "expand.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-projects-agent/assets/expand.png",
+        "alt": "My Planner Projects Agent expand image"
+      },
+       {
+        "name": "gantt.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-projects-agent/assets/gantt.png",
+        "alt": "My Planner Projects Agent gantt image"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "joaojmendes",
+        "pictureUrl": "https://github.com/joaojmendes.png",
+        "name": "João Mendes"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Build and deploy a Copilot experience with the SharePoint Framework.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Microsoft Graph Planner API overview",
+        "description": "Use Microsoft Graph to work with Planner plans, buckets, and tasks.",
+        "url": "https://learn.microsoft.com/graph/api/resources/planner-overview"
+      },
+      {
+        "name": "Microsoft Graph permissions reference",
+        "description": "Review delegated Microsoft Graph permissions requested by this sample.",
+        "url": "https://learn.microsoft.com/graph/permissions-reference"
+      }
+    ]
+  }
+]
