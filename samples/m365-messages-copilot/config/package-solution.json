@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "m365-messages-copilot-client-side-solution",
+    "id": "5f73984b-c5cd-44e4-b333-38280f9a71c7",
+    "version": "1.0.3.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "webApiPermissionRequests": [
+      {
+        "resource": "FucAIAssistantSecured",
+        "scope": "user_impersonation",
+        "appId": "c63423bf-bffe-4d00-b649-7e4fff124a05",
+        "replyUrl": "https://m365messages.spteckapps.com/oauth/callback"
+      }
+    ],
+    "developer": {
+      "name": "João Mendes",
+      "websiteUrl": "https://github.com/joaojmendes",
+      "privacyUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/m365-messages-copilot/PRIVACY.md",
+      "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/LICENSE",
+      "mpnId": "Undefined-1.24.0-beta.3"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Interactive Microsoft 365 service messages in Copilot"
+      },
+      "longDescription": {
+        "default": "Renders the M365 Messages MCP App inside Microsoft 365 Copilot using delegated authentication."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "M365 Messages Copilot Feature",
+        "description": "Activates the M365 Messages Copilot component.",
+        "id": "6cd5a5d5-4a89-4c71-af17-ecbb074f749a",
+        "version": "1.0.3.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/m365-messages-copilot.sppkg"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.3",
+  "id": "55ae64f1-6b8b-4a9b-b98c-4bc2032c3f59",
+  "developer": {
+    "name": "João Mendes",
+    "websiteUrl": "https://github.com/joaojmendes",
+    "privacyUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/m365-messages-copilot/PRIVACY.md",
+    "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/LICENSE"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "M365 Messages",
+    "full": "Microsoft 365 Messages"
+  },
+  "description": {
+    "short": "Review Microsoft 365 service announcements.",
+    "full": "Review and explore Microsoft 365 service announcements through an interactive MCP App in Copilot."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "m365MessagesAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": ["m365messages.spteckapps.com"]
+}

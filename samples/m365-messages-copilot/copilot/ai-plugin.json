@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "m365Messages",
+  "name_for_human": "M365 Messages",
+  "description_for_human": "Review Microsoft 365 service announcements.",
+  "description_for_model": "Use ShowM365Messages whenever the user wants to review Microsoft 365 service announcements. The interactive UI manages pagination, filtering, sorting, and message details.",
+  "contact_email": "joao.j.mendes@spteck.com"
+}

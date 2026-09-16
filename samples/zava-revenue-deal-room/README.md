@@ -509,3 +509,5 @@ package deploys without runtime data dependencies.
 
 The local implementation and audited package are complete. Tenant-host checks remain explicitly
 separate because they require an authenticated Microsoft 365 environment.
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-revenue-deal-room" />

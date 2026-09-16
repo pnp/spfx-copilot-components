@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "M365 Messages"
+      },
+      "description": {
+        "default": "Review Microsoft 365 service announcements in an interactive MCP App."
+      },
+      "components": [
+        "788ffe41-bb31-4016-930f-5eb63ca4599e"
+      ]
+    }
+  ]
+}

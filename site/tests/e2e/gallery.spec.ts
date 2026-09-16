@@ -23,23 +23,23 @@ test('catalog loads and filters without layout navigation', async ({ page, reque
   await expect(page).toHaveURL(/\?q=Work(?:%20|\+)IQ$/);
 });
 
-test('events sample increments catalog and contributor counts', async ({ page, request }) => {
+test('M365 Messages sample increments catalog and contributor counts', async ({ page, request }) => {
   const catalog = await fetchCatalog(request);
   await page.goto('./');
 
   await expect(page.locator('.catalog-stat'))
     .toHaveAttribute('aria-label', `${catalog.components.length} community components`);
   await expect(page.locator('#result-count')).toHaveText(`Showing ${catalog.components.length} components`);
-  await expect(page.getByRole('heading', { level: 3, name: 'SharePoint Events Copilot Agent' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 3, name: 'M365 Messages' })).toBeVisible();
 
   await page.getByRole('combobox', { name: 'Contributor' }).selectOption('joaojmendes');
-  await expect(page.locator('[data-component-card]:visible')).toHaveCount(2);
-  await expect(page.locator('#result-count')).toHaveText('Showing 2 matching components');
+  await expect(page.locator('[data-component-card]:visible')).toHaveCount(3);
+  await expect(page.locator('#result-count')).toHaveText('Showing 3 matching components');
   await expect(page).toHaveURL(/\?author=joaojmendes$/);
 
   await page.goto('./contributors/');
   const contributor = page.locator('.contributor-card').filter({ hasText: 'João Mendes' });
-  await expect(contributor).toContainText('2 component samples');
+  await expect(contributor).toContainText('3 component samples');
 });
 
 test('component detail exposes source, download, and documentation', async ({ page }) => {
