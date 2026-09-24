@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "edd0d926-03a1-43da-9169-5525c493b95f",
+  "alias": "StarMatchCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "StarMatchTool",
+      "description": {
+        "default": "starMatch description"
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/starMatch/StarMatchCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

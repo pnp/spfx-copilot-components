@@ -1,0 +1,62 @@
+[
+  {
+    "name": "pnp-sp-dev-spfx-copilot-apps-copilot-star-match-game",
+    "source": "pnp",
+    "title": "Copilot Star Match Game",
+    "shortDescription": "A SharePoint Copilot app that enables teams to play the Star Match game.",
+    "url": "https://github.com/pnp/spfx-copilot-apps/tree/main/samples/copilot-star-match-game",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-apps/tree/main/samples/copilot-star-match-game",
+    "longDescription": [
+      "Copilot Star Match Game demonstrates a SharePoint Framework-based Copilot Agent that helps teams play the Star Match game. This solution leverages interactive game mechanics, enabling engaging and fun experiences within Microsoft Teams, SharePoint, and other Microsoft 365 applications."
+    ],
+    "creationDateTime": "2026-09-20",
+    "updateDateTime": "2026-09-20",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.2"
+      }
+    ],
+    "thumbnails": [
+      { "name": "inline-star-match-game01.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-apps/raw/main/samples/copilot-star-match-game/assets/inline-star-match-game01.png", "alt": "Star Match Game inline" },
+      { "name": "inline-star-match-game02.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-apps/raw/main/samples/copilot-star-match-game/assets/inline-star-match-game02.png", "alt": "Star Match Game inline" },
+      { "name": "fullscreen-star-match-game.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-apps/raw/main/samples/copilot-star-match-game/assets/fullscreen-star-match-game.png", "alt": "Star Match Game full-screen" },
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "mohammadamer",
+        "pictureUrl": "https://github.com/mohammadamer.png",
+        "name": "Mohammad Amer"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Learn how to build and package an SPFx Copilot Component with inline and full-screen experiences.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Microsoft 365 Copilot",
+        "description": "Microsoft 365 Copilot combines large language models with organizational context and extensibility.",
+        "url": "https://www.microsoft.com/microsoft-365/copilot"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework supports client-side solutions and tenant-hosted assets for Microsoft 365 experiences.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]
