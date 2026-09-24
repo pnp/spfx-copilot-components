@@ -1,0 +1,21 @@
+{
+  "$comment": "Single source for the declarative-agent identity (AGENTS.md R14). Kept at the component root, out of copilot/, so it is never staged into the agent package. Run `npm run gen:copilot-assets` after editing; `npm run build` fails if copilot/declarativeAgent.json, copilot/ai-plugin.json, copilot/manifest.json, config/copilot-agent.json or logic/conversationStarters.ts drift from it.",
+  "name": "Document Intake",
+  "description": "Guides intake of invoices and expense reports so every record is complete before it is stored.",
+  "shortDescription": "Complete intake for invoices and expense reports.",
+  "contactEmail": "records@example.org",
+  "developer": {
+    "name": "Brightwater Community Foundation",
+    "websiteUrl": "https://www.example.org",
+    "privacyUrl": "https://www.example.org/privacy",
+    "termsOfUseUrl": "https://www.example.org/terms"
+  },
+  "accentColor": "#0F6CBD",
+  "conversationStarters": [
+    { "title": "File an invoice", "text": "File this invoice for the Programs team" },
+    { "title": "File expense reports", "text": "Upload these expense reports from last month" },
+    { "title": "This week's filings", "text": "What have I filed this week?" },
+    { "title": "Finance, still pending", "text": "Show recent filings for Finance that are still pending" },
+    { "title": "What a report needs", "text": "What information does an expense report need before I file it?" }
+  ]
+}

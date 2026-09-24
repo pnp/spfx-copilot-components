@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build generated files
+dist
+lib
+lib-dts
+lib-commonjs
+lib-esm
+jest-output
+release
+solution
+temp
+*.sppkg
+.heft
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# OSX
+.DS_Store
+
+# Visual Studio files
+.ntvs_analysis.dat
+.vs
+bin
+obj
+
+# Resx Generated Code
+*.resx.ts
+
+# Styles Generated Code
+*.scss.ts
+
+# Ship the demo package (AGENTS.md R20); everything else under solution/ stays ignored
+!sharepoint/solution/
+sharepoint/solution/*
+!sharepoint/solution/file-uploader.sppkg
+
+# Ship the generated agent package beside the .sppkg (AGENTS.md R20 / §3); generator slugifies the name from config/copilot-agent.json
+!teams/
+teams/*
+!teams/document-intake.zip
+
+# The one place a tenant is named (todo.md 8.9 N1, AGENTS.md §8). Copy
+# tenant.example.json to it and fill it in; check:tenant-config fails the build
+# if it is ever tracked.
+tenant.local.json
+# Loop 2's cached sign-in (npm run test:tenant, auth "user"). A refresh token: never commit it.
+.tenant-token-cache.json
