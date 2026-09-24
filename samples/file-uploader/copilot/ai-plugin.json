@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "fileUploader",
+  "name_for_human": "Document Intake",
+  "description_for_human": "Guides intake of invoices and expense reports so every record is complete before it is stored.",
+  "description_for_model": "Guides intake of invoices and expense reports so every record is complete before it is stored.",
+  "contact_email": "records@example.org"
+}

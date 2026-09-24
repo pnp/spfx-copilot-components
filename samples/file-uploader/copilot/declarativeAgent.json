@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Document Intake",
+  "description": "Guides intake of invoices and expense reports so every record is complete before it is stored.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "File an invoice",
+      "text": "File this invoice for the Programs team"
+    },
+    {
+      "title": "File expense reports",
+      "text": "Upload these expense reports from last month"
+    },
+    {
+      "title": "This week's filings",
+      "text": "What have I filed this week?"
+    },
+    {
+      "title": "Finance, still pending",
+      "text": "Show recent filings for Finance that are still pending"
+    },
+    {
+      "title": "What a report needs",
+      "text": "What information does an expense report need before I file it?"
+    }
+  ],
+  "actions": [
+    {
+      "id": "fileUploaderAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

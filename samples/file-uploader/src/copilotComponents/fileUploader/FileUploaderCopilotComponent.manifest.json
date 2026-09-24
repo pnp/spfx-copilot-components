@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "943d7397-87dc-43df-92aa-ad9d20a7b955",
+  "alias": "FileUploaderCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "fileDocuments",
+      "description": {
+        "default": "File an invoice or expense report into the records library with complete metadata, or show what the user has filed recently. The user chooses the file in the component; nothing is saved until they confirm."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/fileUploader/FileUploaderCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
