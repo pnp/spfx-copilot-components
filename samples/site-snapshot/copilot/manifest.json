@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.4",
+  "id": "e2996fbd-d4d5-46ff-8b25-bfc2949372a2",
+  "developer": {
+    "name": "Deptive",
+    "websiteUrl": "https://www.deptive.co.nz",
+    "privacyUrl": "https://www.contoso.com/privacy",
+    "termsOfUseUrl": "https://www.contoso.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Site Snapshot",
+    "full": "Site Snapshot"
+  },
+  "description": {
+    "short": "On-demand health snapshot of a SharePoint site.",
+    "full": "Gives an on-demand health snapshot of a SharePoint site and can export or email it."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "siteSnapshotAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}

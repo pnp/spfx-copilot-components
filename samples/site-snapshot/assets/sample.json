@@ -1,0 +1,75 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-site-snapshot",
+    "source": "pnp",
+    "title": "Site Snapshot - SharePoint Site Health Copilot App",
+    "shortDescription": "On-demand health snapshot of a SharePoint site inside Microsoft 365 Copilot: a transparent health score, stale documents, external sharing, duplicates, large and empty files, and a file-type breakdown.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/site-snapshot",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/site-snapshot",
+    "longDescription": [
+      "Site Snapshot is a Copilot UX Component that scans every user document library on a SharePoint site through the brokered Microsoft Graph client and returns a 0-100 health score built from five explained sub-scores: storage, freshness, sharing exposure, activity and tidiness.",
+      "Inline, it renders a compact score card in the chat. In fullscreen it opens a dashboard with tabs for file types, owners, duplicates, stale files, external and Anyone sharing, empty files and the largest files. The agent can open straight to the view the user asked about.",
+      "Users can export the results to CSV or email themselves a summary, and ask the agent follow-up questions answered from the snapshot results. The component is read-only."
+    ],
+    "creationDateTime": "2026-10-02",
+    "updateDateTime": "2026-10-02",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.3"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "site-snapshot-inline.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/site-snapshot/assets/site-snapshot-inline.png",
+        "alt": "Inline Site Snapshot score card in Microsoft 365 Copilot showing the health score and headline numbers"
+      },
+      {
+        "name": "site-snapshot-fullscreen.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/site-snapshot/assets/site-snapshot-fullscreen.png",
+        "alt": "Fullscreen Site Snapshot dashboard with sub-score bars, export and email actions, and detail tabs"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "tvahk",
+        "pictureUrl": "https://github.com/tvahk.png",
+        "name": "Tanel Vahk"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "Use Microsoft Graph in SPFx",
+        "description": "Connect to Microsoft Graph from SharePoint Framework solutions using MSGraphClientV3.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/use-msgraph"
+      }
+    ]
+  }
+]
