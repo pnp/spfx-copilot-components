@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Viva Engage Explorer",
+  "description": "Discover, search and explore live Viva Engage communities.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Discover communities",
+      "text": "Show all Viva Engage communities."
+    },
+    {
+      "title": "Find your interests",
+      "text": "Find Viva Engage communities related to Microsoft 365."
+    },
+    {
+      "title": "Explore public communities",
+      "text": "Show public Viva Engage communities sorted alphabetically."
+    }
+  ],
+  "actions": [
+    {
+      "id": "vivaEngageExplorerAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

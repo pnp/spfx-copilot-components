@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Viva Engage Community Explorer architecture</title>
+  <desc id="description">Architecture illustration, not an application screenshot. Copilot invokes an SPFx UX Component that uses delegated Microsoft Graph access to retrieve Viva Engage communities.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#082f49"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="24" fill="url(#background)"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="64" y="90" fill="#5eead4" font-size="17" letter-spacing="3">PEOPLE. IDEAS. CONNECTIONS.</text>
+    <text x="64" y="160" fill="#ffffff" font-size="44" font-weight="600">Viva Engage Community Explorer</text>
+    <text x="64" y="207" fill="#cbd5e1" font-size="22">Live discovery, search and details inside Microsoft 365 Copilot</text>
+    <g fill="#ffffff" stroke="#99f6e4" stroke-width="2">
+      <rect x="64" y="280" width="306" height="185" rx="16"/>
+      <rect x="447" y="280" width="306" height="185" rx="16"/>
+      <rect x="830" y="280" width="306" height="185" rx="16"/>
+    </g>
+    <g fill="#0f3d4a" font-size="25" font-weight="600">
+      <text x="90" y="332">Microsoft 365 Copilot</text>
+      <text x="473" y="332">SPFx UX Component</text>
+      <text x="856" y="332">Microsoft Graph</text>
+    </g>
+    <g fill="#475569" font-size="19">
+      <text x="90" y="382">Natural-language tool inputs</text>
+      <text x="90" y="418">Inline and fullscreen views</text>
+      <text x="473" y="382">React + Fluent UI</text>
+      <text x="473" y="418">SPFx-provided authentication</text>
+      <text x="856" y="382">Viva Engage communities</text>
+      <text x="856" y="418">Delegated Community.Read.All</text>
+    </g>
+    <g fill="none" stroke="#5eead4" stroke-width="4">
+      <path d="M383 372h48m-12-12 12 12-12 12"/>
+      <path d="M766 372h48m-12-12 12 12-12 12"/>
+    </g>
+    <text x="64" y="542" fill="#ffffff" font-size="24">Read-only. Live data only. No custom backend. No stored tokens.</text>
+    <text x="64" y="612" fill="#94a3b8" font-size="17">Architecture illustration - not a tenant screenshot. SharePoint Copilot Apps preview.</text>
+  </g>
+</svg>

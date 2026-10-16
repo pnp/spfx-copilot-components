@@ -1,0 +1,55 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-viva-engage-explorer",
+    "source": "pnp",
+    "title": "Viva Engage Community Explorer",
+    "shortDescription": "Discover, search and explore live Viva Engage communities inside Microsoft 365 Copilot.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/viva-engage-explorer",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/viva-engage-explorer",
+    "longDescription": [
+      "A read-only SPFx Copilot UX Component using delegated Microsoft Graph Community.Read.All access.",
+      "Includes inline and fullscreen experiences, name and description search, privacy filtering, alphabetical sorting, retrieved community counts and on-demand details.",
+      "Uses live Graph data only, with pagination, session caching, explicit refresh and actionable authentication and API error states."
+    ],
+    "creationDateTime": "2026-10-16",
+    "updateDateTime": "2026-10-16",
+    "products": ["SharePoint", "Microsoft Copilot"],
+    "metadata": [
+      { "key": "SAMPLE-TYPE", "value": "SPFx-CopilotComponent" },
+      { "key": "CLIENT-SIDE-DEV", "value": "React" },
+      { "key": "SPFX-VERSION", "value": "1.24.0-rc.0" }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/viva-engage-explorer/assets/architecture.svg",
+        "alt": "Architecture illustration: Copilot to SPFx to live Microsoft Graph. Not an application screenshot."
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "nanddeepn",
+        "pictureUrl": "https://github.com/nanddeepn.png",
+        "name": "Nanddeep Nachan"
+      },
+      {
+        "gitHubAccount": "smitanachan",
+        "pictureUrl": "https://github.com/smitanachan.png",
+        "name": "Smita Nachan"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "SPFx Copilot UX Component architecture, build and deployment.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "List communities",
+        "description": "Microsoft Graph v1.0 Viva Engage community collection and supported query parameters.",
+        "url": "https://learn.microsoft.com/graph/api/employeeexperience-list-communities?view=graph-rest-1.0"
+      }
+    ]
+  }
+]

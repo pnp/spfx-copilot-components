@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "viva-engage-explorer-client-side-solution",
+    "id": "fb14d469-8468-47f9-b1b7-19ccb526d30b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-rc.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Discover live Viva Engage communities in Microsoft 365 Copilot."
+      },
+      "longDescription": {
+        "default": "Read-only Viva Engage community discovery with live Microsoft Graph search, privacy filters, alphabetical sorting and details."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Community.Read.All"
+      }
+    ],
+    "features": [
+      {
+        "title": "viva-engage-explorer Feature",
+        "description": "The feature that activates elements of the viva-engage-explorer solution.",
+        "id": "ca27009f-90da-4a22-bc8d-49875536e4d8",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/viva-engage-explorer.sppkg"
+  }
+}

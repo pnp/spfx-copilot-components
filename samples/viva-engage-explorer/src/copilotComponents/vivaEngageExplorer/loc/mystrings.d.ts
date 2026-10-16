@@ -1,0 +1,65 @@
+declare interface IVivaEngageExplorerCopilotComponentStrings {
+  Title: string;
+  Subtitle: string;
+  Eyebrow: string;
+  Expand: string;
+  Collapse: string;
+  Refresh: string;
+  Refreshing: string;
+  Retrieved: string;
+  Public: string;
+  Private: string;
+  Unknown: string;
+  Search: string;
+  SearchPlaceholder: string;
+  SearchIn: string;
+  AllFields: string;
+  Name: string;
+  Description: string;
+  Privacy: string;
+  AllPrivacy: string;
+  Sort: string;
+  Ascending: string;
+  Descending: string;
+  Clear: string;
+  Directory: string;
+  Results: string;
+  Showing: string;
+  ShowMore: string;
+  InlineLimit: string;
+  Loading: string;
+  LoadingDetails: string;
+  LoadedScope: string;
+  SingleCommunityScope: string;
+  PartialScope: string;
+  NoCommunities: string;
+  NoMatches: string;
+  Details: string;
+  DetailsTitle: string;
+  Close: string;
+  CommunityId: string;
+  GroupId: string;
+  NotProvided: string;
+  Unnamed: string;
+  NoDescription: string;
+  NavigationUnavailable: string;
+  Retry: string;
+  RetryAfter: string;
+  AuthenticationError: string;
+  PermissionError: string;
+  ThrottledError: string;
+  NetworkError: string;
+  UnavailableError: string;
+  NotFoundError: string;
+  InvalidResponseError: string;
+  HostError: string;
+  RenderError: string;
+  InvalidQuery: string;
+  AmbiguousDetails: string;
+  Dismiss: string;
+}
+
+declare module 'VivaEngageExplorerCopilotComponentStrings' {
+  const strings: IVivaEngageExplorerCopilotComponentStrings;
+  export = strings;
+}

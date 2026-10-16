@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Viva Engage Explorer"
+      },
+      "description": {
+        "default": "Discover, search and explore live Viva Engage communities."
+      },
+      "components": [
+        "4e09d27a-fc7f-4adb-b8da-e91c9349fdc6"
+      ]
+    }
+  ]
+}

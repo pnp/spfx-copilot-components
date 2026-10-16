@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "vivaEngageExplorer",
+  "name_for_human": "Viva Engage Explorer",
+  "description_for_human": "Discover live Viva Engage communities.",
+  "description_for_model": "Use exploreVivaEngageCommunities to discover, search, filter and inspect real Viva Engage communities. For refinements pass the complete desired query; previous tool instance state is not automatically retained. Never invent communities, statistics, IDs or URLs."
+}

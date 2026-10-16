@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.0",
+  "id": "d877f636-6875-4894-9547-fc4126394b94",
+  "developer": {
+    "name": "Nanddeep Nachan and Smita Nachan",
+    "websiteUrl": "https://www.nanddeepnachanblogs.com",
+    "privacyUrl": "https://www.nanddeepnachanblogs.com/privacy",
+    "termsOfUseUrl": "https://www.nanddeepnachanblogs.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Viva Engage Explorer",
+    "full": "Viva Engage Community Explorer"
+  },
+  "description": {
+    "short": "Discover live Viva Engage communities.",
+    "full": "Search Viva Engage community names and descriptions, filter by privacy, sort alphabetically and explore community details using live Microsoft Graph data."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "vivaEngageExplorerAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}
