@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Weekly Pulse"
+      },
+      "description": {
+        "default": "Shows this week's Weekly Pulse question from SharePoint and gives instant, private feedback on your answer."
+      },
+      "components": [
+        "5b52cec8-7360-4180-8a16-a74448760928"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

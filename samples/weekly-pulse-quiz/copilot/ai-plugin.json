@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "weeklyPulseQuiz",
+  "name_for_human": "Weekly Pulse Quiz",
+  "description_for_human": "Shows this week's Weekly Pulse question from SharePoint.",
+  "description_for_model": "Use show_weekly_quiz whenever the user asks about the weekly quiz, the Weekly Pulse, or this week's question. Call it immediately with no arguments unless the user gives a SharePoint site URL. Never write the question, the options or the answer in chat; the component shows them.",
+  "contact_email": "publisher@contoso.com"
+}

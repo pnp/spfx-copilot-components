@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "weekly-pulse-quiz",
+    "environment": "spo",
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "react",
+    "componentName": "WeeklyPulseQuiz",
+    "plusBeta": false,
+    "isCreatingSolution": false,
+    "nodeVersion": "24.22.1",
+    "sdksVersions": {},
+    "version": "1.24.0",
+    "libraryName": "weekly-pulse-quiz",
+    "libraryId": "83bd87ef-96d5-454b-bbc9-124b888e11ed",
+    "packageManager": "npm",
+    "solutionShortDescription": "weekly-pulse-quiz description",
+    "skipFeatureDeployment": true
+  }
+}

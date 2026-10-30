@@ -1,0 +1,81 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-weekly-pulse-quiz",
+    "source": "pnp",
+    "title": "Weekly Pulse Quiz",
+    "shortDescription": "One multiple-choice question a week on a SharePoint page and inline in Microsoft 365 Copilot chat, with private answers stored in a SharePoint list that uses item-level security.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/weekly-pulse-quiz",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/weekly-pulse-quiz",
+    "longDescription": [
+      "Weekly Pulse Quiz shows one multiple-choice question per ISO week from a SharePoint list, both as a web part (BaseClientSideWebPart) and as a Copilot UX component (BaseCopilotComponent) called by a declarative agent through the show_weekly_quiz tool with static tool discovery.",
+      "Answers are saved as the signed-in user to a Responses list with item-level security and unique permissions, so colleagues can't see each other's answers. Feedback is calm and accessible: a check mark or the correct answer, an optional justification (dialog on the page, inline Why? panel in Copilot) and reduced-motion support.",
+      "A Set up lists button (site owners, edit mode) and equivalent PnP PowerShell and CLI for Microsoft 365 scripts create the lists idempotently. No API permissions are requested; model-supplied site URLs must be https on the same tenant, list titles pass an allowlist, and nothing is sent back to the model. Colours follow the SharePoint site theme with optional hex overrides and automatic WCAG AA text contrast."
+    ],
+    "creationDateTime": "2026-10-29",
+    "updateDateTime": "2026-10-29",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "name": "weekly-pulse-quiz-answer-correct.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/weekly-pulse-quiz/assets/weekly-pulse-quiz-answer-correct.png",
+        "alt": "Weekly Pulse Quiz web part on a SharePoint page after a correct answer, with a check mark and a Why B is right? link"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "name": "weekly-pulse-quiz-justification.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/weekly-pulse-quiz/assets/weekly-pulse-quiz-justification.png",
+        "alt": "The Why B is right dialog on a SharePoint page, explaining the correct answer"
+      },
+      {
+        "type": "video",
+        "order": 200,
+        "url": "https://www.youtube.com/embed/P7vP8gJeqR0",
+        "alt": "Video walkthrough: setting up and running the Weekly Pulse Quiz on a SharePoint page"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "anandragav",
+        "pictureUrl": "https://github.com/anandragav.png",
+        "name": "Anand Vijayaragavan"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "SharePoint Framework v1.24 release notes",
+        "description": "Release notes for SPFx 1.24 including Copilot UX components (BaseCopilotComponent) and Heft toolchain updates.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/release-1.24.0"
+      }
+    ]
+  }
+]

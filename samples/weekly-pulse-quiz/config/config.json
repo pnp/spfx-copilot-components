@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "weekly-pulse-quiz-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/weeklyPulseQuiz/WeeklyPulseQuizWebPart.js",
+          "manifest": "./src/webparts/weeklyPulseQuiz/WeeklyPulseQuizWebPart.manifest.json"
+        }
+      ]
+    },
+    "weekly-pulse-quiz-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/weeklyPulseQuiz/WeeklyPulseQuizCopilotComponent.js",
+          "manifest": "./src/copilotComponents/weeklyPulseQuiz/WeeklyPulseQuizCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "WeeklyPulseQuizWebPartStrings": "lib/webparts/weeklyPulseQuiz/loc/{locale}.js"
+  }
+}
