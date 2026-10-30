@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "24.11.0",
+    "sdksVersions": {},
+    "version": "1.24.0",
+    "libraryName": "copilot-studio-agent-map",
+    "libraryId": "04c7b662-bb23-4629-bd53-d676d3df3f43",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "copilot-studio-agent-map",
+    "solutionShortDescription": "Agent Map for Copilot Studio agents in Microsoft 365 Copilot",
+    "skipFeatureDeployment": true,
+    "componentType": "copilotComponent"
+  }
+}
