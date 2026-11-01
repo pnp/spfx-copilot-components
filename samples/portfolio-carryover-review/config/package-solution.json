@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "portfolio-carryover-review-client-side-solution",
+    "id": "dd76db50-a348-43c2-96b8-c84e092589f3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "portfolio-carryover-review description"
+      },
+      "longDescription": {
+        "default": "portfolio-carryover-review description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "portfolio-carryover-review Feature",
+        "description": "The feature that activates elements of the portfolio-carryover-review solution.",
+        "id": "08884f00-5702-4a18-b8eb-36b93f3efdfa",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/portfolio-carryover-review.sppkg"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "PortfolioCarryoverReview Agent"
+      },
+      "description": {
+        "default": "PortfolioCarryoverReview description"
+      },
+      "components": [
+        "a568ea06-5f31-48c7-972e-79e0fe2995b9"
+      ]
+    }
+  ]
+}
