@@ -30,7 +30,7 @@ The sample is built with the SharePoint Framework (SPFx), React, and Fluent UI. 
 
 | Solution | Author |
 | -------- | ------ |
-| portfolio-carryover-review | [Community contributor](https://github.com/a-villarruel) |
+| portfolio-carryover-review | [Antonio Villarruel](https://github.com/a-villarruel) |
 
 ## Version history
 
@@ -58,6 +58,25 @@ To create a production build, run npm run build.
 - Adapt the component appearance to light and dark themes.
 
 The sample uses fictitious data for demonstration purposes. It does not implement data persistence, workflow management, or integration with external portfolio systems.
+
+## Usage
+
+1. Start the local development server using `npm start`.
+2. Open SharePoint Copilot Workbench in your Microsoft 365 tenant.
+3. Load the local debug manifests when prompted.
+4. Invoke the PortfolioCarryoverReviewTool to explore the sample initiatives and portfolio summary.
+
+## Deployment
+
+Run `npm run build` to generate the production solution package.
+
+The generated SharePoint package is available under `sharepoint/solution`. Follow the official SharePoint Framework deployment guidance to deploy the solution to a Microsoft 365 tenant.
+
+This sample does not include an automated deployment process.
+
+## Support
+
+This is a community sample provided as-is for demonstration and learning purposes. It does not include formal support or maintenance commitments.
 
 ## Disclaimer
 
