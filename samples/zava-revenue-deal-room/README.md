@@ -1,21 +1,22 @@
 # ZavaMesh Revenue Deal Room
 
-> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
-> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
-> and tenant evidence remain historical, not fresh GA host certification.
-> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
-> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+> **Current release: solution 1.0.0.4 / authored agent 1.0.4.** Built with SPFx 1.24.0 GA
+> and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
+> [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
+> certification of every Copilot host.
 
 ## ZavaMesh experience
 
 The sample uses the supplied ZavaMesh woven identity, green/lime visual language and locally bundled
-brand imagery. The original 21 Copilot tool names and package identities remain stable; three new
-inline deal-workflow components and a personal revenue brief bring the source catalog to 25.
+brand imagery. The original 21 Copilot tool names and package identities remain stable. Six additional
+components bring the catalog to **27**: attention drill-down, personal priorities, guided deal
+submission, independent approval, pipeline value flow and approval progress.
 
-The global revenue journey connects **portfolio insight -> deal submission -> independent commercial
-review -> explicit decision -> session receipt**. Global investment means illustrative regional
-go-to-market investment, not securities or realized investment returns. Pipeline and weighted values
-are calculated from the filtered offline opportunity catalog; investment assumptions are labeled.
+The keynote connects **My Deals -> Deal Room -> Commercial Desk -> reviewed submission and independent
+decision -> Revenue Command**. Each workspace has its own useful landing; a deal, request or scenario
+appears only through component context or explicit selection. Country opportunity values come from
+the scoped demo catalog with fictional account-headquarters attribution. Recorded spend comes from a
+separate **$3.4M** demo expense ledger, not requested investment, rollout revenue or ROI.
 
 The redesign is informed by public enterprise revenue patterns from
 [Salesforce Revenue Cloud](https://www.salesforce.com/sales/revenue-lifecycle-management/) (guided
@@ -59,6 +60,9 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
+> The deployment package is **1.0.0.4**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.4**.
+> SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
 > **Source catalog:** 26 operational inline components + 1 capability explorer<br>
@@ -73,34 +77,49 @@ chat response or sales dashboard. Twenty-six independently routed operational to
 explorer share a React 18 application, one connected Contoso revenue graph, four full-screen workspaces,
 and human-controlled review and confirmation patterns.
 
-The keynote path connects deal risk, buyer influence, mutual commitments, commercial simulation,
-exception governance, and forecast evidence for Contoso Global Expansion / `ZDR-2042`. Facts, seller
-judgment, stale records, contrary evidence, deterministic calculations, and inference remain visibly
-different throughout the journey.
+The keynote follows Contoso Global Expansion / `ZDR-2042` from an owned priority through buyer proof,
+commercial choice and an independently reviewed request. The generated `ZM-...` request ID remains
+distinct from the opportunity. Facts, seller judgment, stale records, contrary evidence, deterministic
+calculations and inference remain visibly different throughout the journey.
 
 ## Screenshots
 
-![Fictional pipeline Sankey linking regional value, buyer readiness and next actions](assets/inline-pipeline-sankey.png)
+### Four purposeful workspace landings
 
-![Fictional approval Sankey linking intake routes, current reviewers and stage outcomes](assets/inline-approval-sankey.png)
+Left-menu navigation opens these starting points, not an unrelated task appended below a dashboard.
+Select an item to work on it; **Resume** restores explicitly selected work and its mounted draft.
 
-![Personal revenue brief with top priorities, actionable Copilot links and current pipeline status charts](assets/inline-my-priorities.png)
+![My Deals landing with owned-book outlook, evidence-linked next action and exact opportunity selection](assets/fullscreen-my-deals-home.png)
 
-![Inline attention catalog with chart selection, deal details and Copilot handoffs](assets/inline-deal-attention.png)
+![Deal Room landing with scoped opportunities and recorded buyer-proof coverage before opening one deal](assets/fullscreen-deal-room-home.png)
 
-![In-place deal detail view with economics, buyer evidence and focused Copilot handoffs](assets/inline-deal-details.png)
+![Commercial Desk landing with independent review workload, proposed-offer entry and exact stored requests](assets/fullscreen-commercial-desk-home.png)
 
-![Initial inline deal submission form and guided commercial review](assets/inline-deal-submission.png)
+![Revenue Command landing with country opportunity, separate recorded spend and explicit pipeline interventions](assets/fullscreen-revenue-command-home.png)
 
-![Inline approval inbox with independent stages and explicit decisions](assets/inline-deal-approvals.png)
+### Selected work, country maps and value flows
 
-![Full-screen Deal Room coordinating buyer influence and evidence](assets/fullscreen-deal-room.png)
+![Selected Contoso Deal Room with buyer-role network, evidence records and relevant next business step](assets/fullscreen-deal-room.png)
 
-![Commercial scenario with live value, margin, authority, and forecast calculations](assets/inline-commercial-scenario.png)
+![Commercial Desk selected offer with editable actual economics, margin curve and exact-value request continuation](assets/fullscreen-commercial-desk.png)
 
-![D3 projected global opportunity map with regional value and slip risk](assets/inline-global-opportunity-map.png)
+![Full-width country opportunity choropleth using supplied demo catalog value and fictional headquarters attribution](assets/fullscreen-my-deals-analytics.png)
 
-![Revenue Command with D3 pipeline, map, forecast bridge, and evidence](assets/fullscreen-revenue-command.png)
+![Country recorded-spend bubbles from a separate demo expense ledger with country drill-down](assets/fullscreen-country-spend.png)
+
+![Fictional pipeline value flow with conserved regional USD allocations, buyer readiness and next actions](assets/fullscreen-pipeline-value-flow.png)
+
+![Fictional approval-stage value flow with independent-review semantics and a separate stored-request example](assets/fullscreen-approval-progress.png)
+
+### Focused chat and responsive layouts
+
+![Inline owned-action cockpit with exact deal links and evidence-based next actions rather than numerical priority scores](assets/inline-my-priorities.png)
+
+![Inline deal value versus observable attention flags with exact deal inspection, not predicted losses](assets/inline-deal-attention.png)
+
+![Guided inline deal submission with explicit reviewed-value confirmation](assets/inline-deal-submission.png)
+
+![Inline independent approval inbox with actual stored-request workload and explicit decisions](assets/inline-deal-approvals.png)
 
 ![Deal Room adapted to a narrow mobile viewport](assets/fullscreen-deal-room-mobile.png)
 
@@ -278,10 +297,11 @@ discount. The former arbitrary adoption index and approximated margin curve are 
 
 ### Keynote: one conversation, one decision journey
 
-Use the [4-minute chat keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md), not a tour of every card:
-**My priorities -> buyer evidence -> deal risk -> commercial choice -> reviewed request ->
-independent approval -> refreshed status**. Keep `ZDR-2042` throughout the deal discussion and use the
-new `ZM-...` receipt only for the submitted request.
+Use the [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md), not a tour of every card:
+**My Deals -> Deal Room -> Commercial Desk -> reviewed submission -> independent decision ->
+Revenue Command**. Expand a contextual component, use the workspace landing to select the next job,
+and keep `ZDR-2042` throughout the deal discussion. The new `ZM-...` receipt identifies the submitted
+request, not a replacement opportunity.
 
 The personal brief uses Megan Bowen's **illustrative** eight-deal book, including named Northwind,
 Fabrikam, Alpine, Litware, AdventureWorks, Tailspin and Proseware examples. Current-quarter catalog
@@ -294,9 +314,11 @@ loss prediction. Approved demo requests update the work overlay, not the CRM-sha
 This distinction is the final trust moment in the keynote.
 
 For the complete pricing-to-submission path use **1,000 users / 24 months / 8% discount /
-$150,000 services / 65% seller probability**, without a ramp. **Continue with Copilot: Submit a deal**
-prefills the exact inputs, preserving **$2,818,000 TCV**; the user still enters the outcome, attests
-evidence, reviews and explicitly confirms. Ramp scenarios cannot silently enter a non-ramped intake.
+$150,000 services / 65% seller probability**, without a ramp. Full-screen **Continue to Submit a deal**
+opens the matching seller workflow with the exact inputs, preserving **$2,818,000 TCV**. Inline
+**Continue with Copilot: Submit a deal** requests that component through chat instead. In either path,
+the user still enters the outcome, attests evidence, reviews and explicitly confirms. Ramp scenarios
+cannot silently enter a non-ramped intake.
 
 ### Inline deal-to-decision and Copilot dialogue
 
@@ -341,7 +363,7 @@ all 27 tools, and the full production build passes.
 Current source validation: `npm run build` covers the full inline
 submission/approval journey, in-place detail/focus restoration and the exact UTF-8 budget.
 `npm run check:intents`, `npm run check:routing-matrix`, `npm run check:generated-plugin` and
-`npm run check:package-output` validate 25 registered tools, six starters, compiled schemas and
+`npm run check:package-output` validate 27 registered tools, six starters, compiled schemas and
 matching production archives.
 
 For production packaging, stop the development watcher and use
@@ -441,7 +463,9 @@ iframe or theme provider, so shorter stages can shrink correctly. Observers and 
 are cancelled on teardown or disposal.
 
 The production `.sppkg` contains one shared hashed JavaScript asset, 11 unique runtime media assets,
-zero stale bundles and matching embedded/Teams agent archives. Generated release evidence records
+zero stale bundles and matching embedded/Teams agent archives. Package validation reads the actual
+solution and feature versions from the archive XML and the embedded agent version from its manifest,
+instead of relying only on source configuration. Generated release evidence records
 the current sizes and hashes. Local validation does not deploy
 these archives to the tenant.
 
@@ -469,7 +493,7 @@ reader output remain environment-specific validation gates and are not claimed f
 ## Solution structure
 
 ```text
-src/copilotComponents/    25 registered identities and schemas
+src/copilotComponents/    27 registered identities and schemas
 src/shared/               catalog, deterministic domain, React host, theme, and experiences
 scripts/                  catalog, visual evidence, gallery, plugin, and package automation
 assets/                   publication screenshots, evidence, and PnP sample metadata
@@ -479,8 +503,8 @@ sharepoint/solution/      ready-to-deploy production package
 
 ## Demo and review assets
 
-- [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md) - the focused Microsoft stage story
-  from buyer influence through commercial judgment and forecast evidence.
+- [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md) - one four-workspace story from
+  owned priority and buyer proof through exact commercial values and an accountable decision.
 - [10-minute business demo](Zava-Revenue-Deal-Room-10-Minute-Business-Demo.md) - the broader cross-role
   revenue journey with guardrails and current implementation boundaries.
 - [5-minute technical demo](Zava-Revenue-Deal-Room-5-Minute-Technical-Demo.md) - immutable catalog,
@@ -488,7 +512,7 @@ sharepoint/solution/      ready-to-deploy production package
 - [Designer and rehearsal review](Zava-Revenue-Deal-Room-Designer-Review.md) - visual language,
   interaction/accessibility checks, screenshot acceptance, and fallback path.
 - [Routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) - 27 tool boundaries, six canonical
-  starters, five sibling-collision rehearsals, and tenant validation notes.
+  starters, nine sibling-collision rehearsals, and tenant validation notes.
 - [Release evidence](assets/release-evidence.json) - generated package, bundle, media, visual, and hash
   evidence. Run `npm run generate:release-evidence` only after the final package build.
 
@@ -529,12 +553,13 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
-| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
+| 1.0.0.4 / agent 1.0.4 | 2026-11-02 | SPFx 1.24.0 GA; 27 distinct components, four explicit workspace stories, country opportunity/spend maps, fictional value flows, exact commercial/request continuity and reliable redraw sizing. Refreshed README/gallery and rebuilt production archives; current validation totals and packaged agent suffix are recorded in release evidence. |
 | 1.0.0.3 / agent 1.0.3 | 2026-10-26 | ZavaMesh branding, linked worldwide revenue/investment analytics, guided deal intake, sequential demo approvals and session audit receipts. Current test/visual totals are generated in release evidence. |
 | 1.0.0.1 / agent 1.0.1 | 2026-10-20 | RC0 specialist completion: 21 scoped experiences, 10 guarded workflows, 87 tests, 118 current visual captures. The SDK may append a fourth agent hotfix segment. |
 | 1.0.0 | 2026-08-31 | Initial GitHub candidate with 21 tools, four visualization-led workspaces, D3 charts/map, persona media, demo scripts, publication evidence, and audited `.sppkg`. |
 
-## Historical design exploration (not the shipping contract)
+<details>
+<summary>Historical design exploration (not the shipping contract)</summary>
 
 The remaining original product brief records broader design aspirations (including fields, comparisons,
 cross-tool overlays and integrations that are **not advertised or implemented** in this offline release).
@@ -873,5 +898,7 @@ package deploys without runtime data dependencies.
 The locally scoped specialist implementation is validated against the current contract above, not every
 aspiration in this historical brief. Tenant-host checks remain explicitly separate because they require
 an authenticated Microsoft 365 environment.
+
+</details>
 
 <img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-revenue-deal-room" />

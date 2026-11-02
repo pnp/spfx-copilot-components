@@ -3,7 +3,7 @@
     "name": "pnp-sp-dev-spfx-copilot-components-zava-revenue-deal-room",
     "source": "pnp",
     "title": "ZavaMesh Revenue Deal Room",
-    "shortDescription": "A ZavaMesh-branded revenue Copilot App with global analytics, guided deal intake and human-governed approvals.",
+    "shortDescription": "27 revenue Copilot Components with four contextual workspaces, country maps, value flows and human-governed approvals.",
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-revenue-deal-room",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-revenue-deal-room",
     "longDescription": [
@@ -12,7 +12,7 @@
       "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. Buyer facts, seller judgment, stale evidence, deterministic output, contrary evidence, and inference remain visibly distinct."
     ],
     "creationDateTime": "2026-08-31",
-    "updateDateTime": "2026-11-01",
+    "updateDateTime": "2026-11-02",
     "products": [
       "SharePoint",
       "Copilot"
@@ -79,14 +79,14 @@
         "type": "image",
         "order": 95,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-my-priorities.png",
-        "alt": "Personal demo revenue brief with actionable priorities, named deals, pipeline outlook bridge, proof coverage and close-plan status donut"
+        "alt": "Personal demo action cockpit with actual owned-book totals, evidence-linked priorities and exact deal links rather than numerical priority scores"
       },
       {
         "name": "inline-deal-attention.png",
         "type": "image",
         "order": 97,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-attention.png",
-        "alt": "Inline important-deal attention catalog with selectable value charts, exact ranked deal values, and scoped Copilot questions"
+        "alt": "Recorded demo deal value versus observable attention flags with exact deal inspection and scoped Copilot questions, not predicted loss probabilities"
       },
       {
         "name": "inline-deal-submission.png",
@@ -128,7 +128,7 @@
         "type": "image",
         "order": 102,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-buying-committee.png",
-        "alt": "Inline buying committee influence orbit with customer authority, stance, relationship strength, and evidence"
+        "alt": "Recorded buyer-role network with portraits, stance and demo influence assessments; membership does not establish decision authority"
       },
       {
         "name": "inline-capability-explorer.png",
@@ -156,28 +156,77 @@
         "type": "image",
         "order": 106,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-global-opportunity-map.png",
-        "alt": "Inline D3 projected global opportunity map with regional value bubbles, slip risk, selection, and exact table values"
+        "alt": "Country opportunity choropleth with supplied demo catalog totals, explicit fictional headquarters attribution and accessible country drill-down"
       },
       {
         "name": "inline-pipeline-quality.png",
         "type": "image",
         "order": 107,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-pipeline-quality.png",
-        "alt": "Inline D3 evidence-weighted pipeline chart with stage volume, buyer-proof quality, and intervention legend"
+        "alt": "Scoped pipeline health matrix with actual stage record counts, catalog value and recorded buyer-proof coverage, plus separate country spending analysis"
       },
       {
         "name": "fullscreen-my-deals-analytics.png",
         "type": "image",
         "order": 108,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-my-deals-analytics.png",
-        "alt": "Full-screen My Deals dashboard with D3 pipeline, forecast movement, global opportunity map, and owned close path"
+        "alt": "Full-width country opportunity map in My Deals with actual portfolio totals, headquarters attribution and relevant geographic context"
       },
       {
         "name": "fullscreen-revenue-command.png",
         "type": "image",
         "order": 109,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-revenue-command.png",
-        "alt": "Full-screen Revenue Command dashboard with D3 pipeline, regional opportunity map, forecast bridge, and evidence ledger"
+        "alt": "Revenue Command selected forecast scenario with buyer-proof constraints, exact opportunity context and an explicit next business step"
+      },
+      {
+        "name": "fullscreen-my-deals-home.png",
+        "type": "image",
+        "order": 110,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-my-deals-home.png",
+        "alt": "My Deals landing with owned-book outlook, evidence-linked next action and explicit opportunity selection instead of an unrelated task"
+      },
+      {
+        "name": "fullscreen-deal-room-home.png",
+        "type": "image",
+        "order": 111,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-deal-room-home.png",
+        "alt": "Deal Room landing with scoped opportunity choices and recorded buyer-proof coverage before selecting one deal to work"
+      },
+      {
+        "name": "fullscreen-commercial-desk-home.png",
+        "type": "image",
+        "order": 112,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-commercial-desk-home.png",
+        "alt": "Commercial Desk landing with independent review workload, proposed-offer entry and exact stored demo requests"
+      },
+      {
+        "name": "fullscreen-revenue-command-home.png",
+        "type": "image",
+        "order": 113,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-revenue-command-home.png",
+        "alt": "Revenue Command landing with country opportunity, a separate recorded-spend ledger and explicit pipeline interventions"
+      },
+      {
+        "name": "fullscreen-country-spend.png",
+        "type": "image",
+        "order": 114,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-country-spend.png",
+        "alt": "Full-width recorded-spend bubbles from a separate demo expense ledger with exact country values and geographic drill-down"
+      },
+      {
+        "name": "fullscreen-pipeline-value-flow.png",
+        "type": "image",
+        "order": 115,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-pipeline-value-flow.png",
+        "alt": "Revenue Command fictional pipeline value flow with conserved regional USD allocations, buyer readiness and next actions"
+      },
+      {
+        "name": "fullscreen-approval-progress.png",
+        "type": "image",
+        "order": 116,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-approval-progress.png",
+        "alt": "Commercial Desk fictional approval-stage value flow with independent-review semantics and a separate stored request example"
       }
     ],
     "authors": [
