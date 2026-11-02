@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-11-02T12:39:12.610Z",
-  "sourceSha256": "05bcb37263de6c39e06ece57e0133476cc3c7b0aef9b5addcf1e7c21a4664266",
+  "capturedAt": "2026-11-02T13:14:00.650Z",
+  "sourceSha256": "7fe55c94bdb7086c6a1d6e8d55dfd3b2619ef0bbfb738dc5c434d1b1c1783361",
   "totalCaptures": 462,
   "failureCount": 0,
   "inlineMatrixCount": 81,
@@ -866,7 +866,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -922,7 +922,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1034,7 +1034,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1090,7 +1090,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1202,7 +1202,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1258,7 +1258,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1370,7 +1370,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -1426,7 +1426,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2460,7 +2460,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2572,7 +2572,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2628,7 +2628,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2740,7 +2740,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2796,7 +2796,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2908,7 +2908,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -2964,7 +2964,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -3642,7 +3642,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 2,
         "recordCount": 25,
         "catalogPage": 1,
@@ -3942,7 +3942,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -3998,7 +3998,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -4110,7 +4110,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -4166,7 +4166,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -4278,7 +4278,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -4334,7 +4334,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -4502,7 +4502,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5472,7 +5472,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5528,7 +5528,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5640,7 +5640,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5696,7 +5696,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5808,7 +5808,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -5864,7 +5864,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -6032,7 +6032,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7002,7 +7002,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7058,7 +7058,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7226,7 +7226,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7338,7 +7338,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7394,7 +7394,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7506,7 +7506,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -7562,7 +7562,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8532,7 +8532,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8588,7 +8588,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8700,7 +8700,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8756,7 +8756,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8868,7 +8868,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -8924,7 +8924,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -9036,7 +9036,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -9092,7 +9092,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "country-detail",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 25,
         "catalogPage": 1,
@@ -9378,25 +9378,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9462,25 +9456,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9546,25 +9534,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9678,25 +9660,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9708,25 +9684,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9810,25 +9780,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9942,25 +9906,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -9972,25 +9930,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -10026,25 +9978,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -10056,25 +10002,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -10110,25 +10050,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -10921,7 +10855,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Details",
-        "page": 1,
+        "page": 2,
         "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
@@ -11046,25 +10980,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11100,25 +11028,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11184,25 +11106,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11214,25 +11130,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11316,25 +11226,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11346,25 +11250,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11448,25 +11346,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11580,25 +11472,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11664,25 +11550,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11748,25 +11628,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -11832,25 +11706,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12366,25 +12234,17 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Assumptions",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
-          "value",
-          "planningScope",
-          "semantics"
+          "semantics",
+          "allocationAssumptions",
+          "workflowBoundary"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12440,7 +12300,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 9840000,
+          "total": 8200000,
           "nodeCount": 7,
           "linkCount": 12,
           "dataPath": "revenueFlow"
@@ -12565,7 +12425,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Details",
-        "page": 1,
+        "page": 2,
         "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
@@ -12588,25 +12448,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12672,25 +12526,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12702,25 +12550,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12756,25 +12598,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -12840,25 +12676,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -13224,25 +13054,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -13308,25 +13132,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -13338,25 +13156,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -13470,25 +13282,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14202,25 +14008,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14232,25 +14032,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14262,25 +14056,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14346,25 +14134,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14478,25 +14260,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14508,25 +14284,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14586,25 +14356,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14616,25 +14380,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14772,25 +14530,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14802,25 +14554,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14856,25 +14602,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -14940,25 +14680,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15024,25 +14758,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15530,7 +15258,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -15654,25 +15382,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15684,25 +15406,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15714,25 +15430,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15744,25 +15454,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15798,25 +15502,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15828,25 +15526,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -15859,7 +15551,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Details",
-        "page": 1,
+        "page": 2,
         "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
@@ -15930,25 +15622,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16038,25 +15724,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16068,25 +15748,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16170,25 +15844,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16224,25 +15892,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16308,25 +15970,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16338,25 +15994,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16422,25 +16072,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16476,25 +16120,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -16982,7 +16620,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -17160,25 +16798,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17244,25 +16876,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17370,25 +16996,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17478,25 +17098,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17508,25 +17122,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17664,25 +17272,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17748,25 +17350,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -17832,6 +17428,30 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
+        "label": "Details",
+        "page": 1,
+        "pageCount": 2,
+        "recordCount": 0,
+        "catalogPage": 1,
+        "visibleFields": [
+          "selectedDetail",
+          "connections",
+          "value",
+          "shareOfTotal",
+          "semantics"
+        ],
+        "chart": null
+      }
+    },
+    {
+      "intent": "ExploreApprovalFlow",
+      "variant": "dark-node-rejected-page-1",
+      "viewportWidth": 760,
+      "height": 614,
+      "budget": 650,
+      "clippedRegions": [],
+      "primaryActions": 1,
+      "inlineStage": {
         "label": "Sankey",
         "page": 1,
         "pageCount": 1,
@@ -17851,30 +17471,6 @@
           "linkCount": 18,
           "dataPath": "revenueFlow"
         }
-      }
-    },
-    {
-      "intent": "ExploreApprovalFlow",
-      "variant": "dark-node-rejected-page-1",
-      "viewportWidth": 760,
-      "height": 614,
-      "budget": 650,
-      "clippedRegions": [],
-      "primaryActions": 1,
-      "inlineStage": {
-        "label": "Details",
-        "page": 1,
-        "pageCount": 2,
-        "recordCount": 0,
-        "catalogPage": 1,
-        "visibleFields": [
-          "selectedDetail",
-          "connections",
-          "value",
-          "shareOfTotal",
-          "semantics"
-        ],
-        "chart": null
       }
     },
     {
@@ -17910,25 +17506,19 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       }
     },
     {
@@ -18416,7 +18006,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -26288,7 +25878,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 2,
+        "page": 3,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26311,7 +25901,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 3,
+        "page": 4,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26334,7 +25924,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 4,
+        "page": 5,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26357,7 +25947,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 5,
+        "page": 6,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26403,7 +25993,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 7,
+        "page": 8,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26426,7 +26016,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 8,
+        "page": 9,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26449,7 +26039,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 9,
+        "page": 10,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26472,7 +26062,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 10,
+        "page": 11,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26495,7 +26085,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 11,
+        "page": 12,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -26518,7 +26108,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 12,
+        "page": 13,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -28176,14 +27766,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "Seller probability",
-          "Contract value / ARR",
-          "Margin / weighted value",
+          "GTM investment",
+          "Security / sponsor attestation",
+          "Submitter / required authority",
           "confirmed"
         ]
       }
@@ -28242,15 +27832,15 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Terms",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
           "outcome",
-          "Account",
-          "Licensed users / term",
-          "Discount / services"
+          "Seller probability",
+          "Contract value / ARR",
+          "Margin / weighted value"
         ]
       }
     },
@@ -28388,7 +27978,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Requests",
-        "page": 1,
+        "page": 2,
         "pageCount": 2,
         "recordCount": 0,
         "visibleFields": [
@@ -28430,15 +28020,16 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Decision",
+        "label": "Decision trail",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
-          "reviewerRole",
+          "actor",
+          "role",
           "decision",
           "rationale",
-          "confirmed"
+          "timestamp"
         ]
       }
     },
@@ -28451,36 +28042,18 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Next actions",
+        "label": "Outlook",
         "page": 1,
-        "pageCount": 3,
+        "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
-          "title",
-          "due",
-          "rank",
-          "target"
+          "metrics",
+          "outlook"
         ],
         "chart": {
-          "kind": "owned-action-cockpit",
-          "records": [
-            {
-              "id": "ZDR-2042-buyers",
-              "due": "Before the next buyer interaction",
-              "source": "Owned book / catalog facts and recorded evidence",
-              "target": "MapBuyingCommittee",
-              "opportunityId": "ZDR-2042"
-            },
-            {
-              "id": "ZDR-2042-security",
-              "due": "Dependency +5d",
-              "source": "Owned book / catalog facts and recorded evidence",
-              "target": "BuildMutualActionPlan",
-              "opportunityId": "ZDR-2042"
-            }
-          ],
-          "matchingPriorities": 6,
-          "semantics": "Ordered evidence/dependency tasks with recorded due cues, not numerical priority or risk scores."
+          "kind": "seller-outlook",
+          "open": 18537260,
+          "weighted": 11719827.2
         }
       }
     },
@@ -28516,14 +28089,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "Account",
-          "Licensed users / term",
-          "Discount / services",
+          "Seller probability",
+          "Contract value / ARR",
+          "Margin / weighted value",
           "confirmed"
         ]
       }
@@ -28538,14 +28111,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "Seller probability",
-          "Contract value / ARR",
-          "Margin / weighted value",
+          "GTM investment",
+          "Security / sponsor attestation",
+          "Submitter / required authority",
           "confirmed"
         ]
       }
@@ -29624,7 +29197,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 1,
+        "page": 2,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29647,7 +29220,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 2,
+        "page": 3,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29670,7 +29243,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 3,
+        "page": 4,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29693,7 +29266,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 4,
+        "page": 5,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29739,7 +29312,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 6,
+        "page": 7,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29762,7 +29335,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 7,
+        "page": 8,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29808,7 +29381,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 9,
+        "page": 10,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -29877,7 +29450,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Ranked deals",
-        "page": 12,
+        "page": 13,
         "pageCount": 13,
         "recordCount": 25,
         "visibleFields": [
@@ -30001,7 +29574,7 @@
       "intent": "GetMyRevenuePriorities",
       "variant": "narrow-actions-page-3",
       "viewportWidth": 390,
-      "height": 732,
+      "height": 752,
       "budget": 800,
       "clippedRegions": [],
       "primaryActions": 1,
@@ -30126,84 +29699,6 @@
       "clippedRegions": [],
       "primaryActions": 1,
       "inlineStage": {
-        "label": "Pipeline",
-        "page": 1,
-        "pageCount": 1,
-        "recordCount": 0,
-        "visibleFields": [
-          "metrics",
-          "opportunities"
-        ],
-        "chart": {
-          "kind": "owned-book-pipeline",
-          "opportunities": [
-            {
-              "id": "ZDR-2042",
-              "accountId": "CONTOSO",
-              "name": "Contoso Global Expansion",
-              "stage": "Propose",
-              "value": 3637260,
-              "probability": 0.72,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2058",
-              "accountId": "ACC-017",
-              "name": "Northwind connected manufacturing",
-              "stage": "Qualify",
-              "value": 2432000,
-              "probability": 0.5,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2059",
-              "accountId": "ACC-018",
-              "name": "Fabrikam partner platform",
-              "stage": "Develop",
-              "value": 2569000,
-              "probability": 0.6000000000000001,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2060",
-              "accountId": "ACC-019",
-              "name": "Alpine customer expansion",
-              "stage": "Propose",
-              "value": 2706000,
-              "probability": 0.7,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2061",
-              "accountId": "ACC-020",
-              "name": "Litware enterprise renewal",
-              "stage": "Commit",
-              "value": 2843000,
-              "probability": 0.8,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2072",
-              "accountId": "ACC-031",
-              "name": "AdventureWorks global field service",
-              "stage": "Develop",
-              "value": 4350000,
-              "probability": 0.5,
-              "quarterOffset": 0
-            }
-          ]
-        }
-      }
-    },
-    {
-      "intent": "GetMyRevenuePriorities",
-      "variant": "narrow-close-plan",
-      "viewportWidth": 390,
-      "height": 634,
-      "budget": 800,
-      "clippedRegions": [],
-      "primaryActions": 1,
-      "inlineStage": {
         "label": "Outlook",
         "page": 1,
         "pageCount": 1,
@@ -30216,6 +29711,46 @@
           "kind": "seller-outlook",
           "open": 18537260,
           "weighted": 11719827.2
+        }
+      }
+    },
+    {
+      "intent": "GetMyRevenuePriorities",
+      "variant": "narrow-close-plan",
+      "viewportWidth": 390,
+      "height": 634,
+      "budget": 800,
+      "clippedRegions": [],
+      "primaryActions": 1,
+      "inlineStage": {
+        "label": "Close plan",
+        "page": 1,
+        "pageCount": 1,
+        "recordCount": 0,
+        "visibleFields": [
+          "metrics",
+          "closeStatus"
+        ],
+        "chart": {
+          "kind": "close-status",
+          "records": [
+            {
+              "label": "Complete",
+              "count": 1
+            },
+            {
+              "label": "On track",
+              "count": 2
+            },
+            {
+              "label": "At risk",
+              "count": 1
+            },
+            {
+              "label": "Blocked",
+              "count": 1
+            }
+          ]
         }
       }
     },
@@ -31516,14 +31051,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "Account",
-          "Licensed users / term",
-          "Discount / services",
+          "Seller probability",
+          "Contract value / ARR",
+          "Margin / weighted value",
           "confirmed"
         ]
       }
@@ -31538,14 +31073,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 2,
+        "page": 3,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "Seller probability",
-          "Contract value / ARR",
-          "Margin / weighted value",
+          "GTM investment",
+          "Security / sponsor attestation",
+          "Submitter / required authority",
           "confirmed"
         ]
       }
@@ -31604,15 +31139,15 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Terms",
-        "page": 1,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
           "outcome",
-          "Account",
-          "Licensed users / term",
-          "Discount / services"
+          "Seller probability",
+          "Contract value / ARR",
+          "Margin / weighted value"
         ]
       }
     },
@@ -31750,7 +31285,7 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Requests",
-        "page": 1,
+        "page": 2,
         "pageCount": 2,
         "recordCount": 0,
         "visibleFields": [
@@ -31883,14 +31418,14 @@
       "primaryActions": 1,
       "inlineStage": {
         "label": "Exact-value review",
-        "page": 3,
+        "page": 2,
         "pageCount": 3,
         "recordCount": 0,
         "visibleFields": [
           "title",
-          "GTM investment",
-          "Security / sponsor attestation",
-          "Submitter / required authority",
+          "Seller probability",
+          "Contract value / ARR",
+          "Margin / weighted value",
           "confirmed"
         ]
       }
@@ -34015,8 +33550,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "standard-spend-US-page-1",
       "name": "DiscoverAccountOpportunity-standard-spend-US-page-1.png",
-      "bytes": 129875,
-      "sha256": "42639fd6f7d3f34b2f9934b4c456489eaf31297460ef3262f05ba0b863355664",
+      "bytes": 129872,
+      "sha256": "7bc700283563a88bef85a3bece01bf4ffb3600c08caa45b1a373bdb4479122c9",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -34149,8 +33684,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "standard-spend-JP-page-1",
       "name": "DiscoverAccountOpportunity-standard-spend-JP-page-1.png",
-      "bytes": 128583,
-      "sha256": "fead909ba5bc3bd975806e666259ff2d2934766b02e224ef90bf7c9bf747e26f",
+      "bytes": 128589,
+      "sha256": "5bcf96696a5cbf0c5e9355adafee68ebbc55ce1448696703cdaaf9bedda87b5a",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -34216,8 +33751,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "standard-spend-BR-page-1",
       "name": "DiscoverAccountOpportunity-standard-spend-BR-page-1.png",
-      "bytes": 128525,
-      "sha256": "e86cf4320df44f6766e6c60e5f58f344e5321672ffe20a9fb56b62bf1638ef44",
+      "bytes": 128521,
+      "sha256": "c8d99ebac587c9679a6c03099cc2daae42d6e3c018093e8cfb32bbe49d4c9931",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -34899,8 +34434,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "narrow-opportunity-US-page-1",
       "name": "DiscoverAccountOpportunity-narrow-opportunity-US-page-1.png",
-      "bytes": 114111,
-      "sha256": "a07904a475c1c4a4ddca75aed0c8cb1af5cf4ec305b18205004551f7149a6b4a",
+      "bytes": 114144,
+      "sha256": "66ba1f379d91363e98f5c4678f31fb6469b52d6208a211ddc8e7ce9671aa2a05",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -36216,7 +35751,7 @@
       "variant": "dark-opportunity-JP-page-1",
       "name": "DiscoverAccountOpportunity-dark-opportunity-JP-page-1.png",
       "bytes": 114441,
-      "sha256": "b8adb642ffb82efece4d87b46e3fa6f5b1fe114f98ff9da58cb24bd6e869166d",
+      "sha256": "e3fdd7c879ea4d82d416333c9948b4d5a16e04946ad4e044e5e38270a2179dd4",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -36359,8 +35894,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "dark-spend-US-page-1",
       "name": "DiscoverAccountOpportunity-dark-spend-US-page-1.png",
-      "bytes": 116390,
-      "sha256": "938937ae6770b5cabd51d1eafc1475094ef92f2181c1a195c21f45e71e387461",
+      "bytes": 116398,
+      "sha256": "dc7c324e3619fc6edb6db7cf9900f01b27cc8b651e45a4982592ae5da90a7d10",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -37379,8 +36914,8 @@
       "intent": "ExplorePipelineQuality",
       "variant": "standard-opportunity-JP-page-1",
       "name": "ExplorePipelineQuality-standard-opportunity-JP-page-1.png",
-      "bytes": 126942,
-      "sha256": "c821178c50bcf641ba4bab6e81b3ef796e32907b41531ab04993c705ed7d0d64",
+      "bytes": 126952,
+      "sha256": "83dff3989edcc63e187bb3a6c06c9727e1acf2343a807a9c705b890426123579",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -37523,8 +37058,8 @@
       "intent": "ExplorePipelineQuality",
       "variant": "standard-spend-US-page-1",
       "name": "ExplorePipelineQuality-standard-spend-US-page-1.png",
-      "bytes": 128309,
-      "sha256": "5ac04463513efeff58be76070f78c7106e6ecfd00233177bbbd8f54ecd290d6a",
+      "bytes": 128306,
+      "sha256": "3699be3fa79757fe84b958037c2d456a69a8870506b07936e9f08f1758370d73",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -39708,7 +39243,7 @@
       "variant": "dark-opportunity-JP-page-1",
       "name": "ExplorePipelineQuality-dark-opportunity-JP-page-1.png",
       "bytes": 113017,
-      "sha256": "52995848afc6536d65de64d75da3e8cde75f4621b5e1761f17caafdb6ec21996",
+      "sha256": "0912bf7750ec227b7271fe6db0ea9ab43dbc737e881c38c5a8f26e60d6cfeb47",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -39851,8 +39386,8 @@
       "intent": "ExplorePipelineQuality",
       "variant": "dark-spend-US-page-1",
       "name": "ExplorePipelineQuality-dark-spend-US-page-1.png",
-      "bytes": 114834,
-      "sha256": "37e07997c32e48f925d3e85955c54aac149d3b101b010e6704bd52184b0928fa",
+      "bytes": 114843,
+      "sha256": "6900e061c75455291fa7d612ed8c9dbc857d8eda23c36861d01b605494251da7",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -39918,8 +39453,8 @@
       "intent": "ExplorePipelineQuality",
       "variant": "dark-spend-DE-page-1",
       "name": "ExplorePipelineQuality-dark-spend-DE-page-1.png",
-      "bytes": 113905,
-      "sha256": "66fcf1026be7def70662adab0553f203800190fe008615a2b2ca6d6c4f6025b2",
+      "bytes": 113903,
+      "sha256": "dcac41e47a11816857adb40424efd9f1c2f5127a437703a3699471990b462781",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -40489,25 +40024,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "gap"
     },
@@ -40573,25 +40102,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "buyer"
     },
@@ -40615,25 +40138,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "refresh"
     },
@@ -41023,25 +40540,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "apac"
     },
@@ -41107,25 +40618,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "ready"
     },
@@ -41149,25 +40654,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "gap"
     },
@@ -41359,25 +40858,17 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Assumptions",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
-          "value",
-          "planningScope",
-          "semantics"
+          "semantics",
+          "allocationAssumptions",
+          "workflowBoundary"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "ExplorePipelineFlow:current:all"
     },
@@ -41457,7 +40948,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 9840000,
+          "total": 8200000,
           "nodeCount": 7,
           "linkCount": 12,
           "dataPath": "revenueFlow"
@@ -41505,8 +40996,8 @@
       "intent": "ExplorePipelineFlow",
       "variant": "narrow-recovered-flow",
       "name": "ExplorePipelineFlow-narrow-recovered-flow.png",
-      "bytes": 155880,
-      "sha256": "e32b1d25faee118c5d363baedaf838de75491119bbf7d697971dc456aa375702",
+      "bytes": 155879,
+      "sha256": "c06741c8030142e4a78627aece0f769e7f631221236688245efb086d8d29910e",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -41547,8 +41038,8 @@
       "intent": "ExplorePipelineFlow",
       "variant": "dark-sankey",
       "name": "ExplorePipelineFlow-dark-sankey.png",
-      "bytes": 188807,
-      "sha256": "372a4fdead54c6d1883ec32edac06f8f2807a4ef539a34c6dae236df26f864f4",
+      "bytes": 188701,
+      "sha256": "3d923522fb05e579a2adedcbd2a58d30ea39e599a3dfa6389d47a0486efd7613",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -41683,25 +41174,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "apac"
     },
@@ -41935,25 +41420,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 29400000,
-          "nodeCount": 10,
-          "linkCount": 21,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "refresh"
     },
@@ -42285,8 +41764,8 @@
       "intent": "ExploreApprovalFlow",
       "variant": "standard-node-commercial-page-1",
       "name": "ExploreApprovalFlow-standard-node-commercial-page-1.png",
-      "bytes": 127235,
-      "sha256": "fe45e874981bd2bc88afbce3852f776a70ae34c9ea5ff6751d52f3636d0f8cf3",
+      "bytes": 127234,
+      "sha256": "675bebcddb057dd701655aa47475514528bcfc043192c25f1ec3752a23f84daa",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -42301,25 +41780,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "commercial"
     },
@@ -42427,25 +41900,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "director"
     },
@@ -42469,25 +41936,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "committee"
     },
@@ -42553,25 +42014,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "passed"
     },
@@ -42735,7 +42190,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -42783,8 +42238,8 @@
       "intent": "ExploreApprovalFlow",
       "variant": "standard-recovered-flow",
       "name": "ExploreApprovalFlow-standard-recovered-flow.png",
-      "bytes": 215719,
-      "sha256": "083a087f902dfe3eaf846205be23677e7476acf45b1f545a23a932a711805e40",
+      "bytes": 215718,
+      "sha256": "7c6273d62432101f9589f028c8c2e8d9ed01c404653942cebef22c1938660a85",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -42919,25 +42374,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "commercial"
     },
@@ -42961,25 +42410,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "executive"
     },
@@ -42987,8 +42430,8 @@
       "intent": "ExploreApprovalFlow",
       "variant": "narrow-node-manager-page-1",
       "name": "ExploreApprovalFlow-narrow-node-manager-page-1.png",
-      "bytes": 107271,
-      "sha256": "106dbc6286d86b795e5a7253b2b0e421cb8af58160fa46e5381aacdcda0e49aa",
+      "bytes": 107273,
+      "sha256": "66627e25be16d82589060898a079a57ca116859cca68541e97ffffc0f87356e4",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -43003,25 +42446,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 4,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "manager"
     },
@@ -43087,25 +42524,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "committee"
     },
@@ -43129,25 +42560,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "pending"
     },
@@ -43213,25 +42638,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "returned"
     },
@@ -43255,25 +42674,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 2,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "rejected"
     },
@@ -43353,7 +42766,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -43699,25 +43112,19 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Sankey",
+        "label": "Details",
         "page": 1,
-        "pageCount": 1,
+        "pageCount": 3,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "nodes",
-          "links",
+          "selectedDetail",
+          "connections",
           "value",
-          "planningScope",
+          "shareOfTotal",
           "semantics"
         ],
-        "chart": {
-          "kind": "sankey",
-          "total": 30000000,
-          "nodeCount": 10,
-          "linkCount": 18,
-          "dataPath": "revenueFlow"
-        }
+        "chart": null
       },
       "selectedEntityId": "committee"
     },
@@ -43867,19 +43274,25 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Details",
+        "label": "Sankey",
         "page": 1,
-        "pageCount": 2,
+        "pageCount": 1,
         "recordCount": 0,
         "catalogPage": 1,
         "visibleFields": [
-          "selectedDetail",
-          "connections",
+          "nodes",
+          "links",
           "value",
-          "shareOfTotal",
+          "planningScope",
           "semantics"
         ],
-        "chart": null
+        "chart": {
+          "kind": "sankey",
+          "total": 30000000,
+          "nodeCount": 10,
+          "linkCount": 18,
+          "dataPath": "revenueFlow"
+        }
       },
       "selectedEntityId": "rejected"
     },
@@ -43959,7 +43372,7 @@
         ],
         "chart": {
           "kind": "sankey",
-          "total": 36000000,
+          "total": 30000000,
           "nodeCount": 10,
           "linkCount": 18,
           "dataPath": "revenueFlow"
@@ -44008,7 +43421,7 @@
       "variant": "dark-recovered-flow",
       "name": "ExploreApprovalFlow-dark-recovered-flow.png",
       "bytes": 191469,
-      "sha256": "6ee6d81a256fbd666182f6bf8bc26e6dd6cae7620be29682c35f4684de9169c2",
+      "sha256": "a560d8015741c0c59bee1a6172865889789c54cb36930f2a009195ae52adc8d1",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -44813,8 +44226,8 @@
       "intent": "ResearchCompetitivePosition",
       "variant": "narrow-driver-detail-ZDR-2042",
       "name": "ResearchCompetitivePosition-narrow-driver-detail-ZDR-2042.png",
-      "bytes": 97436,
-      "sha256": "850b2b9666901713637b9bf40fb8ad4f6368baa3d91565e0db2654156b788fb4",
+      "bytes": 97435,
+      "sha256": "4466ec94d582ec5f520ccd4948205e661709492fd0837dd0c6da38adc7fcfded",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -45036,7 +44449,7 @@
       "variant": "dark-driver-detail-ZDR-2042",
       "name": "ResearchCompetitivePosition-dark-driver-detail-ZDR-2042.png",
       "bytes": 112533,
-      "sha256": "b0c6364bac96ca75f5a8409832613a24ed6905002a1ec316b8b5524934384368",
+      "sha256": "3746a47e3915fdb2846d5d28badec3e58ec8f3b2b3db507483c03b3b1dcb9538",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -51867,8 +51280,8 @@
       "intent": "DiscoverAccountOpportunity",
       "variant": "dashboard",
       "name": "DiscoverAccountOpportunity-dashboard.png",
-      "bytes": 627515,
-      "sha256": "4ff61af740fc5873c625938a216e8b36e7e6f91fc74347e0ebe69a724b2e9137",
+      "bytes": 628857,
+      "sha256": "8a36cf0497c7a996d6ce9b4f626e9a485bc269464d77b4f1746cc8190f1b7ede",
       "width": 1440,
       "height": 1534,
       "viewportWidth": 1440,
@@ -52122,10 +51535,10 @@
       "intent": "MapBuyingCommittee",
       "variant": "dashboard",
       "name": "MapBuyingCommittee-dashboard.png",
-      "bytes": 1056180,
-      "sha256": "06dd3ef63e9c60c465072db0ad51ed2c3db7f1ca0386e4f4afe1bb1517d13c7a",
+      "bytes": 1059697,
+      "sha256": "3a164103230a54371a1bd607df786dc0b08bd16a67affa78a2ae44edf2e1428a",
       "width": 1440,
-      "height": 2283,
+      "height": 2303,
       "viewportWidth": 1440,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -52143,10 +51556,10 @@
       "intent": "SimulateCommercialOffer",
       "variant": "dashboard",
       "name": "SimulateCommercialOffer-dashboard.png",
-      "bytes": 814781,
-      "sha256": "f6329a3de6d961cd1d7199ab9b7db46191dc703157d8481cb53ff40f0ef915cb",
+      "bytes": 818851,
+      "sha256": "41f91ef0c1b5e15f1d5f40fdc991d1d961617b336e370a40dcd683f55525e2e6",
       "width": 1440,
-      "height": 1715,
+      "height": 1735,
       "viewportWidth": 1440,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -52164,10 +51577,10 @@
       "intent": "InspectForecastCommit",
       "variant": "dashboard",
       "name": "InspectForecastCommit-dashboard.png",
-      "bytes": 657076,
-      "sha256": "a9cfd25e267e3a582ea55bd3153271d038282ce3d48798a8625f0253591bd7e1",
+      "bytes": 660612,
+      "sha256": "5c718a1f8ebe4d38d70df57507704a659a993085c4a99920d03d10a3bf79d024",
       "width": 1440,
-      "height": 1284,
+      "height": 1304,
       "viewportWidth": 1440,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -53106,8 +52519,8 @@
       "intent": "SimulateCommercialOffer",
       "variant": "standard-license-terms",
       "name": "SimulateCommercialOffer-standard-license-terms.png",
-      "bytes": 167162,
-      "sha256": "bf8330234c5e6b6c2194d1c2e5e56f6fa61faeaddffdc31300f3afb5c37f24ab",
+      "bytes": 167215,
+      "sha256": "fa42afd74765f1f2ab03d7e9037029907a534f8446a33f51834f189ca878721e",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53326,8 +52739,8 @@
       "intent": "QualifyOpportunity",
       "variant": "standard-inline-receipt-page-1",
       "name": "QualifyOpportunity-standard-inline-receipt-page-1.png",
-      "bytes": 141307,
-      "sha256": "cd24153c35de54d598f50c2aca76c14ec5f4e3d33689ce7b5d22d539244177d7",
+      "bytes": 141326,
+      "sha256": "d91ca762bee3eaedb9ce19cc1c9a447616de7db0c6231f915b909af37be5b116",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53361,8 +52774,8 @@
       "intent": "BuildMutualActionPlan",
       "variant": "standard-draft-fields-page-1",
       "name": "BuildMutualActionPlan-standard-draft-fields-page-1.png",
-      "bytes": 137061,
-      "sha256": "8984fdee9c76b05e4f5127d7c079f992f76ff445ddcf607d4748617a9aad1a78",
+      "bytes": 137050,
+      "sha256": "015c94ebd17aa38d0e66e12530790d711174161e891b8a80ec0c90db39cd0a16",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53428,8 +52841,8 @@
       "intent": "BuildMutualActionPlan",
       "variant": "standard-inline-receipt-page-1",
       "name": "BuildMutualActionPlan-standard-inline-receipt-page-1.png",
-      "bytes": 144992,
-      "sha256": "cf1001ca3010d6d84445f32649ce517b8c269c153a718f4ba5bc0033ab1bf53f",
+      "bytes": 144865,
+      "sha256": "cf9719d25b0263a5a28e64d43f05197a2004dd870327df670a44583d3341bd03",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53530,8 +52943,8 @@
       "intent": "ReviewMeetingCommitments",
       "variant": "standard-inline-receipt-page-1",
       "name": "ReviewMeetingCommitments-standard-inline-receipt-page-1.png",
-      "bytes": 136917,
-      "sha256": "43df83282f523f99694766cf7c34654cbdb49c083a08b4ca3382f41d6a3848b2",
+      "bytes": 136745,
+      "sha256": "89878870f77b55455cd3260cddbd9079aed310b726897de96809626451552235",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53631,8 +53044,8 @@
       "intent": "ShapeSolutionProposal",
       "variant": "standard-inline-receipt-page-1",
       "name": "ShapeSolutionProposal-standard-inline-receipt-page-1.png",
-      "bytes": 139293,
-      "sha256": "1b12aa29c8dfdf2943659a3c33f17f50e4f051316160c1d7780fc6928fa598f2",
+      "bytes": 139246,
+      "sha256": "275f893bc2a302d0ea5752475558fd3e8e71f2fb59686e8a3213aabfc32e0d64",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53733,8 +53146,8 @@
       "intent": "ReviewDealException",
       "variant": "standard-inline-receipt-page-1",
       "name": "ReviewDealException-standard-inline-receipt-page-1.png",
-      "bytes": 141409,
-      "sha256": "f3e77f6405415dfd65c42570aba53dd1ca43f473eb5e7c7f5f928d2ccb5d24bd",
+      "bytes": 141411,
+      "sha256": "c7337a26a8e96c0b2ab71c3d5395116a55cef1fec4c6927cede9a7c194d82bc0",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53834,8 +53247,8 @@
       "intent": "InspectForecastCommit",
       "variant": "standard-inline-receipt-page-1",
       "name": "InspectForecastCommit-standard-inline-receipt-page-1.png",
-      "bytes": 141060,
-      "sha256": "e548ee2ce6a7375e0d7a8b3ce513cad305014ea789c36cc88029e9223c86b8b6",
+      "bytes": 140987,
+      "sha256": "a9f5c8b44e4062dc475b21dd6280290ebd01d2358af6d4d5f2c645395e1f9020",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53868,8 +53281,8 @@
       "intent": "CreateExecutiveEngagementPlan",
       "variant": "standard-draft-fields-page-1",
       "name": "CreateExecutiveEngagementPlan-standard-draft-fields-page-1.png",
-      "bytes": 131424,
-      "sha256": "ec363cc1fd3549df94f27bec05304b54b90e540f731ba1bc4efea0bfeb231f79",
+      "bytes": 131440,
+      "sha256": "372e785c05b33632f913ce580db3656cf12b439984362b02daac6a4931dfb5a8",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -53935,8 +53348,8 @@
       "intent": "CreateExecutiveEngagementPlan",
       "variant": "standard-inline-receipt-page-1",
       "name": "CreateExecutiveEngagementPlan-standard-inline-receipt-page-1.png",
-      "bytes": 142101,
-      "sha256": "da9a3126c74eca1ff8a99226199a91e9a88fe7dd505204fe2ab2391977cc7c15",
+      "bytes": 142133,
+      "sha256": "96df0eb0a36b4988a2574f37ba3d6bac70e4884793101aa4e693450758b362e6",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54037,8 +53450,8 @@
       "intent": "BuildValueCase",
       "variant": "standard-inline-receipt-page-1",
       "name": "BuildValueCase-standard-inline-receipt-page-1.png",
-      "bytes": 157155,
-      "sha256": "f712df643b0e1d47e326f58a34fb5710da46d1eb3a603623ef7f686370be3a6c",
+      "bytes": 156816,
+      "sha256": "89e4fd8d277ea78cef6dc681a8653f63a0b2d54352742115c31193019cba3e7f",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54140,8 +53553,8 @@
       "intent": "ReviewProposalReadiness",
       "variant": "standard-inline-receipt-page-1",
       "name": "ReviewProposalReadiness-standard-inline-receipt-page-1.png",
-      "bytes": 140076,
-      "sha256": "67c987bc1352bab1f06b47925aae35e4d76d4298498dea3e7e03a845813e3b12",
+      "bytes": 139959,
+      "sha256": "3e69e11fb486ee49e97ede63f1e688771ab3187589ad8404d838463b8cd90688",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54175,8 +53588,8 @@
       "intent": "PlanCustomerSuccessHandoff",
       "variant": "standard-draft-fields-page-1",
       "name": "PlanCustomerSuccessHandoff-standard-draft-fields-page-1.png",
-      "bytes": 136301,
-      "sha256": "3cf82f87e8632f09195d05f5a35476af1af8f0c80f139173c95417d0cbf6b773",
+      "bytes": 136289,
+      "sha256": "cab4ea8e36d2fb94688ae20b9482d07bca5bb6f0d9f870ea51d7583317bc8fe0",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54242,8 +53655,8 @@
       "intent": "PlanCustomerSuccessHandoff",
       "variant": "standard-inline-receipt-page-1",
       "name": "PlanCustomerSuccessHandoff-standard-inline-receipt-page-1.png",
-      "bytes": 146044,
-      "sha256": "0f327c100e2632f5b0dfb71ca8ca55a0362907e7440e256f5ff0be2ed0b374bb",
+      "bytes": 145924,
+      "sha256": "e065e2dd002faab3ae62462d60462a54b4c8f2c22920a2021a1e34dfd804e2e2",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54675,7 +54088,7 @@
       "variant": "standard-decision",
       "name": "ReviewDealApproval-standard-decision.png",
       "bytes": 133807,
-      "sha256": "1272a7aed6de62eca5bf74b57fde4a68301e618f5a77ea45ef41e994b1cfc691",
+      "sha256": "b1adc776da94d66410764963666a37a9d95449f4f116076a80836d3e5ca53daa",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54707,8 +54120,8 @@
       "intent": "ReviewDealApproval",
       "variant": "standard-decision-trail-page-1",
       "name": "ReviewDealApproval-standard-decision-trail-page-1.png",
-      "bytes": 135363,
-      "sha256": "62372c65a73fa10897e376eb2d7fd4c9202ea20c097c4f316dc93de06f94c90a",
+      "bytes": 135195,
+      "sha256": "6e14461cfa93e28e627d3cf34b599a7db57c6a9276ecbf2fbf9f4301a4215caa",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -54721,17 +54134,18 @@
         "ReviewDealApproval-business-draft",
         "deal-operations-reviewer-queue"
       ],
-      "workflowStage": "queue",
+      "workflowStage": "receipt",
       "inlineStage": {
-        "label": "Decision",
+        "label": "Decision trail",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
-          "reviewerRole",
+          "actor",
+          "role",
           "decision",
           "rationale",
-          "confirmed"
+          "timestamp"
         ]
       },
       "selectedEntityId": "ZM-1003"
@@ -54756,36 +54170,18 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Next actions",
+        "label": "Outlook",
         "page": 1,
-        "pageCount": 3,
+        "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
-          "title",
-          "due",
-          "rank",
-          "target"
+          "metrics",
+          "outlook"
         ],
         "chart": {
-          "kind": "owned-action-cockpit",
-          "records": [
-            {
-              "id": "ZDR-2042-buyers",
-              "due": "Before the next buyer interaction",
-              "source": "Owned book / catalog facts and recorded evidence",
-              "target": "MapBuyingCommittee",
-              "opportunityId": "ZDR-2042"
-            },
-            {
-              "id": "ZDR-2042-security",
-              "due": "Dependency +5d",
-              "source": "Owned book / catalog facts and recorded evidence",
-              "target": "BuildMutualActionPlan",
-              "opportunityId": "ZDR-2042"
-            }
-          ],
-          "matchingPriorities": 6,
-          "semantics": "Ordered evidence/dependency tasks with recorded due cues, not numerical priority or risk scores."
+          "kind": "seller-outlook",
+          "open": 18537260,
+          "weighted": 11719827.2
         }
       },
       "selectedEntityId": "portfolio:current:all"
@@ -55642,72 +55038,18 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Pipeline",
+        "label": "Outlook",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
           "metrics",
-          "opportunities"
+          "outlook"
         ],
         "chart": {
-          "kind": "owned-book-pipeline",
-          "opportunities": [
-            {
-              "id": "ZDR-2042",
-              "accountId": "CONTOSO",
-              "name": "Contoso Global Expansion",
-              "stage": "Propose",
-              "value": 3637260,
-              "probability": 0.72,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2058",
-              "accountId": "ACC-017",
-              "name": "Northwind connected manufacturing",
-              "stage": "Qualify",
-              "value": 2432000,
-              "probability": 0.5,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2059",
-              "accountId": "ACC-018",
-              "name": "Fabrikam partner platform",
-              "stage": "Develop",
-              "value": 2569000,
-              "probability": 0.6000000000000001,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2060",
-              "accountId": "ACC-019",
-              "name": "Alpine customer expansion",
-              "stage": "Propose",
-              "value": 2706000,
-              "probability": 0.7,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2061",
-              "accountId": "ACC-020",
-              "name": "Litware enterprise renewal",
-              "stage": "Commit",
-              "value": 2843000,
-              "probability": 0.8,
-              "quarterOffset": 0
-            },
-            {
-              "id": "ZDR-2072",
-              "accountId": "ACC-031",
-              "name": "AdventureWorks global field service",
-              "stage": "Develop",
-              "value": 4350000,
-              "probability": 0.5,
-              "quarterOffset": 0
-            }
-          ]
+          "kind": "seller-outlook",
+          "open": 18537260,
+          "weighted": 11719827.2
         }
       },
       "selectedEntityId": "portfolio:current:all"
@@ -55732,18 +55074,34 @@
       ],
       "workflowStage": "analysis",
       "inlineStage": {
-        "label": "Outlook",
+        "label": "Close plan",
         "page": 1,
         "pageCount": 1,
         "recordCount": 0,
         "visibleFields": [
           "metrics",
-          "outlook"
+          "closeStatus"
         ],
         "chart": {
-          "kind": "seller-outlook",
-          "open": 18537260,
-          "weighted": 11719827.2
+          "kind": "close-status",
+          "records": [
+            {
+              "label": "Complete",
+              "count": 1
+            },
+            {
+              "label": "On track",
+              "count": 2
+            },
+            {
+              "label": "At risk",
+              "count": 1
+            },
+            {
+              "label": "Blocked",
+              "count": 1
+            }
+          ]
         }
       },
       "selectedEntityId": "portfolio:current:all"
@@ -55905,8 +55263,8 @@
       "intent": "QualifyOpportunity",
       "variant": "narrow-draft-fields-page-1",
       "name": "QualifyOpportunity-narrow-draft-fields-page-1.png",
-      "bytes": 92196,
-      "sha256": "cf9cd99c796bbf786bdb44d6794771d8feb54770fee8621b85598f62f059d756",
+      "bytes": 92199,
+      "sha256": "9ad921df949b6cb1f705a2f4ebdc024cebed80bf14f045323ca0f077b3f8a370",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -55972,8 +55330,8 @@
       "intent": "QualifyOpportunity",
       "variant": "narrow-inline-receipt-page-1",
       "name": "QualifyOpportunity-narrow-inline-receipt-page-1.png",
-      "bytes": 123799,
-      "sha256": "68e36425c2bca4b68f905458e37e17e81e2f6eb762ae6c7fef450c6646637d72",
+      "bytes": 123908,
+      "sha256": "29857f76b9eaa1a9eb89ccc6160b46d339becfcf804ad62af0ab9662d97087e8",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56074,8 +55432,8 @@
       "intent": "BuildMutualActionPlan",
       "variant": "narrow-inline-receipt-page-1",
       "name": "BuildMutualActionPlan-narrow-inline-receipt-page-1.png",
-      "bytes": 121016,
-      "sha256": "d978977cfbea97be775d297b5ca613789aedb637ceab35ee78a4653aeebfe1c4",
+      "bytes": 121022,
+      "sha256": "7b6757b717e3d93898be4ea7fa1e293b51e2eb76c9abe9100011a875ddf5a6d7",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56176,8 +55534,8 @@
       "intent": "ReviewMeetingCommitments",
       "variant": "narrow-inline-receipt-page-1",
       "name": "ReviewMeetingCommitments-narrow-inline-receipt-page-1.png",
-      "bytes": 109267,
-      "sha256": "a4ae09730d30d465bbfbcfb9032394d24c4c3720117015f1fb5ba7bdad783c8b",
+      "bytes": 109159,
+      "sha256": "bffc90e5ee02b41df35bdba34208056c75bbfbfd0c674d93338de42e49c378ed",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56277,8 +55635,8 @@
       "intent": "ShapeSolutionProposal",
       "variant": "narrow-inline-receipt-page-1",
       "name": "ShapeSolutionProposal-narrow-inline-receipt-page-1.png",
-      "bytes": 111382,
-      "sha256": "f0b3662fa242eb2722cfb9a3d76594b3881817752b71e72c3a5b6d76bd841bc7",
+      "bytes": 111283,
+      "sha256": "4917203ab8f9aaf44d82b12f7ae2e02ba757953d32bf79abde0438cf6e523ed8",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56312,8 +55670,8 @@
       "intent": "ReviewDealException",
       "variant": "narrow-draft-fields-page-1",
       "name": "ReviewDealException-narrow-draft-fields-page-1.png",
-      "bytes": 106650,
-      "sha256": "a69d9d87b90873c1252d29abfaff145b373d64331676547970a15ad11dd52189",
+      "bytes": 106634,
+      "sha256": "c1dbed5e43deae114b6abbe72a5a9a4fbe3ffe51b89e6bb181f0f8c62f838c84",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56379,8 +55737,8 @@
       "intent": "ReviewDealException",
       "variant": "narrow-inline-receipt-page-1",
       "name": "ReviewDealException-narrow-inline-receipt-page-1.png",
-      "bytes": 118360,
-      "sha256": "16cdc7d7b695e66fd772022d5864ae343583ccbd887cd20044ed10e558f1d5f5",
+      "bytes": 118551,
+      "sha256": "ac94132b67e2a3f409a65d3f623e3874b8d4a686c29f0abc7a5143977b9d0332",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56480,8 +55838,8 @@
       "intent": "InspectForecastCommit",
       "variant": "narrow-inline-receipt-page-1",
       "name": "InspectForecastCommit-narrow-inline-receipt-page-1.png",
-      "bytes": 117057,
-      "sha256": "c35fc2776adb505d03ae29a386e42e86abbfd1e7e3ee50a28d0cf50cbd3d5dc6",
+      "bytes": 117181,
+      "sha256": "a0009f7dcba8e490bdd0d13ea27bb4fd523e1e7005745c7cb5e65b340a1b9d0d",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56514,8 +55872,8 @@
       "intent": "CreateExecutiveEngagementPlan",
       "variant": "narrow-draft-fields-page-1",
       "name": "CreateExecutiveEngagementPlan-narrow-draft-fields-page-1.png",
-      "bytes": 95076,
-      "sha256": "01e8b23b998cb0708a542e65f0cf50b7c70281416d5cfda3572cca85cd766511",
+      "bytes": 95066,
+      "sha256": "f6a23abf9baa62c776920533b4921de560863c3a461c00d170a2252f0bc25e50",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56581,8 +55939,8 @@
       "intent": "CreateExecutiveEngagementPlan",
       "variant": "narrow-inline-receipt-page-1",
       "name": "CreateExecutiveEngagementPlan-narrow-inline-receipt-page-1.png",
-      "bytes": 123492,
-      "sha256": "081fe1275ad1e6221f05006e07ce2d67d5ead3f67d901eac1feee767a8521cda",
+      "bytes": 123603,
+      "sha256": "0465781a2eb176d7bdfac6946384b25052b50361ebb933f2cbdb98a15fe80540",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56683,8 +56041,8 @@
       "intent": "BuildValueCase",
       "variant": "narrow-inline-receipt-page-1",
       "name": "BuildValueCase-narrow-inline-receipt-page-1.png",
-      "bytes": 133825,
-      "sha256": "fb8b7cf674c8ee7fe2ba9dec0ba91473b9dab42fa477d686b9bd911c5c50eee0",
+      "bytes": 133837,
+      "sha256": "7327937094de6b4357747632efff3ec95527327cdd8c3bd07231b5f2150e106e",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56719,8 +56077,8 @@
       "intent": "ReviewProposalReadiness",
       "variant": "narrow-draft-fields-page-1",
       "name": "ReviewProposalReadiness-narrow-draft-fields-page-1.png",
-      "bytes": 91854,
-      "sha256": "0aceb15ad79e68589905607450c225c71a8371e153b84bce0221c0644ba12a0f",
+      "bytes": 91855,
+      "sha256": "4f5e327d6592830f613dd75fbf4f79eca67d7c105c21379b08074b4342e3a1e6",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56786,8 +56144,8 @@
       "intent": "ReviewProposalReadiness",
       "variant": "narrow-inline-receipt-page-1",
       "name": "ReviewProposalReadiness-narrow-inline-receipt-page-1.png",
-      "bytes": 117332,
-      "sha256": "bdb2d006f8bac292a262c29fb662072feea2cc7d8a93fb965acfb899f0db3a6e",
+      "bytes": 117323,
+      "sha256": "ca8649c65beb9c633f869912857f45e56b68d8e0ad3d5724a8872e82b1b56ad9",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56888,8 +56246,8 @@
       "intent": "PlanCustomerSuccessHandoff",
       "variant": "narrow-inline-receipt-page-1",
       "name": "PlanCustomerSuccessHandoff-narrow-inline-receipt-page-1.png",
-      "bytes": 124531,
-      "sha256": "68cd1148a0b73f0f2578b78885d9e43d3a9f0153eddec1919e62854175a3cff3",
+      "bytes": 124614,
+      "sha256": "44969b87f81d47fae87eae5a00704a3452dd2de033e5b1365343cd8e7430d5eb",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -56956,8 +56314,8 @@
       "intent": "SubmitDealRequest",
       "variant": "narrow-license-terms",
       "name": "SubmitDealRequest-narrow-license-terms.png",
-      "bytes": 105672,
-      "sha256": "532f71043e34262be89e85fb92d701fc3ff70df6b893c369318bbab74fcb259e",
+      "bytes": 105670,
+      "sha256": "ada98c02cbb16fa22b9e406ac1831e315a36df5b132d41fce30895b80772195c",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -57353,8 +56711,8 @@
       "intent": "ReviewDealApproval",
       "variant": "narrow-decision-trail-page-1",
       "name": "ReviewDealApproval-narrow-decision-trail-page-1.png",
-      "bytes": 108434,
-      "sha256": "cd4803b5382026a5431965769311fd91d6e17ab8fd8878099778f420470808db",
+      "bytes": 108495,
+      "sha256": "f08fd8d8b04b57d45a03b652fd624d37e4d92268c01aa772d61f0d365381625a",
       "width": 390,
       "height": 980,
       "viewportWidth": 390,
@@ -57492,10 +56850,10 @@
       "intent": "QualifyOpportunity",
       "variant": "receipt",
       "name": "QualifyOpportunity-receipt.png",
-      "bytes": 413866,
-      "sha256": "f194ecfad6b7bf427e8a43ae3176c21c65ee3d90ff10fff6d7367ba23f6fbe37",
+      "bytes": 416094,
+      "sha256": "86245ce7061dd0ba67615081c4226c549884d786b1adb56b8bc2c9334bbdc481",
       "width": 760,
-      "height": 1874,
+      "height": 1894,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -57583,10 +56941,10 @@
       "intent": "BuildMutualActionPlan",
       "variant": "receipt",
       "name": "BuildMutualActionPlan-receipt.png",
-      "bytes": 432332,
-      "sha256": "9dedf0496570b5bb2c74cbae87a695a619ef7b2848a76b2c71cc2791707d097c",
+      "bytes": 433392,
+      "sha256": "39dd65e69e4cfe8c5f8f740ad3e6ab4cc42c43c6f7882a89a85645994ce37097",
       "width": 760,
-      "height": 1958,
+      "height": 1978,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -57673,10 +57031,10 @@
       "intent": "ReviewMeetingCommitments",
       "variant": "receipt",
       "name": "ReviewMeetingCommitments-receipt.png",
-      "bytes": 426803,
-      "sha256": "81928d5489b3463fa4c349b9b1185e6eacc73b254debee6a3a265946ac820080",
+      "bytes": 427480,
+      "sha256": "de653fb4c9ebb5ed625bf57c7627eaf18ecca930e9a50d1896d0e68ac344255a",
       "width": 760,
-      "height": 1902,
+      "height": 1922,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -57764,10 +57122,10 @@
       "intent": "ShapeSolutionProposal",
       "variant": "receipt",
       "name": "ShapeSolutionProposal-receipt.png",
-      "bytes": 428305,
-      "sha256": "90e303bd42c8a01507b44afbe40c0c3d4d5ca901af6c0597b643dbd7e28b9880",
+      "bytes": 429778,
+      "sha256": "1a737773e2be85167bf11aa98acf7fc243a7ce72a48afdf450c6c7209fd84a73",
       "width": 760,
-      "height": 1930,
+      "height": 1950,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -57854,10 +57212,10 @@
       "intent": "ReviewDealException",
       "variant": "receipt",
       "name": "ReviewDealException-receipt.png",
-      "bytes": 435770,
-      "sha256": "d9d1f92c821bcdd740efa343abd4e9c9e1c7320cc2b47f8a738e57785dfd8694",
+      "bytes": 436783,
+      "sha256": "68cd5a6a855a7aa9c0665b7a56b0f32a642266a56b0e9420418be6e605247dad",
       "width": 760,
-      "height": 1950,
+      "height": 1970,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -57944,10 +57302,10 @@
       "intent": "InspectForecastCommit",
       "variant": "receipt",
       "name": "InspectForecastCommit-receipt.png",
-      "bytes": 428107,
-      "sha256": "bc553e1ae30089fe606db69ff3060a60303216e3b346d6ad0b72627f09044092",
+      "bytes": 429518,
+      "sha256": "eb49a02cfef56f49e1fd1a851bf85321c915247c5689135d4947f521473206ec",
       "width": 760,
-      "height": 1893,
+      "height": 1913,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -58035,10 +57393,10 @@
       "intent": "CreateExecutiveEngagementPlan",
       "variant": "receipt",
       "name": "CreateExecutiveEngagementPlan-receipt.png",
-      "bytes": 430382,
-      "sha256": "db76d0a881dd93e260b6150b37205c1168aa689ca5e73b1c142f9dc0fb659731",
+      "bytes": 431277,
+      "sha256": "19084efffeb57af6d33fced90a63094303ac373a12fd460ffd8cf2e5747273d2",
       "width": 760,
-      "height": 1930,
+      "height": 1950,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -58127,10 +57485,10 @@
       "intent": "BuildValueCase",
       "variant": "receipt",
       "name": "BuildValueCase-receipt.png",
-      "bytes": 441370,
-      "sha256": "496baf3067b5bb4651f0fa64797dcd2df15c8177c9ddd6f61e2d17cfa70fa37b",
+      "bytes": 442404,
+      "sha256": "e0d6275d998051099a05ddef520e3d009eb425e9c0140b976ef3e77e9c1900e1",
       "width": 760,
-      "height": 2006,
+      "height": 2026,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -58183,10 +57541,10 @@
       "intent": "ReviewProposalReadiness",
       "variant": "receipt",
       "name": "ReviewProposalReadiness-receipt.png",
-      "bytes": 417295,
-      "sha256": "5f6fb3408b8802e5989667931da4512b175b9da126c57f17b2f48304b0cf461e",
+      "bytes": 419247,
+      "sha256": "a6aeaa686d341b7867c40679115b56cdef557f927c73eab9c472febfeb0942b7",
       "width": 760,
-      "height": 1874,
+      "height": 1894,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -58274,10 +57632,10 @@
       "intent": "PlanCustomerSuccessHandoff",
       "variant": "receipt",
       "name": "PlanCustomerSuccessHandoff-receipt.png",
-      "bytes": 437845,
-      "sha256": "c85c22287649a589f83100c4894a7ccec8afc22452f5153b5c304da1aa96c7ee",
+      "bytes": 438650,
+      "sha256": "7fb132d2e547012179b3b1f24b4a4854553eae65395221da05b369e799dd6f65",
       "width": 760,
-      "height": 1978,
+      "height": 1998,
       "viewportWidth": 760,
       "inlineHeight": null,
       "inlineBudget": null,
@@ -58295,8 +57653,8 @@
       "intent": "SimulateCommercialOffer",
       "variant": "changed",
       "name": "SimulateCommercialOffer-changed.png",
-      "bytes": 177867,
-      "sha256": "b0cfbd7f4f14f4ab9c676a5a30468b7e5670491ee5fc86aca429ba260a4872f6",
+      "bytes": 177866,
+      "sha256": "b2c7ead5c4ffe087adfef9b35417a2881e9ca2c90e91307ebeadddac9be3888d",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -58442,8 +57800,8 @@
       "intent": "SimulateCommercialOffer",
       "variant": "zero-subscription",
       "name": "SimulateCommercialOffer-zero-subscription.png",
-      "bytes": 170113,
-      "sha256": "0aaa78f63eed86927bc94c046fc2d79637aa4fe030300225c4cd02d95a6062ca",
+      "bytes": 170141,
+      "sha256": "4f8a2798d31bdc7e55195bd369b8daf40fa0029f3020f71d3b6c6dec11c720a1",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -58525,8 +57883,8 @@
       "intent": "ReviewDealException",
       "variant": "blocked-positive",
       "name": "ReviewDealException-blocked-positive.png",
-      "bytes": 137858,
-      "sha256": "859e6f0d2553d08668cb9689c8cff032b705137a5458d8c1b18421ca893d2761",
+      "bytes": 137843,
+      "sha256": "70eefe5319ed5cbd48b7749abdf5c9ab14c490e6577e291c91929de9f69bae81",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -58557,8 +57915,8 @@
       "intent": "InspectForecastCommit",
       "variant": "blocked-positive",
       "name": "InspectForecastCommit-blocked-positive.png",
-      "bytes": 138006,
-      "sha256": "8ec9475f912fc63d5852b393375413076d605623d87a685994cf44d59205f634",
+      "bytes": 137966,
+      "sha256": "9f03ed01b433a147f0f64008f690f2aaf8ef26a1d75bcf30da1101230fab370a",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,
@@ -58590,7 +57948,7 @@
       "variant": "blocked-positive",
       "name": "ReviewProposalReadiness-blocked-positive.png",
       "bytes": 131889,
-      "sha256": "e29659763bdd215c0165f509df4a3439115ab5a461feaebde3f7b9b06011326a",
+      "sha256": "d38bafc0c2291c35ebdc03bd2916b09781588994f30f1b7d3733820d05aab0fd",
       "width": 760,
       "height": 980,
       "viewportWidth": 760,

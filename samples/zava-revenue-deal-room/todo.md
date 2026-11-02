@@ -1,5 +1,29 @@
 # Zava Revenue Deal Room - Creation Plan
 
+## Six-minute keynote and mode-aware continuation - November 2, 2026
+
+Validated release: solution **1.0.0.9 / authored and packaged agent 1.0.9**.
+
+- [x] Rename and rewrite the keynote as a six-minute UX-first story, with a five-minute cut, value
+  flows, world maps, buyer proof, offer economics, guided submission and independent approval.
+- [x] Demonstrate inline Continue with Copilot opening the next named UX and full-screen
+  Continue with Copilot returning a text-only summary of the actual active view.
+- [x] Publish `discussion.responseMode` for each message, omit a handoff for summaries and update the
+  referenced agent instructions. Keep local Continue to navigation and explicit Open actions separate.
+- [x] Preserve current scope, edited values, no-match feedback, request identity and human consent;
+  test the same edited scenario across full-screen summary and inline interactive handoff.
+- [x] Pass 188 focused tests and all 291 production tests. Refresh 537 visual captures: 32 gallery,
+  462 business-matrix and 43 connected-journey captures, including both continuation payload modes.
+- [x] Validate renamed publication links, the 7,876-character instruction source, 27 stable tools,
+  twelve starters, solution/feature 1.0.0.9 and matching embedded/standalone agent 1.0.9.
+- [x] Restore trusted local HTTPS serving; manifest endpoint returns 200. Preserve the exact validated
+  production agent archive after the development watcher starts.
+
+The combined build runner reported package completion but did not exit. It was stopped after the
+remaining `check:generated-plugin`, `check:package-output`, `generate:release-evidence` and
+`check:release-evidence` commands passed independently; no release gate was skipped.
+Deployed-agent text-versus-UX routing rehearsal remains an external gate, not a Workbench claim.
+
 ## Current baseline and reusable automation guidance - November 2, 2026
 
 The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with

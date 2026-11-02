@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const requiredDocuments = [
-  'Zava-Revenue-Deal-Room-4-Minute-Keynote.md',
+  'Zava-Revenue-Deal-Room-6-Minute-Keynote.md',
   'Zava-Revenue-Deal-Room-10-Minute-Business-Demo.md',
   'Zava-Revenue-Deal-Room-5-Minute-Technical-Demo.md',
   'Zava-Revenue-Deal-Room-Designer-Review.md',
@@ -19,8 +19,11 @@ for (const document of requiredDocuments) {
 }
 const technical = fs.readFileSync(path.join(root, 'Zava-Revenue-Deal-Room-5-Minute-Technical-Demo.md'), 'utf8');
 assert(technical.includes('D3') && technical.includes('Natural Earth'), 'Technical demo must explain D3 and map implementation.');
-const keynote = fs.readFileSync(path.join(root, 'Zava-Revenue-Deal-Room-4-Minute-Keynote.md'), 'utf8');
+const keynote = fs.readFileSync(path.join(root, 'Zava-Revenue-Deal-Room-6-Minute-Keynote.md'), 'utf8');
 assert(keynote.includes('deterministic mock data') && keynote.includes('fallback'), 'Keynote must include safety and fallback guidance.');
+for (const cue of ['0:00-0:45', '5:10-6:00', 'text-only', 'new interactive inline form', 'Summary & next steps']) {
+  assert(keynote.includes(cue), `Keynote is missing its six-minute mode-aware continuation cue: ${cue}`);
+}
 const chartSource = fs.readFileSync(path.join(root, 'src', 'shared', 'visualizations', 'RevenueCharts.tsx'), 'utf8');
 for (const dependency of ['d3-geo', './worldGeography', './revenueGeometry']) assert(chartSource.includes(dependency), `Visualization source does not use ${dependency}.`);
 const geographySource = fs.readFileSync(path.join(root, 'src', 'shared', 'visualizations', 'worldGeography.ts'), 'utf8');

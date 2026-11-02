@@ -81,6 +81,22 @@ async function setDecision(role, decision, rationale) {
   await action.click();
 }
 try {
+  const inline = await browser.newPage({ viewport: { width: 760, height: 900 }, reducedMotion: 'reduce' });
+  await inline.goto(`${base}?intent=SimulateCommercialOffer&mode=inline`, { waitUntil: 'networkidle' });
+  await inline.evaluate(() => window.revenueHarness.render({ properties: { opportunityId: 'ZDR-2042', quantity: 1000, termMonths: 24, discount: 8, services: 150000, probability: .65 } }));
+  await inline.waitForFunction(() => window.revenueHarness.context.commercial?.inputs.quantity === '1000');
+  await inline.getByRole('button', { name: 'Continue with Copilot: Submit a deal · ZDR-2042', exact: true }).click();
+  await inline.waitForFunction(() => window.revenueHarness.followUps.length === 1);
+  const inlineHandoff = await inline.evaluate(() => window.revenueHarness.followUps[0]);
+  assert.equal(inlineHandoff.context.displayMode, 'inline');
+  assert.equal(inlineHandoff.context.discussion.responseMode, 'component');
+  assert.deepEqual(inlineHandoff.context.discussion.handoff, {
+    intent: 'SubmitDealRequest',
+    properties: { accountId: 'CONTOSO', opportunityId: 'ZDR-2042', quantity: 1000, termMonths: 24, discount: 8, services: 150000, probability: .65 }
+  });
+  await inline.close();
+  checks.push('Inline continuation requests the next interactive component with the exact five edited commercial inputs; it does not submit or approve.');
+
   await page.goto(`${base}?intent=GetMyRevenuePriorities&mode=fullscreen`, { waitUntil: 'networkidle' });
   await chooseWorkspace('Revenue Command');
   const original = await page.evaluate(() => window.revenueHarness.context.workspaceState.countryMap.scopedTotals);
@@ -117,6 +133,17 @@ try {
   await page.waitForFunction(() => window.revenueHarness.context.intent === 'SimulateCommercialOffer');
   for (const [label, value] of [['Licensed users', '1000'], ['Contract term (months)', '24'], ['Discount percent', '8'], ['Services (USD)', '150000'], ['Win probability (0–1)', '0.65']]) await page.getByLabel(label, { exact: true }).fill(value);
   assert((await page.getByRole('region', { name: 'Specialist business experience' }).innerText()).includes('$2,818,000'));
+  await page.getByRole('button', { name: 'Continue with Copilot: Summary & next steps', exact: true }).click();
+  await page.waitForFunction(() => window.revenueHarness.followUps.length === 1);
+  const summary = await page.evaluate(() => window.revenueHarness.followUps[0]);
+  assert.equal(summary.context.intent, 'SimulateCommercialOffer');
+  assert.equal(summary.context.displayMode, 'fullscreen');
+  assert.equal(summary.context.discussion.responseMode, 'text');
+  assert.equal(summary.context.discussion.handoff, null);
+  assert.match(summary.message, /text-only summary in chat/);
+  assert.deepEqual(summary.context.commercial.inputs, { quantity: '1000', termMonths: '24', discount: '8', services: '150000', probability: '0.65', ramp: '' });
+  await capture('fullscreen-commercial-summary-request');
+  checks.push('Full-screen continuation requests only a concise chat summary of the active edited scenario, with no tool handoff or navigation.');
   await page.getByRole('button', { name: 'Continue to Submit a deal', exact: true }).click();
   await page.waitForFunction(() => window.revenueHarness.context.intent === 'SubmitDealRequest');
   assert.equal(await page.getByRole('heading', { level: 1 }).innerText(), 'My Deals');

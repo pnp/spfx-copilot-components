@@ -2,7 +2,7 @@ jest.mock('@microsoft/sp-copilot-component', () => ({
   createCopilotTextContent: (text: string) => ({ type: 'text', text })
 }));
 import { getIntent, INTENTS } from './catalog';
-import { contextRecord, getCopilotActions } from './copilot';
+import { contextRecord, createCopilotSummary, getCopilotActions } from './copilot';
 import { createModelContext, MAX_CONTEXT_BYTES, modelContextBytes } from './modelContext';
 import type { IModelContextSnapshot } from './RevenueApp';
 import { revenueFlow, type RevenueFlowKind } from './flows';
@@ -15,6 +15,19 @@ const snapshot = (extra: Readonly<Record<string, unknown>> = {}): IModelContextS
 });
 
 describe('bounded Copilot discussion and component handoffs', () => {
+  test('workspace summaries request text only without a handoff, even when the visible scope needs recovery', () => {
+    const action = createCopilotSummary(getIntent('SimulateCommercialOffer'), snapshot({
+      displayMode: 'fullscreen', workflowStage: 'no-match', scopeLabel: 'Requested ZDR-UNKNOWN',
+      validationErrors: ['No matching opportunity']
+    }));
+    expect(action.label).toBe('Summary & next steps');
+    expect(action.handoff).toBeUndefined();
+    expect(action.disabledReason).toBeUndefined();
+    expect(action.prompt).toContain('text-only summary in chat');
+    expect(action.prompt).toContain('Requested ZDR-UNKNOWN');
+    expect(action.prompt).toContain('Do not call tools');
+    expect(action.prompt).toContain('unconfirmed edits');
+  });
   test.each(['pipeline', 'approval'] satisfies RevenueFlowKind[])('%s value-flow context retains the complete planning graph within the full 10KB payload', kind => {
     const flow = revenueFlow(kind, 'all', 'all');
     const payload = createModelContext(snapshot({
@@ -92,7 +105,7 @@ describe('bounded Copilot discussion and component handoffs', () => {
       selectedRecord: { id: 'EV-05', detail: '\u6f22\ud83d\ude42'.repeat(6000) },
       visibleRecords: Array.from({ length: 120 }, (_, index) => ({ id: `row-${index}`, detail: 'Source facts '.repeat(80) })),
       visibleRecordCount: 120, draft: { owner: 'Megan Bowen', days: '28' },
-      discussion: { actionId: 'open-BuildMutualActionPlan', handoff: { intent: 'BuildMutualActionPlan', properties: { opportunityId: 'ZDR-2042' } } }
+      discussion: { actionId: 'open-BuildMutualActionPlan', responseMode: 'component', handoff: { intent: 'BuildMutualActionPlan', properties: { opportunityId: 'ZDR-2042' } } }
     });
     const payload = createModelContext(state);
     expect(modelContextBytes(payload)).toBeLessThanOrEqual(MAX_CONTEXT_BYTES);

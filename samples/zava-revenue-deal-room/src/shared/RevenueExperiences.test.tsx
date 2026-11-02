@@ -196,6 +196,12 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     expect(latest().intent).toBe(definition.key);
     expect(latest().workflowStage).toBe(definition.key === 'ReviewDealApproval' ? 'queue' : definition.operation === 'review' || definition.operation === 'submit' ? 'draft' : 'analysis');
     expect(container.querySelectorAll('[data-copilot-action]')).toHaveLength(1);
+    await click('Continue with Copilot: Summary & next steps');
+    expect(followUp.mock.calls[0][0]).toContain('text-only summary in chat');
+    expect(followUp.mock.calls[0][1]).toMatchObject({
+      intent: definition.key, displayMode: 'fullscreen',
+      discussion: { actionId: 'summarize-workspace', responseMode: 'text', handoff: null }
+    });
     await click('More discussions');
     expect(document.querySelectorAll('[role="menuitem"]').length).toBeGreaterThanOrEqual(3);
   });
@@ -227,7 +233,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await click(`Continue with Copilot: ${title} · ZDR-2042`);
     expect(followUp.mock.calls[0][1]).toMatchObject({
       displayMode: 'inline', resolvedScope: { opportunityId: 'ZDR-2042' },
-      discussion: { handoff: { intent: target, properties: nextProperties } }
+      discussion: { responseMode: 'component', handoff: { intent: target, properties: nextProperties } }
     });
     if (properties.selectedId) expect(followUp.mock.calls[0][1].selection).toBe(properties.selectedId);
     expect(getDealStore().getSnapshot().requests).toBe(requestsBefore);

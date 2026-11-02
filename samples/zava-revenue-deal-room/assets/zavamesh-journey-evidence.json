@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-11-02T12:23:11.345Z",
-  "sourceSha256": "05bcb37263de6c39e06ece57e0133476cc3c7b0aef9b5addcf1e7c21a4664266",
+  "capturedAt": "2026-11-02T13:09:51.427Z",
+  "sourceSha256": "7fe55c94bdb7086c6a1d6e8d55dfd3b2619ef0bbfb738dc5c434d1b1c1783361",
   "failureCount": 0,
   "workspaceVariants": 32,
   "checks": [
+    "Inline continuation requests the next interactive component with the exact five edited commercial inputs; it does not submit or approve.",
     "Actual scoped country totals, independent expense ledger, empty future expenses, country detail and recovery; no requested investment or ROI substituted.",
+    "Full-screen continuation requests only a concise chat summary of the active edited scenario, with no tool handoff or navigation.",
     "Explicit priority selection, exact scope through buyer proof and commercial choice, actual-value intake continuity, invalid-input feedback, mounted draft resume and consent-gated submission.",
     "Exact request selected before review, independent role and rationale, unchanged monetary values, explicit consent, evidence blocks approval while a reasoned return remains available.",
     "Confirmed overlays survive reload; explicit reset clears drafts and restores baseline; menu selection opens a landing, not the originating task.",
@@ -35,45 +37,52 @@
     },
     {
       "name": "selected-deal-proof-story.png",
-      "sha256": "454f361ef36129a2150817dbc0cb61b024af39c52125a5ee89f96d0ad42853d6",
-      "bytes": 789124,
+      "sha256": "40fbe5824094628de276553ef1449763d88aca9c3a52846dc0ac5ac56bd0f2d5",
+      "bytes": 793158,
       "width": 1440,
-      "height": 1579
+      "height": 1599
+    },
+    {
+      "name": "fullscreen-commercial-summary-request.png",
+      "sha256": "e8a2d6e6e04dd8b2b10ae494d9e1f8c291e72ec9c23a6e1ef5576536d7149782",
+      "bytes": 827948,
+      "width": 1440,
+      "height": 1783
     },
     {
       "name": "deal-commercial-draft.png",
-      "sha256": "9f0fc8b275edf7865df9c8f09e66f1b2e412378589c26f8a749502aac5f65d97",
-      "bytes": 730334,
+      "sha256": "0b4962f6e46b04e29d2ac44e228a8757b97a8dde946ae1088da9276fbbcf8e0a",
+      "bytes": 733459,
       "width": 1440,
-      "height": 1524
+      "height": 1544
     },
     {
       "name": "deal-request-review.png",
-      "sha256": "ff4218aebaaea02bc94fc63e4699ffad94c6191081a401b6af795b1f0fcaf92e",
-      "bytes": 765634,
+      "sha256": "c65a6a0d392fdd042f753d50c3b07f5d5e13a7a3570ecc9e55c0e10230c62e2f",
+      "bytes": 762724,
       "width": 1440,
-      "height": 1691
+      "height": 1671
     },
     {
       "name": "deal-submission-receipt.png",
-      "sha256": "af56fc19e5d110484d1933cbba88357efd67fc78d53dbda43e842d691dc73354",
-      "bytes": 795547,
+      "sha256": "35c654aa2c986a9a2b6c88e5019e46256348468800914612100ffa80a60ed4fb",
+      "bytes": 798989,
       "width": 1440,
-      "height": 2054
+      "height": 2074
     },
     {
       "name": "approved-deal-and-audit.png",
-      "sha256": "077193be5b2e9250050be815f7879ee55f6e5bee8ee9e79a1d5295e929f8f810",
-      "bytes": 758024,
+      "sha256": "7c3c45dee05b03dedb17a1ac57266ee33ef7afcd9b11923edcd2df76838454ba",
+      "bytes": 759991,
       "width": 1440,
-      "height": 1864
+      "height": 1884
     },
     {
       "name": "evidence-gated-return.png",
-      "sha256": "f6f49fadb1ae330721590bec9610e7241cdaacf2bec52638f014e2d76b284414",
-      "bytes": 788269,
+      "sha256": "0be07e833842cd97d8fe206d6c9eea50f89b065fee6cbbe3d448f6e4f0338515",
+      "bytes": 790919,
       "width": 1440,
-      "height": 1980
+      "height": 2000
     },
     {
       "name": "my-deals-340-light.png",

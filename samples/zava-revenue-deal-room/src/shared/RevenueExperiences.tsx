@@ -5,7 +5,7 @@ import { INTENTS, type RevenueIntentKey } from './catalog';
 import { Chat20Regular, CheckmarkCircle20Regular } from '@fluentui/react-icons';
 import DealOperations, { type useDealOperationsSession } from './DealOperations';
 import DealAttention, { attentionDeals, type AttentionMeasure } from './DealAttention';
-import { contextRecord, createCopilotHandoff, getCopilotActions, type ICopilotAction } from './copilot';
+import { contextRecord, createCopilotHandoff, createCopilotSummary, getCopilotActions, type ICopilotAction } from './copilot';
 import PersonalPriorities from './PersonalPriorities';
 import FlowExperience from './FlowExperience';
 import { revenueFlow } from './flows';
@@ -280,10 +280,14 @@ export default function RevenueExperiences(props: IRevenueAppProps & {
     const workspaceAction = fullscreenNextAction(fullscreenTask(definition.key, props.properties), snapshot);
     if (workspaceAction) primaryAction = workspaceAction;
   }
-  const primaryEntity = isCountryView ? countryState.selectedCountryId : isFlow ? definition.key === 'ExploreApprovalFlow' ? flow?.approvalRequestId : selected || undefined : definition.operation === 'education' ? undefined : unavailableAttention ? selected : priority?.opportunityId || priority?.requestId || (isDealWorkflow ? inlineRequest.id || inlineScope?.account?.id : focusScope?.opportunity?.id || scope.opportunity?.id);
+  if (!compact) {
+    primaryContext = snapshot;
+    primaryAction = createCopilotSummary(definition, snapshot);
+  }
+  const primaryEntity = !compact ? undefined : isCountryView ? countryState.selectedCountryId : isFlow ? definition.key === 'ExploreApprovalFlow' ? flow?.approvalRequestId : selected || undefined : definition.operation === 'education' ? undefined : unavailableAttention ? selected : priority?.opportunityId || priority?.requestId || (isDealWorkflow ? inlineRequest.id || inlineScope?.account?.id : focusScope?.opportunity?.id || scope.opportunity?.id);
   const primaryLabel = `Continue with Copilot: ${primaryAction.handoff ? INTENTS.find(item => item.key === primaryAction.handoff?.intent)?.title : primaryAction.label}${primaryEntity ? ` · ${primaryEntity}` : ''}`;
   const visibleSnapshot: IModelContextSnapshot = {
-    ...snapshot, availableActions: [...snapshot.availableActions, ...suggestedActions.filter(action => !action.disabledReason).map(action => action.label), ...(compact && !primaryAction.disabledReason ? [primaryLabel] : [])]
+    ...snapshot, availableActions: [...snapshot.availableActions, ...suggestedActions.filter(action => !action.disabledReason).map(action => action.label), ...(!primaryAction.disabledReason ? [primaryLabel] : [])]
   };
   const serialized = JSON.stringify(visibleSnapshot);
   const updateContext = props.onUpdateModelContext;
@@ -302,7 +306,7 @@ export default function RevenueExperiences(props: IRevenueAppProps & {
     try {
       const accepted = await props.onSendFollowUp(action.prompt, {
         ...context,
-        discussion: { actionId: action.id, label: action.label, topic: action.label, sourceQuestion: definition.question, prompt: action.prompt, handoff: action.handoff || null }
+        discussion: { actionId: action.id, label: action.label, topic: action.label, sourceQuestion: definition.question, prompt: action.prompt, responseMode: action.handoff ? 'component' : 'text', handoff: action.handoff || null }
       });
       setFollowUpState(accepted ? 'sent' : 'error');
       if (!accepted) setFollowUpError('Copilot did not accept the message. Your visible values are unchanged; retry the suggested action.');
@@ -497,11 +501,11 @@ export default function RevenueExperiences(props: IRevenueAppProps & {
         </>}
     </div>
     <section aria-label="Suggested Copilot actions">
-      {!compact && <><h2 className={styles.heading}>Continue with Copilot</h2><p className={styles.muted}>The visible scope, selected detail, filters, draft, calculations and confirmation state travel with your question.</p></>}
-      {compact || props.workspaceFocus ? <div className={styles.footer}>
+      {!compact && <><h2 className={styles.heading}>Continue with Copilot</h2><p className={styles.muted}>Return a concise summary to chat with the visible scope, edited values, evidence gaps and next steps. No new component is opened.</p></>}
+      <div className={styles.footer}>
         <Button appearance="primary" icon={followUpState === 'sent' ? { children: <CheckmarkCircle20Regular />, role: 'status', 'aria-label': 'Sent to Copilot with the visible discussion context.', 'aria-hidden': false } : <Chat20Regular />} data-copilot-action="primary" disabled={followUpState === 'sending' || !!primaryAction.disabledReason} title={primaryAction.disabledReason} onClick={() => sendSuggestedAction({ ...primaryAction, label: primaryLabel }, { ...primaryContext, availableActions: visibleSnapshot.availableActions, inlineStage: visibleSnapshot.inlineStage })}>{followUpState === 'sending' && sendingAction === primaryAction.id ? 'Sending...' : primaryLabel}</Button>
         <Menu><MenuTrigger disableButtonEnhancement><Button aria-label="More Copilot discussions">More discussions</Button></MenuTrigger><MenuPopover><MenuList>{suggestedActions.map(action => <MenuItem key={action.id} icon={<Chat20Regular />} data-copilot-action={action.id} disabled={followUpState === 'sending' || !!action.disabledReason} title={action.disabledReason} onClick={() => sendSuggestedAction(action)}>{action.label}</MenuItem>)}</MenuList></MenuPopover></Menu>
-      </div> : <div className={styles.actions}>{suggestedActions.map(action => <Button key={action.id} icon={<Chat20Regular />} data-copilot-action={action.id} disabled={followUpState === 'sending' || !!action.disabledReason} title={action.disabledReason} onClick={() => sendSuggestedAction(action)}>{followUpState === 'sending' && sendingAction === action.id ? 'Sending...' : action.label}</Button>)}</div>}
+      </div>
       {(compact ? !!primaryAction.disabledReason : suggestedActions.some(action => action.disabledReason)) && <p className={styles.muted}>{compact ? primaryAction.disabledReason : Array.from(new Set(suggestedActions.map(action => action.disabledReason).filter(Boolean))).join(' ')}</p>}
       {followUpState === 'sent' && !compact && <p role="status">Sent to Copilot with the visible discussion context.</p>}
       {followUpState === 'error' && <p role="alert" className={styles.error}>{followUpError}</p>}

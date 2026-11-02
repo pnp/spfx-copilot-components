@@ -90,6 +90,15 @@ describe('scoped fullscreen workspace journeys', () => {
     await set('Licensed users', '2000');
     await render('SimulateCommercialOffer', properties);
     expect(contextRecord(contextRecord(latest().commercial).inputs).quantity).toBe('2000');
+    await click('Continue with Copilot: Summary & next steps');
+    expect(followUp.mock.calls[0][1].discussion).toMatchObject({ responseMode: 'text', handoff: null });
+    expect(contextRecord(contextRecord(followUp.mock.calls[0][1].commercial).inputs).quantity).toBe('2000');
+    await render('SimulateCommercialOffer', properties, 'inline');
+    await click('Continue with Copilot: Submit a deal · ZDR-2043');
+    expect(followUp.mock.calls[1][1].discussion).toMatchObject({
+      responseMode: 'component', handoff: { intent: 'SubmitDealRequest', properties: { opportunityId: 'ZDR-2043', quantity: 2000, termMonths: 24, discount: 8, services: 150000, probability: .65 } }
+    });
+    await render('SimulateCommercialOffer', properties);
     await click('Continue to Submit a deal');
     expect(latest().intent).toBe('SubmitDealRequest');
     expect(contextRecord(contextRecord(latest().inlineDealWorkflow).draft)).toMatchObject({ accountId: 'ACC-002', quantity: '2000', termMonths: '24', discount: '8', services: '150000', probability: '0.65' });
@@ -123,6 +132,15 @@ describe('scoped fullscreen workspace journeys', () => {
     if (!(reviewer instanceof HTMLSelectElement)) throw new Error('Missing independent reviewer control');
     expect(reviewer.value).toBe('Sales manager');
     expect(getDealStore().getSnapshot().requests.find(item => item.id === 'ZM-1002')?.status).toBe('pending');
+    const before = getDealStore().getSnapshot().requests;
+    await click('Continue with Copilot: Summary & next steps');
+    expect(followUp.mock.calls[0][1]).toMatchObject({
+      intent: 'ReviewDealApproval', displayMode: 'fullscreen',
+      discussion: { responseMode: 'text', handoff: null }
+    });
+    expect(contextRecord(followUp.mock.calls[0][1].inlineDealWorkflow).selectedRequest).toMatchObject({ id: 'ZM-1002' });
+    expect(followUp.mock.calls[0][0]).toContain('text-only summary in chat');
+    expect(getDealStore().getSnapshot().requests).toBe(before);
     expect(Array.from(container.querySelectorAll('button')).some(item => visible(item) && item.textContent === 'Continue to My priorities')).toBe(false);
   });
 });

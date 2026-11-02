@@ -119,6 +119,13 @@ export function createCopilotHandoff(target: RevenueIntentKey, snapshot: IModelC
   };
 }
 
+export function createCopilotSummary(definition: IIntentDefinition, snapshot: IModelContextSnapshot): ICopilotAction {
+  return {
+    id: 'summarize-workspace', label: 'Summary & next steps',
+    prompt: `Return a text-only summary in chat of ${definition.title.toLowerCase()} for ${string(snapshot.scopeLabel) || 'the visible scope'}. Use up to 100 words: the key findings and visible values, missing evidence or validation issues, current confirmed status, and two practical next steps. Keep unconfirmed edits distinct from confirmed actions. Do not call tools, open a UX component, navigate, submit or approve. ${safeguards}`
+  };
+}
+
 export function getCopilotActions(definition: IIntentDefinition, snapshot: IModelContextSnapshot): readonly ICopilotAction[] {
   const [label, question, next] = guidance[definition.key];
   const scopeLabel = string(snapshot.scopeLabel) || 'the visible scope';

@@ -1,6 +1,6 @@
 # ZavaMesh Revenue Deal Room
 
-> **Current release: solution 1.0.0.8 / authored agent 1.0.8.** Built with SPFx 1.24.0 GA
+> **Current release: solution 1.0.0.9 / authored agent 1.0.9.** Built with SPFx 1.24.0 GA
 > and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
 > [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
 > certification of every Copilot host.
@@ -60,8 +60,8 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
-> The deployment package is **1.0.0.8**; its embedded agent matches the standalone
-> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.8**.
+> The deployment package is **1.0.0.9**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.9**.
 > SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
@@ -325,11 +325,17 @@ discount. The former arbitrary adoption index and approximated margin curve are 
 
 ### Keynote: one conversation, one decision journey
 
-Use the [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md), not a tour of every card:
-**My Deals -> Deal Room -> Commercial Desk -> reviewed submission -> independent decision ->
-Revenue Command**. Expand a contextual component, use the workspace landing to select the next job,
-and keep `ZDR-2042` throughout the deal discussion. The new `ZM-...` receipt identifies the submitted
-request, not a replacement opportunity.
+Use the [6-minute keynote](Zava-Revenue-Deal-Room-6-Minute-Keynote.md), with an optional five-minute cut:
+**value flows -> world opportunity/spend -> Deal Room -> Commercial Desk -> reviewed submission ->
+independent decision -> Revenue Command**. Keep `ZDR-2042` throughout the deal discussion; the new
+`ZM-...` receipt identifies the submitted request, not a replacement opportunity.
+
+Show both continuation results: inline **Continue with Copilot: [next business step]** requests the
+next interactive component, while full-screen **Continue with Copilot: Summary & next steps** requests
+a text-only chat summary of the active view, edited values, evidence gaps and confirmed status.
+It has no tool handoff and never submits or approves. **Continue to [business step]** remains local
+workspace navigation. More-discussion questions remain text; explicitly selected Open actions can
+still launch a component. An unfinished form's discussion cannot bypass its required review.
 
 The personal brief uses Megan Bowen's **illustrative** eight-deal book, including named Northwind,
 Fabrikam, Alpine, Litware, AdventureWorks, Tailspin and Proseware examples. Current-quarter catalog
@@ -531,7 +537,7 @@ sharepoint/solution/      ready-to-deploy production package
 
 ## Demo and review assets
 
-- [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md) - one four-workspace story from
+- [6-minute keynote](Zava-Revenue-Deal-Room-6-Minute-Keynote.md) - beautiful interactive UX, contextual
   owned priority and buyer proof through exact commercial values and an accountable decision.
 - [10-minute business demo](Zava-Revenue-Deal-Room-10-Minute-Business-Demo.md) - the broader cross-role
   revenue journey with guardrails and current implementation boundaries.
@@ -581,6 +587,7 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.9 / agent 1.0.9 | 2026-11-02 | Six-minute keynote with beautiful value flows, world maps and an accountable deal journey. Full-screen Continue with Copilot requests a text-only chat summary; inline handoffs request the next interactive UX. Explicit response-mode context and agent rules preserve scope, edited values and consent. |
 | 1.0.0.8 / agent 1.0.8 | 2026-11-02 | Business-first continuation/discussion routes, request/approval controls and workspace copy; exact named-request handoffs, refreshed gallery and rebuilt archives. Golden and local creation rules now apply the same language policy across complete journeys while preserving provenance and consent. |
 | 1.0.0.7 / agent 1.0.7 | 2026-11-02 | Business-first keynote starter wording, with demonstration labels and chart-engine jargon removed from all starter copy. Twelve distinct starter routes and truthful data/execution boundaries remain intact. |
 | 1.0.0.6 / agent 1.0.6 | 2026-11-02 | Twelve conversation starters: eleven distinct operational UX components and the capability explorer last. Canonical and local automation guidance now documents the supported maximum of twelve rather than a six-starter assumption. |
