@@ -5,8 +5,8 @@
 The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with
 **27 components** and four contextual workspaces. Release versions and current test/capture totals
 come from [release evidence](assets/release-evidence.json), not the historical milestones below.
-The preceding validated release is solution 1.0.0.5 / agent 1.0.5: 290 tests and 536 visual captures.
-This twelve-starter release is solution **1.0.0.6 / authored agent 1.0.6**.
+The preceding validated release is solution 1.0.0.6 / agent 1.0.6: 290 tests and 536 visual captures.
+This business-first starter release is solution **1.0.0.7 / authored agent 1.0.7**.
 
 - [x] Capture the distinct-business-value, compact stage and contextual workspace patterns from the
   completed portfolio work; retain all original identities and exact scoped scenario semantics.
@@ -19,7 +19,7 @@ This twelve-starter release is solution **1.0.0.6 / authored agent 1.0.6**.
 - [x] Specify role-specific workspace landings versus selected work, explicit selection/Resume,
   preserved mounted drafts and active-only context publication.
 - [x] Synchronize this sample's local `agentic-creation-rules.md` byte-for-byte with the golden guide.
-  Matching SHA-256: `A8A5C333F6241AF135CBC5A89A3A5EEA3B7CB5B4D82B97ED7525AAC24785BD33`.
+  Matching SHA-256: `8F8DB2DD2A2497A3A2CC0264BE9200305E1F876130DCEB7A7312243B75485A7E`.
 - [x] Prioritize starters for pipeline value flow, country world map, approval value flow, guided
   submission and independent approval, with **Explore capabilities last**.
 - [x] Use the full supported capacity of **12 starters**: add owned-book priorities, buyer-network
@@ -27,14 +27,17 @@ This twelve-starter release is solution **1.0.0.6 / authored agent 1.0.6**.
   customer payback model. The first 11 target different operational components; explorer is 12th.
 - [x] Golden and local creation rules allow up to 12, retain a smaller set when appropriate, and
   validate the final explorer position without treating index 5 or six starters as a platform limit.
+- [x] Rewrite keynote starters as natural business questions without imaginary/demo/sample labels or
+  chart-engine jargon. Keep actual data provenance and execution boundaries in the UI and agent
+  context; do not claim a live system. Add a source/packaged-copy regression gate.
 - [x] Regenerate source starters and routing docs with `npm run configure:intents` and
   `npm run generate:routing-matrix`; `npm run check:intents` and `npm run check:routing-matrix`
   passed for 27 immutable tools, twelve starters and nine collision rehearsals.
-  Instruction source is 7,679 characters, below the SDK's 8,000-character limit.
-- [x] `npm run build` passed for the twelve-starter release: **290 tests / 536 current visual
-  captures / 893 inline probes**; source/packaged order, actual solution/feature version 1.0.0.6,
-  embedded/standalone agent 1.0.6, instruction expansion limits, compiled schemas and release hashes
-  all validate.
+  Instruction source is 7,652 characters, below the SDK's 8,000-character limit.
+- [x] `npm run build` passed for the business-first starter release: **290 tests / 536 current visual
+  captures / 893 inline probes**; all twelve source/packaged starters, actual solution/feature version
+  1.0.0.7, embedded/standalone agent 1.0.7, instruction limits, compiled schemas and release hashes
+  validate.
 - [x] Prepare the canonical/local guidance, this tracker, starter configuration and matching release
   assets for the requested VesaJuvonen commit and synchronization. The personal fork is the configured
   `origin`; commit/push identity and exact published revision are recorded in Git history.

@@ -122,6 +122,10 @@ assert(starterTargets.slice(0, -1).every(target => target !== explorerTargets[0]
 assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === canonicalStarters.length, 'Starter titles must be distinct.');
 assert(new Set(starterTargets).size === starterTargets.length, 'Starter targets must be distinct.');
 assert(new Set(canonicalStarters.map(starter => starter.text.toLowerCase().replace(/\s+/g, ' ').trim())).size === canonicalStarters.length, 'Starter prompts must be distinct.');
+for (const starter of canonicalStarters) {
+  assert(!/\b(?:imaginary|fictional|synthetic|mock|demo|sample|sankey)\b/i.test(`${starter.title} ${starter.text}`),
+    `Starter "${starter.title}" must use natural business language, without demonstration labels or chart-engine jargon.`);
+}
 const sourceInstructions = fs.readFileSync(path.join(root, 'copilot', 'instruction.txt'), 'utf8').replace(/\r\n/g, '\n').trim();
 for (const target of starterTargets) {
   assert(declaredStarterTools.has(target), `Unknown starter target: ${target}`);

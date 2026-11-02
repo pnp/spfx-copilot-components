@@ -1,6 +1,6 @@
 # ZavaMesh Revenue Deal Room
 
-> **Current release: solution 1.0.0.6 / authored agent 1.0.6.** Built with SPFx 1.24.0 GA
+> **Current release: solution 1.0.0.7 / authored agent 1.0.7.** Built with SPFx 1.24.0 GA
 > and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
 > [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
 > certification of every Copilot host.
@@ -60,8 +60,8 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
-> The deployment package is **1.0.0.6**; its embedded agent matches the standalone
-> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.6**.
+> The deployment package is **1.0.0.7**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.7**.
 > SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
@@ -161,6 +161,8 @@ Select an item to work on it; **Resume** restores explicitly selected work and i
 The agent uses all **12 supported starters**: 11 distinct operational component targets and the
 capability explorer in the final position. The exact prompts and component targets are maintained in
 [conversation-starters.json](config/conversation-starters.json) and generated into the agent.
+Starter copy uses natural business questions rather than demonstration labels or chart-engine names;
+the component and agent context retain the data's actual provenance and decision boundaries.
 The [routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) records the same ordered prompts.
 Fictional approval-flow values are not stored-request totals; neither opening approvals nor selecting
 a starter submits or approves anything.
@@ -578,6 +580,7 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.7 / agent 1.0.7 | 2026-11-02 | Business-first keynote starter wording, with demonstration labels and chart-engine jargon removed from all starter copy. Twelve distinct starter routes and truthful data/execution boundaries remain intact. |
 | 1.0.0.6 / agent 1.0.6 | 2026-11-02 | Twelve conversation starters: eleven distinct operational UX components and the capability explorer last. Canonical and local automation guidance now documents the supported maximum of twelve rather than a six-starter assumption. |
 | 1.0.0.5 / agent 1.0.5 | 2026-11-02 | High-impact pipeline/approval value-flow, world-map, submission and approval starters; capability explorer last. Reusable context-first dialogue, exact-scope continuation, bounded stages, workspace and resize lessons synchronized to the canonical golden guide and local creation rules. |
 | 1.0.0.4 / agent 1.0.4 | 2026-11-02 | SPFx 1.24.0 GA; 27 distinct components, four explicit workspace stories, country opportunity/spend maps, fictional value flows, exact commercial/request continuity and reliable redraw sizing. Refreshed README/gallery and rebuilt production archives; current validation totals and packaged agent suffix are recorded in release evidence. |

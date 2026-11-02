@@ -1008,6 +1008,13 @@ This is not technical API documentation and not a static help page.
 
 **Conversation starter contract:**
 
+- Write titles and prompts as natural business requests: ask about pipeline priorities, country
+  spending, review progress or the next decision, rather than asking to display an "imaginary",
+  "fictional", "demo" or "sample" visualization. Keep chart-engine names and implementation jargon
+  out of keynote starter copy; the advertised tool mapping owns the visual choice.
+  This is presentation wording, not permission to misrepresent the data: retain truthful source,
+  proposal/simulation and execution boundaries in the component and agent context, and never claim
+  live production data, integrations or approvals that do not exist.
 - The maximum is **12 conversation starters per agent**, not six. Choose distinct high-value
   operational components, not several phrasings for the same generic view. A large showcase may use
   **11 operational starters + 1 capability-explorer starter**; use fewer when the domain has fewer

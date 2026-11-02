@@ -2,7 +2,7 @@
   "starters": [
     {
       "title": "Pipeline value flow",
-      "text": "Show an imaginary pipeline Sankey from regions through buyer readiness to next actions.",
+      "text": "Show how pipeline value moves from regions through buyer readiness to next actions.",
       "targetName": "ExplorePipelineFlow"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "title": "Approval value flow",
-      "text": "Show an imaginary approval Sankey from submitted batches through current reviewer stages to stage outcomes.",
+      "text": "Show where approval value is waiting by intake route, current reviewer and stage outcome.",
       "targetName": "ExploreApprovalFlow"
     },
     {
@@ -42,7 +42,7 @@
     },
     {
       "title": "World recorded-spend map",
-      "text": "Show recorded demo spend by country for the current quarter.",
+      "text": "Show recorded spend by country for the current quarter.",
       "targetName": "ExplorePipelineQuality"
     },
     {
