@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-11-02T00:19:28.547Z",
-  "sourceSha256": "944292b0bc252f4affc2ae957d4bb5a2624e53031275dac5212f1f06961fb7cc",
+  "capturedAt": "2026-11-02T12:23:11.345Z",
+  "sourceSha256": "05bcb37263de6c39e06ece57e0133476cc3c7b0aef9b5addcf1e7c21a4664266",
   "failureCount": 0,
   "workspaceVariants": 32,
   "checks": [
@@ -14,295 +14,295 @@
   "captures": [
     {
       "name": "no-future-recorded-spend.png",
-      "sha256": "1d3c60c16dc01f7bba874a1fb167855901b5ee9d6c013e423799f686f727a520",
-      "bytes": 507584,
+      "sha256": "a11baf3970e2ff19ab9efa57e3e9f3966e8d60437c89c5e3f1ab5f9e71ae234d",
+      "bytes": 505168,
       "width": 1440,
       "height": 1062
     },
     {
       "name": "country-recorded-spend-detail.png",
-      "sha256": "4c9ca9db68c3e68f10155fa4a2e44a949e988b06f9cd957c41c7d7d725455c1b",
-      "bytes": 548091,
+      "sha256": "070ed6d9d20d1643a7ffaca52e88050bb0c5f33841490c5c9356e513d089443b",
+      "bytes": 547053,
       "width": 1440,
       "height": 1348
     },
     {
       "name": "my-deals-starting-point.png",
-      "sha256": "56f9df6e04768b31a4fba6c293f2ddea8018880cec173ea3c25c4b73c4c8916c",
-      "bytes": 769986,
+      "sha256": "425d1f915a4959dbb2c181781b4b32b827e87c28ac5d387add6d8492b16a04fa",
+      "bytes": 769648,
       "width": 1440,
       "height": 2285
     },
     {
       "name": "selected-deal-proof-story.png",
-      "sha256": "54e599028b91fc9009e13e8b9c878a53b2e87d982879b3f14195602a9837409e",
-      "bytes": 789242,
+      "sha256": "454f361ef36129a2150817dbc0cb61b024af39c52125a5ee89f96d0ad42853d6",
+      "bytes": 789124,
       "width": 1440,
       "height": 1579
     },
     {
       "name": "deal-commercial-draft.png",
-      "sha256": "d3b7956afa66cba2055c064a46ee653cbbeb1b6f3c0d59ebd6092bce3c1bc5cd",
-      "bytes": 731382,
+      "sha256": "9f0fc8b275edf7865df9c8f09e66f1b2e412378589c26f8a749502aac5f65d97",
+      "bytes": 730334,
       "width": 1440,
       "height": 1524
     },
     {
       "name": "deal-request-review.png",
-      "sha256": "2579f5bd2b383730759eb1703ca4495e892e4c417443c2f70484081e0f799861",
-      "bytes": 772005,
+      "sha256": "ff4218aebaaea02bc94fc63e4699ffad94c6191081a401b6af795b1f0fcaf92e",
+      "bytes": 765634,
       "width": 1440,
-      "height": 1711
+      "height": 1691
     },
     {
       "name": "deal-submission-receipt.png",
-      "sha256": "54b9a9078a0c80ee3d693dfabd20e852cec9c385678547fdf59848c5766afb98",
-      "bytes": 800296,
+      "sha256": "af56fc19e5d110484d1933cbba88357efd67fc78d53dbda43e842d691dc73354",
+      "bytes": 795547,
       "width": 1440,
-      "height": 2074
+      "height": 2054
     },
     {
       "name": "approved-deal-and-audit.png",
-      "sha256": "f8f8500a5ebd5e5865087fdf0c7ee42003dc996e96947bd39db88d1e4a955862",
-      "bytes": 757809,
+      "sha256": "077193be5b2e9250050be815f7879ee55f6e5bee8ee9e79a1d5295e929f8f810",
+      "bytes": 758024,
       "width": 1440,
       "height": 1864
     },
     {
       "name": "evidence-gated-return.png",
-      "sha256": "df51190d37590f49acdb57113616e458594378fc1554516de2c344b13fefee48",
-      "bytes": 788439,
+      "sha256": "f6f49fadb1ae330721590bec9610e7241cdaacf2bec52638f014e2d76b284414",
+      "bytes": 788269,
       "width": 1440,
       "height": 1980
     },
     {
       "name": "my-deals-340-light.png",
-      "sha256": "6e3346c553dffe597a8c8fdc4816cea1db85584d967475159272e71cd5299f00",
-      "bytes": 366064,
+      "sha256": "dddcad803dc0ff8f3deb7a1eaad0aa0b3c99a7fadae9bf20e28b55d2718dfaab",
+      "bytes": 365562,
       "width": 340,
       "height": 3709
     },
     {
       "name": "deal-room-340-light.png",
-      "sha256": "7f0f180ebb3ebb75459bd14ede955dd49b1ab17abe4b2f6a699b3aee8e80c22e",
-      "bytes": 248528,
+      "sha256": "6a1d17aa7f09b78feec213f303586d75180d093d77d8acb19851cd6ae48219cb",
+      "bytes": 248293,
       "width": 340,
       "height": 2312
     },
     {
       "name": "commercial-desk-340-light.png",
-      "sha256": "343a30a55fea5c5271bb6b3612f669c816642f3bf36fd03cd9260fae85b041a4",
-      "bytes": 270131,
+      "sha256": "79e39f8477b09a1ab6b1b9896d8dc5e64633eee9b49fae0f25713199bdb2ca25",
+      "bytes": 270278,
       "width": 340,
-      "height": 2689
+      "height": 2710
     },
     {
       "name": "revenue-command-340-light.png",
-      "sha256": "e6dd09bfe7bd09e23ba7e4c99a27fbebb4ec1c829b3eef7559d17e8e5b8bc552",
-      "bytes": 283019,
+      "sha256": "ec5533ddef5b01cae66de89105cf6ef2aa10e741c8d2a26729d8fef2697d20d2",
+      "bytes": 281619,
       "width": 340,
-      "height": 2177
+      "height": 2141
     },
     {
       "name": "my-deals-760-light.png",
-      "sha256": "06ceee3eb510a0fe15141399559624f0508b01281370d57c7c49cf9f2be4294e",
-      "bytes": 519427,
+      "sha256": "e50b2686b151f82c95d5005186e6c266ae05e31110645ee39adb699ae0f56856",
+      "bytes": 518947,
       "width": 760,
       "height": 2880
     },
     {
       "name": "deal-room-760-light.png",
-      "sha256": "f3bcfb14c4e6cf69e3fba1ad5cee489c826f7a987846786e96d55072ed3cf835",
-      "bytes": 330474,
+      "sha256": "62da2a7d7e3c9572bd8dace00f5120a86e881cfb89571955f1f949ccc9ac5802",
+      "bytes": 330168,
       "width": 760,
       "height": 1634
     },
     {
       "name": "commercial-desk-760-light.png",
-      "sha256": "083a7de95604b8ddaa08cb5abb1dff2c0cdf7836b46abaf6354393f110ff11f9",
-      "bytes": 363768,
+      "sha256": "fc5db6127170c3c7de6c1da7c1ccb2a95387f5d31db65fd61241986fb821a0f7",
+      "bytes": 363299,
       "width": 760,
       "height": 2183
     },
     {
       "name": "revenue-command-760-light.png",
-      "sha256": "20b753bb43a9ca3da488e89bea02231f4a83862fe21b0da148b8334e07dbd628",
-      "bytes": 461940,
+      "sha256": "1bb3ed736e172c494f59b30824a2ad6a422849a70c0379f9096d21b19f42c64c",
+      "bytes": 460834,
       "width": 760,
       "height": 1886
     },
     {
       "name": "my-deals-1440-light.png",
-      "sha256": "56f9df6e04768b31a4fba6c293f2ddea8018880cec173ea3c25c4b73c4c8916c",
-      "bytes": 769986,
+      "sha256": "425d1f915a4959dbb2c181781b4b32b827e87c28ac5d387add6d8492b16a04fa",
+      "bytes": 769648,
       "width": 1440,
       "height": 2285
     },
     {
       "name": "deal-room-1440-light.png",
-      "sha256": "f5042c1fd1f9e140dcdecc2509d8bbb6e6e4ae457e43100601f311bf3c5f967c",
-      "bytes": 518904,
+      "sha256": "e02995e55aeaedb52bc26b100f31adb710a7adabae6df136861551f639da4161",
+      "bytes": 518627,
       "width": 1440,
       "height": 1451
     },
     {
       "name": "commercial-desk-1440-light.png",
-      "sha256": "20bf54cca198fe5d2816b131713b8146c041fe2f602e8af0a6b819e68adf81e5",
-      "bytes": 589362,
+      "sha256": "b427af7b557ce8b3473b4c251706e680faaac48c8cceb8140b2225bfe69734a1",
+      "bytes": 588999,
       "width": 1440,
       "height": 1581
     },
     {
       "name": "revenue-command-1440-light.png",
-      "sha256": "251c619e56ee2ceaed6a0cb12ce9a54dd94a54278271a3b6eda1a93352c49a24",
-      "bytes": 654215,
+      "sha256": "a9dffb22300c4ca2afb2a88191c12d6a371cfa1495dac8a4f8cafd41f6565de8",
+      "bytes": 653637,
       "width": 1440,
       "height": 1404
     },
     {
       "name": "my-deals-1920-light.png",
-      "sha256": "cf911c3aed53889052f25c9ffa46220c1e1d3d1d6b23e2cd0ad8987728a6ca89",
-      "bytes": 873182,
+      "sha256": "2441e036e798bb312667970d09b200940d09c696dcd1dd05063898b7b77c17b1",
+      "bytes": 872213,
       "width": 1920,
       "height": 2285
     },
     {
       "name": "deal-room-1920-light.png",
-      "sha256": "ecf06fad7f04409f28a1ae6c1014df7b198aa424073e5f1bccd11597c848e669",
-      "bytes": 572993,
+      "sha256": "cf6f9ffce6a6bf59bb15c1ef012296276410a158484e2aa2ab4a2c5753db54bc",
+      "bytes": 572601,
       "width": 1920,
       "height": 1451
     },
     {
       "name": "commercial-desk-1920-light.png",
-      "sha256": "d6181a3bb4b001a2d84b2f73c0138850d0ae1c78a097bd948ae6bd28863a24c0",
-      "bytes": 635509,
+      "sha256": "0779cb3632b84e1a86599150af4cab47793ba2876f2b6c7e4e2acb873eeb5b4e",
+      "bytes": 635132,
       "width": 1920,
       "height": 1494
     },
     {
       "name": "revenue-command-1920-light.png",
-      "sha256": "ed4c3e677749380088af67725f791f3bc13c9febddddd4b987b36b11395c960f",
-      "bytes": 717458,
+      "sha256": "492e3a7ab5fe642f017e65a94de550968b837765fa13181c809f84ece28ef19f",
+      "bytes": 716494,
       "width": 1920,
       "height": 1404
     },
     {
       "name": "my-deals-340-dark.png",
-      "sha256": "bf7218ee6585ee8bac8ee8a5b706d828df68fd83910615e15b3d249b625d5852",
-      "bytes": 347712,
+      "sha256": "81484fd7e490de6d86e619dc04945a50bfa46f3f281be06a72bf624fb1339405",
+      "bytes": 347304,
       "width": 340,
       "height": 3709
     },
     {
       "name": "deal-room-340-dark.png",
-      "sha256": "a35c298c06faa7c4666b3b04cb14fe43137d351ffa491d41b61d89d9d5d78c6d",
-      "bytes": 241457,
+      "sha256": "d514c40e0ed8b81dd2905f9d04ac0d34b1e7415b5fa87beb8be4790f0553531b",
+      "bytes": 241128,
       "width": 340,
       "height": 2312
     },
     {
       "name": "commercial-desk-340-dark.png",
-      "sha256": "1bac2afd7d7a0c40287ca5eef5ebc36dc8face02998811ca9973f5195f25d7cc",
-      "bytes": 262449,
+      "sha256": "ec8b0ba2e7469bb5d7a01fdf5e02c3cf05d366a267a703929ac18dad68d3259b",
+      "bytes": 262438,
       "width": 340,
-      "height": 2689
+      "height": 2710
     },
     {
       "name": "revenue-command-340-dark.png",
-      "sha256": "3f682c4efd27f77799346e01a379b8663939e1f426f29c6d0534e5c29a215f26",
-      "bytes": 270490,
+      "sha256": "ca2da5a685d54b62bd2d5bcc83f3148595e6f982719436b8a05c7ef3b49b14e3",
+      "bytes": 268758,
       "width": 340,
-      "height": 2177
+      "height": 2141
     },
     {
       "name": "my-deals-760-dark.png",
-      "sha256": "ad147df70cafa699ce7b1cacc260a88c33426d40d5c18959b47c8ad96c9c4731",
-      "bytes": 480140,
+      "sha256": "4e1672f5604cfbafb9c63ada401adb25c538f081e9c018e7d2637ffe1eb027f2",
+      "bytes": 479794,
       "width": 760,
       "height": 2880
     },
     {
       "name": "deal-room-760-dark.png",
-      "sha256": "325213d9892b464c94008357c760c5083a0d8bc2d922838cfc38f68c664e0820",
-      "bytes": 317789,
+      "sha256": "e38a24e9e2ca8fffa1e0188ef55127f088eec5ba2126b28db1bebc26dbb47587",
+      "bytes": 317391,
       "width": 760,
       "height": 1634
     },
     {
       "name": "commercial-desk-760-dark.png",
-      "sha256": "39c3527e93be1cd2633bfbc43b1a48b7afafe8b3f4857e02436ea626e39e6ed8",
-      "bytes": 347973,
+      "sha256": "7f9ee54359743855106a3018a955b5e518cdf9e65a740d9e8864f33d5b7b7894",
+      "bytes": 347554,
       "width": 760,
       "height": 2183
     },
     {
       "name": "revenue-command-760-dark.png",
-      "sha256": "f908329bdc6ceb8942e433c055cfa8cd3861028edf9e6cb88c87415fa36b3058",
-      "bytes": 441303,
+      "sha256": "7717f8ebfa1ee84b7d39166bd1a2c0145772ab432db0a66d82f261fa782a656b",
+      "bytes": 439918,
       "width": 760,
       "height": 1886
     },
     {
       "name": "my-deals-1440-dark.png",
-      "sha256": "d79755f5379f28d0cda81630e9e7d8658f4d310899626ad4283cad6c631232d4",
-      "bytes": 705211,
+      "sha256": "6888f0d2513ff83a34949acd271932680e9ea298bf9c6328c10e71bb45dd7f87",
+      "bytes": 704825,
       "width": 1440,
       "height": 2285
     },
     {
       "name": "deal-room-1440-dark.png",
-      "sha256": "af169387fa5fee18696e9265b4eb2fbc6701f9b49423cc035e3c718c391fe651",
-      "bytes": 494574,
+      "sha256": "271bc8fd8b2d88968e864a811ce88378898fd764c5aa61cec1de05d7ae7ccee0",
+      "bytes": 494055,
       "width": 1440,
       "height": 1451
     },
     {
       "name": "commercial-desk-1440-dark.png",
-      "sha256": "7217dec29665ff65feffc47a4dab1f1c64221d0342af8c27ad7b9c96e1a56055",
-      "bytes": 555483,
+      "sha256": "7ea92f2a468e6ae7a0256262711c3b38817092a7ccec5c38c9f9018764218da9",
+      "bytes": 555455,
       "width": 1440,
       "height": 1581
     },
     {
       "name": "revenue-command-1440-dark.png",
-      "sha256": "e63481122e915d1040cbd8ee46cc7203acad933db540c75988903fbfa16a7370",
-      "bytes": 622917,
+      "sha256": "0cce6d8f9fe2b001096c7a935721361f1d4bdeaee9573c46c16ef3509beefda6",
+      "bytes": 622122,
       "width": 1440,
       "height": 1404
     },
     {
       "name": "my-deals-1920-dark.png",
-      "sha256": "7f1baf60f11c5ce3011c474d4017a4ea9b787f8ce3ca95db02456c9dddcb62ac",
-      "bytes": 794788,
+      "sha256": "09bcbf75360a8ebfeba126684db5a4c0229cceaf771abe7492ffd4976ca8bc5f",
+      "bytes": 794271,
       "width": 1920,
       "height": 2285
     },
     {
       "name": "deal-room-1920-dark.png",
-      "sha256": "3792a023e1742ee19db7fa6a654b06c6c2a211db81f8915ecbd0edca001fca4d",
-      "bytes": 542200,
+      "sha256": "c1aa211367cfc2a945c8ed5b2b99f46f5a83c826aa2d4bfd79aafb0e73fadb6c",
+      "bytes": 541913,
       "width": 1920,
       "height": 1451
     },
     {
       "name": "commercial-desk-1920-dark.png",
-      "sha256": "cbe07dc7570a547c3d0b1c309550fb88cf53d0422706872b56441d757808a1ae",
-      "bytes": 596862,
+      "sha256": "62225dcb6881bc0651457c82c73bd6edb40792e4a3d022917ca44ed436714d02",
+      "bytes": 596368,
       "width": 1920,
       "height": 1494
     },
     {
       "name": "revenue-command-1920-dark.png",
-      "sha256": "87f00940698d2f0565dcd82cc6a5378489b96c5b3db50d15e8687b743006e747",
-      "bytes": 676903,
+      "sha256": "8cbdf71ab84c37048f0aa36d72138ae4f2f0200d7239beb93e093d3e74ca6372",
+      "bytes": 675894,
       "width": 1920,
       "height": 1404
     },
     {
       "name": "revenue-command-200-percent-page-scale.png",
-      "sha256": "80b7e91408585b9516baf1e382cc45fca5489c0295cc7efdeaff7d9d11c9de91",
-      "bytes": 425577,
+      "sha256": "5a287da08bc2a45858f23829aa63f3c8d26193bec7cf4901d465b0492cd195b8",
+      "bytes": 424168,
       "width": 720,
       "height": 1904
     }

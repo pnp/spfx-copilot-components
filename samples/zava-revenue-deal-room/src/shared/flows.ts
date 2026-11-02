@@ -26,34 +26,35 @@ export interface IRevenueFlow {
   readonly region: string;
   readonly semantics: string;
   readonly allocationAssumptions: Readonly<Record<string, string | number>>;
-  readonly exampleBoundary: string;
+  readonly workflowBoundary: string;
+  readonly approvalRequestId?: string;
   readonly errors: readonly string[];
 }
 const node = (id: string, label: string, shortLabel: string, column: number, color: string, meaning: string): IRevenueFlowNode =>
   ({ id, label, shortLabel, column, color, meaning });
 const pipelineNodes = [
-  node('na', 'North America', 'N. America', 0, '#16863c', 'Fictional regional opportunity value; not a CRM total.'),
-  node('emea', 'EMEA', 'EMEA', 0, '#008c95', 'Fictional regional opportunity value; not a CRM total.'),
-  node('apac', 'Asia Pacific', 'Asia Pacific', 0, '#4178d4', 'Fictional regional opportunity value; not a CRM total.'),
-  node('latam', 'Latin America', 'Lat. America', 0, '#8854b8', 'Fictional regional opportunity value; not a CRM total.'),
+  node('na', 'North America', 'N. America', 0, '#16863c', 'Regional opportunity allocation in the selected planning scope.'),
+  node('emea', 'EMEA', 'EMEA', 0, '#008c95', 'Regional opportunity allocation in the selected planning scope.'),
+  node('apac', 'Asia Pacific', 'Asia Pacific', 0, '#4178d4', 'Regional opportunity allocation in the selected planning scope.'),
+  node('latam', 'Latin America', 'Lat. America', 0, '#8854b8', 'Regional opportunity allocation in the selected planning scope.'),
   node('ready', 'Buyer proof ready', 'Proof ready', 1, '#16863c', 'An assumed planning bucket, not verified buyer evidence or forecast commit.'),
-  node('gap', 'Buyer access / proof gap', 'Proof gap', 1, '#d29b00', 'An illustrative allocation to opportunities needing buyer access or proof.'),
+  node('gap', 'Buyer access / proof gap', 'Proof gap', 1, '#d29b00', 'Value allocated to opportunities needing buyer access or proof.'),
   node('stale', 'Evidence needs refresh', 'Stale proof', 1, '#c35f35', 'An assumed refresh requirement; no actual evidence record is reclassified.'),
   node('buyer', 'Create economic-buyer access', 'Buyer access', 2, '#8854b8', 'A proposed intervention, not an introduction or customer commitment.'),
   node('refresh', 'Refresh customer proof', 'Refresh proof', 2, '#008c95', 'A proposed validation step, not proof that the customer agreed.'),
   node('terms', 'Explore commercial terms', 'Review terms', 2, '#16863c', 'A scenario discussion, not pricing authority or approved terms.')
 ];
 const approvalNodes = [
-  node('standard', 'Standard-terms intake', 'Standard', 0, '#16863c', 'A fictional submitted batch following the standard review route.'),
-  node('commercial', 'Commercial-exception intake', 'Commercial', 0, '#008c95', 'A fictional batch requiring a commercial stage after Sales manager review.'),
-  node('executive', 'Executive-exception intake', 'Executive', 0, '#8854b8', 'A fictional batch requiring executive review after preceding independent stages.'),
+  node('standard', 'Standard-terms intake', 'Standard', 0, '#16863c', 'Submitted value allocated to the standard review route.'),
+  node('commercial', 'Commercial-exception intake', 'Commercial', 0, '#008c95', 'Intake requiring a commercial stage after Sales manager review.'),
+  node('executive', 'Executive-exception intake', 'Executive', 0, '#8854b8', 'Intake requiring executive review after preceding independent stages.'),
   node('manager', 'Current stage: Sales manager', 'Sales manager', 1, '#4178d4', 'Current-stage allocation. Requests at later stages are assumed to have passed earlier independent reviews.'),
-  node('director', 'Current stage: Commercial director', 'Commercial dir.', 1, '#008c95', 'An illustrative current review stage, not simultaneous or skipped approval authority.'),
-  node('committee', 'Current stage: Executive committee', 'Executive', 1, '#8854b8', 'An illustrative current review stage after the required preceding reviews.'),
+  node('director', 'Current stage: Commercial director', 'Commercial dir.', 1, '#008c95', 'Current commercial review after the required independent preceding stage.'),
+  node('committee', 'Current stage: Executive committee', 'Executive', 1, '#8854b8', 'Current executive review after the required preceding reviews.'),
   node('pending', 'Awaiting a stage decision', 'Pending', 2, '#d29b00', 'No decision is implied; an assigned independent reviewer must still act.'),
-  node('passed', 'Stage approved; further stages may remain', 'Stage passed', 2, '#16863c', 'A hypothetical stage approval, not overall final deal approval.'),
-  node('returned', 'Returned for evidence or corrections', 'Returned', 2, '#c35f35', 'A hypothetical request for changes, not an approved revised submission.'),
-  node('rejected', 'Rejected at this stage', 'Rejected', 2, '#bd4260', 'A fictional stage outcome, not an action on any stored request.')
+  node('passed', 'Stage approved; further stages may remain', 'Stage passed', 2, '#16863c', 'Stage completion may still require further independent review before final approval.'),
+  node('returned', 'Returned for evidence or corrections', 'Returned', 2, '#c35f35', 'Changes are required; a revised submission still needs independent review.'),
+  node('rejected', 'Rejected at this stage', 'Rejected', 2, '#bd4260', 'A stage-outcome allocation; request decisions retain their own audit trail.')
 ];
 const regions: Readonly<Record<string, string>> = { 'North America': 'na', EMEA: 'emea', 'Asia Pacific': 'apac', 'Latin America': 'latam' };
 const pipelineIntake: readonly (readonly [string, string, number])[] = [
@@ -77,14 +78,15 @@ export function revenueFlow(kind: RevenueFlowKind, period: string, region: strin
     ...(kind === 'approval' && region !== 'all' ? ['Approval planning batches do not have a regional attribution.'] : [])
   ];
   const semantics = kind === 'pipeline'
-    ? 'Fictional USD planning allocations, not catalog/CRM totals, verified buyer proof, seller probability or forecast commit. Ribbons conserve value; they do not predict conversion.'
-    : 'Fictional USD batch/current-stage allocations, not the stored demo approval queue. Stage passed is not final approval; preceding independent reviews are assumed, never bypassed. No request is submitted or decided.';
+    ? 'Offline USD planning allocations, distinct from catalog totals, verified buyer proof, seller probability and forecast commit. Ribbons conserve value; they do not predict conversion.'
+    : 'Offline USD intake/current-stage allocations, separate from request-level records. Stage completion is not final approval; required independent reviews are never bypassed. Viewing the flow submits or decides no request.';
   const base = {
     kind, title: getIntent(kind === 'pipeline' ? 'ExplorePipelineFlow' : 'ExploreApprovalFlow').title,
     columns: kind === 'pipeline' ? ['Region', 'Buyer readiness', 'Next action'] : ['Intake route', 'Current reviewer', 'Stage outcome'],
     period, region, semantics, errors,
-    allocationAssumptions: { nextScenarioMultiplier: 1.2, bothScenariosMultiplier: 2.2, allocationRule: 'Fictional planning weights; conserved integer USD, not observed conversion.' },
-    exampleBoundary: kind === 'approval' ? 'ZM-1001 is a separate stored demonstration request. None of the fictional Sankey volume is attributed to it.' : 'This graph is separate from catalog pipeline metrics; opening attention keeps the planning filters but does not substitute a deal.'
+    allocationAssumptions: { nextScenarioMultiplier: 1.2, bothScenariosMultiplier: 2.2, allocationRule: 'Planning weights conserve integer USD; they are not observed conversion.' },
+    workflowBoundary: kind === 'approval' ? 'Request review uses the selected request values, evidence and decision trail. Aggregate flow values are not attributed to an individual request.' : 'This graph is separate from catalog pipeline metrics; opening attention keeps the planning filters but does not substitute a deal.',
+    approvalRequestId: kind === 'approval' ? 'ZM-1001' : undefined
   };
   if (errors.length) return { ...base, nodes: [], links: [], total: 0 };
   const factor = period === 'current' ? 1 : period === 'next' ? 1.2 : 2.2;

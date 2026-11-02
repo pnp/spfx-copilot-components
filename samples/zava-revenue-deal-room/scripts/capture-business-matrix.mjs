@@ -262,16 +262,14 @@ async function captureCountryStages() {
         await capturePages(page, key, `${variant}-${metric === 'Opportunity' ? 'opportunity' : 'spend'}-${country}`, 'Next');
       }
     }
-    const visible = await page.evaluate(() => window.revenueHarness.context.countryMap.visibleOpportunityIds);
     await page.getByRole('button', { name: 'Opportunity', exact: true }).click();
+    await page.waitForFunction(() => window.revenueHarness.context.countryMap.visibleOpportunityIds.length > 0);
     const selectedIds = await page.evaluate(() => window.revenueHarness.context.countryMap.visibleOpportunityIds);
-    if (selectedIds.length) {
-      await page.getByRole('button', { name: `Inspect ${selectedIds[0]}`, exact: true }).click();
-      await page.waitForFunction(id => window.revenueHarness.context.selection === id, selectedIds[0]);
-      await capture(page, key, `${variant}-country-opportunity-detail`);
-      await page.getByRole('button', { name: 'Back to overview', exact: true }).click();
-    }
-    assert(Array.isArray(visible));
+    assert(Array.isArray(selectedIds) && selectedIds.length, 'The selected country must expose its exact opportunity records');
+    await page.getByRole('button', { name: `Inspect ${selectedIds[0]}`, exact: true }).click();
+    await page.waitForFunction(id => window.revenueHarness.context.selection === id, selectedIds[0]);
+    await capture(page, key, `${variant}-country-opportunity-detail`);
+    await page.getByRole('button', { name: 'Back to overview', exact: true }).click();
     await page.getByLabel('Country', { exact: true }).selectOption('');
     await page.getByRole('button', { name: 'Recorded spend', exact: true }).click();
     await page.getByRole('button', { name: 'Change scope', exact: true }).click();
@@ -397,13 +395,13 @@ try {
     await capture(workflow, 'SubmitDealRequest', `${variant}-delivery-investment`);
     await center().getByRole('button', { name: 'Continue', exact: true }).click();
     await capture(workflow, 'SubmitDealRequest', `${variant}-evidence`);
-    await center().getByLabel('Security review evidence is ready (sample attestation)', { exact: true }).check();
-    await center().getByLabel('Economic sponsor evidence is ready (sample attestation)', { exact: true }).check();
+    await center().getByLabel('Security review evidence is ready', { exact: true }).check();
+    await center().getByLabel('Economic sponsor evidence is ready', { exact: true }).check();
     await center().getByRole('button', { name: 'Review deal request', exact: true }).click();
-    const submit = center().getByRole('button', { name: 'Submit demo deal', exact: true });
+    const submit = center().getByRole('button', { name: 'Submit deal request', exact: true });
     assert(await submit.isDisabled(), 'Inline submission must require explicit confirmation');
     await capturePages(workflow, 'SubmitDealRequest', `${variant}-exact-review`, 'Next values');
-    await center().getByLabel('I reviewed this request and confirm a demo-only submission', { exact: true }).check();
+    await center().getByLabel('I reviewed this request and confirm submission', { exact: true }).check();
     await submit.click();
     await workflow.waitForFunction(() => window.revenueHarness.context.inlineDealWorkflow.stage === 'receipt');
     await capture(workflow, 'SubmitDealRequest', `${variant}-submission-receipt`);
@@ -420,12 +418,12 @@ try {
       await capturePages(workflow, 'ReviewDealApproval', `${variant}-${facet.toLowerCase()}`, facet === 'Requests' ? 'Next requests' : 'Next values');
     }
     await center().getByRole('button', { name: 'Decision', exact: true }).click();
-    await center().getByLabel('Simulated reviewer role', { exact: true }).selectOption('Sales manager');
+    await center().getByLabel('Reviewer role', { exact: true }).selectOption('Sales manager');
     await center().getByLabel('Decision rationale (15-1,000 characters)').fill('Sponsor, security evidence and standard commercial terms independently reviewed.');
-    const approve = center().getByRole('button', { name: 'Approve demo stage', exact: true });
+    const approve = center().getByRole('button', { name: 'Approve review stage', exact: true });
     assert(await approve.isDisabled(), 'Inline approval must require explicit confirmation');
     await capture(workflow, 'ReviewDealApproval', `${variant}-decision`);
-    await center().getByLabel('I reviewed the evidence and confirm this simulated decision', { exact: true }).check();
+    await center().getByLabel('I reviewed the evidence and confirm this decision', { exact: true }).check();
     await approve.click();
     await capturePages(workflow, 'ReviewDealApproval', `${variant}-decision-trail`, 'Next decisions');
     await workflow.locator('[data-copilot-action="primary"]').click();
@@ -444,8 +442,8 @@ try {
     await maximumCenter.getByRole('button', { name: 'Continue', exact: true }).click();
     await maximumCenter.getByRole('button', { name: 'Delivery and investment', exact: true }).click();
     await maximumCenter.getByRole('button', { name: 'Continue', exact: true }).click();
-    await maximumCenter.getByLabel('Security review evidence is ready (sample attestation)', { exact: true }).check();
-    await maximumCenter.getByLabel('Economic sponsor evidence is ready (sample attestation)', { exact: true }).check();
+    await maximumCenter.getByLabel('Security review evidence is ready', { exact: true }).check();
+    await maximumCenter.getByLabel('Economic sponsor evidence is ready', { exact: true }).check();
     await maximumCenter.getByRole('button', { name: 'Review deal request', exact: true }).click();
     await capturePages(maximumInputs, 'SubmitDealRequest', `${variant}-maximum-input-review`, 'Next values');
     await maximumInputs.close();

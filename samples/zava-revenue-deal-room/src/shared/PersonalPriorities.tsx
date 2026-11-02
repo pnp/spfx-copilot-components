@@ -48,13 +48,13 @@ export default function PersonalPriorities(props: {
     stage: props.compact ? stage : 'Full brief', page: props.compact && (stage !== 'Next actions' || selected) ? 1 : currentPage + 1,
     pageCount: props.compact && (stage !== 'Next actions' || selected) ? 1 : pages, catalogPage: currentPage + 1, selectedId,
     visibleFields: props.compact ? stage === 'Next actions' ? selected ? ['title', 'detail', 'due', 'source', 'target'] : ['title', 'due', 'rank', 'target'] : ['metrics', stage === 'Pipeline' ? 'opportunities' : stage === 'Outlook' ? 'outlook' : 'closeStatus'] : ['metrics', 'priorities', 'opportunities', 'outlook', 'closeStatus'],
-    chart: props.compact ? stage === 'Next actions' ? selected ? null : { kind: 'owned-action-cockpit', records: shown.map(item => ({ id: item.id, due: item.due, source: item.source, target: item.target, opportunityId: item.opportunityId, requestId: item.requestId })), matchingPriorities: brief.priorities.length, semantics: 'Ordered evidence/dependency tasks with real demo due cues, not numerical priority or risk scores.' } : stage === 'Pipeline' ? { kind: 'owned-book-pipeline', opportunities: brief.opportunities } : stage === 'Outlook' ? { kind: 'seller-outlook', open: brief.metrics.open, weighted: brief.metrics.weighted } : { kind: 'close-status', records: brief.closeStatus } : undefined,
-    semantics: 'Illustrative assignments for Megan Bowen, not the real work of the signed-in user. Pipeline values are catalog math and seller judgment. Demo requests are a separate all-submission-period overlay; approval never changes CRM pipeline.'
+    chart: props.compact ? stage === 'Next actions' ? selected ? null : { kind: 'owned-action-cockpit', records: shown.map(item => ({ id: item.id, due: item.due, source: item.source, target: item.target, opportunityId: item.opportunityId, requestId: item.requestId })), matchingPriorities: brief.priorities.length, semantics: 'Ordered evidence/dependency tasks with recorded due cues, not numerical priority or risk scores.' } : stage === 'Pipeline' ? { kind: 'owned-book-pipeline', opportunities: brief.opportunities } : stage === 'Outlook' ? { kind: 'seller-outlook', open: brief.metrics.open, weighted: brief.metrics.weighted } : { kind: 'close-status', records: brief.closeStatus } : undefined,
+    semantics: 'Offline owned-book records for Megan Bowen, not a query of the signed-in user. Pipeline values are catalog math and seller judgment. Request decisions are a separate all-submission-period ledger; approval never changes CRM pipeline.'
   });
   React.useEffect(() => { props.onStateChange(JSON.parse(serialized)); }, [serialized, props.onStateChange]);
   if (props.compact) return <section className={styles.root} aria-label="Personal revenue priorities" data-layout="personal-revenue-priorities">
     <div className={styles.actions} aria-label="Revenue brief stages">{['Next actions', 'Pipeline', 'Outlook', 'Close plan'].map(label => <Button key={label} size="small" aria-pressed={stage === label} onClick={() => setStage(label)}>{label}</Button>)}</div>
-    <p className={styles.muted}>Megan Bowen&apos;s illustrative book; not your live CRM assignments.</p>
+    <p className={styles.muted}>Megan Bowen&apos;s owned book / current work and next actions.</p>
     {requests.storageWarning && <p role="alert">{requests.storageWarning}</p>}
     {stage === 'Next actions' ? <>
       <h2 className={styles.title}>Focus your next move.</h2>
@@ -69,7 +69,7 @@ export default function PersonalPriorities(props: {
         </article>)}</div>
         <div className={styles.actions}><Button size="small" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}>Previous priorities</Button><span>Page {currentPage + 1} / {pages}</span><Button size="small" disabled={currentPage + 1 >= pages} onClick={() => setPage(currentPage + 1)}>Next priorities</Button></div>
       </>}
-      {!visible.length && <p role="status">No sample priorities match these filters. No task was substituted.</p>}
+      {!visible.length && <p role="status">No priorities match these filters. No task was substituted.</p>}
     </> : stage === 'Pipeline' ? <>
       <div className={styles.kpis}><div><span>Open pipeline</span><strong className={styles.value}>{compact(brief.metrics.open)}</strong></div><div><span>Seller-weighted / not commit</span><strong className={styles.value}>{compact(brief.metrics.weighted)}</strong></div></div>
       <D3PipelineQuality compact opportunities={brief.opportunities} />
@@ -85,9 +85,9 @@ export default function PersonalPriorities(props: {
   </section>;
   return <section className={styles.root} aria-label="Personal revenue priorities" data-layout="personal-revenue-priorities">
     <div className={styles.hero}>
-      <span className={styles.eyebrow}>YOUR REVENUE BRIEF / DEMO BOOK</span>
+      <span className={styles.eyebrow}>YOUR REVENUE BRIEF</span>
       <h2 className={styles.heading}>Focus your next move.</h2>
-      <p className={styles.muted}>{`Showing ${brief.demoOwner}'s illustrative owned book. This sample does not query your real assignments or CRM.`}</p>
+      <p className={styles.muted}>{`Showing ${brief.bookOwner}'s owned book. Status and actions follow the selected quarter and region.`}</p>
       <Badge appearance="tint">{brief.opportunities.length} opportunities in view</Badge>
     </div>
     {requests.storageWarning && <p role="alert">{requests.storageWarning}</p>}
@@ -95,18 +95,18 @@ export default function PersonalPriorities(props: {
       <div className={styles.kpi}><span>Open pipeline</span><strong className={styles.value}>{compact(brief.metrics.open)}</strong><span className={styles.muted}>{currency(brief.metrics.open)} catalog value</span></div>
       <div className={styles.kpi}><span>Seller-weighted outlook</span><strong className={styles.value}>{compact(brief.metrics.weighted)}</strong><span className={styles.muted}>{currency(brief.metrics.weighted)} / not commit</span></div>
       <div className={styles.kpi}><span>Catalog commit-stage value</span><strong className={styles.value}>{compact(brief.metrics.commitStage)}</strong><span className={styles.muted}>Still requires independent forecast review</span></div>
-      <div className={styles.kpi}><span>Demo requests awaiting review</span><strong className={styles.value}>{brief.metrics.pendingRequests}</strong><span className={styles.muted}>{brief.metrics.approvedRequests} approved / all submission periods</span></div>
+      <div className={styles.kpi}><span>Requests awaiting review</span><strong className={styles.value}>{brief.metrics.pendingRequests}</strong><span className={styles.muted}>{brief.metrics.approvedRequests} approved / all submission periods</span></div>
     </div>
     <section aria-label="Top revenue actions">
       <h2 className={styles.heading}>Your top priorities</h2>
-      <p className={styles.muted}>Top {brief.priorities.length} of {brief.priorityCount} sample actions. Buyer-proof gaps, blocked dependencies, request status and catalog-stage exposure drive these editorial rules, not an AI risk score.</p>
+      <p className={styles.muted}>Top {brief.priorities.length} of {brief.priorityCount} next actions. Buyer-proof gaps, blocked dependencies, request status and catalog-stage exposure drive these editorial rules, not an AI risk score.</p>
       <div className={styles.queue}>{brief.priorities.map((priority, index) => <article key={priority.id} className={styles.priority}>
         <Badge appearance="tint" color={priority.rank >= 90 ? 'warning' : 'informative'}>{index + 1} / {priority.kind}</Badge>
         <h3 className={styles.title}>{priority.title}</h3>
         <p>{priority.detail}</p><p className={styles.muted}>{priority.due} / {priority.opportunityId || priority.requestId}</p>
         <div className={styles.actions}><Button appearance="primary" icon={<Chat20Regular />} disabled={props.sending} onClick={() => props.onAction(priority)}>{props.sending && props.pendingAction === `priority-${priority.id}` ? 'Sending...' : priority.actionLabel}</Button></div>
       </article>)}</div>
-      {!brief.priorities.length && <p role="status">No sample priorities match these filters. Change the quarter or region; no task was substituted.</p>}
+      {!brief.priorities.length && <p role="status">No priorities match these filters. Change the quarter or region; no task was substituted.</p>}
     </section>
     <D3PipelineQuality opportunities={brief.opportunities} />
     {brief.opportunities.length > 0 ? <D3ForecastBridge movements={brief.outlook} title="Open pipeline to seller-weighted outlook" description="Subtract each stage's seller-unweighted value from open pipeline. This is current catalog arithmetic, not historical movement, predicted loss or a committed forecast." /> : <p role="status">No opportunities in this book scope; an outlook bridge was not fabricated.</p>}

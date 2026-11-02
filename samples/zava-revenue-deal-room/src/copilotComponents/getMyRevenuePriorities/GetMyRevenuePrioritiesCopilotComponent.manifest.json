@@ -16,7 +16,7 @@
     {
       "name": "GetMyRevenuePriorities",
       "description": {
-        "default": "Use for an illustrative owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. Do not imply live personal assignments, approve requests or contact customers."
+        "default": "Use for an owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. Do not imply live personal assignments, approve requests or contact customers."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/getMyRevenuePriorities/GetMyRevenuePrioritiesCopilotComponentProperties.js:default;"

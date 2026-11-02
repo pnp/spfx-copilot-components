@@ -71,7 +71,7 @@ describe('country experience pointer, keyboard and truthful context', () => {
     expect(inset?.querySelector('title')?.textContent).toContain('ranked summary, not map locations');
     expect(inset?.querySelectorAll('path')).toHaveLength(0);
     await click('Recorded spend');
-    expect(container.querySelector('svg g[aria-label="Top countries"] title')?.textContent).toContain('Recorded DEMO spend');
+    expect(container.querySelector('svg g[aria-label="Top countries"] title')?.textContent).toContain('Recorded spend');
   });
 
   it('selects real country geometry with the keyboard, replaces the overview and inspects only visible original IDs', async () => {
@@ -160,7 +160,7 @@ describe('country experience pointer, keyboard and truthful context', () => {
     expect(latest().visibleRecordOriginalCount).toBe(0);
     expect(latest().pageCount).toBe(1);
     await click('All countries');
-    expect(container.textContent).toContain('No recorded DEMO spend');
+    expect(container.textContent).toContain('No recorded spend');
     expect(latest().stage).toBe('empty-spend');
     expect(latest().selectedCountryId).toBeNull();
     expect(container.querySelectorAll('svg')).toHaveLength(0);

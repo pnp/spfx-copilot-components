@@ -22,7 +22,7 @@ export function AttentionValueMap(props: { readonly deals: readonly IAttentionDe
   const value = (item: IAttentionDeal): number => props.measure === 'value' ? item.opportunity.value : item.exposure;
   const y = scaleLinear().domain([0, Math.max(1, ...props.deals.map(value)) * 1.08]).range([height - 34, 20]);
   return <div ref={container}><svg style={{ width: '100%', height: '180px', display: 'block' }} viewBox={`0 0 ${width} ${height}`} role="group" aria-label="Deal value versus observed attention flags" data-business-kind="attention-value-proof-map">
-    <title>Open demo deal value versus observable attention flags, not win probability or predicted loss</title>
+    <title>Open deal value versus observable attention flags, not win probability or predicted loss</title>
     <rect x={x(2)} y="16" width={width - 36 - x(2)} height={height - 50} fill={tokens.colorPaletteMarigoldBackground1}/>
     {[1, 2, 3, 4].map(value => <g key={value}><line x1={x(value)} x2={x(value)} y1="16" y2={height - 34} stroke={tokens.colorNeutralStroke1} strokeDasharray="3 4"/><text x={x(value)} y={height - 14} textAnchor="middle" fill={tokens.colorNeutralForeground2} fontSize="11">{value} flags</text></g>)}
     <text x="3" y="12" fill={tokens.colorNeutralForeground2} fontSize="11">{props.measure === 'value' ? 'Open USD' : 'Seller-unweighted USD / not loss'}</text>

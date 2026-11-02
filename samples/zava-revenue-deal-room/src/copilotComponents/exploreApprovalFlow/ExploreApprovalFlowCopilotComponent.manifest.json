@@ -16,7 +16,7 @@
     {
       "name": "ExploreApprovalFlow",
       "description": {
-        "default": "Use for an imaginary approval Sankey: intake batches, current reviewer stages and stage outcomes. Do not imply stored request status, skip independent reviews or equate stage and final approval."
+        "default": "Use for approval value flows across intake routes, current reviewers and stage outcomes. Do not attribute aggregate values to individual requests, skip independent reviews or equate stage and final approval."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreApprovalFlow/ExploreApprovalFlowCopilotComponentProperties.js:default;"

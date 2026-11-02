@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-revenue-deal-room-client-side-solution",
     "id": "495d56a1-a3bf-4540-9dbe-f57085cd0289",
-    "version": "1.0.0.7",
+    "version": "1.0.0.8",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "developer": {
@@ -29,7 +29,7 @@
         "title": "ZavaMesh Revenue Deal Room",
         "description": "Activates the ZavaMesh Revenue Deal Room Copilot Components and declarative agent.",
         "id": "17551dd4-91f6-49f5-8a19-180ec8b0ab84",
-        "version": "1.0.0.7"
+        "version": "1.0.0.8"
       }
     ]
   },

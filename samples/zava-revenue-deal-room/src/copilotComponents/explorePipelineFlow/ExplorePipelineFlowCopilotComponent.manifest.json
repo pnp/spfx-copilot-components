@@ -16,7 +16,7 @@
     {
       "name": "ExplorePipelineFlow",
       "description": {
-        "default": "Use for an imaginary pipeline Sankey: regional value, buyer readiness and next actions with node/ribbon details. Do not treat fictional allocations as CRM totals or predicted conversion."
+        "default": "Use for pipeline value flows across regions, buyer readiness and next actions with inspectable stage allocations. Do not treat planning allocations as CRM totals or predicted conversion."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/explorePipelineFlow/ExplorePipelineFlowCopilotComponentProperties.js:default;"

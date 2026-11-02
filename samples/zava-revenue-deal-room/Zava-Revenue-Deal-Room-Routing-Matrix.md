@@ -18,7 +18,7 @@ Generated from configured component manifests and the canonical starter configur
 | `ReviewDealException` | Use for a governed commercial exception decision. | Do not use for scenario modeling. |
 | `InspectForecastCommit` | Use for manager forecast-category decisions. | Do not use for seller qualification. |
 | `ExplorePipelineQuality` | Use for aggregate pipeline quality and intervention. | Do not use for one deal. |
-| `DiscoverAccountOpportunity` | Use for account or country opportunity discovery and separate demo market-spend analysis. | Do not create a lead automatically or claim headquarters value is rollout revenue. |
+| `DiscoverAccountOpportunity` | Use for account or country opportunity discovery and recorded market-spend analysis. | Do not create a lead automatically or claim headquarters value is rollout revenue. |
 | `ResearchCompetitivePosition` | Use for evidence-grounded competitive strategy. | Do not invent competitor claims. |
 | `CoachDealStrategy` | Use for explainable deal coaching plays. | Do not make a forecast decision. |
 | `CreateExecutiveEngagementPlan` | Use for reviewed executive engagement planning. | Do not contact customers. |
@@ -28,11 +28,11 @@ Generated from configured component manifests and the canonical starter configur
 | `PlanCustomerSuccessHandoff` | Use for reviewed sold-outcome handoff. | Do not close the opportunity. |
 | `ExploreAgentCapabilities` | Use for discovering revenue scenarios. | Do not use for a specific request. |
 | `SubmitDealRequest` | Use for guided inline deal intake, economics, evidence and explicit session submission. | Do not write to CRM or grant approval. |
-| `ReviewDealApproval` | Use for the inline demo approval inbox, exact request detail, independent staged decisions and audit receipts. | Do not approve without authority and explicit confirmation. |
+| `ReviewDealApproval` | Use for the approval inbox, exact request detail, independent staged decisions and audit receipts. | Do not approve without authority and explicit confirmation. |
 | `ExploreDealAttention` | Use for a filtered chart-based catalog of important deals needing attention and inline detail drill-down. | Do not treat seller-unweighted value as a predicted loss or make approvals. |
-| `GetMyRevenuePriorities` | Use for an illustrative owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. | Do not imply live personal assignments, approve requests or contact customers. |
-| `ExplorePipelineFlow` | Use for an imaginary pipeline Sankey: regional value, buyer readiness and next actions with node/ribbon details. | Do not treat fictional allocations as CRM totals or predicted conversion. |
-| `ExploreApprovalFlow` | Use for an imaginary approval Sankey: intake batches, current reviewer stages and stage outcomes. | Do not imply stored request status, skip independent reviews or equate stage and final approval. |
+| `GetMyRevenuePriorities` | Use for an owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. | Do not imply live personal assignments, approve requests or contact customers. |
+| `ExplorePipelineFlow` | Use for pipeline value flows across regions, buyer readiness and next actions with inspectable stage allocations. | Do not treat planning allocations as CRM totals or predicted conversion. |
+| `ExploreApprovalFlow` | Use for approval value flows across intake routes, current reviewers and stage outcomes. | Do not attribute aggregate values to individual requests, skip independent reviews or equate stage and final approval. |
 
 ## Conversation starters
 

@@ -39,8 +39,8 @@ const expected: Readonly<Record<RevenueIntentKey, string>> = {
   ReviewProposalReadiness: 'Blocking gap and correction', PlanCustomerSuccessHandoff: 'First success checkpoint +30d',
   ExploreAgentCapabilities: `${INTENTS.length - 1} matching scenarios`, SubmitDealRequest: '01  Deal story',
   ReviewDealApproval: 'Commercial approval center', ExploreDealAttention: 'Important deals / attention catalog',
-  GetMyRevenuePriorities: 'Focus your next move.', ExplorePipelineFlow: '29.4M fictional value',
-  ExploreApprovalFlow: '30.0M fictional value'
+  GetMyRevenuePriorities: 'Focus your next move.', ExplorePipelineFlow: '29.4M in scope',
+  ExploreApprovalFlow: '30.0M in scope'
 };
 describe('all-intent business UX with persistent React 18 roots', () => {
   let container: HTMLDivElement;
@@ -107,7 +107,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     expect(container.querySelector('h1')?.textContent).toBe(title);
     expect(contextRecord(latest().revenueFlow).title).toBe(title);
     expect(container.querySelector('h1')?.textContent).not.toContain('Sankey');
-    expect(container.textContent).toContain('Illustrative value flow');
+    expect(container.textContent).toContain('Value flow analysis');
   });
   test('qualification and competitive research expose different chart structures, units and source-backed data', async () => {
     await render('QualifyOpportunity', {}, 'inline');
@@ -132,7 +132,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await render('ResearchCompetitivePosition', { opportunityId: 'ZDR-2043' }, 'inline');
     expect(contextRecord(contextRecord(latest().inlineStage).chart).records).toEqual(expect.arrayContaining([expect.objectContaining({ id: 'CMP-pilot', weight: 15 })]));
   });
-  test('pipeline Sankey selection publishes exact fictional ribbon details and an aggregate, not substituted-deal handoff', async () => {
+  test('pipeline value-flow selection publishes exact connection details and an aggregate, not substituted-deal handoff', async () => {
     await render('ExplorePipelineFlow', {}, 'inline');
     expect(latest().revenueFlow).toMatchObject({ kind: 'pipeline', total: 29400000, stage: 'Sankey' });
     expect(latest().resolvedScope).toEqual({ period: 'current', region: 'all' });
@@ -140,10 +140,10 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     expect(ribbon).not.toBeNull();
     await act(async () => ribbon?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })));
     expect(latest().selection).toBe('pipeline:na:ready');
-    expect(latest().selectedRecord).toMatchObject({ value: 4800000, source: 'Deterministic imaginary planning scenario' });
+    expect(latest().selectedRecord).toMatchObject({ value: 4800000, source: 'Regional planning and review allocations' });
     expect(latest().inlineStage).toMatchObject({ label: 'Details', chart: null, page: 1 });
     expect(latest().visibleRecords).toHaveLength(1);
-    expect(container.textContent).toContain('fictional value');
+    expect(container.textContent).toContain('of scoped value');
     await click('Continue with Copilot: Deals needing attention · pipeline:na:ready');
     expect(followUp.mock.calls[0][1].discussion).toMatchObject({ handoff: { intent: 'ExploreDealAttention', properties: { period: 'current', region: 'all' } } });
     expect(contextRecord(contextRecord(followUp.mock.calls[0][1].discussion).handoff).properties).not.toHaveProperty('selectedId');
@@ -155,7 +155,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await set('Planning region', 'EMEA');
     expect(latest().revenueFlow).toMatchObject({ total: 8200000, region: 'EMEA' });
   });
-  test('approval Sankey inspects a paginated stage without changing requests and explicitly opens a separate example', async () => {
+  test('approval value flow inspects a paginated stage and opens the exact request without changing its values or decisions', async () => {
     await render('ExploreApprovalFlow', {}, 'inline');
     const before = getDealStore().getSnapshot().requests;
     const node = container.querySelector('[data-sankey-node="director"]');
@@ -166,10 +166,12 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await click('Next connections');
     expect(latest().inlineStage).toMatchObject({ page: 2 });
     expect(latest().visibleRecords).toEqual(expect.arrayContaining([expect.objectContaining({ id: 'approval:director:passed', value: 3700000 })]));
-    expect(container.textContent).toContain('Stage passed');
-    await click('Continue with Copilot: Deal approvals · example ZM-1001');
+    expect(container.textContent).toContain('Stage completion is not final approval');
+    await click('Continue with Copilot: Deal approvals · ZM-1001');
     expect(followUp.mock.calls[0][1].discussion).toMatchObject({ handoff: { intent: 'ReviewDealApproval', properties: { requestId: 'ZM-1001' } } });
     expect(followUp.mock.calls[0][1].revenueFlow).toMatchObject({ kind: 'approval', stage: 'Details' });
+    expect(followUp.mock.calls[0][0]).not.toMatch(/\b(?:sample|example|demo|fictional|imaginary)\b/i);
+    expect(followUp.mock.calls[0][1].resolvedScope).toMatchObject({ requestId: 'ZM-1001', requestLevelReview: true });
     expect(getDealStore().getSnapshot().requests).toBe(before);
   });
   test.each(['ExplorePipelineFlow', 'ExploreApprovalFlow'] satisfies RevenueIntentKey[])('%s preserves unknown Sankey selections and blocks handoffs until explicit recovery', async key => {
@@ -190,6 +192,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     else if (definition.key === 'DiscoverAccountOpportunity') expect(contextRecord(latest().countryMap).chart).toMatchObject({ kind: 'country-choropleth' });
     else expect(container.textContent).toContain(expected[definition.key]);
     expect(container.textContent).not.toContain('3 verified sources');
+    expect(container.textContent).not.toMatch(/\b(?:sample|example|demo|fictional|imaginary)\b/i);
     expect(latest().intent).toBe(definition.key);
     expect(latest().workflowStage).toBe(definition.key === 'ReviewDealApproval' ? 'queue' : definition.operation === 'review' || definition.operation === 'submit' ? 'draft' : 'analysis');
     expect(container.querySelectorAll('[data-copilot-action]')).toHaveLength(1);
@@ -202,6 +205,7 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     expect(container.querySelectorAll('[data-copilot-action]')).toHaveLength(1);
     const primary = container.querySelector<HTMLButtonElement>('[data-copilot-action="primary"]');
     expect(primary?.textContent).toContain('Continue with Copilot:');
+    expect(primary?.textContent).not.toMatch(/\b(?:sample|example|demo|fictional|imaginary)\b/i);
     expect(primary?.disabled).toBe(false);
     expect(latest().inlineStage).toEqual(expect.objectContaining({ label: expect.any(String), visibleFields: expect.any(Array) }));
     expect(latest().visibleRecordCount).toBeLessThanOrEqual(2);
@@ -668,16 +672,16 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await click('Continue');
     await set('Discount percent', '8');
     await click('Continue');
-    await check('Security review evidence is ready (sample attestation)');
-    await check('Economic sponsor evidence is ready (sample attestation)');
+    await check('Security review evidence is ready');
+    await check('Economic sponsor evidence is ready');
     await click('Review deal request');
-    expect(button('Submit demo deal').disabled).toBe(true);
+    expect(button('Submit deal request').disabled).toBe(true);
     await click('Next values');
     await click('Next values');
     await click('Check my submission');
     expect(followUp.mock.calls[0][1].inlineDealWorkflow).toMatchObject({ stage: 'review', step: 3, formStep: 'Exact-value review and confirmation', draft: { title: 'Inline accountable growth deal', discount: '8' }, confirmed: false });
-    await check('I reviewed this request and confirm a demo-only submission');
-    await click('Submit demo deal');
+    await check('I reviewed this request and confirm submission');
+    await click('Submit deal request');
     const requestId = contextRecord(latest().inlineDealWorkflow).receiptId;
     if (typeof requestId !== 'string') throw new Error('Missing submission receipt');
     expect(container.textContent).toContain(`${requestId}-SUBMIT`);
@@ -686,11 +690,11 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await render('ReviewDealApproval', { requestId }, 'inline');
     expect(latest().inlineDealWorkflow).toMatchObject({ selectedId: requestId, selectedRequest: { id: requestId, draft: { title: 'Inline accountable growth deal', discount: '8' } } });
     await click('Decision');
-    await set('Simulated reviewer role', 'Sales manager');
+    await set('Reviewer role', 'Sales manager');
     await set('Decision rationale (15-1,000 characters)', 'Independent sponsor and security evidence reviewed.');
-    expect(button('Approve demo stage').disabled).toBe(true);
-    await check('I reviewed the evidence and confirm this simulated decision');
-    await click('Approve demo stage');
+    expect(button('Approve review stage').disabled).toBe(true);
+    await check('I reviewed the evidence and confirm this decision');
+    await click('Approve review stage');
     expect(container.textContent).toContain(`${requestId}-A1`);
     expect(contextRecord(latest().inlineDealWorkflow).selectedRequest).toMatchObject({ id: requestId, status: 'approved' });
     expect(latest().displayMode).toBe('inline');
@@ -704,34 +708,34 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     const request = getDealStore().submit({ ...newDealDraft(), securityReady: true, sponsorReady: true }, true);
     await render('ReviewDealApproval', { requestId: request.id }, 'inline');
     await click('Decision');
-    await set('Simulated reviewer role', 'Sales manager');
+    await set('Reviewer role', 'Sales manager');
     await set('Decision rationale (15-1,000 characters)', 'Independent buyer and security evidence reviewed.');
     expect(container.querySelector('[data-copilot-action="primary"]')?.textContent).toContain(`Discuss ${request.id} / Decision`);
-    await check('I reviewed the evidence and confirm this simulated decision');
+    await check('I reviewed the evidence and confirm this decision');
     expect(container.querySelector('[data-copilot-action="primary"]')?.textContent).toContain(`Discuss ${request.id} / Decision`);
-    await click('Approve demo stage');
+    await click('Approve review stage');
     expect(contextRecord(latest().inlineDealWorkflow).selectedRequest).toMatchObject({ id: request.id, status: 'pending' });
     await click(`Continue with Copilot: My priorities · ${request.id}`);
     expect(followUp.mock.calls[0][1].discussion).toMatchObject({ handoff: { intent: 'GetMyRevenuePriorities', properties: { period: 'current', region: 'all' } } });
     expect(getDealStore().getSnapshot().requests.find(item => item.id === request.id)).toMatchObject({ status: 'pending', events: [{ role: 'Sales manager', decision: 'approved' }] });
   });
   test.each([
-    ['returned', 'Return demo request'],
-    ['rejected', 'Reject demo request']
+    ['returned', 'Return request'],
+    ['rejected', 'Reject request']
   ])('inline primary keeps request discussion after a confirmed %s decision', async (decision, action) => {
     await render('ReviewDealApproval', { requestId: 'ZM-1001' }, 'inline');
     await click('Decision');
-    await set('Simulated reviewer role', 'Commercial director');
+    await set('Reviewer role', 'Commercial director');
     await set('Proposed decision', decision);
     await set('Decision rationale (15-1,000 characters)', 'Independent review identified corrections to the request.');
-    await check('I reviewed the evidence and confirm this simulated decision');
+    await check('I reviewed the evidence and confirm this decision');
     await click(action);
     expect(container.querySelector('[data-copilot-action="primary"]')?.textContent).toBe('Continue with Copilot: Discuss ZM-1001 / Decision trail · ZM-1001');
     expect(contextRecord(latest().inlineDealWorkflow).selectedRequest).toMatchObject({ status: decision });
   });
   test('unknown approval requests remain unmatched and never select a seeded substitute', async () => {
     await render('ReviewDealApproval', { requestId: 'ZM-unknown' }, 'inline');
-    expect(container.textContent).toContain('No demo request matches ZM-unknown');
+    expect(container.textContent).toContain('No request matches ZM-unknown');
     expect(latest().workflowStage).toBe('no-match');
     expect(contextRecord(latest().inlineDealWorkflow).selectedRequest).toBeUndefined();
     expect(await menuDisabled('Continue: Deals needing attention')).toBe(true);
@@ -776,18 +780,18 @@ describe('all-intent business UX with persistent React 18 roots', () => {
     await set('Business outcome (20-1,000 characters)', outcome);
     await click('Continue');
     await click('Continue');
-    await check('Security review evidence is ready (sample attestation)');
-    await check('Economic sponsor evidence is ready (sample attestation)');
+    await check('Security review evidence is ready');
+    await check('Economic sponsor evidence is ready');
     await click('Review deal request');
     for (let page = 1; page <= 3; page++) {
       if (page > 1) await click('Next values');
       expect(container.textContent).toContain(title);
       expect(latest().inlineDealWorkflow).toMatchObject({ draft: { title, outcome }, page, pageCount: 3 });
-      expect(button('Submit demo deal').disabled).toBe(true);
+      expect(button('Submit deal request').disabled).toBe(true);
     }
     expect(latest().inlineDealWorkflow).toMatchObject({ reviewedValuePages: [1, 2, 3] });
-    await check('I reviewed this request and confirm a demo-only submission');
-    await click('Submit demo deal');
+    await check('I reviewed this request and confirm submission');
+    await click('Submit deal request');
     const receiptId = contextRecord(latest().inlineDealWorkflow).receiptId;
     expect(getDealStore().getSnapshot().requests.find(item => item.id === receiptId)?.draft).toMatchObject({ title, outcome });
   });
@@ -821,8 +825,8 @@ describe('all-intent business UX with persistent React 18 roots', () => {
   });
   test('personal priorities publish owned-book status and scope their actionable links to the exact deal', async () => {
     await render('GetMyRevenuePriorities');
-    expect(latest().personalPriorities).toMatchObject({ demoOwner: 'Megan Bowen', metrics: { open: 18537260, milestoneCount: 5, completedMilestones: 1 } });
-    expect(container.textContent).toContain('does not query your real assignments');
+    expect(latest().personalPriorities).toMatchObject({ bookOwner: 'Megan Bowen', metrics: { open: 18537260, milestoneCount: 5, completedMilestones: 1 } });
+    expect(latest().personalPriorities).toMatchObject({ semantics: expect.stringContaining('not a query of the signed-in user') });
     await click('Map Contoso buyers in Copilot');
     expect(followUp.mock.calls[0][1]).toMatchObject({
       selectedEntityId: 'ZDR-2042-buyers', selection: 'ZDR-2042',

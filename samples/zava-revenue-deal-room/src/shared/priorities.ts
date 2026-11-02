@@ -18,7 +18,7 @@ export interface IRevenuePriority extends IBusinessRow {
 export interface ICloseStatus { readonly label: string; readonly count: number; }
 
 export function personalRevenueBrief(period: string, region: string, requests: readonly DealRequest[]): {
-  readonly demoOwner: string;
+  readonly bookOwner: string;
   readonly opportunities: readonly IOpportunity[];
   readonly priorities: readonly IRevenuePriority[];
   readonly priorityCount: number;
@@ -37,13 +37,13 @@ export function personalRevenueBrief(period: string, region: string, requests: r
     const evidence = scopedEvidence(resolveScope({ opportunityId: opportunity.id }));
     const add = (id: string, title: string, detail: string, target: RevenueIntentKey, actionLabel: string, rank: number, due: string, kind: string): void => {
       priorities.push({ id: `${opportunity.id}-${id}`, title, detail, target, actionLabel, rank, due, kind,
-        accountId: opportunity.accountId, opportunityId: opportunity.id, source: 'Illustrative owned book / catalog facts and recorded evidence' });
+        accountId: opportunity.accountId, opportunityId: opportunity.id, source: 'Owned book / catalog facts and recorded evidence' });
     };
     if (opportunity.id === 'ZDR-2042') {
       const buyerGap = evidence.find(item => item.id === 'EV-03');
       if (buyerGap) add('buyers', 'Secure Contoso economic-buyer access', `${buyerGap.detail} ${currency(opportunity.value)} open value.`, 'MapBuyingCommittee', 'Map Contoso buyers in Copilot', 100, 'Before the next buyer interaction', 'contrary evidence');
       const security = HERO_MILESTONES.find(item => item.id === 'MS-02');
-      if (security && security.status !== 'complete') add('security', 'Unblock the security-to-signature path', `${security.title}; owner ${security.owner}; ${security.status}; due +${security.dueOffsetDays} days in the sample close plan.`, 'BuildMutualActionPlan', 'Open the close plan in Copilot', 95, `Sample dependency +${security.dueOffsetDays}d`, 'at-risk milestone');
+      if (security && security.status !== 'complete') add('security', 'Unblock the security-to-signature path', `${security.title}; owner ${security.owner}; ${security.status}; due +${security.dueOffsetDays} days in the close plan.`, 'BuildMutualActionPlan', 'Open the close plan in Copilot', 95, `Dependency +${security.dueOffsetDays}d`, 'at-risk milestone');
       add('meeting', 'Prepare the Contoso steering conversation', 'Use recorded attendees and evidence gaps to prepare questions; no meeting outcome is assumed.', 'PrepareCustomerMeeting', 'Prepare the meeting in Copilot', 90, 'Before the steering meeting', 'next action');
     } else if (opportunity.stage === 'Commit') {
       add('forecast', `Validate ${opportunity.name} commit evidence`, `${currency(opportunity.value)} catalog-stage value; seller probability is not buyer commitment. ${evidence.length} recorded evidence items.`, 'InspectForecastCommit', 'Review forecast evidence in Copilot', 85, 'Before the forecast review', 'buyer-proof gap');
@@ -60,8 +60,8 @@ export function personalRevenueBrief(period: string, region: string, requests: r
       id: `request-${request.id}`, title: `${request.id}: review the request evidence`,
       detail: `${request.draft.title}; ${request.status}; ${nextApproval(request) ? `next independent stage: ${nextApproval(request)}` : 'returned for changes'}. Opening the review does not approve your own request.`,
       accountId: request.draft.accountId, requestId: request.id, target: 'ReviewDealApproval',
-      actionLabel: 'Inspect approval evidence in Copilot', due: 'Demo request / all submission periods',
-      rank: request.status === 'returned' ? 97 : 92, source: 'Shared confirmed demo-request overlay', kind: request.status
+      actionLabel: 'Inspect approval evidence in Copilot', due: 'Request / all submission periods',
+      rank: request.status === 'returned' ? 97 : 92, source: 'Confirmed request ledger', kind: request.status
     });
   }
   priorities.sort((left, right) => right.rank - left.rank || left.id.localeCompare(right.id));
@@ -83,7 +83,7 @@ export function personalRevenueBrief(period: string, region: string, requests: r
     { label: 'Weighted', value: weighted / 1000000, kind: 'end' }
   ];
   return {
-    demoOwner: DEMO_REVENUE_OWNER, opportunities, priorities: priorities.slice(0, 6), priorityCount: priorities.length, closeStatus, outlook,
+    bookOwner: DEMO_REVENUE_OWNER, opportunities, priorities: priorities.slice(0, 6), priorityCount: priorities.length, closeStatus, outlook,
     metrics: {
       open, weighted, commitStage: opportunities.filter(item => item.stage === 'Commit').reduce((sum, item) => sum + item.value, 0),
       pendingRequests: ownedRequests.filter(item => item.status === 'pending').length,

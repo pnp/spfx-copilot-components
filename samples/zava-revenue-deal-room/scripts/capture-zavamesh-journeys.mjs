@@ -72,12 +72,12 @@ async function chooseWorkspace(name) {
 }
 async function setDecision(role, decision, rationale) {
   const area = center();
-  await area.getByLabel('Simulated reviewer role', { exact: true }).selectOption(role);
+  await area.getByLabel('Reviewer role', { exact: true }).selectOption(role);
   await area.getByLabel('Proposed decision', { exact: true }).selectOption(decision);
   await area.getByLabel('Decision rationale (15-1,000 characters)').fill(rationale);
-  const action = area.getByRole('button', { name: decision === 'approved' ? 'Approve demo stage' : decision === 'returned' ? 'Return demo request' : 'Reject demo request', exact: true });
+  const action = area.getByRole('button', { name: decision === 'approved' ? 'Approve review stage' : decision === 'returned' ? 'Return request' : 'Reject request', exact: true });
   assert(await action.isDisabled(), 'Decision needs explicit, initially unchecked confirmation');
-  await area.getByLabel('I reviewed the evidence and confirm this simulated decision', { exact: true }).check();
+  await area.getByLabel('I reviewed the evidence and confirm this decision', { exact: true }).check();
   await action.click();
 }
 try {
@@ -130,19 +130,19 @@ try {
   await center().getByLabel('Licensed users').fill('1000');
   await capture('deal-commercial-draft');
   await center().getByRole('button', { name: 'Continue', exact: true }).click();
-  await center().getByLabel('Security review evidence is ready (sample attestation)', { exact: true }).check();
-  await center().getByLabel('Economic sponsor evidence is ready (sample attestation)', { exact: true }).check();
+  await center().getByLabel('Security review evidence is ready', { exact: true }).check();
+  await center().getByLabel('Economic sponsor evidence is ready', { exact: true }).check();
   await center().getByRole('button', { name: 'Review deal request', exact: true }).click();
   assert((await center().innerText()).includes('$2,818,000'));
-  assert(await center().getByRole('button', { name: 'Submit demo deal', exact: true }).isDisabled());
+  assert(await center().getByRole('button', { name: 'Submit deal request', exact: true }).isDisabled());
   await chooseWorkspace('Revenue Command');
   await chooseWorkspace('My Deals');
   await page.getByRole('button', { name: 'Resume Submit a deal / Proposed request', exact: true }).click();
   await page.waitForFunction(() => window.revenueHarness.context.intent === 'SubmitDealRequest');
   assert((await center().innerText()).includes('ZavaMesh connected growth program'));
   await capture('deal-request-review');
-  await center().getByLabel('I reviewed this request and confirm a demo-only submission', { exact: true }).check();
-  await center().getByRole('button', { name: 'Submit demo deal', exact: true }).click();
+  await center().getByLabel('I reviewed this request and confirm submission', { exact: true }).check();
+  await center().getByRole('button', { name: 'Submit deal request', exact: true }).click();
   await page.waitForFunction(() => !!window.revenueHarness.context.inlineDealWorkflow?.receiptId);
   const requestId = await page.evaluate(() => window.revenueHarness.context.inlineDealWorkflow.receiptId);
   await capture('deal-submission-receipt');
@@ -157,14 +157,14 @@ try {
   await chooseWorkspace('Commercial Desk');
   await page.getByRole('button', { name: 'Review ZM-1002', exact: true }).click();
   await page.waitForFunction(() => window.revenueHarness.context.inlineDealWorkflow.selectedRequest.id === 'ZM-1002');
-  assert.equal(await center().getByLabel('Simulated reviewer role', { exact: true }).inputValue(), 'Sales manager');
+  assert.equal(await center().getByLabel('Reviewer role', { exact: true }).inputValue(), 'Sales manager');
   await center().getByLabel('Decision rationale (15-1,000 characters)').fill('Security and sponsor evidence must be supplied before approval.');
-  await center().getByLabel('I reviewed the evidence and confirm this simulated decision', { exact: true }).check();
-  assert(await center().getByRole('button', { name: 'Approve demo stage', exact: true }).isDisabled());
+  await center().getByLabel('I reviewed the evidence and confirm this decision', { exact: true }).check();
+  assert(await center().getByRole('button', { name: 'Approve review stage', exact: true }).isDisabled());
   await center().getByLabel('Proposed decision', { exact: true }).selectOption('returned');
-  assert(!(await center().getByLabel('I reviewed the evidence and confirm this simulated decision', { exact: true }).isChecked()));
-  await center().getByLabel('I reviewed the evidence and confirm this simulated decision', { exact: true }).check();
-  await center().getByRole('button', { name: 'Return demo request', exact: true }).click();
+  assert(!(await center().getByLabel('I reviewed the evidence and confirm this decision', { exact: true }).isChecked()));
+  await center().getByLabel('I reviewed the evidence and confirm this decision', { exact: true }).check();
+  await center().getByRole('button', { name: 'Return request', exact: true }).click();
   await capture('evidence-gated-return');
   checks.push('Exact request selected before review, independent role and rationale, unchanged monetary values, explicit consent, evidence blocks approval while a reasoned return remains available.');
 
@@ -173,8 +173,8 @@ try {
   await page.getByRole('button', { name: `Review ${requestId}`, exact: true }).click();
   await page.waitForFunction(() => window.revenueHarness.context.inlineDealWorkflow.selectedRequest.status === 'approved');
   await chooseWorkspace('Commercial Desk');
-  await page.getByRole('button', { name: 'Reset demo data', exact: true }).click();
-  await page.getByRole('button', { name: 'Confirm reset of demo data', exact: true }).click();
+  await page.getByRole('button', { name: 'Reset session data', exact: true }).click();
+  await page.getByRole('button', { name: 'Confirm session reset', exact: true }).click();
   await page.waitForFunction(() => window.revenueHarness.context.workflowStage === 'workspace-home');
   assert.equal(await page.getByRole('button', { name: `Review ${requestId}`, exact: true }).count(), 0);
   checks.push('Confirmed overlays survive reload; explicit reset clears drafts and restores baseline; menu selection opens a landing, not the originating task.');

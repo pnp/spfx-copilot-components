@@ -120,7 +120,7 @@ export function D3CommercialContour(props: { readonly input: ICommercialInput; r
   const margin = calculateCommercialOffer(props.input).grossMargin;
   return <div>
     <svg className={mergeClasses(styles.chart, props.compact && styles.compactChart)} viewBox="0 0 520 190" role="img" aria-label={`Commercial outcome curve with ${margin.toFixed(1)} percent margin at ${props.input.discount} percent discount`}>
-      <title>Recalculated commercial margin by discount</title><desc>Every sample recalculates licensing term, annual ramp and services cost. These are scenario economics, not verified customer benefits or approval.</desc>
+      <title>Recalculated commercial margin by discount</title><desc>Every plotted point recalculates licensing term, annual ramp and services cost. These are scenario economics, not verified customer benefits or approval.</desc>
       <defs><linearGradient id={gradient} x1="0" y1="1" x2="1" y2="0"><stop offset="0" stopColor={tokens.colorBrandBackground2}/><stop offset="0.58" stopColor={tokens.colorPaletteGreenBackground2}/><stop offset="1" stopColor={tokens.colorPaletteMarigoldBackground2}/></linearGradient></defs>
       <line x1="48" y1="154" x2="494" y2="154" className={styles.axis}/><line x1="48" y1="24" x2="48" y2="154" className={styles.axis}/>
       <path d={geometry.areaPath} className={styles.commercialArea} style={{ fill: `url(#${gradient})` }}/><path d={geometry.linePath} className={styles.commercialLine}/><circle cx={geometry.selectedX} cy={geometry.selectedY} r="11" className={styles.commercialPoint}/>
@@ -158,7 +158,7 @@ export function D3ClosePlanStatus(props: { readonly statuses: readonly { readonl
   const colors = [tokens.colorPaletteGreenBackground3, tokens.colorBrandBackground, tokens.colorPaletteMarigoldBackground3, tokens.colorPaletteRedBackground3];
   return <section className={mergeClasses(styles.panel, props.compact && styles.compactPanel)} aria-labelledby={headingId}>
     <h2 id={headingId} className={styles.heading}>Close-plan readiness</h2>
-    <p className={styles.insight}>Recorded milestone status in the selected demo book, not win probability or delivery authorization.</p>
+    <p className={styles.insight}>Recorded milestone status in the selected owned book, not win probability or delivery authorization.</p>
     <svg className={mergeClasses(styles.ranking, props.compact && styles.compactChart)} viewBox="0 0 440 210" role="img" aria-label={`${complete} of ${total} recorded milestones complete`}>
       <title>Close-plan milestone status</title>
       <g transform="translate(120 104)">

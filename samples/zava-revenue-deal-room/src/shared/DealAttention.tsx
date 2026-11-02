@@ -112,7 +112,7 @@ export default function DealAttention(props: {
     </section> : <>
       <h2 ref={catalogHeading} tabIndex={-1}>Important deals / attention catalog</h2>
       <div className={styles.actions}><Button size="small" aria-pressed={props.measure === 'value'} onClick={() => props.onMeasure('value')}>Rank by open value</Button><Button size="small" aria-pressed={props.measure === 'exposure'} onClick={() => props.onMeasure('exposure')}>Rank by seller-unweighted value</Button></div>
-      {catalogView === 'Overview' ? <><AttentionValueMap deals={overviewDeals} measure={props.measure} onSelect={props.onSelect}/><p>Each point is a real demo deal. Flags are observable source/judgment conditions, not an AI risk score.</p><Button size="small" onClick={() => setCatalogView('Records')}>Show ranked deals</Button></> : <>
+      {catalogView === 'Overview' ? <><AttentionValueMap deals={overviewDeals} measure={props.measure} onSelect={props.onSelect}/><p>Each point is a scoped opportunity record. Flags are observable source/judgment conditions, not an AI risk score.</p><Button size="small" onClick={() => setCatalogView('Records')}>Show ranked deals</Button></> : <>
       <Button size="small" onClick={() => setCatalogView('Overview')}>Value and evidence overview</Button>
       <div className={mergeClasses(styles.catalog, styles.compactCatalog)}>{props.rows.map(item => <article key={item.id} className={styles.card}>
         <div className={styles.summary}><div><h3>{item.title}</h3><p>{item.opportunity.stage} / {currency(item.opportunity.value)} / {item.flags.length} flags</p></div><Button size="small" onClick={() => props.onSelect(item.id)}>Details for {item.id}</Button></div>

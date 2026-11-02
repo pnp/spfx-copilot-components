@@ -53,7 +53,7 @@ export function fullscreenTaskContext(task: IFullscreenTask, requests: readonly 
       return { title: scope.account?.name || 'Requested account scope', entity: scope.account?.id || 'No matching account', detail: scope.errors.length ? scope.errors.join('; ') : `${scope.account?.name} / ${selectedCountry ? `country ${selectedCountry}` : 'headquarters-attributed opportunity footprint'}` };
     }
     return {
-      title: task.definition.key === 'GetMyRevenuePriorities' ? "Megan Bowen's illustrative owned book" : task.definition.title,
+      title: task.definition.key === 'GetMyRevenuePriorities' ? "Megan Bowen's owned book" : task.definition.title,
       entity: selectedCountry ? `Country ${selectedCountry}` : 'Portfolio scope',
       detail: typeof snapshot?.scopeLabel === 'string' ? snapshot.scopeLabel : `${task.properties.period || 'current'} quarter / ${task.properties.region || 'all'} regions`
     };

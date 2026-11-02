@@ -48,11 +48,11 @@ export default function FlowExperience(props: {
   const visible = view === 'Details' && !errors.length ? props.compact ? connections.slice(currentPage * 2, currentPage * 2 + 2) : connections : [];
   const amount = selectedNode ? flowNodeValue(props.flow, selectedNode.id) : selectedLink?.value;
   const label = selectedNode?.label || (selectedLink ? `${props.flow.nodes.find(item => item.id === selectedLink.source)?.label} to ${props.flow.nodes.find(item => item.id === selectedLink.target)?.label}` : '');
-  const selectedDetail = amount !== undefined ? { id: props.selectedId, label, value: amount, shareOfTotal: amount / props.flow.total, meaning: selectedNode?.meaning || 'A conserved fictional allocation between two planning buckets; not an observed conversion.', source: 'Deterministic imaginary planning scenario' } : null;
+  const selectedDetail = amount !== undefined ? { id: props.selectedId, label, value: amount, shareOfTotal: amount / props.flow.total, meaning: selectedNode?.meaning || 'Conserved value allocated between two planning stages; not an observed conversion.', source: 'Regional planning and review allocations' } : null;
   const serialized = JSON.stringify({
     stage: errors.length ? 'Unavailable selection' : view, page: view === 'Details' ? currentPage + 1 : 1, pageCount: view === 'Details' ? pages : 1,
     selectedId: props.selectedId, selectedDetail, visibleRecords: visible, validationErrors: errors,
-    visibleFields: view === 'Sankey' ? ['nodes', 'links', 'value', 'planningScope', 'semantics'] : view === 'Details' ? ['selectedDetail', 'connections', 'value', 'shareOfTotal', 'semantics'] : ['semantics', 'allocationAssumptions', 'exampleBoundary'],
+    visibleFields: view === 'Sankey' ? ['nodes', 'links', 'value', 'planningScope', 'semantics'] : view === 'Details' ? ['selectedDetail', 'connections', 'value', 'shareOfTotal', 'semantics'] : ['semantics', 'allocationAssumptions', 'workflowBoundary'],
     chart: view === 'Sankey' && !errors.length ? { kind: 'sankey', total: props.flow.total, nodeCount: props.flow.nodes.length, linkCount: props.flow.links.length, dataPath: 'revenueFlow' } : null
   });
   React.useEffect(() => { props.onStateChange(JSON.parse(serialized)); }, [serialized, props.onStateChange]);
@@ -81,12 +81,12 @@ export default function FlowExperience(props: {
     </div>}
     {errors.length ? <div role="alert"><h2 ref={headingRef} tabIndex={-1}>Unavailable flow selection</h2>{errors.map(error => <p key={error}>{error}</p>)}<Button size="small" onClick={() => { back(); props.onPeriod('current'); props.onRegion('all'); }}>Clear flow selection and filters</Button></div> :
       view === 'Sankey' ? <>
-        <h2 ref={headingRef} tabIndex={-1} className={styles.value}>{millions(props.flow.total)} fictional value</h2>
+        <h2 ref={headingRef} tabIndex={-1} className={styles.value}>{millions(props.flow.total)} in scope</h2>
         <div className={styles.columns}>{props.flow.columns.map(column => <span key={column}>{column}</span>)}</div>
-        <div ref={chartRef}><svg className={styles.chart} style={{ height }} viewBox={`0 0 ${width} ${height}`} role="group" aria-label={`${props.flow.title}: interactive fictional USD flows`}>
-          <title>{props.flow.title}: fictional allocations, not live records</title><desc>Ribbon thickness represents hypothetical USD value. Select a ribbon or node with pointer, Enter or Space to inspect exact values.</desc>
+        <div ref={chartRef}><svg className={styles.chart} style={{ height }} viewBox={`0 0 ${width} ${height}`} role="group" aria-label={`${props.flow.title}: interactive USD value flows`}>
+          <title>{props.flow.title}: value allocation by stage</title><desc>Ribbon thickness represents allocated USD value. Select a ribbon or node with pointer, Enter or Space to inspect exact values.</desc>
           <defs>{geometry?.links.map((link, index) => <linearGradient key={link.id} id={`${unique}-flow-${index}`} gradientUnits="userSpaceOnUse" x1="0" x2={width} y1="0" y2="0"><stop stopColor={link.source.color}/><stop offset="1" stopColor={link.target.color}/></linearGradient>)}</defs>
-          {geometry?.links.map((link, index) => <g key={link.id} role="button" tabIndex={0} aria-label={`Inspect flow: ${link.source.label} to ${link.target.label}, ${currency(link.value)} fictional USD`} data-sankey-link={link.id} onClick={() => choose(link.id)} onKeyDown={event => keyboard(event, link.id)}>
+          {geometry?.links.map((link, index) => <g key={link.id} role="button" tabIndex={0} aria-label={`Inspect flow: ${link.source.label} to ${link.target.label}, ${currency(link.value)} USD`} data-sankey-link={link.id} onClick={() => choose(link.id)} onKeyDown={event => keyboard(event, link.id)}>
             <path d={link.path} fill="none" stroke={`url(#${unique}-flow-${index})`} strokeWidth={link.width} opacity=".55"/>
             <path d={link.path} fill="none" stroke="transparent" strokeWidth={Math.max(6, link.width)} pointerEvents="stroke"/>
             {/* Horizontal ribbons need a nonzero-height pointer target. */}
@@ -99,26 +99,26 @@ export default function FlowExperience(props: {
             const hitX = right ? Math.max(0, item.x0 - (width < 480 ? 44 : 94)) : item.x0;
             const hitY = Math.max(0, Math.min(item.y0, y - 16));
             const hitBottom = Math.min(height, Math.max(item.y1, y + 16));
-            return <g key={item.node.id} role="button" tabIndex={0} aria-label={`Inspect node: ${item.node.label}, ${currency(item.value)} fictional USD`} data-sankey-node={item.node.id} onClick={() => choose(item.node.id)} onKeyDown={event => keyboard(event, item.node.id)}>
+            return <g key={item.node.id} role="button" tabIndex={0} aria-label={`Inspect node: ${item.node.label}, ${currency(item.value)} USD`} data-sankey-node={item.node.id} onClick={() => choose(item.node.id)} onKeyDown={event => keyboard(event, item.node.id)}>
               <rect x={hitX} y={hitY} width={Math.min(width < 480 ? 60 : 106, width - hitX)} height={hitBottom - hitY} fill="transparent" pointerEvents="all"/>
               <rect x={item.x0} y={item.y0} width={item.x1 - item.x0} height={item.y1 - item.y0} rx="3" fill={item.node.color}/>
               <text className={styles.text} x={x} y={y - 3} textAnchor={right ? 'end' : 'start'}>{width < 480 ? mobileLabels[item.node.id] : item.node.shortLabel}<tspan x={x} dy="13">{millions(item.value)}</tspan></text>
             </g>;
           })}
         </svg></div>
-        <p className={styles.muted}>Conserved imaginary USD, not live CRM or conversion. Select a ribbon or node for details.</p>
+        <p className={styles.muted}>Follow value through each stage. Select a connection or stage to inspect its allocation.</p>
         <Button size="small" onClick={() => { focusPending.current = true; setView('Assumptions'); }}>Model assumptions</Button>
       </> : view === 'Details' && selectedDetail ? <>
         <Button size="small" onClick={back}>Back to value flow</Button>
-        <h2 ref={headingRef} tabIndex={-1}>{selectedDetail.label}</h2><p className={styles.value}>{currency(selectedDetail.value)} fictional value / {(selectedDetail.shareOfTotal * 100).toFixed(1)}% of this scenario</p>
+        <h2 ref={headingRef} tabIndex={-1}>{selectedDetail.label}</h2><p className={styles.value}>{currency(selectedDetail.value)} / {(selectedDetail.shareOfTotal * 100).toFixed(1)}% of scoped value</p>
         <p className={styles.muted}>{selectedDetail?.meaning}</p>
-        <div className={styles.rows}>{visible.map(link => <article className={styles.row} key={link.id}><strong>{props.flow.nodes.find(item => item.id === link.source)?.label} → {props.flow.nodes.find(item => item.id === link.target)?.label}</strong><p>{currency(link.value)} fictional allocation</p></article>)}</div>
+        <div className={styles.rows}>{visible.map(link => <article className={styles.row} key={link.id}><strong>{props.flow.nodes.find(item => item.id === link.source)?.label} → {props.flow.nodes.find(item => item.id === link.target)?.label}</strong><p>{currency(link.value)} allocated value</p></article>)}</div>
         {props.compact && pages > 1 && <div className={styles.actions}><Button size="small" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}>Previous connections</Button><span>Page {currentPage + 1} / {pages}</span><Button size="small" disabled={currentPage + 1 >= pages} onClick={() => setPage(currentPage + 1)}>Next connections</Button></div>}
       </> : view === 'Details' ? <div role="alert"><h2 ref={headingRef} tabIndex={-1}>Select a visible flow to inspect</h2><Button size="small" onClick={back}>Back to value flow</Button></div> : <>
-        <Button size="small" onClick={back}>Back to value flow</Button><h2 ref={headingRef} tabIndex={-1}>Fictional model assumptions</h2>
-        <p>{props.flow.semantics}</p><p>The next scenario scales the current allocations by 20%; both scenarios sum the two fictional batches. Values are conserved at every intermediate node, including region-filtered allocations.</p>
-        {props.flow.kind === 'approval' && <p>Current reviewer is not the entire sequential route. Stage passed may still require later independent reviews. The Copilot continuation opens example ZM-1001; none of this chart&apos;s value is attributed to that stored request.</p>}
+        <Button size="small" onClick={back}>Back to value flow</Button><h2 ref={headingRef} tabIndex={-1}>Planning assumptions</h2>
+        <p>{props.flow.semantics}</p><p>The next period increases current allocations by 20%; both periods sum those allocations. Value is conserved at every intermediate stage, including regional filters.</p>
+        <p>{props.flow.workflowBoundary}</p>
       </>}
-    {props.flow.kind === 'approval' && view !== 'Assumptions' && !errors.length && <p className={styles.muted}>Stage passed ≠ final approval. Copilot opens example ZM-1001, not this fictional batch.</p>}
+    {props.flow.kind === 'approval' && view !== 'Assumptions' && !errors.length && <p className={styles.muted}>Stage completion is not final approval. Review {props.flow.approvalRequestId} for its terms, evidence and decision trail.</p>}
   </section>;
 }

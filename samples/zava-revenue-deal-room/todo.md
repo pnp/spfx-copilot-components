@@ -5,8 +5,21 @@
 The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with
 **27 components** and four contextual workspaces. Release versions and current test/capture totals
 come from [release evidence](assets/release-evidence.json), not the historical milestones below.
-The preceding validated release is solution 1.0.0.6 / agent 1.0.6: 290 tests and 536 visual captures.
-This business-first starter release is solution **1.0.0.7 / authored agent 1.0.7**.
+The preceding validated release is solution 1.0.0.7 / agent 1.0.7: 290 tests and 536 visual captures.
+This business-first journey release is solution **1.0.0.8 / authored agent 1.0.8**.
+
+- [x] Apply natural business language beyond starters: continuation labels, outgoing discussions,
+  workflow controls, receipts, accessible text, workspace next steps and keynote instructions.
+  Keep session-only execution, provenance, authority, independent review and consent truthful.
+- [x] Model the approval flow's exact request destination once as `approvalRequestId`; review
+  ZM-1001's own terms and decision trail without attributing aggregate planning value to it.
+- [x] Expand the golden guide's G26, continuation contract and acceptance checklist to cover complete
+  business journeys. Do not blanket-rename technical fixtures, SDK fields or repository paths.
+- [x] Rebuild the current gallery and production archives; all 290 tests and 536 visual captures
+  pass. Measure 893 inline states with maxima of 647px desktop / 786px narrow, within 650/800px.
+  Map checks await committed context and require the country opportunity drill-down in every variant.
+- [x] Prepare this journey polish, both matching guidance copies and validated packages for the
+  requested personal-fork-only synchronization. The published revision is recorded in Git history.
 
 - [x] Capture the distinct-business-value, compact stage and contextual workspace patterns from the
   completed portfolio work; retain all original identities and exact scoped scenario semantics.
@@ -19,7 +32,7 @@ This business-first starter release is solution **1.0.0.7 / authored agent 1.0.7
 - [x] Specify role-specific workspace landings versus selected work, explicit selection/Resume,
   preserved mounted drafts and active-only context publication.
 - [x] Synchronize this sample's local `agentic-creation-rules.md` byte-for-byte with the golden guide.
-  Matching SHA-256: `8F8DB2DD2A2497A3A2CC0264BE9200305E1F876130DCEB7A7312243B75485A7E`.
+  Matching SHA-256: `A8A638911179F3B753599ECC64699751FF2DD637CBE18C40CA02DE3DC7B44368`.
 - [x] Prioritize starters for pipeline value flow, country world map, approval value flow, guided
   submission and independent approval, with **Explore capabilities last**.
 - [x] Use the full supported capacity of **12 starters**: add owned-book priorities, buyer-network
@@ -33,10 +46,10 @@ This business-first starter release is solution **1.0.0.7 / authored agent 1.0.7
 - [x] Regenerate source starters and routing docs with `npm run configure:intents` and
   `npm run generate:routing-matrix`; `npm run check:intents` and `npm run check:routing-matrix`
   passed for 27 immutable tools, twelve starters and nine collision rehearsals.
-  Instruction source is 7,652 characters, below the SDK's 8,000-character limit.
-- [x] `npm run build` passed for the business-first starter release: **290 tests / 536 current visual
+  Instruction source is 7,853 characters, below the SDK's 8,000-character limit.
+- [x] `npm run build` passed for the business-first journey release: **290 tests / 536 current visual
   captures / 893 inline probes**; all twelve source/packaged starters, actual solution/feature version
-  1.0.0.7, embedded/standalone agent 1.0.7, instruction limits, compiled schemas and release hashes
+  1.0.0.8, embedded/standalone agent 1.0.8, instruction limits, compiled schemas and release hashes
   validate.
 - [x] Prepare the canonical/local guidance, this tracker, starter configuration and matching release
   assets for the requested VesaJuvonen commit and synchronization. The personal fork is the configured

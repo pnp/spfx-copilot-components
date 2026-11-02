@@ -16,7 +16,7 @@
     {
       "name": "ReviewDealApproval",
       "description": {
-        "default": "Use for the inline demo approval inbox, exact request detail, independent staged decisions and audit receipts. Do not approve without authority and explicit confirmation."
+        "default": "Use for the approval inbox, exact request detail, independent staged decisions and audit receipts. Do not approve without authority and explicit confirmation."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewDealApproval/ReviewDealApprovalCopilotComponentProperties.js:default;"

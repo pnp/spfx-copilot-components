@@ -118,7 +118,7 @@ describe('scoped fullscreen workspace journeys', () => {
     await click('Review ZM-1002');
     expect(latest().intent).toBe('ReviewDealApproval');
     expect(contextRecord(contextRecord(latest().inlineDealWorkflow).selectedRequest).id).toBe('ZM-1002');
-    const label = Array.from(container.querySelectorAll('label')).find(item => visible(item) && item.textContent?.indexOf('Simulated reviewer role') === 0);
+    const label = Array.from(container.querySelectorAll('label')).find(item => visible(item) && item.textContent?.indexOf('Reviewer role') === 0);
     const reviewer = document.getElementById(label?.htmlFor || '');
     if (!(reviewer instanceof HTMLSelectElement)) throw new Error('Missing independent reviewer control');
     expect(reviewer.value).toBe('Sales manager');

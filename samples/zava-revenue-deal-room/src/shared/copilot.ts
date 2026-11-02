@@ -35,11 +35,11 @@ const guidance: Readonly<Record<RevenueIntentKey, readonly [string, string, Reve
   SubmitDealRequest: ['Check my submission', 'Discuss the actual form step, entered economics, evidence attestations, validation and confirmation. Do not submit for me.', 'ReviewDealApproval'],
   ReviewDealApproval: ['Explain this approval route', 'Discuss the selected request, prior independent decisions, required next reviewer and proposed rationale. Do not approve for me.', 'ExploreDealAttention'],
   ExploreDealAttention: ['Explain why this deal needs attention', 'Explain the selected deal, ranking measure, buyer coverage, source evidence and seller probability. Missing proof is not a positive finding.', 'GetDealRisk'],
-  GetMyRevenuePriorities: ['Explain my top priority', 'Explain the illustrative owned book, priority rules, blockers, next actions and current pipeline charts. Do not imply these are my real CRM assignments.', 'ExploreDealAttention'],
-  ExplorePipelineFlow: ['Explain this fictional bottleneck', 'Discuss the selected Sankey node or ribbon, exact hypothetical USD allocation, scope and conservation assumptions. Do not call it actual pipeline or predicted conversion.', 'ExploreApprovalFlow'],
-  ExploreApprovalFlow: ['Explain this fictional review flow', 'Discuss the imaginary batch, current reviewer and stage outcomes. Stage passed is not final approval; the example request is not part of this modeled volume.', 'ReviewDealApproval']
+  GetMyRevenuePriorities: ['Explain my top priority', 'Explain the owned book, priority rules, blockers, next actions and current pipeline charts using the visible scope and provenance.', 'ExploreDealAttention'],
+  ExplorePipelineFlow: ['Explain this pipeline bottleneck', 'Discuss the selected value flow, USD allocation, regional scope and next action. Distinguish planning allocations from confirmed buyer evidence and forecast commit.', 'ExploreApprovalFlow'],
+  ExploreApprovalFlow: ['Explain this approval bottleneck', 'Discuss intake, the current reviewer and stage outcomes. Stage completion is not final approval; request-level values and decisions must come from the selected request.', 'ReviewDealApproval']
 };
-const safeguards = 'Use the latest visible model context, including selection, filters, edited values and discussion topic. Distinguish the specialist task from any reference workspace. Fictional Sankey allocations are not live records, conversion predictions or final approvals. No CRM writes, real approvals, customer contact or external execution. Unconfirmed drafts and required authority are not approvals; omitted evidence is unknown.';
+const safeguards = 'Use the latest visible model context, including selection, filters, edited values and discussion topic. Preserve provenance and keep planning allocations, request values and decision records distinct. Do not infer request-level values from aggregate flows. No CRM writes or external execution. Do not claim customer contact or approval from an unconfirmed draft, required authority or navigation. Omitted evidence is unknown.';
 export const isContextRecord = (value: unknown): value is Readonly<Record<string, unknown>> =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
 export const contextRecord = (value: unknown): Readonly<Record<string, unknown>> => isContextRecord(value) ? value : {};
@@ -58,7 +58,7 @@ export function createCopilotHandoff(target: RevenueIntentKey, snapshot: IModelC
     properties = {};
   } else if (target === 'ReviewDealApproval') {
     properties = { requestId: string(resolved.requestId) || string(workflow.receiptId) || string(workflow.selectedId) };
-    if (!properties.requestId || snapshot.intent === 'SubmitDealRequest' && !string(workflow.receiptId)) disabledReason = 'Submit a demo request before opening its approval.';
+    if (!properties.requestId || snapshot.intent === 'SubmitDealRequest' && !string(workflow.receiptId)) disabledReason = 'Submit a request before opening its approval.';
   } else if (target === 'DiscoverAccountOpportunity') {
     const country = contextRecord(snapshot.countryMap);
     properties = {
@@ -127,7 +127,7 @@ export function getCopilotActions(definition: IIntentDefinition, snapshot: IMode
     id, label: actionLabel, prompt: `Help me analyze ${definition.title.toLowerCase()} for ${scopeLabel}. ${topic} ${safeguards}`
   });
   const actions = [
-    discussion('discuss-visible', definition.operation === 'education' ? 'Ask Copilot about these scenarios' : definition.key === 'ExplorePipelineFlow' || definition.key === 'ExploreApprovalFlow' ? 'Ask Copilot about this fictional flow' : definition.key === 'GetMyRevenuePriorities' ? 'Ask Copilot about my priorities' : definition.key === 'ExplorePipelineQuality' || definition.key === 'ExploreDealAttention' && !focusedDeal ? 'Ask Copilot about this portfolio' : definition.key === 'ReviewDealApproval' ? 'Ask Copilot about this request' : 'Ask Copilot about this deal', focusedDeal ? 'Explain this selected deal, its economics, buyer coverage and recorded evidence. Help me examine one detail at a time.' : definition.question),
+    discussion('discuss-visible', definition.operation === 'education' ? 'Ask Copilot about these scenarios' : definition.key === 'ExplorePipelineFlow' || definition.key === 'ExploreApprovalFlow' ? 'Ask Copilot about this value flow' : definition.key === 'GetMyRevenuePriorities' ? 'Ask Copilot about my priorities' : definition.key === 'ExplorePipelineQuality' || definition.key === 'ExploreDealAttention' && !focusedDeal ? 'Ask Copilot about this portfolio' : definition.key === 'ReviewDealApproval' ? 'Ask Copilot about this request' : 'Ask Copilot about this deal', focusedDeal ? 'Explain this selected deal, its economics, buyer coverage and recorded evidence. Help me examine one detail at a time.' : definition.question),
     discussion('discuss-details', label, question)
   ];
   const selectedCapability = definition.operation === 'education' ? INTENTS.find(item => item.key === snapshot.selection) : undefined;

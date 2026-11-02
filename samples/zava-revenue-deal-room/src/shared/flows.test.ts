@@ -2,7 +2,7 @@ import { flowNodeValue, revenueFlow, type RevenueFlowKind } from './flows';
 import { sankeyGeometry } from './visualizations/sankeyGeometry';
 import { getIntent } from './catalog';
 
-describe('fictional conserved revenue Sankey models', () => {
+describe('conserved revenue value-flow models', () => {
   test('flow titles come from the same business catalog as headers and Copilot continuations', () => {
     expect(revenueFlow('pipeline', 'current', 'all').title).toBe(getIntent('ExplorePipelineFlow').title);
     expect(revenueFlow('approval', 'current', 'all').title).toBe(getIntent('ExploreApprovalFlow').title);
@@ -27,8 +27,11 @@ describe('fictional conserved revenue Sankey models', () => {
     expect(approval.total).toBe(30000000);
     expect(flowNodeValue(approval, 'pending')).toBe(13200000);
     expect(flowNodeValue(approval, 'passed')).toBe(9700000);
-    expect(approval.nodes.find(item => item.id === 'passed')?.meaning).toContain('not overall final');
-    expect(approval.semantics).toContain('not the stored demo approval queue');
+    expect(approval.nodes.find(item => item.id === 'passed')?.meaning).toContain('before final approval');
+    expect(approval.semantics).toContain('separate from request-level records');
+    expect(approval.approvalRequestId).toBe('ZM-1001');
+    expect(approval.workflowBoundary).toContain('Aggregate flow values are not attributed to an individual request');
+    expect(revenueFlow('pipeline', 'current', 'all').approvalRequestId).toBeUndefined();
   });
   test.each(['pipeline', 'approval'] satisfies RevenueFlowKind[])('%s rejects unsupported planning scopes without replacing them with a default', kind => {
     for (const [period, region] of [['yesterday', 'all'], ['current', 'Africa'], ['current', 'constructor']]) {

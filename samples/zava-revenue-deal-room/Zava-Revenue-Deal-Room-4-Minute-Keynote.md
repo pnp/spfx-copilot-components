@@ -14,7 +14,7 @@ they are not a tour of 27 unrelated controls.
 - Use deterministic mock data. Megan Bowen's owned book is illustrative, not the signed-in user's
   real assignments. No CRM, customer, quote or forecast records are changed.
 - Open a component, expand it, then click **Commercial Desk** in the left menu to show its landing.
-  Use **Reset demo data -> Confirm reset of demo data** before rehearsal.
+  Use **Reset session data -> Confirm session reset** before rehearsal.
 - Keep **ZDR-2042 / Contoso** through the opportunity story. After submission, preserve the actual
   generated **ZM-...** request ID; an opportunity and an approval request are different records.
 - Keep the screenshot fallback ready: [Deal Room](assets/fullscreen-deal-room.png),
@@ -48,7 +48,7 @@ Prompt: **Show my top revenue priorities, pipeline status and next actions.**
 
 Expected component: `GetMyRevenuePriorities`. Expand it into **My Deals**, then use **Back to My Deals**
 to show the purposeful starting point: **$18.54M open / $11.72M seller-weighted** in the current-quarter
-demo book, an evidence-linked next action and a list of actual opportunities.
+owned book, an evidence-linked next action and a list of opportunities.
 
 Say: **"Not another dashboard. A clear next move, grounded in the work I own."**
 
@@ -59,7 +59,7 @@ The interface now explains why this deal is on screen; an arbitrary record did n
 
 Expected task: `MapBuyingCommittee`, scoped to **ZDR-2042**.
 
-Point to the buyer-role network and exact contact records. Influence is a stored demo assessment;
+Point to the buyer-role network and exact contact records. Influence is a recorded assessment;
 membership does not establish authority, and economic-buyer access is not evidenced.
 
 Say: **"We can see the people. Now we need proof that the right people can make the decision."**
@@ -96,8 +96,8 @@ Expected task: `SubmitDealRequest`.
 Enter an outcome such as: **Roll out validated capabilities across 18 countries with an accountable
 customer owner and independent commercial review.**
 
-Continue through the form. Explicitly check the two **sample evidence attestations**, then review
-the exact values. **Submit demo deal** remains disabled until the user confirms.
+Continue through the form. Explicitly check the two **evidence attestations**, then review
+the exact values. **Submit deal request** remains disabled until the user confirms.
 
 Say: **"Copilot can help us reason. The user still reviews the actual request and owns submission."**
 
@@ -108,9 +108,9 @@ Use **Continue to Deal approvals** to open the exact generated request in **Comm
 
 Expected task: `ReviewDealApproval`, scoped to the exact **ZM-...** request.
 
-Show the same **$2,818,000** economics, inspect the sample evidence, choose the assigned
-**simulated Sales manager** role and enter an independent rationale. Explicit consent is required
-before **Approve demo stage** enables. This 8%-discount, above-floor example needs the manager stage only.
+Show the same **$2,818,000** economics, inspect the evidence, choose the assigned
+**Sales manager** role and enter an independent rationale. Explicit consent is required
+before **Approve review stage** enables. This 8%-discount, above-floor request needs the manager stage only.
 
 Point to the matching **ZM-...-A1** decision receipt. Role switching is not authentication.
 Opening a request or moving between tasks never grants authority or approves anything automatically.
@@ -118,13 +118,13 @@ Opening a request or moving between tasks never grants authority or approves any
 ## 3:35-4:00 - Revenue Command: close the loop without rewriting the pipeline
 
 Click **Revenue Command** in the left menu. Its own landing view shows the current country opportunity
-map, request-status counters and clear interventions. The confirmed demo-request count changes;
+map, request-status counters and clear interventions. The confirmed request count changes;
 the CRM-shaped opportunity catalog does **not** quietly mutate into closed-won or commit.
 
 Show **Opportunity / Recorded spend**:
 
-- **$82,497,260** across 25 current-quarter demo opportunities, attributed to fictional account HQs.
-- A separate **$3.4M** recorded demo expense ledger, not rollout revenue, requested investment or ROI.
+- **$82,497,260** across 25 current-quarter opportunities, attributed to account HQs.
+- A separate **$3.4M** recorded expense ledger, not rollout revenue, requested investment or ROI.
 
 Closing line: **"Copilot carries the conversation. The workspaces carry the evidence and controls.
 People still own the decision."**
@@ -132,10 +132,10 @@ People still own the decision."**
 ## Graphical variants for a longer keynote slot
 
 - **Explore pipeline value flow** opens `ExplorePipelineFlow` in **Revenue Command**.
-  Its **$29.4M** current scenario is a separate fictional planning allocation, not the catalog total.
+  Its **$29.4M** current scenario is a separate planning allocation, not the catalog total.
 - **Explore approval progress** opens `ExploreApprovalFlow` in **Commercial Desk**.
-  A stage passing is not final approval. **Review separate example ZM-1001** deliberately opens a stored
-  request, not a request attributed to the fictional diagram.
+  Stage completion is not final approval. **Continue to Deal approvals** opens the named
+  **ZM-1001** request with its own economics and evidence, not the aggregate chart value.
 - Expand `DiscoverAccountOpportunity` for country opportunity and `ExplorePipelineQuality` with recorded
   spend for a full-width map. Choose a country, then inspect an actual record; scopes and provenance
   must remain visible.

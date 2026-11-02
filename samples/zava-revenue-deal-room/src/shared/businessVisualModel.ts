@@ -72,13 +72,13 @@ export function businessVisualModel(input: IBusinessVisualInput): IBusinessVisua
       return model('account-growth-footprint', 'Account growth footprint', items, [
         money('Recorded open book', items.reduce((sum, item) => sum + item.value, 0)),
         metric('Opportunity records', items.length, String(items.length), 'records')
-      ], 'Area represents recorded demo opportunity value by account. Seller weighting is judgment; these are not whitespace forecasts or new leads.');
+      ], 'Area represents recorded opportunity value by account. Seller weighting is judgment; these are not whitespace forecasts or new leads.');
     }
     case 'MapBuyingCommittee':
-      return model('buyer-relationship-network', 'Decision roles and access', contacts.slice(0, 6).map(item => ({ id: item.id, label: item.name, owner: item.role, value: item.influence, state: item.stance, detail: `${item.role}; ${item.stance}; demo influence ${item.influence}. Membership does not establish decision authority.`, source: 'Recorded demo relationship graph' })), [
+      return model('buyer-relationship-network', 'Decision roles and access', contacts.slice(0, 6).map(item => ({ id: item.id, label: item.name, owner: item.role, value: item.influence, state: item.stance, detail: `${item.role}; ${item.stance}; recorded influence ${item.influence}. Membership does not establish decision authority.`, source: 'Recorded relationship graph' })), [
         metric('Recorded buyer roles', contacts.length, String(contacts.length), 'contacts'),
         metric('Sponsor access', undefined, evidence.some(item => item.id === 'EV-03') ? 'Not evidenced' : 'Unknown', 'evidence status')
-      ], 'Nodes are recorded contacts; size is a stored demo influence assessment, not authority or probability. Economic-buyer access still requires evidence.');
+      ], 'Nodes are recorded contacts; size is a stored recorded influence assessment, not authority or probability. Economic-buyer access still requires evidence.');
     case 'GetDealRisk': {
       const deadline: Readonly<Record<string, number>> = { 'EV-03': 9, 'EV-04': 21, 'EV-05': 5 };
       const labels: Readonly<Record<string, string>> = { 'EV-03': 'Sponsor access', 'EV-04': 'Buyer launch date', 'EV-05': 'Control acceptance', 'EV-06': 'Seller momentum' };
@@ -169,7 +169,7 @@ export function businessVisualModel(input: IBusinessVisualInput): IBusinessVisua
         { id: 'claims', label: 'Supported claims', state: scope.proposal?.claimsVerified ? 'verified' : 'missing', detail: 'No unsupported customer-release claim', source: scope.proposal?.id || 'No proposal' },
         { id: 'terms', label: 'Commercial authority', state: scope.exception?.approved ? 'verified' : 'missing', detail: 'Independent terms approval', source: scope.exception?.id || 'No approval record' }
       ];
-      return model('proposal-release-controls', 'Customer-release control board', controls, [metric('Passed hard controls', controls.filter(item => item.state === 'verified').length, `${controls.filter(item => item.state === 'verified').length} / ${controls.length}`, 'controls'), metric('Proposed disposition', undefined, draft.decision || 'Choose a recommendation', 'draft')], 'Control flags come from stored demo proposal/exception records. A readiness draft is not customer-release authorization.');
+      return model('proposal-release-controls', 'Customer-release control board', controls, [metric('Passed hard controls', controls.filter(item => item.state === 'verified').length, `${controls.filter(item => item.state === 'verified').length} / ${controls.length}`, 'controls'), metric('Proposed disposition', undefined, draft.decision || 'Choose a recommendation', 'draft')], 'Control flags come from stored proposal/exception records. A readiness draft is not customer-release authorization.');
     }
     case 'PlanCustomerSuccessHandoff': {
       const days = inputNumber(draft, 'days', 1, 365);
@@ -194,12 +194,12 @@ export function businessVisualModel(input: IBusinessVisualInput): IBusinessVisua
       const items = ['Qualify', 'Develop', 'Propose', 'Commit'].map(stage => {
         const records = visible.filter(item => item.stage === stage);
         const verified = records.filter(item => scopedEvidence({ ...scope, opportunity: item }).some(source => source.kind === 'verified')).length;
-        return { id: stage, label: stage, value: records.length, secondary: verified, state: verified ? 'some verified proof' : 'unknown buyer proof', detail: currency(records.reduce((sum, item) => sum + item.value, 0)), source: 'Filtered demo catalog and actual recorded evidence' };
+        return { id: stage, label: stage, value: records.length, secondary: verified, state: verified ? 'some verified proof' : 'unknown buyer proof', detail: currency(records.reduce((sum, item) => sum + item.value, 0)), source: 'Filtered catalog and recorded evidence' };
       });
       return model('pipeline-health-matrix', 'Stage coverage versus buyer proof', items, [metric('Displayed opportunity records', visible.length, String(visible.length), 'records')], 'Counts refer to supplied scope records; no evidence is unknown, not failed qualification. Stage and seller probability do not establish buyer proof.');
     }
     case 'DiscoverAccountOpportunity':
-      return model('country-opportunity-footprint', 'Country opportunity footprint', input.rows.map(row => ({ id: row.id, label: row.title, state: row.kind, detail: row.detail, source: row.source })), [], 'Country attribution is explicit demo headquarters data, not international rollout revenue.');
+      return model('country-opportunity-footprint', 'Country opportunity footprint', input.rows.map(row => ({ id: row.id, label: row.title, state: row.kind, detail: row.detail, source: row.source })), [], 'Country attribution is explicit headquarters data, not international rollout revenue.');
     default:
       throw new Error(`No task-specific business visualization is registered for ${definition.key}.`);
   }

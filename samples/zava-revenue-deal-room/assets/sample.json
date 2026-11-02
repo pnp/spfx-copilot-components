@@ -8,7 +8,7 @@
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-revenue-deal-room",
     "longDescription": [
       "ZavaMesh Revenue Deal Room turns natural-language sales intent into focused, inspectable work across account discovery, qualification, buyer influence, risk, commitments, proposals, commercial scenarios, exceptions, forecast, and customer success handoff.",
-      "Twenty-six operational components and one capability explorer support personal-priority revenue briefs, country opportunity and recorded-spend maps, fictional pipeline and approval value flows, exact commercial-to-submission handoffs and independent approval. Four polished full-screen workspaces separate purposeful landings from explicitly selected work, preserve exact scenario context and carry a keynote story from seller priority to accountable decision.",
+      "Twenty-six operational components and one capability explorer support personal-priority revenue briefs, country opportunity and recorded-spend maps, pipeline and approval value flows, exact commercial-to-submission handoffs and independent approval. Four polished full-screen workspaces separate purposeful landings from explicitly selected work, preserve exact scenario context and carry a keynote story from seller priority to accountable decision.",
       "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. Buyer facts, seller judgment, stale evidence, deterministic output, contrary evidence, and inference remain visibly distinct."
     ],
     "creationDateTime": "2026-08-31",
@@ -37,14 +37,14 @@
         "type": "image",
         "order": 90,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-country-spend-map.png",
-        "alt": "Country spending bubble map using a separate recorded demo expense ledger with exact country totals and focused drill-down"
+        "alt": "Country spending bubble map using a separate recorded expense ledger with exact country totals and focused drill-down"
       },
       {
         "name": "inline-country-opportunity-detail.png",
         "type": "image",
         "order": 89,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-country-opportunity-detail.png",
-        "alt": "Focused Germany opportunity detail with exact demo headquarters-attributed catalog values and links to inspect actual opportunities"
+        "alt": "Focused Germany opportunity detail with exact headquarters-attributed catalog values and links to inspect opportunities"
       },
       {
         "name": "inline-qualification-gate.png",
@@ -65,28 +65,28 @@
         "type": "image",
         "order": 93,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-pipeline-sankey.png",
-        "alt": "Interactive fictional pipeline Sankey connecting regional USD value, buyer readiness and next actions with conserved ribbons and selectable details"
+        "alt": "Interactive pipeline value flow connecting regional USD allocations, buyer readiness and next actions with conserved connections and selectable details"
       },
       {
         "name": "inline-approval-sankey.png",
         "type": "image",
         "order": 94,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-approval-sankey.png",
-        "alt": "Interactive fictional approval Sankey connecting intake routes, current independent reviewer stages and stage outcomes without implying final approval"
+        "alt": "Interactive approval value flow connecting intake routes, current independent reviewer stages and stage outcomes without implying final approval"
       },
       {
         "name": "inline-my-priorities.png",
         "type": "image",
         "order": 95,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-my-priorities.png",
-        "alt": "Personal demo action cockpit with actual owned-book totals, evidence-linked priorities and exact deal links rather than numerical priority scores"
+        "alt": "Personal action cockpit with owned-book totals, evidence-linked priorities and exact deal links rather than numerical priority scores"
       },
       {
         "name": "inline-deal-attention.png",
         "type": "image",
         "order": 97,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-attention.png",
-        "alt": "Recorded demo deal value versus observable attention flags with exact deal inspection and scoped Copilot questions, not predicted loss probabilities"
+        "alt": "Scoped deal value versus observable attention flags with exact deal inspection and contextual Copilot questions, not predicted loss probabilities"
       },
       {
         "name": "inline-deal-submission.png",
@@ -128,7 +128,7 @@
         "type": "image",
         "order": 102,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-buying-committee.png",
-        "alt": "Recorded buyer-role network with portraits, stance and demo influence assessments; membership does not establish decision authority"
+        "alt": "Recorded buyer-role network with portraits, stance and stored influence assessments; membership does not establish decision authority"
       },
       {
         "name": "inline-capability-explorer.png",
@@ -156,7 +156,7 @@
         "type": "image",
         "order": 106,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-global-opportunity-map.png",
-        "alt": "Country opportunity choropleth with supplied demo catalog totals, explicit fictional headquarters attribution and accessible country drill-down"
+        "alt": "Country opportunity choropleth with scoped catalog totals, explicit headquarters attribution and accessible country drill-down"
       },
       {
         "name": "inline-pipeline-quality.png",
@@ -198,7 +198,7 @@
         "type": "image",
         "order": 112,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-commercial-desk-home.png",
-        "alt": "Commercial Desk landing with independent review workload, proposed-offer entry and exact stored demo requests"
+        "alt": "Commercial Desk landing with independent review workload, proposed-offer entry and exact stored requests"
       },
       {
         "name": "fullscreen-revenue-command-home.png",
@@ -212,21 +212,21 @@
         "type": "image",
         "order": 114,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-country-spend.png",
-        "alt": "Full-width recorded-spend bubbles from a separate demo expense ledger with exact country values and geographic drill-down"
+        "alt": "Full-width recorded-spend bubbles from a separate expense ledger with exact country values and geographic drill-down"
       },
       {
         "name": "fullscreen-pipeline-value-flow.png",
         "type": "image",
         "order": 115,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-pipeline-value-flow.png",
-        "alt": "Revenue Command fictional pipeline value flow with conserved regional USD allocations, buyer readiness and next actions"
+        "alt": "Revenue Command pipeline value flow with conserved regional USD allocations, buyer readiness and next actions"
       },
       {
         "name": "fullscreen-approval-progress.png",
         "type": "image",
         "order": 116,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/fullscreen-approval-progress.png",
-        "alt": "Commercial Desk fictional approval-stage value flow with independent-review semantics and a separate stored request example"
+        "alt": "Commercial Desk approval value flow with independent-review semantics and an exact named-request continuation"
       }
     ],
     "authors": [

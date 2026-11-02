@@ -15,11 +15,11 @@ const snapshot = (extra: Readonly<Record<string, unknown>> = {}): IModelContextS
 });
 
 describe('bounded Copilot discussion and component handoffs', () => {
-  test.each(['pipeline', 'approval'] satisfies RevenueFlowKind[])('%s Sankey context retains the complete fictional graph within the full 10KB payload', kind => {
+  test.each(['pipeline', 'approval'] satisfies RevenueFlowKind[])('%s value-flow context retains the complete planning graph within the full 10KB payload', kind => {
     const flow = revenueFlow(kind, 'all', 'all');
     const payload = createModelContext(snapshot({
-      intent: kind === 'pipeline' ? 'ExplorePipelineFlow' : 'ExploreApprovalFlow', scopeLabel: 'Fictional planning flow',
-      resolvedScope: kind === 'pipeline' ? { period: 'all', region: 'all' } : { requestId: 'ZM-1001', exampleOnly: true },
+      intent: kind === 'pipeline' ? 'ExplorePipelineFlow' : 'ExploreApprovalFlow', scopeLabel: 'Regional planning flow',
+      resolvedScope: kind === 'pipeline' ? { period: 'all', region: 'all' } : { requestId: 'ZM-1001', requestLevelReview: true },
       revenueFlow: flow, inlineStage: { label: 'Sankey', chart: { kind: 'sankey', dataPath: 'revenueFlow' } }
     }));
     expect(modelContextBytes(payload)).toBeLessThanOrEqual(MAX_CONTEXT_BYTES);
@@ -27,7 +27,7 @@ describe('bounded Copilot discussion and component handoffs', () => {
     expect(shared.nodes).toHaveLength(10);
     expect(shared.links).toHaveLength(flow.links.length);
     expect(shared.total).toBe(flow.total);
-    expect(shared.semantics).toContain('Fictional USD');
+    expect(shared.semantics).toContain('Offline USD');
   });
   test.each(INTENTS)('$key offers discussion, a topic-specific question and a registered next component', definition => {
     const actions = getCopilotActions(definition, snapshot({ intent: definition.key, selection: '' }));
@@ -35,6 +35,9 @@ describe('bounded Copilot discussion and component handoffs', () => {
     expect(new Set(actions.map(action => action.id)).size).toBe(actions.length);
     expect(actions[0].prompt).toContain('No CRM writes');
     expect(actions[1].prompt).toContain('edited values and discussion topic');
+    actions.forEach(action => {
+      expect(`${action.label} ${action.prompt} ${action.disabledReason || ''}`).not.toMatch(/\b(?:sample|example|demo|fictional|imaginary)\b/i);
+    });
     const target = actions.find(action => action.handoff)?.handoff?.intent;
     expect(INTENTS.some(item => item.key === target)).toBe(true);
   });

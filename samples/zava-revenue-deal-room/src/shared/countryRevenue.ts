@@ -67,10 +67,10 @@ export const DEMO_ACCOUNT_HEADQUARTERS: Readonly<Record<string, string>> = {
 };
 
 export const COUNTRY_REVENUE_PROVENANCE = {
-  dataset: 'Offline deterministic DEMO; not live SharePoint or CRM',
-  opportunity: 'Sum of supplied demo opportunity values, attributed in full to fictional DEMO account headquarters. Not rollout revenue, closed revenue or a forecast.',
-  headquarters: 'Explicit fictional account-to-ISO2 headquarters lookup; original domain account IDs and names retained.',
-  spend: 'Separate fictional RECORDED DEMO expense ledger in USD. Not requested investment, future actual spend or ROI. Only current-quarter entries exist.',
+  dataset: 'Offline deterministic records; not live SharePoint or CRM',
+  opportunity: 'Sum of supplied opportunity values, attributed in full to account headquarters. Not rollout revenue, closed revenue or a forecast.',
+  headquarters: 'Explicit account-to-ISO2 headquarters lookup; original account IDs and names retained.',
+  spend: 'Separate recorded expense ledger in USD. Not requested investment, future actual spend or ROI. Only current-quarter entries exist.',
   geography: 'Bundled Natural Earth / world-atlas 110m country boundaries, D3 projection; ISO2 joined to numeric atlas IDs. No network or tile requests. Boundaries are illustrative, not a territorial position.'
 } as const;
 
@@ -150,7 +150,7 @@ export function countryRevenueScope(opportunities: readonly IOpportunity[], peri
   const periodRecords = opportunities.filter(item => period === 'all' || item.quarterOffset === (period === 'current' ? 0 : period === 'next' ? 1 : NaN));
   const ids = new Set<string>();
   periodRecords.forEach(item => {
-    if (!countryForAccount(item.accountId)) issues.push(`No DEMO headquarters assignment for account "${item.accountId}" on ${item.id}.`);
+    if (!countryForAccount(item.accountId)) issues.push(`No headquarters assignment for account "${item.accountId}" on ${item.id}.`);
     if (!Number.isFinite(item.value) || item.value < 0) issues.push(`Invalid opportunity value on ${item.id}.`);
     if (ids.has(item.id)) issues.push(`Duplicate opportunity ID "${item.id}".`);
     ids.add(item.id);

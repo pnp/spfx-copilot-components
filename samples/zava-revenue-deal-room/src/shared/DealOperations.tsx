@@ -163,7 +163,7 @@ export default function DealOperations(props: IDealOperationsProps): React.React
     selectedRequest: view === 'queue' ? selected : undefined,
     economics: view === 'intake' ? economics : selected ? dealEconomics(selected.draft) : undefined,
     draft: view === 'intake' ? draft : undefined, reviewerRole: role, decision, rationale, confirmed, receiptId,
-    validationErrors: view === 'intake' ? errors : reviewErrors, semantics: 'Simulated demo roles and approvals. No CRM or forecast writes.'
+    validationErrors: view === 'intake' ? errors : reviewErrors, semantics: 'Session-only review roles and decisions; no CRM or forecast updates.'
   });
   React.useEffect(() => { props.onStateChange(JSON.parse(state)); }, [state, props.onStateChange]);
   function update<K extends keyof DealDraft>(key: K, value: DealDraft[K]): void {
@@ -176,13 +176,13 @@ export default function DealOperations(props: IDealOperationsProps): React.React
     try {
       const request = store.submit(draft, confirmed);
       setSelectedId(request.id); setReceiptId(request.id); setView('queue'); setFilter('all'); setConfirmed(false); setRationale(''); setQueueFacet('Terms'); setIntakePage(0);
-    } catch (reason) { setError(reason instanceof Error ? reason.message : 'The demo request could not be submitted.'); }
+    } catch (reason) { setError(reason instanceof Error ? reason.message : 'The request could not be submitted.'); }
   }
   function decide(): void {
     try {
       const request = store.decide(selectedId, role, decision, rationale, confirmed);
       setReceiptId(request.id); setConfirmed(false); setQueueFacet('Decision trail'); setIntakePage(Math.max(0, request.events.length - 1));
-    } catch (reason) { setError(reason instanceof Error ? reason.message : 'The demo decision could not be recorded.'); }
+    } catch (reason) { setError(reason instanceof Error ? reason.message : 'The decision could not be recorded.'); }
   }
   function person(name: string, detail: string): React.ReactElement {
     const portrait = PERSONA_MEDIA[name];
@@ -210,18 +210,18 @@ export default function DealOperations(props: IDealOperationsProps): React.React
     return <><dl className={mergeClasses(styles.facts, styles.compactFacts)}>{summaryFields(values).slice(intakePage * 3, intakePage * 3 + 3).map(item => <React.Fragment key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></React.Fragment>)}</dl>{pages(intakePage, 3, value => { setIntakePage(value); setReviewSeen(current => current.indexOf(value) >= 0 ? current : [...current, value]); setConfirmed(false); }, 'values')}</>;
   }
   if (props.compact) return <section className={styles.root} aria-label="Deal submission and approval center" data-layout={`deal-operations-${props.mode}-${view}`}>
-    <h2 className={styles.title}>{view === 'intake' ? 'Shape your next growth deal' : props.mode === 'reviewer' ? 'Commercial approval center' : 'Confirmed demo request'}</h2>
+    <h2 className={styles.title}>{view === 'intake' ? 'Shape your next growth deal' : props.mode === 'reviewer' ? 'Commercial approval center' : 'Submitted request'}</h2>
     {snapshot.storageWarning && <p role="alert">{snapshot.storageWarning}</p>}
     {error && <p role="alert" className={styles.error}>{error}</p>}
-    {view === 'queue' && selectedId && !selected && <p role="status">No demo request matches {selectedId}. No substitute was selected.</p>}
-    {receiptId && selected && <p role="status"><strong>Demo receipt {receiptId}-{selected.events.length ? `A${selected.events.length}` : 'SUBMIT'}</strong> / {selected.status}. {nextApproval(selected) ? `Next: ${nextApproval(selected)} review.` : 'Decision recorded; not delivery authorization.'} No CRM or forecast changed.</p>}
+    {view === 'queue' && selectedId && !selected && <p role="status">No request matches {selectedId}. No substitute was selected.</p>}
+    {receiptId && selected && <p role="status"><strong>Request receipt {receiptId}-{selected.events.length ? `A${selected.events.length}` : 'SUBMIT'}</strong> / {selected.status}. {nextApproval(selected) ? `Next: ${nextApproval(selected)} review.` : 'Decision recorded; not delivery authorization.'} No CRM or forecast changed.</p>}
     {view === 'intake' ? <>
       <div className={styles.actions} aria-label="Intake stages">{['01  Deal story', '02  Commercials', '03  Evidence', '04  Exact review'].map((label, index) => <Button key={label} size="small" aria-pressed={step === index} disabled={index === 3 && !!errors.length} onClick={() => { setStep(index); setIntakePage(0); setReviewSeen([0]); setConfirmed(false); }}>{label}</Button>)}</div>
       {step === 0 ? <div className={mergeClasses(styles.form, styles.compactForm)}>
         <Field label="Account" required><Select value={draft.accountId} onChange={event => update('accountId', event.target.value)}>{ACCOUNTS.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</Select></Field>
         <Field label="Deal name (5-120 characters)" required><Input value={draft.title} maxLength={120} onChange={(_, data) => update('title', data.value)} /></Field>
         <Field label="Business outcome (20-1,000 characters)" required><Textarea rows={2} value={draft.outcome} maxLength={1000} onChange={(_, data) => update('outcome', data.value)} /></Field>
-        <p className={styles.muted}>{draft.owner} / illustrative submitter. No CRM write.</p>
+        <p className={styles.muted}>{draft.owner} / request owner. Changes stay in this session.</p>
       </div> : step === 1 ? <>
         <div className={styles.actions}><Button size="small" aria-pressed={intakePage === 0} onClick={() => setIntakePage(0)}>License terms</Button><Button size="small" aria-pressed={intakePage === 1} onClick={() => setIntakePage(1)}>Delivery and investment</Button></div>
         <div className={mergeClasses(styles.fields, styles.compactFields)}>{([
@@ -230,28 +230,28 @@ export default function DealOperations(props: IDealOperationsProps): React.React
         ] as const).slice(intakePage * 3, intakePage * 3 + 3).map(([key, label]) => <Field label={label} required key={key}><Input type="number" value={draft[key]} onChange={(_, data) => update(key, data.value)} /></Field>)}</div>
         {economics && <><RequestValueVisual draft={draft}/><p>{economics.grossMargin.toFixed(1)}% margin / {currency(economics.weightedForecast)} seller-weighted; authority is not approval.</p></>}
       </> : step === 2 ? <>
-        <h3>Evidence before authority</h3><p>Sample attestations, not externally verified proof. Missing evidence blocks approval, not submission.</p>
-        <Checkbox checked={draft.securityReady} onChange={(_, data) => update('securityReady', data.checked === true)} label="Security review evidence is ready (sample attestation)" />
-        <Checkbox checked={draft.sponsorReady} onChange={(_, data) => update('sponsorReady', data.checked === true)} label="Economic sponsor evidence is ready (sample attestation)" />
+        <h3>Evidence before authority</h3><p>Review evidence readiness before requesting approval. Missing evidence blocks approval, not submission.</p>
+        <Checkbox checked={draft.securityReady} onChange={(_, data) => update('securityReady', data.checked === true)} label="Security review evidence is ready" />
+        <Checkbox checked={draft.sponsorReady} onChange={(_, data) => update('sponsorReady', data.checked === true)} label="Economic sponsor evidence is ready" />
         <p className={styles.muted}>Independent route: {approvalRoute(draft).map(stage => `${stage}: ${REVIEWERS[stage]}`).join(' → ')}</p>
       </> : <>
         <h3>Review the exact request</h3><strong>{draft.title}</strong>{compactSummary(draft)}
-        <p>Review all three value pages. This is a demo submission, never approval.</p>
-        <Checkbox disabled={reviewSeen.length < 3} checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} label="I reviewed this request and confirm a demo-only submission" />
+        <p>Review all three value pages. Submission requests review; it does not grant approval.</p>
+        <Checkbox disabled={reviewSeen.length < 3} checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} label="I reviewed this request and confirm submission" />
       </>}
       {!!errors.length && <div role="alert" className={styles.error}>{errors.map(message => <p key={message}>{message}</p>)}</div>}
-      <div className={styles.actions}>{step > 0 && <Button size="small" onClick={() => { setStep(step - 1); setIntakePage(0); setConfirmed(false); }}>Previous step</Button>}{step < 2 ? <Button onClick={() => { setStep(step + 1); setIntakePage(0); }}>Continue</Button> : step === 2 ? <Button disabled={!!errors.length} onClick={() => { setStep(3); setIntakePage(0); setReviewSeen([0]); setConfirmed(false); }}>Review deal request</Button> : <Button appearance="primary" disabled={!confirmed || !!errors.length || reviewSeen.length < 3} onClick={submit}>Submit demo deal</Button>}<Button size="small" onClick={() => { setView('queue'); setQueueFacet('Inbox'); }}>Back to requests</Button></div>
+      <div className={styles.actions}>{step > 0 && <Button size="small" onClick={() => { setStep(step - 1); setIntakePage(0); setConfirmed(false); }}>Previous step</Button>}{step < 2 ? <Button onClick={() => { setStep(step + 1); setIntakePage(0); }}>Continue</Button> : step === 2 ? <Button disabled={!!errors.length} onClick={() => { setStep(3); setIntakePage(0); setReviewSeen([0]); setConfirmed(false); }}>Review deal request</Button> : <Button appearance="primary" disabled={!confirmed || !!errors.length || reviewSeen.length < 3} onClick={submit}>Submit deal request</Button>}<Button size="small" onClick={() => { setView('queue'); setQueueFacet('Inbox'); }}>Back to requests</Button></div>
     </> : <>
       <div className={styles.actions} aria-label="Approval facets">{['Inbox', 'Requests', 'Terms', 'Evidence', 'Decision', 'Decision trail'].map(label => <Button key={label} size="small" disabled={label !== 'Inbox' && label !== 'Requests' && !selected} aria-pressed={queueFacet === label} onClick={() => { setQueueFacet(label); setIntakePage(0); }}>{label}</Button>)}</div>
       {queueFacet === 'Inbox' ? <>
         <Field label="Request status"><Select value={filter} onChange={event => { setFilter(event.target.value); setQueuePage(0); }}>{['pending', 'approved', 'returned', 'rejected', 'all'].map(value => <option key={value}>{value}</option>)}</Select></Field>
         <ApprovalWorkloadVisual requests={visible}/>
-        <p>Current reviewer counts are stored demo requests; remaining stages are requirements, not granted authority.</p>
+        <p>Current reviewer counts use submitted requests; remaining stages are requirements, not granted authority.</p>
         {visible[0] && <Button appearance="primary" onClick={() => selectRequest(visible[0].id)}>Review next request {visible[0].id}</Button>}
         <Button size="small" onClick={() => setQueueFacet('Requests')}>Show request list</Button>
         {!visible.length && <p role="status">No {filter} requests. No substitute was selected.</p>}
         <Button size="small" onClick={() => { setView('intake'); setDraft(newDealDraft()); setStep(0); setIntakePage(0); setReviewSeen([0]); setConfirmed(false); setReceiptId(''); }}>Submit a deal</Button>
-        <Button size="small" onClick={() => setResetRequested(!resetRequested)}>Reset demo data</Button>{resetRequested && <><p>Restore two sample requests and remove demo decisions?</p><Button onClick={() => { store.reset(); selectRequest('ZM-1001'); setFilter('pending'); setResetRequested(false); }}>Confirm reset of demo data</Button></>}
+        <Button size="small" onClick={() => setResetRequested(!resetRequested)}>Reset session data</Button>{resetRequested && <><p>Restore the initial requests and clear session decisions?</p><Button onClick={() => { store.reset(); selectRequest('ZM-1001'); setFilter('pending'); setResetRequested(false); }}>Confirm session reset</Button></>}
       </> : queueFacet === 'Requests' ? <>
         <Field label="Request status"><Select value={filter} onChange={event => { setFilter(event.target.value); setQueuePage(0); }}>{['pending', 'approved', 'returned', 'rejected', 'all'].map(value => <option key={value}>{value}</option>)}</Select></Field>
         <div className={mergeClasses(styles.queue, styles.compactQueue)}>{visible.slice(currentQueuePage * 2, currentQueuePage * 2 + 2).map(request => <button key={request.id} type="button" className={styles.queueRow} onClick={() => selectRequest(request.id)}><span><strong>{request.draft.title}</strong><p>{request.id} / {nextApproval(request) || 'Decision recorded'}</p></span><span>{currency(dealEconomics(request.draft).contractValue)}<Badge color={statusColor(request.status)}>{request.status}</Badge></span></button>)}</div>
@@ -260,14 +260,14 @@ export default function DealOperations(props: IDealOperationsProps): React.React
       </> : selected ? <>
         <h3>{selected.id} / {selected.draft.title}</h3>
         {queueFacet === 'Terms' ? <><p>{selected.draft.outcome}</p>{compactSummary(selected.draft)}</> : queueFacet === 'Evidence' ? <>
-          <p>Security attestation: {selected.draft.securityReady ? 'Ready' : 'Missing'} / sponsor attestation: {selected.draft.sponsorReady ? 'Ready' : 'Missing'}. These are sample attestations.</p>
+          <p>Security attestation: {selected.draft.securityReady ? 'Ready' : 'Missing'} / sponsor attestation: {selected.draft.sponsorReady ? 'Ready' : 'Missing'}. Independent review is required.</p>
           <div className={styles.route}>{approvalRoute(selected.draft).map(stage => <div key={stage}>{person(REVIEWERS[stage], `${stage} / ${selected.events.some(event => event.role === stage && event.decision === 'approved') ? 'approved' : nextApproval(selected) === stage ? 'awaiting review' : 'not reached'}`)}</div>)}</div><p>Independent reviewer required; no self-approval or delegated authority.</p>
         </> : queueFacet === 'Decision' ? selected.status === 'pending' ? <div className={mergeClasses(styles.form, styles.compactForm)}>
-          <div className={mergeClasses(styles.fields, styles.compactFields)}><Field label="Simulated reviewer role"><Select value={role} onChange={event => { const value = APPROVAL_ROLES.find(item => item === event.target.value); if (value) setRole(value); setConfirmed(false); setReceiptId(''); }}>{APPROVAL_ROLES.map(value => <option key={value}>{value}</option>)}</Select></Field><Field label="Proposed decision"><Select value={decision} onChange={event => { const value = event.target.value; if (value === 'approved' || value === 'returned' || value === 'rejected') setDecision(value); setConfirmed(false); setReceiptId(''); }}><option value="approved">Approve this stage</option><option value="returned">Return for changes</option><option value="rejected">Reject request</option></Select></Field></div>
+          <div className={mergeClasses(styles.fields, styles.compactFields)}><Field label="Reviewer role"><Select value={role} onChange={event => { const value = APPROVAL_ROLES.find(item => item === event.target.value); if (value) setRole(value); setConfirmed(false); setReceiptId(''); }}>{APPROVAL_ROLES.map(value => <option key={value}>{value}</option>)}</Select></Field><Field label="Proposed decision"><Select value={decision} onChange={event => { const value = event.target.value; if (value === 'approved' || value === 'returned' || value === 'rejected') setDecision(value); setConfirmed(false); setReceiptId(''); }}><option value="approved">Approve this stage</option><option value="returned">Return for changes</option><option value="rejected">Reject request</option></Select></Field></div>
           <Field label="Decision rationale (15-1,000 characters)" required><Textarea rows={2} value={rationale} maxLength={1000} onChange={(_, data) => { setRationale(data.value); setConfirmed(false); }} /></Field>
           {!!reviewErrors.length && <div role="alert" className={styles.error}>{reviewErrors.map(message => <p key={message}>{message}</p>)}</div>}
-          <Checkbox label="I reviewed the evidence and confirm this simulated decision" checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} />
-          <Button appearance="primary" disabled={!!reviewErrors.length || !confirmed} onClick={decide}>{decision === 'approved' ? 'Approve demo stage' : decision === 'returned' ? 'Return demo request' : 'Reject demo request'}</Button><p className={styles.muted}>Demo role switching is not authentication.</p>
+          <Checkbox label="I reviewed the evidence and confirm this decision" checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} />
+          <Button appearance="primary" disabled={!!reviewErrors.length || !confirmed} onClick={decide}>{decision === 'approved' ? 'Approve review stage' : decision === 'returned' ? 'Return request' : 'Reject request'}</Button><p className={styles.muted}>Role switching is not authentication.</p>
         </div> : <p role="status">Request is {selected.status}. No pending decision is available.</p> : <>
           {selected.events.slice(intakePage, intakePage + 1).map(event => <article key={event.id}>{person(event.actor, `${event.role} / ${event.decision}`)}<p>{event.rationale}</p><p>{event.id} / {event.timestamp}</p></article>)}
           {!selected.events.length && <p>No decisions recorded. Next: {nextApproval(selected)} independent review.</p>}
@@ -281,16 +281,16 @@ export default function DealOperations(props: IDealOperationsProps): React.React
     <div className={styles.toolbar}>
       <div><span className={styles.eyebrow}>HUMAN DECISIONS. CONNECTED EXECUTION.</span><h2 className={styles.title}>{view === 'intake' ? 'Shape your next growth deal' : props.mode === 'seller' ? 'From opportunity to approved deal' : 'Commercial approval center'}</h2><p className={styles.muted}>Submit with confidence. Review the evidence. Keep every decision traceable.</p></div>
       <div className={styles.actions}>
-        <Badge appearance="tint">Demo workspace</Badge>
+        <Badge appearance="tint">Revenue workspace</Badge>
         {view === 'queue' ? <Button appearance="primary" icon={<Add20Regular />} onClick={() => { setView('intake'); setDraft(newDealDraft()); setStep(0); setConfirmed(false); setError(''); setReceiptId(''); }}>Submit a deal</Button> : <Button onClick={() => { setView('queue'); setConfirmed(false); }}>Back to requests</Button>}
       </div>
     </div>
     {snapshot.storageWarning && <p role="alert">{snapshot.storageWarning}</p>}
     {error && <p role="alert" className={styles.error}>{error}</p>}
-    {view === 'queue' && selectedId && !selected && <p role="status">No demo request matches {selectedId}. Select a request from the inbox; no substitute was selected.</p>}
+    {view === 'queue' && selectedId && !selected && <p role="status">No request matches {selectedId}. Select a request from the inbox; no substitute was selected.</p>}
     {receiptId && selected && <div role="status" className={mergeClasses(styles.receipt, (selected.status === 'returned' || selected.status === 'rejected') && styles.receiptNegative)}>
-      <CheckmarkCircle20Regular /> <strong>Demo receipt {selected.events.length ? `${receiptId}-A${selected.events.length}` : `${receiptId}-SUBMIT`}</strong>
-      <p>{selected.draft.title} · {currency(dealEconomics(selected.draft).contractValue)} · {selected.status}. {nextApproval(selected) ? `Next: ${nextApproval(selected)} review.` : selected.status === 'returned' ? 'Next: revise the request and resubmit with the missing evidence.' : selected.status === 'rejected' ? 'Request closed in the demo. A new request requires a new review.' : 'Demo approval complete. Prepare the handoff; this is not delivery authorization.'}</p>
+      <CheckmarkCircle20Regular /> <strong>Request receipt {selected.events.length ? `${receiptId}-A${selected.events.length}` : `${receiptId}-SUBMIT`}</strong>
+      <p>{selected.draft.title} · {currency(dealEconomics(selected.draft).contractValue)} · {selected.status}. {nextApproval(selected) ? `Next: ${nextApproval(selected)} review.` : selected.status === 'returned' ? 'Next: revise the request and resubmit with the missing evidence.' : selected.status === 'rejected' ? 'Request closed. A new request requires a new review.' : 'Approval route complete. Prepare the handoff; this is not delivery authorization.'}</p>
       <p>{selected.events.length ? `${selected.events[selected.events.length - 1].actor} · ${selected.events[selected.events.length - 1].timestamp}` : `${selected.draft.owner} · ${selected.submittedAt}`} · Session only. No quote, CRM record or forecast was changed.</p>
     </div>}
     {view === 'intake' ? <div className={styles.split}>
@@ -302,7 +302,7 @@ export default function DealOperations(props: IDealOperationsProps): React.React
             <Field label="Account" required><Select value={draft.accountId} onChange={event => update('accountId', event.target.value)}>{ACCOUNTS.map(item => <option key={item.id} value={item.id}>{item.name} / {item.region}</option>)}</Select></Field>
             <Field label="Deal name (5-120 characters)" required><Input value={draft.title} maxLength={120} onChange={(_, data) => update('title', data.value)} /></Field>
             <Field label="Business outcome (20-1,000 characters)" required><Textarea resize="vertical" value={draft.outcome} maxLength={1000} onChange={(_, data) => update('outcome', data.value)} /></Field>
-            {person(draft.owner, `Demo submitter · ${account?.region || 'Choose an account'}`)}
+            {person(draft.owner, `Request submitter · ${account?.region || 'Choose an account'}`)}
           </>}
           {step === 1 && <div className={styles.fields}>{([
             ['quantity', 'Licensed users', 1, 100000, 1], ['termMonths', 'Contract months', 1, 120, 1],
@@ -310,17 +310,17 @@ export default function DealOperations(props: IDealOperationsProps): React.React
             ['probability', 'Seller probability (0-1)', 0, 1, 0.01], ['investment', 'GTM investment requested (USD)', 1, 100000000, 1000]
           ] as const).map(([key, label, minimum, maximum, increment]) => <Field label={label} required key={key}><Input type="number" min={minimum} max={maximum} step={increment} value={draft[key]} onChange={(_, data) => update(key, data.value)} /></Field>)}</div>}
           {step === 2 && <>
-            <h3>Evidence before authority</h3><p className={styles.muted}>These are explicit sample attestations, not verified external evidence. Missing evidence permits submission but blocks approval.</p>
-            <Checkbox checked={draft.securityReady} onChange={(_, data) => update('securityReady', data.checked === true)} label="Security review evidence is ready (sample attestation)" />
-            <Checkbox checked={draft.sponsorReady} onChange={(_, data) => update('sponsorReady', data.checked === true)} label="Economic sponsor evidence is ready (sample attestation)" />
+            <h3>Evidence before authority</h3><p className={styles.muted}>Attest to the evidence reviewed for this request. Missing evidence permits submission but blocks approval.</p>
+            <Checkbox checked={draft.securityReady} onChange={(_, data) => update('securityReady', data.checked === true)} label="Security review evidence is ready" />
+            <Checkbox checked={draft.sponsorReady} onChange={(_, data) => update('sponsorReady', data.checked === true)} label="Economic sponsor evidence is ready" />
           </>}
-          {step === 3 && <><h3>Review the exact request</h3><strong>{draft.title}</strong><p className={styles.wide}>{draft.outcome}</p>{summary(draft)}<Checkbox checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} label="I reviewed this request and confirm a demo-only submission" /></>}
+          {step === 3 && <><h3>Review the exact request</h3><strong>{draft.title}</strong><p className={styles.wide}>{draft.outcome}</p>{summary(draft)}<Checkbox checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} label="I reviewed this request and confirm submission" /></>}
           {!!errors.length && <div role="alert" className={styles.error}>{errors.map(message => <p key={message}>{message}</p>)}</div>}
           <div className={styles.actions}>
             {step > 0 && <Button onClick={() => { setStep(step - 1); setConfirmed(false); }}>{step === 3 ? 'Edit evidence' : 'Previous step'}</Button>}
             {step < 2 && <Button appearance="primary" icon={<ArrowRight20Regular />} onClick={() => setStep(step + 1)}>Continue</Button>}
             {step === 2 && <Button appearance="primary" disabled={!!errors.length} onClick={() => { setStep(3); setConfirmed(false); }}>Review deal request</Button>}
-            {step === 3 && <Button appearance="primary" disabled={!confirmed || !!errors.length} onClick={submit}>Submit demo deal</Button>}
+            {step === 3 && <Button appearance="primary" disabled={!confirmed || !!errors.length} onClick={submit}>Submit deal request</Button>}
           </div>
         </div>
       </div>
@@ -333,14 +333,14 @@ export default function DealOperations(props: IDealOperationsProps): React.React
         <p className={styles.muted}><ShieldCheckmark20Regular /> Independent review, explicit consent and a recorded rationale at every stage.</p>
       </aside>
     </div> : <div className={mergeClasses(styles.split, styles.reviewSplit)}>
-      <section className={styles.panel} aria-label="Canonical demo request queue">
+      <section className={styles.panel} aria-label="Request review queue">
         <div className={styles.toolbar}><h3>Request inbox <Badge>{visible.length}</Badge></h3><Field label="Request status"><Select value={filter} onChange={event => setFilter(event.target.value)}>{['pending', 'approved', 'returned', 'rejected', 'all'].map(value => <option key={value} value={value}>{value === 'all' ? 'All requests' : value.charAt(0).toUpperCase() + value.slice(1)}</option>)}</Select></Field></div>
         <div className={styles.queue}>{visible.map(request => <button type="button" key={request.id} className={mergeClasses(styles.queueRow, selectedId === request.id && styles.selected)} aria-pressed={selectedId === request.id} onClick={() => selectRequest(request.id)}>
           <span><strong>{request.draft.title}</strong><p className={styles.muted}>{request.id} / {ACCOUNTS.find(item => item.id === request.draft.accountId)?.region}</p>{person(request.draft.owner, nextApproval(request) ? `Awaiting ${nextApproval(request)}` : 'Decision recorded')}</span>
           <span className={styles.status}><strong>{currency(dealEconomics(request.draft).contractValue)}</strong><Badge color={statusColor(request.status)}>{request.status}</Badge></span>
         </button>)}</div>
-        {!visible.length && <p role="status">No {filter} requests. Change the filter or submit a new demo deal.</p>}
-        <div className={styles.divider}><Button appearance="subtle" onClick={() => setResetRequested(!resetRequested)}>Reset demo data</Button>{resetRequested && <div><p>Remove confirmed demo submissions and decisions and restore the two sample requests?</p><Button onClick={() => { store.reset(); selectRequest('ZM-1001'); setFilter('pending'); setResetRequested(false); }}>Confirm reset of demo data</Button></div>}</div>
+        {!visible.length && <p role="status">No {filter} requests. Change the filter or submit a new deal request.</p>}
+        <div className={styles.divider}><Button appearance="subtle" onClick={() => setResetRequested(!resetRequested)}>Reset session data</Button>{resetRequested && <div><p>Clear session submissions and decisions and restore the initial requests?</p><Button onClick={() => { store.reset(); selectRequest('ZM-1001'); setFilter('pending'); setResetRequested(false); }}>Confirm session reset</Button></div>}</div>
       </section>
       <section className={styles.panel} aria-label="Selected deal review">
         {selected ? <>
@@ -349,14 +349,14 @@ export default function DealOperations(props: IDealOperationsProps): React.React
           <div className={styles.route}>{approvalRoute(selected.draft).map(stage => <div key={stage}>{person(REVIEWERS[stage], `${stage} / ${selected.events.some(event => event.role === stage && event.decision === 'approved') ? 'approved' : nextApproval(selected) === stage ? 'awaiting review' : 'not reached'}`)}</div>)}</div>
           {selected.status === 'pending' && <div className={styles.form}>
             <div className={styles.fields}>
-              <Field label="Simulated reviewer role"><Select value={role} onChange={event => { const value = APPROVAL_ROLES.find(item => item === event.target.value); if (value) setRole(value); setConfirmed(false); setReceiptId(''); }}>{APPROVAL_ROLES.map(value => <option key={value}>{value}</option>)}</Select></Field>
+              <Field label="Reviewer role"><Select value={role} onChange={event => { const value = APPROVAL_ROLES.find(item => item === event.target.value); if (value) setRole(value); setConfirmed(false); setReceiptId(''); }}>{APPROVAL_ROLES.map(value => <option key={value}>{value}</option>)}</Select></Field>
               <Field label="Proposed decision"><Select value={decision} onChange={event => { const value = event.target.value; if (value === 'approved' || value === 'returned' || value === 'rejected') setDecision(value); setConfirmed(false); setReceiptId(''); }}><option value="approved">Approve this stage</option><option value="returned">Return for changes</option><option value="rejected">Reject request</option></Select></Field>
             </div>
-            <p className={styles.muted}>Demo role switching is not authentication or delegated authority.</p>
+            <p className={styles.muted}>Role switching is not authentication or delegated authority.</p>
             <Field label="Decision rationale (15-1,000 characters)" required><Textarea value={rationale} maxLength={1000} onChange={(_, data) => { setRationale(data.value); setConfirmed(false); }} /></Field>
             {!!reviewErrors.length && <div role="alert" className={styles.error}>{reviewErrors.map(message => <p key={message}>{message}</p>)}</div>}
-            <Checkbox label="I reviewed the evidence and confirm this simulated decision" checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} />
-            <Button appearance="primary" disabled={!!reviewErrors.length || !confirmed} onClick={decide}>{decision === 'approved' ? 'Approve demo stage' : decision === 'returned' ? 'Return demo request' : 'Reject demo request'}</Button>
+            <Checkbox label="I reviewed the evidence and confirm this decision" checked={confirmed} onChange={(_, data) => setConfirmed(data.checked === true)} />
+            <Button appearance="primary" disabled={!!reviewErrors.length || !confirmed} onClick={decide}>{decision === 'approved' ? 'Approve review stage' : decision === 'returned' ? 'Return request' : 'Reject request'}</Button>
           </div>}
           {selected.status === 'returned' && <Button onClick={() => { setDraft({ ...selected.draft }); setView('intake'); setStep(0); setConfirmed(false); setReceiptId(''); }}>Create revised request</Button>}
           {!!selected.events.length && <div className={styles.divider}><h3>Decision trail</h3><ol className={styles.audit}>{selected.events.map(event => <li key={event.id} className={styles.auditRow}>{person(event.actor, `${event.role} / ${event.decision}`)}<p className={styles.wide}>{event.rationale}</p><small>{event.id} / {event.timestamp}</small></li>)}</ol></div>}

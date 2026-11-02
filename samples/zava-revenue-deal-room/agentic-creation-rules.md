@@ -494,6 +494,11 @@ phased implementation. If only planning is requested, stop before dependency or 
   Each component must also earn its own business question, scoped records, visual grammar and useful
   interaction. Recoloring the same chart, repeating identical sample values, or substituting generic
   source counts for domain insight does not create another valuable component.
+  Present the business process directly. Starter titles, headings, breadcrumbs, continuations,
+  discussion actions, generated user messages, review controls and receipts must not frame the work
+  as a "sample", "example", "demo", "imaginary" or "fictional" process. Use business verbs, actual
+  entity/request IDs and meaningful stage names. Keep necessary offline/session, provenance and
+  authorization boundaries concise and factual, not repeated qualifiers on every operation.
 - **G27 - Share mechanics, never workspace purpose.** A shared shell may own navigation, responsive
   constraints, theme, focus, bridge callbacks, panels, and chart primitives. It MUST NOT own one universal
   dashboard composition rendered under different workspace labels. Every primary workspace has a unique
@@ -1230,6 +1235,12 @@ transport or send raw protocol messages.
   and optional scoped component launches. Do not repeat the same generic continuation across siblings.
   A discussion-only question stays conversational; it must not open another card just to repeat the
   current view. An explicit next-component action requests exactly one advertised tool and schema.
+- Apply business-first wording to the entire continuation contract: label, accessible name, outgoing
+  user-message text, selected-scope summary, direct full-screen next step and target view. Use
+  `Review request [ID]`, `Submit deal request`, `Approve review stage` and the domain's own action names,
+  not sample/example launchers. App-owned metadata should describe scope and workflow boundaries,
+  not artificial "example-only" destinations. Do not blindly rename repository paths, SDK/schema
+  fields, source fixture classifications or technical documentation where those words are necessary.
 - Publish captured click-time context and its follow-up in an atomic serialized queue so passive
   updates cannot interleave between them. The snapshot includes the selected IDs, filters, visible
   source/provenance, allowed edited values, calculations, review/receipt state, discussion topic and
@@ -1238,7 +1249,10 @@ transport or send raw protocol messages.
 - Preserve exact entity/request IDs and validated scenario inputs across handoffs. Unknown, empty,
   conflicting or filtered IDs remain no-match, never a default hero record. Carry monetary inputs
   without silently dropping unsupported ramp/term/quantity semantics. A real submission receipt is
-  required before opening its approval; an unrelated seeded example must be named as a separate example.
+  required before opening its approval. If another existing request is the next business step, show
+  its exact ID before navigation and use that request's own values, evidence and decision trail.
+  Never transfer aggregate chart volume or a prior record's approval into it. If no target is known,
+  open an appropriate selection view rather than silently substituting an unrelated record.
   Direct full-screen **Continue to [step]** navigation is distinct from a Copilot chat handoff, even
   when both reuse the same validated next-step contract.
 - A capability-card **Open [scenario] in Copilot** action launches the card actually clicked, with
@@ -2016,6 +2030,11 @@ samples/<name>/
 - [ ] Context-first discussion and explicit next-component handoffs are distinct; click-time context
   and message are serialized, the full UTF-8 payload is <=10,000 bytes, omissions are disclosed,
   exact IDs/scenario inputs survive, and publication failure prevents the message.
+- [ ] Audit complete business journeys, not just starters: action text, accessible labels, outgoing
+  prompts, context summaries, review/receipt states and screenshots avoid sample/example/demo framing
+  and chart-engine jargon. Exact target IDs, workflow boundaries, review consent, independent authority,
+  error recovery and factual offline/session limitations remain intact. Regression checks cover both
+  inline and full-screen continuations, including successful confirmation and returned/rejected work.
 - [ ] Purposeful workspace landings are distinct from selected work; hidden retained tasks cannot
   overwrite visible context. Expand, explicit selection/Resume, fresh invocation and menu navigation
   have tested, different state-preservation contracts.

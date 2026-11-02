@@ -67,14 +67,14 @@ function RevenueContent(props: IRevenueAppProps & { readonly fullScreen: boolean
   return <>
     <header className={mergeClasses(styles.header, !props.fullScreen && styles.inlineHeader)}>
       <div>{!props.fullScreen && <img className={styles.inlineWordmark} src={ZAVAMESH.colorLogo} alt="ZavaMesh"/>}<h1 className={mergeClasses(styles.title, !props.fullScreen && styles.inlineTitle)} tabIndex={-1}>{props.fullScreen ? LENS_LABELS[props.workspaceLens] : props.definition.title}</h1><p className={styles.subtitle}>{props.fullScreen ? FULLSCREEN_STORIES[props.workspaceLens].goal : props.definition.question}</p></div>
-      <div className={styles.headerActions}>{props.fullScreen ? <Badge appearance="tint">Demo workspace</Badge> : props.onRequestFullscreen && <Button appearance="primary" icon={<ArrowExpand20Regular/>} onClick={() => props.onRequestFullscreen?.().catch(() => setExpandError(true))}>Expand</Button>}</div>
+      <div className={styles.headerActions}>{props.fullScreen ? <Badge appearance="tint">Revenue workspace</Badge> : props.onRequestFullscreen && <Button appearance="primary" icon={<ArrowExpand20Regular/>} onClick={() => props.onRequestFullscreen?.().catch(() => setExpandError(true))}>Expand</Button>}</div>
     </header>
     <div className={mergeClasses(styles.content, !props.fullScreen && styles.compactContent)}>
       <FullscreenWorkspace {...props} activeLens={props.workspaceLens}>
         {(update, send) => <RevenueExperiences {...props} dealSession={session} workspaceFocus={props.fullScreen} visibleWorkspaceLens={undefined} referenceEvidenceId={undefined} referenceRegion={undefined} workspaceState={undefined} onUpdateModelContext={update} onSendFollowUp={send}/>}
       </FullscreenWorkspace>
       {expandError && <p role="alert">The host did not open full screen. Your draft is unchanged.</p>}
-      {!props.fullScreen && <p className={mergeClasses(styles.notice, styles.compactNotice)}><ShieldCheckmark20Regular/>Offline demo · no CRM writes or real approvals</p>}
+      {!props.fullScreen && <p className={mergeClasses(styles.notice, styles.compactNotice)}><ShieldCheckmark20Regular/>Session-only workspace · no external updates</p>}
     </div>
   </>;
 }

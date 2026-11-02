@@ -77,7 +77,7 @@ describe('offline DEMO country attribution and recorded expense ledger', () => {
   it('makes unmapped accounts and duplicate IDs explicit instead of quietly losing or substituting revenue', () => {
     const unknown = countryRevenueScope([{ ...OPPORTUNITIES[0], accountId: 'UNKNOWN' }], 'current', 'all');
     expect(unknown.valid).toBe(false);
-    expect(unknown.issues.join(' ')).toContain('No DEMO headquarters assignment');
+    expect(unknown.issues.join(' ')).toContain('No headquarters assignment');
     expect(unknown.opportunities).toEqual([]);
     expect(countryRevenueScope([OPPORTUNITIES[0], OPPORTUNITIES[0]], 'current', 'all').issues.join(' ')).toContain('Duplicate');
     expect(countryRevenueScope([{ ...OPPORTUNITIES[0], value: NaN }], 'current', 'all').valid).toBe(false);

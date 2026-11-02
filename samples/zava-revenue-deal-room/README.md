@@ -1,6 +1,6 @@
 # ZavaMesh Revenue Deal Room
 
-> **Current release: solution 1.0.0.7 / authored agent 1.0.7.** Built with SPFx 1.24.0 GA
+> **Current release: solution 1.0.0.8 / authored agent 1.0.8.** Built with SPFx 1.24.0 GA
 > and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
 > [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
 > certification of every Copilot host.
@@ -15,8 +15,8 @@ submission, independent approval, pipeline value flow and approval progress.
 The keynote connects **My Deals -> Deal Room -> Commercial Desk -> reviewed submission and independent
 decision -> Revenue Command**. Each workspace has its own useful landing; a deal, request or scenario
 appears only through component context or explicit selection. Country opportunity values come from
-the scoped demo catalog with fictional account-headquarters attribution. Recorded spend comes from a
-separate **$3.4M** demo expense ledger, not requested investment, rollout revenue or ROI.
+the scoped offline catalog with account-headquarters attribution. Recorded spend comes from a
+separate **$3.4M** expense ledger, not requested investment, rollout revenue or ROI.
 
 The redesign is informed by public enterprise revenue patterns from
 [Salesforce Revenue Cloud](https://www.salesforce.com/sales/revenue-lifecycle-management/) (guided
@@ -60,8 +60,8 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
-> The deployment package is **1.0.0.7**; its embedded agent matches the standalone
-> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.7**.
+> The deployment package is **1.0.0.8**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.8**.
 > SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
@@ -103,13 +103,13 @@ Select an item to work on it; **Resume** restores explicitly selected work and i
 
 ![Commercial Desk selected offer with editable actual economics, margin curve and exact-value request continuation](assets/fullscreen-commercial-desk.png)
 
-![Full-width country opportunity choropleth using supplied demo catalog value and fictional headquarters attribution](assets/fullscreen-my-deals-analytics.png)
+![Full-width country opportunity choropleth using scoped catalog value and headquarters attribution](assets/fullscreen-my-deals-analytics.png)
 
-![Country recorded-spend bubbles from a separate demo expense ledger with country drill-down](assets/fullscreen-country-spend.png)
+![Country recorded-spend bubbles from a separate expense ledger with country drill-down](assets/fullscreen-country-spend.png)
 
-![Fictional pipeline value flow with conserved regional USD allocations, buyer readiness and next actions](assets/fullscreen-pipeline-value-flow.png)
+![Pipeline value flow with conserved regional USD allocations, buyer readiness and next actions](assets/fullscreen-pipeline-value-flow.png)
 
-![Fictional approval-stage value flow with independent-review semantics and a separate stored-request example](assets/fullscreen-approval-progress.png)
+![Approval value flow with independent-review semantics and an exact named-request continuation](assets/fullscreen-approval-progress.png)
 
 ### Focused chat and responsive layouts
 
@@ -209,7 +209,7 @@ selection, entered values and confirmation state before the chat message, within
    then select an actual opportunity or request; no unrelated task is appended to another view.
 2. In My Deals, work a priority or open an opportunity. Connect buyer proof in Deal Room, then use
    **Continue to Commercial scenario** and **Continue to Submit a deal** to carry actual values.
-   Enter the outcome and explicitly attest sample evidence.
+   Enter the outcome and explicitly attest the evidence.
 3. Review the exact values. Submission stays disabled until the confirmation is checked.
 4. In **Commercial Desk**, select the same request, choose its assigned **simulated** reviewer role,
    enter a 15-1,000-character rationale, and explicitly confirm the stage decision.
@@ -217,7 +217,7 @@ selection, entered values and confirmation state before the chat message, within
    above 18% or margin below 68% adds Executive committee. Each stage requires independent authority.
    Missing security or sponsor evidence blocks approval but permits a reasoned return/rejection.
 6. Inspect the matching receipt, decision trail and updated status filter. Returned requests can seed
-   a revised submission. **Reset demo data** explicitly restores the two canonical baseline requests.
+   a revised submission. **Reset session data** explicitly restores the two canonical baseline requests.
 7. In **Revenue Command**, change quarter, region and **Opportunity / Recorded spend**. Country
    geometry, values and record drill-down share the visible scope; approved demo-request status
    remains distinct from the unchanged CRM-shaped catalog.
@@ -262,23 +262,24 @@ Only the following optional arguments are advertised; decisions and approvals ar
 | `SubmitDealRequest` | `accountId`, `opportunityId`, `quantity`, `termMonths`, `discount`, `services`, `probability` | Inline story, exact full-license scenario prefills, evidence attestations, reviewed submission and receipt. |
 | `ReviewDealApproval` | `requestId` | Current independent-review workload from stored requests, focused request list, exact values, authority/evidence/consent and audit receipts. |
 | `ExploreDealAttention` | `period`, `region`, `selectedId` | Actual deal value versus observed attention flags, short ranked lists and focused economic/buyer/evidence facets. |
-| `GetMyRevenuePriorities` | `period`, `region` | Owned-action cockpit with real demo due/source cues, not editorial score bars; scoped pipeline/status graphics remain separate. |
-| `ExplorePipelineFlow` | `period`, `region`, `selectedId` | Fictional regional value -> buyer readiness -> next action Sankey; inspect nodes/ribbons, exact USD and conserved connections. |
-| `ExploreApprovalFlow` | `period`, `selectedId` | Fictional intake route -> current reviewer -> stage outcome Sankey; distinguish stage versus final approval and inspect a separate stored example. |
+| `GetMyRevenuePriorities` | `period`, `region` | Owned-action cockpit with recorded due/source cues, not editorial score bars; scoped pipeline/status graphics remain separate. |
+| `ExplorePipelineFlow` | `period`, `region`, `selectedId` | Regional value -> buyer readiness -> next action; inspect stages/connections, exact USD and conserved allocations. |
+| `ExploreApprovalFlow` | `period`, `selectedId` | Intake route -> current reviewer -> stage outcome; distinguish stage versus final approval and inspect a named request's own terms. |
 
-### Fictional Sankey dialogue
+### Business value-flow dialogue
 
-Ask **Show an imaginary pipeline Sankey from regions through buyer readiness to next actions**.
+Ask **Show how pipeline value moves from regions through buyer readiness to next actions.**
 The current all-region scenario allocates **$29.4M**. Select any ribbon or node to replace the diagram
 with exact-value details; connections are paginated two at a time. Quarter and region filters change
-the fictional model, not the separate catalog pipeline. **Model assumptions** explains the 20% next
+the planning model, not the separate catalog pipeline. **Planning assumptions** explains the 20% next
 scenario multiplier, conserved integer-USD allocation and provenance. Pointer, Enter and Space are
 supported; **Back to value flow** restores the chart. Its business title is **Pipeline value & actions**.
 
-The overview continuation opens **Approval progress**, whose fictional current scenario allocates
+The overview continuation opens **Approval progress**, whose current planning scenario allocates
 **$30.0M** from intake routes to current independent reviewer stages and stage outcomes. Requests at
-later stages are assumed to have passed earlier reviews; **Stage passed is not final approval**.
-Its Copilot continuation opens the explicitly separate stored example **ZM-1001** in **Deal approvals**.
+later stages are assumed to have passed earlier reviews; **Stage completion is not final approval**.
+Its Copilot continuation opens **ZM-1001** in **Deal approvals**, using that request's own values,
+evidence and decision trail.
 No chart volume is attributed to that request, and the chart never submits or approves anything.
 Both components publish the selected flow, visible page, scope, full model and assumptions within
 the existing 10,000-byte context budget. They obey the 650/800px complete-card budgets.
@@ -312,8 +313,8 @@ all review pages must be visited before confirmation. Submission remains a dedic
 and approval remains an independently assigned human decision with explicit rationale/consent.
 
 Country opportunity value sums the provided catalog records and attributes them to explicit
-fictional account headquarters, never international rollout revenue. **Recorded spend** uses a
-separate fictional expense ledger: current totals reconcile to **$3.4M**. Country details show exact
+account headquarters, never international rollout revenue. **Recorded spend** uses a
+separate recorded expense ledger: current totals reconcile to **$3.4M**. Country details show exact
 opportunities or one expense per compact page. The next-quarter expense ledger is genuinely empty:
 the component shows an empty-spend stage, not a decorative zero map or invented future actuals.
 Quarter/region recovery updates the parent scope before any Copilot handoff. Maps use the offline
@@ -337,7 +338,7 @@ complete. Quarter/region filters change the actual data. This is not the signed-
 Each priority has a direct scoped Copilot action, including exact request IDs for approval evidence.
 
 The value bridge reconciles open value to seller-weighted value; it is not invented history or a
-loss prediction. Approved demo requests update the work overlay, not the CRM-shaped pipeline.
+loss prediction. Approved requests update the work overlay, not the CRM-shaped pipeline.
 This distinction is the final trust moment in the keynote.
 
 For the complete pricing-to-submission path use **1,000 users / 24 months / 8% discount /
@@ -356,8 +357,8 @@ cannot silently enter a non-ramped intake.
    and ranking and returns focus to the catalog.
 2. Use **Continue with Copilot** to discuss the visible detail, or request a focused risk, buying
    committee, commercial or forecast component for that exact deal. The original view remains intact.
-3. Ask to **Submit a deal**. Enter the deal story and economics, explicitly attest sample evidence,
-   visit all three exact-value review pages, and check confirmation before **Submit demo deal** becomes available.
+3. Ask to **Submit a deal**. Enter the deal story and economics, explicitly attest the evidence,
+   visit all three exact-value review pages, and check confirmation before **Submit deal request** becomes available.
 4. **Continue with Copilot: Deal approvals** sends the exact `ZM-...` receipt to `ReviewDealApproval`. The approval
    component shows the same stored request; required stages, independent reviewer authority, rationale
    and explicit confirmation remain mandatory. Other components in the same browser tab receive
@@ -580,6 +581,7 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.8 / agent 1.0.8 | 2026-11-02 | Business-first continuation/discussion routes, request/approval controls and workspace copy; exact named-request handoffs, refreshed gallery and rebuilt archives. Golden and local creation rules now apply the same language policy across complete journeys while preserving provenance and consent. |
 | 1.0.0.7 / agent 1.0.7 | 2026-11-02 | Business-first keynote starter wording, with demonstration labels and chart-engine jargon removed from all starter copy. Twelve distinct starter routes and truthful data/execution boundaries remain intact. |
 | 1.0.0.6 / agent 1.0.6 | 2026-11-02 | Twelve conversation starters: eleven distinct operational UX components and the capability explorer last. Canonical and local automation guidance now documents the supported maximum of twelve rather than a six-starter assumption. |
 | 1.0.0.5 / agent 1.0.5 | 2026-11-02 | High-impact pipeline/approval value-flow, world-map, submission and approval starters; capability explorer last. Reusable context-first dialogue, exact-scope continuation, bounded stages, workspace and resize lessons synchronized to the canonical golden guide and local creation rules. |

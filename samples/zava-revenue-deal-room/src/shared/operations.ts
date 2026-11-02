@@ -132,7 +132,7 @@ export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): reado
     case 'BuildAccountBrief':
       return [
         row('account', `${scope.account?.name} · ${scope.account?.segment}`, `Region: ${scope.account?.region}. ${OPPORTUNITIES.filter(item => item.accountId === scope.account?.id).length} recorded opportunities.`, 'Account graph', 'source fact'),
-        ...OPPORTUNITIES.filter(item => item.accountId === scope.account?.id).map(item => row(item.id, item.name, `${currency(item.value)} open; ${item.stage}; ${Math.round(item.probability * 100)}% seller judgment. Quarter offset ${item.quarterOffset}.`, 'Recorded demo account opportunity book', 'source fact / seller judgment')),
+        ...OPPORTUNITIES.filter(item => item.accountId === scope.account?.id).map(item => row(item.id, item.name, `${currency(item.value)} open; ${item.stage}; ${Math.round(item.probability * 100)}% seller judgment. Quarter offset ${item.quarterOffset}.`, 'Recorded account opportunity book', 'source fact / seller judgment')),
         ...evidence.filter(item => item.kind === 'verified' || item.kind === 'stale').map(item => row(item.id, item.title, item.detail, `${item.source} · ${item.ageDays}d`, item.kind)),
         row('whitespace', 'Whitespace hypothesis', hasProof ? '18-country rollout suggests an adoption workstream; validate budget with Nestor before treating it as pipeline.' : 'No validated expansion signal recorded. Schedule discovery before estimating whitespace.', 'Account graph + evidence assessment')
       ];
@@ -236,7 +236,7 @@ export function workflowFor(key: RevenueIntentKey, scope: IRevenueScope): IWorkf
       blockedChoices: []
     };
     case 'ReviewProposalReadiness': return {
-      heading: 'Customer-release readiness gate', evidence: `${scope.proposal?.id || 'No proposal'}: security evidence incomplete, claims unverified and terms unapproved. Readiness cannot be granted by this demo.`,
+      heading: 'Customer-release readiness gate', evidence: `${scope.proposal?.id || 'No proposal'}: security evidence incomplete, claims unverified and terms unapproved. Readiness still requires independent authority.`,
       fields: [field('decision', 'Readiness decision', 'Return to author', ['Ready for customer', 'Return to author', 'Decline release']), field('gap', 'Blocking gap and correction', 'Attach control proof and remove unverified launch claim'), field('owner', 'Correction owner', 'Pradeep Gupta')],
       blockedChoices: ['Ready for customer']
     };

@@ -63,7 +63,7 @@ const opportunityColors = ['#203d55', '#b8daf4', '#71b7ed', '#2e80c9', '#135597'
 const opportunityBreaks = [1000000, 5000000, 10000000];
 const opportunityFill = (value: number): string => value === 0 ? opportunityColors[0] : opportunityColors[1 + opportunityBreaks.filter(boundary => value >= boundary).length];
 const bubbleRadius = (value: number): number => 26 * Math.sqrt(value / 1030000);
-const metricName = (metric: CountryRevenueMetric): string => metric === 'opportunity' ? 'Open opportunity value' : 'Recorded DEMO spend';
+const metricName = (metric: CountryRevenueMetric): string => metric === 'opportunity' ? 'Open opportunity value' : 'Recorded spend';
 
 export default function CountryRevenueExperience(props: ICountryRevenueExperienceProps): React.ReactElement {
   const styles = useStyles();
@@ -130,7 +130,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
       ? ['metric', 'country selector', 'period', 'region', 'recorded spend USD', 'recorded expense count', 'opportunity value USD', 'opportunity count', 'empty expense ledger notice', 'scope recovery', 'provenance']
       : selected
       ? ['country', 'metric', 'country total USD', 'country record count', 'country geography', props.compact && metric === 'spend' ? 'one-record detail page' : 'two-record detail page', 'record IDs', 'provenance',
-        ...(metric === 'opportunity' ? ['opportunity name', 'account name', 'account ID', 'stage', 'open value USD', 'inspect visible opportunity'] : ['expense category', 'recorded amount USD', 'recorded week', 'description', 'recorded DEMO status'])]
+        ...(metric === 'opportunity' ? ['opportunity name', 'account name', 'account ID', 'stage', 'open value USD', 'inspect visible opportunity'] : ['expense category', 'recorded amount USD', 'recorded week', 'description', 'recorded status'])]
       : ['metric', 'country selector', 'scoped total USD', 'country boundaries', 'fixed legend', 'country totals USD', 'country record counts', 'two-country ranking page', 'provenance'],
     chart: invalid || emptySpend ? null : {
       kind: metric === 'opportunity' ? 'country-choropleth' : 'country-spend-bubbles',
@@ -145,7 +145,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
       visibleCountryIds: invalid ? [] : selected ? [selected.id] : orderedCountries.map(country => country.id),
       visibleRankingCountryIds: invalid || selected ? [] : overviewPage.records.map(country => country.id),
       scale: metric === 'opportunity'
-        ? { kind: 'fixed-threshold', thresholdsUSD: opportunityBreaks, zero: 'zero supplied opportunity value', unassigned: 'no demo headquarters catalog' }
+        ? { kind: 'fixed-threshold', thresholdsUSD: opportunityBreaks, zero: 'zero supplied opportunity value', unassigned: 'no headquarters attribution' }
         : { kind: 'area-proportional', referenceUSD: 1030000, referenceRadius: 26, zero: 'no recorded expenses' }
     },
     scopedTotals: {
@@ -164,7 +164,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
     } : null,
     selectedCountryDetail: selected && !invalid ? {
       countryId: selected.id, countryName: selected.name, region: selected.region,
-      attribution: 'Fictional DEMO account headquarters, not rollout destination',
+      attribution: 'Account headquarters, not rollout destination',
       opportunityValue: selected.opportunityValue, opportunityCount: selected.opportunityCount,
       recordedSpend: selected.spend, expenseCount: selected.expenseCount,
       expenseCategoryTotals: Array.from(new Set(countryExpenses.map(item => item.category))).map(category => ({
@@ -207,7 +207,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectCountry(id); }
   }
 
-  return <section className={mergeClasses(styles.body, props.compact && styles.compact)} aria-label="DEMO country opportunity and recorded spend">
+  return <section className={mergeClasses(styles.body, props.compact && styles.compact)} aria-label="Country opportunity and recorded spend">
     <div className={styles.controls}>
       <div className={styles.modes} role="group" aria-label="Map metric">
         <Button size="small" appearance={metric === 'opportunity' ? 'primary' : 'secondary'} aria-pressed={metric === 'opportunity'} onClick={() => changeMetric('opportunity')}>Opportunity</Button>
@@ -222,7 +222,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
     </div>
     {invalid ? <div className={styles.recovery} role="alert">
       <h3 className={styles.heading}>Choose a supported country or scope.</h3>
-      <p className={styles.summary}>{!scope.valid ? scope.issues.slice(0, 2).join(' ') : missingCountry ? `Country "${selectedCountryId}" is unknown or outside ${region === 'all' ? 'the DEMO headquarters catalog' : region}. No substitute country has been selected.` : 'Country geometry is unavailable in the offline atlas.'}</p>
+      <p className={styles.summary}>{!scope.valid ? scope.issues.slice(0, 2).join(' ') : missingCountry ? `Country "${selectedCountryId}" is unknown or outside ${region === 'all' ? 'the headquarters catalog' : region}. No substitute country has been selected.` : 'Country geometry is unavailable in the offline atlas.'}</p>
       {!scope.valid && <div className={styles.controls}>
         <select className={styles.control} aria-label="Recovery period" value={COUNTRY_PERIODS.some(item => item === period) ? period : ''} onChange={event => recoverScope(event.target.value, region)}>
           <option value="" disabled>Choose period</option>{COUNTRY_PERIODS.map(value => <option key={value} value={value}>{periodLabel(value)}</option>)}
@@ -233,17 +233,17 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
         <Button size="small" onClick={() => { recoverScope('current', 'all'); selectCountry(''); }}>Use current quarter / all regions</Button>
       </div>}
       <Button size="small" onClick={() => selectCountry('')}>Show country overview</Button>
-      {!scope.valid && scope.issues.some(issue => issue.indexOf('headquarters') >= 0 || issue.indexOf('opportunity') >= 0 || issue.indexOf('Duplicate') >= 0) && <p className={styles.note}>Supply valid demo opportunity records with existing domain account IDs to restore trustworthy totals. Changing scope cannot repair unmapped records.</p>}
+      {!scope.valid && scope.issues.some(issue => issue.indexOf('headquarters') >= 0 || issue.indexOf('opportunity') >= 0 || issue.indexOf('Duplicate') >= 0) && <p className={styles.note}>Supply valid opportunity records with existing domain account IDs to restore trustworthy totals. Changing scope cannot repair unmapped records.</p>}
     </div> : emptySpend ? <div className={mergeClasses(styles.empty, styles.records)} role="status">
-      <h3 className={styles.heading}>No recorded DEMO spend.</h3>
+      <h3 className={styles.heading}>No recorded spend.</h3>
       <p className={styles.summary}>{periodLabel(period)} · {selected?.name || (region === 'all' ? 'All regions' : region)} · {countryMoney(0)} recorded · 0 ledger entries</p>
-      <p className={styles.summary}>{period === 'next' ? 'No next-quarter recorded expenses exist.' : 'No recorded expenses match this country scope.'} Only current-quarter DEMO expenses are recorded; no future actual spend or proposal is implied.</p>
-      <p className={styles.summary}>{selected ? selected.opportunityCount : scope.opportunities.length} demo opportunities · {countryMoney(selected ? selected.opportunityValue : scope.opportunityValue)} open value remains in this scope.</p>
+      <p className={styles.summary}>{period === 'next' ? 'No next-quarter recorded expenses exist.' : 'No recorded expenses match this country scope.'} Only current-quarter expenses are recorded; no future actual spend or proposal is implied.</p>
+      <p className={styles.summary}>{selected ? selected.opportunityCount : scope.opportunities.length} opportunities · {countryMoney(selected ? selected.opportunityValue : scope.opportunityValue)} open value remains in this scope.</p>
       <div className={styles.controls}>
         <Button size="small" appearance="primary" onClick={() => changeMetric('opportunity')}>View opportunities</Button>
         <Button size="small" onClick={() => recoverScope('current', region)}>Use current quarter</Button>
       </div>
-      <p className={styles.note}>Offline DEMO records, not live CRM / SharePoint. Recorded expenses are not investment or ROI.</p>
+      <p className={styles.note}>Offline records, not live CRM / SharePoint. Recorded expenses are not investment or ROI.</p>
     </div> : <>
       <div>
         <div className={styles.detailHeader}>
@@ -251,12 +251,12 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
           <strong className={mergeClasses(styles.amount, metric === 'spend' && styles.spendAmount)}>{countryMoney(total)}</strong>
         </div>
         <p className={styles.summary}>{periodLabel(period)} · {selected?.region || (region === 'all' ? 'All regions' : region)} · {count === 0
-          ? metric === 'spend' ? 'No recorded DEMO expenses' : 'No matching supplied opportunities'
+          ? metric === 'spend' ? 'No recorded expenses' : 'No matching supplied opportunities'
           : `${count} ${recordLabel} · USD`}</p>
       </div>
       {!selected ? <svg className={mergeClasses(styles.map, !props.compact && styles.expandedMap)} viewBox="0 0 720 300" role="group" aria-labelledby={titleId} aria-describedby={descriptionId}>
-        <title id={titleId}>{metricName(metric)} by DEMO headquarters country</title>
-        <desc id={descriptionId}>{metric === 'opportunity' ? 'Country color shows sums of supplied opportunity values, assigned in full to demo account headquarters. Fixed USD thresholds: below one million, one to five million, five to ten million, ten million or more.' : 'Green bubble area shows a separate fictional recorded expense ledger, located at country reference points. One million thirty thousand USD has radius twenty-six map units. No bubble means no recorded expenses.'} Country buttons, selector and two-country exact-value pages provide keyboard and text equivalents. The boxed Top countries inset is a ranked summary, not map locations. Dark unassigned land has no demo headquarters catalog in this scope. Natural Earth boundaries are illustrative.</desc>
+        <title id={titleId}>{metricName(metric)} by headquarters country</title>
+        <desc id={descriptionId}>{metric === 'opportunity' ? 'Country color shows sums of supplied opportunity values, assigned in full to account headquarters. Fixed USD thresholds: below one million, one to five million, five to ten million, ten million or more.' : 'Green bubble area shows a separate recorded expense ledger, located at country reference points. One million thirty thousand USD has radius twenty-six map units. No bubble means no recorded expenses.'} Country buttons, selector and two-country exact-value pages provide keyboard and text equivalents. The boxed Top countries inset is a ranked summary, not map locations. Dark unassigned land has no headquarters attribution in this scope. Natural Earth boundaries are illustrative.</desc>
         <path d={path(geoGraticule10()) || ''} fill="none" stroke="#385168" strokeWidth=".5" aria-hidden="true" />
         {REVENUE_WORLD_COUNTRIES.features.map((geometry, index) => {
           const country = scope.countries.find(item => item.atlasId === Number(geometry.id));
@@ -283,13 +283,13 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
         </g>}
       </svg> : focusedGeometry && focusedProjection && <svg className={mergeClasses(styles.countryMap, !props.compact && styles.expandedCountryMap)} viewBox="0 0 540 200" role="img" aria-labelledby={titleId} aria-describedby={descriptionId}>
         <title id={titleId}>{selected.name}: {countryMoney(total)} {metricName(metric)}</title>
-        <desc id={descriptionId}>Selected country boundaries, including atlas overseas polygons where present. {metric === 'opportunity' ? 'Blue country fill uses the same fixed opportunity-value legend as the overview; full value is attributed to demo account headquarters, not territory-level revenue.' : 'Green bubble area uses the same spending scale as the overview; this is recorded fictional demo expense, not future investment.'} Exact records follow.</desc>
+        <desc id={descriptionId}>Selected country boundaries, including atlas overseas polygons where present. {metric === 'opportunity' ? 'Blue country fill uses the same fixed opportunity-value legend as the overview; full value is attributed to account headquarters, not territory-level revenue.' : 'Green bubble area uses the same spending scale as the overview; this is recorded expense, not future investment.'} Exact records follow.</desc>
         <path d={worldCountryPath(focusedGeometry, focusedProjection)} fill={metric === 'opportunity' ? opportunityFill(total) : '#294f52'} stroke="#ffd978" strokeWidth="1.8" />
         {metric === 'spend' && selected.spend > 0 && (() => {
           const point = focusedProjection([selected.longitude, selected.latitude]);
           return point ? <circle cx={point[0]} cy={point[1]} r={bubbleRadius(selected.spend)} fill="#65e6b5" fillOpacity=".8" stroke="#c0ffe4" /> : null;
         })()}
-        <text x="310" y="72" fill="#afc5d7" fontSize="14">{selected.id} · {metric === 'opportunity' ? 'Open value' : 'Recorded demo'}</text>
+        <text x="310" y="72" fill="#afc5d7" fontSize="14">{selected.id} · {metric === 'opportunity' ? 'Open value' : 'Recorded spend'}</text>
         <text x="310" y="107" fill={metric === 'opportunity' ? '#b8daf4' : '#65e6b5'} fontSize="25" fontWeight="700">{countryShortMoney(total)}</text>
         <text x="310" y="134" fill="#eef5fa" fontSize="14">{count} {recordLabel}</text>
         <text x="310" y="160" fill="#afc5d7" fontSize="11">ISO2 {selected.id} / atlas {selected.atlasId}</text>
@@ -304,7 +304,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
           <th scope="row" className={styles.cell}><button className={styles.rowButton} onClick={() => selectCountry(country.id)}>{country.name}</button><span className={styles.note}> · {metric === 'opportunity' ? country.opportunityCount : country.expenseCount} {recordLabel}</span></th>
           <td className={mergeClasses(styles.cell, styles.valueCell)}>{countryMoney(countryMetricValue(country, metric))}</td>
         </tr>)}</tbody>
-      </table> : count === 0 ? <div className={styles.empty}>No supplied demo opportunities match this country and period. Choose another country or ask for a broader period; no substitute deals are shown.</div>
+      </table> : count === 0 ? <div className={styles.empty}>No supplied opportunities match this country and period. Choose another country or ask for a broader period; no substitute deals are shown.</div>
         : <div className={styles.records}>
           {visibleOpportunities.map(item => <article key={item.id} className={styles.record} aria-label={`${item.id} ${item.name}`}>
             <div className={styles.recordTop}><h4 className={styles.recordTitle}>{item.name}</h4><Button size="small" onClick={() => props.onInspectOpportunity(item.id)}>Inspect {item.id}</Button></div>
@@ -312,7 +312,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
           </article>)}
           {visibleExpenses.map(item => <article key={item.id} className={styles.record} aria-label={`${item.id} ${item.category}`}>
             <div className={styles.recordTop}><h4 className={styles.recordTitle}>{item.category}</h4><strong className={styles.recordTitle}>{countryMoney(item.amount)}</strong></div>
-            <p className={styles.recordMeta}>{item.id} · Recorded DEMO · quarter week {item.recordedWeek} · {item.description}</p>
+            <p className={styles.recordMeta}>{item.id} · Recorded · quarter week {item.recordedWeek} · {item.description}</p>
           </article>)}
         </div>}
       <div className={styles.pagination}>
@@ -320,7 +320,7 @@ export default function CountryRevenueExperience(props: ICountryRevenueExperienc
         <span className={styles.pageLabel}>Page {activePage.page + 1} / {activePage.pageCount} · {activePage.originalCount} {selected ? recordLabel : 'countries'}</span>
         <Button size="small" disabled={activePage.page + 1 >= activePage.pageCount} onClick={() => setPage(activePage.page + 1)}>Next</Button>
       </div>
-      <p className={styles.note}>{metric === 'opportunity' ? 'DEMO · Full supplied deal values → fictional account HQ, not rollout revenue.' : 'DEMO · Separate recorded expense ledger, not investment or ROI.'} Offline Natural Earth atlas · not live CRM / SharePoint.</p>
+      <p className={styles.note}>{metric === 'opportunity' ? 'Full supplied deal values → account headquarters, not rollout revenue.' : 'Separate recorded expense ledger, not investment or ROI.'} Offline Natural Earth atlas · not live CRM / SharePoint.</p>
     </>}
   </section>;
 }
