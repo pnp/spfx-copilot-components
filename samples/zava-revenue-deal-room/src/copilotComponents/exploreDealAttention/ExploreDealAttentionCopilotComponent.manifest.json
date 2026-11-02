@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "eb059c62-ec7a-4199-aa83-a6e110aa0173",
+  "alias": "ExploreDealAttentionCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExploreDealAttention",
+      "description": {
+        "default": "Use for a filtered chart-based catalog of important deals needing attention and inline detail drill-down. Do not treat seller-unweighted value as a predicted loss or make approvals."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/exploreDealAttention/ExploreDealAttentionCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

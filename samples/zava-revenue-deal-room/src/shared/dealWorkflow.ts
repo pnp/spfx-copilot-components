@@ -87,10 +87,12 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
   submit: (draft: DealDraft, confirmed: boolean) => DealRequest;
   decide: (id: string, role: ApprovalRole, decision: DealEvent['decision'], rationale: string, confirmed: boolean) => DealRequest;
   reset: () => void;
+  refresh: () => void;
 } {
   let snapshot: IDealSnapshot = { requests: SEEDED_REQUESTS, storageWarning: initialWarning };
   const listeners = new Set<() => void>();
-  if (storage) {
+  function restore(): void {
+    if (!storage) return;
     try {
       const saved = storage.getItem(STORAGE_KEY);
       if (saved) {
@@ -98,11 +100,12 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
         if (requests.length < SEEDED_REQUESTS.length || new Set(requests.map(request => request.id)).size !== requests.length ||
           requests.some(request => dealDraftErrors(request.draft).length || !/^ZM-\d+$/.test(request.id))) throw new Error('Invalid saved request catalog');
         snapshot = { requests, storageWarning: '' };
-      }
+      } else snapshot = { requests: SEEDED_REQUESTS, storageWarning: '' };
     } catch {
-      snapshot = { ...snapshot, storageWarning: 'Saved demo data could not be restored. The sample baseline is shown; Reset demo data clears the invalid overlay.' };
+      snapshot = { requests: SEEDED_REQUESTS, storageWarning: 'Saved demo data could not be restored. The sample baseline is shown; Reset demo data clears the invalid overlay.' };
     }
   }
+  restore();
   function commit(requests: readonly DealRequest[]): void {
     let storageWarning = snapshot.storageWarning;
     if (storage) {
@@ -137,6 +140,10 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
     },
     reset: () => {
       commit(SEEDED_REQUESTS);
+    },
+    refresh: () => {
+      restore();
+      listeners.forEach(listener => listener());
     }
   };
 }
@@ -144,7 +151,13 @@ export type DealStore = ReturnType<typeof createDealStore>;
 let sharedStore: DealStore | undefined;
 export function getDealStore(): DealStore {
   if (!sharedStore) {
-    try { sharedStore = createDealStore(window.sessionStorage); }
+    try {
+      const storage = window.sessionStorage;
+      sharedStore = createDealStore(storage);
+      window.addEventListener('storage', event => {
+        if (event.storageArea === storage && (event.key === STORAGE_KEY || event.key === null)) sharedStore?.refresh();
+      });
+    }
     catch { sharedStore = createDealStore(undefined, 'Browser storage is unavailable. Confirmed demo actions remain in memory until this page closes.'); }
   }
   return sharedStore;

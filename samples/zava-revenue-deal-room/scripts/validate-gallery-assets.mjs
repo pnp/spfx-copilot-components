@@ -28,6 +28,7 @@ assert(evidence.sourceSha256 === visualSourceSignature(root), 'Curated visuals a
 for (const capture of evidence.captures) {
   const bytes = fs.readFileSync(path.join(assets, capture.name));
   assert(bytes.length === capture.bytes && crypto.createHash('sha256').update(bytes).digest('hex') === capture.sha256, `${capture.name} does not match capture evidence.`);
+  if (!capture.mode) assert(capture.inlineHeight > 0 && capture.inlineHeight <= 650, `${capture.name} exceeds the measured inline height budget.`);
 }
 const expectedWorkspaceLayouts = {
   'fullscreen-my-deals-analytics.png': 'my-deals-dashboard',

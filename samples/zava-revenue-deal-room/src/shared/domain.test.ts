@@ -3,9 +3,9 @@ import { ACCOUNTS, CONTACTS, OPPORTUNITIES, HERO_EVIDENCE, calculateCommercialOf
 
 describe('revenue domain', () => {
   it('keeps the approved catalog unique and complete', () => {
-    expect(INTENTS).toHaveLength(21);
-    expect(new Set(INTENTS.map((item) => item.key)).size).toBe(21);
-    expect(new Set(INTENTS.map((item) => item.route)).size).toBe(21);
+    expect(INTENTS).toHaveLength(27);
+    expect(new Set(INTENTS.map((item) => item.key)).size).toBe(27);
+    expect(new Set(INTENTS.map((item) => item.route)).size).toBe(27);
     expect(INTENTS.filter((item) => item.operation === 'education')).toHaveLength(1);
   });
 

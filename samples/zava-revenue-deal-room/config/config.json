@@ -87,6 +87,30 @@
         {
           "entrypoint": "./lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.js",
           "manifest": "./src/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/submitDealRequest/SubmitDealRequestCopilotComponent.js",
+          "manifest": "./src/copilotComponents/submitDealRequest/SubmitDealRequestCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/reviewDealApproval/ReviewDealApprovalCopilotComponent.js",
+          "manifest": "./src/copilotComponents/reviewDealApproval/ReviewDealApprovalCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/exploreDealAttention/ExploreDealAttentionCopilotComponent.js",
+          "manifest": "./src/copilotComponents/exploreDealAttention/ExploreDealAttentionCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/getMyRevenuePriorities/GetMyRevenuePrioritiesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getMyRevenuePriorities/GetMyRevenuePrioritiesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/explorePipelineFlow/ExplorePipelineFlowCopilotComponent.js",
+          "manifest": "./src/copilotComponents/explorePipelineFlow/ExplorePipelineFlowCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/exploreApprovalFlow/ExploreApprovalFlowCopilotComponent.js",
+          "manifest": "./src/copilotComponents/exploreApprovalFlow/ExploreApprovalFlowCopilotComponent.manifest.json"
         }
       ]
     }

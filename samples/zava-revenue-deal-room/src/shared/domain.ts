@@ -11,10 +11,19 @@ export interface ICommercialResult { readonly contractValue: number; readonly ar
 const regions = ['North America', 'EMEA', 'Asia Pacific', 'Latin America'];
 const segments = ['Enterprise', 'Corporate', 'Growth'];
 const padded = (value: number, width: number): string => (`000${value}`).slice(-width);
+const showcaseAccounts: Readonly<Record<number, string>> = {
+  16: 'Northwind Manufacturing', 17: 'Fabrikam', 18: 'Alpine Ski House', 19: 'Litware',
+  30: 'AdventureWorks', 31: 'Wide World Importers', 32: 'Tailspin Toys', 33: 'Proseware'
+};
+const showcaseDeals: Readonly<Record<number, string>> = {
+  16: 'Northwind connected manufacturing', 17: 'Fabrikam partner platform', 18: 'Alpine customer expansion',
+  19: 'Litware enterprise renewal', 30: 'AdventureWorks global field service',
+  32: 'Tailspin customer onboarding', 33: 'Proseware product adoption'
+};
 
 export const ACCOUNTS: readonly IAccount[] = Array.from({ length: 80 }, (_, index) => ({
   id: index === 0 ? 'CONTOSO' : `ACC-${padded(index + 1, 3)}`,
-  name: index === 0 ? 'Contoso' : `Global Account ${padded(index + 1, 2)}`,
+  name: index === 0 ? 'Contoso' : showcaseAccounts[index] || `Global Account ${padded(index + 1, 2)}`,
   region: regions[index % regions.length],
   segment: segments[index % segments.length]
 }));
@@ -31,7 +40,7 @@ export const CONTACTS: readonly IContact[] = Array.from({ length: 260 }, (_, ind
 export const OPPORTUNITIES: readonly IOpportunity[] = Array.from({ length: 120 }, (_, index) => ({
   id: index === 0 ? 'ZDR-2042' : `ZDR-${2042 + index}`,
   accountId: ACCOUNTS[index % ACCOUNTS.length].id,
-  name: index === 0 ? 'Contoso Global Expansion' : `${ACCOUNTS[index % ACCOUNTS.length].name} Growth Program`,
+  name: index === 0 ? 'Contoso Global Expansion' : showcaseDeals[index] || `${ACCOUNTS[index % ACCOUNTS.length].name} Growth Program`,
   stage: index === 0 ? 'Propose' : ['Qualify', 'Develop', 'Propose', 'Commit'][(Math.floor(index / 4) + index) % 4],
   value: index === 0 ? 3637260 : 240000 + ((index * 137000) % 4200000),
   probability: index === 0 ? 0.72 : 0.3 + ((index % 7) * 0.1),

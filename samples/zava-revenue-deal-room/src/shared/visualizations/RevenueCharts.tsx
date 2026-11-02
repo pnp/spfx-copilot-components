@@ -2,11 +2,10 @@ import * as React from 'react';
 import { Badge, Button, makeStyles, mergeClasses, tokens } from '@fluentui/react-components';
 import { ArrowTrendingLines20Regular, Globe20Regular } from '@fluentui/react-icons';
 import { geoGraticule10, geoNaturalEarth1, geoPath } from 'd3-geo';
-import { feature } from 'topojson-client';
-import type { Topology } from 'topojson-specification';
-import { z } from 'zod';
-import world from 'world-atlas/countries-110m.json';
-import { ACCOUNTS, HERO_EVIDENCE, type IOpportunity } from '../domain';
+import { scaleLinear } from 'd3-scale';
+import { arc, pie, type PieArcDatum } from 'd3-shape';
+import { WORLD_COUNTRIES as countries } from './worldGeography';
+import { ACCOUNTS, HERO_EVIDENCE, calculateCommercialOffer, type ICommercialInput, type IEvidence, type IOpportunity } from '../domain';
 import {
   buildCommercialGeometry,
   buildForecastBridge,
@@ -31,6 +30,7 @@ const useStyles = makeStyles({
   heading: { margin: 0, fontSize: tokens.fontSizeBase500, lineHeight: tokens.lineHeightBase500 },
   insight: { margin: `${tokens.spacingVerticalXS} 0 0`, color: tokens.colorNeutralForeground2, lineHeight: tokens.lineHeightBase300 },
   chart: { display: 'block', width: '100%', height: '230px', marginTop: tokens.spacingVerticalM, overflow: 'visible', '@media (max-width: 520px)': { height: '190px' } },
+  ranking: { display: 'block', width: '100%', height: 'auto', marginTop: tokens.spacingVerticalM },
   map: { display: 'block', width: '100%', height: '300px', marginTop: tokens.spacingVerticalM, borderRadius: tokens.borderRadiusMedium, backgroundImage: `linear-gradient(145deg, ${tokens.colorNeutralBackground2}, ${tokens.colorBrandBackground2})`, '@media (max-width: 520px)': { height: '220px' } },
   axis: { stroke: tokens.colorNeutralStroke1, strokeWidth: 1 },
   grid: { stroke: tokens.colorNeutralStroke3, strokeWidth: 1, strokeDasharray: '3 5' },
@@ -57,25 +57,76 @@ const useStyles = makeStyles({
   chartBadge: { flexShrink: 0, whiteSpace: 'nowrap' },
   commercialLine: { fill: 'none', stroke: tokens.colorPaletteGreenBorderActive, strokeWidth: 4 },
   commercialArea: { fill: 'url(#commercial-area)', opacity: 0.72 },
-  commercialPoint: { fill: tokens.colorPaletteMarigoldBackground3, stroke: tokens.colorNeutralForegroundOnBrand, strokeWidth: 3, filter: 'drop-shadow(0 4px 5px rgba(0,0,0,.3))', '@media (prefers-reduced-motion: reduce)': { filter: 'none' } }
+  commercialPoint: { fill: tokens.colorPaletteMarigoldBackground3, stroke: tokens.colorNeutralForegroundOnBrand, strokeWidth: 3, filter: 'drop-shadow(0 4px 5px rgba(0,0,0,.3))', '@media (prefers-reduced-motion: reduce)': { filter: 'none' } },
+  compactPanel: { padding: '8px', '& h2': { fontSize: tokens.fontSizeBase400, lineHeight: tokens.lineHeightBase400 }, '& h3': { fontSize: tokens.fontSizeBase400 }, '& p': { fontSize: tokens.fontSizeBase200, lineHeight: tokens.lineHeightBase200 } },
+  compactChart: { height: '120px', marginTop: '4px', '@media(max-width: 520px)': { height: '120px' } },
+  compactRanking: { height: '80px', marginTop: '4px', '@media(max-width: 520px)': { height: '80px' } }
 });
 
 const money = (value: number): string => `$${value.toFixed(1)}M`;
 const signedMoney = (value: number): string => `${value > 0 ? '+' : value < 0 ? '-' : ''}$${Math.abs(value).toFixed(1)}M`;
 
-export function D3CommercialContour(props: { readonly discount: number; readonly margin: number; readonly quantity: number }): React.ReactElement {
+export function D3AttentionRanking(props: {
+  readonly rows: readonly { readonly id: string; readonly value: number; readonly weightedValue: number }[];
+  readonly selectedId: string;
+  readonly onSelect: (id: string) => void;
+  readonly compact?: boolean;
+}): React.ReactElement {
+  const styles = useStyles();
+  const titleId = React.useId();
+  const scale = scaleLinear().domain([0, Math.max(1, ...props.rows.map(row => row.value))]).range([0, 360]);
+  return <section className={mergeClasses(styles.panel, props.compact && styles.compactPanel)} aria-label="Deal attention value chart">
+    {!props.compact && <h3 className={styles.heading}>Open value / seller-weighted outlook</h3>}
+    <p className={styles.insight}>{props.compact ? 'Open (pale) / seller-weighted (green). Not commit or predicted loss.' : 'Select a bar or a deal below. Pale bars show open value; green bars show value multiplied by seller probability, not commit or a predicted loss.'}</p>
+    <svg className={mergeClasses(styles.ranking, props.compact && styles.compactRanking)} viewBox={`0 0 620 ${Math.max(50, props.rows.length * 48 + 20)}`} role="group" aria-labelledby={titleId}>
+      <title id={titleId}>Important deals ranked with exact open and seller-weighted values</title>
+      {props.rows.map((row, index) => <g key={row.id} role="button" tabIndex={0} aria-label={`Inspect ${row.id} in attention chart`} aria-pressed={props.selectedId === row.id}
+        onClick={() => props.onSelect(row.id)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); props.onSelect(row.id); } }}>
+        <title>{row.id}: open ${row.value.toLocaleString('en-US')} USD; seller-weighted ${Math.round(row.weightedValue).toLocaleString('en-US')} USD</title>
+        {props.compact && <rect x="0" y={index * 48 + 2} width="620" height="44" fill="transparent" pointerEvents="all" style={{ cursor: 'pointer' }} aria-hidden="true" data-svg-hit-target="true" />}
+        <text x="4" y={index * 48 + 24} className={styles.value}>{row.id}</text>
+        <rect x="95" y={index * 48 + 8} width={scale(row.value)} height="28" rx="4" className={props.selectedId === row.id ? styles.selected : undefined} fill={tokens.colorNeutralBackground3} />
+        <rect x="95" y={index * 48 + 8} width={scale(row.weightedValue)} height="28" rx="4" className={styles.positive} />
+        <text x="465" y={index * 48 + 24} className={styles.value}>{money(row.value / 1000000)} / {money(row.weightedValue / 1000000)}</text>
+      </g>)}
+    </svg>
+  </section>;
+}
+
+export function D3EvidenceFreshness(props: { readonly evidence: readonly IEvidence[]; readonly selectedId: string }): React.ReactElement {
+  const styles = useStyles();
+  const titleId = React.useId();
+  const scale = scaleLinear().domain([0, Math.max(1, ...props.evidence.map(item => item.ageDays))]).range([0, 360]);
+  return <section className={styles.panel}>
+    <h3 className={styles.heading}>Evidence freshness by source</h3>
+    <p className={styles.insight}>Age is not confidence. Verified facts, contrary evidence, stale assumptions and seller judgment retain their source classification.</p>
+    <svg className={styles.ranking} viewBox={`0 0 620 ${Math.max(50, props.evidence.length * 38 + 20)}`} role="img" aria-labelledby={titleId}>
+      <title id={titleId}>Source evidence age in days; inspect the matching source cards below</title>
+      {props.evidence.map((item, index) => <g key={item.id}>
+        <title>{item.id}: {item.title}; {item.kind}; {item.ageDays} days; {item.source}</title>
+        <text x="4" y={index * 38 + 24} className={styles.value}>{item.id}</text>
+        <rect x="65" y={index * 38 + 8} width={scale(item.ageDays)} height="24" rx="4" className={props.selectedId === item.id ? styles.selected : undefined} fill={item.kind === 'stale' || item.kind === 'contrary' ? tokens.colorPaletteMarigoldBackground3 : tokens.colorBrandBackground} />
+        <text x="435" y={index * 38 + 24} className={styles.value}>{item.ageDays}d / {item.kind}</text>
+      </g>)}
+    </svg>
+    {!props.evidence.length && <p role="status">No recorded source evidence for this deal.</p>}
+  </section>;
+}
+
+export function D3CommercialContour(props: { readonly input: ICommercialInput; readonly compact?: boolean }): React.ReactElement {
   const styles = useStyles();
   const gradient = React.useId();
-  const geometry = buildCommercialGeometry(props.discount, props.margin, props.quantity);
+  const geometry = buildCommercialGeometry(props.input);
+  const margin = calculateCommercialOffer(props.input).grossMargin;
   return <div>
-    <svg className={styles.chart} viewBox="0 0 520 190" role="img" aria-label={`Commercial outcome curve with ${props.margin.toFixed(1)} percent margin at ${props.discount} percent discount`}>
-      <title>Commercial margin and adoption contour</title><desc>D3 scales position the actual computed margin. The curve and adoption index are illustrative deterministic assumptions, not verified customer benefits.</desc>
+    <svg className={mergeClasses(styles.chart, props.compact && styles.compactChart)} viewBox="0 0 520 190" role="img" aria-label={`Commercial outcome curve with ${margin.toFixed(1)} percent margin at ${props.input.discount} percent discount`}>
+      <title>Recalculated commercial margin by discount</title><desc>Every sample recalculates licensing term, annual ramp and services cost. These are scenario economics, not verified customer benefits or approval.</desc>
       <defs><linearGradient id={gradient} x1="0" y1="1" x2="1" y2="0"><stop offset="0" stopColor={tokens.colorBrandBackground2}/><stop offset="0.58" stopColor={tokens.colorPaletteGreenBackground2}/><stop offset="1" stopColor={tokens.colorPaletteMarigoldBackground2}/></linearGradient></defs>
       <line x1="48" y1="154" x2="494" y2="154" className={styles.axis}/><line x1="48" y1="24" x2="48" y2="154" className={styles.axis}/>
       <path d={geometry.areaPath} className={styles.commercialArea} style={{ fill: `url(#${gradient})` }}/><path d={geometry.linePath} className={styles.commercialLine}/><circle cx={geometry.selectedX} cy={geometry.selectedY} r="11" className={styles.commercialPoint}/>
-      <text x="50" y="177" className={styles.label}>0% DISCOUNT</text><text x="420" y="177" className={styles.label}>{Math.max(30, props.discount)}%</text><text x={geometry.selectedX} y={geometry.selectedY - 17} textAnchor="middle" className={styles.value}>{props.margin.toFixed(1)}%</text>
+      <text x="50" y="177" className={styles.label}>0% DISCOUNT</text><text x="420" y="177" className={styles.label}>{Math.max(30, props.input.discount)}%</text><text x={geometry.selectedX} y={geometry.selectedY - 17} textAnchor="middle" className={styles.value}>{margin.toFixed(1)}%</text>
     </svg>
-    <p className={styles.insight}>Illustrative adoption index: {geometry.selectedPoint.customerValue.toFixed(0)} points, not sourced customer savings. Actual computed margin: {props.margin.toFixed(1)}%.</p>
+    <p className={styles.insight}>Curve samples recalculate the actual draft economics; selected margin {margin.toFixed(1)}%. Not customer savings or approval.</p>
   </div>;
 }
 
@@ -87,10 +138,43 @@ const FORECAST: readonly IForecastMovement[] = [
   { label: 'Commit', value: 8.7, kind: 'end' }
 ];
 
-export function D3ForecastBridge(): React.ReactElement {
+export function D3ForecastBridge(props: { readonly movements?: readonly IForecastMovement[]; readonly title?: string; readonly description?: string } = {}): React.ReactElement {
   const styles = useStyles();
-  const bars = buildForecastBridge(FORECAST);
-  return <section className={styles.panel} aria-labelledby="forecast-bridge-title"><div className={styles.chartHeader}><div><h2 id="forecast-bridge-title" className={styles.heading}>Forecast movement bridge</h2><p className={styles.insight}>Contoso expansion adds $1.3M; security and timing remove $1.0M from the period.</p></div><ArrowTrendingLines20Regular/></div><svg className={styles.chart} viewBox="0 0 520 190" role="img" aria-label="Forecast bridge from 8.4 million opening to 8.7 million commit"><title>Forecast movement bridge</title><desc>D3 scales position opening, positive, negative, and ending forecast values.</desc>{[0, 1, 2, 3].map((tick) => <line key={tick} x1="48" x2="494" y1={154 - tick * 38} y2={154 - tick * 38} className={styles.grid}/>) }{bars.map((bar) => <g key={bar.label}><rect x={bar.x} y={bar.y} width={bar.width} height={bar.height} rx="4" className={bar.kind === 'increase' ? styles.positive : bar.kind === 'decrease' ? styles.negative : styles.neutral}/><text x={bar.x + bar.width / 2} y={bar.y - 7} textAnchor="middle" className={styles.value}>{bar.kind === 'increase' || bar.kind === 'decrease' ? signedMoney(bar.value) : money(bar.value)}</text><text x={bar.x + bar.width / 2} y="176" textAnchor="middle" className={styles.label}>{bar.label}</text></g>)}</svg><table className={styles.table}><thead><tr><th className={styles.cell}>Movement</th><th className={styles.cell}>Impact</th><th className={styles.cell}>Ending position</th></tr></thead><tbody>{bars.map((bar) => <tr key={bar.label}><td className={styles.cell}>{bar.label}</td><td className={styles.cell}>{bar.kind === 'increase' || bar.kind === 'decrease' ? signedMoney(bar.value) : money(bar.value)}</td><td className={styles.cell}>{money(bar.endValue)}</td></tr>)}</tbody></table></section>;
+  const headingId = React.useId();
+  const movements = props.movements || FORECAST;
+  const bars = buildForecastBridge(movements);
+  const title = props.title || 'Forecast movement bridge';
+  return <section className={styles.panel} aria-labelledby={headingId}><div className={styles.chartHeader}><div><h2 id={headingId} className={styles.heading}>{title}</h2><p className={styles.insight}>{props.description || 'Contoso expansion adds $1.3M; security and timing remove $1.0M from the period.'}</p></div><ArrowTrendingLines20Regular/></div><svg className={styles.chart} viewBox="0 0 520 190" role="img" aria-label={props.movements ? title : 'Forecast bridge from 8.4 million opening to 8.7 million commit'}><title>{title}</title><desc>D3 scales position opening, positive, negative, and ending values. The table provides the same monetary values.</desc>{[0, 1, 2, 3].map((tick) => <line key={tick} x1="48" x2="494" y1={154 - tick * 38} y2={154 - tick * 38} className={styles.grid}/>) }{bars.map((bar) => <g key={bar.label}><rect x={bar.x} y={bar.y} width={bar.width} height={bar.height} rx="4" className={bar.kind === 'increase' ? styles.positive : bar.kind === 'decrease' ? styles.negative : styles.neutral}/><text x={bar.x + bar.width / 2} y={bar.y - 7} textAnchor="middle" className={styles.value}>{bar.kind === 'increase' || bar.kind === 'decrease' ? signedMoney(bar.value) : money(bar.value)}</text><text x={bar.x + bar.width / 2} y="176" textAnchor="middle" className={styles.label}>{bar.label}</text></g>)}</svg><table className={styles.table}><thead><tr><th className={styles.cell}>Movement</th><th className={styles.cell}>Impact</th><th className={styles.cell}>Ending position</th></tr></thead><tbody>{bars.map((bar) => <tr key={bar.label}><td className={styles.cell}>{bar.label}</td><td className={styles.cell}>{bar.kind === 'increase' || bar.kind === 'decrease' ? signedMoney(bar.value) : money(bar.value)}</td><td className={styles.cell}>{money(bar.endValue)}</td></tr>)}</tbody></table></section>;
+}
+
+export function D3ClosePlanStatus(props: { readonly statuses: readonly { readonly label: string; readonly count: number }[]; readonly compact?: boolean }): React.ReactElement {
+  const styles = useStyles();
+  const headingId = React.useId();
+  type Status = typeof props.statuses[number];
+  const total = props.statuses.reduce((sum, item) => sum + item.count, 0);
+  const complete = props.statuses.find(item => item.label === 'Complete')?.count || 0;
+  const segments = pie<Status>().sort(null).value(item => item.count)([...props.statuses]);
+  const shape = arc<PieArcDatum<Status>>().innerRadius(60).outerRadius(88).padAngle(0.035).cornerRadius(5);
+  const colors = [tokens.colorPaletteGreenBackground3, tokens.colorBrandBackground, tokens.colorPaletteMarigoldBackground3, tokens.colorPaletteRedBackground3];
+  return <section className={mergeClasses(styles.panel, props.compact && styles.compactPanel)} aria-labelledby={headingId}>
+    <h2 id={headingId} className={styles.heading}>Close-plan readiness</h2>
+    <p className={styles.insight}>Recorded milestone status in the selected demo book, not win probability or delivery authorization.</p>
+    <svg className={mergeClasses(styles.ranking, props.compact && styles.compactChart)} viewBox="0 0 440 210" role="img" aria-label={`${complete} of ${total} recorded milestones complete`}>
+      <title>Close-plan milestone status</title>
+      <g transform="translate(120 104)">
+        <circle r="74" fill="none" stroke={tokens.colorNeutralBackground3} strokeWidth="28" />
+        {segments.map((segment, index) => segment.value > 0 && <path key={segment.data.label} d={shape(segment) || undefined} fill={colors[index]}><title>{segment.data.label}: {segment.data.count}</title></path>)}
+        <text textAnchor="middle" y="0" fill={tokens.colorNeutralForeground1} fontSize="28" fontWeight="700">{complete}/{total}</text>
+        <text textAnchor="middle" y="24" fill={tokens.colorNeutralForeground2} fontSize="13">complete</text>
+      </g>
+      {props.statuses.map((status, index) => <g key={status.label}>
+        <rect x="235" y={32 + index * 38} width="14" height="14" rx="4" fill={colors[index]} />
+        <text x="259" y={44 + index * 38} fill={tokens.colorNeutralForeground1} fontSize="15">{status.label}</text>
+        <text x="409" y={44 + index * 38} textAnchor="end" fill={tokens.colorNeutralForeground1} fontSize="17" fontWeight="700">{status.count}</text>
+      </g>)}
+    </svg>
+    {!total && <p role="status">No recorded close-plan milestones for this scope. Completion was not inferred.</p>}
+  </section>;
 }
 
 const PIPELINE: readonly IPipelineStage[] = [
@@ -100,7 +184,7 @@ const PIPELINE: readonly IPipelineStage[] = [
   { label: 'Commit', value: 14, evidence: 84 }
 ];
 
-export function D3PipelineQuality(props: { readonly opportunities?: readonly IOpportunity[] }): React.ReactElement {
+export function D3PipelineQuality(props: { readonly opportunities?: readonly IOpportunity[]; readonly compact?: boolean }): React.ReactElement {
   const styles = useStyles();
   const headingId = React.useId();
   const data = props.opportunities ? PIPELINE.map(stage => {
@@ -109,9 +193,9 @@ export function D3PipelineQuality(props: { readonly opportunities?: readonly IOp
   }) : PIPELINE;
   const bars = buildPipelineBars(data);
   const open = props.opportunities ? `$${(props.opportunities.reduce((sum, item) => sum + item.value, 0) / 1000000).toFixed(2)}M` : '$31.8M';
-  return <section className={styles.panel} aria-labelledby={headingId}>
+  return <section className={mergeClasses(styles.panel, props.compact && styles.compactPanel)} aria-labelledby={headingId}>
     <div className={styles.chartHeader}><div><h2 id={headingId} className={styles.heading}>Evidence-weighted pipeline</h2><p className={styles.insight}>{props.opportunities ? 'Filtered counts; proof is the percentage of opportunities with at least one verified buyer evidence record.' : 'Illustrative reference: volume narrows toward commit while proof rises from 54% to 84%.'}</p></div><Badge className={styles.chartBadge} appearance="tint">{open} open</Badge></div>
-    <svg className={styles.chart} viewBox="0 0 520 210" role="img" aria-label="Pipeline stages by opportunity count and evidence quality">
+    <svg className={mergeClasses(styles.chart, props.compact && styles.compactChart)} viewBox="0 0 520 210" role="img" aria-label="Pipeline stages by opportunity count and evidence quality">
       <title>Evidence-weighted pipeline</title><desc>D3 band and linear scales size four pipeline stages. Labels give counts and verified-proof coverage, including zero-count stages.</desc>
       {bars.map(bar => <g key={bar.label}>
         <rect x={bar.x} y={bar.y} width={bar.width} height={bar.height} rx="5" fill={bar.evidence >= 80 ? tokens.colorPaletteGreenBackground3 : bar.evidence >= 65 ? tokens.colorBrandBackground : tokens.colorPaletteMarigoldBackground3} />
@@ -120,8 +204,8 @@ export function D3PipelineQuality(props: { readonly opportunities?: readonly IOp
         <text x={bar.x + bar.width / 2} y="194" textAnchor="middle" className={styles.value}>{bar.evidence}% proof</text>
       </g>)}
     </svg>
-    <div className={styles.legend}><span className={styles.legendItem}><i className={mergeClasses(styles.swatch, styles.swatchGreen)}/>Strong buyer evidence (≥80%)</span><span className={styles.legendItem}><i className={styles.swatch}/>Developing evidence (65-79%)</span><span className={styles.legendItem}><i className={mergeClasses(styles.swatch, styles.swatchAmber)}/>Missing / low evidence (&lt;65%)</span></div>
-    <details><summary>Exact counts and proof coverage</summary><table className={styles.table}><caption>Filtered pipeline counts and percentage with verified evidence</caption><thead><tr><th className={styles.cell}>Stage</th><th className={styles.cell}>Count</th><th className={styles.cell}>Proof</th></tr></thead><tbody>{data.map(stage => <tr key={stage.label}><th scope="row" className={styles.cell}>{stage.label}</th><td className={styles.cell}>{stage.value}</td><td className={styles.cell}>{stage.evidence}%</td></tr>)}</tbody></table></details>
+    {!props.compact && <><div className={styles.legend}><span className={styles.legendItem}><i className={mergeClasses(styles.swatch, styles.swatchGreen)}/>Strong buyer evidence (≥80%)</span><span className={styles.legendItem}><i className={styles.swatch}/>Developing evidence (65-79%)</span><span className={styles.legendItem}><i className={mergeClasses(styles.swatch, styles.swatchAmber)}/>Missing / low evidence (&lt;65%)</span></div>
+    <details><summary>Exact counts and proof coverage</summary><table className={styles.table}><caption>Filtered pipeline counts and percentage with verified evidence</caption><thead><tr><th className={styles.cell}>Stage</th><th className={styles.cell}>Count</th><th className={styles.cell}>Proof</th></tr></thead><tbody>{data.map(stage => <tr key={stage.label}><th scope="row" className={styles.cell}>{stage.label}</th><td className={styles.cell}>{stage.value}</td><td className={styles.cell}>{stage.evidence}%</td></tr>)}</tbody></table></details></>}
   </section>;
 }
 
@@ -132,21 +216,6 @@ const REGIONS: readonly IRegionSignal[] = [
   { id: 'latam', label: 'Latin America', longitude: -60, latitude: -15, value: 3.0, risk: 31 }
 ];
 
-const geometryMetadata = { id: z.string().optional(), properties: z.object({ name: z.string() }).optional() };
-const topology: Topology = z.object({
-  type: z.literal('Topology'),
-  transform: z.object({ scale: z.tuple([z.number(), z.number()]), translate: z.tuple([z.number(), z.number()]) }),
-  arcs: z.array(z.array(z.tuple([z.number(), z.number()]))),
-  objects: z.object({ countries: z.object({
-    type: z.literal('GeometryCollection'),
-    geometries: z.array(z.union([
-      z.object({ ...geometryMetadata, type: z.literal('Polygon'), arcs: z.array(z.array(z.number())) }),
-      z.object({ ...geometryMetadata, type: z.literal('MultiPolygon'), arcs: z.array(z.array(z.array(z.number()))) }),
-      z.object({ ...geometryMetadata, type: z.literal('GeometryCollection'), geometries: z.array(z.never()) })
-    ]))
-  }) })
-}).parse(world);
-const countries = feature(topology, topology.objects.countries);
 const projection = geoNaturalEarth1().fitExtent([[18, 16], [502, 174]], countries);
 const path = geoPath(projection);
 

@@ -7,18 +7,23 @@ import { getIntent, type RevenueIntentKey, type IRevenueProperties } from '../..
 interface IHarnessOptions { readonly mode?: string; readonly theme?: string; readonly properties?: IRevenueProperties; }
 declare global {
   interface Window {
-    revenueHarness: { render: (options: IHarnessOptions) => void; context?: IModelContextSnapshot };
+    revenueHarness: { render: (options: IHarnessOptions) => void; context?: IModelContextSnapshot; followUps: { message: string; context: IModelContextSnapshot }[] };
   }
 }
 
 const params = new URLSearchParams(window.location.search);
 const intentKey = (params.get('intent') || 'MapBuyingCommittee') as RevenueIntentKey;
+const requestedMapMetric = params.get('mapMetric');
+if (requestedMapMetric !== null && requestedMapMetric !== 'opportunity' && requestedMapMetric !== 'spend') throw new Error(`Unsupported mapMetric: ${requestedMapMetric}`);
 let displayMode = params.get('mode') === 'fullscreen' ? 'fullscreen' : 'inline';
 let theme = params.get('theme') === 'dark' ? 'dark' : 'light';
 let properties: IRevenueProperties = {
   accountId: params.get('accountId') || undefined, opportunityId: params.get('opportunityId') || undefined,
   meetingId: params.get('meetingId') || undefined, proposalId: params.get('proposalId') || undefined,
   exceptionId: params.get('exceptionId') || undefined, selectedId: params.get('selectedId') || undefined,
+  requestId: params.get('requestId') || undefined,
+  countryId: params.get('countryId') || undefined,
+  mapMetric: requestedMapMetric === 'opportunity' || requestedMapMetric === 'spend' ? requestedMapMetric : undefined,
   period: params.get('period') || undefined, region: params.get('region') || undefined, query: params.get('query') || undefined,
   quantity: params.has('quantity') ? Number(params.get('quantity')) : undefined,
   termMonths: params.has('termMonths') ? Number(params.get('termMonths')) : undefined,
@@ -43,11 +48,15 @@ if (element) {
         displayMode={displayMode}
         onRequestFullscreen={displayMode === 'inline' ? async () => render({ mode: 'fullscreen' }) : undefined}
         onUpdateModelContext={async context => { window.revenueHarness.context = context; }}
-        onSendFollowUp={async () => true}
+        onSendFollowUp={async (message, context) => {
+          window.revenueHarness.context = context;
+          window.revenueHarness.followUps.push({ message, context });
+          return true;
+        }}
       />
     </RevenueThemeProvider>
     );
   };
-  window.revenueHarness = { render };
+  window.revenueHarness = { render, followUps: [] };
   render({});
 }

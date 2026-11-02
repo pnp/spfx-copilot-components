@@ -167,5 +167,5 @@ for (const folder of fs.readdirSync(path.join(root, 'src', 'copilotComponents'))
     propertyContracts++;
   }
 }
-assert(propertyContracts === 21, `Expected 21 compiled property contracts, found ${propertyContracts}`);
-console.log('Validated 21 source/compiled optional property contracts with portable schemas and runtime-only bounds.');
+assert(propertyContracts === 27, `Expected 27 compiled property contracts, found ${propertyContracts}`);
+console.log('Validated 27 source/compiled optional property contracts with portable schemas and runtime-only bounds.');

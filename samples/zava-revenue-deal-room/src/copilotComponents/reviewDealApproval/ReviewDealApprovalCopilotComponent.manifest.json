@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a427a46d-a6ca-4cb7-82af-91bf1a4b0172",
+  "alias": "ReviewDealApprovalCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ReviewDealApproval",
+      "description": {
+        "default": "Use for the inline demo approval inbox, exact request detail, independent staged decisions and audit receipts. Do not approve without authority and explicit confirmation."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/reviewDealApproval/ReviewDealApprovalCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

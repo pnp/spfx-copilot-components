@@ -8,11 +8,11 @@
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-revenue-deal-room",
     "longDescription": [
       "ZavaMesh Revenue Deal Room turns natural-language sales intent into focused, inspectable work across account discovery, qualification, buyer influence, risk, commitments, proposals, commercial scenarios, exceptions, forecast, and customer success handoff.",
-      "Twenty operational components and one capability explorer continue into My Deals, Deal Room, Commercial Desk, and Revenue Command. The connected Contoso story preserves evidence and decisions from relationship access through defensible commit.",
+      "Twenty-six operational components and one capability explorer support personal-priority revenue briefs, country opportunity and recorded-spend maps, fictional pipeline and approval value flows, exact commercial-to-submission handoffs and independent approval. Four polished full-screen workspaces separate purposeful landings from explicitly selected work, preserve exact scenario context and carry a keynote story from seller priority to accountable decision.",
       "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. Buyer facts, seller judgment, stale evidence, deterministic output, contrary evidence, and inference remain visibly distinct."
     ],
     "creationDateTime": "2026-08-31",
-    "updateDateTime": "2026-10-28",
+    "updateDateTime": "2026-11-01",
     "products": [
       "SharePoint",
       "Copilot"
@@ -32,6 +32,83 @@
       }
     ],
     "thumbnails": [
+      {
+        "name": "inline-country-spend-map.png",
+        "type": "image",
+        "order": 90,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-country-spend-map.png",
+        "alt": "Country spending bubble map using a separate recorded demo expense ledger with exact country totals and focused drill-down"
+      },
+      {
+        "name": "inline-country-opportunity-detail.png",
+        "type": "image",
+        "order": 89,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-country-opportunity-detail.png",
+        "alt": "Focused Germany opportunity detail with exact demo headquarters-attributed catalog values and links to inspect actual opportunities"
+      },
+      {
+        "name": "inline-qualification-gate.png",
+        "type": "image",
+        "order": 91,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-qualification-gate.png",
+        "alt": "Buyer-proof qualification ring showing sourced, missing, contrary, inferred and stale dimensions without claiming pursuit permission"
+      },
+      {
+        "name": "inline-competitive-decision-drivers.png",
+        "type": "image",
+        "order": 92,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-competitive-decision-drivers.png",
+        "alt": "Competitive decision-driver importance chart with explicit workshop proposal weights, missing vendor evidence and focused source inspection"
+      },
+      {
+        "name": "inline-pipeline-sankey.png",
+        "type": "image",
+        "order": 93,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-pipeline-sankey.png",
+        "alt": "Interactive fictional pipeline Sankey connecting regional USD value, buyer readiness and next actions with conserved ribbons and selectable details"
+      },
+      {
+        "name": "inline-approval-sankey.png",
+        "type": "image",
+        "order": 94,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-approval-sankey.png",
+        "alt": "Interactive fictional approval Sankey connecting intake routes, current independent reviewer stages and stage outcomes without implying final approval"
+      },
+      {
+        "name": "inline-my-priorities.png",
+        "type": "image",
+        "order": 95,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-my-priorities.png",
+        "alt": "Personal demo revenue brief with actionable priorities, named deals, pipeline outlook bridge, proof coverage and close-plan status donut"
+      },
+      {
+        "name": "inline-deal-attention.png",
+        "type": "image",
+        "order": 97,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-attention.png",
+        "alt": "Inline important-deal attention catalog with selectable value charts, exact ranked deal values, and scoped Copilot questions"
+      },
+      {
+        "name": "inline-deal-submission.png",
+        "type": "image",
+        "order": 98,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-submission.png",
+        "alt": "Inline guided deal story form with commercial summary, evidence stages, explicit confirmation, and context-aware Copilot suggestions"
+      },
+      {
+        "name": "inline-deal-approvals.png",
+        "type": "image",
+        "order": 99,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-approvals.png",
+        "alt": "Inline deal approval inbox with exact request economics, independent reviewer authority, rationale, and explicit simulated decisions"
+      },
+      {
+        "name": "inline-deal-details.png",
+        "type": "image",
+        "order": 96,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-revenue-deal-room/assets/inline-deal-details.png",
+        "alt": "Inline selected-deal detail view with exact economics, buyer coverage, evidence gaps, a back action, and focused Copilot handoffs"
+      },
       {
         "name": "fullscreen-deal-room.png",
         "type": "image",

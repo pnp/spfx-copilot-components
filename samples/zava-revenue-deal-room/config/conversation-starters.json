@@ -6,9 +6,9 @@
       "targetName": "GetDealRisk"
     },
     {
-      "title": "Buying committee",
-      "text": "Map the buying committee for the Contoso expansion.",
-      "targetName": "MapBuyingCommittee"
+      "title": "My priorities",
+      "text": "Show my top revenue priorities, pipeline status and next actions.",
+      "targetName": "GetMyRevenuePriorities"
     },
     {
       "title": "Commercial scenario",
@@ -16,14 +16,14 @@
       "targetName": "SimulateCommercialOffer"
     },
     {
-      "title": "Meeting preparation",
-      "text": "Prepare me for tomorrow's Contoso steering meeting.",
-      "targetName": "PrepareCustomerMeeting"
+      "title": "Submit a deal",
+      "text": "Help me submit an evidence-backed deal for commercial review.",
+      "targetName": "SubmitDealRequest"
     },
     {
-      "title": "Forecast decision",
-      "text": "Should Contoso remain in commit for Q4?",
-      "targetName": "InspectForecastCommit"
+      "title": "Deal approvals",
+      "text": "Show the deals awaiting independent commercial approval.",
+      "targetName": "ReviewDealApproval"
     },
     {
       "title": "Explore capabilities",

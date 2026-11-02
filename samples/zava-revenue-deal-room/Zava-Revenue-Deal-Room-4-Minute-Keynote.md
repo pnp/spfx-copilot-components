@@ -1,71 +1,158 @@
 # ZavaMesh Revenue Deal Room - 4-minute keynote
 
-## Audience and promise
+## One opportunity. Four roles. One accountable decision.
 
-For Microsoft customers, partners, sellers, and product leaders. The promise is simple: Copilot can move from a conversational request into an inspectable, visual workspace where people retain control of consequential revenue decisions.
+For Microsoft customers, partners, sellers and product leaders. The story is:
+**My Deals -> Deal Room -> Commercial Desk -> accountable submission and review -> Revenue Command**.
+Copilot supplies the conversation and context. Full-screen workspaces make the next decision clear;
+they are not a tour of 27 unrelated controls.
 
-## Setup and reset
+## Setup
 
-- Deploy the ready-made `.sppkg` and add **ZavaMesh Revenue Deal Room** in Microsoft Copilot.
-- Start a fresh conversation as Megan Bowen.
-- Keep the local screenshot sequence open as the fallback: `inline-buying-committee.png`, `inline-commercial-scenario.png`, `fullscreen-deal-room.png`, and `fullscreen-revenue-command.png`.
-- State once: all records are deterministic mock data and no CRM, customer, quote, contract, or forecast is changed.
+- Deploy the validated production `.sppkg` and add **ZavaMesh Revenue Deal Room** in Microsoft Copilot.
+  Local validation does not deploy anything.
+- Use deterministic mock data. Megan Bowen's owned book is illustrative, not the signed-in user's
+  real assignments. No CRM, customer, quote or forecast records are changed.
+- Open a component, expand it, then click **Commercial Desk** in the left menu to show its landing.
+  Use **Reset demo data -> Confirm reset of demo data** before rehearsal.
+- Keep **ZDR-2042 / Contoso** through the opportunity story. After submission, preserve the actual
+  generated **ZM-...** request ID; an opportunity and an approval request are different records.
+- Keep the screenshot fallback ready: [Deal Room](assets/fullscreen-deal-room.png),
+  [Commercial Desk](assets/fullscreen-commercial-desk.png), [country opportunities](assets/inline-global-opportunity-map.png),
+  [submission](assets/inline-deal-submission.png) and [approval](assets/inline-deal-approvals.png).
 
-## 0:00-0:35 - Ask for an outcome, not a screen
+## The navigation contract
 
-Prompt: **Show the risks threatening Contoso's global expansion deal this quarter.**
+Expanding a component opens its business-appropriate workspace with its exact context and edited
+values visible. Entity chips, the business question and selected-work panel explain the information;
+there is no extra origin banner.
 
-Expected component: `GetDealRisk`.
+Clicking a left-hand menu item opens that workspace's own landing view. It does not drag a success
+handoff, approval or unrelated deal below another dashboard. Choose an opportunity or request to
+work on it. **Back to [workspace]** returns to its list; **Resume [task] / [record]** deliberately
+restores mounted work without discarding the draft.
 
-Show the evidence classes: verified customer signal, contrary evidence, stale fact, seller judgment, and deterministic inference. Explain that Copilot selects a bounded experience while the component owns records, calculations, controls, and human safeguards.
+- **My Deals:** owned book, next actions and opportunity selection.
+- **Deal Room:** the selected buyer network, proof, risks and joint commitments.
+- **Commercial Desk:** proposed offer economics and exact requests for independent review.
+- **Revenue Command:** country opportunity, a separate recorded-spend ledger and pipeline interventions.
 
-## 0:35-1:20 - Make the buying group visible
+The **Continue to [business step]** action opens the next selected task inside its matching workspace.
+**Continue with Copilot** and **More discussions** send the current visible context and a chat request.
+Those are different actions: Workbench records the messages but does not run the model or automatically
+create the next chat component.
 
-Prompt: **Map the buying committee for the Contoso expansion.**
+## 0:00-0:35 - My Deals: start with a reason to act
 
-Expected component: `MapBuyingCommittee`.
+Prompt: **Show my top revenue priorities, pipeline status and next actions.**
 
-Show the portrait-based influence orbit. Point out Nestor as champion, Lee as the missing economic-buyer connection, and the security/legal path. Select an evidence row. Emphasize that people are decision evidence, not a contact list.
+Expected component: `GetMyRevenuePriorities`. Expand it into **My Deals**, then use **Back to My Deals**
+to show the purposeful starting point: **$18.54M open / $11.72M seller-weighted** in the current-quarter
+demo book, an evidence-linked next action and a list of actual opportunities.
 
-## 1:20-2:05 - Continue into the Deal Room
+Say: **"Not another dashboard. A clear next move, grounded in the work I own."**
 
-Choose **View in full screen**.
+Click **Work top priority**. It deliberately opens the Contoso buying committee in **Deal Room**.
+The interface now explains why this deal is on screen; an arbitrary record did not appear under a menu.
 
-Show the same Contoso opportunity in the editorial Deal Room: pursuit team, credible close range, stakeholder graph, evidence ledger, and portrait-backed commitment runway. Explain that full screen adds surrounding operating context rather than enlarging the inline card.
+## 0:35-1:15 - Deal Room: turn a relationship gap into a decision
 
-## 2:05-2:55 - Shape economics without giving away the deal
+Expected task: `MapBuyingCommittee`, scoped to **ZDR-2042**.
 
-Prompt: **Model a three-year ramped offer that protects 68% margin.**
+Point to the buyer-role network and exact contact records. Influence is a stored demo assessment;
+membership does not establish authority, and economic-buyer access is not evidenced.
 
-Expected component: `SimulateCommercialOffer`.
+Say: **"We can see the people. Now we need proof that the right people can make the decision."**
 
-Use the annual 60/80/100% licensing ramp, then change licensed users or discount. Show actual TCV,
-margin, required authority and weighted forecast move together. Required authority is not approval;
-the contour's adoption index is explicitly illustrative rather than sourced customer savings.
+Click **Continue to Deal risk**. Use the signature-blocker network to distinguish contrary buyer
+evidence, stale assumptions and seller judgment. Inspect one source. A proposed introduction,
+technical inference or elapsed time is not a customer commitment.
 
-## 2:55-3:35 - Defend the commit with evidence
+Optional conversational beat: use **More discussions -> Ask Copilot about this deal**. The selected
+source, exact opportunity and discussion topic travel with the question.
 
-Prompt: **Should Contoso remain in commit for Q4?**
+Click **Continue to Commercial scenario** to enter **Commercial Desk** for that same opportunity.
 
-Expected component: `InspectForecastCommit`.
+## 1:15-2:05 - Commercial Desk: make the commercial choice explainable
 
-Show missing buyer proof and the blocked retain-commit choice. Choose best case or remove from the
-period, review actual values, then explicitly confirm a session-only recommendation. Expand to the
-Revenue Command workspace. Select a region and switch the projected world map to GTM investment:
-opportunity KPIs come from the catalog; budgets are illustrative. A forecast decision is not an opaque
-AI score or CRM write. For a longer rehearsal, show My Deals intake and the Commercial Desk decision
-trail; all approvals remain explicit simulations.
+Expected task: `SimulateCommercialOffer`.
 
-## 3:35-4:00 - Close on the architecture of trust
+Enter **1,000 licensed users / 24 months / 8% discount / $150,000 services / 0.65 seller probability**.
+Leave the annual ramp blank. Show the calculated margin curve and:
 
-Use **Ask Copilot about this deal** to demonstrate an explicit user-triggered follow-up. Do not imply that it sends automatically.
+- **$2,818,000 contract value**
+- **$1,831,700 seller-weighted value**
+- Margin above the **68%** floor; required authority is not approval.
 
-Closing line: **The art of possible is not more chat. It is intent-routed, visual, evidence-aware software inside the conversation, with people still accountable for the decision.**
+Say: **"The numbers are the entered scenario, not a decorative chart or an approved quote."**
 
-## Rehearsal checklist
+Click **Continue to Submit a deal**. The seller task opens in **My Deals** with those five actual values.
+Do not retype a different offer. Annual-ramp scenarios cannot silently enter non-ramped intake.
 
-- Confirm all five prompts route to the expected tools in the target tenant.
-- Confirm Expand remains host-authoritative and lands in the correct lens.
-- Confirm portrait assets, gradients, dark-mode contrast, and narrow layout load correctly.
-- Confirm no action is described as a production write.
-- Keep the screenshot fallback ready if preview routing or Workbench display mode is unavailable.
+## 2:05-3:00 - My Deals: submit the reviewed request, not an AI summary
+
+Expected task: `SubmitDealRequest`.
+
+Enter an outcome such as: **Roll out validated capabilities across 18 countries with an accountable
+customer owner and independent commercial review.**
+
+Continue through the form. Explicitly check the two **sample evidence attestations**, then review
+the exact values. **Submit demo deal** remains disabled until the user confirms.
+
+Say: **"Copilot can help us reason. The user still reviews the actual request and owns submission."**
+
+Confirm once and show the **ZM-...-SUBMIT** receipt. No CRM write or real approval occurred.
+Use **Continue to Deal approvals** to open the exact generated request in **Commercial Desk**.
+
+## 3:00-3:35 - Commercial Desk: an independent human decision
+
+Expected task: `ReviewDealApproval`, scoped to the exact **ZM-...** request.
+
+Show the same **$2,818,000** economics, inspect the sample evidence, choose the assigned
+**simulated Sales manager** role and enter an independent rationale. Explicit consent is required
+before **Approve demo stage** enables. This 8%-discount, above-floor example needs the manager stage only.
+
+Point to the matching **ZM-...-A1** decision receipt. Role switching is not authentication.
+Opening a request or moving between tasks never grants authority or approves anything automatically.
+
+## 3:35-4:00 - Revenue Command: close the loop without rewriting the pipeline
+
+Click **Revenue Command** in the left menu. Its own landing view shows the current country opportunity
+map, request-status counters and clear interventions. The confirmed demo-request count changes;
+the CRM-shaped opportunity catalog does **not** quietly mutate into closed-won or commit.
+
+Show **Opportunity / Recorded spend**:
+
+- **$82,497,260** across 25 current-quarter demo opportunities, attributed to fictional account HQs.
+- A separate **$3.4M** recorded demo expense ledger, not rollout revenue, requested investment or ROI.
+
+Closing line: **"Copilot carries the conversation. The workspaces carry the evidence and controls.
+People still own the decision."**
+
+## Graphical variants for a longer keynote slot
+
+- **Explore pipeline value flow** opens `ExplorePipelineFlow` in **Revenue Command**.
+  Its **$29.4M** current scenario is a separate fictional planning allocation, not the catalog total.
+- **Explore approval progress** opens `ExploreApprovalFlow` in **Commercial Desk**.
+  A stage passing is not final approval. **Review separate example ZM-1001** deliberately opens a stored
+  request, not a request attributed to the fictional diagram.
+- Expand `DiscoverAccountOpportunity` for country opportunity and `ExplorePipelineQuality` with recorded
+  spend for a full-width map. Choose a country, then inspect an actual record; scopes and provenance
+  must remain visible.
+- Show the alternate **ZDR-2043** scenario once to prove that selecting a different record changes the
+  information rather than copying Contoso's proof or values.
+
+## Rehearsal and fallback checklist
+
+- Verify all four menu entries are aligned, readable, keyboard accessible and selected consistently.
+- Verify every component expands into its matching workspace with its actual scope and edited values.
+- Verify menu navigation shows a landing view, not an unrelated task appended at the bottom.
+- Verify explicit item selection and resume preserve the intended record and draft.
+- Verify maps and value flows are visible at desktop, narrow widths and in dark theme.
+- Verify direct workspace continuation carries exact commercial inputs and generated request IDs.
+- Verify real Copilot routing in the deployed agent; Workbench validates outgoing context/message exchanges.
+- Verify the complete context stays below 10,000 UTF-8 bytes and precedes the message.
+- Verify unchecked confirmations, independent roles, authority gates and exact receipts.
+- Keep every inline stage within 650px at 760px width / 800px at 390px width. Expansion does not weaken
+  those inline limits.
+- Keep the screenshot fallback and pre-opened component cards ready if tenant preview routing is delayed.

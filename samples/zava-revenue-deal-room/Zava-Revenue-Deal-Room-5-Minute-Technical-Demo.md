@@ -18,7 +18,8 @@ longer remounts its children after the first effect.
 
 ## 1:20-2:20 - D3 visualization-first UX
 
-Show `src/shared/visualizations/revenueGeometry.ts`, `RevenueCharts.tsx`, and `RevenueApp.tsx`.
+Show `src/shared/visualizations/revenueGeometry.ts`, `RevenueCharts.tsx`, `RevenueApp.tsx`,
+`FullscreenWorkspace.tsx` and `fullscreenWorkspaceModel.ts`.
 
 Highlight:
 
@@ -27,10 +28,14 @@ Highlight:
 - D3 signed forecast-waterfall geometry
 - D3 Natural Earth projection and TopoJSON paths for the offline regional opportunity map
 - React-owned SVG marks, state, keyboard actions, accessible names, exact labels, and adjacent tables
-- Coordinated full-screen analytical regions across My Deals, Deal Room, Commercial Desk, and Revenue Command
+- Separate landing and selected-work states across My Deals, Deal Room, Commercial Desk, and Revenue Command
+- Catalog-based component-to-workspace mapping, exact scenario selection and mounted draft resume
+- Full-width country maps and fictional value flows in their business-appropriate workspace
+- Active-only model-context publishing: hidden work is retained but never presented as visible data
 
-Show the 87-test suite, including exact term/ramp costs, discount authority boundaries, partial years,
-value sensitivity, all 21 content bodies and all ten complete review/confirm/receipt/reset lifecycles.
+Show the current Jest suite and generated release evidence, including exact term/ramp costs,
+discount authority boundaries, all 27 content bodies, complete review/confirm/receipt/reset lifecycles,
+workspace navigation, scenario continuity and redraw-size notifications.
 
 ## 2:20-3:05 - Deterministic domain and people
 
@@ -42,10 +47,10 @@ Report 80 accounts, 260 contacts, 120 opportunities, the connected `ZDR-2042` ev
 
 Show `scripts/visual-harness`, `scripts/capture-gallery-assets.mjs`, `assets/gallery-evidence.json`, `assets/sample.json`, and `Zava-Revenue-Deal-Room-Routing-Matrix.md`.
 
-Report 13 curated captures plus 105 supplementary business captures, with zero runtime/console,
-broken-image or overflow failures. The supplementary matrix covers all 21 inline tools at
-standard/narrow/dark, four role dashboards, ten reviews, ten receipts and eighteen property/gate states.
-Show `assets/business-matrix-evidence.json`; both sets are bound to current runtime source hashes.
+Report the current capture totals from release evidence, with zero runtime/console, broken-image or
+overflow failures. The supplementary matrix covers all 27 inline tools at standard/narrow/dark,
+four workspace landings, selected scenarios, ten reviews, ten receipts and property/gate states.
+Show `assets/business-matrix-evidence.json`; all visual sets are bound to current runtime source hashes.
 
 ## 3:45-4:35 - Production package gates
 

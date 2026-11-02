@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "95a2b711-33a0-45e4-8dad-47bf7a028a25",
+  "alias": "GetMyRevenuePrioritiesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "GetMyRevenuePriorities",
+      "description": {
+        "default": "Use for an illustrative owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. Do not imply live personal assignments, approve requests or contact customers."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getMyRevenuePriorities/GetMyRevenuePrioritiesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

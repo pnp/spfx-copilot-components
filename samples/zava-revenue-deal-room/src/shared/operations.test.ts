@@ -1,8 +1,46 @@
 import { INTENTS, type IRevenueProperties, type RevenueIntentKey } from './catalog';
 import { HERO_OFFER, OPPORTUNITIES, calculateCommercialOffer } from './domain';
-import { analysisRows, initialDraft, resolveScope, workflowCalculation, workflowErrors, workflowFor } from './operations';
+import { analysisRows, initialDraft, resolveScope, workflowCalculation, workflowErrors, workflowFor, qualificationReadiness, competitiveDecisionDrivers, workflowReviewPages, type IReviewValuePart } from './operations';
 
 describe('scoped revenue business rules', () => {
+  test('long reviewed business values are paged without losing Unicode or any entered characters', () => {
+    const workflow = workflowFor('ShapeSolutionProposal', resolveScope({}));
+    if (!workflow) throw new Error('Missing proposal workflow');
+    const long = 'Customer proof \ud83d\ude80 and accountable rollout. '.repeat(18);
+    const draft = { ...initialDraft(workflow), requirement: long };
+    const pages = workflowReviewPages(workflow.fields, draft);
+    const parts = pages.reduce<IReviewValuePart[]>((items, page) => items.concat(page.filter(item => item.field.name === 'requirement')), []);
+    expect(parts.length).toBeGreaterThan(1);
+    expect(parts.map(item => item.value).join('')).toBe(long);
+    expect(parts.every(item => Array.from(item.value).length <= 240)).toBe(true);
+    expect(workflowErrors('ShapeSolutionProposal', resolveScope({}), workflow, { ...draft, requirement: 'x'.repeat(1001) }).join(' ')).toContain('at most 1,000');
+  });
+  test('qualification readiness counts buyer evidence, not source classifications or typed seller claims', () => {
+    const scope = resolveScope({});
+    const readiness = qualificationReadiness(scope);
+    expect(readiness.verifiedCount).toBe(1);
+    expect(readiness.totalCount).toBe(5);
+    expect(readiness.gates.map(item => item.state)).toEqual(['verified', 'missing', 'blocked', 'unconfirmed', 'stale']);
+    expect(readiness.gates.find(item => item.id === 'Q-security')).toMatchObject({ sourceId: 'EV-05', state: 'unconfirmed' });
+    expect(readiness.gates.find(item => item.id === 'Q-budget')?.sourceId).toBeUndefined();
+    expect(qualificationReadiness(resolveScope({ opportunityId: 'ZDR-2043' })).verifiedCount).toBe(0);
+    const workflow = workflowFor('QualifyOpportunity', scope);
+    if (!workflow) throw new Error('Missing qualification workflow');
+    expect(workflowErrors('QualifyOpportunity', scope, workflow, { ...initialDraft(workflow), decision: 'Pursue', criteria: 'All gates passed' }).join(' ')).toContain('Missing independent');
+  });
+  test('competitive driver weights are distinct scoped workshop proposals, never fabricated vendor scores', () => {
+    const current = competitiveDecisionDrivers(resolveScope({}));
+    const discovery = competitiveDecisionDrivers(resolveScope({ opportunityId: 'ZDR-2043' }));
+    expect(current.map(item => item.weight)).toEqual([35, 30, 25, 10]);
+    expect(discovery.map(item => item.weight)).toEqual([35, 30, 20, 15]);
+    expect(current.reduce((sum, item) => sum + item.weight, 0)).toBe(100);
+    expect(discovery.reduce((sum, item) => sum + item.weight, 0)).toBe(100);
+    expect(current.find(item => item.id === 'CMP-value')?.proof).toBe('Owner only');
+    expect(discovery.every(item => item.sourceIds.length === 0)).toBe(true);
+    const rows = analysisRows('ResearchCompetitivePosition', resolveScope({}));
+    current.forEach(item => expect(rows.find(row => row.id === item.id)).toMatchObject({ kind: 'workshop proposal' }));
+    expect(rows.find(item => item.id === 'incumbent')?.kind).toBe('evidence gap');
+  });
   test.each([
     { accountId: 'missing' }, { opportunityId: 'missing' }, { meetingId: 'missing' },
     { proposalId: 'missing' }, { exceptionId: 'missing' },
@@ -73,9 +111,9 @@ describe('scoped revenue business rules', () => {
     expect(workflowCalculation('BuildValueCase', scope, { ...draft, adoption: '0' })).toContain('not reached');
     expect(workflowErrors('BuildValueCase', scope, value, { ...draft, adoption: '101' })).toHaveLength(1);
   });
-  test('all operational review/submit tools have domain fields and valid initial safe paths', () => {
+  test('specialist review/submit tools have domain fields and valid initial safe paths', () => {
     const scope = resolveScope({});
-    const tools = INTENTS.filter(item => item.operation === 'review' || item.operation === 'submit');
+    const tools = INTENTS.filter(item => (item.operation === 'review' || item.operation === 'submit') && ['SubmitDealRequest', 'ReviewDealApproval'].indexOf(item.key) < 0);
     expect(tools).toHaveLength(10);
     tools.forEach(item => {
       const workflow = workflowFor(item.key, scope);
