@@ -38,9 +38,9 @@ Generated from configured component manifests and the canonical starter configur
 
 | # | Title | Prompt | Expected inline component |
 | ---: | --- | --- | --- |
-| 1 | Deal risks | Show the risks threatening Contoso's global expansion deal this quarter. | `GetDealRisk` |
-| 2 | My priorities | Show my top revenue priorities, pipeline status and next actions. | `GetMyRevenuePriorities` |
-| 3 | Commercial scenario | Model a three-year ramped offer that protects 68% margin. | `SimulateCommercialOffer` |
+| 1 | Pipeline value flow | Show an imaginary pipeline Sankey from regions through buyer readiness to next actions. | `ExplorePipelineFlow` |
+| 2 | World opportunity map | Show a world map of country opportunity value for the current quarter across all regions. | `DiscoverAccountOpportunity` |
+| 3 | Approval value flow | Show an imaginary approval Sankey from submitted batches through current reviewer stages to stage outcomes. | `ExploreApprovalFlow` |
 | 4 | Submit a deal | Help me submit an evidence-backed deal for commercial review. | `SubmitDealRequest` |
 | 5 | Deal approvals | Show the deals awaiting independent commercial approval. | `ReviewDealApproval` |
 | 6 | Explore capabilities | Explore what the Revenue Deal Room agent can do. | `ExploreAgentCapabilities` |

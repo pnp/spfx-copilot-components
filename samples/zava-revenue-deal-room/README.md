@@ -1,6 +1,6 @@
 # ZavaMesh Revenue Deal Room
 
-> **Current release: solution 1.0.0.4 / authored agent 1.0.4.** Built with SPFx 1.24.0 GA
+> **Current release: solution 1.0.0.5 / authored agent 1.0.5.** Built with SPFx 1.24.0 GA
 > and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
 > [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
 > certification of every Copilot host.
@@ -60,8 +60,8 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
-> The deployment package is **1.0.0.4**; its embedded agent matches the standalone
-> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.4**.
+> The deployment package is **1.0.0.5**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.5**.
 > SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
@@ -138,7 +138,25 @@ Select an item to work on it; **Resume** restores explicitly selected work and i
    to the tenant app catalog.
 2. Approve deployment for all sites when prompted.
 3. Add the packaged **ZavaMesh Revenue Deal Room** agent in Microsoft Copilot.
-4. Start with “Show the risks threatening Contoso's global expansion deal this quarter.”
+4. Start with **Pipeline value flow**, **World opportunity map**, **Approval value flow**,
+   **Submit a deal** or **Deal approvals**. **Explore capabilities** is always the last starter.
+
+### High-impact conversation starters
+
+| Order | Starter | Opens |
+| ---: | --- | --- |
+| 1 | Pipeline value flow | Fictional regional value -> buyer readiness -> next-action Sankey. |
+| 2 | World opportunity map | Current-quarter, all-region country opportunity choropleth; no default account filter. |
+| 3 | Approval value flow | Fictional intake -> independent reviewer -> stage-outcome Sankey, distinct from stored requests. |
+| 4 | Submit a deal | Guided story, economics, evidence and explicit reviewed-value submission. |
+| 5 | Deal approvals | Actual stored demo requests, independent role stages and explicit decisions. |
+| 6 | Explore capabilities | The complete scenario explorer; never a substitute for one of the operational starters above. |
+
+The exact prompts and component targets are maintained in
+[conversation-starters.json](config/conversation-starters.json) and generated into the agent.
+The [routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) records the same ordered prompts.
+Fictional approval-flow values are not stored-request totals; neither opening approvals nor selecting
+a starter submits or approves anything.
 
 To build locally:
 
@@ -553,6 +571,7 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.5 / agent 1.0.5 | 2026-11-02 | High-impact pipeline/approval value-flow, world-map, submission and approval starters; capability explorer last. Reusable context-first dialogue, exact-scope continuation, bounded stages, workspace and resize lessons synchronized to the canonical golden guide and local creation rules. |
 | 1.0.0.4 / agent 1.0.4 | 2026-11-02 | SPFx 1.24.0 GA; 27 distinct components, four explicit workspace stories, country opportunity/spend maps, fictional value flows, exact commercial/request continuity and reliable redraw sizing. Refreshed README/gallery and rebuilt production archives; current validation totals and packaged agent suffix are recorded in release evidence. |
 | 1.0.0.3 / agent 1.0.3 | 2026-10-26 | ZavaMesh branding, linked worldwide revenue/investment analytics, guided deal intake, sequential demo approvals and session audit receipts. Current test/visual totals are generated in release evidence. |
 | 1.0.0.1 / agent 1.0.1 | 2026-10-20 | RC0 specialist completion: 21 scoped experiences, 10 guarded workflows, 87 tests, 118 current visual captures. The SDK may append a fourth agent hotfix segment. |

@@ -6,16 +6,16 @@
   "instructions": "$[file('instruction.txt')]",
   "conversation_starters": [
     {
-      "title": "Deal risks",
-      "text": "Show the risks threatening Contoso's global expansion deal this quarter."
+      "title": "Pipeline value flow",
+      "text": "Show an imaginary pipeline Sankey from regions through buyer readiness to next actions."
     },
     {
-      "title": "My priorities",
-      "text": "Show my top revenue priorities, pipeline status and next actions."
+      "title": "World opportunity map",
+      "text": "Show a world map of country opportunity value for the current quarter across all regions."
     },
     {
-      "title": "Commercial scenario",
-      "text": "Model a three-year ramped offer that protects 68% margin."
+      "title": "Approval value flow",
+      "text": "Show an imaginary approval Sankey from submitted batches through current reviewer stages to stage outcomes."
     },
     {
       "title": "Submit a deal",

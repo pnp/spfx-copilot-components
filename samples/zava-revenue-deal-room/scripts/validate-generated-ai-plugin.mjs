@@ -109,6 +109,10 @@ assert(JSON.stringify(sourceAgent.conversation_starters) === JSON.stringify(expe
 const declaredStarterTools = collectStarterToolNames(path.join(root, 'src', 'copilotComponents'));
 const starterTargets = canonicalStarters.map(starter => starter.tool || starter.targetName);
 assert(canonicalStarters.length === 6, 'Exactly six conversation starters are required.');
+assert(JSON.stringify(starterTargets) === JSON.stringify([
+  'ExplorePipelineFlow', 'DiscoverAccountOpportunity', 'ExploreApprovalFlow',
+  'SubmitDealRequest', 'ReviewDealApproval', 'ExploreAgentCapabilities'
+]), 'Starters must showcase pipeline value flow, the country world map, approval value flow, submission and independent approval, with the capability explorer last.');
 const explorerTargets = [...declaredStarterTools].filter(name => /^ExploreAgentCapabilities(?:Tool)?$/.test(name));
 assert(explorerTargets.length === 1, 'Exactly one dedicated capability-explorer tool must be registered.');
 assert(starterTargets[5] === explorerTargets[0], 'Starter 6 must target the dedicated feature explorer.');

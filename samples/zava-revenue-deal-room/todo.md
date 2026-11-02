@@ -1,5 +1,41 @@
 # Zava Revenue Deal Room - Creation Plan
 
+## Current baseline and reusable automation guidance - November 2, 2026
+
+The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with
+**27 components** and four contextual workspaces. Release versions and current test/capture totals
+come from [release evidence](assets/release-evidence.json), not the historical milestones below.
+The preceding validated release is solution 1.0.0.4 / agent 1.0.4: 290 tests and 536 visual captures.
+This guidance/starter release is solution **1.0.0.5 / authored agent 1.0.5**.
+
+- [x] Capture the distinct-business-value, compact stage and contextual workspace patterns from the
+  completed portfolio work; retain all original identities and exact scoped scenario semantics.
+- [x] Update the canonical [golden creation playbook](../../assets/agentic-creation-rules-golden.md)
+  with contextual **Continue with Copilot**, discussion versus explicit tool handoffs, atomic
+  click-time context-before-message ordering, the complete 10,000-byte UTF-8 budget and visible retry.
+- [x] Replace obsolete resize guidance with intrinsic content-root measurement after committed
+  redraws, internal-state and delayed-layout coverage, owner-window frame coalescing, grow/shrink and
+  same-size reporting, supported display modes and teardown/disposal cleanup.
+- [x] Specify role-specific workspace landings versus selected work, explicit selection/Resume,
+  preserved mounted drafts and active-only context publication.
+- [x] Synchronize this sample's local `agentic-creation-rules.md` byte-for-byte with the golden guide.
+  Matching SHA-256: `4A139A24B413D6434976D1905DBD3F366CDFF5120EC1A4E8B8AD2452D54EEFE6`.
+- [x] Prioritize starters for pipeline value flow, country world map, approval value flow, guided
+  submission and independent approval, with **Explore capabilities last**.
+- [x] Regenerate source starters and routing docs with `npm run configure:intents` and
+  `npm run generate:routing-matrix`; `npm run check:intents` and `npm run check:routing-matrix`
+  passed for 27 immutable tools, six starters and nine collision rehearsals.
+  Instruction source is 7,209 characters, below the SDK's 8,000-character limit.
+- [x] `npm run build` passed: **290 tests / 536 current visual captures / 893 inline probes**,
+  source and packaged starter ordering, actual solution/feature version 1.0.0.5 and embedded/standalone
+  agent 1.0.5, instruction expansion limits, compiled schemas and matching release hashes.
+- [x] Prepare the canonical/local guidance, this tracker, starter configuration and matching release
+  assets for the requested VesaJuvonen commit and synchronization. The personal fork is the configured
+  `origin`; commit/push identity and exact published revision are recorded in Git history.
+- [ ] **EXTERNAL RELEASE GATES:** deployed-model starter routing, comprehensive tenant CSP/focus,
+  forced-colors/screen-reader certification and final public brand/persona redistribution approval
+  remain separate. Workbench transport checks and local harness results do not prove model routing.
+
 ## ZavaMesh redesign - October 26, 2026
 
 **Approved:** offline global revenue scenario, all 21 immutable tool identities, and the written
@@ -49,7 +85,7 @@ Historical completion counts below describe earlier releases, not this redesign.
 
 ## RC0 update - October 20, 2026
 
-The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+Historical RC0 baseline: SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7 and Heft 1.3.2. The [repository RC0 readiness report](../../RC0-updates.md) records that earlier readiness work, not the current GA package or starter configuration. Use the current baseline and generated release evidence above. The local creation guide must remain byte-identical to the assets golden guide.
 
 Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
 
