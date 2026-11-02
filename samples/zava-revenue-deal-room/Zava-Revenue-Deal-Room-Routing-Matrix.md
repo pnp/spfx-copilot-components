@@ -43,7 +43,13 @@ Generated from configured component manifests and the canonical starter configur
 | 3 | Approval value flow | Show an imaginary approval Sankey from submitted batches through current reviewer stages to stage outcomes. | `ExploreApprovalFlow` |
 | 4 | Submit a deal | Help me submit an evidence-backed deal for commercial review. | `SubmitDealRequest` |
 | 5 | Deal approvals | Show the deals awaiting independent commercial approval. | `ReviewDealApproval` |
-| 6 | Explore capabilities | Explore what the Revenue Deal Room agent can do. | `ExploreAgentCapabilities` |
+| 6 | My revenue priorities | Show my top revenue priorities, pipeline status and next actions. | `GetMyRevenuePriorities` |
+| 7 | Map the buying committee | Map the buying committee for Contoso and show missing buyer access. | `MapBuyingCommittee` |
+| 8 | Model a commercial offer | Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability. | `SimulateCommercialOffer` |
+| 9 | World recorded-spend map | Show recorded demo spend by country for the current quarter. | `ExplorePipelineQuality` |
+| 10 | Build a mutual action plan | Build a mutual action plan for Contoso with owned dependencies. | `BuildMutualActionPlan` |
+| 11 | Build the customer value case | Build the Contoso value case with editable assumptions and payback. | `BuildValueCase` |
+| 12 | Explore capabilities | Explore what the Revenue Deal Room agent can do. | `ExploreAgentCapabilities` |
 
 ## Sibling collision rehearsal
 

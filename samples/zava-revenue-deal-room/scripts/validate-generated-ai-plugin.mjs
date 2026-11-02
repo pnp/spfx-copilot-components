@@ -108,16 +108,18 @@ const expectedStarters = canonicalStarters.map(({ title, text }) => ({ title, te
 assert(JSON.stringify(sourceAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Source starters differ from canonical targets.');
 const declaredStarterTools = collectStarterToolNames(path.join(root, 'src', 'copilotComponents'));
 const starterTargets = canonicalStarters.map(starter => starter.tool || starter.targetName);
-assert(canonicalStarters.length === 6, 'Exactly six conversation starters are required.');
+assert(canonicalStarters.length === 12, 'This showcase requires twelve conversation starters: eleven operational tools and the explorer last.');
 assert(JSON.stringify(starterTargets) === JSON.stringify([
   'ExplorePipelineFlow', 'DiscoverAccountOpportunity', 'ExploreApprovalFlow',
-  'SubmitDealRequest', 'ReviewDealApproval', 'ExploreAgentCapabilities'
-]), 'Starters must showcase pipeline value flow, the country world map, approval value flow, submission and independent approval, with the capability explorer last.');
+  'SubmitDealRequest', 'ReviewDealApproval', 'GetMyRevenuePriorities', 'MapBuyingCommittee',
+  'SimulateCommercialOffer', 'ExplorePipelineQuality', 'BuildMutualActionPlan',
+  'BuildValueCase', 'ExploreAgentCapabilities'
+]), 'Starters must map to eleven distinct operational UX components with the capability explorer last.');
 const explorerTargets = [...declaredStarterTools].filter(name => /^ExploreAgentCapabilities(?:Tool)?$/.test(name));
 assert(explorerTargets.length === 1, 'Exactly one dedicated capability-explorer tool must be registered.');
-assert(starterTargets[5] === explorerTargets[0], 'Starter 6 must target the dedicated feature explorer.');
-assert(starterTargets.slice(0, 5).every(target => target !== explorerTargets[0]), 'Starters 1-5 must target operational components.');
-assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === 6, 'Starter titles must be distinct.');
+assert(starterTargets[starterTargets.length - 1] === explorerTargets[0], 'The final starter must target the dedicated feature explorer.');
+assert(starterTargets.slice(0, -1).every(target => target !== explorerTargets[0]), 'All preceding starters must target operational components.');
+assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === canonicalStarters.length, 'Starter titles must be distinct.');
 assert(new Set(starterTargets).size === starterTargets.length, 'Starter targets must be distinct.');
 assert(new Set(canonicalStarters.map(starter => starter.text.toLowerCase().replace(/\s+/g, ' ').trim())).size === canonicalStarters.length, 'Starter prompts must be distinct.');
 const sourceInstructions = fs.readFileSync(path.join(root, 'copilot', 'instruction.txt'), 'utf8').replace(/\r\n/g, '\n').trim();

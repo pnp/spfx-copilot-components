@@ -219,6 +219,11 @@ approved sample values, but keep the actions and gates.
   inline tools, add the catalog-driven Agent Capability Explorer pattern (§6.4) and reserve the final
   conversation starter for “What can this agent do?”. Do not expect three generic starters to explain
   a complex business agent.
+  Agents support **up to 12 conversation starters**; do not treat three or six as a platform ceiling.
+  Where 11 distinct, valuable first-run operational jobs exist, use 11 direct starters and make the
+  capability explorer the **12th**. Smaller domains may use fewer; keep discovery last when included
+  and never invent duplicate or low-value tasks just to fill the limit. Starter capacity does not limit
+  the independently routed component catalog.
   Put the strongest domain-relevant operational experiences before the explorer: meaningful value
   flows, geographic analysis, guided submission and independent review are good candidates when the
   domain supports them. Do not impose a chart-type quota or route every starter to one generic dashboard.
@@ -1003,6 +1008,10 @@ This is not technical API documentation and not a static help page.
 
 **Conversation starter contract:**
 
+- The maximum is **12 conversation starters per agent**, not six. Choose distinct high-value
+  operational components, not several phrasings for the same generic view. A large showcase may use
+  **11 operational starters + 1 capability-explorer starter**; use fewer when the domain has fewer
+  strong first-run scenarios.
 - Reserve the **last conversation starter** for the explorer. Recommended copy:
 
   ```json
@@ -1012,8 +1021,10 @@ This is not technical API documentation and not a static help page.
   }
   ```
 
-  If the agent intentionally exposes exactly three starters, this is the **third** starter. Retain two
-  high-value direct tasks and let the explorer cover the remaining breadth.
+  With 12 starters, operational components own positions 1-11 and the explorer owns position 12.
+  With fewer starters, the explorer still owns the final position. Validate the actual ordered
+  configuration and packaged metadata rather than hard-coding the explorer to index 5 or assuming
+  the first five are the only operational starters.
 
   An existing approved curated showcase can retain operational-only starters or its existing
   full-screen discovery path. Document the exception and replacement help/navigation in `todo.md`,
@@ -2003,6 +2014,9 @@ samples/<name>/
   have tested, different state-preservation contracts.
 - [ ] Ordered starters promote distinct high-value operational UX, keep the capability explorer last,
   and match canonical prompts, advertised tool targets, generated metadata and packaged agent content.
+  There are at most 12 starters; when the showcase uses all 12, the first 11 target different
+  operational components and the 12th targets the explorer. Count, uniqueness and final-position
+  checks use the intended configuration rather than obsolete six-starter assumptions.
 - [ ] Every component publishes one purpose-specific activation snapshot naming the actual visible UX
   and data; list/detail, paging, filter, chart selection, workflow, receipt, and Back transitions publish
   updated visible state without hidden/sensitive payloads.

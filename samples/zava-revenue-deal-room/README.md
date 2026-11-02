@@ -1,6 +1,6 @@
 # ZavaMesh Revenue Deal Room
 
-> **Current release: solution 1.0.0.5 / authored agent 1.0.5.** Built with SPFx 1.24.0 GA
+> **Current release: solution 1.0.0.6 / authored agent 1.0.6.** Built with SPFx 1.24.0 GA
 > and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
 > [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
 > certification of every Copilot host.
@@ -60,8 +60,8 @@ are recorded in the generated [release evidence](assets/release-evidence.json). 
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
-> The deployment package is **1.0.0.5**; its embedded agent matches the standalone
-> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.5**.
+> The deployment package is **1.0.0.6**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.6**.
 > SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
@@ -150,9 +150,16 @@ Select an item to work on it; **Resume** restores explicitly selected work and i
 | 3 | Approval value flow | Fictional intake -> independent reviewer -> stage-outcome Sankey, distinct from stored requests. |
 | 4 | Submit a deal | Guided story, economics, evidence and explicit reviewed-value submission. |
 | 5 | Deal approvals | Actual stored demo requests, independent role stages and explicit decisions. |
-| 6 | Explore capabilities | The complete scenario explorer; never a substitute for one of the operational starters above. |
+| 6 | My revenue priorities | Owned-action cockpit with exact deal links and pipeline status. |
+| 7 | Map the buying committee | Recorded buyer-role network, portraits and access gaps for Contoso. |
+| 8 | Model a commercial offer | Editable 1,000-user / 24-month offer, live economics and computed margin curve. |
+| 9 | World recorded-spend map | Country spend bubbles from the separate current-quarter demo expense ledger. |
+| 10 | Build a mutual action plan | Buyer/seller ownership and an editable dependency plan for Contoso. |
+| 11 | Build the customer value case | Editable benefit/cost assumptions and customer payback timeline. |
+| 12 | Explore capabilities | The complete scenario explorer; never a substitute for one of the operational starters above. |
 
-The exact prompts and component targets are maintained in
+The agent uses all **12 supported starters**: 11 distinct operational component targets and the
+capability explorer in the final position. The exact prompts and component targets are maintained in
 [conversation-starters.json](config/conversation-starters.json) and generated into the agent.
 The [routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) records the same ordered prompts.
 Fictional approval-flow values are not stored-request totals; neither opening approvals nor selecting
@@ -381,7 +388,7 @@ all 27 tools, and the full production build passes.
 Current source validation: `npm run build` covers the full inline
 submission/approval journey, in-place detail/focus restoration and the exact UTF-8 budget.
 `npm run check:intents`, `npm run check:routing-matrix`, `npm run check:generated-plugin` and
-`npm run check:package-output` validate 27 registered tools, six starters, compiled schemas and
+`npm run check:package-output` validate 27 registered tools, twelve starters, compiled schemas and
 matching production archives.
 
 For production packaging, stop the development watcher and use
@@ -529,7 +536,7 @@ sharepoint/solution/      ready-to-deploy production package
   React 18 host, D3 geometry, offline map, evidence, and package gates.
 - [Designer and rehearsal review](Zava-Revenue-Deal-Room-Designer-Review.md) - visual language,
   interaction/accessibility checks, screenshot acceptance, and fallback path.
-- [Routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) - 27 tool boundaries, six canonical
+- [Routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) - 27 tool boundaries, twelve canonical
   starters, nine sibling-collision rehearsals, and tenant validation notes.
 - [Release evidence](assets/release-evidence.json) - generated package, bundle, media, visual, and hash
   evidence. Run `npm run generate:release-evidence` only after the final package build.
@@ -571,6 +578,7 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.6 / agent 1.0.6 | 2026-11-02 | Twelve conversation starters: eleven distinct operational UX components and the capability explorer last. Canonical and local automation guidance now documents the supported maximum of twelve rather than a six-starter assumption. |
 | 1.0.0.5 / agent 1.0.5 | 2026-11-02 | High-impact pipeline/approval value-flow, world-map, submission and approval starters; capability explorer last. Reusable context-first dialogue, exact-scope continuation, bounded stages, workspace and resize lessons synchronized to the canonical golden guide and local creation rules. |
 | 1.0.0.4 / agent 1.0.4 | 2026-11-02 | SPFx 1.24.0 GA; 27 distinct components, four explicit workspace stories, country opportunity/spend maps, fictional value flows, exact commercial/request continuity and reliable redraw sizing. Refreshed README/gallery and rebuilt production archives; current validation totals and packaged agent suffix are recorded in release evidence. |
 | 1.0.0.3 / agent 1.0.3 | 2026-10-26 | ZavaMesh branding, linked worldwide revenue/investment analytics, guided deal intake, sequential demo approvals and session audit receipts. Current test/visual totals are generated in release evidence. |

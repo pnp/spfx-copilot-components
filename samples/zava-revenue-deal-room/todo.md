@@ -5,8 +5,8 @@
 The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with
 **27 components** and four contextual workspaces. Release versions and current test/capture totals
 come from [release evidence](assets/release-evidence.json), not the historical milestones below.
-The preceding validated release is solution 1.0.0.4 / agent 1.0.4: 290 tests and 536 visual captures.
-This guidance/starter release is solution **1.0.0.5 / authored agent 1.0.5**.
+The preceding validated release is solution 1.0.0.5 / agent 1.0.5: 290 tests and 536 visual captures.
+This twelve-starter release is solution **1.0.0.6 / authored agent 1.0.6**.
 
 - [x] Capture the distinct-business-value, compact stage and contextual workspace patterns from the
   completed portfolio work; retain all original identities and exact scoped scenario semantics.
@@ -19,16 +19,22 @@ This guidance/starter release is solution **1.0.0.5 / authored agent 1.0.5**.
 - [x] Specify role-specific workspace landings versus selected work, explicit selection/Resume,
   preserved mounted drafts and active-only context publication.
 - [x] Synchronize this sample's local `agentic-creation-rules.md` byte-for-byte with the golden guide.
-  Matching SHA-256: `4A139A24B413D6434976D1905DBD3F366CDFF5120EC1A4E8B8AD2452D54EEFE6`.
+  Matching SHA-256: `A8A5C333F6241AF135CBC5A89A3A5EEA3B7CB5B4D82B97ED7525AAC24785BD33`.
 - [x] Prioritize starters for pipeline value flow, country world map, approval value flow, guided
   submission and independent approval, with **Explore capabilities last**.
+- [x] Use the full supported capacity of **12 starters**: add owned-book priorities, buyer-network
+  access, editable offer economics, recorded-spend geography, the mutual dependency plan and the
+  customer payback model. The first 11 target different operational components; explorer is 12th.
+- [x] Golden and local creation rules allow up to 12, retain a smaller set when appropriate, and
+  validate the final explorer position without treating index 5 or six starters as a platform limit.
 - [x] Regenerate source starters and routing docs with `npm run configure:intents` and
   `npm run generate:routing-matrix`; `npm run check:intents` and `npm run check:routing-matrix`
-  passed for 27 immutable tools, six starters and nine collision rehearsals.
-  Instruction source is 7,209 characters, below the SDK's 8,000-character limit.
-- [x] `npm run build` passed: **290 tests / 536 current visual captures / 893 inline probes**,
-  source and packaged starter ordering, actual solution/feature version 1.0.0.5 and embedded/standalone
-  agent 1.0.5, instruction expansion limits, compiled schemas and matching release hashes.
+  passed for 27 immutable tools, twelve starters and nine collision rehearsals.
+  Instruction source is 7,679 characters, below the SDK's 8,000-character limit.
+- [x] `npm run build` passed for the twelve-starter release: **290 tests / 536 current visual
+  captures / 893 inline probes**; source/packaged order, actual solution/feature version 1.0.0.6,
+  embedded/standalone agent 1.0.6, instruction expansion limits, compiled schemas and release hashes
+  all validate.
 - [x] Prepare the canonical/local guidance, this tracker, starter configuration and matching release
   assets for the requested VesaJuvonen commit and synchronization. The personal fork is the configured
   `origin`; commit/push identity and exact published revision are recorded in Git history.
@@ -240,8 +246,8 @@ order from the README.
   `description_for_human` <= 100, and `description_for_model` <= 2,048.
 - [x] Approve ownership of existing solution, feature, app, and placeholder component GUIDs; final
   component GUIDs will come only from Yeoman generation.
-- [ ] Approve all six conversation starters or reduce them to the host-supported target count while
-  retaining capability exploration as the final starter.
+- [x] Approve twelve conversation starters: eleven distinct operational UX targets and capability
+  exploration as the final starter, within the supported maximum of twelve.
 - [x] Freeze and validate the bundle strategy: one shared bundle for all final component entries unless measured evidence
   justifies an isolated heavy experience.
 
@@ -585,8 +591,8 @@ Revenue Deal Room and records approved exceptions. No exception is currently app
 - [ ] Which 5-6 beats form the main-stage keynote, and which belong only in the extended demo?
 - [x] ~~Is `Zava Revenue Deal Room` the final identity?~~ **Approved:** product/agent/package use Zava
   Revenue Deal Room and plugin-facing `Zava Revenue Room` validates at 17 characters.
-- [ ] Are six conversation starters supported by the target host, or should this sample use three with
-  capability exploration last?
+- [x] ~~Are six conversation starters the host limit?~~ **Resolved:** agents support up to twelve.
+  This showcase uses eleven distinct operational components and capability exploration last.
 - [x] ~~May the untouched `DealRoom` placeholder be removed?~~ **Approved and completed** before final
   Yeoman generation; no placeholder identity or live starter code remains active.
 - [x] ~~Decide whether to use the installed focused D3 modules.~~ **Resolved:** D3 array/scale/shape/geo

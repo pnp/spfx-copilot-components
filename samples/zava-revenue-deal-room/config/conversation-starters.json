@@ -26,6 +26,36 @@
       "targetName": "ReviewDealApproval"
     },
     {
+      "title": "My revenue priorities",
+      "text": "Show my top revenue priorities, pipeline status and next actions.",
+      "targetName": "GetMyRevenuePriorities"
+    },
+    {
+      "title": "Map the buying committee",
+      "text": "Map the buying committee for Contoso and show missing buyer access.",
+      "targetName": "MapBuyingCommittee"
+    },
+    {
+      "title": "Model a commercial offer",
+      "text": "Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability.",
+      "targetName": "SimulateCommercialOffer"
+    },
+    {
+      "title": "World recorded-spend map",
+      "text": "Show recorded demo spend by country for the current quarter.",
+      "targetName": "ExplorePipelineQuality"
+    },
+    {
+      "title": "Build a mutual action plan",
+      "text": "Build a mutual action plan for Contoso with owned dependencies.",
+      "targetName": "BuildMutualActionPlan"
+    },
+    {
+      "title": "Build the customer value case",
+      "text": "Build the Contoso value case with editable assumptions and payback.",
+      "targetName": "BuildValueCase"
+    },
+    {
       "title": "Explore capabilities",
       "text": "Explore what the Revenue Deal Room agent can do.",
       "targetName": "ExploreAgentCapabilities"
