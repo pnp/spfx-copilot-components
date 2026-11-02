@@ -71,4 +71,22 @@ describe('ZavaMesh demo deal workflow', () => {
     expect(store.getSnapshot().storageWarning).toContain('unavailable');
     expect(createDealStore({ ...denied, getItem: () => '{bad json' }).getSnapshot().storageWarning).toContain('could not be restored');
   });
+  test('separate component stores refresh confirmed submissions and decisions from shared session storage', () => {
+    let saved: string | null = null;
+    const storage = { getItem: (): string | null => saved, setItem: (_key: string, value: string): void => { saved = value; }, removeItem: (): void => { saved = null; } };
+    const submission = createDealStore(storage);
+    const approvals = createDealStore(storage);
+    const listener = jest.fn();
+    approvals.subscribe(listener);
+    const request = submission.submit({ ...ready(), discount: '8' }, true);
+    approvals.refresh();
+    expect(approvals.getSnapshot().requests.find(item => item.id === request.id)).toEqual(request);
+    approvals.decide(request.id, 'Sales manager', 'approved', 'Independent buyer evidence reviewed.', true);
+    submission.refresh();
+    expect(submission.getSnapshot().requests.find(item => item.id === request.id)?.status).toBe('approved');
+    expect(listener).toHaveBeenCalledTimes(2);
+    saved = '{invalid';
+    approvals.refresh();
+    expect(approvals.getSnapshot().storageWarning).toContain('could not be restored');
+  });
 });

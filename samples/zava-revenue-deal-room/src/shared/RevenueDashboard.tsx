@@ -84,7 +84,7 @@ export default function RevenueDashboard(props: {
     view: 'global-revenue-investment-dashboard', period, region, metric, opportunityCount: opportunities.length,
     openValue: open, weightedValue: weighted, investmentDeployed: deployed, investmentBudget: budget, pendingRequests: pending,
     visibleOpportunityIds: opportunities.map(item => item.id),
-    semantics: 'Offline catalog calculations. Illustrative GTM budgets. Demo requests are a separate overlay, not CRM pipeline.'
+    semantics: 'Offline catalog calculations and GTM planning budgets. Session requests are a separate overlay, not CRM pipeline.'
   });
   React.useEffect(() => { props.onStateChange(JSON.parse(state)); }, [state, props.onStateChange]);
   return <section className={styles.root} data-layout="revenue-command-dashboard" aria-label="Global revenue and investment dashboard">
@@ -97,7 +97,7 @@ export default function RevenueDashboard(props: {
       <div className={styles.kpi}><span className={styles.kpiTitle}><Globe20Regular />Open pipeline</span><strong className={styles.value}>{compact(open)}</strong><p className={styles.muted}>{opportunities.length} filtered opportunities</p></div>
       <div className={styles.kpi}><span className={styles.kpiTitle}><ArrowTrending20Regular />Weighted outlook</span><strong className={styles.value}>{compact(weighted)}</strong><p className={styles.muted}>{open ? (weighted / open * 100).toFixed(0) : '0'}% seller-weighted / not commit</p></div>
       <div className={styles.kpi}><span className={styles.kpiTitle}><Money20Regular />GTM investment deployed</span><strong className={styles.value}>{compact(deployed)}</strong><ProgressBar value={budget ? deployed / budget : 0} aria-label="Illustrative investment budget utilization" /><p className={styles.muted}>{compact(budget)} planned / illustrative</p></div>
-      <div className={styles.kpi}><span className={styles.kpiTitle}><ShieldCheckmark20Regular />Awaiting a decision</span><strong className={styles.value}>{pending < 10 ? `0${pending}` : pending}</strong><p className={styles.muted}>Regional demo requests / all submission dates</p></div>
+      <div className={styles.kpi}><span className={styles.kpiTitle}><ShieldCheckmark20Regular />Awaiting a decision</span><strong className={styles.value}>{pending < 10 ? `0${pending}` : pending}</strong><p className={styles.muted}>Regional requests / all submission dates</p></div>
     </div>
     <div className={styles.grid}>
       <div className={styles.mapPanel}><div className={styles.mapTabs}><Button aria-pressed={metric === 'pipeline'} appearance={metric === 'pipeline' ? 'primary' : 'secondary'} onClick={() => setMetric('pipeline')}>Opportunity value</Button><Button aria-pressed={metric === 'investment'} appearance={metric === 'investment' ? 'primary' : 'secondary'} onClick={() => setMetric('investment')}>GTM investment</Button>{region !== 'all' && <Button onClick={() => setRegion('all')}>Clear geographic focus</Button>}</div>

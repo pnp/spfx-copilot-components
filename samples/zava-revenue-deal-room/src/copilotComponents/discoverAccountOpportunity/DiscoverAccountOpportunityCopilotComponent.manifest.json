@@ -16,7 +16,7 @@
     {
       "name": "DiscoverAccountOpportunity",
       "description": {
-        "default": "Use for account growth signal discovery. Do not create a lead automatically."
+        "default": "Use for account or country opportunity discovery and recorded market-spend analysis. Do not create a lead automatically or claim headquarters value is rollout revenue."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/discoverAccountOpportunity/DiscoverAccountOpportunityCopilotComponentProperties.js:default;"

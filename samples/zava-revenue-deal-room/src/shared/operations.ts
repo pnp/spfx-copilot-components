@@ -53,6 +53,12 @@ export const scopedMilestones = (scope: IRevenueScope): typeof HERO_MILESTONES =
   HERO_MILESTONES.filter(item => item.opportunityId === scope.opportunity?.id);
 export const scopedContacts = (scope: IRevenueScope): typeof CONTACTS =>
   CONTACTS.filter(item => item.accountId === scope.account?.id);
+export function proposedMeetingAgenda(scope: IRevenueScope): readonly { readonly label: string; readonly minutes: number }[] {
+  if (!scope.meeting) return [];
+  return scope.meeting.id === 'MTG-2042'
+    ? [{ label: 'Scope alignment', minutes: 10 }, { label: 'Control proof', minutes: 12 }, { label: 'Buyer decisions', minutes: 8 }]
+    : [{ label: 'Discovery needs', minutes: 12 }, { label: 'Budget process', minutes: 8 }, { label: 'Success criteria', minutes: 10 }];
+}
 export const currency = (value: number): string => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
 
 export interface IBusinessRow {
@@ -62,6 +68,62 @@ export interface IBusinessRow {
   readonly source: string;
   readonly kind: string;
 }
+export type QualificationProofState = 'verified' | 'missing' | 'blocked' | 'stale' | 'unconfirmed';
+export interface IQualificationGate {
+  readonly id: string;
+  readonly label: string;
+  readonly state: QualificationProofState;
+  readonly sourceId?: string;
+  readonly source: string;
+  readonly detail: string;
+}
+export function qualificationReadiness(scope: IRevenueScope): {
+  readonly gates: readonly IQualificationGate[];
+  readonly verifiedCount: number;
+  readonly totalCount: number;
+  readonly semantics: string;
+} {
+  const evidence = scopedEvidence(scope);
+  const requirements: readonly (readonly [string, string, string | undefined, string])[] = [
+    ['Q-scope', 'Scope', 'EV-01', 'No buyer-confirmed deployment scope.'],
+    ['Q-budget', 'Budget', undefined, 'No buyer-confirmed funding record is stored.'],
+    ['Q-authority', 'Authority', 'EV-03', 'No direct economic-buyer interaction is recorded.'],
+    ['Q-security', 'Security', 'EV-05', 'No customer-accepted control evidence is recorded.'],
+    ['Q-timing', 'Timing', 'EV-04', 'No current buyer-confirmed launch date is recorded.']
+  ];
+  const gates = requirements.map(([id, label, sourceId, missing]): IQualificationGate => {
+    const proof = evidence.find(item => item.id === sourceId);
+    const state: QualificationProofState = !proof ? 'missing' : proof.kind === 'verified' ? 'verified' : proof.kind === 'contrary' ? 'blocked' : proof.kind === 'stale' ? 'stale' : 'unconfirmed';
+    return { id, label, state, sourceId: proof?.id, source: proof ? `${proof.source} / ${proof.kind} / ${proof.ageDays}d` : 'No supporting buyer evidence', detail: proof?.detail || missing };
+  });
+  return {
+    gates, verifiedCount: gates.filter(item => item.state === 'verified').length, totalCount: gates.length,
+    semantics: 'Buyer-proof coverage across qualification dimensions, not win probability, a complete qualification policy, or permission to pursue. Typed draft values do not establish buyer evidence.'
+  };
+}
+export interface ICompetitiveDecisionDriver {
+  readonly id: string;
+  readonly label: string;
+  readonly weight: number;
+  readonly proof: string;
+  readonly sourceIds: readonly string[];
+  readonly detail: string;
+}
+export function competitiveDecisionDrivers(scope: IRevenueScope): readonly ICompetitiveDecisionDriver[] {
+  const scopeProof = scopedEvidence(scope).find(item => item.id === 'EV-01' && item.kind === 'verified');
+  if (scopeProof) return [
+    { id: 'CMP-security', label: 'Security assurance', weight: 35, proof: 'Controls unconfirmed', sourceIds: ['EV-05'], detail: 'Proposed emphasis on retiring two unresolved controls. EV-05 is inference, not accepted controls or a competitor rating.' },
+    { id: 'CMP-rollout', label: 'Global rollout', weight: 30, proof: 'Scope recorded', sourceIds: ['EV-01'], detail: 'EV-01 confirms the 18-country scope. The 30% importance is a workshop proposal, not a buyer-approved weight or proof of vendor superiority.' },
+    { id: 'CMP-value', label: 'Customer value', weight: 25, proof: 'Owner only', sourceIds: ['EV-02'], detail: 'EV-02 records business-case ownership, not validated ROI. Propose a 25% outcome weighting and ask the customer to confirm it.' },
+    { id: 'CMP-terms', label: 'Commercial fit', weight: 10, proof: 'Terms unapproved', sourceIds: scope.exception ? [scope.exception.id] : [], detail: 'Compare payment flexibility only after commercial-policy review. Proposed 10% importance is not approved terms or competitive performance.' }
+  ];
+  return [
+    { id: 'CMP-budget', label: 'Budget efficiency', weight: 35, proof: 'Not recorded', sourceIds: [], detail: 'Discovery-workshop assumption: validate funding constraints before accepting this proposed weight.' },
+    { id: 'CMP-fit', label: 'Integration fit', weight: 30, proof: 'Not recorded', sourceIds: [], detail: 'Discovery-workshop assumption: ask for the customer integration criteria and a scored proof exercise.' },
+    { id: 'CMP-process', label: 'Decision process', weight: 20, proof: 'Not recorded', sourceIds: [], detail: 'Discovery-workshop assumption: identify decision rights and procurement steps; no approved customer scorecard exists.' },
+    { id: 'CMP-pilot', label: 'Pilot proof', weight: 15, proof: 'Not recorded', sourceIds: [], detail: 'Discovery-workshop assumption: agree measurable pilot acceptance criteria. No vendor has been scored.' }
+  ];
+}
 export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): readonly IBusinessRow[] {
   const evidence = scopedEvidence(scope);
   const hasProof = evidence.length > 0;
@@ -70,6 +132,7 @@ export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): reado
     case 'BuildAccountBrief':
       return [
         row('account', `${scope.account?.name} · ${scope.account?.segment}`, `Region: ${scope.account?.region}. ${OPPORTUNITIES.filter(item => item.accountId === scope.account?.id).length} recorded opportunities.`, 'Account graph', 'source fact'),
+        ...OPPORTUNITIES.filter(item => item.accountId === scope.account?.id).map(item => row(item.id, item.name, `${currency(item.value)} open; ${item.stage}; ${Math.round(item.probability * 100)}% seller judgment. Quarter offset ${item.quarterOffset}.`, 'Recorded account opportunity book', 'source fact / seller judgment')),
         ...evidence.filter(item => item.kind === 'verified' || item.kind === 'stale').map(item => row(item.id, item.title, item.detail, `${item.source} · ${item.ageDays}d`, item.kind)),
         row('whitespace', 'Whitespace hypothesis', hasProof ? '18-country rollout suggests an adoption workstream; validate budget with Nestor before treating it as pipeline.' : 'No validated expansion signal recorded. Schedule discovery before estimating whitespace.', 'Account graph + evidence assessment')
       ];
@@ -79,7 +142,7 @@ export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): reado
       return evidence.filter(item => item.kind !== 'verified').map((item, index) => row(item.id, `${index + 1}. ${item.title}`, `${item.detail} Owner: ${index === 0 ? 'Megan Bowen' : 'Pradeep Gupta'}. ${item.kind === 'contrary' ? 'Request a buyer-confirmed sponsor review.' : 'Validate the assumption before carrying the close date.'}`, `${item.source} · ${item.ageDays}d`, item.kind));
     case 'PrepareCustomerMeeting':
       return scope.meeting ? [
-        row('agenda', 'Steering agenda · 30 minutes', `Meeting ${scope.meeting.id}: ${scope.meeting.name}. Attendees: ${scope.meeting.attendees.join(', ')}. Allocate 10m to scope, 10m to security, 10m to decisions.`, 'Calendar + prepared agenda', 'source fact / draft'),
+        row('agenda', 'Steering agenda · 30 minutes', `Meeting ${scope.meeting.id}: ${scope.meeting.name}. Attendees: ${scope.meeting.attendees.join(', ')}. Proposed allocation: ${proposedMeetingAgenda(scope).map(item => `${item.label} ${item.minutes}m`).join('; ')}.`, 'Calendar + prepared agenda', 'source fact / draft'),
         row('questions', 'Questions that earn buyer proof', hasProof ? 'Who owns the two unresolved controls? Can Nestor secure a direct CFO review? Which launch date can the customer confirm?' : 'Who owns budget, success criteria and procurement? No prior buyer commitments are recorded.', 'Preparation inference'),
         ...evidence.filter(item => item.kind === 'verified').map(item => row(item.id, `Bring proof: ${item.title}`, item.detail, item.source, 'verified'))
       ] : [];
@@ -89,6 +152,7 @@ export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): reado
       return [
         row('criteria', 'Decision criteria, not invented competitor claims', hasProof ? 'Customer confirmed 18-country deployment. Compare rollout proof, control evidence and adoption ownership.' : 'Customer evaluation criteria are not recorded. Obtain the scorecard first.', 'EV-01 / meeting transcript', hasProof ? 'verified' : 'evidence gap'),
         row('incumbent', 'Incumbent status · unverified', 'No named competitor or public benchmark is stored in this offline graph. Do not assert product superiority.', 'Research coverage', 'evidence gap'),
+        ...competitiveDecisionDrivers(scope).map(item => row(item.id, `${item.label} / ${item.weight}% proposed importance`, `${item.detail} Available proof: ${item.proof}.`, `Proposed workshop weighting; ${item.sourceIds.length ? item.sourceIds.join(', ') : 'no buyer evidence'}`, 'workshop proposal')),
         row('proof', 'Differentiation proof plan', 'Offer a customer-scored control workshop and country rollout reference. Ask the buyer to weight each criterion before scoring.', 'Strategy inference')
       ];
     case 'CoachDealStrategy':
@@ -102,6 +166,22 @@ export function analysisRows(key: RevenueIntentKey, scope: IRevenueScope): reado
 }
 
 export interface IBusinessField { readonly name: string; readonly label: string; readonly initial: string; readonly options?: readonly string[]; readonly numeric?: boolean; }
+export interface IReviewValuePart { readonly field: IBusinessField; readonly value: string; readonly part: number; readonly partCount: number; }
+export function workflowReviewPages(fields: readonly IBusinessField[], draft: Readonly<Record<string, string>>): readonly (readonly IReviewValuePart[])[] {
+  const long = fields.some(field => Array.from(draft[field.name] || '').length > 240);
+  if (!long) {
+    const pages: IReviewValuePart[][] = [];
+    for (let index = 0; index < fields.length; index += 3) pages.push(fields.slice(index, index + 3).map(field => ({ field, value: draft[field.name] || '', part: 1, partCount: 1 })));
+    return pages;
+  }
+  const pages: IReviewValuePart[][] = [];
+  fields.forEach(field => {
+    const characters = Array.from(draft[field.name] || '');
+    const count = Math.max(1, Math.ceil(characters.length / 240));
+    for (let index = 0; index < count; index++) pages.push([{ field, value: characters.slice(index * 240, index * 240 + 240).join(''), part: index + 1, partCount: count }]);
+  });
+  return pages;
+}
 export interface IWorkflow {
   readonly heading: string;
   readonly evidence: string;
@@ -110,7 +190,7 @@ export interface IWorkflow {
 }
 const field = (name: string, label: string, initial: string, options?: readonly string[], numeric?: boolean): IBusinessField => ({ name, label, initial, options, numeric });
 export function workflowFor(key: RevenueIntentKey, scope: IRevenueScope): IWorkflow | undefined {
-  const milestone = scopedMilestones(scope)[0];
+  const milestone = scopedMilestones(scope).find(item => item.status !== 'complete');
   const hasProof = scopedEvidence(scope).length > 0;
   const customerOwner = hasProof ? 'Nestor Wilke' : '';
   const outcome = hasProof ? '18-country operating model' : '';
@@ -156,7 +236,7 @@ export function workflowFor(key: RevenueIntentKey, scope: IRevenueScope): IWorkf
       blockedChoices: []
     };
     case 'ReviewProposalReadiness': return {
-      heading: 'Customer-release readiness gate', evidence: `${scope.proposal?.id || 'No proposal'}: security evidence incomplete, claims unverified and terms unapproved. Readiness cannot be granted by this demo.`,
+      heading: 'Customer-release readiness gate', evidence: `${scope.proposal?.id || 'No proposal'}: security evidence incomplete, claims unverified and terms unapproved. Readiness still requires independent authority.`,
       fields: [field('decision', 'Readiness decision', 'Return to author', ['Ready for customer', 'Return to author', 'Decline release']), field('gap', 'Blocking gap and correction', 'Attach control proof and remove unverified launch claim'), field('owner', 'Correction owner', 'Pradeep Gupta')],
       blockedChoices: ['Ready for customer']
     };
@@ -175,6 +255,7 @@ export function initialDraft(workflow: IWorkflow): Record<string, string> {
 }
 export function workflowErrors(key: RevenueIntentKey, scope: IRevenueScope, workflow: IWorkflow, draft: Readonly<Record<string, string>>): readonly string[] {
   const errors = workflow.fields.filter(item => !draft[item.name]?.trim()).map(item => `${item.label} is required`);
+  workflow.fields.filter(item => !item.numeric && (draft[item.name]?.length || 0) > 1000).forEach(item => errors.push(`${item.label} must contain at most 1,000 characters`));
   if (workflow.blockedChoices.indexOf(draft.decision) >= 0) errors.push('Missing independent buyer proof or approval. Return or decline remains available.');
   workflow.fields.filter(item => item.numeric).forEach(item => {
     const value = Number(draft[item.name]);
@@ -190,13 +271,18 @@ export function workflowErrors(key: RevenueIntentKey, scope: IRevenueScope, work
 }
 export function workflowCalculation(key: RevenueIntentKey, scope: IRevenueScope, draft: Readonly<Record<string, string>>): string {
   if (key === 'BuildValueCase') {
-    const benefit = Number(draft.hours) * Number(draft.rate) * Number(draft.adoption) / 100;
-    const cost = Number(draft.investment) + Number(draft.onboarding);
-    return `Scenario annual benefit ${currency(benefit)}; first-year net ${currency(benefit - cost)}; payback ${benefit > 0 ? `${(cost / benefit * 12).toFixed(1)} months` : 'not reached'}; at 50% adoption ${currency(Number(draft.hours) * Number(draft.rate) * 0.5)} annual benefit.`;
+    const { benefit, cost, halfAdoptionBenefit } = valueCaseEconomics(draft);
+    return `Scenario annual benefit ${currency(benefit)}; first-year net ${currency(benefit - cost)}; payback ${benefit > 0 ? `${(cost / benefit * 12).toFixed(1)} months` : 'not reached'}; at 50% adoption ${currency(halfAdoptionBenefit)} annual benefit.`;
   }
+
   if (key === 'InspectForecastCommit') return `Scenario weighted value ${currency((scope.opportunity?.value || 0) * Number(draft.probability))}; proposed period contribution ${currency(draft.decision === 'Remove from period' ? 0 : (scope.opportunity?.value || 0) * Number(draft.probability))}. This does not update CRM.`;
   if (key === 'ReviewDealException') return `Incremental receivables exposure: ${currency((scope.opportunity?.value || 0) * Math.max(0, Number(draft.days) - 30) / 365)} at ${draft.days} days (TCV × incremental days / 365). Finance + legal still required.`;
   if (key === 'BuildMutualActionPlan') return `Proposed signature +${draft.days}d; dependency slack ${Number(draft.days) - 21}d; buyer acceptance pending.`;
   if (key === 'PlanCustomerSuccessHandoff') return `First success checkpoint +${draft.days}d after signed-scope handoff, not today.`;
   return '';
+}
+
+export function valueCaseEconomics(draft: Readonly<Record<string, string>>): { benefit: number; cost: number; halfAdoptionBenefit: number } {
+  const fullBenefit = Number(draft.hours) * Number(draft.rate);
+  return { benefit: fullBenefit * Number(draft.adoption) / 100, cost: Number(draft.investment) + Number(draft.onboarding), halfAdoptionBenefit: fullBenefit * 0.5 };
 }

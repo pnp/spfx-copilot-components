@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-revenue-deal-room-client-side-solution",
     "id": "495d56a1-a3bf-4540-9dbe-f57085cd0289",
-    "version": "1.0.0.3",
+    "version": "1.0.0.9",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "developer": {
@@ -11,14 +11,14 @@
       "websiteUrl": "https://pnp.github.io/",
       "privacyUrl": "https://privacy.microsoft.com/",
       "termsOfUseUrl": "https://www.microsoft.com/servicesagreement",
-      "mpnId": "Undefined-1.24.0-rc.0"
+      "mpnId": "Undefined-1.24.0"
     },
     "metadata": {
       "shortDescription": {
         "default": "Evidence-led revenue execution in Microsoft Copilot."
       },
       "longDescription": {
-        "default": "Twenty-one intent-routed Copilot Components connect buyer evidence, relationships, commitments, commercial scenarios, human decisions, and forecast accountability."
+        "default": "Twenty-seven intent-routed Copilot Components connect buyer evidence, country opportunity and recorded spend, commercial scenarios, independent decisions, and four contextual revenue workspaces."
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -29,7 +29,7 @@
         "title": "ZavaMesh Revenue Deal Room",
         "description": "Activates the ZavaMesh Revenue Deal Room Copilot Components and declarative agent.",
         "id": "17551dd4-91f6-49f5-8a19-180ec8b0ab84",
-        "version": "1.0.0.3"
+        "version": "1.0.0.9"
       }
     ]
   },

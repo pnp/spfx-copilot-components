@@ -79,16 +79,19 @@ Expected component: `InspectForecastCommit`.
 
 Retain commit is blocked by missing buyer proof. Review moving to best case or removing from the
 period; removal explicitly contributes $0. Change scenario probability and show the recalculation.
-Expand into Revenue Command: change dashboard quarter, region and opportunity/investment map measure.
-Pipeline and seller-weighted KPIs use the filtered catalog; regional GTM plans remain clearly labeled
-illustrative, not investment returns or production budgets.
+Expand into Revenue Command to review that exact forecast scenario. Click **Revenue Command** in the
+left menu for its own landing, then change workspace quarter, region and **Opportunity / Recorded spend**.
+Country opportunity uses the scoped catalog and account-HQ attribution. Recorded
+spend comes from a separate $3.4M current-quarter demo ledger, not requested investment or ROI.
 In `ExplorePipelineQuality`, quarter/region filters rebuild actual graph counts, values and verified
 buyer-proof coverage; unknown/filtered selections remain visible as no-match.
 
 ## 9. Carry the sold outcome forward
 
-Before the handoff, demonstrate **My Deals -> Submit a deal**: enter the business outcome, model actual
-commercials, attest the sample evidence, review and explicitly submit. In **Commercial Desk**, select
+Before the handoff, select an opportunity in **My Deals**, work its buyer proof in **Deal Room**, and
+use **Commercial Desk -> Continue to Submit a deal** to carry the actual offer inputs into the seller
+request. Enter the business outcome, attest the evidence, review and explicitly submit.
+Use **Continue to Deal approvals** or select the exact request in the **Commercial Desk** queue; then
 the same request, choose the assigned simulated role, enter a rationale, and explicitly approve the
 stage. Show the next authority, final status and decision trail. An evidence-incomplete request cannot
 be approved; return it for changes instead. These are separate demo requests, not CRM opportunity writes.
@@ -101,7 +104,8 @@ Prompt: **Explore what the Revenue Deal Room agent can do.**
 
 Expected component: `ExploreAgentCapabilities`.
 
-Search the 20 operational scenarios and select one result. Explain that the explorer advertises business outcomes and safe prompts, not technical tool names. Preview is read-only and applies no action.
+Search the current 27-component catalog and select one result. Explain that the explorer advertises
+business outcomes and safe prompts, not technical tool names. Preview is read-only and applies no action.
 
 ## Business close
 
@@ -114,7 +118,9 @@ Copilot interprets intent and selects a bounded experience. The component suppli
 - Use the current publication screenshots when preview-host routing, CSP, or display mode is unavailable.
 - Use Reset to restore invocation defaults. Passive rerenders, full-screen and theme changes preserve
   the draft; changed arguments or a fresh tool instance reset it. Specialist drafts are not persisted.
-  Only confirmed full-screen request-center actions survive a browser-session reload; Reset demo data
+  Left-menu navigation opens a workspace landing, not a copy of the original task. Explicit **Resume**
+  restores mounted selected work with its exact scope and draft.
+  Only confirmed full-screen request-center actions survive a browser-session reload; Reset session data
   restores that separate baseline.
 - Known alternate IDs (`ACC-002`, `MTG-2043`, `PROP-2043`, `EX-2043`) resolve their own records; unknown
   or conflicting IDs show no-match instead of silently loading Contoso.

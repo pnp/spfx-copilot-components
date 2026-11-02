@@ -5,23 +5,31 @@ import {
   buildRegionMarks,
   buildRelationshipMarks
 } from './revenueGeometry';
+import { calculateCommercialOffer } from '../domain';
 
 describe('D3 revenue geometry', () => {
   it('changes commercial paths and selected coordinates with scenario inputs', () => {
-    const base = buildCommercialGeometry(8, 74, 760);
-    const protectedMargin = buildCommercialGeometry(20, 66, 1040);
+    const base = buildCommercialGeometry({ quantity: 760, termMonths: 36, discount: 8, services: 150000, probability: .65 });
+    const protectedMargin = buildCommercialGeometry({ quantity: 1040, termMonths: 24, discount: 20, services: 300000, probability: .7 });
     expect(base.linePath).not.toBe(protectedMargin.linePath);
     expect(base.areaPath).not.toBe(protectedMargin.areaPath);
     expect(base.selectedX).not.toBe(protectedMargin.selectedX);
     expect(base.selectedY).not.toBe(protectedMargin.selectedY);
   });
   it('keeps extreme but valid commercial scenarios within the plotted domain', () => {
-    const geometry = buildCommercialGeometry(100, -200, 100000);
+    const geometry = buildCommercialGeometry({ quantity: 100000, termMonths: 120, discount: 100, services: 1000, probability: .5 });
     expect(geometry.selectedX).toBeLessThanOrEqual(494);
     expect(geometry.selectedX).toBeGreaterThanOrEqual(48);
     expect(geometry.selectedY).toBeLessThanOrEqual(154);
     expect(geometry.selectedY).toBeGreaterThanOrEqual(24);
     expect(geometry.linePath).not.toContain('NaN');
+  });
+  it('uses exact contract/ramp/service economics instead of an invented adoption or margin index', () => {
+    const input = { quantity: 1000, termMonths: 30, discount: 8, services: 150000, probability: .65, ramp: [60, 80, 100] };
+    const geometry = buildCommercialGeometry(input);
+    expect(geometry.selectedPoint.margin).toBe(calculateCommercialOffer(input).grossMargin);
+    expect(geometry.selectedPoint.contractValue).toBe(calculateCommercialOffer(input).contractValue);
+    expect(geometry.selectedPoint).not.toHaveProperty('customerValue');
   });
 
   it('builds signed forecast bridge geometry', () => {

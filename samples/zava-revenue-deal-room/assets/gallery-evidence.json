@@ -1,20 +1,209 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-10-26T11:47:15.584Z",
-  "sourceSha256": "2e1109f6e212588a719b0e641e1a48c35d25e686221b04ab46a511c4db1cf353",
-  "totalCaptures": 13,
+  "capturedAt": "2026-11-02T13:09:58.966Z",
+  "sourceSha256": "7fe55c94bdb7086c6a1d6e8d55dfd3b2619ef0bbfb738dc5c434d1b1c1783361",
+  "totalCaptures": 32,
   "failureCount": 0,
   "captures": [
+    {
+      "name": "inline-country-spend-map.png",
+      "intent": "ExplorePipelineQuality",
+      "parameters": {
+        "mapMetric": "spend"
+      },
+      "width": 760,
+      "height": 650,
+      "alt": "Country spending bubble map using a separate recorded expense ledger with exact country totals and focused drill-down",
+      "inlineHeight": 647,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 182578,
+      "sha256": "4dbe6b7e206cb5718f52e46dfb29f4520786901ec8b1939d90bd5bc0cc45a175",
+      "layouts": [
+        "ExplorePipelineQuality-inline",
+        "ExplorePipelineQuality-business-draft"
+      ]
+    },
+    {
+      "name": "inline-country-opportunity-detail.png",
+      "intent": "DiscoverAccountOpportunity",
+      "parameters": {
+        "countryId": "DE"
+      },
+      "width": 760,
+      "height": 650,
+      "alt": "Focused Germany opportunity detail with exact headquarters-attributed catalog values and links to inspect the opportunities",
+      "inlineHeight": 567,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 124046,
+      "sha256": "2dd1142104a1d935f3c1ce6b8ca4e5e3f8d8915eb54174a5f811a83a147c163e",
+      "layouts": [
+        "DiscoverAccountOpportunity-inline",
+        "DiscoverAccountOpportunity-business-draft"
+      ]
+    },
+    {
+      "name": "inline-qualification-gate.png",
+      "intent": "QualifyOpportunity",
+      "width": 760,
+      "height": 650,
+      "alt": "Buyer-proof qualification ring showing sourced, missing, contrary, inferred and stale proof dimensions without claiming pursuit permission",
+      "inlineHeight": 446,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 123981,
+      "sha256": "fac556207c49b56b8af5b13910c6ad2d7749522c27130a90fc0a8c6888e3a125",
+      "layouts": [
+        "QualifyOpportunity-inline",
+        "QualifyOpportunity-business-draft"
+      ]
+    },
+    {
+      "name": "inline-competitive-decision-drivers.png",
+      "intent": "ResearchCompetitivePosition",
+      "width": 760,
+      "height": 650,
+      "alt": "Competitive decision-driver importance chart with explicit workshop proposal weights, missing vendor evidence and focused source inspection",
+      "inlineHeight": 425,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 116803,
+      "sha256": "5398930826072f95cc7d342909aed261d032416d4e1635b384208f82307bfcf2",
+      "layouts": [
+        "ResearchCompetitivePosition-inline",
+        "ResearchCompetitivePosition-business-draft"
+      ]
+    },
+    {
+      "name": "inline-pipeline-sankey.png",
+      "intent": "ExplorePipelineFlow",
+      "width": 760,
+      "height": 650,
+      "alt": "Interactive pipeline value flow connecting regional USD allocations, buyer readiness and next actions with conserved connections and selectable details",
+      "inlineHeight": 612,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 207333,
+      "sha256": "ef7403ea3ef5863348d3e4c1c4ab5a891562a883f66bbac10aaed52726149dbf",
+      "layouts": [
+        "ExplorePipelineFlow-inline",
+        "ExplorePipelineFlow-business-draft",
+        "pipeline-sankey"
+      ]
+    },
+    {
+      "name": "inline-approval-sankey.png",
+      "intent": "ExploreApprovalFlow",
+      "width": 760,
+      "height": 650,
+      "alt": "Interactive approval value flow connecting intake routes, current independent reviewer stages and stage outcomes without implying final approval",
+      "inlineHeight": 644,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 212279,
+      "sha256": "257f11dc85d1a74d22807763df14c9d4dfed88a9d50b5a29fbe00dd5a427475e",
+      "layouts": [
+        "ExploreApprovalFlow-inline",
+        "ExploreApprovalFlow-business-draft",
+        "approval-sankey"
+      ]
+    },
+    {
+      "name": "inline-my-priorities.png",
+      "intent": "GetMyRevenuePriorities",
+      "width": 760,
+      "height": 1100,
+      "alt": "Personal action cockpit with owned-book totals, evidence-linked priorities, exact deal links and recorded due cues rather than numerical priority scores",
+      "inlineHeight": 600,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 129438,
+      "sha256": "5202b0f91f90f1a23a389d4314e52c496aa5d7ac267f7a5e4359e6790088296d",
+      "layouts": [
+        "GetMyRevenuePriorities-inline",
+        "GetMyRevenuePriorities-business-draft",
+        "personal-revenue-priorities"
+      ]
+    },
+    {
+      "name": "inline-deal-attention.png",
+      "intent": "ExploreDealAttention",
+      "width": 760,
+      "height": 1100,
+      "alt": "Scoped deal value versus observable attention flags with exact deal inspection and contextual Copilot questions, not invented loss probabilities",
+      "inlineHeight": 588,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 131821,
+      "sha256": "05653e0c2c99a127dbd8df076407e6c41923d44864e15e6f3625218b9f8d6b45",
+      "layouts": [
+        "ExploreDealAttention-inline",
+        "ExploreDealAttention-business-draft"
+      ]
+    },
+    {
+      "name": "inline-deal-details.png",
+      "intent": "ExploreDealAttention",
+      "selectedId": "ZDR-2072",
+      "width": 760,
+      "height": 1000,
+      "alt": "Inline selected-deal detail view with exact economics, buyer coverage, evidence gaps, a back action, and focused Copilot handoffs",
+      "inlineHeight": 526,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 145608,
+      "sha256": "3890fb95e54bd7c7be29f9551d8d96572a8e115dda99fd55f1c8da5043d9da99",
+      "layouts": [
+        "ExploreDealAttention-inline",
+        "ExploreDealAttention-business-draft"
+      ]
+    },
+    {
+      "name": "inline-deal-submission.png",
+      "intent": "SubmitDealRequest",
+      "width": 760,
+      "height": 1000,
+      "alt": "Inline guided deal story form with commercial summary, evidence stages, explicit confirmation, and context-aware Copilot suggestions",
+      "inlineHeight": 563,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 123721,
+      "sha256": "59d6f374e64c0839f5162ceeb39191d665a4e22c8b8b56977a18d8cca552e60d",
+      "layouts": [
+        "SubmitDealRequest-inline",
+        "SubmitDealRequest-business-draft",
+        "deal-operations-seller-intake"
+      ]
+    },
+    {
+      "name": "inline-deal-approvals.png",
+      "intent": "ReviewDealApproval",
+      "width": 760,
+      "height": 1100,
+      "alt": "Inline deal approval inbox with exact request economics, independent reviewer authority, rationale and explicit session decisions",
+      "inlineHeight": 497,
+      "capturedWidth": 760,
+      "capturedHeight": 650,
+      "bytes": 107404,
+      "sha256": "f18697f0191d99929a89bb9b3906d41807b9686da5598de3a06eeb540d81c177",
+      "layouts": [
+        "ReviewDealApproval-inline",
+        "ReviewDealApproval-business-draft",
+        "deal-operations-reviewer-queue"
+      ]
+    },
     {
       "name": "inline-buying-committee.png",
       "intent": "MapBuyingCommittee",
       "width": 760,
       "height": 940,
-      "alt": "Inline buying committee influence orbit with customer authority, stance, relationship strength, and evidence",
+      "alt": "Recorded buyer-role network with customer portraits, stance, stored recorded influence assessments and exact contact inspection without claiming decision authority",
+      "inlineHeight": 517,
       "capturedWidth": 760,
-      "capturedHeight": 1699,
-      "bytes": 370444,
-      "sha256": "67b962eb6429228f414c06c4f9828fa698673d0deb487a84fa1f18279c9911ad",
+      "capturedHeight": 650,
+      "bytes": 167558,
+      "sha256": "659c40e5da757300ac9b50e8b9e7d3091f16bd40d13e56b48c495697dbe5692d",
       "layouts": [
         "MapBuyingCommittee-inline",
         "MapBuyingCommittee-business-draft"
@@ -26,10 +215,11 @@
       "width": 760,
       "height": 940,
       "alt": "Inline mutual action plan with buyer and seller commitments, critical path, owners, and credible close range",
+      "inlineHeight": 525,
       "capturedWidth": 760,
-      "capturedHeight": 940,
-      "bytes": 209382,
-      "sha256": "37eb4685ef52e9c7811e48f2ebaa3773020928f17f3c859a9cde03f7c2390b49",
+      "capturedHeight": 650,
+      "bytes": 141396,
+      "sha256": "4f62a81bb8de880bb728c7f8c2d54da08c5c751ad54f0a9554a65b8d48e13488",
       "layouts": [
         "BuildMutualActionPlan-inline",
         "BuildMutualActionPlan-business-draft"
@@ -41,10 +231,11 @@
       "width": 760,
       "height": 980,
       "alt": "Inline commercial scenario studio with editable inputs, margin guardrail, authority, forecast, and outcome contour",
+      "inlineHeight": 631,
       "capturedWidth": 760,
-      "capturedHeight": 1365,
-      "bytes": 342818,
-      "sha256": "21506773aa6fe5126e900568be172019ac3e09c9ccfea9fefc733da9e268ce54",
+      "capturedHeight": 650,
+      "bytes": 163613,
+      "sha256": "33e9c26719feb8e605aceb7376a001248a99120eebe5afbf0bb3b2ef49b136c7",
       "layouts": [
         "SimulateCommercialOffer-inline",
         "SimulateCommercialOffer-business-draft"
@@ -55,11 +246,12 @@
       "intent": "DiscoverAccountOpportunity",
       "width": 760,
       "height": 980,
-      "alt": "Inline D3 projected global opportunity map with regional value bubbles, slip risk, selection, and exact table values",
+      "alt": "Country opportunity choropleth with scoped catalog totals, explicit headquarters attribution and accessible country drill-down",
+      "inlineHeight": 647,
       "capturedWidth": 760,
-      "capturedHeight": 1516,
-      "bytes": 406576,
-      "sha256": "b5d5fa1c18cca6b0dfc96bce648b61261baa2caeaca08c8bb050962d0800ccfc",
+      "capturedHeight": 650,
+      "bytes": 181625,
+      "sha256": "54968ac7f73550836b9fe02524ae7d994f9f5b87435042c3f30d5d6bc564c09b",
       "layouts": [
         "DiscoverAccountOpportunity-inline",
         "DiscoverAccountOpportunity-business-draft"
@@ -70,11 +262,12 @@
       "intent": "ExplorePipelineQuality",
       "width": 760,
       "height": 940,
-      "alt": "Inline D3 evidence-weighted pipeline chart with stage volume, buyer-proof quality, and intervention legend",
+      "alt": "Scoped pipeline health matrix with actual stage record counts, catalog value and recorded buyer-proof coverage, plus separate country spending analysis",
+      "inlineHeight": 518,
       "capturedWidth": 760,
-      "capturedHeight": 1586,
-      "bytes": 406215,
-      "sha256": "8cf6896dc4e9cf26bf4c84940fd873145398a272420dfac4198b293a2cfdc9db",
+      "capturedHeight": 650,
+      "bytes": 134850,
+      "sha256": "180938d9902116446f386c561bf6b648f2c28268078a11050097d95aca9babb3",
       "layouts": [
         "ExplorePipelineQuality-inline",
         "ExplorePipelineQuality-business-draft"
@@ -86,10 +279,11 @@
       "width": 760,
       "height": 940,
       "alt": "Inline forecast review with verified buyer proof, contrary evidence, seller judgment, and critical close path",
+      "inlineHeight": 525,
       "capturedWidth": 760,
-      "capturedHeight": 940,
-      "bytes": 200035,
-      "sha256": "c0620fbb9c15d9a52eab96780d0c53ae954c3f67cc9d2ff99ac2f1ef2e8ed05f",
+      "capturedHeight": 650,
+      "bytes": 132284,
+      "sha256": "a6132e929823727d61aa1a21a64fd446c84c148c9aa9a51bff7ac0479cd5d07a",
       "layouts": [
         "InspectForecastCommit-inline",
         "InspectForecastCommit-business-draft"
@@ -101,10 +295,11 @@
       "width": 760,
       "height": 900,
       "alt": "Inline searchable Revenue Deal Room capability catalog with business outcomes and safe scenario previews",
+      "inlineHeight": 517,
       "capturedWidth": 760,
-      "capturedHeight": 1141,
-      "bytes": 315110,
-      "sha256": "752d5e41a3eb8c0393d2f0c5c3e0e6164b8a35e98907f7d8568cfa9159d2ffeb",
+      "capturedHeight": 650,
+      "bytes": 104486,
+      "sha256": "b7ac3734be4219913e3b2f9f3588e72680acb2406264c8eb71304d20edb1e95a",
       "layouts": [
         "ExploreAgentCapabilities-inline",
         "ExploreAgentCapabilities-business-draft"
@@ -117,10 +312,11 @@
       "width": 1440,
       "height": 980,
       "alt": "Full-screen Deal Room workspace coordinating Contoso relationship influence, evidence, and credible close range",
+      "inlineHeight": null,
       "capturedWidth": 1440,
-      "capturedHeight": 2582,
-      "bytes": 1118815,
-      "sha256": "b30ee896f03b3d214345464e346e2996eae1d7df070e9b9e8f62267c5a7bb046",
+      "capturedHeight": 2303,
+      "bytes": 1059697,
+      "sha256": "3a164103230a54371a1bd607df786dc0b08bd16a67affa78a2ae44edf2e1428a",
       "layouts": [
         "MapBuyingCommittee-fullscreen",
         "deal-room-dashboard",
@@ -133,15 +329,15 @@
       "mode": "fullscreen",
       "width": 1440,
       "height": 980,
-      "alt": "Full-screen Commercial Desk with Contoso scenario economics, adoption outcome, margin, authority, and close runway",
+      "alt": "Selected Contoso Commercial Desk scenario with actual editable economics, a computed margin curve and an exact-value continuation to request submission",
+      "inlineHeight": null,
       "capturedWidth": 1440,
-      "capturedHeight": 3462,
-      "bytes": 1195065,
-      "sha256": "88302e48c777d46acdb30dd73bceaca1524f562fc768fe0ec9989caf77a3a35a",
+      "capturedHeight": 1735,
+      "bytes": 818851,
+      "sha256": "41f91ef0c1b5e15f1d5f40fdc991d1d961617b336e370a40dcd683f55525e2e6",
       "layouts": [
         "SimulateCommercialOffer-fullscreen",
         "commercial-desk-dashboard",
-        "deal-operations-reviewer-queue",
         "SimulateCommercialOffer-business-draft"
       ]
     },
@@ -152,10 +348,11 @@
       "width": 1440,
       "height": 980,
       "alt": "Full-screen Revenue Command forecast review with evidence ledger, movement context, and critical milestones",
+      "inlineHeight": null,
       "capturedWidth": 1440,
-      "capturedHeight": 2602,
-      "bytes": 1060385,
-      "sha256": "f898f5497835945992d942781dbe857608bad455ab09cdd488e162ed8ed0db7d",
+      "capturedHeight": 1304,
+      "bytes": 660612,
+      "sha256": "5c718a1f8ebe4d38d70df57507704a659a993085c4a99920d03d10a3bf79d024",
       "layouts": [
         "InspectForecastCommit-fullscreen",
         "revenue-command-dashboard",
@@ -168,15 +365,15 @@
       "mode": "fullscreen",
       "width": 1440,
       "height": 980,
-      "alt": "Full-screen My Deals dashboard with D3 projected opportunity map, evidence-weighted pipeline, and deal context",
+      "alt": "Full-width country opportunity map in My Deals with actual portfolio totals, headquarters attribution and relevant geographic context rather than an unrelated task",
+      "inlineHeight": null,
       "capturedWidth": 1440,
-      "capturedHeight": 3348,
-      "bytes": 1203747,
-      "sha256": "06c46813617372802fc7e5b850c787556420b2648d579722a137279e9c057165",
+      "capturedHeight": 1513,
+      "bytes": 631115,
+      "sha256": "2162461c93d1f267553eb05e39ef515a75b9383a2e3ece921ec2f4ae2e44f1bd",
       "layouts": [
         "DiscoverAccountOpportunity-fullscreen",
         "my-deals-dashboard",
-        "deal-operations-seller-queue",
         "DiscoverAccountOpportunity-business-draft"
       ]
     },
@@ -187,10 +384,11 @@
       "width": 390,
       "height": 844,
       "alt": "Deal Room workspace adapted to a narrow mobile viewport with scrollable navigation and readable evidence",
+      "inlineHeight": null,
       "capturedWidth": 390,
-      "capturedHeight": 4144,
-      "bytes": 670795,
-      "sha256": "9b3fa6623db996c7103b781568665c9c6666c005b851238911a974d2d8857380",
+      "capturedHeight": 4362,
+      "bytes": 610157,
+      "sha256": "8a997a1239b9679995b2575a8b009feeb93a186b0cd849c0a798ec1aa4ccdfb9",
       "layouts": [
         "MapBuyingCommittee-fullscreen",
         "deal-room-dashboard",
@@ -205,14 +403,183 @@
       "width": 1440,
       "height": 980,
       "alt": "Full-screen Deal Room in dark theme with accessible relationship orbit, evidence provenance, and status colors",
+      "inlineHeight": null,
       "capturedWidth": 1440,
-      "capturedHeight": 2582,
-      "bytes": 1046760,
-      "sha256": "44d58e8a6c7f4891cb722ab2bdf7b660e3244c20fd1213dd3654cd2a92324fd8",
+      "capturedHeight": 2303,
+      "bytes": 937314,
+      "sha256": "74db18ccf30b0a00767a6a4b75e9530bc09e85e8eb705f5a897e9579c90bcc97",
       "layouts": [
         "MapBuyingCommittee-fullscreen",
         "deal-room-dashboard",
         "MapBuyingCommittee-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-my-deals-home.png",
+      "intent": "PlanCustomerSuccessHandoff",
+      "parameters": {
+        "opportunityId": "ZDR-2043"
+      },
+      "workspace": "My Deals",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "My Deals purposeful landing with actual record selection and role-specific graphics; the originating success handoff is not appended to the workspace",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 2145,
+      "bytes": 750613,
+      "sha256": "4997c799fa70c66d59ef9719f00b6c96c56d17aa4fb77de5a20014e284cb73b1",
+      "layouts": [
+        "PlanCustomerSuccessHandoff-fullscreen",
+        "my-deals-dashboard",
+        "PlanCustomerSuccessHandoff-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-deal-room-home.png",
+      "intent": "PlanCustomerSuccessHandoff",
+      "parameters": {
+        "opportunityId": "ZDR-2043"
+      },
+      "workspace": "Deal Room",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Deal Room purposeful landing with actual record selection and role-specific graphics; the originating success handoff is not appended to the workspace",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1592,
+      "bytes": 538720,
+      "sha256": "195c1150770f052b60dabdae5d488563d1fdb506cea04a415904c2511b21c052",
+      "layouts": [
+        "PlanCustomerSuccessHandoff-fullscreen",
+        "deal-room-dashboard",
+        "PlanCustomerSuccessHandoff-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-commercial-desk-home.png",
+      "intent": "PlanCustomerSuccessHandoff",
+      "parameters": {
+        "opportunityId": "ZDR-2043"
+      },
+      "workspace": "Commercial Desk",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Commercial Desk purposeful landing with actual record selection and role-specific graphics; the originating success handoff is not appended to the workspace",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1581,
+      "bytes": 588219,
+      "sha256": "898a81cd3adb07d642bb7fb3783f87f5e46e8dde668c9b0a27fac3fe0ca894e6",
+      "layouts": [
+        "PlanCustomerSuccessHandoff-fullscreen",
+        "commercial-desk-dashboard",
+        "PlanCustomerSuccessHandoff-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-revenue-command-home.png",
+      "intent": "PlanCustomerSuccessHandoff",
+      "parameters": {
+        "opportunityId": "ZDR-2043"
+      },
+      "workspace": "Revenue Command",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Revenue Command purposeful landing with actual record selection and role-specific graphics; the originating success handoff is not appended to the workspace",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1404,
+      "bytes": 654769,
+      "sha256": "eea05ef68d23d7469fefc8d4fb5ccce1497166ec6447f165613a4a2e4c4d30d0",
+      "layouts": [
+        "PlanCustomerSuccessHandoff-fullscreen",
+        "revenue-command-dashboard",
+        "PlanCustomerSuccessHandoff-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-country-spend.png",
+      "intent": "ExplorePipelineQuality",
+      "parameters": {
+        "mapMetric": "spend"
+      },
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Revenue Command full-width country spending bubbles with the separate recorded ledger and exact geographic drill-down",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1465,
+      "bytes": 632451,
+      "sha256": "819f07eab20fac23f6889c9882c7e049ab249cf4b224a4ab6683cb30c6d7065c",
+      "layouts": [
+        "ExplorePipelineQuality-fullscreen",
+        "revenue-command-dashboard",
+        "ExplorePipelineQuality-business-draft"
+      ]
+    },
+    {
+      "name": "fullscreen-pipeline-value-flow.png",
+      "intent": "ExplorePipelineFlow",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Revenue Command pipeline planning flow with conserved USD allocations and an explicit next business step",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1487,
+      "bytes": 771848,
+      "sha256": "e9adcef24194f39614252f740d516f0cd5d0a353adcd687069039ff056c42572",
+      "layouts": [
+        "ExplorePipelineFlow-fullscreen",
+        "revenue-command-dashboard",
+        "ExplorePipelineFlow-business-draft",
+        "pipeline-sankey"
+      ]
+    },
+    {
+      "name": "fullscreen-approval-progress.png",
+      "intent": "ExploreApprovalFlow",
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Commercial Desk approval value flow with independent-stage semantics and an exact named-request continuation",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1550,
+      "bytes": 784235,
+      "sha256": "737d0ab4535744b67d222df4503a4cfb1e9f233a443aaf4805cd1577ace16eb7",
+      "layouts": [
+        "ExploreApprovalFlow-fullscreen",
+        "commercial-desk-dashboard",
+        "ExploreApprovalFlow-business-draft",
+        "approval-sankey"
+      ]
+    },
+    {
+      "name": "fullscreen-alternate-success-plan.png",
+      "intent": "PlanCustomerSuccessHandoff",
+      "parameters": {
+        "opportunityId": "ZDR-2043"
+      },
+      "mode": "fullscreen",
+      "width": 1440,
+      "height": 980,
+      "alt": "Deal Room success planning for the exact alternate ZDR-2043 opportunity, with proposed outcome controls and no unrelated My Deals template",
+      "inlineHeight": null,
+      "capturedWidth": 1440,
+      "capturedHeight": 1425,
+      "bytes": 675188,
+      "sha256": "8e55a3726fbcaf0e7f7823ae616636639c621c7601c78d5e4f6569ee3a22b70e",
+      "layouts": [
+        "PlanCustomerSuccessHandoff-fullscreen",
+        "deal-room-dashboard",
+        "PlanCustomerSuccessHandoff-business-draft"
       ]
     }
   ]

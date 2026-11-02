@@ -39,7 +39,7 @@ export function dealDraftErrors(draft: DealDraft): readonly string[] {
   if (!ACCOUNTS.some(account => account.id === draft.accountId)) errors.push('Choose a known account.');
   if (draft.title.trim().length < 5 || draft.title.length > 120) errors.push('Deal name must contain 5-120 characters.');
   if (draft.outcome.trim().length < 20 || draft.outcome.length > 1000) errors.push('Business outcome must contain 20-1,000 characters.');
-  if (draft.owner !== 'Megan Bowen') errors.push('The demo submitter must be Megan Bowen.');
+  if (draft.owner !== 'Megan Bowen') errors.push('The request owner must be Megan Bowen.');
   const bounds: readonly [keyof DealDraft, string, number, number, boolean][] = [
     ['quantity', 'Licensed users', 1, 100000, true], ['termMonths', 'Contract months', 1, 120, true],
     ['discount', 'Discount', 0, 100, false], ['services', 'Services', 0, 100000000, false],
@@ -73,10 +73,10 @@ export function decisionErrors(request: DealRequest, role: ApprovalRole, decisio
     errors.push('Approval is blocked until both security and sponsor evidence are attested. Return or reject remains available.');
   return errors;
 }
-const seedTime = 'Sample baseline';
+const seedTime = 'Recorded baseline';
 export const SEEDED_REQUESTS: readonly DealRequest[] = [
   { id: 'ZM-1001', draft: { ...newDealDraft(), accountId: 'ACC-002', title: 'EMEA partner enablement', outcome: 'Activate a regional partner program with validated sponsor and security evidence.', quantity: '500', discount: '12', services: '180000', investment: '120000', securityReady: true, sponsorReady: true },
-    submittedAt: seedTime, status: 'pending', events: [{ id: 'ZM-1001-A1', actor: 'Pradeep Gupta', role: 'Sales manager', decision: 'approved', rationale: 'Sample evidence and account scope reviewed.', timestamp: seedTime }] },
+    submittedAt: seedTime, status: 'pending', events: [{ id: 'ZM-1001-A1', actor: 'Pradeep Gupta', role: 'Sales manager', decision: 'approved', rationale: 'Evidence and account scope reviewed.', timestamp: seedTime }] },
   { id: 'ZM-1002', draft: { ...newDealDraft(), discount: '24' }, submittedAt: seedTime, status: 'pending', events: [] }
 ];
 const STORAGE_KEY = 'zavamesh-deal-requests-v1';
@@ -87,10 +87,12 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
   submit: (draft: DealDraft, confirmed: boolean) => DealRequest;
   decide: (id: string, role: ApprovalRole, decision: DealEvent['decision'], rationale: string, confirmed: boolean) => DealRequest;
   reset: () => void;
+  refresh: () => void;
 } {
   let snapshot: IDealSnapshot = { requests: SEEDED_REQUESTS, storageWarning: initialWarning };
   const listeners = new Set<() => void>();
-  if (storage) {
+  function restore(): void {
+    if (!storage) return;
     try {
       const saved = storage.getItem(STORAGE_KEY);
       if (saved) {
@@ -98,16 +100,17 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
         if (requests.length < SEEDED_REQUESTS.length || new Set(requests.map(request => request.id)).size !== requests.length ||
           requests.some(request => dealDraftErrors(request.draft).length || !/^ZM-\d+$/.test(request.id))) throw new Error('Invalid saved request catalog');
         snapshot = { requests, storageWarning: '' };
-      }
+      } else snapshot = { requests: SEEDED_REQUESTS, storageWarning: '' };
     } catch {
-      snapshot = { ...snapshot, storageWarning: 'Saved demo data could not be restored. The sample baseline is shown; Reset demo data clears the invalid overlay.' };
+      snapshot = { requests: SEEDED_REQUESTS, storageWarning: 'Saved session data could not be restored. The initial requests are shown; Reset session data clears the invalid overlay.' };
     }
   }
+  restore();
   function commit(requests: readonly DealRequest[]): void {
     let storageWarning = snapshot.storageWarning;
     if (storage) {
       try { storage.setItem(STORAGE_KEY, JSON.stringify(requests)); storageWarning = ''; }
-      catch { storageWarning = 'Browser storage is unavailable. Confirmed demo actions remain in memory until this page closes.'; }
+      catch { storageWarning = 'Browser storage is unavailable. Confirmed session actions remain in memory until this page closes.'; }
     }
     snapshot = { requests, storageWarning };
     listeners.forEach(listener => listener());
@@ -125,7 +128,7 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
     },
     decide: (id, role, decision, rationale, confirmed) => {
       const request = snapshot.requests.find(item => item.id === id);
-      if (!request) throw new Error('The selected demo request no longer exists.');
+      if (!request) throw new Error('The selected request no longer exists.');
       const errors = decisionErrors(request, role, decision, rationale);
       if (!confirmed || errors.length) throw new Error(errors.join(' ') || 'Explicit decision confirmation is required.');
       const event: DealEvent = { id: `${id}-A${request.events.length + 1}`, actor: REVIEWERS[role], role, decision, rationale: rationale.trim(), timestamp: new Date().toISOString() };
@@ -137,6 +140,10 @@ export function createDealStore(storage?: DealStorage, initialWarning = ''): {
     },
     reset: () => {
       commit(SEEDED_REQUESTS);
+    },
+    refresh: () => {
+      restore();
+      listeners.forEach(listener => listener());
     }
   };
 }
@@ -144,8 +151,14 @@ export type DealStore = ReturnType<typeof createDealStore>;
 let sharedStore: DealStore | undefined;
 export function getDealStore(): DealStore {
   if (!sharedStore) {
-    try { sharedStore = createDealStore(window.sessionStorage); }
-    catch { sharedStore = createDealStore(undefined, 'Browser storage is unavailable. Confirmed demo actions remain in memory until this page closes.'); }
+    try {
+      const storage = window.sessionStorage;
+      sharedStore = createDealStore(storage);
+      window.addEventListener('storage', event => {
+        if (event.storageArea === storage && (event.key === STORAGE_KEY || event.key === null)) sharedStore?.refresh();
+      });
+    }
+    catch { sharedStore = createDealStore(undefined, 'Browser storage is unavailable. Confirmed session actions remain in memory until this page closes.'); }
   }
   return sharedStore;
 }

@@ -18,7 +18,7 @@ Generated from configured component manifests and the canonical starter configur
 | `ReviewDealException` | Use for a governed commercial exception decision. | Do not use for scenario modeling. |
 | `InspectForecastCommit` | Use for manager forecast-category decisions. | Do not use for seller qualification. |
 | `ExplorePipelineQuality` | Use for aggregate pipeline quality and intervention. | Do not use for one deal. |
-| `DiscoverAccountOpportunity` | Use for account growth signal discovery. | Do not create a lead automatically. |
+| `DiscoverAccountOpportunity` | Use for account or country opportunity discovery and recorded market-spend analysis. | Do not create a lead automatically or claim headquarters value is rollout revenue. |
 | `ResearchCompetitivePosition` | Use for evidence-grounded competitive strategy. | Do not invent competitor claims. |
 | `CoachDealStrategy` | Use for explainable deal coaching plays. | Do not make a forecast decision. |
 | `CreateExecutiveEngagementPlan` | Use for reviewed executive engagement planning. | Do not contact customers. |
@@ -27,17 +27,29 @@ Generated from configured component manifests and the canonical starter configur
 | `ReviewProposalReadiness` | Use for proposal evidence and readiness decisions. | Do not write the proposal. |
 | `PlanCustomerSuccessHandoff` | Use for reviewed sold-outcome handoff. | Do not close the opportunity. |
 | `ExploreAgentCapabilities` | Use for discovering revenue scenarios. | Do not use for a specific request. |
+| `SubmitDealRequest` | Use for guided inline deal intake, economics, evidence and explicit session submission. | Do not write to CRM or grant approval. |
+| `ReviewDealApproval` | Use for the approval inbox, exact request detail, independent staged decisions and audit receipts. | Do not approve without authority and explicit confirmation. |
+| `ExploreDealAttention` | Use for a filtered chart-based catalog of important deals needing attention and inline detail drill-down. | Do not treat seller-unweighted value as a predicted loss or make approvals. |
+| `GetMyRevenuePriorities` | Use for an owned-book revenue brief, top next actions, pipeline outlook and close-plan status charts. | Do not imply live personal assignments, approve requests or contact customers. |
+| `ExplorePipelineFlow` | Use for pipeline value flows across regions, buyer readiness and next actions with inspectable stage allocations. | Do not treat planning allocations as CRM totals or predicted conversion. |
+| `ExploreApprovalFlow` | Use for approval value flows across intake routes, current reviewers and stage outcomes. | Do not attribute aggregate values to individual requests, skip independent reviews or equate stage and final approval. |
 
 ## Conversation starters
 
 | # | Title | Prompt | Expected inline component |
 | ---: | --- | --- | --- |
-| 1 | Deal risks | Show the risks threatening Contoso's global expansion deal this quarter. | `GetDealRisk` |
-| 2 | Buying committee | Map the buying committee for the Contoso expansion. | `MapBuyingCommittee` |
-| 3 | Commercial scenario | Model a three-year ramped offer that protects 68% margin. | `SimulateCommercialOffer` |
-| 4 | Meeting preparation | Prepare me for tomorrow's Contoso steering meeting. | `PrepareCustomerMeeting` |
-| 5 | Forecast decision | Should Contoso remain in commit for Q4? | `InspectForecastCommit` |
-| 6 | Explore capabilities | Explore what the Revenue Deal Room agent can do. | `ExploreAgentCapabilities` |
+| 1 | Pipeline value flow | Show how pipeline value moves from regions through buyer readiness to next actions. | `ExplorePipelineFlow` |
+| 2 | World opportunity map | Show a world map of country opportunity value for the current quarter across all regions. | `DiscoverAccountOpportunity` |
+| 3 | Approval value flow | Show where approval value is waiting by intake route, current reviewer and stage outcome. | `ExploreApprovalFlow` |
+| 4 | Submit a deal | Help me submit an evidence-backed deal for commercial review. | `SubmitDealRequest` |
+| 5 | Deal approvals | Show the deals awaiting independent commercial approval. | `ReviewDealApproval` |
+| 6 | My revenue priorities | Show my top revenue priorities, pipeline status and next actions. | `GetMyRevenuePriorities` |
+| 7 | Map the buying committee | Map the buying committee for Contoso and show missing buyer access. | `MapBuyingCommittee` |
+| 8 | Model a commercial offer | Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability. | `SimulateCommercialOffer` |
+| 9 | World recorded-spend map | Show recorded spend by country for the current quarter. | `ExplorePipelineQuality` |
+| 10 | Build a mutual action plan | Build a mutual action plan for Contoso with owned dependencies. | `BuildMutualActionPlan` |
+| 11 | Build the customer value case | Build the Contoso value case with editable assumptions and payback. | `BuildValueCase` |
+| 12 | Explore capabilities | Explore what the Revenue Deal Room agent can do. | `ExploreAgentCapabilities` |
 
 ## Sibling collision rehearsal
 
@@ -48,6 +60,10 @@ Generated from configured component manifests and the canonical starter configur
 | Deal risk vs pipeline quality | What can derail the Contoso signature? | `GetDealRisk` | Show pipeline quality for this quarter. | `ExplorePipelineQuality` |
 | Scenario vs exception decision | Model a three-year ramped offer for Contoso. | `SimulateCommercialOffer` | Review the Contoso payment-term exception. | `ReviewDealException` |
 | Proposal creation vs readiness | Shape the Contoso solution proposal. | `ShapeSolutionProposal` | Review the Contoso proposal readiness. | `ReviewProposalReadiness` |
+| Inline attention vs aggregate pipeline | Show important deals needing attention and let me inspect one inline. | `ExploreDealAttention` | Show pipeline quality for this quarter. | `ExplorePipelineQuality` |
+| Deal submission vs independent approval | Help me submit an evidence-backed deal. | `SubmitDealRequest` | Review submitted demo request ZM-1001. | `ReviewDealApproval` |
+| Fictional pipeline flow vs catalog quality | Show an imaginary pipeline Sankey from regions to buyer readiness and actions. | `ExplorePipelineFlow` | Show pipeline quality for this quarter. | `ExplorePipelineQuality` |
+| Fictional approval flow vs stored decisions | Show an imaginary approval Sankey through current reviewer stages. | `ExploreApprovalFlow` | Review stored demo request ZM-1001. | `ReviewDealApproval` |
 
 ## Host validation notes
 

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "441a95fc-e197-4147-abda-23682907d5c8",
+  "alias": "ExploreApprovalFlowCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExploreApprovalFlow",
+      "description": {
+        "default": "Use for approval value flows across intake routes, current reviewers and stage outcomes. Do not attribute aggregate values to individual requests, skip independent reviews or equate stage and final approval."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/exploreApprovalFlow/ExploreApprovalFlowCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
