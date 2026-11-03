@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-label="Penne Arrabiata">
+  <rect width="640" height="420" fill="#f2d8b5"/>
+  <ellipse cx="320" cy="235" rx="225" ry="145" fill="#fff8e9"/>
+  <ellipse cx="320" cy="222" rx="184" ry="112" fill="#d95b3d"/>
+  <g fill="#f6d79a" stroke="#9b4a32" stroke-width="8" stroke-linecap="round">
+    <path d="m187 172 65 28-25 46-65-29z"/><path d="m278 142 65 28-25 46-65-29z"/>
+    <path d="m380 161 65 28-25 46-65-29z"/><path d="m219 251 65 28-25 46-65-29z"/>
+    <path d="m325 237 65 28-25 46-65-29z"/><path d="m407 258 55 24-22 40-55-24z"/>
+  </g>
+  <g fill="#38634b"><circle cx="268" cy="222" r="9"/><circle cx="359" cy="196" r="8"/><circle cx="306" cy="302" r="8"/></g>
+</svg>

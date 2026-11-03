@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "7384c492-05a3-4fcf-8fb6-8adc8bbc4c43",
+  "alias": "RecipeSearchCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "RecipeSearchTool",
+      "description": {
+        "default": "Search the configured recipe provider by dish name and display up to three recipes with source links, ingredients, and a checkable cook view. Does not verify allergies, nutrition, preparation time, or servings."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/recipeSearch/RecipeSearchCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

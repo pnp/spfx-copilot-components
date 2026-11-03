@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.2.5",
+  "id": "be4e4d8c-5489-4cc8-8bae-bf57886a6fd0",
+  "developer": {
+    "name": "Simon Doy",
+    "websiteUrl": "https://www.simondoy.com",
+    "privacyUrl": "https://www.simondoy.com",
+    "termsOfUseUrl": "https://www.simondoy.com",
+    "mpnId": "4041962"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Recipe Kitchen Agent",
+    "full": "Recipe Kitchen Agent"
+  },
+  "description": {
+    "short": "Find & display recipes.",
+    "full": "Use this agent to get inspiration and discover new recipes with this Recipe Search Agent in Copilot."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "recipeSearchAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-label="Coconut Chickpea Curry">
+  <rect width="640" height="420" fill="#dce7cf"/>
+  <ellipse cx="320" cy="239" rx="225" ry="142" fill="#fff8e9"/>
+  <ellipse cx="320" cy="223" rx="184" ry="110" fill="#d9a64e"/>
+  <g fill="#f1d081"><circle cx="222" cy="203" r="26"/><circle cx="286" cy="171" r="24"/><circle cx="356" cy="205" r="28"/><circle cx="424" cy="181" r="23"/><circle cx="256" cy="261" r="25"/><circle cx="338" cy="269" r="24"/><circle cx="403" cy="252" r="26"/></g>
+  <g fill="#3e7654"><path d="M190 246q27-43 50-8-27 37-50 8z"/><path d="M304 210q29-42 51-6-29 36-51 6z"/><path d="M372 290q27-43 50-8-27 37-50 8z"/></g>
+  <g fill="#fff5d8"><circle cx="220" cy="202" r="6"/><circle cx="356" cy="204" r="6"/><circle cx="337" cy="270" r="6"/></g>
+</svg>

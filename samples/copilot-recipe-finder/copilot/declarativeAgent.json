@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Recipe Kitchen",
+  "description": "Discover source-linked recipes and cook with ingredient and method checklists.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Pasta tonight",
+      "text": "Find an Arrabiata recipe."
+    },
+    {
+      "title": "Dinner ideas",
+      "text": "Find recipes with chicken in the name."
+    },
+    {
+      "title": "Cook a curry",
+      "text": "Show me curry recipes I can cook step by step."
+    }
+  ],
+  "actions": [
+    {
+      "id": "recipeSearchAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

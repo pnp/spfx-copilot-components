@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "recipe-copilot-spfx-agent-solution",
+    "id": "25e79974-609b-40f3-9560-78905c3dec0e",
+    "version": "1.2.5.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Simon Doy",
+      "websiteUrl": "https://www.simondoy.com",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "4041962"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Recipe Agent Copilot UX"
+      },
+      "longDescription": {
+        "default": "Recipe Agent Copilot UX"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "recipe-copilot-spfx Feature",
+        "description": "The feature that activates elements of the recipe-copilot-spfx solution.",
+        "id": "3c23652c-b6d2-4955-86c0-1d3875b23930",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/recipe-copilot-spfx.sppkg"
+  }
+}
