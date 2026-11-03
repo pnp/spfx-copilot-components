@@ -12,7 +12,7 @@ The solution aims to allo you to have a provider-neutral recipe details in Micro
 
 Please find some example screenshots of the experience,see how you can search for recipes.
 
-![Recipe Kitchen Searching for recipes..](./assets/2026-11-03_15-55-37.png)
+![Recipe Kitchen Searching for recipes..](./assets/copilot-spfx-recipe-agent-01.png)
 
 
 This animated gif shows you how the kitchen works from searching for a recipe and choosing a recipe and see the ingredients and method to make the dish.
