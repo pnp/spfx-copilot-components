@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "copilot-studio-agent-map-client-side-solution",
+    "id": "04c7b662-bb23-4629-bd53-d676d3df3f43",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0"
+    },
+    "iconPath": "assets/96x96.png",
+    "metadata": {
+      "shortDescription": {
+        "default": "Agent Map for Copilot Studio agents in Microsoft 365 Copilot."
+      },
+      "longDescription": {
+        "default": "A SharePoint Copilot UX component that shows an interactive map of a Copilot Studio agent: its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets, and how they connect. It reads Dataverse with the signed-in user's delegated identity."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Dataverse",
+        "scope": "user_impersonation"
+      }
+    ],
+    "features": [
+      {
+        "title": "Agent Map Copilot component",
+        "description": "Deploys the Agent Map Copilot UX component.",
+        "id": "7b8475ba-7eb8-492a-805a-ec101b24d51f",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/copilot-studio-agent-map.sppkg"
+  }
+}

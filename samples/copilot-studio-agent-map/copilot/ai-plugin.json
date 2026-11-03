@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "agentMap",
+  "name_for_human": "Agent Map",
+  "description_for_human": "See how a Copilot Studio agent is built, in Microsoft 365 Copilot.",
+  "description_for_model": "Shows the Agent Map of a Copilot Studio agent as an interactive SharePoint Copilot component. The map shows the agent and its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets, with the relationships between them. The component reads Dataverse with the signed-in user's delegated identity. It is read-only. Use ShowAgentMap when the user wants to see, map, visualize, or explore how an agent is built. Pass the agent name and the environment name exactly as the user wrote them. Pass agentId and environmentId only when the user supplied a GUID. Omit the environment when the user did not name one.",
+  "contact_email": "publisher@contoso.com"
+}
