@@ -3,16 +3,16 @@
     "name": "pnp-sp-dev-spfx-copilot-components-zava-procurement-command-center",
     "source": "pnp",
     "title": "ZavaCore Procurement Command Center",
-    "shortDescription": "Guided intake, human approvals, resilient sourcing and global investment insights in 22 Copilot experiences.",
+    "shortDescription": "Evidence-led procurement with value Sankeys, world maps and grounded Copilot continuation.",
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-procurement-command-center",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-procurement-command-center",
     "longDescription": [
       "ZavaCore Procurement Command Center connects natural-language business cases to human review, supplier deal evaluation, governed awards, global investment maps, delivery progress and verified procurement value.",
-      "Twenty-one operational components and one capability explorer continue into My Requests, Sourcing Workbench, Supplier 360, and Spend Command. The connected rugged-device story preserves request, event, supplier, policy, award, invoice, and value context across roles.",
-      "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. D3-derived decision visuals include keyboard interaction, accessible summaries, and exact-value alternatives."
+      "Twenty-one operational components and one capability explorer have 22 named business destinations inside My Requests, Sourcing Workbench, Supplier 360, and Spend Command. Twelve business-language starters, deliberate Copilot continuation and current-view context connect questions to accountable work.",
+      "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. Reconciled value Sankeys, supplier landscapes, dependency pathways, allocation and investment maps have keyboard interaction and exact-value alternatives. Commitment is never presented as delivery or verified savings."
     ],
     "creationDateTime": "2026-08-31",
-    "updateDateTime": "2026-10-28",
+    "updateDateTime": "2026-11-03",
     "products": [
       "SharePoint",
       "Copilot"
@@ -117,9 +117,30 @@
         "alt": "Supplier award review with exact primary and resilient shares, cost, risk, on-time confidence, decision and human rationale before explicit confirmation"
       },
       {
-        "name": "ux-ReviewSupplierAward-receipt.png",
+        "name": "ux-inline-ExploreSpendPerformance.png",
         "type": "image",
         "order": 112,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ExploreSpendPerformance.png",
+        "alt": "Interactive conserved EUR Sankey from region through intervention to verified and unverified evidence states, with exact values and grounded Copilot continuation"
+      },
+      {
+        "name": "ux-inline-TrackSupplierRisk.png",
+        "type": "image",
+        "order": 113,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-TrackSupplierRisk.png",
+        "alt": "Modeled supplier dependency pathway with selectable component, assembly, corridor and field-readiness assumptions, exposure controls and Copilot continuation"
+      },
+      {
+        "name": "ux-inline-DetectSpendLeakage.png",
+        "type": "image",
+        "order": 114,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-DetectSpendLeakage.png",
+        "alt": "Ranked addressable leakage bars separating identified opportunity, verified value and disputed exclusions with exact selected-intervention Copilot handoff"
+      },
+      {
+        "name": "ux-ReviewSupplierAward-receipt.png",
+        "type": "image",
+        "order": 115,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-ReviewSupplierAward-receipt.png",
         "alt": "Confirmed offline award receipt with the matching sourcing event, supplier shares, human rationale and an explicit statement that no external system changed"
       }

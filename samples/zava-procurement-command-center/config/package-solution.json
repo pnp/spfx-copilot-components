@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-procurement-command-center-client-side-solution",
     "id": "a4198b8c-6725-4969-a41c-bdddc9ecfeee",
-    "version": "1.0.0.2",
+    "version": "1.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "developer": {
@@ -34,7 +34,7 @@
         "title": "ZavaCore Procurement Command Center",
         "description": "Activates 22 evidence-led procurement Copilot Components and four connected workspaces.",
         "id": "e4a0bf92-46e0-490b-b837-506a9de5d492",
-        "version": "1.0.0.2"
+        "version": "1.0.0.3"
       }
     ]
   },

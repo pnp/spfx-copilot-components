@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createServer } from 'node:http';
 import { chromium } from 'playwright';
+import { visualSourceSignature } from './visual-source-signature.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const site = path.join(root, 'temp', 'ux-review');
@@ -32,7 +33,7 @@ async function open(intent, width = 1440) {
   page.on('request', request => requests.push(request.url()));
   await page.clock.setFixedTime(new Date('2026-10-26T12:00:00Z'));
   await page.goto(`${base}/?${new URLSearchParams({ intent, mode: 'fullscreen', theme: 'light' })}`);
-  await page.locator('[data-experience]').first().waitFor();
+  await page.locator('[data-procurement-content]').waitFor();
   return page;
 }
 async function capture(page, name) {
@@ -57,7 +58,7 @@ async function capture(page, name) {
       labeled: [...root.querySelectorAll('input,select,textarea')].every(input => input.labels?.length || input.getAttribute('aria-label')),
       chartsLabeled: [...root.querySelectorAll('svg[role="img"]')].every(svg => svg.querySelector('title') && svg.querySelector('desc')),
       scale: window.visualViewport.scale,
-      chartModules: [...root.querySelectorAll('[data-chart]')].map(chart => chart.getAttribute('data-chart')),
+      chartModules: [...root.querySelectorAll('[data-chart]')].filter(chart => chart.getClientRects().length).map(chart => chart.getAttribute('data-chart')),
       focus: document.activeElement !== document.body
     };
   });
@@ -76,12 +77,14 @@ try {
   for (const [name, intent] of workspaces) {
     for (const width of [340, 760, 1920]) {
       const page = await open(intent, width);
+      await page.getByRole('button', { name: { requests: 'My Requests', sourcing: 'Sourcing Workbench', supplier: 'Supplier 360', spend: 'Spend Command' }[name], exact: true }).click();
       await page.keyboard.press('Tab');
       await capture(page, `${name}-${width}`);
       layouts.add(await page.locator('[data-dashboard-layout]').getAttribute('data-dashboard-layout'));
       await page.close();
     }
     const page = await open(intent, 1280);
+    await page.getByRole('button', { name: { requests: 'My Requests', sourcing: 'Sourcing Workbench', supplier: 'Supplier 360', spend: 'Spend Command' }[name], exact: true }).click();
     const client = await page.context().newCDPSession(page);
     await client.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
     assert.equal(await page.evaluate(() => window.visualViewport.scale), 2, 'Expected actual Chromium 200% page-scale emulation.');
@@ -108,6 +111,7 @@ try {
   assert.equal(await workflow.getAttribute('data-workflow-stage'), 'receipt');
   await capture(page, 'submitted-business-case');
   await page.reload();
+  await page.getByRole('button', { name: 'Back to My Requests', exact: true }).click();
   await page.getByRole('button', { name: 'Review ZPC-REQ-SESSION-1', exact: true }).click();
   await page.getByLabel('Decision rationale / conditions (minimum 12 characters)').fill('EU support, quantity and budget evidence verified');
   await page.getByRole('button', { name: 'Review approve request', exact: true }).click();
@@ -116,6 +120,7 @@ try {
   await capture(page, 'budget-human-review');
   await page.getByRole('button', { name: 'Confirm session-only approve request', exact: true }).click();
   await capture(page, 'budget-session-receipt');
+  await page.getByRole('button', { name: 'Back to My Requests', exact: true }).click();
   await page.getByLabel('Request status', { exact: true }).selectOption('Approved');
   assert.match(await page.getByRole('region', { name: 'My Requests dashboard', exact: true }).textContent(), /ZPC-REQ-SESSION-1/);
   await capture(page, 'approved-request-inbox');
@@ -153,7 +158,7 @@ try {
   assert.equal(captures.length, 24);
   assert.equal(errors.length, 0, `Runtime errors: ${errors.join('; ')}`);
   assert(requests.every(url => url.startsWith(base) || url.startsWith('data:') || url.startsWith('blob:')), 'Unexpected external runtime request.');
-  const output = { schemaVersion: 1, generatedAt: new Date().toISOString(), captureCount: captures.length, workspaceLayouts: [...layouts], errors, externalRuntimeRequests: 0,
+  const output = { schemaVersion: 1, generatedAt: new Date().toISOString(), sourceSha256: visualSourceSignature(), captureCount: captures.length, workspaceLayouts: [...layouts], errors, externalRuntimeRequests: 0,
     journey: ['invalid intake blocked', 'draft edits preserved', 'reviewed submission', 'session reload restored', 'matching budget approval', 'processed queue', 'award authority limit', 'exact split commitment', 'regional geometry and totals', 'keyboard map drill-down', 'reset'],
     zoomMethod: 'Chromium CDP Emulation.setPageScaleFactor=2; tenant/native browser zoom remains a separate manual host check', captures };
   fs.writeFileSync(path.join(evidence, 'zavacore-modernization.json'), `${JSON.stringify(output, null, 2)}\n`);

@@ -5,15 +5,20 @@ import type { IProcurementProperties, ProcurementIntentKey } from './catalog';
 import type { IProcurementSnapshot } from './ProcurementInlineExperiences';
 import { OWNERS } from './brand';
 import { money } from './domain';
-import { contracts, getPurchaseDecision, getPurchaseQueue, getReceipts, subscribeReceipts, supplierRecords } from './operations';
-import { getInvestments, INVESTMENT_REGIONS, investmentTotals, investmentValueStages } from './portfolio';
-import { CommitmentTrend, InvestmentMap } from './InvestmentCharts';
-import { ValueRiver } from './ProcurementCharts';
+import { contracts, getPurchaseDecision, getPurchaseQueue, getReceipts, initialSelection, leakageOpportunities, subscribeReceipts, supplierRecords } from './operations';
+import { getInvestments, INVESTMENT_REGIONS, investmentTotals } from './portfolio';
+import { CommitmentTrend, InvestmentMap, investmentMapValue, type InvestmentMapMetric } from './InvestmentCharts';
+import { SpendValueFlow } from './ProcurementDecisionVisuals';
+import { buildValueFlow, valueEvidence, valueFlowSelection } from './valueFlow';
+import { CATEGORIES } from './domain';
 
 interface IProps {
   readonly open: (intent: ProcurementIntentKey, properties?: IProcurementProperties) => void;
   readonly onContext?: (snapshot: IProcurementSnapshot) => void;
   readonly initialId?: string;
+  readonly initialCategory?: string;
+  readonly initialPeriod?: string;
+  readonly initialFlowSelection?: string;
 }
 const useStyles = makeStyles({
   body: { minWidth: 0, display: 'grid', gap: '20px', marginBottom: '24px' },
@@ -44,7 +49,7 @@ const useStyles = makeStyles({
   stepIcon: { color: tokens.colorBrandForeground1, paddingTop: '2px' },
   evidence: { padding: '14px 0', borderBottom: `1px solid ${tokens.colorNeutralStroke2}` },
   progress: { display: 'block', width: '100%', height: '8px', marginTop: '8px', accentColor: tokens.colorBrandBackground },
-  programs: { display: 'grid', gridTemplateColumns: 'repeat(2,minmax(0,1fr))', gap: '0 24px', '@media(max-width:740px)': { gridTemplateColumns: '1fr' } },
+  programs: { display: 'grid', gridTemplateColumns: 'repeat(4,minmax(0,1fr))', gap: '0 24px', '@media(max-width:1200px)': { gridTemplateColumns: 'repeat(2,minmax(0,1fr))' }, '@media(max-width:740px)': { gridTemplateColumns: '1fr' } },
   program: { padding: '16px 0', borderTop: `1px solid ${tokens.colorNeutralStroke2}`, minWidth: 0 },
   amount: { fontVariantNumeric: 'tabular-nums', fontWeight: 600, fontSize: '13px' }
 });
@@ -83,9 +88,13 @@ export function RequestsDashboard({ open, onContext, initialId }: IProps): React
   const heroAward = selected === 'ZPC-REQ-1001' ? receipts.find(receipt => receipt.intent === 'ReviewSupplierAward' && receipt.result === 'approved') : undefined;
   const pending = requests.filter(request => !getPurchaseDecision(request.id)).length;
   const eur = requests.filter(request => request.currency === 'EUR').reduce((sum, request) => sum + request.budget, 0);
-  useWorkspaceContext(onContext, { intent: 'ReviewPurchaseRequest', route: 'my-requests/dashboard', stage: 'inspect', selectedId: selected,
+  useWorkspaceContext(onContext, { intent: 'ReviewPurchaseRequest', route: 'my-requests/dashboard', stage: selectedRequest ? 'inspect' : 'no-match', selectedId: selected,
     summary: `${visible.length} visible requests; filter ${filter}; search ${query}; selected ${selectedRequest?.outcome || selectedRequest?.category || 'no match'}; ${pending} need review; EUR budget ${eur}.`,
-    filters: { status: filter, query }, visibleIds: visible.map(request => request.id) });
+    scope: { requestId: selected }, filters: { status: filter, query }, visibleIds: visible.map(request => request.id),
+    visuals: ['Outcome approval inbox', 'Selected request handoff timeline'], resultCount: visible.length,
+    visibleRecords: visible.map(request => ({ id: request.id, outcome: request.outcome, category: request.category, budget: request.budget, currency: request.currency, decision: getPurchaseDecision(request.id)?.action || 'Needs review' })),
+    selectedEvidence: selectedRequest, ...(decision ? { receipt: decision } : {}),
+    totals: { pending, requests: requests.length, eurQueueBudget: eur, sessionActions: receipts.length } });
   return <div className={s.body} data-workspace="my-requests" data-dashboard-layout="request-approval-journey">
     <Metrics values={[{ label: 'Needs review', value: String(pending), detail: 'Explicit budget-owner decision' }, { label: 'Business cases', value: String(requests.length), detail: 'Seeded + submitted this session' }, { label: 'EUR queue budget', value: money(eur), detail: 'Other currencies are not combined' }, { label: 'Session actions', value: String(receipts.length), detail: 'No external systems changed' }]} />
     <div className={s.split}>
@@ -114,13 +123,16 @@ export function RequestsDashboard({ open, onContext, initialId }: IProps): React
 export function SupplierDashboard({ open, onContext, initialId }: IProps): React.ReactElement {
   const s = useStyles();
   const supplierId = React.useId();
-  const [selected, setSelected] = React.useState(initialId || supplierRecords[0].id);
+  const [selected, setSelected] = React.useState(initialSelection(supplierRecords, initialId));
   const supplier = supplierRecords.find(item => item.id === selected);
   const related = contracts.filter(contract => contract.supplierId === selected);
   const receipts = React.useSyncExternalStore(subscribeReceipts, getReceipts, getReceipts);
   const mitigation = receipts.find(receipt => receipt.intent === 'PlanSupplierRiskMitigation' && receipt.recordId === selected);
   useWorkspaceContext(onContext, { intent: 'ExploreSupplier360', route: 'supplier-360/dashboard', stage: supplier ? 'inspect' : 'no-match', selectedId: selected,
-    summary: supplier ? `${supplier.supplier}; region ${supplier.region}; risk ${supplier.risk}/100; quality ${supplier.quality}%; ${related.length} contracts; mitigation ${mitigation ? 'recorded in session' : 'not submitted'}.` : `No supplier matches ${selected}.` });
+    summary: supplier ? `${supplier.supplier}; region ${supplier.region}; risk ${supplier.risk}/100; quality ${supplier.quality}%; ${related.length} contracts; mitigation ${mitigation ? 'recorded in session' : 'not submitted'}.` : `No supplier matches ${selected}.`,
+    scope: { supplierId: selected }, selectedLabel: supplier?.supplier,
+    visuals: ['Supplier relationship scorecard', 'Owned continuity intervention', 'Contract notice and qualification ledger'],
+    selectedEvidence: supplier, visibleRecords: related, ...(mitigation ? { receipt: mitigation } : {}) });
   return <div className={s.body} data-workspace="supplier-360" data-dashboard-layout="supplier-obligation-ledger">
     <section className={s.panel} aria-label="Supplier 360 dashboard"><div className={s.toolbar}><div><span className={s.eyebrow}>Supplier relationship / evidence before action</span><h2 className={s.heading}>Obligations meet dependency</h2></div><div className={s.field}><label htmlFor={supplierId}>Relationship supplier</label><select id={supplierId} className={s.input} value={selected} onChange={event => setSelected(event.target.value)}>{!supplier && <option value={selected}>{selected}</option>}{supplierRecords.map(item => <option key={item.id} value={item.id}>{item.supplier}</option>)}</select></div></div>
       {supplier ? <Metrics values={[{ label: 'Continuity risk', value: `${supplier.risk}/100`, detail: supplier.risk > 60 ? 'Elevated / intervention needed' : 'Monitor / not a guarantee' }, { label: 'Accepted quality', value: `${supplier.quality}%`, detail: 'Curated bid evidence' }, { label: 'Lead time', value: `${supplier.lead}d`, detail: `${supplier.region} sourcing corridor` }, { label: 'Confidence', value: `${supplier.confidence}%`, detail: 'Evidence coverage, not certainty' }]} /> : <p role="alert">No supplier matches {selected}. Choose a curated supplier.</p>}
@@ -139,25 +151,56 @@ export function SupplierDashboard({ open, onContext, initialId }: IProps): React
     </div>}
   </div>;
 }
-export function SpendDashboard({ open, onContext, initialId }: IProps): React.ReactElement {
+export function SpendDashboard({ open, onContext, initialId, initialCategory, initialPeriod, initialFlowSelection }: IProps): React.ReactElement {
   const s = useStyles();
   const [region, setRegion] = React.useState(!initialId || initialId === 'All regions' ? 'Global' : initialId);
+  const [category, setCategory] = React.useState(initialCategory || 'All categories');
+  const [period, setPeriod] = React.useState(initialPeriod || 'Current period');
+  const [mapMetric, setMapMetric] = React.useState<InvestmentMapMetric>('budget');
+  const [programId, setProgramId] = React.useState('');
+  const [flowSelection, setFlowSelection] = React.useState(initialFlowSelection || '');
   const validScope = region === 'Global' || INVESTMENT_REGIONS.some(item => item === region);
   const receipts = React.useSyncExternalStore(subscribeReceipts, getReceipts, getReceipts);
   const programs = getInvestments(receipts);
   const selected = programs.filter(program => region === 'Global' || program.region === region);
   const totals = investmentTotals(selected);
-  const stages = investmentValueStages(selected);
-  useWorkspaceContext(onContext, { intent: 'ExploreSpendPerformance', route: 'spend-command/dashboard', stage: validScope ? 'inspect' : 'no-match', selectedId: region,
-    summary: `${region}: ${selected.length} investment programs; planned EUR ${totals.budget}; committed EUR ${totals.committed}; delivered ${totals.delivered}/${totals.units} units; verified value EUR ${totals.realized}.`,
-    filters: { region, currency: 'EUR' }, visibleIds: selected.map(program => program.id) });
+  const valueIds = new Set(selected.reduce<string[]>((ids, program) => [...ids, ...program.valueIds], []));
+  const validCategory = category === 'All categories' || CATEGORIES.some(item => item === category);
+  const validPeriod = ['Current period', 'Previous period'].indexOf(period) >= 0;
+  const validValueScope = validCategory && validPeriod;
+  const flow = buildValueFlow(validValueScope ? valueEvidence(leakageOpportunities.filter(record => valueIds.has(record.id) && (category === 'All categories' || record.category === category)), period) : []);
+  const selection = valueFlowSelection(flow, flowSelection);
+  const program = selected.find(record => record.id === programId);
+  const hasValueEvidence = validScope && validValueScope && flow.records.length > 0;
+  const valueSummary = !validValueScope ? 'unsupported value scope; no value amounts evaluated' : !hasValueEvidence ? 'no linked value evidence; savings are not inferred' :
+    `EUR ${flow.total} identified, EUR ${flow.verified} verified, EUR ${flow.disputed} disputed excluded`;
+  useWorkspaceContext(onContext, { intent: 'ExploreSpendPerformance', route: 'spend-command/dashboard', stage: validScope && validValueScope && (!flowSelection || selection) ? 'inspect' : 'no-match', selectedId: region,
+    summary: validScope ? `${region}: ${selected.length} investment programs; planned EUR ${totals.budget}; committed EUR ${totals.committed}; delivered ${totals.delivered}/${totals.units} units. Separate value scope ${category}/${period}: ${valueSummary}.${selection ? ` Selected flow ${selection.label}: EUR ${selection.value}.` : ''}` : `No investment region matches ${region}; no investment or value amounts were evaluated.`,
+    scope: { region: region === 'Global' ? 'All regions' : region, category, period, ...(selection?.opportunityId ? { opportunityId: selection.opportunityId } : {}) },
+    filters: { region, currency: 'EUR', valueCategory: category, valuePeriod: period, mapMetric }, visibleIds: selected.map(record => record.id),
+    visuals: validScope ? ['Equal Earth investment footprint: circle area encodes selected EUR metric', 'Six-week cumulative commitment trend', hasValueEvidence ? 'Conserved EUR value Sankey' : 'Value evidence gap', 'Program delivery ledger'] : ['Unmatched investment region'],
+    visibleRecords: selected.map(record => ({ id: record.id, name: record.name, location: record.location, budget: record.budget, committed: record.committed, units: record.units, delivered: record.delivered, stage: record.stage })),
+    mapValues: validScope ? programs.map(record => ({ id: record.id, location: record.location, region: record.region, value: investmentMapValue(record, mapMetric), highlighted: region === 'Global' || record.region === region })) : [],
+    resultCount: selected.length, selectedProgram: program, selectedValueEvidence: selection,
+    ...(hasValueEvidence ? { flowTotals: { identified: flow.total, verified: flow.verified, unverified: flow.total - flow.verified, disputedAlreadyInsideUnverified: flow.disputed } } : {}),
+    valueRecords: flow.records, evidenceStates: flow.nodes.filter(node => node.state), flowConnections: flow.links });
   if (!validScope) return <section className={s.panel} data-workspace="spend-command" data-dashboard-layout="global-investment-command"><p role="alert">No investment region matches {region}. Choose a supported region; no region was substituted.</p><div className={s.controls}>{['Global', ...INVESTMENT_REGIONS].map(item => <Button key={item} onClick={() => setRegion(item)}>{item}</Button>)}</div></section>;
   return <div className={s.body} data-workspace="spend-command" data-dashboard-layout="global-investment-command">
     <div className={s.toolbar}><div><span className={s.eyebrow}>Global investments / authored EUR reporting model</span><h2 className={s.heading}>Every region. One accountable view.</h2></div><div className={s.controls} role="group" aria-label="Investment region">{['Global', ...INVESTMENT_REGIONS].map(item => <Button key={item} size="small" appearance={region === item ? 'primary' : 'secondary'} aria-pressed={region === item} onClick={() => setRegion(item)}>{item}</Button>)}</div></div>
-    <Metrics values={[{ label: 'Planned investment', value: money(totals.budget), detail: `${selected.length} scoped procurement programs` }, { label: 'Committed', value: money(totals.committed), detail: `${Math.round(totals.committed / totals.budget * 100)}% of scoped budget` }, { label: 'Delivery progress', value: `${Math.round(totals.delivered / totals.units * 100)}%`, detail: `${totals.delivered.toLocaleString()} / ${totals.units.toLocaleString()} units` }, { label: 'Verified value', value: money(totals.realized), detail: 'Disputed amounts excluded' }]} />
-    <div className={s.split}><section className={s.panel} aria-label="Global investment geography"><span className={s.eyebrow}>Investment footprint</span><h2 className={s.heading}>Where ambition becomes operations</h2><InvestmentMap records={programs} region={region} onRegion={setRegion} /></section>
+    <Metrics values={[{ label: 'Planned investment', value: money(totals.budget), detail: `${selected.length} scoped procurement programs` }, { label: 'Committed', value: money(totals.committed), detail: `${Math.round(totals.committed / totals.budget * 100)}% of scoped budget` }, { label: 'Delivery progress', value: `${Math.round(totals.delivered / totals.units * 100)}%`, detail: `${totals.delivered.toLocaleString()} / ${totals.units.toLocaleString()} units` }, { label: 'Verified value', value: !validValueScope ? 'Not evaluated' : hasValueEvidence ? money(flow.verified) : 'No linked evidence', detail: `${category} / ${period}; disputed excluded` }]} />
+    <div className={s.split}><section className={s.panel} aria-label="Global investment geography"><span className={s.eyebrow}>Investment footprint</span><h2 className={s.heading}>Where ambition becomes operations</h2><div className={s.controls} role="group" aria-label="Map measure">{([['budget', 'Planned footprint'], ['committed', 'Committed footprint'], ['uncommitted', 'Uncommitted headroom']] as const).map(([metric, label]) => <Button key={metric} size="small" aria-pressed={mapMetric === metric} appearance={mapMetric === metric ? 'primary' : 'secondary'} onClick={() => setMapMetric(metric)}>{label}</Button>)}</div><InvestmentMap records={programs} region={region} metric={mapMetric} onRegion={(nextRegion, id) => { setRegion(nextRegion); setProgramId(id); }} />{program && <p className={s.muted} role="status">{program.name} / {program.location}: {money(program.committed)} committed; {program.delivered}/{program.units} units delivered. {money(program.budget - program.committed)} remains uncommitted.</p>}</section>
       <section className={s.panel} aria-label="Investment commitment progress"><span className={s.eyebrow}>Execution / six-week scenario</span><h2 className={s.heading}>Commitment follows the plan</h2><CommitmentTrend records={selected} /></section></div>
-    <div className={s.even}><section className={s.panel} aria-label="Scoped investment program ledger"><span className={s.eyebrow}>{region} / program ledger</span><h2 className={s.heading}>Delivery you can trace</h2><div className={s.programs}>{selected.map(program => <article className={s.program} key={program.id}><p className={s.rowName}>{program.name}</p><p className={s.muted}>{program.location} / {program.id}</p><p className={s.amount}>{money(program.committed)} / {money(program.budget)}</p><span className={s.status}>{program.stage}</span><progress className={s.progress} max={program.units} value={program.delivered} aria-label={`${program.name} delivered units`} /><p className={s.muted}>{program.delivered} / {program.units} units delivered</p><Button size="small" appearance="subtle" onClick={() => program.id === 'ZPC-INV-01' ? open('ReviewSupplierAward', { eventId: 'ZPC-RFP-31' }) : program.valueIds.length ? open('TrackLeakageRecovery', { opportunityId: program.valueIds[0] }) : open('TrackSupplierRisk', { supplierId: supplierRecords.find(supplier => supplier.region === program.region)?.id })}>{program.id === 'ZPC-INV-01' ? 'Review launch award' : program.valueIds.length ? 'Inspect verified value' : 'Inspect corridor risk'}</Button></article>)}</div></section>
-      <section className={s.panel} aria-label="Scoped procurement value"><span className={s.eyebrow}>Opportunity is not a saving</span><h2 className={s.heading}>Prove the value, stage by stage</h2>{totals.realized > 0 ? <ValueRiver stages={stages} /> : <p className={s.muted}>No verified savings evidence is linked to the programs in {region}. Investment and delivery do not imply realized savings.</p>}<p className={s.muted}>Only source-backed realized amounts count. The {money(15000)} freight dispute remains excluded from verified regional totals.</p><Owner owner={OWNERS.finance} /><Button onClick={() => open('ResolveInvoiceException', { invoiceId: 'ZPC-8831' })}>Reconcile held invoice</Button></section></div>
+    <section className={s.panel} aria-label="Scoped procurement value"><div className={s.toolbar}><div><span className={s.eyebrow}>Opportunity is not a saving</span><h2 className={s.heading}>Follow the money. Find the missing proof.</h2></div><div className={s.controls}><label className={s.field}>Portfolio value category<select className={s.input} value={category} onChange={event => setCategory(event.target.value)}>{!validCategory && <option value={category}>{category} (unsupported)</option>}{['All categories', ...CATEGORIES].map(item => <option key={item}>{item}</option>)}</select></label><label className={s.field}>Portfolio value period<select className={s.input} value={period} onChange={event => setPeriod(event.target.value)}>{!validPeriod && <option value={period}>{period} (unsupported)</option>}{['Current period', 'Previous period'].map(item => <option key={item}>{item}</option>)}</select></label></div></div>
+      {!validValueScope ? <p role="alert">This value category or period is not supported. Choose a visible evidence scope; no evidence was substituted.</p> : flow.total > 0 ? <SpendValueFlow flow={flow} selectedId={flowSelection} onSelect={setFlowSelection} /> : <p className={s.muted}>No verified savings evidence is linked to the programs in {region} for this category. Investment and delivery do not imply realized savings.</p>}
+      <p className={s.muted}>Value evidence uses {region} / {category} / {period}; investment budgets above remain authored EUR programs for the selected region. Previous period is a deterministic 20% lower comparison, not historical performance.</p><Owner owner={OWNERS.finance} />{flow.records.some(record => record.id === 'ZPC-LEAK-01') && <Button onClick={() => open('ResolveInvoiceException', { invoiceId: 'ZPC-8831' })}>Reconcile held invoice ZPC-8831</Button>}
+    </section>
+    <section className={s.panel} aria-label="Scoped investment program ledger"><span className={s.eyebrow}>{region} / program ledger</span><h2 className={s.heading}>Delivery you can trace</h2><div className={s.programs}>{selected.map(record => <article className={s.program} key={record.id}>
+      <p className={s.rowName}>{record.name}</p><p className={s.muted}>{record.location} / {record.id}</p><p className={s.amount}>{money(record.committed)} / {money(record.budget)}</p><span className={s.status}>{record.stage}</span>
+      <progress className={s.progress} max={record.units} value={record.delivered} aria-label={`${record.name} delivered units`} /><p className={s.muted}>{record.delivered} / {record.units} units delivered</p>
+      <Button size="small" appearance="subtle" aria-pressed={programId === record.id} onClick={() => setProgramId(current => current === record.id ? '' : record.id)}>{programId === record.id ? 'Clear location selection' : `Inspect ${record.location}`}</Button>
+      {record.id === 'ZPC-INV-01' ? <Button size="small" appearance="subtle" onClick={() => open('ReviewSupplierAward', { eventId: 'ZPC-RFP-31' })}>Review launch award</Button> :
+        record.valueIds.length ? <Button size="small" appearance="subtle" onClick={() => open('TrackLeakageRecovery', { opportunityId: record.valueIds[0] })}>Inspect verified value</Button> :
+          <p className={s.muted}>Supplier dependency not linked.</p>}
+    </article>)}</div></section>
   </div>;
 }

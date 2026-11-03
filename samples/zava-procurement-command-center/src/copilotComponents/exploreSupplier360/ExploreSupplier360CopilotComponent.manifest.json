@@ -16,7 +16,7 @@
     {
       "name": "ExploreSupplier360Tool",
       "description": {
-        "default": "Use when the user asks: What relationship evidence changes the next decision? Outcome: Connected contracts, obligations, performance, and owners. Boundary: Not a vendor master."
+        "default": "Use when connecting one supplier relationship, performance, contracts, obligations and owners. Do not use for a continuity scenario, cross-supplier allocation or qualification decision."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreSupplier360/ExploreSupplier360CopilotComponentProperties.js:default;"

@@ -1,0 +1,1197 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-03T11:08:34.154Z",
+  "sourceSha256": "994919282938d9217c59f13e667bf287dada0276f2617dd26a46fd3bca90867a",
+  "routingCount": 22,
+  "captureCount": 45,
+  "errors": [],
+  "externalRuntimeRequests": 0,
+  "continuationChecks": [
+    "no automatic turns",
+    "click-time scoped handoff",
+    "text-only full-screen summary",
+    "keyboard Sankey selection",
+    "custom visible-evidence question",
+    "rejection and transport retry",
+    "receipt-specific request handoff",
+    "invalid scopes never publish default/zero financial evidence"
+  ],
+  "routing": [
+    {
+      "intent": "CreatePurchaseIntent",
+      "destination": "Business case studio",
+      "route": "my-requests/new",
+      "view": "task",
+      "editedValuePreserved": "601",
+      "inlineHeightAt760": 1065
+    },
+    {
+      "intent": "CompareBuyingOptions",
+      "destination": "Fulfillment strategy",
+      "route": "my-requests/options",
+      "view": "task",
+      "editedValuePreserved": "601",
+      "inlineHeightAt760": 1178
+    },
+    {
+      "intent": "CheckPurchasePolicy",
+      "destination": "Policy evidence room",
+      "route": "my-requests/policy",
+      "view": "task",
+      "editedValuePreserved": "5",
+      "inlineHeightAt760": 1066
+    },
+    {
+      "intent": "ReviewPurchaseRequest",
+      "destination": "Budget decision room",
+      "route": "my-requests/review",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1230
+    },
+    {
+      "intent": "AggregateDemand",
+      "destination": "Demand planning",
+      "route": "sourcing/demand",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1279
+    },
+    {
+      "intent": "BuildSourcingEvent",
+      "destination": "Sourcing event studio",
+      "route": "sourcing/event-studio",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1090
+    },
+    {
+      "intent": "CompareSupplierBids",
+      "destination": "Supplier evaluation room",
+      "route": "sourcing/evaluation",
+      "view": "task",
+      "editedValuePreserved": "21",
+      "inlineHeightAt760": 1075
+    },
+    {
+      "intent": "ReviewSupplierAward",
+      "destination": "Award decision room",
+      "route": "sourcing/award",
+      "view": "task",
+      "editedValuePreserved": "66",
+      "inlineHeightAt760": 1569
+    },
+    {
+      "intent": "ExploreSupplier360",
+      "destination": "Supplier relationship room",
+      "route": "supplier-360/overview",
+      "view": "workspace",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 906
+    },
+    {
+      "intent": "ReviewContractRenewal",
+      "destination": "Contract renewal room",
+      "route": "supplier-360/renewal",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1126
+    },
+    {
+      "intent": "DetectSpendLeakage",
+      "destination": "Leakage priorities",
+      "route": "spend-command/leakage",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1166
+    },
+    {
+      "intent": "TrackSupplierRisk",
+      "destination": "Continuity planning room",
+      "route": "supplier-360/risk",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1062
+    },
+    {
+      "intent": "ResolveInvoiceException",
+      "destination": "Invoice reconciliation room",
+      "route": "spend-command/invoice-exception",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1230
+    },
+    {
+      "intent": "ExploreSpendPerformance",
+      "destination": "Global investment and value",
+      "route": "spend-command/performance",
+      "view": "workspace",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1178
+    },
+    {
+      "intent": "OnboardSupplier",
+      "destination": "Supplier intake studio",
+      "route": "supplier-360/onboarding",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1159
+    },
+    {
+      "intent": "ReviewSupplierQualification",
+      "destination": "Qualification decision room",
+      "route": "supplier-360/qualification",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1251
+    },
+    {
+      "intent": "PlanSupplierRiskMitigation",
+      "destination": "Mitigation planning room",
+      "route": "supplier-360/mitigation",
+      "view": "task",
+      "editedValuePreserved": "48001",
+      "inlineHeightAt760": 1108
+    },
+    {
+      "intent": "NegotiateContractTerms",
+      "destination": "Negotiation mandate room",
+      "route": "supplier-360/negotiation",
+      "view": "task",
+      "editedValuePreserved": "1000001",
+      "inlineHeightAt760": 1089
+    },
+    {
+      "intent": "ManagePurchaseOrderChange",
+      "destination": "Commitment change room",
+      "route": "my-requests/po-change",
+      "view": "task",
+      "editedValuePreserved": "651",
+      "inlineHeightAt760": 1414
+    },
+    {
+      "intent": "TrackLeakageRecovery",
+      "destination": "Value verification room",
+      "route": "spend-command/recovery",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1267
+    },
+    {
+      "intent": "ExploreSupplierPortfolioBalance",
+      "destination": "Supply concentration room",
+      "route": "spend-command/portfolio-balance",
+      "view": "task",
+      "editedValuePreserved": "61",
+      "inlineHeightAt760": 1334
+    },
+    {
+      "intent": "ExploreAgentCapabilities",
+      "destination": "Procurement experience guide",
+      "route": "education/capabilities",
+      "view": "task",
+      "editedValuePreserved": null,
+      "inlineHeightAt760": 1329
+    }
+  ],
+  "sizing": [
+    {
+      "intent": "CreatePurchaseIntent",
+      "draftHeight": 1065,
+      "reviewHeight": 979,
+      "receiptHeight": 911,
+      "restoredHeight": 1065,
+      "sdkAcknowledgement": "Covered separately by typed BaseCopilotComponent tests; authenticated host remains external."
+    }
+  ],
+  "captures": [
+    {
+      "name": "route-CreatePurchaseIntent",
+      "file": "ux-review/evidence/ignite/route-CreatePurchaseIntent.png",
+      "sha256": "6e65bd6757b22aae74b22ec0ecc877255de9152afcdfef815716503b97f0df0c",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1509,
+      "layout": "CreatePurchaseIntent-fullscreen",
+      "route": "my-requests/new",
+      "width": 1400,
+      "height": 1391,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-CompareBuyingOptions",
+      "file": "ux-review/evidence/ignite/route-CompareBuyingOptions.png",
+      "sha256": "c114c8f08b85e7b367247b4faadfcdf80fd60c14b0e7a4ff6b39ef9328682b91",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1611,
+      "layout": "CompareBuyingOptions-fullscreen",
+      "route": "my-requests/options",
+      "width": 1400,
+      "height": 1528,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-CheckPurchasePolicy",
+      "file": "ux-review/evidence/ignite/route-CheckPurchasePolicy.png",
+      "sha256": "e0b2896daecb702996f12c90f7b356cadc230778683ee0a796b0212cb27b67b9",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1559,
+      "layout": "CheckPurchasePolicy-fullscreen",
+      "route": "my-requests/policy",
+      "width": 1400,
+      "height": 1436,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ReviewPurchaseRequest",
+      "file": "ux-review/evidence/ignite/route-ReviewPurchaseRequest.png",
+      "sha256": "cf938b8a4838d7cf9cf80d0e93b1f6e6996a310c794df5385f986cbebab89a4c",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2139,
+      "layout": "ReviewPurchaseRequest-fullscreen",
+      "route": "my-requests/review",
+      "width": 1400,
+      "height": 1580,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-AggregateDemand",
+      "file": "ux-review/evidence/ignite/route-AggregateDemand.png",
+      "sha256": "c7a02f71739999b781f3f1e7e7f7b05eb2109449f30c17427821c98be01a853b",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2179,
+      "layout": "AggregateDemand-fullscreen",
+      "route": "sourcing/demand",
+      "width": 1400,
+      "height": 1629,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-BuildSourcingEvent",
+      "file": "ux-review/evidence/ignite/route-BuildSourcingEvent.png",
+      "sha256": "ba7877e6c8f86ddc479694bb733b1fac0ae1a3de1d6a7e7a8eb2380e53505da9",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1352,
+      "layout": "BuildSourcingEvent-fullscreen",
+      "route": "sourcing/event-studio",
+      "width": 1400,
+      "height": 1416,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-CompareSupplierBids",
+      "file": "ux-review/evidence/ignite/route-CompareSupplierBids.png",
+      "sha256": "a4255ddd655e892e54391fcbabbe14d9223373d32055ff7f6bfc9f40393aee2f",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2418,
+      "layout": "CompareSupplierBids-fullscreen",
+      "route": "sourcing/evaluation",
+      "width": 1400,
+      "height": 1500,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ReviewSupplierAward",
+      "file": "ux-review/evidence/ignite/route-ReviewSupplierAward.png",
+      "sha256": "f539db087f0f95a4f1d283c92b08768883bdbc6b3b01550fb257cc09aaae2380",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2118,
+      "layout": "ReviewSupplierAward-fullscreen",
+      "route": "sourcing/award",
+      "width": 1400,
+      "height": 1955,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "award-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ExploreSupplier360",
+      "file": "ux-review/evidence/ignite/route-ExploreSupplier360.png",
+      "sha256": "cfe34d43e87709d5d8564241426595ca822657a987ef9adbcf7538698bde8a7e",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1115,
+      "layout": "supplier-360-command",
+      "route": "supplier-360/overview",
+      "width": 1400,
+      "height": 1355,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ReviewContractRenewal",
+      "file": "ux-review/evidence/ignite/route-ReviewContractRenewal.png",
+      "sha256": "8f688bd5cb261722345a5cbd5d4e56d4a6ac0c54de3606c4d0c2dd983de8247b",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2100,
+      "layout": "ReviewContractRenewal-fullscreen",
+      "route": "supplier-360/renewal",
+      "width": 1400,
+      "height": 1496,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-DetectSpendLeakage",
+      "file": "ux-review/evidence/ignite/route-DetectSpendLeakage.png",
+      "sha256": "b7ba042934986b8571f79b5b4ba45f96a5ae09af9833f7fe681c734425c370f4",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2157,
+      "layout": "DetectSpendLeakage-fullscreen",
+      "route": "spend-command/leakage",
+      "width": 1400,
+      "height": 1495,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "leakage-ranking"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-TrackSupplierRisk",
+      "file": "ux-review/evidence/ignite/route-TrackSupplierRisk.png",
+      "sha256": "a0ec7075338ad821a13b27e08e2d9e11551c6c6e5cfbc9e63808dab98fac7bae",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2309,
+      "layout": "TrackSupplierRisk-fullscreen",
+      "route": "supplier-360/risk",
+      "width": 1400,
+      "height": 1412,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "supplier-dependency-pathway"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ResolveInvoiceException",
+      "file": "ux-review/evidence/ignite/route-ResolveInvoiceException.png",
+      "sha256": "6da7fa1e6efb6b58dae90053ab26ff701c77010d6e33dd59d76d76e58571e24c",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2092,
+      "layout": "ResolveInvoiceException-fullscreen",
+      "route": "spend-command/invoice-exception",
+      "width": 1400,
+      "height": 1516,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ExploreSpendPerformance",
+      "file": "ux-review/evidence/ignite/route-ExploreSpendPerformance.png",
+      "sha256": "85a6f59b7e5fde73a21fb27d8bd6c347beb5d031208905021d313e3239308eee",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 4837,
+      "layout": "spend-command-command",
+      "route": "spend-command/performance",
+      "width": 1400,
+      "height": 2961,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "global-investment-map",
+        "commitment-trend",
+        "procurement-value-sankey"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-OnboardSupplier",
+      "file": "ux-review/evidence/ignite/route-OnboardSupplier.png",
+      "sha256": "1f5b1c9e97ee3dba284ff0c93ce7ae660bc2be2ffbc52b518e0c758a64f83b42",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1393,
+      "layout": "OnboardSupplier-fullscreen",
+      "route": "supplier-360/onboarding",
+      "width": 1400,
+      "height": 1485,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ReviewSupplierQualification",
+      "file": "ux-review/evidence/ignite/route-ReviewSupplierQualification.png",
+      "sha256": "a1eb7aaa36aecad039cb94af42430768270f66e593dff4261448773f61a98efc",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1897,
+      "layout": "ReviewSupplierQualification-fullscreen",
+      "route": "supplier-360/qualification",
+      "width": 1400,
+      "height": 1621,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-PlanSupplierRiskMitigation",
+      "file": "ux-review/evidence/ignite/route-PlanSupplierRiskMitigation.png",
+      "sha256": "a6a7ffca35bd1a307ed9b316bc32c1f32b52d8323687ce4292fa6fd69f56cb09",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1546,
+      "layout": "PlanSupplierRiskMitigation-fullscreen",
+      "route": "supplier-360/mitigation",
+      "width": 1400,
+      "height": 1478,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-NegotiateContractTerms",
+      "file": "ux-review/evidence/ignite/route-NegotiateContractTerms.png",
+      "sha256": "42e06e740434096474a0b666c9242b4034490953bfacb798b155138b1a0b545c",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1608,
+      "layout": "NegotiateContractTerms-fullscreen",
+      "route": "supplier-360/negotiation",
+      "width": 1400,
+      "height": 1459,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ManagePurchaseOrderChange",
+      "file": "ux-review/evidence/ignite/route-ManagePurchaseOrderChange.png",
+      "sha256": "e2c366fb58f2ab9693277278e92b6a02d13c390c74a73f320d68cb7363db91fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2426,
+      "layout": "ManagePurchaseOrderChange-fullscreen",
+      "route": "my-requests/po-change",
+      "width": 1400,
+      "height": 1784,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-TrackLeakageRecovery",
+      "file": "ux-review/evidence/ignite/route-TrackLeakageRecovery.png",
+      "sha256": "c7ec9de7e564dce6f093845f80dec0a3a080d49436622127cedccc4b9645557c",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2208,
+      "layout": "TrackLeakageRecovery-fullscreen",
+      "route": "spend-command/recovery",
+      "width": 1400,
+      "height": 1637,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ExploreSupplierPortfolioBalance",
+      "file": "ux-review/evidence/ignite/route-ExploreSupplierPortfolioBalance.png",
+      "sha256": "7a134ef93756509fc269db4695a93827129f7cc351292c5e6a3e8f93b61bada5",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1494,
+      "layout": "ExploreSupplierPortfolioBalance-fullscreen",
+      "route": "spend-command/portfolio-balance",
+      "width": 1400,
+      "height": 1631,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "portfolio-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "route-ExploreAgentCapabilities",
+      "file": "ux-review/evidence/ignite/route-ExploreAgentCapabilities.png",
+      "sha256": "b9f24446bc75da5f832ded0d1d7ca03cd2e703874aa8f62b7151fb186e8b88ae",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 1523,
+      "layout": "ExploreAgentCapabilities-fullscreen",
+      "route": "education/capabilities",
+      "width": 1400,
+      "height": 1257,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "ExploreSpendPerformance-340-light",
+      "file": "ux-review/evidence/ignite/ExploreSpendPerformance-340-light.png",
+      "sha256": "d4d20397a7017b72709e3ed37d42c9d79b5249421b92a0a71c703d21e61b94ed",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 4164,
+      "layout": "ExploreSpendPerformance-inline",
+      "route": null,
+      "width": 340,
+      "height": 1772,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "procurement-value-sankey"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "ExploreSpendPerformance-760-dark",
+      "file": "ux-review/evidence/ignite/ExploreSpendPerformance-760-dark.png",
+      "sha256": "1b71864e7e1dd3fd35347988c4480e4953f27a7da2cc91d17454ddb411615593",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 4164,
+      "layout": "ExploreSpendPerformance-inline",
+      "route": null,
+      "width": 720,
+      "height": 1178,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "procurement-value-sankey"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "TrackSupplierRisk-340-light",
+      "file": "ux-review/evidence/ignite/TrackSupplierRisk-340-light.png",
+      "sha256": "13c0da504f6754bdb8e928220e87914adf8d37d948eb98c6e4181baaf1d6ea57",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 1840,
+      "layout": "TrackSupplierRisk-inline",
+      "route": null,
+      "width": 340,
+      "height": 1440,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "supplier-dependency-pathway"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "TrackSupplierRisk-760-dark",
+      "file": "ux-review/evidence/ignite/TrackSupplierRisk-760-dark.png",
+      "sha256": "9c9ae3364b3259a8e5e132f9ed45a7a46ce1f19d2adf312c72bbd8bc9bebe58c",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 1840,
+      "layout": "TrackSupplierRisk-inline",
+      "route": null,
+      "width": 720,
+      "height": 1062,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "supplier-dependency-pathway"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "CompareSupplierBids-340-light",
+      "file": "ux-review/evidence/ignite/CompareSupplierBids-340-light.png",
+      "sha256": "3b10070ba9b754ba5d342f3caa0759485df0bb71004bea0f6f344033dc6696ea",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 1962,
+      "layout": "CompareSupplierBids-inline",
+      "route": null,
+      "width": 340,
+      "height": 1452,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "CompareSupplierBids-760-dark",
+      "file": "ux-review/evidence/ignite/CompareSupplierBids-760-dark.png",
+      "sha256": "926636356528e765a3d062ac39de497e36eddeb032a2d02a867646ef1309d9a4",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 1962,
+      "layout": "CompareSupplierBids-inline",
+      "route": null,
+      "width": 720,
+      "height": 1075,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "ReviewSupplierAward-340-light",
+      "file": "ux-review/evidence/ignite/ReviewSupplierAward-340-light.png",
+      "sha256": "9c5fbb8e4b85a03035728c0d421a57a60eee7e7713f8c4c46b70eef188d7c4ab",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 1643,
+      "layout": "ReviewSupplierAward-inline",
+      "route": null,
+      "width": 340,
+      "height": 1789,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "award-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "ReviewSupplierAward-760-dark",
+      "file": "ux-review/evidence/ignite/ReviewSupplierAward-760-dark.png",
+      "sha256": "ef358528ae892cff232b3c6052108b4bc005d3d33bbfd3667adf3f31e6e27f2d",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 1643,
+      "layout": "ReviewSupplierAward-inline",
+      "route": null,
+      "width": 720,
+      "height": 1569,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "award-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "DetectSpendLeakage-340-light",
+      "file": "ux-review/evidence/ignite/DetectSpendLeakage-340-light.png",
+      "sha256": "626b1688f0a26981dfccaa1545c138fe466e6359bead9e9eb06e669f36eb571b",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 1680,
+      "layout": "DetectSpendLeakage-inline",
+      "route": null,
+      "width": 340,
+      "height": 1416,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "leakage-ranking"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "DetectSpendLeakage-760-dark",
+      "file": "ux-review/evidence/ignite/DetectSpendLeakage-760-dark.png",
+      "sha256": "c67090e38fdafb85ec310e375797377b6cc934990ab82310bde59881e82dd01f",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 1680,
+      "layout": "DetectSpendLeakage-inline",
+      "route": null,
+      "width": 720,
+      "height": 1166,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "leakage-ranking"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "ExploreSupplierPortfolioBalance-340-light",
+      "file": "ux-review/evidence/ignite/ExploreSupplierPortfolioBalance-340-light.png",
+      "sha256": "d5e977f872cf77b64b826b076ca5572afa45326540838c6d071fa4c7a900dac1",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "contextBytes": 1181,
+      "layout": "ExploreSupplierPortfolioBalance-inline",
+      "route": null,
+      "width": 340,
+      "height": 1646,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "portfolio-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "ExploreSupplierPortfolioBalance-760-dark",
+      "file": "ux-review/evidence/ignite/ExploreSupplierPortfolioBalance-760-dark.png",
+      "sha256": "d9305669f9af59cb71e296051776d0eb92d0be8ff260cb2b95853491935319be",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 1181,
+      "layout": "ExploreSupplierPortfolioBalance-inline",
+      "route": null,
+      "width": 720,
+      "height": 1334,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "portfolio-allocation"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "sankey-evidence-discussion",
+      "file": "ux-review/evidence/ignite/sankey-evidence-discussion.png",
+      "sha256": "7a7e34beaa5479aababaabd0de1b5d3488c999d567e835d61e5b2aa9e8930628",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 4581,
+      "layout": "ExploreSpendPerformance-inline",
+      "route": null,
+      "width": 720,
+      "height": 1220,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "procurement-value-sankey"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "custom-visible-evidence-question",
+      "file": "ux-review/evidence/ignite/custom-visible-evidence-question.png",
+      "sha256": "117666339ecfda1c5c26697d36dfa468c5e720775d181cbfcbd53037787f2abd",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 4570,
+      "layout": "ExploreSpendPerformance-inline",
+      "route": null,
+      "width": 720,
+      "height": 1361,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "procurement-value-sankey"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "copilot-rejected",
+      "file": "ux-review/evidence/ignite/copilot-rejected.png",
+      "sha256": "50e749b059cfe5077bd1052cc1cfd39049727011b09310dbe6318184bf830d01",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 2123,
+      "layout": "CompareSupplierBids-inline",
+      "route": null,
+      "width": 720,
+      "height": 1107,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "copilot-transport-error",
+      "file": "ux-review/evidence/ignite/copilot-transport-error.png",
+      "sha256": "5bc09789331eb030974a4c4c85f4be58e788c1eb60e428592e8ceac0d6d7f965",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 2123,
+      "layout": "CompareSupplierBids-inline",
+      "route": null,
+      "width": 720,
+      "height": 1107,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "copilot-scoped-handoff",
+      "file": "ux-review/evidence/ignite/copilot-scoped-handoff.png",
+      "sha256": "1346f009453082280a62fb812dbc04c2a833426fcc1ebc8ba3528d57828e62c0",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 2123,
+      "layout": "CompareSupplierBids-inline",
+      "route": null,
+      "width": 720,
+      "height": 1093,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "regional-text-summary",
+      "file": "ux-review/evidence/ignite/regional-text-summary.png",
+      "sha256": "cd9a18ba4d2e2a581c033855049d057810bf031726a0aa074c23719d1bc5bc21",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 2423,
+      "layout": "spend-command-command",
+      "route": "spend-command/performance",
+      "width": 1400,
+      "height": 2126,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "receipt-specific-next-review",
+      "file": "ux-review/evidence/ignite/receipt-specific-next-review.png",
+      "sha256": "edd4564e1eff390d5cf2a336a58600c89582db67b808bb3a4131fbcc6b8462ff",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 2433,
+      "layout": "CreatePurchaseIntent-inline",
+      "route": null,
+      "width": 720,
+      "height": 911,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "invalid-portfolio-no-calculation",
+      "file": "ux-review/evidence/ignite/invalid-portfolio-no-calculation.png",
+      "sha256": "394d0a688058a1b3f10450d9e35779899d44c112a278d8affde4959e3c752386",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 794,
+      "layout": "ExploreSupplierPortfolioBalance-inline",
+      "route": null,
+      "width": 720,
+      "height": 895,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "unmatched-region-no-fabricated-value",
+      "file": "ux-review/evidence/ignite/unmatched-region-no-fabricated-value.png",
+      "sha256": "b0517f6a6939e99c3ef41f4bcbb618b1f141f4b76caf2085dc1f01fee942b8d7",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 909,
+      "layout": "spend-command-command",
+      "route": "spend-command/performance",
+      "width": 1400,
+      "height": 771,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    },
+    {
+      "name": "unsupported-value-period",
+      "file": "ux-review/evidence/ignite/unsupported-value-period.png",
+      "sha256": "cdc237d7d510b2c7ffd0c2fcefd3b43c5ac99c0b7e18c0c5ce169f642abf9732",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "contextBytes": 3399,
+      "layout": "spend-command-command",
+      "route": "spend-command/performance",
+      "width": 1400,
+      "height": 2300,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "reducedMotion": true
+    },
+    {
+      "name": "missing-value-evidence",
+      "file": "ux-review/evidence/ignite/missing-value-evidence.png",
+      "sha256": "2efb8a15ea4d735583232cfeef5402cc2adcaf907a4501b813be134d10d618b9",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "contextBytes": 950,
+      "layout": "ExploreSpendPerformance-inline",
+      "route": null,
+      "width": 720,
+      "height": 782,
+      "overflow": false,
+      "clippedControls": 0,
+      "unlabeledControls": 0,
+      "brokenImages": 0,
+      "chartsLabeled": true,
+      "visibleCharts": [],
+      "reducedMotion": true
+    }
+  ],
+  "externalGate": "Actual model routing, host bridge acknowledgement/sizing, CSP, native zoom, forced colors and screen-reader behavior require the authenticated Ignite tenant."
+}

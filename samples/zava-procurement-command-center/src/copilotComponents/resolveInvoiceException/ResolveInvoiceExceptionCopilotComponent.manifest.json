@@ -16,7 +16,7 @@
     {
       "name": "ResolveInvoiceExceptionTool",
       "description": {
-        "default": "Use when the user asks: Why does this invoice not match? Outcome: An exact three-way reconciliation and reviewed disposition. Boundary: Not generic approval."
+        "default": "Use when reconciling an invoice against its purchase order and accepted receipt and reviewing a held exception. Do not use for purchase approval, leakage acceptance or payment release."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/resolveInvoiceException/ResolveInvoiceExceptionCopilotComponentProperties.js:default;"

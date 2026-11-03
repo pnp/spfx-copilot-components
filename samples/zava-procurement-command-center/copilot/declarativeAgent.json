@@ -10,6 +10,14 @@
       "text": "Find the fastest compliant path for 600 rugged devices within EUR 1.2 million."
     },
     {
+      "title": "Choose a buying route",
+      "text": "Compare contract, reuse and sourcing options for request ZPC-REQ-1001 against the delivery deadline."
+    },
+    {
+      "title": "Review a business case",
+      "text": "Review the budget and business need for purchase request ZPC-REQ-1001."
+    },
+    {
       "title": "Compare supplier bids",
       "text": "Compare the final rugged-device bids and show how risk changes the award."
     },
@@ -22,8 +30,24 @@
       "text": "Review the proposed split award for sourcing event ZPC-RFP-31."
     },
     {
+      "title": "Understand a supplier",
+      "text": "Connect Fabrikam Devices performance, contract obligations and accountable owners."
+    },
+    {
+      "title": "Balance supply resilience",
+      "text": "Compare a 60 percent primary supplier limit with a regional continuity buffer for EMEA device supply."
+    },
+    {
       "title": "Spend leakage",
       "text": "Show the largest addressable spend leakage this quarter."
+    },
+    {
+      "title": "Reconcile a held invoice",
+      "text": "Explain the unmatched freight on invoice ZPC-8831 and the evidence needed to resolve it."
+    },
+    {
+      "title": "Prove procurement value",
+      "text": "Show where our global procurement investments stand and which value is verified rather than still unproven."
     },
     {
       "title": "Explore capabilities",

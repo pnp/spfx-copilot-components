@@ -16,7 +16,7 @@
     {
       "name": "AggregateDemandTool",
       "description": {
-        "default": "Use when the user asks: Which needs should move together? Outcome: A reviewable demand cohort and timing scenario. Boundary: Not event creation."
+        "default": "Use when consolidating compatible source requests by category, region and currency. Do not use to create a sourcing event or evaluate supplier bids."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/aggregateDemand/AggregateDemandCopilotComponentProperties.js:default;"
