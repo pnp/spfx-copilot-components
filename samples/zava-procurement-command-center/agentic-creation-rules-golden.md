@@ -219,6 +219,18 @@ approved sample values, but keep the actions and gates.
   inline tools, add the catalog-driven Agent Capability Explorer pattern (§6.4) and reserve the final
   conversation starter for “What can this agent do?”. Do not expect three generic starters to explain
   a complex business agent.
+  Agents support **up to 12 conversation starters**; do not treat three or six as a platform ceiling.
+  Where 11 distinct, valuable first-run operational jobs exist, use 11 direct starters and make the
+  capability explorer the **12th**. Smaller domains may use fewer; keep discovery last when included
+  and never invent duplicate or low-value tasks just to fill the limit. Starter capacity does not limit
+  the independently routed component catalog.
+  Put the strongest domain-relevant operational experiences before the explorer: meaningful value
+  flows, geographic analysis, guided submission and independent review are good candidates when the
+  domain supports them. Do not impose a chart-type quota or route every starter to one generic dashboard.
+  Maintain one canonical ordered starter configuration with each prompt's exact owning tool; generate
+  the agent metadata and routing documentation from it. Test distinct targets, advertised properties,
+  nearest-sibling collisions, source/packaged ordering and explorer-last ownership. Opening a review
+  starter must never submit a record, grant reviewer authority or confirm a decision.
 
 **Required reusable automation assets:**
 
@@ -466,7 +478,9 @@ phased implementation. If only planning is requested, stop before dependency or 
   depend on transport envelopes. Publish a concise, complete semantic snapshot with
   `updateModelContextAsync`; start a conversation turn only from an explicit user action with
   `sendFollowUpMessageAsync`; use dedicated APIs for display mode, size, links, tools, and resources.
-  Every inline and full-screen experience demonstrates this contract (§7.1).
+  Every inline and full-screen experience demonstrates this contract (§7.1). Capture context at the
+  user's click and publish it successfully before its message as one serialized operation; never send
+  a context-free continuation after publication fails.
 - **G26 - Premium visual foundation before breadth.** “Premium” is an executable early gate, not a
   Phase 6 repaint. Before implementing sibling intent bodies, the representative inline/full-screen
   slice must visibly establish the approved brand through purposeful multi-stop gradients, clear type
@@ -477,6 +491,14 @@ phased implementation. If only planning is requested, stop before dependency or 
   generic white panels, interchangeable KPI/card grids, default-looking controls, tiny decorative icons,
   initials-only people lists when portraits are available, and “AI dashboard” composition that could be
   relabeled for another product.
+  Each component must also earn its own business question, scoped records, visual grammar and useful
+  interaction. Recoloring the same chart, repeating identical sample values, or substituting generic
+  source counts for domain insight does not create another valuable component.
+  Present the business process directly. Starter titles, headings, breadcrumbs, continuations,
+  discussion actions, generated user messages, review controls and receipts must not frame the work
+  as a "sample", "example", "demo", "imaginary" or "fictional" process. Use business verbs, actual
+  entity/request IDs and meaningful stage names. Keep necessary offline/session, provenance and
+  authorization boundaries concise and factual, not repeated qualifiers on every operation.
 - **G27 - Share mechanics, never workspace purpose.** A shared shell may own navigation, responsive
   constraints, theme, focus, bridge callbacks, panels, and chart primitives. It MUST NOT own one universal
   dashboard composition rendered under different workspace labels. Every primary workspace has a unique
@@ -775,6 +797,14 @@ interface IIntentDefinition<TProperties> {
 - Enter dashboards without opening a detail/review/action panel automatically. An explicit Review or
   action launcher opens one bounded panel; preserve the dashboard behind it and restore launcher focus
   on close.
+- Separate workspace landing from selected work. Expanding a component opens its mapped workspace
+  with the exact contextual task visible; clicking a primary workspace menu opens that workspace's
+  own useful starting point, not the original task appended beneath an unrelated dashboard. A list,
+  queue or map offers explicit item selection; Back restores it and an explicit Resume may restore a
+  mounted draft. Show entity, scenario and decision context naturally, without requiring an origin banner.
+- Retained hidden tasks must not publish as the currently visible workspace or overwrite its model
+  context. Preserve drafts across passive rerenders, themes, expansion and explicit resume; changed
+  invocation arguments create a fresh scoped task. Never copy a proposal or consent into an approval.
 - A deep-linked inline intent becomes the highlighted focused module inside the broader dashboard.
   The user sees both the exact answer they expanded and the surrounding workspace context.
 - Workspace landing is only the shell foundation, not proof of exact route continuation. Until the
@@ -983,6 +1013,17 @@ This is not technical API documentation and not a static help page.
 
 **Conversation starter contract:**
 
+- Write titles and prompts as natural business requests: ask about pipeline priorities, country
+  spending, review progress or the next decision, rather than asking to display an "imaginary",
+  "fictional", "demo" or "sample" visualization. Keep chart-engine names and implementation jargon
+  out of keynote starter copy; the advertised tool mapping owns the visual choice.
+  This is presentation wording, not permission to misrepresent the data: retain truthful source,
+  proposal/simulation and execution boundaries in the component and agent context, and never claim
+  live production data, integrations or approvals that do not exist.
+- The maximum is **12 conversation starters per agent**, not six. Choose distinct high-value
+  operational components, not several phrasings for the same generic view. A large showcase may use
+  **11 operational starters + 1 capability-explorer starter**; use fewer when the domain has fewer
+  strong first-run scenarios.
 - Reserve the **last conversation starter** for the explorer. Recommended copy:
 
   ```json
@@ -992,8 +1033,10 @@ This is not technical API documentation and not a static help page.
   }
   ```
 
-  If the agent intentionally exposes exactly three starters, this is the **third** starter. Retain two
-  high-value direct tasks and let the explorer cover the remaining breadth.
+  With 12 starters, operational components own positions 1-11 and the explorer owns position 12.
+  With fewer starters, the explorer still owns the final position. Validate the actual ordered
+  configuration and packaged metadata rather than hard-coding the explorer to index 5 or assuming
+  the first five are the only operational starters.
 
   An existing approved curated showcase can retain operational-only starters or its existing
   full-screen discovery path. Document the exception and replacement help/navigation in `todo.md`,
@@ -1099,20 +1142,48 @@ metadata, routes, and preview adapters rather than copying Zava-specific UI/data
 
 ### 7.1 MCP Apps host communication contract
 
-SPFx Copilot Components implement the MCP Apps model, but application code uses the public RC0
+SPFx Copilot Components implement the MCP Apps model, but application code uses the target SDK's public
 `BaseCopilotComponent` and `context.copilotBridge` APIs. The framework owns the `postMessage` transport,
 JSON-RPC handshake, tool-input delivery, host-context updates, and teardown. Never implement a second
 transport or send raw protocol messages.
 
-| Need | SPFx RC0 API | Rule |
+| Need | Public SPFx API | Rule |
 | --- | --- | --- |
 | Tell Copilot what the UI currently shows | `copilotBridge.updateModelContextAsync(...)` | Publish one complete semantic snapshot; the latest call replaces the previous context and does not start a chat turn. |
 | Ask Copilot to continue the conversation | `copilotBridge.sendFollowUpMessageAsync(...)` | User-initiated only; build content with `createCopilotTextContent` and handle host rejection. |
 | Expand the current experience | `requestDisplayModeAsync('fullscreen')` | Offer only when full screen is declared/available; wait for `hostContext.displayMode` instead of changing mode locally. |
-| Resize inline content | automatic host sizing; `requestSizeChangeAsync(width, height)` when needed | Prefer the framework observer. If list/detail, workflow, filter, or responsive changes are not reflected reliably, observe the rendered inline root, clamp to `hostContext.containerDimensions`, batch per animation frame, deduplicate equal sizes, skip full screen, and disconnect on teardown. |
+| Report rendered content size | automatic host sizing; `requestSizeChangeAsync(width, height)` when needed | Verify actual host growth and shrinkage after committed redraws. Where explicit reporting is needed, measure the intrinsic content root after layout, coalesce work per owner-window animation frame, and cover internal state plus delayed layout changes. Do not retain stale iframe heights, suppress a required same-size redraw notification, or skip a supported display mode without a verified host contract. Clean up observers and pending work on teardown/disposal. |
 | Open an external destination | `copilotBridge.openLinkAsync(...)` | User-initiated, valid HTTPS URL, and handle `isError`. Internal routes stay inside React state. |
 | Execute or refresh server work | `copilotBridge.callServerToolAsync(...)` | Use for an actual MCP server operation, not for local UI transitions; inspect `isError`. |
 | Read server resources | `copilotBridge.readServerResourceAsync(...)` | Use for declared server resources; keep large payloads out of model context. |
+
+**Committed redraw and size reporting:**
+
+- `root.render(...)` is not proof that React has committed. Schedule measurement after layout in the
+  component's **owner document/window** and measure the actual rendered app surface using rounded-up
+  bounds and meaningful content overflow. Never measure the iframe/document viewport, a retained host
+  height, or a theme/provider wrapper with `min-height: 100%`: those can prevent a shorter view shrinking.
+- Cover first paint, host redraws, child-only React state changes, list/detail/Back, pagination,
+  filters, forms, review/receipt/success/error feedback, themes, display-mode changes and async
+  font/image/chart layout. A commit hook or scoped `MutationObserver` plus a content-root
+  `ResizeObserver` can share one scheduler; observing only the component class's `render()` misses
+  internal redraws. Keep DOM redraw reporting functional when `ResizeObserver` is unavailable.
+- Coalesce bursts into one pending `requestAnimationFrame`; read the latest committed dimensions in
+  that callback. A new committed redraw still reports its current size even when dimensions equal
+  the previous request. Semantic model-context deduplication is separate from size notification.
+  Avoid observer/host feedback loops and unbounded queues; do not generate model context or chat merely
+  because a size notification occurred.
+- Report the current supported surface in inline and full screen according to the host's actual
+  mode contract. Honor genuine host bounds with responsive layout or staging, not stale
+  `containerDimensions.height` as an intrinsic content height, arbitrary clipping or a fake
+  success-shaped size. Do not reject valid shrinking content because the iframe still has its old height.
+- Reattach observers if the actual content root changes. Disconnect observers, cancel pending frames
+  and guard stale callbacks on teardown **and disposal** before unmounting. Use SDK failure reporting;
+  handle a false/rejected result explicitly and allow a later redraw or user retry rather than silent
+  catches or marking an unsuccessful request as accepted.
+- Test grow -> shrink -> grow, same-size redraws, internal-only updates, rapid-update coalescing,
+  responsive/mode changes, delayed resources, missing observers and teardown/disposal. Verify real
+  `ui/notifications/size-changed` dimensions in the authenticated host, not only a root screenshot.
 
 **Model-context snapshots:**
 
@@ -1134,10 +1205,19 @@ transport or send raw protocol messages.
   total count, page, active filters, and selected preview. Charts publish the filter/selection values
   that materially determine the marks, paths, coordinates, hierarchy, or exact-value table.
 - Prefer `structuredContent` for stable IDs/state and a short `content` summary for model grounding.
-  Include only what the user can currently see or has explicitly selected. Do not send hidden records,
-  secrets, access tokens, raw telemetry, or unconfirmed sensitive/free-text draft values. For a form,
-  publish field presence and validation state during Draft; publish reviewed values only after the user
-  enters Review.
+  Include only what the user can currently see or has explicitly selected. Do not send unrelated hidden
+  records, secrets, access tokens or raw telemetry. For sensitive/free-text fields, publish presence and
+  validation during Draft, not their contents; include reviewed values only after the user enters Review
+  and the applicable consent/data policy permits them.
+- For permitted nonsensitive draft/scenario discussion, carry the actual edited values, calculations,
+  validation and confirmation state needed to answer the chosen question; mark them as proposals, not
+  approvals. Sensitive values still require the review/consent policy above. Separate selected detail
+  from sampled visible records and exclude unrelated mounted-but-hidden tasks.
+- Limit the complete serialized `content` plus `structuredContent` payload to **10,000 UTF-8 bytes**,
+  measured with UTF-8 encoding, not JavaScript string length or only the summary. Keep essential scope,
+  selection, discussion topic and next-tool properties intact. Bound arrays, text and nesting safely;
+  report omitted paths/counts and original result totals. Omitted evidence stays unknown. If essential
+  context cannot fit, surface a narrowing/retry action and do not send the associated message.
 - `updateModelContextAsync` is context, not persistence or a notification. Keep local state local and
   confirmed mock receipts in the session store. Catch bridge failures, keep the UI usable, and expose a
   non-blocking retry/status only when communication is necessary to the current action.
@@ -1150,6 +1230,34 @@ transport or send raw protocol messages.
   within the two-action guideline, for example `Ask Copilot about this risk`. Full screen may offer a
   contextual command such as `Draft a status update` or `Summarize this decision`; the button label and
   accessible description make the exact outgoing intent clear.
+- Make the primary **Continue with Copilot: [next business step]** specific to the visible job and
+  workflow stage. A compact **More discussions** menu holds distinct explain/compare/challenge questions
+  and optional scoped component launches. Do not repeat the same generic continuation across siblings.
+  A discussion-only question stays conversational; it must not open another card just to repeat the
+  current view. An explicit next-component action requests exactly one advertised tool and schema.
+- Apply business-first wording to the entire continuation contract: label, accessible name, outgoing
+  user-message text, selected-scope summary, direct full-screen next step and target view. Use
+  `Review request [ID]`, `Submit deal request`, `Approve review stage` and the domain's own action names,
+  not sample/example launchers. App-owned metadata should describe scope and workflow boundaries,
+  not artificial "example-only" destinations. Do not blindly rename repository paths, SDK/schema
+  fields, source fixture classifications or technical documentation where those words are necessary.
+- Publish captured click-time context and its follow-up in an atomic serialized queue so passive
+  updates cannot interleave between them. The snapshot includes the selected IDs, filters, visible
+  source/provenance, allowed edited values, calculations, review/receipt state, discussion topic and
+  requested next-tool properties. Publication failure prevents the message; rejection remains visible
+  and retryable without losing the user's draft.
+- Preserve exact entity/request IDs and validated scenario inputs across handoffs. Unknown, empty,
+  conflicting or filtered IDs remain no-match, never a default hero record. Carry monetary inputs
+  without silently dropping unsupported ramp/term/quantity semantics. A real submission receipt is
+  required before opening its approval. If another existing request is the next business step, show
+  its exact ID before navigation and use that request's own values, evidence and decision trail.
+  Never transfer aggregate chart volume or a prior record's approval into it. If no target is known,
+  open an appropriate selection view rather than silently substituting an unrelated record.
+  Direct full-screen **Continue to [step]** navigation is distinct from a Copilot chat handoff, even
+  when both reuse the same validated next-step contract.
+- A capability-card **Open [scenario] in Copilot** action launches the card actually clicked, with
+  its current supported scope; it must not use a previous preview selection. Preview/Inspect alone,
+  mount, mode changes, typing, filtering and selection never launch another component automatically.
 - Disable the initiating control while awaiting acknowledgement, catch transport errors, inspect
   `result.isError`, and show local success/error feedback. Do not claim the host accepted a message
   merely because the promise resolved.
@@ -1443,6 +1551,16 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 
 ## 14. Layout & responsiveness
 
+- **Bounded conversational stages:** agree a complete-card height budget before implementation and
+  measure the root including header, provenance, action footer and feedback. A useful starting
+  acceptance target is **650px at 760px width / 800px at 390px width**, unless the approved brief sets
+  another host-appropriate target. Reject hidden clipping, nested vertical scroll walls, unreadably
+  scaled text and success/error messages that push a previously valid card over budget.
+- **Stage complex work instead of shrinking it:** show one main visual, list, form or review stage
+  at a time; use overview -> records -> detail, impact -> editable fields -> exact review -> receipt,
+  or a similarly purposeful flow. Paginate records and long exact review values without losing scope
+  or draft state. Require the relevant review pages and unchecked explicit consent before confirmation.
+  Keep one clear primary continuation and a compact alternative-discussion menu.
 - **Fluid width:** root fills `100%` of the host iframe; `boxSizing: 'border-box'`, `minWidth: 0`; no
   fixed pixel width. Treat ~320px as the narrow end.
 - **Route-specific composition:** choose stable grid tracks, aspect ratios, and min/max constraints for
@@ -1892,8 +2010,11 @@ samples/<name>/
 - [ ] Each inline component answers one conversational question with one dominant visual/list/form;
   independently useful trend/map/driver or other chart questions are separate final-named generated
   components, while coordinated multi-chart analysis lives in full screen.
-- [ ] Inline size changes are verified in the tenant host. Where automatic sizing is insufficient,
-  `requestSizeChangeAsync(width, height)` is bounded, batched, deduplicated, inline-only, and cleaned up.
+- [ ] Committed redraws report actual content-root size in the supported host modes; internal state,
+  async layout, equal-size redraws and grow/shrink are covered. Requests are coalesced per owner-window
+  frame, do not retain iframe height or loop, and are cancelled/disconnected on teardown and disposal.
+- [ ] Complete inline-stage budgets include header/actions and all feedback; pages, keyboard/pointer
+  drill-down, exact-value review, no-match and receipt states pass without clipping or scroll walls.
 - [ ] Every primary workspace has a useful default dashboard; navigation orientation is justified by
   workspace count/labels/workflow and uses the available mobile, desktop, and projector canvas.
 - [ ] Workspace purpose matrix covers persona, competitor/category benchmark, data grain, decision
@@ -1906,6 +2027,22 @@ samples/<name>/
 - [ ] Every inline/full-screen journey publishes a bounded, deduplicated semantic snapshot with
   `updateModelContextAsync`; each sample demonstrates an explicit user-triggered follow-up; bridge
   rejection/error paths and no-automatic-message behavior are tested.
+- [ ] Context-first discussion and explicit next-component handoffs are distinct; click-time context
+  and message are serialized, the full UTF-8 payload is <=10,000 bytes, omissions are disclosed,
+  exact IDs/scenario inputs survive, and publication failure prevents the message.
+- [ ] Audit complete business journeys, not just starters: action text, accessible labels, outgoing
+  prompts, context summaries, review/receipt states and screenshots avoid sample/example/demo framing
+  and chart-engine jargon. Exact target IDs, workflow boundaries, review consent, independent authority,
+  error recovery and factual offline/session limitations remain intact. Regression checks cover both
+  inline and full-screen continuations, including successful confirmation and returned/rejected work.
+- [ ] Purposeful workspace landings are distinct from selected work; hidden retained tasks cannot
+  overwrite visible context. Expand, explicit selection/Resume, fresh invocation and menu navigation
+  have tested, different state-preservation contracts.
+- [ ] Ordered starters promote distinct high-value operational UX, keep the capability explorer last,
+  and match canonical prompts, advertised tool targets, generated metadata and packaged agent content.
+  There are at most 12 starters; when the showcase uses all 12, the first 11 target different
+  operational components and the 12th targets the explorer. Count, uniqueness and final-position
+  checks use the intended configuration rather than obsolete six-starter assumptions.
 - [ ] Every component publishes one purpose-specific activation snapshot naming the actual visible UX
   and data; list/detail, paging, filter, chart selection, workflow, receipt, and Back transitions publish
   updated visible state without hidden/sensitive payloads.
