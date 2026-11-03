@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "5b52cec8-7360-4180-8a16-a74448760928",
+  "alias": "WeeklyPulseQuizCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "show_weekly_quiz",
+      "description": {
+        "default": "Shows this week's Weekly Pulse question from SharePoint so the person can answer it and get instant, private feedback. Call this tool immediately whenever the person asks about the weekly quiz, the weekly pulse, or this week's question. Takes no required arguments."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/weeklyPulseQuiz/WeeklyPulseQuizCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
