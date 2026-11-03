@@ -142,3 +142,11 @@ See the repository's [support guidance](../../SUPPORT.md) and [contribution guid
 ## Disclaimer
 
 This sample is provided as-is. Review the repository [license](../../LICENSE), provider terms, and release gates before using or distributing it.
+
+<!-- Separate PnP template callouts. -->
+
+> Share your solution with others through the Microsoft 365 Patterns and Practices program to get visibility and exposure. Learn more from the [Microsoft 365 & Power Platform Community](https://aka.ms/community/home).
+
+_Part of the **Copilot UX components** sample gallery - complex UX in the Copilot canvas, powered by SPFx. See [aka.ms/spfx](https://aka.ms/spfx)._
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/copilot-recipe-finder" />
