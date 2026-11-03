@@ -16,7 +16,7 @@
     {
       "name": "ReviewPurchaseRequestTool",
       "description": {
-        "default": "Use when the user asks: Does the need justify budget and downstream commitment? Outcome: An authority-aware demand decision. Boundary: Not route selection."
+        "default": "Use when a budget owner must review an existing purchase request, its source need, budget and rationale. Do not use for a new intake, buying-route analysis or supplier award."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewPurchaseRequest/ReviewPurchaseRequestCopilotComponentProperties.js:default;"

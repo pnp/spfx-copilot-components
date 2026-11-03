@@ -5,6 +5,8 @@ import ProcurementApp, { type IModelContextSnapshot } from './ProcurementApp';
 import ProcurementThemeProvider from './ProcurementThemeProvider';
 import { getIntent, INTENTS, type IProcurementProperties, type ProcurementIntentKey } from './catalog';
 import { getPurchaseDecision, getPurchaseQueue, getReceipts, resetProcurementSession } from './operations';
+import { getFullscreenDestination } from './fullscreen';
+import type { SendProcurementFollowUp } from './CopilotContinuation';
 
 const anchors: Record<ProcurementIntentKey, string> = {
   CreatePurchaseIntent: 'Business outcome', CompareBuyingOptions: 'Fulfillment alternatives',
@@ -23,8 +25,8 @@ const anchors: Record<ProcurementIntentKey, string> = {
 describe('intent-specific procurement experiences', () => {
   let container: HTMLDivElement;
   let root: Root;
-  const render = (intent: ProcurementIntentKey, properties: IProcurementProperties = {}, mode = 'inline', theme = 'light', publish?: (snapshot: IModelContextSnapshot) => Promise<void>): void => {
-    act(() => root.render(<ProcurementThemeProvider theme={theme} targetDocument={document}><ProcurementApp definition={getIntent(intent)} properties={properties} currentUserName="Megan Bowen" displayMode={mode} onUpdateModelContext={publish} /></ProcurementThemeProvider>));
+  const render = (intent: ProcurementIntentKey, properties: IProcurementProperties = {}, mode = 'inline', theme = 'light', publish?: (snapshot: IModelContextSnapshot) => Promise<void>, send?: SendProcurementFollowUp, expand?: () => Promise<void>): void => {
+    act(() => root.render(<ProcurementThemeProvider theme={theme} targetDocument={document}><ProcurementApp definition={getIntent(intent)} properties={properties} currentUserName="Megan Bowen" displayMode={mode} onUpdateModelContext={publish} onSendFollowUp={send} onRequestFullscreen={expand} /></ProcurementThemeProvider>));
   };
   const button = (text: string): HTMLButtonElement => {
     const found = Array.from(container.querySelectorAll('button')).find(element => element.textContent?.trim() === text);
@@ -140,6 +142,7 @@ describe('intent-specific procurement experiences', () => {
   test('protects an edited draft when a workspace action opens another task', () => {
     render('CreatePurchaseIntent', {}, 'fullscreen');
     change('Quantity', '740');
+    click('Back to My Requests');
     click('Review ZPC-REQ-1001');
     expect(document.body.textContent).toContain('Discard unconfirmed draft?');
     const dialogButton = (label: string): HTMLButtonElement => {
@@ -261,6 +264,7 @@ describe('intent-specific procurement experiences', () => {
     click('Confirm session-only create purchase intent');
     const id = getPurchaseQueue()[0].id;
     expect(container.textContent).toContain(id);
+    click('Back to My Requests');
     click(`Review ${id}`);
     expect(container.textContent).toContain('$230,000');
     expect(container.textContent).toContain('Local support required');
@@ -269,6 +273,7 @@ describe('intent-specific procurement experiences', () => {
     expect(container.querySelector('[data-workflow-stage="review"]')?.textContent).toContain('Equip the Austin service team');
     click('Confirm session-only approve request');
     expect(getPurchaseDecision(id)?.result).toBe('approved');
+    click('Back to My Requests');
     change('Request status', 'Approved');
     expect(container.querySelector('[aria-label="My Requests dashboard"]')?.textContent).toContain(id);
     expect(getReceipts()).toHaveLength(2);
@@ -320,5 +325,216 @@ describe('intent-specific procurement experiences', () => {
     render('ExploreSpendPerformance', { region: 'Mars' }, 'fullscreen');
     expect(container.textContent).toContain('No investment region matches Mars');
     expect(container.querySelector('[data-chart="global-investment-map"]')).toBeNull();
+  });
+  test.each(INTENTS.map(intent => intent.key))('%s publishes an activation snapshot and exposes deliberate continuation without sending automatically', intent => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    const send = jest.fn<Promise<boolean>, [string, IModelContextSnapshot]>(() => Promise.resolve(true));
+    render(intent, {}, 'inline', 'light', publish, send);
+    expect(publish).toHaveBeenCalled();
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ intent, route: getIntent(intent).route, displayMode: 'inline' });
+    expect(snapshot.visuals?.length).toBeGreaterThan(0);
+    expect(snapshot.availableActions?.length).toBeGreaterThanOrEqual(3);
+    expect(container.querySelectorAll('[data-copilot-continuation]')).toHaveLength(1);
+    expect(send).not.toHaveBeenCalled();
+  });
+  test.each(INTENTS.map(intent => intent.key))('%s expands to its specific full-screen destination with business context, not origin UI', async intent => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    const expand = jest.fn<Promise<void>, []>(() => Promise.resolve());
+    render(intent, {}, 'inline', 'light', publish, undefined, expand);
+    const destination = getFullscreenDestination(intent);
+    await act(async () => { button(`Open ${destination.title.toLowerCase()}`).click(); });
+    expect(expand).toHaveBeenCalledTimes(1);
+    render(intent, {}, 'fullscreen', 'dark', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.route).toBe(destination.route);
+    expect(container.querySelector('[data-procurement-content]')?.getAttribute('data-fullscreen-route')).toBe(destination.route);
+    expect(container.querySelector('h1')?.textContent).toBe(destination.title);
+    expect(container.textContent).not.toContain('came from');
+    expect(container.textContent).not.toContain('Focused Copilot task');
+    if (destination.view === 'task') {
+      expect(container.querySelector(`[aria-label="${destination.title} context"]`)?.textContent).toContain(destination.boundary);
+      expect(snapshot.fullScreenView).toBe(destination.title);
+    }
+  });
+  test('captures changed bid evidence at click time, suppresses duplicate sends and preserves later edits', async () => {
+    let acknowledge: ((accepted: boolean) => void) | undefined;
+    const send = jest.fn<Promise<boolean>, [string, IModelContextSnapshot]>(() => new Promise(resolve => { acknowledge = resolve; }));
+    render('CompareSupplierBids', { eventId: 'ZPC-RFP-31' }, 'inline', 'light', undefined, send);
+    change('Risk weight', '35');
+    const continuation = button('Continue with Copilot: Review supplier award');
+    act(() => { continuation.click(); continuation.click(); });
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send.mock.calls[0][1]).toMatchObject({
+      scope: { eventId: 'ZPC-RFP-31', riskWeight: 35 }, weights: { risk: 35, price: 13 },
+      discussion: { responseMode: 'component', handoff: { tool: 'ReviewSupplierAwardTool', properties: { eventId: 'ZPC-RFP-31' } } }
+    });
+    expect(continuation.disabled).toBe(true);
+    change('Risk weight', '40');
+    await act(async () => { if (!acknowledge) throw new Error('Missing acknowledgement.'); acknowledge(true); });
+    expect(field('Risk weight').value).toBe('40');
+    expect(send.mock.calls[0][1].scope?.riskWeight).toBe(35);
+  });
+  test('keeps full-screen summaries text-only and excludes a mounted hidden draft', async () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    const send = jest.fn<Promise<boolean>, [string, IModelContextSnapshot]>(() => Promise.resolve(true));
+    render('CreatePurchaseIntent', { outcome: 'Private draft text not yet reviewed' }, 'fullscreen', 'light', publish, send);
+    change('Quantity', '740');
+    click('Spend Command');
+    click('APAC');
+    await act(async () => { button('Continue with Copilot: Summary & next steps').click(); });
+    const captured = send.mock.calls[0][1];
+    expect(captured).toMatchObject({ intent: 'ExploreSpendPerformance', selectedId: 'APAC', filters: { region: 'APAC' }, discussion: { responseMode: 'text' } });
+    expect(captured.discussion?.handoff).toBeUndefined();
+    expect(JSON.stringify(captured)).not.toContain('Private draft text');
+    expect(captured.focusedTask).toBeUndefined();
+    expect(captured.workflow).toBeUndefined();
+    click('My Requests');
+    click('Open business case studio');
+    expect(field('Quantity').value).toBe('740');
+  });
+  test('shows rejected and thrown follow-up errors, permits retry and never records an action', async () => {
+    const send = jest.fn<Promise<boolean>, [string, IModelContextSnapshot]>().mockResolvedValueOnce(false).mockRejectedValueOnce(new Error('Bridge offline')).mockResolvedValue(true);
+    render('TrackSupplierRisk', {}, 'inline', 'light', undefined, send);
+    const continuation = (): HTMLButtonElement => button('Continue with Copilot: Plan risk mitigation');
+    await act(async () => { continuation().click(); });
+    expect(container.textContent).toContain('did not accept');
+    await act(async () => { continuation().click(); });
+    expect(container.textContent).toContain('Bridge offline');
+    await act(async () => { continuation().click(); });
+    expect(container.textContent).toContain('Message accepted');
+    expect(getReceipts()).toHaveLength(0);
+  });
+  test('launches the capability actually clicked with its own context and registered tool', async () => {
+    const send = jest.fn<Promise<boolean>, [string, IModelContextSnapshot]>(() => Promise.resolve(true));
+    render('ExploreAgentCapabilities', { query: 'invoice' }, 'inline', 'light', undefined, send);
+    await act(async () => { button('Open resolve invoice exception in Copilot').click(); });
+    expect(send.mock.calls[0][1]).toMatchObject({ selectedId: 'ResolveInvoiceException', discussion: { handoff: { tool: 'ResolveInvoiceExceptionTool', properties: {} } } });
+  });
+  test('publishes the selected Sankey evidence and materially changed map measure', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('ExploreSpendPerformance', {}, 'inline', 'light', publish);
+    const ribbon = container.querySelector<SVGElement>('[aria-label="Off-contract device spend to Contracted / unverified: €17,000"]');
+    expect(ribbon).not.toBeNull();
+    act(() => { ribbon?.dispatchEvent(new MouseEvent('click', { bubbles: true })); });
+    let snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ selectedId: 'ZPC-LEAK-01:contracted', selectedEvidence: { value: 17000, opportunityId: 'ZPC-LEAK-01' } });
+    render('ExploreSpendPerformance', {}, 'fullscreen', 'light', publish);
+    const before = container.querySelector('[data-chart="global-investment-map"]')?.innerHTML;
+    click('Committed footprint');
+    expect(container.querySelector('[data-chart="global-investment-map"]')?.innerHTML).not.toBe(before);
+    snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.filters?.mapMetric).toBe('committed');
+    expect(snapshot.mapValues).toEqual(expect.arrayContaining([expect.objectContaining({ id: 'ZPC-INV-01', value: 0 })]));
+  });
+  test('publishes actual award arithmetic in Draft without publishing the unreviewed rationale', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('ReviewSupplierAward', { splitPercent: 60, conditionText: 'Private draft rationale awaiting review' }, 'inline', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.proposedCalculations).toMatchObject({ primaryShare: 60, secondaryShare: 40, awardCostEUR: 1059600, primaryAuthorityLimit: 70 });
+    expect(JSON.stringify(snapshot)).not.toContain('Private draft rationale');
+  });
+  test('shows passive context failure with retry while leaving the business draft usable', async () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>().mockRejectedValueOnce(new Error('Context unavailable')).mockResolvedValue(undefined);
+    await act(async () => { render('CreatePurchaseIntent', {}, 'inline', 'light', publish); });
+    expect(container.textContent).toContain('Context unavailable');
+    expect(field('Quantity').value).toBe('600');
+    await act(async () => { button('Retry sharing this view').click(); });
+    expect(container.textContent).not.toContain('Context unavailable');
+    expect(getReceipts()).toHaveLength(0);
+  });
+  test.each([
+    { intent: 'TrackSupplierRisk' as const, properties: { supplierId: 'UNKNOWN' }, omitted: 'scenarioArithmetic' },
+    { intent: 'ExploreSupplierPortfolioBalance' as const, properties: { concentrationLimit: 99 }, omitted: 'scenarioArithmetic' },
+    { intent: 'ExploreSpendPerformance' as const, properties: { period: 'Unknown quarter' }, omitted: 'flowTotals' },
+    { intent: 'CompareSupplierBids' as const, properties: { riskWeight: 99 }, omitted: 'weights' },
+    { intent: 'CompareBuyingOptions' as const, properties: { requestId: 'UNKNOWN' }, omitted: undefined },
+    { intent: 'CheckPurchasePolicy' as const, properties: { requestId: 'UNKNOWN' }, omitted: undefined }
+  ])('$intent never publishes healthy default arithmetic for invalid or unknown scope', ({ intent, properties, omitted }) => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render(intent, properties, 'inline', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(['no-match', 'input-error']).toContain(snapshot.stage);
+    if (omitted) expect(snapshot[omitted]).toBeUndefined();
+    expect(snapshot.visibleRecords || []).toEqual([]);
+    if (intent === 'CompareBuyingOptions') {
+      expect(snapshot.filters?.budget).toBeUndefined();
+      expect(snapshot.scope?.budget).toBeUndefined();
+    }
+    if (intent === 'CheckPurchasePolicy') {
+      expect(snapshot.summary).not.toContain('0 EUR');
+      expect(snapshot.filters?.amount).toBeUndefined();
+    }
+  });
+  test('an empty demand query does not invent a source cohort or offer event creation', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('AggregateDemand', { region: 'APAC', currency: 'EUR' }, 'inline', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ stage: 'no-match', resultCount: 0 });
+    expect(snapshot.scope?.cohortId).toBeUndefined();
+    expect(container.textContent).toContain('Continue with Copilot: Resolve the evidence gap');
+  });
+  test('a cleared numeric draft reports not evaluated and absent rather than serializing NaN as a valid value', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('CreatePurchaseIntent', {}, 'inline', 'light', publish);
+    change('Quantity', '');
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.proposedCalculations).toMatchObject({ quantity: 'Not evaluated' });
+    expect(snapshot.workflow).toMatchObject({ fields: expect.arrayContaining([{ label: 'Quantity', present: false }]) });
+    expect(button('Review create purchase intent').disabled).toBe(true);
+  });
+  test('an unknown investment region publishes neither hidden map amounts nor zero financial totals', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('ExploreSpendPerformance', { region: 'Mars' }, 'fullscreen', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ stage: 'no-match', selectedId: 'Mars', mapValues: [], visibleRecords: [] });
+    expect(snapshot.flowTotals).toBeUndefined();
+    expect(snapshot.summary).toContain('no investment or value amounts were evaluated');
+    expect(snapshot.summary).not.toContain('EUR 0');
+  });
+  test('an unsupported value period remains visibly selected and can be corrected without losing investment context', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('ExploreSpendPerformance', { period: 'Next quarter' }, 'fullscreen', 'light', publish);
+    expect(field('Portfolio value period').value).toBe('Next quarter');
+    expect(container.textContent).toContain('Next quarter (unsupported)');
+    expect(container.textContent).toContain('Not evaluated');
+    let snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.flowTotals).toBeUndefined();
+    expect(snapshot.summary).toContain('planned EUR 7800000');
+    change('Portfolio value period', 'Current period');
+    snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot.flowTotals).toMatchObject({ verified: 186000 });
+  });
+  test('program actions use linked evidence and location selection is reversible', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('ExploreSpendPerformance', {}, 'fullscreen', 'light', publish);
+    click('Inspect Singapore');
+    expect(publish.mock.calls[publish.mock.calls.length - 1][0].selectedProgram).toMatchObject({ id: 'ZPC-INV-03' });
+    click('Clear location selection');
+    expect(publish.mock.calls[publish.mock.calls.length - 1][0].selectedProgram).toBeUndefined();
+    expect(container.textContent).toContain('Supplier dependency not linked');
+    expect(container.textContent).not.toContain('Inspect corridor risk');
+    click('APAC');
+    expect(Array.from(container.querySelectorAll('button')).some(element => element.textContent === 'Reconcile held invoice ZPC-8831')).toBe(false);
+    expect(publish.mock.calls[publish.mock.calls.length - 1][0].flowTotals).toBeUndefined();
+    expect(container.textContent).toContain('No linked evidence');
+  });
+  test('an unknown supplier selection describes the valid event landscape without claiming it was not evaluated', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('CompareSupplierBids', { supplierId: 'UNKNOWN' }, 'inline', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ stage: 'no-match', selectedId: 'UNKNOWN', resultCount: 4 });
+    expect(snapshot.summary).toContain('four received bids remain visible');
+    expect(snapshot.summary).not.toContain('no bid evidence was evaluated');
+    expect(snapshot.visibleRecords).toHaveLength(4);
+  });
+  test('unsupported continuity scope preserves the visibly selected supplier without inventing a dependency selection', () => {
+    const publish = jest.fn<Promise<void>, [IModelContextSnapshot]>(() => Promise.resolve());
+    render('TrackSupplierRisk', { supplierId: 'ZPC-SUP-001', scenario: 'Unknown scenario' }, 'inline', 'light', publish);
+    const snapshot = publish.mock.calls[publish.mock.calls.length - 1][0];
+    expect(snapshot).toMatchObject({ selectedLabel: 'Fabrikam Devices', stage: 'no-match' });
+    expect(snapshot.filters?.dependency).toBeUndefined();
+    expect(snapshot.visuals).toEqual(['Supplier and continuity-scope validation']);
+    expect(snapshot.scenarioArithmetic).toBeUndefined();
   });
 });

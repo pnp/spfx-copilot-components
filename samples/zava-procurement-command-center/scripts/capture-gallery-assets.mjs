@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createServer } from 'node:http';
+import { visualSourceSignature } from './visual-source-signature.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const site = path.join(root, 'temp', 'ux-review');
@@ -29,7 +30,7 @@ async function capture(name, intent, mode, theme, width, height, interaction) {
   page.on('pageerror', error => errors.push(error.message));
   try {
     await page.goto(`${base}/?${new URLSearchParams({ intent, mode, theme })}`);
-    await page.locator('[data-experience]').first().waitFor();
+    await page.locator('[data-procurement-content]').waitFor();
     if (interaction) await interaction(page);
     await page.evaluate(async () => {
       await document.fonts.ready;
@@ -48,11 +49,13 @@ async function capture(name, intent, mode, theme, width, height, interaction) {
         inputsLabeled: [...document.querySelectorAll('input,select,textarea')].every(input => input.labels?.length || input.getAttribute('aria-label')),
         brokenImages: [...document.images].filter(image => !image.complete || !image.naturalWidth).length,
         charts: document.querySelectorAll('svg[role="img"] title').length,
+        chartsLabeled: [...document.querySelectorAll('svg[role="img"],svg[role="group"]')].every(svg => svg.querySelector('title') && svg.querySelector('desc')),
+        automaticTurns: window.procurementHarness.followUps.length,
         focusable, focus: focusable === 0 || document.activeElement !== document.body
       };
     });
     assert.equal(metrics.experience, intent, `${name}: wrong owning experience`);
-    assert(errors.length === 0 && !metrics.overflow && metrics.buttons && metrics.inputsLabeled && !metrics.brokenImages && metrics.focus, `${name}: ${JSON.stringify({ errors, ...metrics })}`);
+    assert(errors.length === 0 && !metrics.overflow && metrics.buttons && metrics.inputsLabeled && !metrics.brokenImages && metrics.chartsLabeled && metrics.automaticTurns === 0 && metrics.focus, `${name}: ${JSON.stringify({ errors, ...metrics })}`);
     const fileName = `ux-${name}.png`;
     const bytes = await page.locator('[data-layout]').first().screenshot({ path: path.join(assets, fileName), animations: 'disabled' });
     captures.push({ name, fileName, intent, mode, theme, viewport: { width, height }, capturedWidth: bytes.readUInt32BE(16), capturedHeight: bytes.readUInt32BE(20), sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length, errors, ...metrics });
@@ -68,9 +71,11 @@ try {
     ['sourcing-workbench', 'CompareSupplierBids', 'sourcing'], ['supplier-360', 'TrackSupplierRisk', 'supplier-360'],
     ['spend-command', 'ExploreSpendPerformance', 'spend-command'], ['my-requests', 'CreatePurchaseIntent', 'my-requests']
   ]) {
-    await capture(name, intent, 'fullscreen', 'light', 1440, 1000);
-    await capture(`${short}-mobile`, intent, 'fullscreen', 'light', 390, 1100);
-    await capture(`${short}-dark`, intent, 'fullscreen', 'dark', 1440, 1000);
+    const workspace = { sourcing: 'Sourcing Workbench', 'supplier-360': 'Supplier 360', 'spend-command': 'Spend Command', 'my-requests': 'My Requests' }[short];
+    const home = page => page.getByRole('button', { name: workspace, exact: true }).click();
+    await capture(name, intent, 'fullscreen', 'light', 1440, 1000, home);
+    await capture(`${short}-mobile`, intent, 'fullscreen', 'light', 390, 1100, home);
+    await capture(`${short}-dark`, intent, 'fullscreen', 'dark', 1440, 1000, home);
   }
   for (const [intent, action] of [
     ['CreatePurchaseIntent', 'create purchase intent'], ['ReviewSupplierAward', 'approve split award'],
@@ -96,5 +101,5 @@ async function assertStage(page, expected) {
   assert.equal(await page.locator('[data-workflow-stage]').getAttribute('data-workflow-stage'), expected);
 }
 assert.equal(captures.length, 84);
-fs.writeFileSync(path.join(assets, 'gallery-evidence.json'), `${JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), captureCount: captures.length, captures }, null, 2)}\n`);
+fs.writeFileSync(path.join(assets, 'gallery-evidence.json'), `${JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), sourceSha256: visualSourceSignature(), captureCount: captures.length, captures }, null, 2)}\n`);
 console.log('Captured 84 current states: 22 tools at standard/narrow/dark, 4 workspaces at desktop/mobile/dark, and 6 review/receipt states; zero runtime, overflow, label, image or focus failures.');

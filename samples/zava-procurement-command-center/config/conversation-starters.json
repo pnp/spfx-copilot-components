@@ -6,6 +6,16 @@
       "tool": "CreatePurchaseIntentTool"
     },
     {
+      "title": "Choose a buying route",
+      "text": "Compare contract, reuse and sourcing options for request ZPC-REQ-1001 against the delivery deadline.",
+      "tool": "CompareBuyingOptionsTool"
+    },
+    {
+      "title": "Review a business case",
+      "text": "Review the budget and business need for purchase request ZPC-REQ-1001.",
+      "tool": "ReviewPurchaseRequestTool"
+    },
+    {
       "title": "Compare supplier bids",
       "text": "Compare the final rugged-device bids and show how risk changes the award.",
       "tool": "CompareSupplierBidsTool"
@@ -21,9 +31,29 @@
       "tool": "ReviewSupplierAwardTool"
     },
     {
+      "title": "Understand a supplier",
+      "text": "Connect Fabrikam Devices performance, contract obligations and accountable owners.",
+      "tool": "ExploreSupplier360Tool"
+    },
+    {
+      "title": "Balance supply resilience",
+      "text": "Compare a 60 percent primary supplier limit with a regional continuity buffer for EMEA device supply.",
+      "tool": "ExploreSupplierPortfolioBalanceTool"
+    },
+    {
       "title": "Spend leakage",
       "text": "Show the largest addressable spend leakage this quarter.",
       "tool": "DetectSpendLeakageTool"
+    },
+    {
+      "title": "Reconcile a held invoice",
+      "text": "Explain the unmatched freight on invoice ZPC-8831 and the evidence needed to resolve it.",
+      "tool": "ResolveInvoiceExceptionTool"
+    },
+    {
+      "title": "Prove procurement value",
+      "text": "Show where our global procurement investments stand and which value is verified rather than still unproven.",
+      "tool": "ExploreSpendPerformanceTool"
     },
     {
       "title": "Explore capabilities",

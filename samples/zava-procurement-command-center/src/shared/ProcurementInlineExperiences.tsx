@@ -3,25 +3,25 @@ import { Button, makeStyles, mergeClasses, tokens } from '@fluentui/react-compon
 import { getIntent, INTENTS, type IIntentDefinition, type IProcurementProperties, type ProcurementIntentKey } from './catalog';
 import { CATEGORIES, DEFAULT_WEIGHTS, EVENTS, INVOCATION_DATE, money, normalizeScore, POLICY_RULES, REGIONS, splitAward } from './domain';
 import { AwardAllocation, SupplierLandscape } from './ProcurementCharts';
+import { LeakageRanking, PortfolioAllocation, SpendValueFlow, SupplierDependency } from './ProcurementDecisionVisuals';
+import { buildValueFlow, valueEvidence, valueFlowSelection } from './valueFlow';
+import { createCopilotHandoff } from './copilot';
+import { buildDependencyPathway } from './geometry';
+import type { SendProcurementFollowUp } from './CopilotContinuation';
+import type { IProcurementSnapshot } from './modelContext';
 import {
   buyingOptions, contracts, demandCohort, diversification, getReceipts, initialSelection, invoices,
   leakageOpportunities, purchaseOrders, getPurchaseQueue, recordConfirmation, subscribeReceipts, submitPurchaseIntent,
   supplierRecords, validDate, validNumber, type IProcurementReceipt
 } from './operations';
 
-export interface IProcurementSnapshot extends Record<string, unknown> {
-  readonly intent: string;
-  readonly route: string;
-  readonly stage: string;
-  readonly selectedId: string;
-  readonly summary: string;
-}
+export type { IProcurementSnapshot } from './modelContext';
 export interface IProcurementViewProps {
   readonly definition: IIntentDefinition;
   readonly properties: IProcurementProperties;
   readonly preview?: boolean;
   readonly onContext?: (snapshot: IProcurementSnapshot) => void;
-  readonly onSendFollowUp?: (message: string) => Promise<boolean>;
+  readonly onSendFollowUp?: SendProcurementFollowUp;
   readonly actor?: string;
 }
 type Row = readonly [string, React.ReactNode];
@@ -96,21 +96,69 @@ function useDraft<T extends object>(initial: T): [T, React.Dispatch<React.SetSta
   const [draft, setDraft] = React.useState(initial);
   return [draft, setDraft, () => setDraft(baseline.current)];
 }
-function useSnapshot(props: IProcurementViewProps, selectedId: string, summary: string, stage = 'inspect'): void {
+function recordScope(intent: ProcurementIntentKey, id: string): IProcurementProperties {
+  switch (intent) {
+    case 'CreatePurchaseIntent': return id.indexOf('ZPC-REQ-') === 0 ? { requestId: id } : {};
+    case 'CompareBuyingOptions':
+    case 'CheckPurchasePolicy':
+    case 'ReviewPurchaseRequest': return { requestId: id };
+    case 'ReviewSupplierAward': return { eventId: id, ...(id === EVENTS[0].id ? { supplierId: supplierRecords[0].id } : {}) };
+    case 'ExploreSupplier360':
+    case 'TrackSupplierRisk':
+    case 'ReviewSupplierQualification':
+    case 'PlanSupplierRiskMitigation': return { supplierId: id };
+    case 'ReviewContractRenewal':
+    case 'NegotiateContractTerms': return { contractId: id, supplierId: contracts.find(contract => contract.id === id)?.supplierId };
+    case 'ResolveInvoiceException': return { invoiceId: id };
+    case 'DetectSpendLeakage':
+    case 'TrackLeakageRecovery': {
+      const record = leakageOpportunities.find(item => item.id === id);
+      return { opportunityId: id, ...(record ? { category: record.category, region: record.region } : {}) };
+    }
+    case 'ManagePurchaseOrderChange': return { purchaseOrderId: id, requestId: purchaseOrders.find(order => order.id === id)?.requestId };
+    default: return {};
+  }
+}
+function decisionCalculations(intent: ProcurementIntentKey, id: string): Readonly<Record<string, string | number>> | undefined {
+  if (intent === 'ReviewPurchaseRequest') {
+    const request = getPurchaseQueue().find(item => item.id === id);
+    return request ? { requestedQuantity: request.quantity, sourceBudget: request.budget, currency: request.currency } : undefined;
+  }
+  if (intent === 'ReviewContractRenewal') {
+    const contract = contracts.find(item => item.id === id);
+    return contract ? { annualBaselineEUR: contract.annualValue, quotedIncreasePercent: contract.renewalIncrease, annualIncreaseEUR: Math.round(contract.annualValue * contract.renewalIncrease / 100), noticeDays: contract.noticeDays } : undefined;
+  }
+  if (intent === 'ResolveInvoiceException') {
+    const invoice = invoices.find(item => item.id === id);
+    return invoice ? { purchaseOrderEUR: invoice.po, acceptedReceiptEUR: invoice.received, invoicedEUR: invoice.billed, unmatchedEUR: invoice.billed - invoice.received, toleranceEUR: invoice.tolerance } : undefined;
+  }
+  if (intent === 'TrackLeakageRecovery') {
+    const record = leakageOpportunities.find(item => item.id === id);
+    return record ? { identifiedEUR: record.identified, contractedEUR: record.contracted, verifiedEUR: record.realized, disputedExcludedEUR: record.disputed } : undefined;
+  }
+  return undefined;
+}
+function useSnapshot(props: IProcurementViewProps, selectedId: string, summary: string, stage = 'inspect', details: Partial<IProcurementSnapshot> = {}): void {
   const last = React.useRef('');
   const lastCallback = React.useRef(props.onContext);
+  const snapshot: IProcurementSnapshot = {
+    intent: props.definition.key, route: props.definition.route, stage, selectedId, summary,
+    visuals: [`${props.definition.title}: ${stage === 'no-match' ? 'unmatched evidence' : 'purpose-specific evidence'}`],
+    ...details, scope: { ...recordScope(props.definition.key, selectedId), ...details.scope }
+  };
+  const signature = JSON.stringify(snapshot);
   React.useEffect(() => {
-    const signature = JSON.stringify([selectedId, summary, stage]);
     if (signature === last.current && lastCallback.current === props.onContext) return;
     last.current = signature;
     lastCallback.current = props.onContext;
-    props.onContext?.({ intent: props.definition.key, route: props.definition.route, stage, selectedId, summary: summary.slice(0, 900) });
-  }, [props.onContext, props.definition.key, props.definition.route, selectedId, summary, stage]);
+    props.onContext?.(snapshot);
+  }, [props.onContext, signature]);
 }
 
-function Workflow({ view, recordId, action, rows, error, onReset, onConfirm, commitment, children }: {
+function Workflow({ view, recordId, action, rows, error, onReset, onConfirm, commitment, calculations, children }: {
   view: IProcurementViewProps; recordId: string; action: string; rows: readonly Row[];
   error?: string; onReset: () => void; onConfirm?: () => IProcurementReceipt; commitment?: number; children?: React.ReactNode;
+  calculations?: Readonly<Record<string, string | number>>;
 }): React.ReactElement {
   const s = useStyles();
   const [stage, setStage] = React.useState<'draft' | 'review' | 'receipt'>('draft');
@@ -121,7 +169,24 @@ function Workflow({ view, recordId, action, rows, error, onReset, onConfirm, com
   const initialSummary = React.useRef(summary);
   useSnapshot(view, receipt?.recordId || recordId, stage === 'draft' ?
     `Unconfirmed draft; fields: ${rows.map(row => row[0]).join(', ')}; ${error ? `needs correction: ${error}` : 'ready for review'}; edited: ${summary !== initialSummary.current}` :
-    stage === 'receipt' ? `${receipt?.id}; ${receipt?.action}; ${receipt?.summary}; session-only` : summary, stage);
+    stage === 'receipt' ? `${receipt?.id}; ${receipt?.action}; ${receipt?.summary}; session-only` : summary, stage, {
+      visuals: [stage === 'draft' ? `${view.definition.key} preparation and evidence` : stage === 'review' ? 'Exact human-review evidence' : 'Confirmed session receipt'],
+      workflow: {
+        fields: rows.map(([label, value]) => ({ label, present: typeof value === 'number' ? Number.isFinite(value) : String(value).trim().length > 0 })),
+        hasEdits: summary !== initialSummary.current, validation: error || null, confirmation: receipt ? 'confirmed in this session only' : 'not confirmed'
+      },
+      ...(stage !== 'draft' ? { reviewedValues: rows.map(([label, value]) => ({ label, value: String(value) })) } : {}),
+      ...(receipt ? { receipt } : {}),
+      safePreview: Boolean(view.preview),
+      ...(calculations ? {
+        proposedCalculations: Object.keys(calculations).reduce<Record<string, string | number>>((values, key) => {
+          const value = calculations[key];
+          values[key] = typeof value === 'number' && !Number.isFinite(value) ? 'Not evaluated' : value;
+          return values;
+        }, {}),
+        calculationStatus: receipt ? 'confirmed for this session only' : error ? 'proposal requires correction; invalid values are not evaluated' : 'visible proposal, not authorization'
+      } : {})
+    });
   const confirm = (): void => {
     if (confirmed.current || error || view.preview) return;
     try {
@@ -140,9 +205,10 @@ function Workflow({ view, recordId, action, rows, error, onReset, onConfirm, com
     {stage === 'draft' ? <>{children}{error && <p className={s.alert} role="alert">{error}</p>}<div className={s.actions}><Button appearance="primary" disabled={Boolean(error)} onClick={() => setStage('review')}>Review {action.toLowerCase()}</Button></div></> : stage === 'review' ? <Section title={`Review: ${action}`}><p className={s.muted}>Human checkpoint / verify the evidence and exact values before confirming.</p><dl className={s.reviewList}>{rows.map(([label, value]) => <React.Fragment key={label}><dt><strong>{label}</strong></dt><dd>{value}</dd></React.Fragment>)}</dl><p>No purchase order, supplier award, invoice posting, or external message will be created.</p><div className={s.actions}><Button onClick={() => { setConfirmationError(''); setStage('draft'); }}>Edit draft</Button><Button appearance="primary" disabled={Boolean(error) || view.preview} onClick={confirm}>Confirm session-only {action.toLowerCase()}</Button></div></Section> : <section className={mergeClasses(s.receipt, receipt?.result === 'approved' && s.approved, (receipt?.result === 'returned' || receipt?.result === 'declined') && s.returned)} role="status" aria-label="Session receipt"><h2 className={s.heading}>{action} recorded for this session</h2><p><strong>{receipt?.id}</strong> · {receipt?.recordId}</p><p>{receipt?.summary}</p><p className={s.muted}>{receipt?.actor} / {receipt?.timestamp} / {receipt?.result}</p><p>No external system was changed.</p>{view.definition.key === 'CreatePurchaseIntent' && <p>Next: open My Requests to review this submitted business case.</p>}<Button onClick={() => { onReset(); confirmed.current = false; setReceipt(undefined); setConfirmationError(''); setStage('draft'); }}>Reset draft</Button></section>}
   </div>;
 }
-function Decision({ view, recordId, actions, evidence, blockingReason, approvalBlockReason, onReset, commitment, children }: {
+function Decision({ view, recordId, actions, evidence, blockingReason, approvalBlockReason, onReset, commitment, calculations, children }: {
   view: IProcurementViewProps; recordId: string; actions: readonly string[]; evidence: readonly Row[];
   blockingReason?: string; approvalBlockReason?: string; onReset?: () => void; commitment?: number; children?: React.ReactNode;
+  calculations?: Readonly<Record<string, string | number>>;
 }): React.ReactElement {
   const receipts = React.useSyncExternalStore(subscribeReceipts, getReceipts, getReceipts);
   const requested = view.properties.proposedDecision;
@@ -152,7 +218,7 @@ function Decision({ view, recordId, actions, evidence, blockingReason, approvalB
   const processed = receipts.some(receipt => receipt.intent === view.definition.key && receipt.recordId === recordId);
   const error = blockingReason || (draft.decision === actions[0] ? approvalBlockReason : undefined) || (processed ? 'This record was already processed in this session. Choose another record or reset the demo session.' : actions.indexOf(draft.decision) < 0 ? 'Choose a supported decision.' :
     draft.rationale.trim().length < 12 ? 'Explain the decision in at least 12 characters before review.' : undefined);
-  return <Workflow view={view} recordId={recordId} action={draft.decision} rows={[...evidence, ['Decision', draft.decision], ['Rationale / conditions', draft.rationale]]} error={error} commitment={commitment} onReset={() => { reset(); onReset?.(); }}>
+  return <Workflow view={view} recordId={recordId} action={draft.decision} rows={[...evidence, ['Decision', draft.decision], ['Rationale / conditions', draft.rationale]]} error={error} commitment={commitment} calculations={calculations || decisionCalculations(view.definition.key, recordId)} onReset={() => { reset(); onReset?.(); }}>
     {children}<Select label="Decision" value={draft.decision} options={actions} onChange={decision => setDraft({ ...draft, decision })} />
     <TextField label="Decision rationale / conditions (minimum 12 characters)" multiline value={draft.rationale} onChange={rationale => setDraft({ ...draft, rationale })} />
   </Workflow>;
@@ -166,7 +232,7 @@ function CreatePurchaseIntent(view: IProcurementViewProps): React.ReactElement {
     !validNumber(draft.budget, 1, 10000000) ? 'Budget must be between 1 and 10,000,000.' :
     ['EUR', 'USD', 'GBP', 'JPY'].indexOf(draft.currency) < 0 || !CATEGORIES.some(category => category === draft.category) ? 'Choose a supported currency and category.' :
     !validDate(draft.neededBy) || !draft.locations.trim() ? 'Provide a valid needed-by date and delivery location.' : undefined;
-  return <Workflow view={view} recordId="New purchase intent" action="Create purchase intent" rows={[['Outcome', draft.outcome], ['Quantity', draft.quantity], ['Budget', error ? String(draft.budget) : money(draft.budget, draft.currency)], ['Needed by', draft.neededBy], ['Locations', draft.locations], ['Category', draft.category], ['Constraints', draft.constraints]]} error={error} onReset={reset} onConfirm={() => submitPurchaseIntent(draft, view.actor)}>
+  return <Workflow view={view} recordId="New purchase intent" action="Create purchase intent" calculations={{ quantity: draft.quantity, budget: draft.budget, currency: draft.currency, neededBy: draft.neededBy }} rows={[['Outcome', draft.outcome], ['Quantity', draft.quantity], ['Budget', error ? String(draft.budget) : money(draft.budget, draft.currency)], ['Needed by', draft.neededBy], ['Locations', draft.locations], ['Category', draft.category], ['Constraints', draft.constraints]]} error={error} onReset={reset} onConfirm={() => submitPurchaseIntent(draft, view.actor)}>
     <TextField label="Business outcome" multiline value={draft.outcome} onChange={outcome => setDraft({ ...draft, outcome })} />
     <div className={s.grid}><Select label="Purchase category" value={draft.category} options={CATEGORIES} onChange={category => setDraft({ ...draft, category })} /><NumberField label="Quantity" value={draft.quantity} min={1} max={100000} onChange={quantity => setDraft({ ...draft, quantity })} /><NumberField label="Authorized budget" value={draft.budget} min={1} onChange={budget => setDraft({ ...draft, budget })} /><Select label="Currency" value={draft.currency} options={['EUR', 'USD', 'GBP', 'JPY']} onChange={currency => setDraft({ ...draft, currency })} /><TextField label="Needed by" type="date" value={draft.neededBy} onChange={neededBy => setDraft({ ...draft, neededBy })} /></div>
     <TextField label="Delivery locations" value={draft.locations} onChange={locations => setDraft({ ...draft, locations })} /><TextField label="Purchase constraints" value={draft.constraints} onChange={constraints => setDraft({ ...draft, constraints })} />
@@ -184,7 +250,11 @@ function CompareBuyingOptions(view: IProcurementViewProps): React.ReactElement {
   const valid = Boolean(request) && validNumber(quantity, 1, 100000) && Number.isInteger(quantity) && validNumber(budget, 1, 10000000) && currency === 'EUR' && validDate(neededBy);
   const daysAvailable = Math.floor((Date.parse(neededBy) - Date.parse(INVOCATION_DATE)) / 86400000);
   const options = valid ? [...buyingOptions(quantity)].sort((a, b) => priority === 'Speed' ? a.days - b.days : a.cost - b.cost) : [];
-  useSnapshot(view, selected, `${priority}; ${quantity} units; ${options[0]?.route || 'no valid route'}; needed ${neededBy}`, !request ? 'no-match' : valid ? 'inspect' : 'input-error');
+  useSnapshot(view, selected, `${priority}; ${quantity} units; ${options[0]?.route || 'no valid route'}; needed ${neededBy}`, !request ? 'no-match' : valid ? 'inspect' : 'input-error', {
+    selectedLabel: request?.label, filters: { priority, quantity, neededBy, ...(valid ? { budget, currency } : {}) },
+    visuals: [valid ? 'Ranked fulfillment alternatives and deadline evidence' : 'Buying-route scope validation and unavailable alternatives'], resultCount: options.length, visibleRecords: options,
+    scope: { requestId: selected, quantity, neededBy, ...(valid ? { budget, currency } : {}) }
+  });
   return <><RecordPicker label="Route comparison request" value={selected} options={purchaseQueue} onChange={id => { setSelected(id); const next = purchaseQueue.find(item => item.id === id); if (next) setQuantity(next.quantity); }} /><NumberField label="Units needed" value={quantity} min={1} max={100000} onChange={setQuantity} /><TextField label="Route needed by" type="date" value={neededBy} onChange={setNeededBy} /><Select label="Optimize route for" value={priority} options={['Speed', 'Total cost']} onChange={setPriority} />{!valid && <p role="alert">Choose a known request, whole positive quantity, valid date and budget. The offline prices are EUR only; no conversion is implied.</p>}<Table title={`Fulfillment alternatives - budget ${valid ? money(budget) : 'requires correction'}`} columns={['Buying route', 'Estimated cost', 'Lead / deadline', 'Budget / evidence']} rows={options.map(option => [option.route, money(option.cost), `${option.days} days; ${option.days <= daysAvailable ? 'meets target' : 'misses target'}`, `${option.cost <= budget ? 'Within budget' : 'Over budget'}; ${option.evidence}`])} /><p>Timing is measured from the fixed sample date {INVOCATION_DATE}. Supplier award and purchase approval are separate tools.</p></>;
 }
 function CheckPurchasePolicy(view: IProcurementViewProps): React.ReactElement {
@@ -195,15 +265,22 @@ function CheckPurchasePolicy(view: IProcurementViewProps): React.ReactElement {
   const amount = view.properties.budget ?? request?.budget ?? 0;
   const quantity = view.properties.quantity ?? request?.quantity ?? 0;
   const currency = view.properties.currency || request?.currency || 'EUR';
-  const valid = validNumber(amount, 1, 10000000) && validNumber(quantity, 1, 100000) && currency === 'EUR' && validNumber(qualifiedBids, 0, 10) && Number.isInteger(qualifiedBids);
+  const validBids = validNumber(qualifiedBids, 0, 10) && Number.isInteger(qualifiedBids);
+  const competition = validBids ? qualifiedBids >= 3 ? 'Pass' : 'Obtain missing qualified bids' : 'Not evaluated; correct the bid count';
+  const valid = validNumber(amount, 1, 10000000) && validNumber(quantity, 1, 100000) && currency === 'EUR' && validBids;
   const state = !request ? 'No matching request; policy not evaluated' : !valid ? 'Input correction required; policy not evaluated' : qualifiedBids < 3 ? 'Blocked - obtain at least three qualified bids' : amount > 1200000 ? 'Escalate - board authority required' : 'Ready for human review';
-  useSnapshot(view, requestId, `${state}; ${quantity} units; ${amount} ${currency}; ${view.properties.constraints?.join('; ') || 'standard controls'}`, !request ? 'no-match' : valid ? 'inspect' : 'input-error');
+  useSnapshot(view, requestId, request ? `${state}; ${valid ? `${quantity} units; ${amount} ${currency}` : 'authority amount/quantity not evaluated'}` : state, !request ? 'no-match' : valid ? 'inspect' : 'input-error', {
+    filters: request ? { qualifiedBids: validBids ? qualifiedBids : 'Requires correction', ...(valid ? { amount, quantity, currency } : {}) } : {},
+    visuals: [request ? 'Policy evidence and remediation ledger' : 'Unmatched purchase request'],
+    visibleRecords: request ? [{ control: 'Competition', qualifiedBids: validBids ? qualifiedBids : 'Not evaluated', required: 3, finding: competition },
+      valid ? { control: 'Authority', amount, limit: 1200000, currency } : { control: 'Authority', finding: 'Not evaluated' }, ...POLICY_RULES.slice(1)] : []
+  });
   return <><RecordPicker label="Purchase request" value={requestId} options={purchaseQueue} onChange={setRequestId} />{request && <>
     <NumberField label="Qualified bids received" value={qualifiedBids} max={10} onChange={setQualifiedBids} />
     {!valid && <p role="alert">This policy scenario requires a valid EUR amount, positive quantity, and whole bid count from 0 to 10; correct the invocation before approval.</p>}
     <Metrics rows={[['Policy outcome', valid ? state : 'Input correction required'], ['Request amount', valid ? money(amount) : 'Not evaluated'], ['Units in scope', valid ? quantity : 'Not evaluated']]} />
     {Boolean(view.properties.constraints?.length) && <p>Additional requested constraints (not policy overrides): {view.properties.constraints?.join('; ')}</p>}
-    <Table title="Policy evidence and remediation" columns={['Control', 'Evidence', 'Required response']} rows={[['Competition', `${qualifiedBids} qualified bids`, qualifiedBids >= 3 ? 'Pass' : 'Obtain missing qualified bids'], ['Authority', valid ? money(amount) : 'Invalid scope', amount > 1200000 ? 'Board review required' : 'Budget-owner review'], ...POLICY_RULES.slice(1).map(rule => [rule.title, `${rule.id} v${rule.version}: ${rule.detail}`, rule.state])]} />
+    <Table title="Policy evidence and remediation" columns={['Control', 'Evidence', 'Required response']} rows={[['Competition', validBids ? `${qualifiedBids} qualified bids` : 'Invalid bid count', competition], ['Authority', valid ? money(amount) : 'Invalid scope', valid ? amount > 1200000 ? 'Board review required' : 'Budget-owner review' : 'Not evaluated'], ...POLICY_RULES.slice(1).map(rule => [rule.title, `${rule.id} v${rule.version}: ${rule.detail}`, rule.state])]} />
   </>}</>;
 }
 function ReviewPurchaseRequest(view: IProcurementViewProps): React.ReactElement {
@@ -220,7 +297,11 @@ function AggregateDemand(view: IProcurementViewProps): React.ReactElement {
   const [currency, setCurrency] = React.useState(view.properties.currency || 'EUR');
   const cohort = demandCohort(category, region, currency);
   const units = cohort.reduce((sum, item) => sum + item.quantity, 0);
-  useSnapshot(view, `cohort:${category}:${region}:${currency}`, `${cohort.length} current open requests; ${units} units`);
+  useSnapshot(view, `cohort:${category}:${region}:${currency}`, `${cohort.length} current open requests; ${units} units; ${currency} only`, cohort.length ? 'inspect' : 'no-match', {
+    filters: { category, region, currency }, visuals: ['Currency-coherent source-demand table'], resultCount: cohort.length,
+    visibleRecords: cohort.slice(0, 8), visibleRange: { from: cohort.length ? 1 : 0, to: Math.min(8, cohort.length), total: cohort.length },
+    scope: { ...(cohort.length ? { cohortId: `cohort:${category}:${region}:${currency}` } : {}), category, region, currency }
+  });
   return <><Select label="Demand category" value={category} options={CATEGORIES} onChange={setCategory} /><Select label="Demand region" value={region} options={['All regions', ...REGIONS]} onChange={setRegion} /><Select label="Demand currency" value={currency} options={['EUR', 'USD', 'GBP', 'JPY']} onChange={setCurrency} /><Metrics rows={[['Consolidatable requests', cohort.length], ['Combined units', units], ['Cohort currency', currency]]} /><Table title="Source requests in this cohort (first 8)" columns={['Request', 'Requester', 'Units', 'Budget']} rows={cohort.slice(0, 8).map(item => [item.id, item.requesterId, item.quantity, money(item.budget, currency)])} /><p>Only the selected currency is aggregated. Create a sourcing event separately after validating timing and compatibility.</p></>;
 }
 function BuildSourcingEvent(view: IProcurementViewProps): React.ReactElement {
@@ -241,8 +322,14 @@ function CompareSupplierBids(view: IProcurementViewProps): React.ReactElement {
   const weights = { ...DEFAULT_WEIGHTS, risk: riskWeight, price: 48 - riskWeight };
   const summary = validEvent && valid && supplier
     ? `${eventId}; ${supplier.supplier}; risk weight ${riskWeight}%; weighted score ${normalizeScore(supplier, weights).toFixed(1)}; bid ${money(supplier.price)}; lead ${supplier.lead} days; quality ${supplier.quality}/100; risk ${supplier.risk}/100; sustainability ${supplier.sustainability}/100; confidence ${supplier.confidence}%`
-    : 'No supported event, supplier, or weighting; no bid evidence was evaluated.';
-  useSnapshot(view, validEvent ? supplierId : eventId, summary, !validEvent || !supplier ? 'no-match' : valid ? 'inspect' : 'input-error');
+    : validEvent && valid ? `${eventId}; selected supplier ${supplierId} is unmatched; four received bids remain visible at risk weight ${riskWeight}%; no supplier was substituted.` :
+      'No supported event or weighting; no bid evidence was evaluated.';
+  useSnapshot(view, validEvent ? supplierId : eventId, summary, !validEvent || !supplier ? 'no-match' : valid ? 'inspect' : 'input-error', {
+    selectedLabel: supplier?.supplier, scope: { eventId, supplierId, riskWeight }, filters: { riskWeight, eventId },
+    visuals: [validEvent && valid ? 'Supplier total-value landscape: price x weighted score, bubble area evidence confidence' : 'Sourcing event and weighting validation'],
+    ...(validEvent && valid ? { weights } : {}), resultCount: validEvent && valid ? supplierRecords.length : 0,
+    visibleRecords: validEvent && valid ? supplierRecords.map(item => ({ ...item, weightedScore: normalizeScore(item, weights) })) : []
+  });
   return <>
     <div className={s.grid}>
       <RecordPicker label="Sourcing event" value={eventId} options={[{ id: EVENTS[0].id, label: EVENTS[0].id }]} onChange={setEventId} />
@@ -260,6 +347,7 @@ function ReviewSupplierAward(view: IProcurementViewProps): React.ReactElement {
   return <><RecordPicker label="Award event" value={eventId} options={eventOptions} onChange={setEventId} />{eventId === EVENTS[0].id && <Decision
     key={eventId} view={view} recordId={eventId}
     commitment={scenario?.cost}
+    calculations={scenario ? { primaryShare: split, secondaryShare: 100 - split, awardCostEUR: scenario.cost, blendedRisk: scenario.risk, onTimeConfidence: scenario.onTime, primaryAuthorityLimit: 70 } : undefined}
     actions={['Approve split award', 'Return award for evidence', 'Decline award']}
     blockingReason={!valid ? 'Primary share must be between 50% and 85%.' : undefined}
     approvalBlockReason={split > 70 ? 'Corridor concentration exceeds this sample authority. Reduce the primary share to 70% or below before approval.' : undefined}
@@ -273,7 +361,10 @@ function ExploreSupplier360(view: IProcurementViewProps): React.ReactElement {
   const [selected, setSelected] = React.useState(initialSelection(supplierRecords, view.properties.supplierId));
   const supplier = supplierRecords.find(item => item.id === selected);
   const related = contracts.filter(contract => contract.supplierId === selected);
-  useSnapshot(view, selected, `${supplier?.supplier || 'No supplier match'}; ${related.length} contracts; curated relationship snapshot`, supplier ? 'inspect' : 'no-match');
+  useSnapshot(view, selected, `${supplier?.supplier || 'No supplier match'}; ${related.length} contracts; curated relationship snapshot`, supplier ? 'inspect' : 'no-match', {
+    selectedLabel: supplier?.supplier, visuals: ['Supplier scorecard and connected obligations'], resultCount: related.length,
+    visibleRecords: related, selectedEvidence: supplier
+  });
   return <><RecordPicker label="Supplier relationship" value={selected} options={supplierRecords} onChange={setSelected} />{supplier && <><Metrics rows={[['Quality accepted', `${supplier.quality}%`], ['Evidence confidence', `${supplier.confidence}%`], ['Risk score', `${supplier.risk}/100`]]} /><Table title="Connected obligations and owners" columns={['Record', 'Obligation', 'Accountability']} rows={related.map(contract => [contract.id, `${contract.noticeDays}-day notice; ${money(contract.annualValue)} annual scope`, 'Contract lead'])} /><Section title="Relationship evidence"><p>{supplier.supplier} supports the {supplier.region} rollout. Bid lead time is {supplier.lead} days; sustainability evidence scores {supplier.sustainability}/100. This relationship view does not qualify or award a supplier.</p></Section></>}</>;
 }
 function ReviewContractRenewal(view: IProcurementViewProps): React.ReactElement {
@@ -283,24 +374,36 @@ function ReviewContractRenewal(view: IProcurementViewProps): React.ReactElement 
   return <><RecordPicker label="Contract due for renewal" value={selected} options={options} onChange={setSelected} />{contract && <Decision key={selected} view={view} recordId={selected} actions={['Renew with conditions', 'Renegotiate', 'Exit at notice date']} evidence={[['Annual baseline', money(contract.annualValue)], ['Quoted increase', `${contract.renewalIncrease}%`], ['Renewal value', money(Math.round(contract.annualValue * (1 + contract.renewalIncrease / 100)))], ['Notice window', `${contract.noticeDays} days`]]}><Metrics rows={[['Notice window', `${contract.noticeDays} days`], ['Annual increase', money(Math.round(contract.annualValue * contract.renewalIncrease / 100))]]} /><p>Review scope, exit dependencies, and notice ownership before making a session renewal decision.</p></Decision>}</>;
 }
 function DetectSpendLeakage(view: IProcurementViewProps): React.ReactElement {
+  const s = useStyles();
   const [category, setCategory] = React.useState(view.properties.category || 'All categories');
   const [region, setRegion] = React.useState(view.properties.region || 'All regions');
   const [selected, setSelected] = React.useState(initialSelection(leakageOpportunities, view.properties.opportunityId));
   const records = leakageOpportunities.filter(item => (category === 'All categories' || item.category === category) && (region === 'All regions' || item.region === region));
   const opportunity = records.find(item => item.id === selected);
-  useSnapshot(view, selected, `${records.length} current addressable opportunities; ${category}; ${region}`);
-  return <><Select label="Leakage category" value={category} options={['All categories', ...CATEGORIES]} onChange={setCategory} /><Select label="Leakage region" value={region} options={['All regions', ...REGIONS]} onChange={setRegion} /><Table title="Addressable leakage, not realized savings" columns={['Opportunity', 'Category', 'Identified', 'Evidence']} rows={records.map(item => [item.id, item.label, money(item.identified), `${item.region}; ${money(item.disputed)} disputed`])} /><RecordPicker label="Inspect leakage evidence" value={selected} options={records} onChange={setSelected} />{opportunity && <p>{opportunity.label}: {money(opportunity.identified)} identified, but only {money(opportunity.realized)} has realized evidence. Recovery approval is a separate workflow.</p>}</>;
+  useSnapshot(view, selected, `${records.length} current addressable opportunities; ${category}; ${region}; ${opportunity ? `${opportunity.label}: EUR ${opportunity.identified} identified / EUR ${opportunity.realized} verified` : 'selected intervention is outside this scope'}`, opportunity ? 'inspect' : 'no-match', {
+    selectedLabel: opportunity?.label, filters: { category, region }, visuals: ['Ranked addressable leakage bars'], resultCount: records.length,
+    visibleRecords: [...records].sort((a, b) => b.identified - a.identified), selectedEvidence: opportunity,
+    scope: { opportunityId: selected, category, region }
+  });
+  return <><div className={s.grid}><Select label="Leakage category" value={category} options={['All categories', ...CATEGORIES]} onChange={setCategory} /><Select label="Leakage region" value={region} options={['All regions', ...REGIONS]} onChange={setRegion} /></div><Section title="Addressable leakage, not realized savings"><LeakageRanking records={records} selectedId={selected} onSelect={setSelected} /></Section><RecordPicker label="Inspect leakage evidence" value={selected} options={records} onChange={setSelected} />{opportunity && <p>{opportunity.label}: {money(opportunity.identified)} identified, but only {money(opportunity.realized)} has realized evidence. Recovery approval is a separate workflow.</p>}</>;
 }
 function TrackSupplierRisk(view: IProcurementViewProps): React.ReactElement {
   const s = useStyles();
   const [selected, setSelected] = React.useState(initialSelection(supplierRecords, view.properties.supplierId));
   const [scenario, setScenario] = React.useState(view.properties.scenario || 'Current corridor');
   const [region, setRegion] = React.useState(view.properties.region || 'EMEA');
+  const [dependency, setDependency] = React.useState('corridor');
   const supported = ['Current corridor', 'Port disruption', 'Dual-source buffer'].indexOf(scenario) >= 0 && REGIONS.some(item => item === region);
-  const supplier = supported ? supplierRecords.find(item => item.id === selected) : undefined;
+  const selectedSupplier = supplierRecords.find(item => item.id === selected);
+  const supplier = supported ? selectedSupplier : undefined;
   const exposure = supplier ? Math.min(100, supplier.risk + (scenario === 'Port disruption' ? 22 : scenario === 'Dual-source buffer' ? -14 : 0) + (region === 'APAC' ? 8 : 0)) : 0;
-  useSnapshot(view, selected, supplier ? `${region}; ${scenario}; modeled exposure ${exposure}/100` : 'No supported supplier/scenario; no exposure was evaluated', supplier ? 'inspect' : 'no-match');
-  return <><RecordPicker label="Risk supplier" value={selected} options={supplierRecords} onChange={setSelected} /><Select label="Exposure region" value={region} options={REGIONS} onChange={setRegion} /><Select label="Continuity scenario" value={scenario} options={['Current corridor', 'Port disruption', 'Dual-source buffer']} onChange={setScenario} />{supplier && <Section title="Dependency and continuity exposure"><Metrics rows={[['Modeled exposure', `${exposure}/100`], ['Lead-time evidence', `${supplier.lead} days`]]} /><progress className={s.progress} aria-label="Modeled supplier exposure" value={exposure} max={100} /><ol className={s.list}><li>{supplier.supplier} assembly commitment</li><li>{region} logistics corridor</li><li>Battery and component sub-tier availability</li><li>Field launch promise and inventory buffer</li></ol><p>Scenario arithmetic, not a verified disruption. Approving mitigation requires a separate reviewed plan.</p></Section>}</>;
+  useSnapshot(view, selected, supplier ? `${supplier.supplier}; ${region}; ${scenario}; modeled exposure ${exposure}/100; selected dependency ${dependency}` : 'No supported supplier/scenario; no exposure was evaluated', supplier ? 'inspect' : 'no-match', {
+    selectedLabel: selectedSupplier?.supplier, scope: { supplierId: selected, region, scenario }, filters: { region, scenario, ...(supplier ? { dependency } : {}) },
+    visuals: [supplier ? 'Modeled component -> assembly -> logistics -> field-readiness dependency pathway' : 'Supplier and continuity-scope validation'],
+    modeledDependencies: supplier ? buildDependencyPathway(supplier.supplier, region, scenario, exposure).map(node => ({ id: node.id, label: node.label, score: node.score, assumptions: node.detail })) : [],
+    selectedEvidence: supplier, ...(supplier ? { scenarioArithmetic: { baseRisk: supplier.risk, scenarioAdjustment: scenario === 'Port disruption' ? 22 : scenario === 'Dual-source buffer' ? -14 : 0, regionalAdjustment: region === 'APAC' ? 8 : 0, exposure, semantics: 'Illustrative exposure index, not failure probability or a confirmed disruption' } } : {})
+  });
+  return <><div className={s.grid}><RecordPicker label="Risk supplier" value={selected} options={supplierRecords} onChange={setSelected} /><Select label="Exposure region" value={region} options={REGIONS} onChange={setRegion} /><Select label="Continuity scenario" value={scenario} options={['Current corridor', 'Port disruption', 'Dual-source buffer']} onChange={setScenario} /></div>{supplier && <Section title="Dependency and continuity exposure"><SupplierDependency supplier={supplier.supplier} region={region} scenario={scenario} exposure={exposure} selectedId={dependency} onSelect={setDependency} /><Metrics rows={[['Modeled exposure', `${exposure}/100`], ['Lead-time evidence', `${supplier.lead} days`]]} /><progress className={s.progress} aria-label="Modeled supplier exposure" value={exposure} max={100} /><p>Scenario arithmetic, not a verified disruption. Approving mitigation requires a separate reviewed plan.</p></Section>}</>;
 }
 function ResolveInvoiceException(view: IProcurementViewProps): React.ReactElement {
   const [selected, setSelected] = React.useState(initialSelection(invoices, view.properties.invoiceId));
@@ -314,12 +417,24 @@ function ExploreSpendPerformance(view: IProcurementViewProps): React.ReactElemen
   const [period, setPeriod] = React.useState(view.properties.period || 'Current period');
   const [region, setRegion] = React.useState(view.properties.region || 'All regions');
   const records = leakageOpportunities.filter(item => (category === 'All categories' || item.category === category) && (region === 'All regions' || item.region === region));
-  const factor = period === 'Previous period' ? 0.8 : 1;
-  const stages = ['identified', 'negotiated', 'contracted', 'realized'] as const;
-  const values = stages.map(stage => Math.round(records.reduce((sum, item) => sum + item[stage], 0) * factor));
-  const disputed = records.reduce((sum, item) => sum + item.disputed, 0);
-  useSnapshot(view, `${category}:${region}`, `${period}; realized ${values[3]} EUR; disputed ${disputed} EUR excluded`);
-  return <><Select label="Value category" value={category} options={['All categories', ...CATEGORIES]} onChange={setCategory} /><Select label="Value region" value={region} options={['All regions', ...REGIONS]} onChange={setRegion} /><Select label="Value period" value={period} options={['Current period', 'Previous period']} onChange={setPeriod} /><Section title="Opportunity to verified value">{stages.map((stage, index) => <div key={stage}><p>{stage}: <strong>{money(values[index])}</strong></p><progress className={s.progress} aria-label={`${stage} procurement value`} max={Math.max(values[0], 1)} value={values[index]} /></div>)}</Section><p>{money(disputed)} disputed freight remains excluded from realized value. Previous-period values are an explicit deterministic sample comparison.</p></>;
+  const [selected, setSelected] = React.useState('');
+  const supported = (category === 'All categories' || CATEGORIES.some(item => item === category)) &&
+    (region === 'All regions' || REGIONS.some(item => item === region)) && ['Current period', 'Previous period'].indexOf(period) >= 0;
+  const flow = buildValueFlow(supported ? valueEvidence(records, period) : []);
+  const selection = valueFlowSelection(flow, selected);
+  const hasEvidence = supported && flow.records.length > 0;
+  const valueSummary = !supported ? 'Unsupported value scope; no amounts were evaluated.' : !hasEvidence ? 'No value evidence matches this scope; savings are not inferred.' :
+    `EUR ${flow.total} identified; EUR ${flow.verified} verified; EUR ${flow.disputed} disputed excluded${selection ? `; ${selection.label}: EUR ${selection.value}` : ''}`;
+  useSnapshot(view, selected || `${category}:${region}`, `${category}; ${region}; ${period}; ${valueSummary}`, !hasEvidence || selected && !selection ? 'no-match' : 'inspect', {
+    selectedLabel: selection?.label || 'Scoped procurement value', filters: { category, region, period },
+    scope: { category, region, period, ...(selection?.opportunityId ? { opportunityId: selection.opportunityId } : {}) },
+    visuals: [hasEvidence ? 'Conserved EUR Sankey: region -> intervention -> mutually exclusive evidence state' : 'Value scope and evidence gap'],
+    resultCount: flow.records.length, visibleRecords: flow.records, selectedEvidence: selection,
+    selectedValueConnection: selected,
+    ...(hasEvidence ? { flowTotals: { identified: flow.total, verified: flow.verified, unverified: flow.total - flow.verified, disputedAlreadyInsideUnverified: flow.disputed } } : {}),
+    evidenceStates: flow.nodes.filter(node => node.state), flowConnections: flow.links
+  });
+  return <><div className={s.grid}><Select label="Value category" value={category} options={['All categories', ...CATEGORIES]} onChange={setCategory} /><Select label="Value region" value={region} options={['All regions', ...REGIONS]} onChange={setRegion} /><Select label="Value period" value={period} options={['Current period', 'Previous period']} onChange={setPeriod} /></div><Section title="Opportunity to verified value">{supported ? <SpendValueFlow flow={flow} selectedId={selected} onSelect={setSelected} /> : <p role="alert">This category, region or period is not supported. Choose a visible scope; no evidence was substituted.</p>}</Section><p>Previous period is a deterministic 20% lower comparison, not historical performance. Only accepted invoice evidence is verified value.</p></>;
 }
 function OnboardSupplier(view: IProcurementViewProps): React.ReactElement {
   const p = view.properties;
@@ -375,6 +490,7 @@ function ManagePurchaseOrderChange(view: IProcurementViewProps): React.ReactElem
     actions={['Approve PO change', 'Return change request', 'Decline PO change']}
     blockingReason={!valid ? 'Provide a whole positive quantity, valid date, and valid authority cap.' : undefined}
     approvalBlockReason={revised > cap ? 'Revised commitment exceeds the supplied authority cap. Reduce the change or obtain separate authority.' : undefined}
+    calculations={{ originalQuantity: order.quantity, proposedQuantity: quantity, originalCommitmentEUR: order.value, proposedCommitmentEUR: revised, authorityCapEUR: cap, proposedDelivery: date }}
     evidence={[['Source request', order.requestId], ['Original quantity', order.quantity], ['Revised quantity', quantity], ['Original commitment', money(order.value)], ['Revised commitment', Number.isFinite(revised) ? money(revised) : 'Invalid'], ['Authority cap', Number.isFinite(cap) ? money(cap) : 'Invalid'], ['Revised delivery', date]]}>
     <NumberField label="Revised order quantity" value={quantity} min={1} max={100000} onChange={setQuantity} />
     <TextField label="Revised delivery date" type="date" value={date} onChange={setDate} />
@@ -399,7 +515,12 @@ function ExploreSupplierPortfolioBalance(view: IProcurementViewProps): React.Rea
   const risk = Math.round(shares.reduce((sum, share, index) => sum + share * supplierRecords[index].risk, 0) / 100);
   const handling = region === 'APAC' ? 6 : region === 'AMER' ? 3 : 0;
   const modeledRisk = Math.min(100, Math.max(0, risk + handling - (scenario === 'Regional continuity buffer' ? 8 : 0)));
-  useSnapshot(view, `${category}:${region}`, valid ? `${scenario}; maximum share ${limit}%; modeled risk ${modeledRisk}/100` : 'Input correction required; no portfolio scenario evaluated');
+  useSnapshot(view, `${category}:${region}`, valid ? `${scenario}; maximum share ${limit}%; modeled risk ${modeledRisk}/100` : 'Input correction required; no portfolio scenario evaluated', valid ? 'inspect' : 'input-error', {
+    filters: { category, region, scenario, concentrationLimit: limit }, scope: { region, scenario, concentrationLimit: limit },
+    visuals: [valid ? 'Conserved three-supplier allocation bar' : 'Supplier allocation input validation'], resultCount: valid ? 3 : 0,
+    visibleRecords: valid ? shares.map((share, index) => ({ supplierId: supplierRecords[index].id, supplier: supplierRecords[index].supplier, share, sourceRisk: supplierRecords[index].risk })) : [],
+    ...(valid ? { scenarioArithmetic: { weightedSupplierRisk: risk, regionalHandling: handling, continuityBufferAdjustment: scenario === 'Regional continuity buffer' ? -8 : 0, modeledRisk } } : {})
+  });
   return <>
     <p>Curated portfolio: IT hardware. These device suppliers are not presented as evidence for unrelated categories.</p>
     <Select label="Portfolio region" value={region} options={REGIONS} onChange={setRegion} />
@@ -407,6 +528,7 @@ function ExploreSupplierPortfolioBalance(view: IProcurementViewProps): React.Rea
     <NumberField label="Maximum primary supplier share (%)" value={limit} min={34} max={80} onChange={setLimit} />
     {!valid ? <p role="alert">Choose a supported region/scenario and a concentration limit between 34% and 80%.</p> : <Section title={`${category} / ${region} allocation scenario`}>
       <Metrics rows={[['Allocated total', '100%'], ['Modeled weighted risk', `${modeledRisk}/100`]]} />
+      <PortfolioAllocation shares={shares} labels={supplierRecords.slice(0, 3).map(supplier => supplier.supplier)} />
       {shares.map((share, index) => <div key={supplierRecords[index].id}><p>{supplierRecords[index].supplier}: {share}%</p><progress className={s.progress} aria-label={`${supplierRecords[index].supplier} allocation`} value={share} max={100} /></div>)}
       <p>Illustrative arithmetic: weighted supplier risk plus regional handling (APAC +6, AMER +3, others +0), minus 8 for the continuity-buffer scenario. This is not verified disruption evidence or an award.</p>
     </Section>}
@@ -416,11 +538,46 @@ function ExploreAgentCapabilities(view: IProcurementViewProps): React.ReactEleme
   const s = useStyles();
   const [query, setQuery] = React.useState(view.properties.query || '');
   const [preview, setPreview] = React.useState<ProcurementIntentKey>();
+  const [previewSnapshot, setPreviewSnapshot] = React.useState<IProcurementSnapshot>();
+  const [page, setPage] = React.useState(0);
   const [message, setMessage] = React.useState('');
+  const [sending, setSending] = React.useState(false);
+  const busy = React.useRef(false);
+  const release = (): void => { busy.current = false; };
   const records = INTENTS.filter(intent => intent.operation !== 'education' && `${intent.title} ${intent.question} ${intent.operation}`.toLowerCase().includes(query.toLowerCase()));
-  useSnapshot(view, preview || '', `Capability search: ${query}; ${records.length} scenarios`);
-  if (preview) return <><Button onClick={() => setPreview(undefined)}>Back to procurement scenarios</Button><ProcurementInlineExperience key={preview} definition={getIntent(preview)} properties={{}} preview /></>;
-  return <><TextField label="Search procurement scenarios" value={query} onChange={setQuery} /><p>{records.length} matching scenarios. Previews cannot confirm actions.</p>{message && <p role="status">{message}</p>}<div className={s.grid}>{records.map(intent => <Section key={intent.key} title={intent.title}><p>{intent.question}</p><p className={s.muted}>{intent.operation} · {intent.excludes}</p><p>Prompt: {intent.prompt}</p><div className={s.actions}><Button onClick={() => setPreview(intent.key)}>Preview {intent.title.toLowerCase()}</Button>{view.onSendFollowUp && <Button onClick={() => { view.onSendFollowUp?.(intent.prompt).then(accepted => setMessage(accepted ? 'Prompt sent to Copilot.' : 'Copilot did not accept the prompt. Copy the displayed prompt instead.')).catch(error => setMessage(`Unable to send prompt: ${String(error)}`)); }}>Use this prompt</Button>}</div></Section>)}</div>{records.length === 0 && <p role="status">No scenario matches. Try a business term such as invoice, supplier, or award.</p>}</>;
+  const pages = Math.max(1, Math.ceil(records.length / 4));
+  const visiblePage = Math.min(page, pages - 1);
+  const visible = records.slice(visiblePage * 4, visiblePage * 4 + 4);
+  const capturePreview = React.useCallback((snapshot: IProcurementSnapshot): void => {
+    setPreviewSnapshot(current => JSON.stringify(current) === JSON.stringify(snapshot) ? current : snapshot);
+  }, []);
+  const snapshot: IProcurementSnapshot = {
+    intent: view.definition.key, route: preview ? `${view.definition.route}/preview` : view.definition.route,
+    stage: preview ? previewSnapshot?.stage || 'preview' : 'inspect', selectedId: preview || '',
+    summary: preview ? `Safe preview: ${getIntent(preview).title}; ${previewSnapshot?.summary || 'preparing evidence'}` : `Capability search: ${query}; ${records.length} scenarios; page ${visiblePage + 1}/${pages}`,
+    filters: { query }, visuals: [preview ? 'Safe operational preview' : 'Paginated procurement capability cards'],
+    resultCount: records.length, visibleRange: { from: records.length ? visiblePage * 4 + 1 : 0, to: Math.min(records.length, visiblePage * 4 + 4), total: records.length },
+    visibleRecords: preview ? [] : visible.map(intent => ({ intent: intent.key, title: intent.title, question: intent.question, operation: intent.operation })),
+    ...(preview ? { previewIntent: preview, safePreview: true, previewEvidence: previewSnapshot } : {})
+  };
+  useSnapshot(view, snapshot.selectedId, snapshot.summary, snapshot.stage, snapshot);
+  const launch = async (intent: IIntentDefinition): Promise<void> => {
+    if (!view.onSendFollowUp || busy.current) return;
+    busy.current = true;
+    setSending(true);
+    setMessage('');
+    const action = createCopilotHandoff(intent.key, {});
+    try {
+      const accepted = await view.onSendFollowUp(action.prompt, {
+        ...snapshot, selectedId: intent.key, selectedLabel: intent.title, previewIntent: intent.key,
+        discussion: { topic: `Open ${intent.title}`, responseMode: 'component', handoff: action.handoff }
+      });
+      setMessage(accepted ? 'Message accepted by Copilot. No action was authorized.' : 'Copilot did not accept the prompt. Retry; no procurement action was authorized.');
+    } catch (reason) { setMessage(`Unable to send this capability: ${reason instanceof Error ? reason.message : String(reason)} Retry the action.`); }
+    finally { release(); setSending(false); }
+  };
+  if (preview) return <><Button onClick={() => { setPreview(undefined); setPreviewSnapshot(undefined); }}>Back to procurement scenarios</Button><ProcurementInlineExperience key={preview} definition={getIntent(preview)} properties={{}} preview onContext={capturePreview} /></>;
+  return <><TextField label="Search procurement scenarios" value={query} onChange={value => { setQuery(value); setPage(0); }} /><p>{records.length} matching scenarios. Previews cannot confirm actions.</p>{message && <p role="status">{message}</p>}<div className={s.grid}>{visible.map(intent => <Section key={intent.key} title={intent.title}><p>{intent.question}</p><p className={s.muted}>{intent.operation} · {intent.excludes}</p><div className={s.actions}><Button onClick={() => { setPreviewSnapshot(undefined); setPreview(intent.key); }}>Preview {intent.title.toLowerCase()}</Button>{view.onSendFollowUp && <Button disabled={sending} onClick={() => { launch(intent).catch((reason: unknown) => setMessage(`Unable to open this experience: ${String(reason)}`)); }}>Open {intent.title.toLowerCase()} in Copilot</Button>}</div></Section>)}</div>{records.length === 0 ? <p role="status">No scenario matches. Try a business term such as invoice, supplier, or award.</p> : <div className={s.actions}><Button disabled={visiblePage === 0} onClick={() => setPage(value => value - 1)}>Previous capabilities</Button><span>Page {visiblePage + 1} / {pages}</span><Button disabled={visiblePage + 1 >= pages} onClick={() => setPage(value => value + 1)}>Next capabilities</Button></div>}</>;
 }
 
 const views: Record<ProcurementIntentKey, React.ComponentType<IProcurementViewProps>> = {

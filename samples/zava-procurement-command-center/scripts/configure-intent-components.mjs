@@ -68,7 +68,23 @@ const routingDescriptions = {
   CompareSupplierBids: 'Use when comparing normalized supplier bids, evaluation weights, price, delivery, confidence, or risk sensitivity for an event. Do not use to approve a supplier award or compare fulfillment routes.',
   ReviewSupplierAward: 'Use when a human must review a proposed single or split supplier award and its authority, concentration, and cost consequences. Do not use for read-only bid ranking or a new purchase request.',
   TrackSupplierRisk: 'Use when analyzing one named supplier continuity, corridor, or sub-tier exposure. Do not use for a cross-supplier allocation scenario, relationship overview, or mitigation approval.',
-  DetectSpendLeakage: 'Use when identifying addressable off-contract spend or price leakage opportunities. Do not use to accept recovered savings, execute an intervention, or report verified realized value.'
+  DetectSpendLeakage: 'Use when identifying addressable off-contract spend or price leakage opportunities. Do not use to accept recovered savings, execute an intervention, or report verified realized value.',
+  CheckPurchasePolicy: 'Use when inspecting purchase competition, budget authority, policy evidence and remediation. Do not use for new intake, fulfillment-route comparison or a human purchase approval.',
+  ReviewPurchaseRequest: 'Use when a budget owner must review an existing purchase request, its source need, budget and rationale. Do not use for a new intake, buying-route analysis or supplier award.',
+  AggregateDemand: 'Use when consolidating compatible source requests by category, region and currency. Do not use to create a sourcing event or evaluate supplier bids.',
+  BuildSourcingEvent: 'Use when preparing a sourcing event scope, cohort, deadline, invitation and evaluation model. Do not use for demand aggregation, received bid evaluation or supplier communication.',
+  ExploreSupplier360: 'Use when connecting one supplier relationship, performance, contracts, obligations and owners. Do not use for a continuity scenario, cross-supplier allocation or qualification decision.',
+  ReviewContractRenewal: 'Use when deciding whether to renew, renegotiate or exit a selected contract with notice and uplift evidence. Do not use to prepare a give/get mandate or sign terms.',
+  ResolveInvoiceException: 'Use when reconciling an invoice against its purchase order and accepted receipt and reviewing a held exception. Do not use for purchase approval, leakage acceptance or payment release.',
+  ExploreSpendPerformance: 'Use when tracing procurement value evidence or exploring global investments, regional commitments and delivery. Do not use to identify a new leakage intervention, accept recovery or infer savings from commitment.',
+  OnboardSupplier: 'Use when capturing a new supplier candidate and evidence attestations for review. Do not use to qualify an existing supplier, write a vendor master or award supply.',
+  ReviewSupplierQualification: 'Use when reviewing an existing supplier qualification scope, conditions and expiry. Do not use for candidate intake, relationship overview or supplier award.',
+  PlanSupplierRiskMitigation: 'Use when preparing an owned supplier continuity action, trigger, cost and target date. Do not use for risk scoring, cross-supplier allocation or automatic mitigation execution.',
+  NegotiateContractTerms: 'Use when preparing a give/get negotiation mandate, target economics and fallback for a contract. Do not use for a renewal decision, supplier communication or contract signing.',
+  ManagePurchaseOrderChange: 'Use when reviewing before-and-after quantity, delivery and commitment on an existing purchase order. Do not use for new demand intake, supplier award or invoice disposition.',
+  TrackLeakageRecovery: 'Use when reviewing one intervention and accepting only its verified recovery evidence. Do not use to detect leakage, accept disputed value or treat identified opportunity as saving.',
+  ExploreSupplierPortfolioBalance: 'Use when comparing cross-supplier allocation, concentration limits and regional continuity scenarios. Do not use for one supplier relationship, supplier risk scoring or event-specific award approval.',
+  ExploreAgentCapabilities: 'Use when the user asks about procurement capabilities, available experiences, help or getting started. Do not use as a fallback for a named operational task or record.'
 };
 for (const [name, names] of definitions) {
   const row = rows.find(item => item[0] === name);

@@ -1,15 +1,16 @@
 # ZavaMesh Revenue Deal Room - 6-minute keynote
 
-## Beautiful work. One continuous Copilot conversation.
+## Beautiful work. More context when you need it.
 
 For Microsoft customers, partners, sellers and product leaders. Start with portfolio value,
 follow the evidence into one opportunity, and finish with an accountable human decision.
 The graphics are not slides: select a connection, inspect a country, edit an offer and review a
 request. Copilot carries the exact context between those experiences.
 
-**The signature contrast:** inline **Continue with Copilot** opens the next interactive UX in chat.
-Full-screen **Continue with Copilot: Summary & next steps** returns a concise **text-only** answer
-to that conversation. Show both using the same commercial scenario.
+**The story:** start with useful, interactive work in the conversation. When you need more context
+and detail, expand into the matching workspace; full screen is an option, not a prerequisite.
+Keep the main journey moving with direct inspection and the form's own controls. Use Copilot
+handoffs where the job changes: from a proposed offer to submission, then to independent review.
 
 ## Setup - not spoken on stage
 
@@ -43,12 +44,13 @@ During unfinished submission or review, keep working through the form's own **Co
 exact-review and confirmation controls. Its contextual discussion action can help check a draft;
 it must not bypass submission, independent review or consent to create another record.
 
-Expansion preserves the current work. The left menu opens a workspace's purposeful landing, not
+Expansion preserves the current work; it is not a required step between inline experiences.
+The left menu opens a workspace's purposeful landing, not
 an unrelated task below another dashboard. **Back to [workspace]** returns to the list; explicit
 **Resume** restores mounted work. If the full-screen host does not reveal chat after sending a
 summary, use its return-to-chat/collapse control. Do not claim automatic collapse.
 
-## 0:00-0:45 - Follow value, then continue into the next UX
+## 0:00-0:45 - Follow value and inspect what needs action
 
 Choose **Pipeline value flow**:
 
@@ -60,16 +62,11 @@ then use **Back to value flow**.
 
 Say: **"This is not a chart pasted into an answer. We can follow the value and inspect what needs action."**
 
-Click **Continue with Copilot: Approval progress** from the overview. Pause for Copilot to create
-`ExploreApprovalFlow` **inline in the conversation**. Show the visually distinct intake/reviewer/outcome
-flow: **$30.0M** allocated, **$13.2M pending**, **$9.7M stage passed**.
+Stay with the selected value and next action rather than launching a second flow. The audience
+should see that the answer is already useful inside the conversation. The allocation is a planning
+scope, not an individual request, a predicted conversion or an approval.
 
-Say: **"The next question becomes the next working experience, without starting the conversation again."**
-
-These are separate planning scopes. Stage completion is not final approval; do not attribute either
-aggregate to an individual request or open ZM-1001 as though it represents the chart total.
-
-## 0:45-1:25 - Put opportunity and recorded spend on the world
+## 0:45-1:25 - Put the opportunity on the world
 
 Choose **World opportunity map**:
 
@@ -79,15 +76,12 @@ Expected inline component: `DiscoverAccountOpportunity`. Show the projected map,
 and **$82,497,260 across 25 opportunities**. Select Germany, inspect its exact country detail, then
 return to **Country overview** with the selector so no country restriction carries into the next view.
 
-Click **Continue with Copilot: Pipeline quality**. Copilot opens `ExplorePipelineQuality` with
-**Recorded spend** selected: the same geographic language, a different data model and bubble sizes,
-with a separate **$3.4M** expense ledger.
+Say: **"We can see where the opportunity sits, inspect a country and understand the actual deals behind the number, right here."**
 
-Say: **"Where the opportunity sits and where spend was recorded are different questions. Copilot carries the scope, not an invented conclusion."**
+Headquarters attribution is not rollout revenue. Keep recorded spend as an optional extra, not
+another required handoff before the customer story.
 
-Headquarters attribution is not rollout revenue. Spend is not requested investment or ROI.
-
-## 1:25-2:10 - Move from a portfolio to one buyer decision
+## 1:25-2:10 - Buyer proof, with more context when needed
 
 Choose **Map the buying committee**:
 
@@ -96,43 +90,38 @@ Choose **Map the buying committee**:
 Expected component: `MapBuyingCommittee`, scoped to **ZDR-2042**. Show the buyer-role network,
 portraits and exact contact inspection. Economic-buyer access is not evidenced.
 
-Expand into **Deal Room**. Let the audience see the full-width relationship experience and the
-aligned workspace navigation. Point to the selected opportunity rather than touring the menu.
+Say: **"We have the people on the map. What we still need is proof of access and a credible path to a decision. When I need more context and detail, I can open the Deal Room."**
 
-Say: **"We have the people on the map. What we still need is proof of access and a credible path to a decision."**
+Choose **Expand** to show that option: the same selected opportunity, with the wider relationship
+experience, pursuit team and evidence ledger around it. Inspect one relevant evidence gap rather
+than touring the menu. Explain that this adds surrounding context; it is not necessary to expand
+every component to get work done.
 
-Use the local **Continue to Deal risk**, inspect one signature blocker, then **Continue to Commercial
-scenario**. These are local workspace transitions, not model-generated responses. Keep **ZDR-2042**.
+Return to the conversation using the host's return-to-chat/collapse control. Keep the buyer view
+on **ZDR-2042**; do not navigate through additional tasks just to reach the next keynote beat.
 
-## 2:10-3:10 - Same offer, two different Continue with Copilot results
+## 2:10-3:10 - Shape the offer, then move to review
 
-In **Commercial Desk**, set **1,000 users / 24 months / 8% discount / $150,000 services /
-0.65 seller probability**. Leave the annual ramp blank. Show the recalculating margin curve and:
+Open **Model a commercial offer**:
+
+> Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability.
+
+Expected inline component: `SimulateCommercialOffer`, still scoped to **ZDR-2042**. Use its editable
+fields to show **1,000 users / 24 months / 8% discount / $150,000 services / 0.65 seller probability**.
+Leave the annual ramp blank. Show the recalculating margin curve and:
 
 - **$2,818,000 contract value**
 - **$1,831,700 seller-weighted value**
 - Margin above **68%**; required authority is not approval.
 
-Click the full-screen **Continue with Copilot: Summary & next steps**. Return to chat if the host
-requires it. **The response must be text, not another UX card.**
+Say: **"We can shape the proposal here. When the terms are ready, we move into review with those exact values."**
 
-Expected substance, not a memorized quotation: the current Contoso terms and exact two values,
-the buyer-proof or validation gaps actually visible, and the next review actions. The offer is
-proposed; no quote, submission or approval has happened. Keep the answer to a short paragraph and
-two next steps. Missing evidence stays unknown.
+Click **Continue with Copilot: Submit a deal**. Copilot must open `SubmitDealRequest` as a
+**new interactive inline form**, prefilled with those economics. This is a meaningful change of job,
+not an extra continuation between every inspection.
 
-Say: **"The workspace gives us room to work. Continue with Copilot brings the meaning back into the conversation."**
-
-For the inline handoff, open **Model a commercial offer** with the same explicit values:
-
-> Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability.
-
-This deliberate tool request opens `SimulateCommercialOffer` inline. Verify the same exact values,
-then click **Continue with Copilot: Submit a deal**. Copilot must open `SubmitDealRequest` as a
-**new interactive inline form**, prefilled with those economics.
-
-Do not assume collapsing an original buyer-network card turns it into the locally navigated
-commercial task. Requesting the named inline scenario makes that transition explicit and repeatable.
+Do not reopen the offer or require a full-screen summary before submitting. The proposal is still
+unsubmitted and unapproved; the next form owns review and consent.
 
 ## 3:10-4:10 - Review and submit the real values on screen
 
@@ -170,38 +159,55 @@ Show the matching **ZM-...-A1** receipt.
 
 Say: **"An explanation is not an approval. Opening a component is not an approval. This independent, confirmed decision is the recorded action."**
 
-After confirmation, click inline **Continue with Copilot: My priorities**. Copilot opens the
-updated `GetMyRevenuePriorities` UX, closing the work loop rather than merely saying it is done.
+Finish on the matching receipt. A further **Continue with Copilot: My priorities** is available,
+but is not needed to prove that the decision was recorded.
 
-## 5:10-6:00 - One conversation, four purposeful workspaces
+## 5:10-6:00 - The same work, with wider operating context
 
-Expand the priorities component into **My Deals**, then use **Back to My Deals** to show the
-owned book, next action and actual opportunity choices. The starting view makes sense on its own.
+Say: **"The decision is recorded. If I now need the wider operating picture, I can move into the workspace."**
+
+Expand the approval component into **Commercial Desk**. Choose **My Deals** in the left menu to show
+the owned book, next action and actual opportunity choices. Its landing makes sense on its own;
+there is no need to create another chat card first.
 
 Click **Revenue Command** in the left menu. Show its full-width country opportunity map and
 request-status counters. The confirmed work overlay changes; the opportunity catalog does not
 quietly become closed-won or a committed forecast.
 
-Return briefly to the text summary in the conversation if time permits. Contrast the short,
-contextual explanation with the beautiful, inspectable UX already shown.
-
 Closing line: **"Copilot is not a separate destination. It is the conversation around the work:
 interactive when we need to act, concise when we need to understand, and accountable when we decide."**
 
+## Optional capability moments - not required transitions
+
+Use these for extra time or audience questions, not between every main-story beat:
+
+- **Approval value flow** opens `ExploreApprovalFlow`: **$30.0M** allocated, **$13.2M pending**,
+  **$9.7M stage passed**. This is a separate planning scope, not the submitted request or final approval.
+- **Recorded spend by country** opens `ExplorePipelineQuality` with **Recorded spend** selected:
+  a separate **$3.4M** expense ledger, not requested investment or ROI.
+- For a concise explanation of the edited offer, expand its original `SimulateCommercialOffer`
+  card into **Commercial Desk**, then choose **Continue with Copilot: Summary & next steps**.
+  Return to chat if the host requires it. The response must be **text-only**, not another card:
+  the current terms, **$2,818,000 / $1,831,700**, visible evidence gaps, confirmed status and two
+  next steps. No quote, submission or approval has happened. Return to that same inline offer
+  to continue; do not recreate it or assume collapsing a different card changes its task.
+
 ## Five-minute cut
 
-Keep the commercial full-screen text summary and inline submission handoff; that contrast is mandatory.
-Save one minute by using the world opportunity overview without country drill-down or the spend handoff
-(20 seconds), showing buyer access without opening a risk detail (15 seconds), and closing on the
-approval receipt instead of the priorities/Revenue Command tour (25 seconds). Never skip consent or
-pretend a decision occurred.
+Keep the inline offer-to-submission and submission-to-approval handoffs, including the outcome wording
+and exact-value review. Save one minute by using the pipeline overview without connection drill-down
+(15 seconds), the world opportunity overview without country drill-down (15 seconds), and closing on
+the approval receipt instead of the workspace tour (30 seconds). Leave optional capability moments
+out of both timed runs. Never skip consent or pretend a decision occurred.
 
 ## Rehearsal and fallback checklist
 
-- Verify both Continue with Copilot buttons in the deployed agent: inline produces the named UX;
-  full-screen produces a **text-only** summary with no tool call. Workbench transport is not proof.
-- Verify the summary uses the active full-screen task, edited values and selected record, not a
-  hidden original card. An explicitly requested later component must still open normally.
+- Verify the two core inline handoffs in the deployed agent: offer to submission, then the submitted
+  request to approval. Both must produce the named UX, not a text substitute. Workbench transport is not proof.
+- Rehearse expansion as a choice for more context and detail, not a prerequisite to the next task.
+- If showing the optional full-screen summary, verify a **text-only** answer with no tool call,
+  using the active task, edited values and selected record, not a hidden original card.
+  An explicitly requested later component must still open normally.
 - Verify the inline commercial handoff preserves **$2,818,000 / $1,831,700** and all five inputs.
 - Verify the same generated request ID reaches approval; aggregate chart volume never becomes its value.
 - Verify the visible context precedes the outgoing message and the entire payload stays within

@@ -16,7 +16,7 @@
     {
       "name": "NegotiateContractTermsTool",
       "description": {
-        "default": "Use when the user asks: What should we give, get, and protect? Outcome: A reviewed negotiation plan with fallback. Boundary: Not contract renewal decision."
+        "default": "Use when preparing a give/get negotiation mandate, target economics and fallback for a contract. Do not use for a renewal decision, supplier communication or contract signing."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/negotiateContractTerms/NegotiateContractTermsCopilotComponentProperties.js:default;"

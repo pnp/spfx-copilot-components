@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T19:07:34.799Z",
+  "generatedAt": "2026-11-03T11:07:58.811Z",
+  "sourceSha256": "994919282938d9217c59f13e667bf287dada0276f2617dd26a46fd3bca90867a",
   "captureCount": 24,
   "workspaceLayouts": [
     "request-approval-journey",
@@ -28,7 +29,7 @@
     {
       "name": "requests-340",
       "file": "ux-review/evidence/zavacore/requests-340.png",
-      "sha256": "40aa245cc9c1fdabb0cbadc28089cfbc06287e69833d324eef1e338bbe1bab98",
+      "sha256": "50f77fd2f63e9a6e9d476d3a53eaf4a535310f423c9973a853253f7e8915fa0b",
       "viewport": {
         "width": 340,
         "height": 1050
@@ -47,7 +48,7 @@
     {
       "name": "requests-760",
       "file": "ux-review/evidence/zavacore/requests-760.png",
-      "sha256": "2a4cde4826a34ebc112f6186b57c25a5e4f1ba471a850dceb813a72749c8bdc3",
+      "sha256": "a96cc7b11c1865a042bfd05787dd723938a16a85db461249e444d6ae0f6c550f",
       "viewport": {
         "width": 760,
         "height": 1050
@@ -66,7 +67,7 @@
     {
       "name": "requests-1920",
       "file": "ux-review/evidence/zavacore/requests-1920.png",
-      "sha256": "74d941fab416e08753f0a6fa3d9accbd4c21c621fbaf4b11a1d357d35f967009",
+      "sha256": "2dcfa7424a71223b3765d7b6d9466497009233cb9d19abc72718dece6301e308",
       "viewport": {
         "width": 1920,
         "height": 1050
@@ -85,7 +86,7 @@
     {
       "name": "requests-200-percent",
       "file": "ux-review/evidence/zavacore/requests-200-percent.png",
-      "sha256": "5c99fa3e9616e3ba2c30eb2dbed2cf371123bcd4aaaf59741eaa01af9840bf4c",
+      "sha256": "cc74ab404a391705144484239af631f675720d1bb280ec0eaf7cf0b7553b6f69",
       "viewport": {
         "width": 1280,
         "height": 1050
@@ -104,7 +105,7 @@
     {
       "name": "sourcing-340",
       "file": "ux-review/evidence/zavacore/sourcing-340.png",
-      "sha256": "141d94d1ffa12e418f8c5e534023334403b5f6303eff48883f20792a731c89ea",
+      "sha256": "92d13d78eee66b3626d9d6614a6bc28434dd227838ee1816b01011847ce8fc00",
       "viewport": {
         "width": 340,
         "height": 1050
@@ -123,7 +124,7 @@
     {
       "name": "sourcing-760",
       "file": "ux-review/evidence/zavacore/sourcing-760.png",
-      "sha256": "842fefaf425dde7511ec8351ecfd26d27592b42641391d4061cd411eca115b67",
+      "sha256": "408c61bd063062beae419f8f9ce983f929b989e63f8f0d51598a75ea3acc4f1d",
       "viewport": {
         "width": 760,
         "height": 1050
@@ -142,7 +143,7 @@
     {
       "name": "sourcing-1920",
       "file": "ux-review/evidence/zavacore/sourcing-1920.png",
-      "sha256": "7f761d2307490c846b5378a8eea2cddf402dc9ce0284a65922fb65c78f86ad73",
+      "sha256": "a922d2e17852488c1db82b100eab99a65b9f31935d57f09742237bfffb70197c",
       "viewport": {
         "width": 1920,
         "height": 1050
@@ -161,7 +162,7 @@
     {
       "name": "sourcing-200-percent",
       "file": "ux-review/evidence/zavacore/sourcing-200-percent.png",
-      "sha256": "09ab0d5f71b0a3df3fe7e6bddb92b8212c7ac799006a159676a272a6e1268b78",
+      "sha256": "39b239a8de40858a799617c4dbe8edc41b8c4155fafa92391c1c4b3157316fd7",
       "viewport": {
         "width": 1280,
         "height": 1050
@@ -180,7 +181,7 @@
     {
       "name": "supplier-340",
       "file": "ux-review/evidence/zavacore/supplier-340.png",
-      "sha256": "6a9cb4ed4c6ea09ea899a80cadbc6c1261c3d9618641944fc9d590f1d1fec9fb",
+      "sha256": "8eb685e818a2be17f4d0f0b59636a940409b954756dc31110ce569d1fb6bc90e",
       "viewport": {
         "width": 340,
         "height": 1050
@@ -199,7 +200,7 @@
     {
       "name": "supplier-760",
       "file": "ux-review/evidence/zavacore/supplier-760.png",
-      "sha256": "2a864cd992bfabd3c7dc067de6c0b33047d600ce1231d817a55062e5bd9a26b7",
+      "sha256": "37e8d3a12ac8078672f22818e3147f1eae6c75066d80815fbe10afe1f2b07087",
       "viewport": {
         "width": 760,
         "height": 1050
@@ -218,7 +219,7 @@
     {
       "name": "supplier-1920",
       "file": "ux-review/evidence/zavacore/supplier-1920.png",
-      "sha256": "cd5d530e8d9826abb4a7e2e0be7a69e8a58a66f091b4fa92fdaa0c8894f0a21f",
+      "sha256": "ff4726ec6ea4075ed37bef172d572184ae02f45bafd635e760e4d291aaeb155d",
       "viewport": {
         "width": 1920,
         "height": 1050
@@ -237,7 +238,7 @@
     {
       "name": "supplier-200-percent",
       "file": "ux-review/evidence/zavacore/supplier-200-percent.png",
-      "sha256": "281ddcdc07a250f7ac7be66889e3f871fec5edf2546b210e834e2fb65bc30599",
+      "sha256": "53598ff290bfb3cd237aacfbd534209fea991bd51298a89029bfdc14541d49e4",
       "viewport": {
         "width": 1280,
         "height": 1050
@@ -256,7 +257,7 @@
     {
       "name": "spend-340",
       "file": "ux-review/evidence/zavacore/spend-340.png",
-      "sha256": "51c71fe6fae7c7a6fccbf030a1cf075e966f09a23647e4b8b79bd85fcfa2e728",
+      "sha256": "2d26a700abe50e252eb669257454b5fb7f96cf917386d193a8d17b32ed68ee61",
       "viewport": {
         "width": 340,
         "height": 1050
@@ -271,14 +272,15 @@
       "scale": 1,
       "chartModules": [
         "global-investment-map",
-        "commitment-trend"
+        "commitment-trend",
+        "procurement-value-sankey"
       ],
       "focus": true
     },
     {
       "name": "spend-760",
       "file": "ux-review/evidence/zavacore/spend-760.png",
-      "sha256": "c28cc77d8499ec5c58dafb072bff21e0c855ce9c3ad4e4b5fe71164a2645f1eb",
+      "sha256": "05de6f9dce5081b644d2d8646cea2926bf2bce88b45e2f06c41663369e522b44",
       "viewport": {
         "width": 760,
         "height": 1050
@@ -293,14 +295,15 @@
       "scale": 1,
       "chartModules": [
         "global-investment-map",
-        "commitment-trend"
+        "commitment-trend",
+        "procurement-value-sankey"
       ],
       "focus": true
     },
     {
       "name": "spend-1920",
       "file": "ux-review/evidence/zavacore/spend-1920.png",
-      "sha256": "dde2b5b287de7102e0cb16f248c964df4090c19ff437ce815e1fc307f448ac14",
+      "sha256": "5d30c4ffbc1f76971155e0619706ec8f7d1583a49bb29ac7aeeb810eefcea7b6",
       "viewport": {
         "width": 1920,
         "height": 1050
@@ -315,14 +318,15 @@
       "scale": 1,
       "chartModules": [
         "global-investment-map",
-        "commitment-trend"
+        "commitment-trend",
+        "procurement-value-sankey"
       ],
       "focus": true
     },
     {
       "name": "spend-200-percent",
       "file": "ux-review/evidence/zavacore/spend-200-percent.png",
-      "sha256": "4eaf265c7aa8e051465af34e02ded0fbff9b75f666122733f5c3c2781110aa0a",
+      "sha256": "fa075c1037a04ebb6b116c0b104eb19f4a49c81c5cb5875d7225890d07fc54d3",
       "viewport": {
         "width": 1280,
         "height": 1050
@@ -337,19 +341,20 @@
       "scale": 2,
       "chartModules": [
         "global-investment-map",
-        "commitment-trend"
+        "commitment-trend",
+        "procurement-value-sankey"
       ],
       "focus": true
     },
     {
       "name": "submitted-business-case",
       "file": "ux-review/evidence/zavacore/submitted-business-case.png",
-      "sha256": "a7a8404a516c5bba00cceb3935ba231e8f7d1ac23a8b275c1b3c0f36ba7cd238",
+      "sha256": "7f44d8bfe2d70bcafb08d71fc29590bf63aea1a8c7d1d779e351eac4b2c43bd6",
       "viewport": {
         "width": 1440,
         "height": 1050
       },
-      "layout": "my-requests-command",
+      "layout": "CreatePurchaseIntent-fullscreen",
       "dashboard": "request-approval-journey",
       "overflow": false,
       "clippedControls": 0,
@@ -363,12 +368,12 @@
     {
       "name": "budget-human-review",
       "file": "ux-review/evidence/zavacore/budget-human-review.png",
-      "sha256": "bc8b3fd2a77e14732ead24641560243000e659ea18d3844525d8589bbd77f177",
+      "sha256": "46fe29dd8882ac093fe99643ecadfc1b037c8e3513d35fbec380f4d58cd8c9b3",
       "viewport": {
         "width": 1440,
         "height": 1050
       },
-      "layout": "my-requests-command",
+      "layout": "ReviewPurchaseRequest-fullscreen",
       "dashboard": "request-approval-journey",
       "overflow": false,
       "clippedControls": 0,
@@ -382,12 +387,12 @@
     {
       "name": "budget-session-receipt",
       "file": "ux-review/evidence/zavacore/budget-session-receipt.png",
-      "sha256": "700749beed068866479cd22d85a9916e347992b06cd4c1bf7f095163e266bd3a",
+      "sha256": "2fe85c403cfa8e83cbd04009d2159ea98c52c4a9a73ef47d8fafdd0fe83e099c",
       "viewport": {
         "width": 1440,
         "height": 1050
       },
-      "layout": "my-requests-command",
+      "layout": "ReviewPurchaseRequest-fullscreen",
       "dashboard": "request-approval-journey",
       "overflow": false,
       "clippedControls": 0,
@@ -401,7 +406,7 @@
     {
       "name": "approved-request-inbox",
       "file": "ux-review/evidence/zavacore/approved-request-inbox.png",
-      "sha256": "de4730d10bade756b63c2daa84d7694694f4e08bf71e549cf2ec1e30b6d15215",
+      "sha256": "cd912b0bc1be0fc36d55549e58664f5f13f5d471e9a6bef83a3fb36bedac562d",
       "viewport": {
         "width": 1440,
         "height": 1050
@@ -420,12 +425,12 @@
     {
       "name": "award-human-review",
       "file": "ux-review/evidence/zavacore/award-human-review.png",
-      "sha256": "bf9e079d27f391e28e5d99abc5458065de4c12e777ae42766de20f0675e9c4db",
+      "sha256": "9f7cf2a14afb978255e2c4bfec343014d63d969ed8b0bb7f73aab3547897977b",
       "viewport": {
         "width": 1440,
         "height": 1050
       },
-      "layout": "sourcing-command",
+      "layout": "ReviewSupplierAward-fullscreen",
       "dashboard": "sourcing-event-readiness",
       "overflow": false,
       "clippedControls": 0,
@@ -439,7 +444,7 @@
     {
       "name": "award-to-investment",
       "file": "ux-review/evidence/zavacore/award-to-investment.png",
-      "sha256": "345bbcf0b2ff6cffe2595163627f0d5ec8947ba8c45eda715685fabb7108a3e2",
+      "sha256": "de98ba01a6132b7d52e47d415f0dc349c8ff5501483cae996e20ca82a3b14bb8",
       "viewport": {
         "width": 1440,
         "height": 1050
@@ -454,14 +459,15 @@
       "scale": 1,
       "chartModules": [
         "global-investment-map",
-        "commitment-trend"
+        "commitment-trend",
+        "procurement-value-sankey"
       ],
       "focus": true
     },
     {
       "name": "regional-investment-drilldown",
       "file": "ux-review/evidence/zavacore/regional-investment-drilldown.png",
-      "sha256": "e710b24ddcbca20f40eb62c6db515019b0683df92353bd4a68b7f587565e599c",
+      "sha256": "6136e9e71553d098ae8334ed739b35110098688f7fc98a9859ce744ddee52f9b",
       "viewport": {
         "width": 1440,
         "height": 1050
@@ -483,12 +489,12 @@
     {
       "name": "reset-baseline",
       "file": "ux-review/evidence/zavacore/reset-baseline.png",
-      "sha256": "558ed11085ebbdf8c40fedb6223069f5436b7dfd39b05d5c5c7c85d74155bfa4",
+      "sha256": "dc5ebe27e7dba230ee396d279b5296551addd9f9cc43291ddd9bc7d7f6281454",
       "viewport": {
         "width": 1440,
         "height": 1050
       },
-      "layout": "my-requests-command",
+      "layout": "CreatePurchaseIntent-fullscreen",
       "dashboard": "request-approval-journey",
       "overflow": false,
       "clippedControls": 0,

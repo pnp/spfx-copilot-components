@@ -27,12 +27,20 @@ cards. The first frame names the decision, evidence, accountable role, and next 
 5. `ux-supplier-360.png`: relationship obligations and dependency context.
 6. `ux-inline-ResolveInvoiceException.png`: exact three-way reconciliation.
 7. `ux-spend-command.png`: projected world investments, region-driven commitment trends, delivery
-   progress, source-linked value and a program ledger.
+   progress, reconciled value Sankey and a program ledger.
 8. `ux-sourcing-mobile.png` and `ux-sourcing-dark.png`: responsive and theme evidence.
+9. [Named evaluation destination](ux-review/evidence/ignite/route-CompareSupplierBids.png) and
+   [award destination](ux-review/evidence/ignite/route-ReviewSupplierAward.png): direct business views,
+   preserved edits, adjacent evidence and no origin/launcher messaging.
+10. [Inline value Sankey](assets/ux-inline-ExploreSpendPerformance.png),
+    [modeled continuity](assets/ux-inline-TrackSupplierRisk.png) and
+    [ranked leakage](assets/ux-inline-DetectSpendLeakage.png): each answers a different business question.
 
 ## Interaction and accessibility review
 
 - Risk weight materially changes supplier geometry and ranking.
+- Verify the exact keynote comparison: 5% risk -> Northwind 68.4; 35% -> Contoso 73.3. The score axis
+  remains 0-100 and bubble area is truly proportional to confidence, not an inflated offset scale.
 - Split percentage changes cost, blended risk, resilience share, and timing confidence.
 - Every SVG has role, title, description, visible labels, and an exact table/list equivalent.
 - Interactive chart marks support Enter and Space; semantic states include text and icon meaning.
@@ -44,6 +52,14 @@ cards. The first frame names the decision, evidence, accountable role, and next 
   authenticated/native-browser zoom claim.
 - Scope is visible: the dashboard's regional analysis does not silently overwrite a focused task's
   prompt filters or draft. Fresh intake approval is separate from the curated sourcing event.
+- Sankey ribbons and nodes are keyboard-selectable, conserve EUR, and expose disjoint terminal
+  states. The freight dispute is a subset of unverified value. Narrow width uses readable exact-value
+  alternatives rather than shrinking SVG labels to unreadable text.
+- Every component has a specific Continue with Copilot step plus More discussions and a custom
+  question. Pending controls are disabled; errors are visible/retryable. Full-screen summary is text,
+  inline handoff is scoped UX, and Continue to is separate local navigation.
+- Root heights are measured through draft/review/receipt/reset, not masked by nested vertical scroll
+  or fixed-height wrappers. Inspect actual content density and native host sizing in the tenant.
 
 ## Publication acceptance
 
@@ -52,6 +68,13 @@ cards. The first frame names the decision, evidence, accountable role, and next 
   controls, labeled charts, no external runtime requests and the connected session workflows.
 - `assets/sample.json` references only current evidence with descriptive alt text.
 - The routing matrix contains all 22 catalog-owned tools and explicit sibling exclusions.
+- The additional [45 Ignite captures](ux-review/evidence/ignite-readiness.json) cover all 22 actual
+  expansion routes, changed-value preservation, dark/narrow signature visuals, custom questions,
+  click-time/text-only continuation, rejected/throwing bridge retry, honest invalid/no-evidence
+  states and real root shrink/grow. Missing supplier dependencies never become guessed relationships.
+- All three visual reports carry the current runtime source hash; stale screenshots fail publication.
+- Canonical and packaged metadata contain exactly 12 distinct business-language starters, with
+  capability exploration last. Current test totals and hashes come from release evidence, not old notes.
 - The `.sppkg` contains one current agent ZIP and one shared JavaScript asset.
 - Authenticated Workbench routing, CSP, iframe focus, forced colors, and screen-reader output remain a
   separate tenant gate and must not be claimed from the local harness.

@@ -8,13 +8,19 @@ const starters = JSON.parse(fs.readFileSync(path.join(root, 'config', 'conversat
 const declared = JSON.parse(fs.readFileSync(path.join(root, 'copilot', 'declarativeAgent.json'), 'utf8')).conversation_starters;
 if (JSON.stringify(declared) !== JSON.stringify(starters.map(({ title, text }) => ({ title, text })))) throw new Error('Canonical and declarative starters differ.');
 const tools = new Set(rows.map(row => `${row[0]}Tool`));
-if (starters.length !== 6 || new Set(starters.map(starter => starter.tool)).size !== 6 || starters.some(starter => !tools.has(starter.tool))) throw new Error('Starters require six distinct registered tools.');
+if (starters.length !== 12 || new Set(starters.map(starter => starter.tool)).size !== 12 || starters.some(starter => !tools.has(starter.tool))) throw new Error('Starters require 12 distinct registered tools.');
+if (starters[11].tool !== 'ExploreAgentCapabilitiesTool' || starters.slice(0, 11).some(starter => starter.tool === 'ExploreAgentCapabilitiesTool')) throw new Error('Capability exploration must be last.');
+if (starters.some(starter => /\b(?:demo|sample|example)s?\b/i.test(`${starter.title} ${starter.text}`))) throw new Error('Starter wording must be business-first.');
+const destinationSource = fs.readFileSync(path.join(root, 'src', 'shared', 'fullscreen.ts'), 'utf8');
+const destinations = new Map([...destinationSource.matchAll(/f\('([^']+)','([^']+)','(task|workspace)'/g)].map(match => [match[1], { title: match[2], view: match[3] }]));
+if (destinations.size !== rows.length || rows.some(row => !destinations.has(row[0]))) throw new Error('Every intent needs an explicit full-screen destination.');
 const lines = [
   '# ZavaCore Procurement Command Center - Routing Matrix', '',
   'Generated from `src/shared/catalog.ts` and `config/conversation-starters.json`. Tool names retain the registered `Tool` suffix; component/view keys do not.', '',
-  '| Tool | Operation | Lens and route | Role | Route when | Exclude when | Canonical prompt |',
-  '| --- | --- | --- | --- | --- | --- | --- |',
-  ...rows.map(([key, , lens, route, operation, role, question, , prompt, excludes]) => `| \`${key}Tool\` | ${operation} | ${lens} / \`${route}\` | ${role} | ${question} | ${excludes} | ${prompt} |`),
+  '| Tool | Operation | Lens and route | Full-screen destination | Role | Route when | Exclude when | Canonical prompt |',
+  '| --- | --- | --- | --- | --- | --- | --- | --- |',
+  ...rows.map(([key, , lens, route, operation, role, question, , prompt, excludes]) => `| \`${key}Tool\` | ${operation} | ${lens} / \`${route}\` | ${destinations.get(key).title} / ${destinations.get(key).view} | ${role} | ${question} | ${excludes} | ${prompt} |`),
+  '', 'Expansion preserves the current selection and draft and opens the named business view with additional evidence. No origin/launcher UI is shown. Workspace navigation is separate; hidden tasks never publish visible context.', '',
   '', '## Conversation starters', '',
   '| Starter | Prompt | Expected registered tool |', '| --- | --- | --- |',
   ...starters.map(starter => `| ${starter.title} | ${starter.text} | \`${starter.tool}\` |`),
@@ -34,4 +40,4 @@ const file = path.join(root, 'Zava-Procurement-Routing-Matrix.md');
 if (process.argv.includes('--check')) {
   if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== output) throw new Error('Routing matrix is stale.');
 } else fs.writeFileSync(file, output);
-console.log('Verified 22 registered tool owners and six canonical starter targets.');
+console.log('Verified 22 registered tool owners, 22 full-screen destinations and 12 canonical starter targets.');

@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import unzipper from 'unzipper';
+import { visualSourceSignature } from './visual-source-signature.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const output = path.join(root, 'assets', 'release-evidence.json');
@@ -23,6 +24,10 @@ const junit = fs.readFileSync(path.join(root, 'jest-output', 'JUnit.xml'), 'utf8
 assert(junit && /\bfailures="0"/.test(junit) && /\berrors="0"/.test(junit), 'All Jest tests must pass.');
 const gallery = JSON.parse(fs.readFileSync(path.join(root, 'assets', 'gallery-evidence.json'), 'utf8'));
 const keynote = JSON.parse(fs.readFileSync(path.join(root, 'ux-review', 'evidence', 'zavacore-modernization.json'), 'utf8'));
+const ignite = JSON.parse(fs.readFileSync(path.join(root, 'ux-review', 'evidence', 'ignite-readiness.json'), 'utf8'));
+const sourceSha256 = visualSourceSignature();
+assert([gallery, keynote, ignite].every(item => item.sourceSha256 === sourceSha256), 'Visual evidence does not match the current runtime source.');
+assert(ignite.routingCount === 22 && ignite.errors.length === 0 && ignite.externalRuntimeRequests === 0, 'Ignite routing/continuation evidence must pass.');
 const brand = JSON.parse(fs.readFileSync(path.join(root, 'assets', 'brand-provenance.json'), 'utf8'));
 const hash = buffer => crypto.createHash('sha256').update(buffer).digest('hex');
 const evidence = {
@@ -39,6 +44,11 @@ const evidence = {
   agentArchives: agents.length,
   visualCaptures: gallery.captureCount,
   keynoteCaptures: keynote.captureCount,
+  igniteCaptures: ignite.captureCount,
+  fullScreenRoutes: ignite.routingCount,
+  conversationStarters: JSON.parse(fs.readFileSync(path.join(root, 'config', 'conversation-starters.json'), 'utf8')).starters.length,
+  visualSourceSha256: sourceSha256,
+  maximumCapturedContextBytes: Math.max(...ignite.captures.map(capture => capture.contextBytes)),
   sharedBrandMedia: brand.items.filter(item => item.file.startsWith('src/shared/assets/brand/')).length,
   componentCount: 22,
   testCount: Number(junit.match(/\btests="(\d+)"/)?.[1]),

@@ -23,32 +23,39 @@ const projection = geoEqualEarth().fitExtent([[16, 12], [744, 342]], { type: 'Sp
 const path = geoPath(projection);
 const landPath = path(WORLD_LAND) || '';
 const graticulePath = path(geoGraticule10()) || '';
-export function InvestmentMap({ records, region, onRegion }: {
+export type InvestmentMapMetric = 'budget' | 'committed' | 'uncommitted';
+export const investmentMapValue = (record: IInvestment, metric: InvestmentMapMetric): number => metric === 'uncommitted' ? record.budget - record.committed : record[metric];
+export function InvestmentMap({ records, region, metric = 'budget', onRegion }: {
   readonly records: readonly IInvestment[];
   readonly region: string;
-  readonly onRegion: (region: InvestmentRegion) => void;
+  readonly metric?: InvestmentMapMetric;
+  readonly onRegion: (region: InvestmentRegion, programId: string) => void;
 }): React.ReactElement {
   const s = useStyles();
   const id = React.useId();
-  const radius = scaleSqrt().domain([0, 1650000]).range([3, 13]);
+  const maximum = Math.max(1, ...records.map(record => investmentMapValue(record, metric)));
+  const radius = scaleSqrt().domain([0, maximum]).range([0, 19]);
+  const metricLabel = metric === 'budget' ? 'planned budget' : metric === 'committed' ? 'commitment' : 'uncommitted headroom';
   const visible = records.filter(record => region === 'Global' || record.region === region);
   const totals = investmentTotals(visible);
   return <div data-chart="global-investment-map">
-    <svg className={`${s.svg} ${s.map}`} viewBox="0 0 760 354" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
+    <svg className={`${s.svg} ${s.map}`} viewBox="0 0 760 354" role="group" aria-labelledby={`${id}-title ${id}-desc`}>
       <title id={`${id}-title`}>Global procurement investment map</title>
-      <desc id={`${id}-desc`}>Natural Earth land in an Equal Earth projection. Circle size represents EUR reporting budget. Select a location to filter its region. The adjacent program ledger provides exact values and keyboard alternatives.</desc>
+      <desc id={`${id}-desc`}>Natural Earth land in an Equal Earth projection. Circle area represents EUR {metricLabel}; a zero value has no bubble. Select a location to filter its region and inspect its program. The program ledger provides exact values and keyboard alternatives.</desc>
       <path d={graticulePath} fill="none" stroke={tokens.colorNeutralStroke2} strokeWidth=".5" />
       <path d={landPath} fill={tokens.colorNeutralStroke1} stroke={tokens.colorNeutralBackground1} strokeWidth=".6" />
       {records.map(record => {
         const point = projection([record.coordinates[0], record.coordinates[1]]);
         if (!point) throw new Error(`Investment coordinates could not be projected: ${record.id}`);
         const active = region === 'Global' || record.region === region;
-        return <g key={record.id} role="button" tabIndex={0} className={s.mark} aria-label={`Show ${record.region}: ${record.location}, ${money(record.budget)} budget`} onClick={() => onRegion(record.region)}
-          onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onRegion(record.region); } }}>
+        const value = investmentMapValue(record, metric);
+        return <g key={record.id} role="button" tabIndex={0} className={s.mark} aria-label={`Show ${record.region}: ${record.location}, ${money(value)} ${metricLabel}`} onClick={() => onRegion(record.region, record.id)}
+          onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onRegion(record.region, record.id); } }}>
           <title>{record.location}: {record.name}. Budget {money(record.budget)}; committed {money(record.committed)}.</title>
-          <circle cx={point[0]} cy={point[1]} r={radius(record.budget) + 5} fill={active ? tokens.colorBrandBackground : tokens.colorNeutralForegroundDisabled} opacity=".13" />
-          <circle cx={point[0]} cy={point[1]} r={radius(record.budget)} fill={active ? tokens.colorBrandBackground : tokens.colorNeutralForegroundDisabled} stroke={tokens.colorNeutralBackground1} strokeWidth="2" />
-          <circle cx={point[0]} cy={point[1]} r="2.2" fill={tokens.colorNeutralForegroundOnBrand} />
+          <circle cx={point[0]} cy={point[1]} r={value > 0 ? radius(value) + 5 : 6} fill="transparent" />
+          {value > 0 && <><circle cx={point[0]} cy={point[1]} r={radius(value) + 5} fill={active ? tokens.colorBrandBackground : tokens.colorNeutralForegroundDisabled} opacity=".13" />
+          <circle cx={point[0]} cy={point[1]} r={radius(value)} fill={active ? tokens.colorBrandBackground : tokens.colorNeutralForegroundDisabled} stroke={tokens.colorNeutralBackground1} strokeWidth="2" />
+          <circle cx={point[0]} cy={point[1]} r="2.2" fill={tokens.colorNeutralForegroundOnBrand} /></>}
         </g>;
       })}
       {([
@@ -58,7 +65,7 @@ export function InvestmentMap({ records, region, onRegion }: {
         return point ? <text className={s.label} x={point[0]} y={point[1]} textAnchor="middle" key={label}>{label}</text> : null;
       })}
     </svg>
-    <div className={s.legend}><span>Circle area: planned EUR budget</span><span>Highlighted: {region === 'Global' ? 'all regions' : region}</span><span>8 fictional operating sites</span></div>
+    <div className={s.legend}><span>Circle area: EUR {metricLabel}</span><span>Reference: {money(maximum)}</span><span>Highlighted: {region === 'Global' ? 'all regions' : region}</span><span>{records.length} fictional operating sites</span></div>
     <p className={s.muted}>{visible.length} programs / {money(totals.committed)} committed against {money(totals.budget)} planned. Geography is contextual, not a legal boundary statement. All reporting budgets are authored in EUR; no FX conversion is implied.</p>
   </div>;
 }

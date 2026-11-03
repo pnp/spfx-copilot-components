@@ -12,6 +12,7 @@
     "build:visual": "node scripts/build-visual-harness.mjs",
     "capture:visual": "npm run build:visual && node scripts/capture-gallery-assets.mjs",
     "check:keynote": "npm run build:visual && node scripts/validate-keynote-journey.mjs",
+    "check:ignite": "npm run build:visual && node scripts/validate-ignite-readiness.mjs",
     "check:brand": "node scripts/prepare-zavacore-assets.mjs --check",
     "check:gallery": "node scripts/validate-gallery-assets.mjs",
     "generate:assets": "node scripts/generate-asset-provenance.mjs",
@@ -23,7 +24,7 @@
     "check:package-output": "node scripts/validate-package-output.mjs",
     "generate:release-evidence": "node scripts/generate-release-evidence.mjs",
     "check:release-evidence": "node scripts/generate-release-evidence.mjs --check",
-    "validate": "npm run check:intents && npm run check:routing-matrix && npm run check:gallery && npm run check:brand && npm run check:media && npm run check:keynote && heft test --clean",
+    "validate": "npm run check:intents && npm run check:routing-matrix && npm run check:gallery && npm run check:brand && npm run check:media && npm run check:keynote && npm run check:ignite && heft test --clean",
     "clean": "heft clean",
     "eject-webpack": "heft eject-webpack",
     "start": "heft start --clean"

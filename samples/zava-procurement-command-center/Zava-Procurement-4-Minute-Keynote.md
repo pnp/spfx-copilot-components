@@ -2,71 +2,96 @@
 
 ## Audience and promise
 
-For Microsoft customers, partners, procurement leaders, and product teams. The promise: Copilot can
-turn an outcome into inspectable procurement software while people retain accountability for policy,
-supplier, award, invoice, and value decisions.
+For Microsoft's Ignite keynote: **buy for the outcome, challenge the evidence, keep people accountable,
+and prove the value.** The visual arc is supplier trade-offs -> governed split -> world investment
+footprint -> verified-value Sankey. Copilot does not merely describe a dashboard; it selects usable
+software, grounds the next conversation in what is actually visible, and lets the work continue.
 
 ## Setup and reset
 
 - Deploy the committed `.sppkg`, add **ZavaCore Procurement Command Center**, and start a fresh conversation.
 - State once that all records and confirmed actions are deterministic, offline, and session-only.
-- Keep `assets/ux-inline-CreatePurchaseIntent.png`, `assets/ux-sourcing-workbench.png`,
-  `assets/ux-inline-ReviewSupplierAward.png`, and `assets/ux-spend-command.png` ready as fallback.
+- Keep the [supplier comparison](assets/ux-inline-CompareSupplierBids.png),
+  [split review](assets/ux-ReviewSupplierAward-review.png),
+  [global investment command](assets/ux-spend-command.png) and
+  [value Sankey](assets/ux-inline-ExploreSpendPerformance.png) ready as fallback.
+- Use the 12 published starters; capability exploration is last. Rehearse the exact prompts and bridge
+  behavior in the authenticated keynote tenant. Local Chromium is not proof of model routing.
+- Confirm the curated sourcing case starts without a recorded award. The new-intake journey and
+  existing sourcing event are separate; do not imply the first prompt fabricated received bids.
 
-## 0:00-0:40 - Ask for an outcome
+## 0:00-0:25 - A need, not a form
 
 Prompt: **Find the fastest compliant path for 600 rugged devices within EUR 1.2 million.**
 
-Expected tool: `CreatePurchaseIntentTool`. Show the editable outcome, quantity, locations, currency,
-budget, constraints, and needed-by date. Route comparison is a separate explicit request.
-The user did not choose a requisition form; Copilot selected bounded UX and the component owns the math.
+Expected: `CreatePurchaseIntentTool`. Show the 600-device outcome and EUR 1.2m budget. Do not spend
+the keynote completing all intake fields. Say: **"The business owns the need. Now let's examine the
+received bids for our existing sourcing event, ZPC-RFP-31."** This transition is explicit, not an
+invented intake-to-bid automation.
 
-Click Review and confirm the session-only intake. Expand **My Requests**, select the new
-`ZPC-REQ-SESSION-...` business case, and show that the budget owner sees exactly the submitted
-quantity, currency, locations and constraints. Enter a rationale, review and confirm. Its queue status
-changes; no sourcing event, order or delivery is invented.
+## 0:25-1:15 - Price is not the whole decision
 
-## 0:40-1:20 - Show the connected human checkpoint
+Prompt: **Compare the final rugged-device bids and show how risk changes the award.**
 
-Use the approval inbox and outcome timeline. Show **Needs review**, **Approved**, the named budget
-owner and the exact session receipt. The fresh-intake slice proves submission-to-review continuity.
-Now explicitly switch to the separate, pre-curated **600-device sourcing case `ZPC-RFP-31`**.
+Expected: `CompareSupplierBidsTool`. Set risk weight to **5%**, then **35%**. The price weight changes
+from 43% to 13%; the total stays 100%. Northwind Rugged leads the price-led case at **68.4/100**;
+Contoso Mobility leads the resilience-led case at **73.3/100**. Marks and exact scores redraw.
+Bubble area is evidence confidence, not failure probability. This is analysis, not an award.
 
-## 1:20-2:20 - Award for total value
+Say: **"The lowest price becomes a very different decision when continuity matters."**
 
-Prompt: **Compare the final bids for ZPC-RFP-31 and show how risk changes the recommendation.**
+## 1:15-1:55 - A conversation grounded in the visual
 
-Expected tool: `CompareSupplierBidsTool`. Change risk weight. Point to the D3 geometry, confidence, exact
-table, and the Baltic corridor warning. Lowest price is not silently equated with best value.
+Open **More discussions -> Challenge the supplier ranking**. Expected response: text about the
+currently visible **35% risk weight**, selected supplier, bid economics and evidence—not a new card
+or the earlier 5% scenario. Keep the agent's response brief.
 
-## 2:20-3:10 - Preserve human accountability
+Choose **Continue with Copilot: Review supplier award**. Expected: exactly
+`ReviewSupplierAwardTool`, preserving `ZPC-RFP-31`. Then choose **Open award decision room**.
+The named destination opens directly, retains the draft and adds David's authority/evidence context.
+No origin/launcher banner is shown.
 
-Prompt: **Review the proposed 65/35 split award.**
+## 1:55-2:45 - The human checkpoint changes a commitment, not reality
 
-Expected tool: `ReviewSupplierAwardTool`. Move the split and inspect cost, risk and resilience. Above
-70% primary share is blocked. Restore 65%, enter a specific rationale, and review the exact decision.
-Optionally confirm the session receipt while stating explicitly that no supplier was awarded externally.
+Set primary share to **72%** and show the authority block. Restore **60%**:
+Fabrikam 60%, Contoso 40%, **EUR 1,059,600**, blended risk **39/100**, timing confidence **93%**.
+Enter: **"Dual-source capacity and budget authority verified."**
 
-## 3:10-4:00 - See the world and prove value honestly
+Click **Review approve split award**, inspect the exact values and rationale, then
+**Confirm session-only approve split award**. Show the receipt.
+Say: **"A defensible decision, with an accountable person. Not an autonomous supplier award."**
 
-Prompt: **Show our global procurement investments and verified value.**
+## 2:45-4:00 - Follow the world footprint to the missing proof
 
-Expected tool: `ExploreSpendPerformanceTool`. Expand **Spend Command**. Show the projected world map,
-regional investment buttons, six-week commitment chart and delivery ledger. Select APAC: the program
-scope, amounts and chart paths change together, and the absence of linked verified savings is explicit.
-Return to Global: EUR 186,000 is verified, with EUR 15,000 disputed freight excluded.
+In the same application choose **Spend Command**. Show the real offline world projection and
+**Committed footprint**. The confirmed allocation changes the launch commitment and global
+commitments to **EUR 6,295,600** against **EUR 7.8m** planned. Delivery remains **2,050 / 3,370 units**.
 
-For the deterministic alternate rehearsal, confirm a **60/40** award. The launch commitment becomes
-EUR 1,059,600 and global commitments become EUR 6,295,600. Delivery remains 2,050 / 3,370 units:
-approval is not fulfillment. Use `ResolveInvoiceExceptionTool` for a separate AP follow-up, not a
-payment-release claim.
+Select **APAC**: **EUR 1.52m planned**, **EUR 1.2m committed**, **390 / 630 units delivered**.
+Map scope and trend data change; no linked verified savings are invented. Return to **Global** and
+scroll to the Sankey: **EUR 286k identified -> EUR 186k verified**, with **EUR 100k unverified**.
+Select the **Off-contract device spend -> Contracted / unverified** ribbon: **EUR 17k**.
+The **EUR 15k** freight dispute is inside that unverified amount, not an additional flow.
 
-Closing line: **The art of possible is not more procurement chat. It is visual, evidence-aware software
-inside the conversation, with policy visible early and people still accountable for every commitment.**
+Choose **Continue with Copilot: Summary & next steps**. Expected: a text-only summary of this
+selection and current confirmed state. No new component is opened and no further action is authorized.
+
+Closing line: **"From a business need to evidence we can inspect, decisions we can govern, and value
+we can actually prove. That is procurement work—not just procurement chat."**
+
+### Optional resilience interlude
+
+For the longer rehearsal, use the Supplier risk starter. In **Continuity planning room**, change
+Current corridor to Port disruption: Fabrikam's modeled index changes **44 -> 66**. Select a dependency
+node and ask about its assumptions. This is a scenario, never a claim that a disruption occurred.
 
 ## Rehearsal checklist
 
 - Verify prompt routing and extracted IDs in the authenticated target tenant.
-- Verify Expand reaches the expected workspace with current context.
+- Verify each Open action reaches its named business destination with current selection/draft.
+- Verify discussion stays in text, explicit inline handoff opens one tool, and full-screen summary
+  stays in text. Full-screen **Continue to** is local navigation, not a Copilot message.
 - Verify gradients, chart labels, keyboard marks, mobile layout, and dark mode.
 - Reset before each run and keep the screenshot sequence available.
+- Do not equate newly confirmed award economics with the separate seeded invoice or historical
+  recovery evidence. Commitment, delivery and verified savings must remain distinct.
