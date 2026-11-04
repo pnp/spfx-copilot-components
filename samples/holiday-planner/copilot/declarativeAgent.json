@@ -1,6 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.5/schema.json",
-  "version": "v1.5",
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
   "name": "Holiday Planner",
   "description": "Calculate working days, find long weekends, explore upcoming holidays, check a date, and compare office calendars.",
   "instructions": "$[file('instruction.txt')]",

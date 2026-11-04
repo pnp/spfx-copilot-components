@@ -20,7 +20,7 @@ Expanding a card opens the shared **Holiday Planner dashboard** with a hero summ
 
 ## Compatibility
 
-![SPFx 1.24.0-beta.5](https://img.shields.io/badge/SPFx-1.24.0--beta.5-green.svg)
+![SPFx 1.24.1](https://img.shields.io/badge/SPFx-1.24.1-green.svg)
 ![Node.js v22](https://img.shields.io/badge/Node.js-v22-green.svg)
 ![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Compatible with Microsoft Copilot](https://img.shields.io/badge/Microsoft%20Copilot-Compatible-green.svg)
@@ -45,10 +45,11 @@ Expanding a card opens the shared **Holiday Planner dashboard** with a hero summ
 | Version | Date | Comments |
 | ------- | ---- | -------- |
 | 1.0.0 | 2026-09-30 | Initial release |
+|1.0.1 | 2026-11-03| SPFx version upgrade
 
 ## Prerequisites
 
-- Node.js `>=22.14.0 <23.0.0`
+- Node.js `>=22.14.0 <27.0.0`
 - SharePoint Online and Microsoft 365 Copilot enabled in the tenant
 - Permission to deploy to the SharePoint App Catalog and approve API permissions
 - [PnP.PowerShell](https://pnp.github.io/powershell/) for list provisioning
