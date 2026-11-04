@@ -51,6 +51,10 @@ Pull request validation rejects missing trackers, stale repository prefixes, fol
 
 Relative README links may point to files anywhere within this repository, including root-level documentation. The gallery converts them to GitHub links and rejects paths that escape the repository.
 
+## Updating the gallery site
+
+The Astro gallery uses a shared [layout](./site/src/layouts/BaseLayout.astro) for its header navigation. Keep [Community](https://aka.ms/community/home) as the first link in both desktop and mobile menus, with an external-link arrow in the desktop menu.
+
 ## Submitting your pull request
 
 - Keep each pull request focused on a single sample or a single logical change.

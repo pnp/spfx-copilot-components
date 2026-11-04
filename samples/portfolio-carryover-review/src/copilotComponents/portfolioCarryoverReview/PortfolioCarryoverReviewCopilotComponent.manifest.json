@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a568ea06-5f31-48c7-972e-79e0fe2995b9",
+  "alias": "PortfolioCarryoverReviewCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "PortfolioCarryoverReviewTool",
+      "description": {
+        "default": "PortfolioCarryoverReview description"
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/portfolioCarryoverReview/PortfolioCarryoverReviewCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

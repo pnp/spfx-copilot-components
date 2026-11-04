@@ -326,16 +326,21 @@ discount. The former arbitrary adoption index and approximated margin curve are 
 ### Keynote: one conversation, one decision journey
 
 Use the [6-minute keynote](Zava-Revenue-Deal-Room-6-Minute-Keynote.md), with an optional five-minute cut:
-**value flows -> world opportunity/spend -> Deal Room -> Commercial Desk -> reviewed submission ->
-independent decision -> Revenue Command**. Keep `ZDR-2042` throughout the deal discussion; the new
+**pipeline value -> world opportunity -> buyer proof -> inline commercial offer -> reviewed submission ->
+independent decision -> wider workspace context**. Keep `ZDR-2042` throughout the deal discussion; the new
 `ZM-...` receipt identifies the submitted request, not a replacement opportunity.
 
-Show both continuation results: inline **Continue with Copilot: [next business step]** requests the
-next interactive component, while full-screen **Continue with Copilot: Summary & next steps** requests
-a text-only chat summary of the active view, edited values, evidence gaps and confirmed status.
-It has no tool handoff and never submits or approves. **Continue to [business step]** remains local
-workspace navigation. More-discussion questions remain text; explicitly selected Open actions can
-still launch a component. An unfinished form's discussion cannot bypass its required review.
+Keep the main run to two meaningful Copilot handoffs: **offer -> submission -> independent approval**.
+Inspect and edit directly; use **Expand** when more context and detail are useful, not as a required
+step between tasks. Keep the working submission outcome: **"Roll out validated capabilities across
+18 countries with an accountable customer owner and independent commercial review."**
+
+Inline **Continue with Copilot: [next business step]** requests the next interactive component.
+The optional full-screen **Continue with Copilot: Summary & next steps** requests a text-only chat
+summary of the active view, edited values, evidence gaps and confirmed status. It has no tool handoff
+and never submits or approves. **Continue to [business step]** remains local workspace navigation.
+More-discussion questions remain text; explicitly selected Open actions can still launch a component.
+An unfinished form's discussion cannot bypass its required review.
 
 The personal brief uses Megan Bowen's **illustrative** eight-deal book, including named Northwind,
 Fabrikam, Alpine, Litware, AdventureWorks, Tailspin and Proseware examples. Current-quarter catalog

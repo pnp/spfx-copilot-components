@@ -1,24 +1,29 @@
 import * as React from 'react';
 import { Button, Dialog, DialogActions, DialogBody, DialogContent, DialogSurface, DialogTitle, makeStyles, mergeClasses, tokens } from '@fluentui/react-components';
 import type { IIntentDefinition, IProcurementProperties, ProcurementIntentKey, ProcurementLens } from './catalog';
-import { getIntent, OPERATIONAL_LENSES } from './catalog';
-import { EVENTS, money } from './domain';
+import { getIntent, INTENTS, OPERATIONAL_LENSES } from './catalog';
+import { DEFAULT_WEIGHTS, EVENTS, money, normalizeScore } from './domain';
 import { ProcurementInlineExperience, type IProcurementSnapshot } from './ProcurementInlineExperiences';
-import { getReceipts, getSessionNotice, resetProcurementSession, subscribeReceipts } from './operations';
+import { getReceipts, getSessionNotice, resetProcurementSession, subscribeReceipts, supplierRecords } from './operations';
 import { ArrowExpand20Regular, ArrowRight20Regular, Cart20Regular, ChartMultiple20Regular, PeopleTeam20Regular, ShieldCheckmark20Regular, TargetArrow20Regular } from '@fluentui/react-icons';
 import { OWNERS, ZAVACORE } from './brand';
 import { RequestsDashboard, SpendDashboard, SupplierDashboard } from './ProcurementDashboards';
+import CopilotContinuation, { type SendProcurementFollowUp } from './CopilotContinuation';
+import { getCopilotActions } from './copilot';
+import { SupplierLandscape } from './ProcurementCharts';
+import { fullscreenEvidence, getFullscreenDestination } from './fullscreen';
 
 export type IModelContextSnapshot = IProcurementSnapshot;
-interface IProps {
+export interface IProcurementAppProps {
   readonly definition: IIntentDefinition;
   readonly properties: IProcurementProperties;
   readonly currentUserName: string;
   readonly displayMode?: string;
   readonly onRequestFullscreen?: () => Promise<void>;
   readonly onUpdateModelContext?: (snapshot: IModelContextSnapshot) => Promise<void>;
-  readonly onSendFollowUp?: (message: string) => Promise<boolean>;
+  readonly onSendFollowUp?: SendProcurementFollowUp;
 }
+type IProps = IProcurementAppProps;
 type OpenTask = (intent: ProcurementIntentKey, properties?: IProcurementProperties) => void;
 const labels: Record<ProcurementLens, string> = {
   'my-requests': 'My Requests', sourcing: 'Sourcing Workbench', 'supplier-360': 'Supplier 360',
@@ -37,7 +42,7 @@ const workspaceIcons: Record<ProcurementLens, React.ReactElement> = {
 };
 const useStyles = makeStyles({
   root: { minWidth: 0, width: '100%', boxSizing: 'border-box', color: tokens.colorNeutralForeground1, backgroundColor: tokens.colorNeutralBackground2, fontFamily: tokens.fontFamilyBase, borderRadius: tokens.borderRadiusLarge, overflow: 'hidden', border: `1px solid ${tokens.colorNeutralStroke2}` },
-  fullscreen: { display: 'grid', gridTemplateColumns: '208px minmax(0,1fr)', minHeight: '100vh', '@media(max-width:960px)': { gridTemplateColumns: '1fr' } },
+  fullscreen: { display: 'grid', gridTemplateColumns: '208px minmax(0,1fr)', '@media(max-width:960px)': { gridTemplateColumns: '1fr' } },
   nav: { display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '8px', padding: '24px 16px', color: ZAVACORE.white, backgroundColor: ZAVACORE.ink, backgroundImage: `linear-gradient(168deg, ${ZAVACORE.ink} 45%, ${ZAVACORE.heroInk} 94%, transparent 125%), url("${ZAVACORE.pattern}")`, backgroundSize: 'cover', '@media(max-width:960px)': { padding: '14px', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' } },
   navLogo: { width: '156px', height: 'auto', marginBottom: '24px', '@media(max-width:960px)': { marginBottom: 0, width: '128px', marginRight: '16px' } },
   navLabel: { textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '10px', opacity: 0.72, margin: '0 8px 12px', '@media(max-width:960px)': { display: 'none' } },
@@ -64,6 +69,8 @@ const useStyles = makeStyles({
   title: { margin: '6px 0', fontSize: tokens.fontSizeBase600, lineHeight: tokens.lineHeightBase600, letterSpacing: '-0.5px' },
   muted: { color: tokens.colorNeutralForeground3, fontSize: tokens.fontSizeBase200 },
   panel: { padding: '20px', marginBottom: '20px', minWidth: 0, border: `1px solid ${tokens.colorNeutralStroke2}`, borderRadius: tokens.borderRadiusLarge, backgroundColor: tokens.colorNeutralBackground1, boxShadow: tokens.shadow2, '@media(max-width:520px)': { padding: '14px' } },
+  taskGrid: { display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(230px,0.8fr)', gap: '20px', alignItems: 'start', '@media(max-width:1100px)': { gridTemplateColumns: '1fr' } },
+  contextRow: { padding: '12px 0', borderBottom: `1px solid ${tokens.colorNeutralStroke2}`, fontSize: '13px', lineHeight: '1.6' },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,180px),1fr))', gap: '16px' },
   actions: { display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' },
   error: { padding: '12px', borderLeft: `3px solid ${tokens.colorPaletteRedBorderActive}` },
@@ -77,7 +84,10 @@ function SourcingDashboard({ open, onContext }: { open: OpenTask; onContext: (sn
   const award = receipts.find(receipt => receipt.intent === 'ReviewSupplierAward' && receipt.recordId === EVENTS[0].id);
   React.useEffect(() => {
     onContext({ intent: 'CompareSupplierBids', route: 'sourcing/dashboard', stage: 'inspect', selectedId: EVENTS[0].id,
-      summary: `ZPC-RFP-31: 600 rugged devices; EUR 1200000 budget; 4 bids; award ${award?.action || 'not confirmed'}.` });
+      summary: `ZPC-RFP-31: 600 rugged devices; EUR 1200000 budget; 4 bids; award ${award?.action || 'not confirmed'}.`,
+      scope: { eventId: EVENTS[0].id }, visuals: ['Event award readiness', 'Supplier total-value landscape'],
+      weights: DEFAULT_WEIGHTS, visibleRecords: supplierRecords.map(supplier => ({ ...supplier, score: normalizeScore(supplier, DEFAULT_WEIGHTS) })),
+      ...(award ? { receipt: award } : {}) });
   }, [award, onContext]);
   return <section className={s.panel} aria-label="Sourcing Workbench dashboard" data-workspace="sourcing" data-dashboard-layout="sourcing-event-readiness">
     <div className={s.top}><div><span className={s.muted}>ACTIVE SOURCING EVENT / {EVENTS[0].id}</span><h2 className={s.title}>Field-ready. Future-resilient.</h2></div><span className={mergeClasses(s.online, !award && s.pending, (award?.result === 'returned' || award?.result === 'declined') && s.danger)}>{award ? award.action : 'Evaluation / human review next'}</span></div>
@@ -88,6 +98,7 @@ function SourcingDashboard({ open, onContext }: { open: OpenTask; onContext: (sn
       <div><div className={s.heroTeam}><img className={s.portrait} src={OWNERS.sourcing.image} alt="David" /><strong>David / Category lead</strong></div><p className={s.muted}>Accountable event owner</p></div>
     </div>
     <p>{award ? `${award.action}. ${award.summary}` : 'Demand aligned. Bids received. Evidence ready. Compare the trade-offs below before authorizing any award.'}</p>
+    <SupplierLandscape onSelect={bidId => { const supplier = supplierRecords.find(item => item.bidId === bidId); if (supplier) open('CompareSupplierBids', { eventId: EVENTS[0].id, supplierId: supplier.id }); }} />
     <div className={s.actions}><Button appearance="primary" onClick={() => open('ReviewSupplierAward', { eventId: EVENTS[0].id, splitPercent: 65 })}>Review split award</Button><Button onClick={() => open('AggregateDemand')}>Inspect demand cohort</Button><Button onClick={() => open('BuildSourcingEvent')}>Draft a sourcing event</Button></div>
   </section>;
 }
@@ -101,35 +112,27 @@ function Invocation(props: IProps): React.ReactElement {
   const [workingProperties, setWorkingProperties] = React.useState(props.properties);
   const [reset, setReset] = React.useState(0);
   const [error, setError] = React.useState('');
+  const [contextError, setContextError] = React.useState('');
+  const [retry, setRetry] = React.useState(0);
+  const [focused, setFocused] = React.useState(getFullscreenDestination(props.definition.key).view === 'task');
+  const [taskVersion, setTaskVersion] = React.useState(0);
+  const [workspaceSnapshot, setWorkspaceSnapshot] = React.useState<IProcurementSnapshot>();
+  const [taskSnapshot, setTaskSnapshot] = React.useState<IProcurementSnapshot>();
   const [pending, setPending] = React.useState<{ intent: ProcurementIntentKey; properties: IProcurementProperties }>();
   const initialDraft = React.useRef<string>();
   const dirty = React.useRef(false);
   const task = React.useRef<HTMLElement>(null);
   const focusTask = React.useRef(false);
   const live = React.useRef(true);
-  const workspaceSnapshot = React.useRef<IProcurementSnapshot>();
-  const taskSnapshot = React.useRef<IProcurementSnapshot>();
-  const lastContext = React.useRef('');
   React.useEffect(() => { live.current = true; return () => { live.current = false; }; }, []);
-  const emitContext = React.useCallback((snapshot: IProcurementSnapshot): void => {
-    const context = { ...snapshot, invokedIntent: props.definition.key, workspace: lens, displayMode: full ? 'fullscreen' : 'inline' };
-    const signature = JSON.stringify(context);
-    if (signature === lastContext.current) return;
-    lastContext.current = signature;
-    props.onUpdateModelContext?.(context).catch(reason => {
-      if (live.current) setError(`Copilot context could not be updated: ${String(reason)}`);
-    });
-  }, [props.onUpdateModelContext, props.definition.key, lens, full]);
   const publish = React.useCallback((snapshot: IProcurementSnapshot): void => {
     if (initialDraft.current === undefined) initialDraft.current = snapshot.summary;
     dirty.current = snapshot.stage === 'review' || (snapshot.stage === 'draft' && snapshot.summary !== initialDraft.current);
-    taskSnapshot.current = snapshot;
-    if (!full || lens === getIntent(active).lens) emitContext({ ...snapshot, workspaceSummary: full ? workspaceSnapshot.current?.summary : undefined });
-  }, [emitContext, full, lens, active]);
+    setTaskSnapshot(current => JSON.stringify(current) === JSON.stringify(snapshot) ? current : snapshot);
+  }, []);
   const publishWorkspace = React.useCallback((snapshot: IProcurementSnapshot): void => {
-    workspaceSnapshot.current = snapshot;
-    emitContext({ ...snapshot, focusedTask: lens === getIntent(active).lens ? taskSnapshot.current : undefined });
-  }, [emitContext, lens, active]);
+    setWorkspaceSnapshot(current => JSON.stringify(current) === JSON.stringify(snapshot) ? current : snapshot);
+  }, []);
   const applyOpen: OpenTask = (intent, properties = {}) => {
     initialDraft.current = undefined;
     dirty.current = false;
@@ -137,32 +140,89 @@ function Invocation(props: IProps): React.ReactElement {
     setActive(intent);
     setWorkingProperties(properties);
     setLens(getIntent(intent).lens);
+    setFocused(getFullscreenDestination(intent).view === 'task');
+    setTaskVersion(value => value + 1);
+    setTaskSnapshot(undefined);
   };
   const open: OpenTask = (intent, properties = {}) => {
     if (dirty.current) setPending({ intent, properties });
     else applyOpen(intent, properties);
   };
   const definition = getIntent(active);
+  const destination = getFullscreenDestination(active);
   const visibleLens = full ? lens : definition.lens;
-  const key = JSON.stringify([active, Object.keys(workingProperties).sort().map(name => [name, workingProperties[name as keyof IProcurementProperties]]), reset]);
+  const taskVisible = !full || lens === 'education' || focused && lens === definition.lens;
+  const destinationVisible = full && (taskVisible || destination.view === 'workspace' && lens === definition.lens);
+  const heroCopy = destinationVisible ? { title: definition.question, summary: destination.summary } : workspaceCopy[visibleLens];
+  const selectedSnapshot = taskVisible ? taskSnapshot?.intent === active ? taskSnapshot : undefined :
+    workspaceSnapshot?.route.indexOf(`${lens}/`) === 0 ? workspaceSnapshot : undefined;
+  const actionDefinition = selectedSnapshot ? getIntent(selectedSnapshot.intent) : definition;
+  const actionSet = selectedSnapshot ? getCopilotActions(actionDefinition, selectedSnapshot, full) : undefined;
+  const additionalEvidence = full && taskVisible && selectedSnapshot ? fullscreenEvidence(selectedSnapshot) : [];
+  const visibleSnapshot: IProcurementSnapshot | undefined = selectedSnapshot ? {
+    ...selectedSnapshot, workspace: visibleLens,
+    route: full && (taskVisible || destination.view === 'workspace' && lens === definition.lens) ? destination.route : selectedSnapshot.route,
+    ...(full && taskVisible ? { fullScreenView: destination.title, decisionBoundary: destination.boundary, additionalEvidence } : {}),
+    displayMode: full ? 'fullscreen' : 'inline',
+    availableActions: actionSet ? [actionSet.primary.label, ...actionSet.discussions.map(action => action.label), 'Ask your own question'] : []
+  } : undefined;
+  const contextSignature = JSON.stringify(visibleSnapshot);
+  const priorQuery = React.useRef<string | number>();
+  const contextFailed = React.useRef(false);
+  React.useEffect(() => {
+    if (!visibleSnapshot || !props.onUpdateModelContext) return;
+    let activePublication = true;
+    const publishContext = (): void => {
+      props.onUpdateModelContext?.(visibleSnapshot).then(() => {
+        if (activePublication && contextFailed.current) { contextFailed.current = false; setContextError(''); }
+      }).catch(reason => {
+        if (activePublication) {
+          contextFailed.current = true;
+          setContextError(`Visible context could not be shared with Copilot: ${reason instanceof Error ? reason.message : String(reason)}`);
+        }
+      });
+    };
+    const query = visibleSnapshot.filters?.query;
+    const debounce = priorQuery.current !== undefined && query !== priorQuery.current;
+    priorQuery.current = query;
+    const timer = debounce ? setTimeout(publishContext, 180) : undefined;
+    if (!debounce) publishContext();
+    return () => { activePublication = false; if (timer !== undefined) clearTimeout(timer); };
+  }, [contextSignature, props.onUpdateModelContext, retry]);
+  const followUp = props.onSendFollowUp;
+  const sendFollowUp: SendProcurementFollowUp | undefined = followUp ? (message, snapshot) => followUp(message, {
+    ...snapshot, workspace: visibleLens, displayMode: full ? 'fullscreen' : 'inline'
+  }) : undefined;
+  const nextAction = selectedSnapshot ? getCopilotActions(actionDefinition, selectedSnapshot).primary.handoff : undefined;
+  const nextIntent = nextAction ? INTENTS.find(intent => `${intent.key}Tool` === nextAction.tool) : undefined;
+  const workspaceEntry = taskSnapshot?.scope || workingProperties;
+  const initialFlowSelection = typeof taskSnapshot?.selectedValueConnection === 'string' ? taskSnapshot.selectedValueConnection : undefined;
+  const key = JSON.stringify([active, Object.keys(workingProperties).sort().map(name => [name, workingProperties[name as keyof IProcurementProperties]]), reset, taskVersion]);
   React.useEffect(() => {
     if (focusTask.current) { task.current?.focus(); focusTask.current = false; }
-  }, [active, key]);
-  return <div key={reset} className={mergeClasses(s.root, full && lens !== 'education' ? s.fullscreen : undefined)} data-layout={full ? `${lens}-command` : `${active}-inline`}>
+  }, [active, key, focused]);
+  return <div key={reset} className={mergeClasses(s.root, full && lens !== 'education' ? s.fullscreen : undefined)} data-procurement-content data-fullscreen-route={full ? visibleSnapshot?.route : undefined} data-layout={full ? taskVisible ? `${active}-fullscreen` : `${lens}-command` : `${active}-inline`}>
     <nav className={mergeClasses(s.nav, (!full || lens === 'education') && s.hidden)} aria-label="Procurement workspaces" hidden={!full || lens === 'education'}>
       <img className={s.navLogo} src={ZAVACORE.logoWhite} alt="ZavaCore" />
       <p className={s.navLabel}>Procurement command center</p>
-      {OPERATIONAL_LENSES.map(item => <Button key={item} icon={workspaceIcons[item]} className={mergeClasses(s.navButton, lens === item && s.navActive)} appearance="transparent" aria-current={lens === item ? 'page' : undefined} onClick={() => setLens(item)}>{labels[item]}</Button>)}
+      {OPERATIONAL_LENSES.map(item => <Button key={item} icon={workspaceIcons[item]} className={mergeClasses(s.navButton, lens === item && s.navActive)} appearance="transparent" aria-current={lens === item ? 'page' : undefined} onClick={() => { setLens(item); setFocused(false); }}>{labels[item]}</Button>)}
       <Button className={s.navButton} appearance="transparent" icon={<ShieldCheckmark20Regular />} onClick={() => open('ExploreAgentCapabilities')}>Browse scenarios</Button>
       <div className={s.navFoot}><span className={s.brandWord}>Built for impact.</span>Connected evidence.<br />Accountable decisions.<br /><br />22 focused Copilot experiences<br />Offline keynote showcase</div>
     </nav>
     <main className={s.main}>
-      <div className={s.top}>{full ? <div><span className={s.muted}>ZavaCore / Procurement</span><h1 className={s.title}>{labels[lens]}</h1></div> : <img className={s.logo} src={ZAVACORE.logo} alt="ZavaCore" />}<div className={s.user}><span className={s.online}>Offline demo</span><span>{props.currentUserName}</span></div>{!full && props.onRequestFullscreen && <Button icon={<ArrowExpand20Regular />} onClick={() => { props.onRequestFullscreen?.().catch(reason => { if (live.current) setError(`Full screen was not available: ${String(reason)}`); }); }}>Expand procurement workspace</Button>}</div>
-      {full ? <header className={s.hero}><span className={s.heroEyebrow}>ZavaCore / {labels[visibleLens]}</span><h2 className={s.heroTitle}>{workspaceCopy[visibleLens].title}</h2><p className={s.heroText}>{workspaceCopy[visibleLens].summary}</p><div className={s.heroTeam}><div className={s.portraits}>{[OWNERS.finance, OWNERS.sourcing, OWNERS.risk].map(owner => <img key={owner.name} className={s.portrait} src={owner.image} alt={`${owner.name}, ${owner.role}`} />)}</div><span>Finance + sourcing + supplier risk</span><Button size="small" appearance="primary" icon={<ArrowRight20Regular />} onClick={() => open(lens === 'sourcing' ? 'ReviewSupplierAward' : lens === 'supplier-360' ? 'PlanSupplierRiskMitigation' : lens === 'spend-command' ? 'TrackLeakageRecovery' : 'CreatePurchaseIntent')}>{lens === 'sourcing' ? 'Review an award' : lens === 'supplier-360' ? 'Plan a mitigation' : lens === 'spend-command' ? 'Verify recovery' : 'Start a purchase'}</Button></div></header> : <header className={s.inlineHero}><span className={s.muted}>{definition.role} · {labels[definition.lens]}</span><h1 className={s.title}>{definition.title}</h1><p>{definition.question}</p></header>}
+      <div className={s.top}>{full ? <div><span className={s.muted}>ZavaCore / {labels[lens]}</span><h1 className={s.title}>{destinationVisible ? destination.title : labels[lens]}</h1></div> : <img className={s.logo} src={ZAVACORE.logo} alt="ZavaCore" />}<div className={s.user}><span className={s.online}>Offline demo</span><span>{props.currentUserName}</span></div>{!full && props.onRequestFullscreen && <Button icon={<ArrowExpand20Regular />} onClick={() => { props.onRequestFullscreen?.().catch(reason => { if (live.current) setError(`Full screen was not available: ${String(reason)}`); }); }}>Open {destination.title.toLowerCase()}</Button>}</div>
+      {full ? <header className={s.hero}><span className={s.heroEyebrow}>ZavaCore / {labels[visibleLens]}</span><h2 className={s.heroTitle}>{heroCopy.title}</h2><p className={s.heroText}>{heroCopy.summary}</p><div className={s.heroTeam}><div className={s.portraits}>{[OWNERS.finance, OWNERS.sourcing, OWNERS.risk].map(owner => <img key={owner.name} className={s.portrait} src={owner.image} alt={`${owner.name}, ${owner.role}`} />)}</div><span>Finance + sourcing + supplier risk</span></div></header> : <header className={s.inlineHero}><span className={s.muted}>{definition.role} · {labels[definition.lens]}</span><h1 className={s.title}>{definition.title}</h1><p>{definition.question}</p></header>}
       {error && <p className={s.error} role="alert">{error}</p>}
+      {contextError && <div className={s.error} role="alert">{contextError} <Button size="small" onClick={() => setRetry(value => value + 1)}>Retry sharing this view</Button></div>}
       {sessionNotice && <p className={s.error} role="status">{sessionNotice}</p>}
-      {full && <div>{lens === 'my-requests' ? <RequestsDashboard open={open} onContext={publishWorkspace} initialId={workingProperties.requestId} /> : lens === 'sourcing' ? <SourcingDashboard open={open} onContext={publishWorkspace} /> : lens === 'supplier-360' ? <SupplierDashboard open={open} onContext={publishWorkspace} initialId={workingProperties.supplierId} /> : lens === 'spend-command' ? <SpendDashboard open={open} onContext={publishWorkspace} initialId={workingProperties.region} /> : null}</div>}
-      <section ref={task} tabIndex={-1} hidden={full && lens !== definition.lens} className={s.panel} aria-label="Current procurement task">{full && <><h2>Continue: {definition.title}</h2><p className={s.muted}>Focused Copilot task / retains its own prompt filters and draft. Workspace controls above do not change this task.</p></>}<ProcurementInlineExperience key={key} definition={definition} properties={workingProperties} actor={props.currentUserName} onContext={publish} onSendFollowUp={props.onSendFollowUp} /></section>
+      {full && lens !== 'education' && (taskVisible || lens === definition.lens && destination.view === 'task') && <div className={s.top} role="group" aria-label="Business views">{taskVisible && <Button onClick={() => setFocused(false)}>Back to {labels[lens]}</Button>}{!taskVisible && lens === definition.lens && destination.view === 'task' && <Button onClick={() => { setFocused(true); focusTask.current = true; }}>Open {destination.title.toLowerCase()}</Button>}</div>}
+      {full && <div key={`${lens}:${taskVersion}`} hidden={taskVisible}>{lens === 'my-requests' ? <RequestsDashboard open={open} onContext={publishWorkspace} initialId={workspaceEntry.requestId} /> : lens === 'sourcing' ? <SourcingDashboard open={open} onContext={publishWorkspace} /> : lens === 'supplier-360' ? <SupplierDashboard open={open} onContext={publishWorkspace} initialId={workspaceEntry.supplierId} /> : lens === 'spend-command' ? <SpendDashboard open={open} onContext={publishWorkspace} initialId={workspaceEntry.region} initialCategory={workspaceEntry.category} initialPeriod={workspaceEntry.period} initialFlowSelection={initialFlowSelection} /> : null}</div>}
+      <div className={mergeClasses(full && s.taskGrid, !taskVisible && s.hidden)}>
+        <section ref={task} tabIndex={-1} className={s.panel} aria-label="Current procurement task">{full && <><h2>{definition.title}</h2><p className={s.muted}>{destination.summary}</p></>}<ProcurementInlineExperience key={key} definition={definition} properties={workingProperties} actor={props.currentUserName} onContext={publish} onSendFollowUp={sendFollowUp} /></section>
+        {full && taskVisible && <aside className={s.panel} aria-label={`${destination.title} context`}><h2>Decision context</h2><div className={s.heroTeam}><img className={s.portrait} src={OWNERS[destination.owner].image} alt={OWNERS[destination.owner].name} /><strong>{OWNERS[destination.owner].name} / {OWNERS[destination.owner].role}</strong></div><p className={s.contextRow}>{destination.boundary}</p>{additionalEvidence.map(item => <div className={s.contextRow} key={item.label}><strong>{item.label}</strong><p>{item.value}</p></div>)}</aside>}
+      </div>
+      <CopilotContinuation definition={actionDefinition} snapshot={visibleSnapshot} full={full} send={sendFollowUp} />
+      {full && nextIntent && nextAction && <div className={s.actions}><Button icon={<ArrowRight20Regular />} onClick={() => open(nextIntent.key, nextAction.properties)}>Continue to {nextIntent.title.toLowerCase()}</Button><span className={s.muted}>Local navigation / no message or authorization</span></div>}
       <div className={s.actions}><Button onClick={() => { resetProcurementSession(); applyOpen(props.definition.key, props.properties); setReset(value => value + 1); }}>Reset demo session</Button></div><p className={s.muted}>Deterministic offline evidence. Confirmations affect this browser session only.</p>
       <Dialog open={Boolean(pending)} onOpenChange={(_, data) => { if (!data.open) setPending(undefined); }}>
         <DialogSurface><DialogBody><DialogTitle>Discard unconfirmed draft?</DialogTitle><DialogContent>Your current edits have not been confirmed. Keep the draft, or explicitly discard it before opening another task.</DialogContent><DialogActions><Button onClick={() => setPending(undefined)}>Keep current draft</Button><Button appearance="primary" onClick={() => { if (pending) applyOpen(pending.intent, pending.properties); setPending(undefined); }}>Discard draft and open task</Button></DialogActions></DialogBody></DialogSurface>

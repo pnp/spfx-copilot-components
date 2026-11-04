@@ -1,5 +1,129 @@
 # Zava Procurement Command Center - Creation Plan
 
+## Ignite keynote readiness - November 3, 2026
+
+**Scope:** revisit the existing solution against
+[the golden rules](agentic-creation-rules-golden.md) and the latest
+[Revenue Deal Room](../zava-revenue-deal-room/README.md). Preserve all 22 generated component
+identities, four workspaces, deterministic records and human-confirmation boundaries. No new
+components, GUID changes, live integrations or dependency upgrades.
+
+### Approved visual/interaction contract
+
+Approved November 3: **keep the current branding** so the samples remain distinctive. No brand,
+palette, logo, photography or portrait replacement is part of this iteration. Adopt the reference's
+communication, resize and context mechanics, not its visual identity. Prioritize powerful
+decision-specific UX and a keynote-ready procurement business story.
+
+The existing world projection, supplier landscape, split-allocation donut, local brand media,
+session receipts and distinct workspace purposes are retained. **Baseline assessment:** the agent
+had only six starters, no general Copilot continuation, incomplete visible-state snapshots that could
+mix hidden tasks with a workspace, and an area-chart "river" rather than a Sankey. These gaps are now
+closed. Earlier dated build/capture statements below remain historical; the current evidence follows.
+
+Reference pixels inspected: Revenue's country map, pipeline Sankey, mobile Deal Room and dark
+Deal Room. Owning sources inspected: `FullscreenWorkspace.tsx`, `RevenueExperiences.tsx`,
+`RevenueCopilotComponentBase.tsx`, `RevenueThemeProvider.tsx`, `copilot.ts`, `modelContext.ts`,
+`media.ts`, brand provenance and release/package evidence.
+
+- Adapt the reference's clear visual hierarchy, substantial branded hero, restrained elevation,
+  exact-value evidence, accountable portraits and deliberate business next step. Retain the approved
+  orange/magenta ZavaCore palette and photography; do not copy Revenue's green sales composition.
+- Make Spend Command's real offline map and commitment trend lead to a **conserved EUR Sankey**:
+  region -> intervention -> evidence state. Separate identified-only, negotiated-only,
+  contracted/unverified and verified amounts. Opportunity is not saving; disputed value is excluded,
+  not added again. Region/period/category changes must change actual data and geometry.
+- Make supplier continuity a **modeled dependency pathway**, not a generic score/progress bar.
+  Add a ranked leakage comparison and an exact supplier-allocation visual where they improve the
+  decision. Keep source facts separate from scenario assumptions.
+- Separate workspace overview from focused tasks to avoid repeating an inline chart beneath a
+  dashboard. Preserve drafts when changing the visible workspace; guard actual task replacement.
+- **Routing clarification:** each component expands directly into its named business destination,
+  with additional relevant evidence and uninterrupted work. Do not show origin/launcher/"came from"
+  UI. The 22 catalog routes remain the semantic destinations inside the four workspaces; global
+  investment/value and supplier-relationship intents open their richer workspace views, while
+  preparation, analysis and decision intents open their specific task workspaces. Workspace home
+  navigation stays available but must not replace the entry destination.
+- Every component gets a specific **Continue with Copilot** next business step plus a compact
+  **More discussions** menu. Discussion questions stay in chat. Full-screen primary continuation
+  returns a text summary; explicit **Continue to** buttons navigate locally.
+- Capture click-time visible context and send it atomically before a follow-up. Include selection,
+  filters, actual chart/evidence values, workflow stage, reviewed values/receipt and requested next
+  action; exclude hidden tasks and unreviewed business text. Enforce the complete 10,000-byte
+  UTF-8 payload limit, report omissions, handle rejection and expose retry.
+- Publish exactly **12 distinct business-language conversation starters**, with capability exploration
+  last. Do not use demo/sample/example wording in starter titles or prompts.
+- Validate light/dark, keyboard interaction, narrow/mobile layouts, reduced motion and 200% page
+  scale. Refresh screenshots, scripts and audited production artifacts from the same source.
+
+### Delivery tracker
+
+- [x] Inspect current architecture, golden communication rules and reference pixels/source/media.
+- [x] Approve the written iteration contract above before feature implementation; preserve branding.
+- [x] Close visible-context and deliberate continuation gaps across all 22 components.
+- [x] Deliver reconciled Sankey, dependency pathway and decision-specific chart interactions.
+- [x] Separate workspace overview/focused task without losing edits or leaking hidden context.
+- [x] Prove all 22 component-to-full-screen destinations, selected IDs, drafts and business context;
+  document the mapping and test both fresh full-screen entry and inline expansion.
+- [x] Publish and validate 12 starters in canonical, source and packaged agent metadata.
+- [x] Update README, routing matrix, designer review and all three presentation scripts.
+- [x] Pass focused unit/bridge tests, full development/production checks and browser journeys.
+- [x] Inspect refreshed representative pixels and audit current package/media/release evidence.
+- [ ] **BLOCKED - external gate:** authenticated Ignite-tenant routing, bridge acknowledgement, iframe sizing,
+  CSP, native zoom, forced colors and screen-reader validation; final publisher/media-rights approval.
+
+### Completed implementation and release evidence
+
+- Every component opens its explicit named business destination. Preparation/decision views retain
+  their actual draft and add relevant source evidence and accountable ownership. Global investment
+  and supplier-relationship views add coordinated context, not a duplicate inline body or origin UI.
+- Inline continuation carries exact supported next-tool properties; explain/challenge/custom questions
+  stay conversational. Full-screen primary continuation is text-only; Continue to navigates locally.
+  Atomic publication precedes a follow-up; failure blocks it, rejection is retryable, duplicate clicks
+  are suppressed and closing the component cancels queued/in-flight questions.
+- All components publish useful activation/visible-change snapshots. Allowed proposed calculations
+  stay separate from unreviewed business text, exact reviewed values and confirmed receipts. The
+  complete SDK context envelope is byte-bounded; omitted evidence is explicitly unknown.
+- Sankey columns reconcile EUR 286k identified to EUR 186k verified and EUR 100k unverified. Disputed
+  EUR 15k is a subset, never another flow. Risk 5% -> 35% demonstrably changes the bid leader from
+  Northwind 68.4/100 to Contoso 73.3/100; the score axis stays 0-100 and bubble area is proportional
+  to confidence. Map measures change real EUR geometry; a zero commitment has no bubble.
+- Invalid/no-evidence scopes publish no invented default arithmetic or zero financial findings.
+  Unsupported periods remain visibly selected and can be corrected. Empty demand does not invent a
+  cohort. Program actions use explicit source links; missing supplier dependencies are not guessed
+  from geography, and the held-invoice action is gated to its in-scope freight evidence.
+- The keynote now distinguishes fresh intake, the seeded sourcing decision, modeled commitment,
+  actual delivery evidence and verified recovery. A 60/40 award commits EUR 1,059,600 and updates
+  global commitments to EUR 6,295,600, but changes neither delivery nor verified savings.
+- Branding, all 22 generated GUIDs and the dependency versions remain unchanged. No new runtime
+  chart package, remote imagery, tile service or live-data connection was added.
+
+| Validation | Current result |
+| --- | --- |
+| `npm run capture:visual` | Passed: 84 refreshed gallery states; zero runtime, overflow, label, image, chart-label or focus failures; no automatic conversation turns. |
+| `npm run generate:assets` | Passed: 94 local asset/provenance entries; 16 ordered publication thumbnails. |
+| `npm run check:keynote` (inside build) | Passed: 24 connected-workflow/responsive checkpoints, including actual Chromium 200% page-scale emulation. |
+| `npm run check:ignite` (inside build) | Passed: 45 captures; all 22 real expansion routes, edited-value preservation, keyboard evidence, scoped/text-only continuation, custom questions, retries, invalid/no-data states and root shrink/grow. |
+| `npm run build` | Passed: **239 tests in development and 239 in production**, zero lint warnings/errors, generated-plugin/12-starter verification, package and publication audits. |
+| `npx tsc --project ux-review\tsconfig.json --noEmit` | Passed: typed tenant-free host/expansion harness. |
+| `git diff --check` | Passed; changes remain within this sample. |
+
+**Current package:** solution **1.0.0.3**, authored agent **1.0.3**, generated agent **1.0.3.1**.
+The audited `.sppkg` is **905,607 bytes** with one shared **663,737-byte** JavaScript asset
+(200,770 compressed bytes), one matching agent ZIP, seven unchanged runtime brand/portrait assets,
+two packaged publication screenshots and zero duplicate media. This is below the 2 MB package gate
+and 1 MiB JavaScript investigation threshold.
+Exact current hashes are in [release evidence](assets/release-evidence.json).
+
+The **153 source-bound visual captures** comprise 84 gallery + 24 connected-journey + 45 Ignite states.
+Representative desktop, narrow, dark, named full-screen, Sankey and invalid-state pixels were inspected.
+[Ignite evidence](ux-review/evidence/ignite-readiness.json) records all routes, actual inline heights,
+context measurements and draft/review/receipt/reset size changes. No clipped fixed-height wrapper or
+universal native-host height/zoom certification is claimed. Temporary preview/capture servers are stopped.
+
+Only the external tenant and final publication/media gates remain open. Local rendering, typed fake-host
+acknowledgement and CDP page scale do not substitute for the authenticated Ignite rehearsal.
+
 ## ZavaCore modernization - approved October 26, 2026
 
 The user approved retaining the procurement scenario, 22 immutable component identities and four
@@ -83,7 +207,7 @@ The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, Rea
 Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
 
 This is the implementation tracker for the product and UX brief in [README.md](README.md). The sample
-follows [agentic-creation-rules.md](agentic-creation-rules.md). The Zava Revenue Deal Room is an
+follows [agentic-creation-rules-golden.md](agentic-creation-rules-golden.md). The Zava Revenue Deal Room is an
 implementation-quality reference, not a screen template. No dependency changes, component generation,
 identity replacement, mock-data implementation, or React feature work begins until Phase 0 is approved.
 

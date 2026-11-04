@@ -42,12 +42,12 @@ export function SupplierLandscape({ weights = DEFAULT_WEIGHTS, onSelect }: { rea
   const s = useStyles(), id = React.useId();
   const points = buildLandscape(HERO_BIDS, weights);
   const leader = [...points].sort((a, b) => b.score - a.score)[0];
-  const y = scaleLinear().domain([40, 85]).range([245, 35]);
+  const y = scaleLinear().domain([0, 100]).range([245, 35]);
   return <div>
-    <svg className={s.svg} viewBox="0 0 720 300" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
+    <svg className={s.svg} viewBox="0 0 720 300" role={onSelect ? 'group' : 'img'} aria-labelledby={`${id}-title ${id}-desc`}>
       <title id={`${id}-title`}>Supplier total-value landscape</title>
       <desc id={`${id}-desc`}>Position is normalized score and bid price; bubble size is evidence confidence. Exact values are in the adjacent table.</desc>
-      {[40, 50, 60, 70, 80].map(tick => <g key={tick}><line x1="60" x2="680" y1={y(tick)} y2={y(tick)} stroke={tokens.colorNeutralStroke2} strokeDasharray="3 5" /><text className={s.axis} x="42" y={y(tick) + 4} textAnchor="end">{tick}</text></g>)}
+      {[0, 25, 50, 75, 100].map(tick => <g key={tick}><line x1="60" x2="680" y1={y(tick)} y2={y(tick)} stroke={tokens.colorNeutralStroke2} strokeDasharray="3 5" /><text className={s.axis} x="42" y={y(tick) + 4} textAnchor="end">{tick}</text></g>)}
       <text className={s.axis} x="60" y="18">Weighted total-value score / 100</text>
       <text className={s.axis} x="100" y="282" textAnchor="middle">{money(972000)}</text><text className={s.axis} x="630" y="282" textAnchor="middle">{money(1098000)}</text>
       {points.map(point => <g key={point.id} role={onSelect ? 'button' : undefined} tabIndex={onSelect ? 0 : undefined} aria-label={`${point.label}, score ${point.score.toFixed(1)}, risk ${point.risk}`} className={s.mark}

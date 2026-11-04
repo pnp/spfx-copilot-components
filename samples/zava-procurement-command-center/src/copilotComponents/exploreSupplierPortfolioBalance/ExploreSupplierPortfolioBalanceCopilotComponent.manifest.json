@@ -16,7 +16,7 @@
     {
       "name": "ExploreSupplierPortfolioBalanceTool",
       "description": {
-        "default": "Use when the user asks: Where are category portfolios too concentrated? Outcome: A concentration-versus-risk portfolio landscape. Boundary: Not one supplier analysis."
+        "default": "Use when comparing cross-supplier allocation, concentration limits and regional continuity scenarios. Do not use for one supplier relationship, supplier risk scoring or event-specific award approval."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreSupplierPortfolioBalance/ExploreSupplierPortfolioBalanceCopilotComponentProperties.js:default;"

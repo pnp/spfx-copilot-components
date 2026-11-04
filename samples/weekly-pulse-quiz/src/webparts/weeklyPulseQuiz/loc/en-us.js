@@ -1,0 +1,33 @@
+define([], function() {
+  return {
+    "PropertyPaneDescription": "One question a week. The question for the current week (ISO week) is read from the Questions list.",
+    "DataGroupName": "Lists",
+    "BehaviourGroupName": "Answers and feedback",
+    "TextGroupName": "Text",
+    "BrandGroupName": "Colours",
+    "QuestionsSiteUrlLabel": "Questions site URL",
+    "QuestionsSiteUrlDescription": "Leave empty for the tenant root site.",
+    "QuestionsListTitleLabel": "Questions list title",
+    "ResponsesSiteUrlLabel": "Responses site URL",
+    "ResponsesSiteUrlDescription": "Where answers are saved. Leave empty to use the Questions site. If the lists are missing, select Set up lists on the web part in edit mode.",
+    "ResponsesListTitleLabel": "Responses list title",
+    "AnonymityModeLabel": "Answer privacy",
+    "AnonymousOption": "Anonymous: colleagues can't see answers (default)",
+    "NamedOption": "Named: the respondent's name is saved with the answer",
+    "ShowCorrectAnswerLabel": "Show the correct answer after a wrong answer",
+    "ShowJustificationLabel": "Show the justification pop-up",
+    "AnimationsLabel": "Animations",
+    "OnText": "On",
+    "OffText": "Off",
+    "WeekNote": "The week changes on Monday at 00:00 ({0}) for everyone.",
+    "BannerTitleLabel": "Banner title",
+    "IntroTextLabel": "Intro text",
+    "NoQuizTextLabel": "Text when there is no quiz",
+    "BannerColorLabel": "Banner colour (optional)",
+    "ButtonColorLabel": "Button colour (optional)",
+    "AccentColorLabel": "Accent colour (optional)",
+    "ColorDescription": "Hex, for example #0F6CBD. Leave empty to use the site theme.",
+    "InvalidUrl": "Use an https URL on this tenant, or leave empty.",
+    "InvalidColor": "Use a hex colour such as #0F6CBD, or leave empty."
+  }
+});

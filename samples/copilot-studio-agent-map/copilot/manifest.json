@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.0",
+  "id": "faa51a9b-3788-4092-954f-f396315bb11e",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://www.contoso.com",
+    "privacyUrl": "https://www.contoso.com/privacy",
+    "termsOfUseUrl": "https://www.contoso.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Agent Map",
+    "full": "Agent Map for Copilot Studio agents"
+  },
+  "description": {
+    "short": "See how a Copilot Studio agent is built.",
+    "full": "Agent Map shows an interactive map of a Copilot Studio agent in Microsoft 365 Copilot: its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets, and how they connect. The component reads Dataverse with your own delegated identity. It is read-only."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "agentMapAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

@@ -7,6 +7,8 @@ if(entries.length!==22)failures.push(`expected 22 entries, found ${entries.lengt
 if(!unique(manifests.map(m=>m.id)))failures.push('duplicate component GUID');
 if(!unique(manifests.map(m=>m.tools[0].name)))failures.push('duplicate tool name');
 if(!unique(manifests.map(m=>m.alias)))failures.push('duplicate alias');
+if(!unique(manifests.map(m=>m.tools[0].description.default)))failures.push('duplicate routing description');
+if(manifests.some(m=>!/\bUse when\b/.test(m.tools[0].description.default)||!/\bDo not use\b/.test(m.tools[0].description.default)))failures.push('missing positive trigger or nearest-sibling exclusion');
 if(manifests.some(m=>m.alias.length>40))failures.push('alias exceeds 40 characters');
 if(manifests.some(m=>/ description$/i.test(m.tools[0].description.default)))failures.push('placeholder description');
 if(agent.agents[0].components.length!==22||!unique(agent.agents[0].components))failures.push('invalid agent registration');

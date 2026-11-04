@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "956d1594-b650-4959-a28b-784c3785bc5d",
+  "alias": "AgentMapCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ShowAgentMap",
+      "description": {
+        "default": "Shows the Agent Map of a Copilot Studio agent: an interactive graph of the agent and its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets, with the relationships between them. Use it when the user wants to see, map, visualize, or explore how an agent is built. The map is read-only. The user can choose the environment and the agent in the view."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/agentMap/AgentMapCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

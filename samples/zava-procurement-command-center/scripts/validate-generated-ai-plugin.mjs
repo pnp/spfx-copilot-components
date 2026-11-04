@@ -107,12 +107,13 @@ const expectedStarters = canonicalStarters.map(({ title, text }) => ({ title, te
 assert(JSON.stringify(sourceAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Source starters differ from canonical targets.');
 const declaredStarterTools = collectStarterToolNames(path.join(root, 'src', 'copilotComponents'));
 const starterTargets = canonicalStarters.map(starter => starter.tool || starter.targetName);
-assert(canonicalStarters.length === 6, 'Exactly six conversation starters are required.');
+assert(canonicalStarters.length === 12, 'Exactly 12 conversation starters are required.');
 const explorerTargets = [...declaredStarterTools].filter(name => /^ExploreAgentCapabilities(?:Tool)?$/.test(name));
 assert(explorerTargets.length === 1, 'Exactly one dedicated capability-explorer tool must be registered.');
-assert(starterTargets[5] === explorerTargets[0], 'Starter 6 must target the dedicated feature explorer.');
-assert(starterTargets.slice(0, 5).every(target => target !== explorerTargets[0]), 'Starters 1-5 must target operational components.');
-assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === 6, 'Starter titles must be distinct.');
+assert(starterTargets[11] === explorerTargets[0], 'Starter 12 must target the dedicated feature explorer.');
+assert(starterTargets.slice(0, 11).every(target => target !== explorerTargets[0]), 'Starters 1-11 must target operational components.');
+assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === 12, 'Starter titles must be distinct.');
+assert(canonicalStarters.every(starter => !/\b(?:demo|sample|example)s?\b/i.test(`${starter.title} ${starter.text}`)), 'Starter wording must be business-first.');
 assert(new Set(starterTargets).size === starterTargets.length, 'Starter targets must be distinct.');
 assert(new Set(canonicalStarters.map(starter => starter.text.toLowerCase().replace(/\s+/g, ' ').trim())).size === canonicalStarters.length, 'Starter prompts must be distinct.');
 const sourceInstructions = fs.readFileSync(path.join(root, 'copilot', 'instruction.txt'), 'utf8').replace(/\r\n/g, '\n').trim();
@@ -120,6 +121,7 @@ for (const target of starterTargets) {
   assert(declaredStarterTools.has(target), `Unknown starter target: ${target}`);
   assert(sourceInstructions.includes(target), `Agent instructions do not name starter target: ${target}`);
 }
+assert(canonicalStarters.every(starter => sourceInstructions.includes(`"${starter.text}" -> ${starter.tool}.`)), 'Exact starter routing contracts are stale.');
 const generatedAgentEntry = archive.files.find(entry => entry.path === 'declarativeAgent.json');
 assert(generatedAgentEntry, 'Generated declarative agent is missing.');
 const generatedAgent = JSON.parse((await generatedAgentEntry.buffer()).toString('utf8'));

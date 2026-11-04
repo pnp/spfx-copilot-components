@@ -17,11 +17,15 @@ This release targets **SPFx 1.24.0 with React 18.3.1**. Use Node.js 22 (22.14 or
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
 > **Catalog:** 21 operational inline components + 1 capability explorer<br>
-> **Full-screen model:** 4 role-aware lenses in one shared procurement application<br>
-> **Reference quality bar:** [Zava Innovation Hub](../zava-innovation-portfolio/README.md) and its
-> [agentic creation rules](../zava-innovation-portfolio/agentic-creation-rules.md)
+> **Full-screen model:** 22 named business destinations in 4 connected role workspaces<br>
+> **Reference quality bar:** [Zava Revenue Deal Room](../zava-revenue-deal-room/README.md) and
+> [the local golden rules](agentic-creation-rules-golden.md); **ZavaCore branding is unchanged**
 
 ## Screenshots
+
+### Reconciled procurement value
+
+![Conserved EUR Sankey with regional interventions, verified and unverified evidence states and Continue with Copilot](assets/ux-inline-ExploreSpendPerformance.png)
 
 ### Global investment command
 
@@ -49,6 +53,41 @@ runtime, overflow, label, chart, and focus results are in
 
 ## ZavaCore keynote experience
 
+### Ignite interaction and visualization update
+
+- **A real value Sankey:** region -> intervention -> mutually exclusive evidence state, conserving
+  EUR 286k identified across every column. EUR 186k is verified; EUR 100k is not. The EUR 15k freight
+  dispute is already part of contracted/unverified value, not another flow or saving.
+- **Decision-specific charts:** price/risk supplier landscape with true confidence-area bubbles,
+  award-allocation donut, modeled supplier-dependency pathway, ranked leakage, conserved supplier
+  allocation, projected world investments and commitment trends. Controls change actual records,
+  amounts or geometry; keyboard and exact-value alternatives remain available.
+- **Every component continues the conversation:** a specific inline **Continue with Copilot**
+  next step, explain/challenge discussions and a user-authored question about the visible view.
+  Click-time context is published atomically before the message. Rejection, transport failure and
+  context failure are explicit and retryable.
+- **Full screen is a business destination:** Business case studio, Supplier evaluation room,
+  Award decision room, Invoice reconciliation room, Global investment and value, and the other
+  [catalog-owned destinations](Zava-Procurement-Routing-Matrix.md). Expansion preserves actual edits,
+  filters and selections, adds relevant decision context, and never displays an origin/launcher banner.
+  Workspace navigation remains separate from the focused business view.
+- **Text means text:** full-screen primary continuation returns **Summary & next steps** in chat,
+  without opening another component. Explicit **Continue to** buttons navigate locally; an inline
+  scoped handoff requests exactly one advertised tool with supported properties.
+- **Grounded communication and sizing:** every useful activation and material visible change shares
+  a typed snapshot. Hidden tasks and unreviewed business text are excluded; permitted proposed
+  calculations, reviewed values and receipts stay distinct. The complete UTF-8 context envelope is
+  capped at 10,000 bytes with reported omissions. SDK resize notifications measure the committed
+  content root after layout, grow/shrink, coalesce updates and clean up on teardown/disposal.
+- **12 natural business starters:** eleven distinct operational targets and capability exploration
+  last. Canonical prompts, agent instructions, manifests and packaged metadata are validated together.
+
+The [45 Ignite checkpoints](ux-review/evidence/ignite-readiness.json) verify every actual expansion,
+preserved edits, scoped/text-only continuation, user questions, bridge retries, keyboard evidence
+selection, honest invalid/no-evidence states and real content-root shrink/grow. Together with 84 gallery and 24 connected-journey captures,
+all visual evidence carries the current runtime source signature. Actual inline heights are recorded;
+the evidence does not claim a universal fixed-height host allowance or native tenant certification.
+
 This modernization preserves all 22 generated component identities and the four-workspace topology.
 The supplied **ZavaCore** logos, orange-to-magenta brand colors, field-operations photography and
 named team portraits replace the earlier green identity, including the packaged agent and its icons.
@@ -63,10 +102,13 @@ named team portraits replace the earlier green identity, including the packaged 
 - **Supplier 360:** selected-supplier scorecard, owned continuity interventions, contract notice windows,
   qualification and renewal decisions. Missing contracts and unknown suppliers remain explicit.
 - **Spend Command:** a bundled Natural Earth / Equal Earth world map, eight fictional operating sites,
-  region-driven investment totals, commitment trends, unit-delivery progress and linked value evidence.
+  region-driven investment totals, selectable planned/committed/uncommitted map measures, commitment
+  trends, unit-delivery progress and a linked, reconciled value Sankey.
   The baseline is EUR 7.8m planned, EUR 5.236m committed, 2,050 / 3,370 units delivered and EUR 186k
   verified value. A confirmed **60/40** award changes the curated launch commitment to **EUR 1,059,600**
   and global commitments to **EUR 6,295,600**, without changing delivery or verified savings.
+  Programs without an explicit supplier dependency do not guess a supplier from geography; the gap
+  remains visible. Invoice follow-up appears only when its freight-evidence intervention is in scope.
 
 The fresh-intake approval journey and the seeded 600-device sourcing-to-value journey are separate
 rehearsal slices. Approving a new request does not fabricate bids, attach it to the curated sourcing
@@ -101,7 +143,7 @@ authenticated host accessibility remain separate checks.
   events centered on `ZPC-RFP-31` and invoice `ZPC-8831`.
 - Fluent UI v9 and owner-document Griffel theming with distinct My Requests, Sourcing Workbench,
   Supplier 360, and Spend Command layouts in light, dark, desktop, and mobile states.
-- Focused D3 scale/shape geometry for supplier total value and spend-to-value flow, with keyboard
+- Focused D3 scale/shape geometry for supplier total value and conserved spend-to-value flow, with keyboard
   selection, accessible descriptions, visible legends, and exact table equivalents.
 - Focused catalog, integrity, calculation, split-award, changed-geometry, and React root lifecycle tests.
 - Eighty-four Playwright captures cover all 22 inline tools at standard light, 340 px light, and dark;
@@ -148,8 +190,8 @@ unconfirmed draft. Exact current test totals and archive hashes are in the
 2. Enable the packaged **ZavaCore Procurement Command Center** agent in the target Microsoft Copilot
    environment.
 3. Start with: **“Compare the final rugged-device bids and show how risk changes the award.”**
-4. Expand to Sourcing Workbench, change the risk weight, inspect the exact table, and open the reviewed
-   65/35 award scenario.
+4. Change risk weight from 5% to 35%, inspect the exact table, and use Continue with Copilot to review
+   the same sourcing event. Open its named Award decision room for additional decision context.
 5. Use Reset between rehearsals. All included data and confirmed actions are offline/session-only mocks.
 
 ## Build and validation
@@ -160,6 +202,7 @@ Use a supported Node.js version and run:
 npm ci
 npm run capture:visual
 npm run check:keynote
+npm run check:ignite
 npm run generate:assets
 npm run build
 ```
@@ -167,6 +210,8 @@ npm run build
 `npm run build` validates the 22-tool catalog, runs clean tests, creates a production bundle and
 `.sppkg`, validates the generated API plugin inside the current agent ZIP, and audits the package
 archive. `npm run capture:visual` rebuilds the tenant-free harness and publication evidence.
+The build also verifies 22 full-screen destinations, 12 canonical/packaged starters, complete context
+budgets and source-linked visual evidence. No new chart dependency or branding replacement is needed.
 
 ## Demo and review assets
 
@@ -198,10 +243,17 @@ navigation while preserving controls:
 4. Requesters, buyers, risk owners, finance partners, and approvers edit assumptions and compare impact.
 5. Purchase, sourcing, award, renewal, and invoice actions stop for review, authority, and confirmation.
 6. Full screen continues from the exact request, cohort, supplier, event, scenario, or decision draft.
-7. Session receipts update downstream demand, sourcing, supplier, spend, and value views.
+7. Session receipts update the exact request queue and relevant modeled workflow/commitment state.
+   They do not fabricate supplier bids, orders, delivery, invoice evidence or verified savings.
 
 The sample modernizes intake-to-pay and supplier decisions without claiming to replace ERP,
 source-to-pay, contract, risk, or accounts-payable systems.
+
+> **Historical scope brief:** the product-position, extended portfolio arguments and future
+> requirements below retain the original design proposal. They are not additional shipped tools,
+> live integrations, currency conversions or verified runtime capabilities. The current contract is
+> the implementation sections above, [canonical routing matrix](Zava-Procurement-Routing-Matrix.md),
+> source manifests and [creation tracker](todo.md).
 
 ## Market-informed product position
 
@@ -235,7 +287,7 @@ Industry expectations define lifecycle completeness; this sample proves the agen
 | Demonstrate cross-role handoffs | Requester demand becomes buyer sourcing, risk review, finance approval, supplier award, invoice resolution, and realized value. |
 | Preserve human accountability | Sourcing launch, purchase approval, supplier award, renewal, and invoice disposition require explicit reviewed decisions. |
 | Continue exact context | Expand retains request, cohort, criteria weights, supplier, scenario, evidence, and review step. |
-| Deliver distinctive procurement UX | Intent path, total-value landscape, policy ledger, supply dependency map, and spend-to-value river are signature visuals. |
+| Deliver distinctive procurement UX | Fulfillment alternatives, total-value landscape, policy ledger, modeled dependency pathway, investment map and reconciled value Sankey are signature visuals. |
 
 ## End-to-end operating model
 
@@ -388,14 +440,14 @@ in movement of value. It must not resemble the service studio, sales editorial r
 - **Motion:** criteria changes rebalance once, supply paths refocus, and value stages flow in 180-300 ms.
   Reduced motion renders final geometry immediately.
 
-| Question | Signature visual | Planned implementation |
+| Question | Signature visual | Implemented decision surface |
 | --- | --- | --- |
-| Which route is fastest and compliant? | Intent-to-path navigator | Fluent DOM branching steps plus SVG connectors and policy states. |
+| Which route is fastest and compliant? | Fulfillment alternatives | Exact route, cost, evidence and deadline comparison; policy is a separate owned tool. |
 | Which supplier creates best total value? | Weighted supplier landscape | React SVG bubbles/axes plus normalized comparison table and sensitivity rail. |
 | Why is this allowed or blocked? | Policy explainability ledger | Fluent DOM exact records, source/version, and remediation; no decorative chart. |
-| Where can disruption propagate? | Geographic and sub-tier dependency weave | Local-boundary React SVG map plus deterministic dependency graph and table. |
-| How does an award change exposure? | Split-award consequence bands | DOM scenario controls plus SVG cost/timing/concentration bands. |
-| Did identified savings become value? | Spend-to-value river | React SVG flow from identified through negotiated/contracted to realized, with exact table. |
+| Where can disruption propagate? | Modeled dependency pathway | Selectable component/assembly/corridor/field-readiness assumptions; not a verified disruption map. |
+| How does an award change exposure? | Split-award allocation | D3 donut plus exact cost, blended risk, timing confidence and authority safeguard. |
+| Did identified savings become value? | Reconciled EUR Sankey | Region -> intervention -> disjoint evidence state, selected connection and exact source amounts. |
 
 ## Hero scenarios
 
@@ -404,10 +456,10 @@ in movement of value. It must not resemble the service studio, sales editorial r
 **Prompt:** “We need 600 rugged devices across Europe before the new-store launch. Find the fastest
 compliant path within EUR 1.2 million.”
 
-`CreatePurchaseIntentTool` resolves locations, timing, category, budget, and constraints. The route navigator
-finds an existing contract but `AggregateDemandTool` discovers 420 similar devices in two other regions.
-The buyer compares ordering now with a consolidated event; savings, launch risk, emissions, and policy
-change live. The human confirms the sourcing path and creates a reviewed event draft.
+`CreatePurchaseIntentTool` preserves locations, timing, category, original currency, budget and
+constraints in an editable business case. Human confirmation creates a session request; its exact ID
+continues to `ReviewPurchaseRequestTool`. Route alternatives, policy and demand aggregation are
+separate explicit tasks. A new intake does not create supplier bids or a purchase order.
 
 **Proof:** intent-to-form, route decision, policy, demand clustering, live financial/timing scenario,
 human confirmation, and exact continuation.
@@ -416,10 +468,10 @@ human confirmation, and exact continuation.
 
 **Prompt:** “Compare the final bids for the rugged-device event and show how risk changes the award.”
 
-`CompareSupplierBidsTool` normalizes currency and compares total cost, delivery, quality, warranty, carbon,
-financial resilience, concentration, and exceptions. Adjusting criteria shows the cheapest supplier is
-most exposed to one logistics corridor. A 65/35 split scenario protects launch timing and stays within
-budget. `ReviewSupplierAwardTool` exposes score provenance, conflicts, risk, and approval before confirmation.
+`CompareSupplierBidsTool` compares authored EUR bids, delivery, quality, risk, sustainability and
+confidence. Risk weight 5% -> 35% changes the leader from Northwind (68.4/100) to Contoso (73.3/100).
+No FX conversion is implied. A 60/40 award scenario costs EUR 1,059,600; human review confirms only
+modeled commitment. It does not prove delivery or create verified value.
 
 **Proof:** interactive charts and table, explainable weighting, sensitivity, supplier risk, split
 simulation, governed award, rationale, confirmation, and receipt.
@@ -428,10 +480,10 @@ simulation, governed award, rationale, confirmation, and receipt.
 
 **Prompt:** “Resolve invoice ZPC-8831 and show whether the device sourcing value was realized.”
 
-`ResolveInvoiceExceptionTool` reconciles PO, receipt, and invoice, identifying a freight surcharge outside
-the award terms rather than a quantity mismatch. The AP owner requests correction through a reviewed
-action. `ExploreSpendPerformanceTool` traces negotiated savings to contracted and realized value, excluding
-the disputed amount until resolution.
+`ResolveInvoiceExceptionTool` reconciles the separate seeded PO, accepted receipt and invoice:
+EUR 15,000 unmatched against EUR 5,000 tolerance. A reviewed disposition cannot release payment.
+`ExploreSpendPerformanceTool` conserves identified opportunity through its evidence states and excludes
+the disputed amount from verification. Neither a new award nor a correction receipt manufactures savings.
 
 **Proof:** exact reconciliation, policy tolerance, supplier history, cash consequence, human disposition,
 and honest value realization rather than declared savings.
@@ -441,11 +493,17 @@ and honest value realization rather than declared savings.
 | # | Title | Starter | Expected component |
 | ---: | --- | --- | --- |
 | 1 | Start a purchase | Find the fastest compliant path for 600 rugged devices within EUR 1.2 million. | `CreatePurchaseIntentTool` |
-| 2 | Compare supplier bids | Compare the final rugged-device bids and show how risk changes the award. | `CompareSupplierBidsTool` |
-| 3 | Supplier risk | Show our concentration and continuity exposure for Fabrikam Devices. | `TrackSupplierRiskTool` |
-| 4 | Award decision | Review the proposed split award for sourcing event ZPC-RFP-31. | `ReviewSupplierAwardTool` |
-| 5 | Spend leakage | Show the largest addressable spend leakage this quarter. | `DetectSpendLeakageTool` |
-| 6 | Explore capabilities | Explore what the Procurement agent can do. | `ExploreAgentCapabilitiesTool` |
+| 2 | Choose a buying route | Compare contract, reuse and sourcing options for request ZPC-REQ-1001 against the delivery deadline. | `CompareBuyingOptionsTool` |
+| 3 | Review a business case | Review the budget and business need for purchase request ZPC-REQ-1001. | `ReviewPurchaseRequestTool` |
+| 4 | Compare supplier bids | Compare the final rugged-device bids and show how risk changes the award. | `CompareSupplierBidsTool` |
+| 5 | Supplier risk | Show our concentration and continuity exposure for Fabrikam Devices. | `TrackSupplierRiskTool` |
+| 6 | Award decision | Review the proposed split award for sourcing event ZPC-RFP-31. | `ReviewSupplierAwardTool` |
+| 7 | Understand a supplier | Connect Fabrikam Devices performance, contract obligations and accountable owners. | `ExploreSupplier360Tool` |
+| 8 | Balance supply resilience | Compare a 60 percent primary supplier limit with a regional continuity buffer for EMEA device supply. | `ExploreSupplierPortfolioBalanceTool` |
+| 9 | Spend leakage | Show the largest addressable spend leakage this quarter. | `DetectSpendLeakageTool` |
+| 10 | Reconcile a held invoice | Explain the unmatched freight on invoice ZPC-8831 and the evidence needed to resolve it. | `ResolveInvoiceExceptionTool` |
+| 11 | Prove procurement value | Show where our global procurement investments stand and which value is verified rather than still unproven. | `ExploreSpendPerformanceTool` |
+| 12 | Explore capabilities | Explore what the Procurement agent can do. | `ExploreAgentCapabilitiesTool` |
 
 ## Coherent mock data and integrations
 
@@ -521,7 +579,9 @@ compile from immutable generated identities; all four lenses have distinct usefu
 rugged-device scenarios run across one coherent graph; policy, normalized value, risk, sensitivity, and
 savings stages are inspectable; consequential actions stop for review and confirmation; visual evidence
 passes; and the audited offline package deploys without runtime data dependencies. Those local gates are
-met by the current package and evidence files.
+recorded by the current [release evidence](assets/release-evidence.json), including source-bound
+visual checks, named expansion routes, starter ownership and deliberate Copilot communication.
+The original extended-scope proposal is not part of that certification.
 
 GA publication still requires the external authenticated-tenant and publisher/media approvals listed
 under **Implementation status** and in [todo.md](todo.md).
@@ -531,6 +591,7 @@ under **Implementation status** and in [todo.md](todo.md).
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| 1.0.0.3 | November 3, 2026 | Preserve ZavaCore branding; add conserved Sankey/decision visuals, grounded continuation, resize lifecycle, 22 named full-screen destinations and 12 starters. |
 | Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 
 <img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-procurement-command-center" />

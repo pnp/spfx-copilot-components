@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T13:11:42.595Z",
+  "generatedAt": "2026-11-03T11:07:28.042Z",
+  "sourceSha256": "994919282938d9217c59f13e667bf287dada0276f2617dd26a46fd3bca90867a",
   "captureCount": 84,
   "captures": [
     {
@@ -14,9 +15,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 944,
-      "sha256": "6b473049ea3e42db6d167677df449da8becd7575ac286dab150a397dfe1dafd2",
-      "bytes": 52526,
+      "capturedHeight": 1065,
+      "sha256": "76c821e7288097fa304eb82480268e1516a50e1b6aba2d3b0f45e93395b6726a",
+      "bytes": 60897,
       "errors": [],
       "overflow": false,
       "layout": "CreatePurchaseIntent-inline",
@@ -26,7 +27,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 18,
       "focus": true
     },
     {
@@ -40,9 +43,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1214,
-      "sha256": "2c4463aeac3188fa731cb4477c328dd584567ac635122b2448537b6a95791453",
-      "bytes": 51559,
+      "capturedHeight": 1453,
+      "sha256": "4b7e50ee453f22036555606d98e80ae3b6fad196da33961fb5fdfec3b3ed1c18",
+      "bytes": 61489,
       "errors": [],
       "overflow": false,
       "layout": "CreatePurchaseIntent-inline",
@@ -52,7 +55,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 18,
       "focus": true
     },
     {
@@ -66,9 +71,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 944,
-      "sha256": "ae5d34dd3ebceaac6c9976061a512d85322ff03bd47eba7d37150a042d0f8914",
-      "bytes": 51917,
+      "capturedHeight": 1065,
+      "sha256": "fbf3a9a3e2768bbcff7652098e8964ae0858cc7098a494afb92414b322dcc98c",
+      "bytes": 59706,
       "errors": [],
       "overflow": false,
       "layout": "CreatePurchaseIntent-inline",
@@ -78,7 +83,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 18,
       "focus": true
     },
     {
@@ -92,9 +99,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1057,
-      "sha256": "94dae1c794fc47808a45310c1cf4b89ad31b042ccde809684375e7c41d7977f3",
-      "bytes": 52862,
+      "capturedHeight": 1178,
+      "sha256": "05c8a9e7b3bb6ff0f0f010299203b0cbc09bc12b807d99b13d91e37085893dda",
+      "bytes": 64791,
       "errors": [],
       "overflow": false,
       "layout": "CompareBuyingOptions-inline",
@@ -104,7 +111,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -118,9 +127,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1449,
-      "sha256": "521916142eb3fc9cb6f9e0dc9e3b0019929ff71c32dceaad59d03b41f64ef3e4",
-      "bytes": 52911,
+      "capturedHeight": 1688,
+      "sha256": "c69cb1783ee57694ad89f731fa5803ec3dac7c78965b8a0769341c157859b915",
+      "bytes": 65244,
       "errors": [],
       "overflow": false,
       "layout": "CompareBuyingOptions-inline",
@@ -130,7 +139,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -144,9 +155,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1057,
-      "sha256": "3a79d39a9629a2fb92df0992469d92dceef07480287e54d1d469ed27e3489f9d",
-      "bytes": 52237,
+      "capturedHeight": 1178,
+      "sha256": "aa9519619213ade9b663f0effaf1ddff553b8ac044bb49f5c54ec472a88ea996",
+      "bytes": 63496,
       "errors": [],
       "overflow": false,
       "layout": "CompareBuyingOptions-inline",
@@ -156,7 +167,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -170,9 +183,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 945,
-      "sha256": "4830f7b023754b4328a23f72df3d86df493caf1327d0bbe50a34af9bc1d8884b",
-      "bytes": 49568,
+      "capturedHeight": 1066,
+      "sha256": "6af090de2aedc30299c81e24ccc0fb33c2132d619ddca1dd884ddddc348a47ba",
+      "bytes": 61909,
       "errors": [],
       "overflow": false,
       "layout": "CheckPurchasePolicy-inline",
@@ -182,7 +195,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     },
     {
@@ -196,9 +211,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1269,
-      "sha256": "a20af7e4437d1a2de559bf06536a3359db3441f632f2f974dfd11acdac92aff7",
-      "bytes": 48803,
+      "capturedHeight": 1508,
+      "sha256": "458fa800db55bcc941a1011943dd0be35f4817166992ed25f5854338676d55c7",
+      "bytes": 61481,
       "errors": [],
       "overflow": false,
       "layout": "CheckPurchasePolicy-inline",
@@ -208,7 +223,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     },
     {
@@ -222,9 +239,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 945,
-      "sha256": "728a95d4ecd3d2b57d8e68f4013ac0589f0b1017920a71625e2c17739f1bec93",
-      "bytes": 47714,
+      "capturedHeight": 1066,
+      "sha256": "391aa02bc8eb50a6786c4c0330e71592c0bcc99eea0ec54936d201e28ef08164",
+      "bytes": 59378,
       "errors": [],
       "overflow": false,
       "layout": "CheckPurchasePolicy-inline",
@@ -234,7 +251,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     },
     {
@@ -248,9 +267,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1109,
-      "sha256": "b97079b6e37f69295145e469cb941633ceca054fdd8b4c7afe6c0d4c07995f5d",
-      "bytes": 55530,
+      "capturedHeight": 1230,
+      "sha256": "3fd20d5dfe5602dc81b89cc9f4d6e5cc77b3d4ea0f19d984a60a112022db57a7",
+      "bytes": 67699,
       "errors": [],
       "overflow": false,
       "layout": "ReviewPurchaseRequest-inline",
@@ -260,7 +279,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -274,9 +295,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1333,
-      "sha256": "a4486148afc2bb4d546f83a3f594f4f51ff21f1af177643e626b8821b7e92da4",
-      "bytes": 52529,
+      "capturedHeight": 1572,
+      "sha256": "1de6e743bcc1017f5834b3148f9cd33933877eb3380825ef81afb88b98ae6f40",
+      "bytes": 65438,
       "errors": [],
       "overflow": false,
       "layout": "ReviewPurchaseRequest-inline",
@@ -286,7 +307,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -300,9 +323,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1109,
-      "sha256": "7b4e86e934d97cbace7a0b48da1c746e30d48ac9fbdc1d0f33498e2896d6ef9d",
-      "bytes": 52573,
+      "capturedHeight": 1230,
+      "sha256": "688e28f329a01096e8f296945f8f2f155d4adfd457a2ccdc30bbc95900d49edd",
+      "bytes": 64109,
       "errors": [],
       "overflow": false,
       "layout": "ReviewPurchaseRequest-inline",
@@ -312,7 +335,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -326,9 +351,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1158,
-      "sha256": "efd8351f4f7997edb7dab8fc2c7310b779a3f2f13156f3e3dcfb415845296d9e",
-      "bytes": 54435,
+      "capturedHeight": 1279,
+      "sha256": "ea06b7023a40d3061a77adf0e9e34af373a07fb662b96449e16fbe533f138b62",
+      "bytes": 65843,
       "errors": [],
       "overflow": false,
       "layout": "AggregateDemand-inline",
@@ -338,7 +363,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -352,9 +379,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1482,
-      "sha256": "cd5fe11657442898aec059ccbfd85f8bb1364e9e3d9fcf6447d7b244da6822b6",
-      "bytes": 52357,
+      "capturedHeight": 1721,
+      "sha256": "eef4ee8bcb59cdf3948c48f7987ee2cade707737d03d8f560e1f12ac7c61ddbd",
+      "bytes": 64234,
       "errors": [],
       "overflow": false,
       "layout": "AggregateDemand-inline",
@@ -364,7 +391,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -378,9 +407,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1158,
-      "sha256": "05d134345ad343936de3dcfe60cf3eca594176633ce4ea1283194f07a5c0cf4c",
-      "bytes": 53031,
+      "capturedHeight": 1279,
+      "sha256": "78a4798d7e7dea7116d508c57fda4c5b209419c3e746b9c82c8983756fcff9b9",
+      "bytes": 63814,
       "errors": [],
       "overflow": false,
       "layout": "AggregateDemand-inline",
@@ -390,7 +419,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -404,9 +435,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 969,
-      "sha256": "cefb5136a76ae76d4d337696da0ebd7e6c27ab8a660e3c5cdea3c399508d8270",
-      "bytes": 50001,
+      "capturedHeight": 1090,
+      "sha256": "1750e0346144faade0df66ebd2c7bd175e50e3ed7ab334c8ffd0187b23bee887",
+      "bytes": 60029,
       "errors": [],
       "overflow": false,
       "layout": "BuildSourcingEvent-inline",
@@ -416,7 +447,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -430,9 +463,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1021,
-      "sha256": "906630711d0985dd57120efa76b7d8e04c8634c5c0093c47836b225374d3cfa3",
-      "bytes": 47418,
+      "capturedHeight": 1260,
+      "sha256": "fe0d4bc496588720252c21a91c420c1ce008a2bd32de2dce5f79cb384211e40b",
+      "bytes": 57901,
       "errors": [],
       "overflow": false,
       "layout": "BuildSourcingEvent-inline",
@@ -442,7 +475,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -456,9 +491,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 969,
-      "sha256": "637b961dee941cf03ad9cb73913980b758397961310a09265ef14071e2e39eff",
-      "bytes": 49233,
+      "capturedHeight": 1090,
+      "sha256": "c02af3d85289ae01528bf213849a761c8c5f780d4a95e102dc1ce8c556bbccbe",
+      "bytes": 58911,
       "errors": [],
       "overflow": false,
       "layout": "BuildSourcingEvent-inline",
@@ -468,7 +503,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -482,9 +519,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 954,
-      "sha256": "149c3141f703c4e5ff1fa5116d3f6c182d8aae4be4e05faeaa436543b2ab45e8",
-      "bytes": 57148,
+      "capturedHeight": 1075,
+      "sha256": "b7c2f13bf593157e034515a6d03ae389c1c26507e3c079dc9335a52c3cf1d458",
+      "bytes": 69917,
       "errors": [],
       "overflow": false,
       "layout": "CompareSupplierBids-inline",
@@ -493,8 +530,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 14,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 17,
       "focus": true
     },
     {
@@ -508,9 +547,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1213,
-      "sha256": "f1012e85ba6cdddc49154779d315669da17f9dd5617415d28939d7350ea276ae",
-      "bytes": 53159,
+      "capturedHeight": 1452,
+      "sha256": "3b10070ba9b754ba5d342f3caa0759485df0bb71004bea0f6f344033dc6696ea",
+      "bytes": 66051,
       "errors": [],
       "overflow": false,
       "layout": "CompareSupplierBids-inline",
@@ -519,8 +558,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 14,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 17,
       "focus": true
     },
     {
@@ -534,9 +575,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 954,
-      "sha256": "7fe1b46596c9672f95ab475cb9f331ac024cdc88788f190f2ddfea2506f0fdc3",
-      "bytes": 56197,
+      "capturedHeight": 1075,
+      "sha256": "926636356528e765a3d062ac39de497e36eddeb032a2d02a867646ef1309d9a4",
+      "bytes": 68250,
       "errors": [],
       "overflow": false,
       "layout": "CompareSupplierBids-inline",
@@ -545,8 +586,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 14,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 17,
       "focus": true
     },
     {
@@ -560,9 +603,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1448,
-      "sha256": "723a7dc4192b1a8caa2e34b743a2b844df26ff6788826d5a5b6af1b2dca02b44",
-      "bytes": 76873,
+      "capturedHeight": 1569,
+      "sha256": "4745c122247f7eb5a239438dd6c7b102261b42a6bf1d3b9fc33811ab3ee2cb3b",
+      "bytes": 88860,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierAward-inline",
@@ -572,7 +615,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 1,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -586,9 +631,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1570,
-      "sha256": "b2c3fdd2859b1997f3aa72d3f61640e5f26b462453e2cc88275674824784dbc6",
-      "bytes": 65499,
+      "capturedHeight": 1789,
+      "sha256": "9c5fbb8e4b85a03035728c0d421a57a60eee7e7713f8c4c46b70eef188d7c4ab",
+      "bytes": 77624,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierAward-inline",
@@ -598,7 +643,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 1,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -612,9 +659,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1448,
-      "sha256": "60e7bddb13c368eb2556c4140ab59331e34d1a3b18ea930178ca09430c4529bb",
-      "bytes": 73793,
+      "capturedHeight": 1569,
+      "sha256": "ef358528ae892cff232b3c6052108b4bc005d3d33bbfd3667adf3f31e6e27f2d",
+      "bytes": 85234,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierAward-inline",
@@ -624,7 +671,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 1,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -638,9 +687,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 785,
-      "sha256": "a85af2d7ea6541c1ef548bfd3c62cbe03545478b891e2bb3f2b234a19dee57d0",
-      "bytes": 42112,
+      "capturedHeight": 906,
+      "sha256": "4cad92c8c2fbffce2959fb132a6a836d60fb0ea9df0203f62b1e33c0c87ed53a",
+      "bytes": 53904,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplier360-inline",
@@ -650,7 +699,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 7,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 10,
       "focus": true
     },
     {
@@ -664,9 +715,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1049,
-      "sha256": "54956602a3a84cb4aa3ee36b03f338d3b2b309d74d602ec8ee7c678230e012dc",
-      "bytes": 41998,
+      "capturedHeight": 1268,
+      "sha256": "3785b934ef9f2f24c8923d116c44ce47c0c8fc196ecacc0b2bece245430fdea8",
+      "bytes": 54053,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplier360-inline",
@@ -676,7 +727,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 7,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 10,
       "focus": true
     },
     {
@@ -690,9 +743,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 785,
-      "sha256": "9dd84a476dd5910541ce3e08c16a5b27e9694edb408bd5bc609312a592d83199",
-      "bytes": 40799,
+      "capturedHeight": 906,
+      "sha256": "565026ee084010125871ff770e362ba29cc2bcdd4aa7fd2da69377cb83c04006",
+      "bytes": 52097,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplier360-inline",
@@ -702,7 +755,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 7,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 10,
       "focus": true
     },
     {
@@ -716,9 +771,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1005,
-      "sha256": "34afcd92341b74d7e4c2bc641b4d604908255170d4b2de7979c498554ac8e0b8",
-      "bytes": 49347,
+      "capturedHeight": 1126,
+      "sha256": "e76621002fad7ae471ceaa01793b47b3240e8daeef76288394e62581c55e019c",
+      "bytes": 61807,
       "errors": [],
       "overflow": false,
       "layout": "ReviewContractRenewal-inline",
@@ -728,7 +783,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -742,9 +799,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1193,
-      "sha256": "142318a6bcf54b9542bef1633b6ee11c94716a073f5eff29292a7658a52c64b6",
-      "bytes": 47877,
+      "capturedHeight": 1432,
+      "sha256": "2a9c349d85705c96b94c61c109ed35e84daead96712791eeb2c9c527e1471438",
+      "bytes": 60436,
       "errors": [],
       "overflow": false,
       "layout": "ReviewContractRenewal-inline",
@@ -754,7 +811,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -768,9 +827,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1005,
-      "sha256": "08b4ec501c9c1e61dfe32bf9fd290bb87153219dca5e1a3729b033b897c8efd6",
-      "bytes": 47318,
+      "capturedHeight": 1126,
+      "sha256": "76ec10a11bddc12dbe1f45f7c139d805af85c8b3be5fee02b369308391378d97",
+      "bytes": 59134,
       "errors": [],
       "overflow": false,
       "layout": "ReviewContractRenewal-inline",
@@ -780,7 +839,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -794,9 +855,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 895,
-      "sha256": "d3402ab1dffbaf5fa669c17192a49a34103140d0e05fd155dbcbe526838ab3da",
-      "bytes": 46112,
+      "capturedHeight": 1166,
+      "sha256": "de280f4f9b57bea88e543e8cbc2a35a520903f369921b9c517f0fb763e3ea9b4",
+      "bytes": 64750,
       "errors": [],
       "overflow": false,
       "layout": "DetectSpendLeakage-inline",
@@ -806,7 +867,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -820,9 +883,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1067,
-      "sha256": "a016f048a116d5a230b4f9c687e39d660742aebd4a87d7d359f50a848a8be1fa",
-      "bytes": 44488,
+      "capturedHeight": 1416,
+      "sha256": "626b1688f0a26981dfccaa1545c138fe466e6359bead9e9eb06e669f36eb571b",
+      "bytes": 63669,
       "errors": [],
       "overflow": false,
       "layout": "DetectSpendLeakage-inline",
@@ -832,7 +895,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -846,9 +911,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 895,
-      "sha256": "786c4627249cedf06e496011931a1f44c5b1600f7d040eee50e8e0e5b5c02654",
-      "bytes": 45686,
+      "capturedHeight": 1166,
+      "sha256": "c67090e38fdafb85ec310e375797377b6cc934990ab82310bde59881e82dd01f",
+      "bytes": 64027,
       "errors": [],
       "overflow": false,
       "layout": "DetectSpendLeakage-inline",
@@ -858,7 +923,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -872,9 +939,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 953,
-      "sha256": "0068780d809f8e4722e95d28f3f8b663fc2e1191a0b4141213835653e73219f5",
-      "bytes": 45717,
+      "capturedHeight": 1062,
+      "sha256": "fcaa6cd0de0406ef9f0975155b866bcb15cf5363bc20a09bda68ab77d0c1a448",
+      "bytes": 62361,
       "errors": [],
       "overflow": false,
       "layout": "TrackSupplierRisk-inline",
@@ -884,7 +951,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 20,
       "focus": true
     },
     {
@@ -898,9 +967,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1121,
-      "sha256": "dea5e6cdba66d208a11c7b4beb6deb89f943a53f19fe08d085537a58d7d59d2f",
-      "bytes": 43915,
+      "capturedHeight": 1440,
+      "sha256": "13c0da504f6754bdb8e928220e87914adf8d37d948eb98c6e4181baaf1d6ea57",
+      "bytes": 62073,
       "errors": [],
       "overflow": false,
       "layout": "TrackSupplierRisk-inline",
@@ -910,7 +979,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 20,
       "focus": true
     },
     {
@@ -924,9 +995,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 953,
-      "sha256": "848e61547e35059ad2638a9ee8f92f0e51a3c45ff258795354075831f0985127",
-      "bytes": 44412,
+      "capturedHeight": 1062,
+      "sha256": "9c9ae3364b3259a8e5e132f9ed45a7a46ce1f19d2adf312c72bbd8bc9bebe58c",
+      "bytes": 59978,
       "errors": [],
       "overflow": false,
       "layout": "TrackSupplierRisk-inline",
@@ -936,7 +1007,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 20,
       "focus": true
     },
     {
@@ -950,9 +1023,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1109,
-      "sha256": "6a4d2738a3eb94af75a0731754c6445c98b93782146754c61e6eafb07dd2fe0e",
-      "bytes": 51389,
+      "capturedHeight": 1230,
+      "sha256": "48974e3bbc1eedc2714c5695bb10d1679bfccedb73cd86f29b4e191d98006e33",
+      "bytes": 63487,
       "errors": [],
       "overflow": false,
       "layout": "ResolveInvoiceException-inline",
@@ -962,7 +1035,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -976,9 +1051,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1313,
-      "sha256": "c8a988f7438e8358a7c2f538e9a78607201ca2b8e2b7afb201702d8562b2c811",
-      "bytes": 49765,
+      "capturedHeight": 1552,
+      "sha256": "3262ad98e6cea2850402c7923a4c34ac86665df648345c6e6004d54291ef6732",
+      "bytes": 62324,
       "errors": [],
       "overflow": false,
       "layout": "ResolveInvoiceException-inline",
@@ -988,7 +1063,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1002,9 +1079,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1109,
-      "sha256": "090628171bb597ddd846aaaf761a55ef14f00aefb15a70f058d0e597a04df59b",
-      "bytes": 49990,
+      "capturedHeight": 1230,
+      "sha256": "7dec188a0acfac4acb392a6ee54e7b5bd472c35635c9bc515ce4804a69655e6f",
+      "bytes": 61507,
       "errors": [],
       "overflow": false,
       "layout": "ResolveInvoiceException-inline",
@@ -1014,7 +1091,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1028,9 +1107,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1049,
-      "sha256": "3f99b78beda2b3ff09ebd7277a1e4c12d79d0602014b9397a2e922d976c9427b",
-      "bytes": 42661,
+      "capturedHeight": 1178,
+      "sha256": "60a2b4876bd11516cfb5975b4b4a68bdf17fc81d97dba1bab3bc1b63d22c66d6",
+      "bytes": 101839,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSpendPerformance-inline",
@@ -1040,7 +1119,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 62,
       "focus": true
     },
     {
@@ -1054,9 +1135,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1133,
-      "sha256": "61a37c7334d9879295641ffd1b5017541096e5940743a5363402a2ec3354f904",
-      "bytes": 40177,
+      "capturedHeight": 1772,
+      "sha256": "d4d20397a7017b72709e3ed37d42c9d79b5249421b92a0a71c703d21e61b94ed",
+      "bytes": 81104,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSpendPerformance-inline",
@@ -1066,7 +1147,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 62,
       "focus": true
     },
     {
@@ -1080,9 +1163,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1049,
-      "sha256": "07aa773fd9afd81ed26f9e0a2bdd0641c6d385ed0d9a1e79e20c4d5d81af9d75",
-      "bytes": 42245,
+      "capturedHeight": 1178,
+      "sha256": "1b71864e7e1dd3fd35347988c4480e4953f27a7da2cc91d17454ddb411615593",
+      "bytes": 99939,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSpendPerformance-inline",
@@ -1092,7 +1175,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 62,
       "focus": true
     },
     {
@@ -1106,9 +1191,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1038,
-      "sha256": "d62db60aea648ff8a585b4849d671bf74e4c85ac22e9da73073aaaa504b9a53e",
-      "bytes": 48028,
+      "capturedHeight": 1159,
+      "sha256": "f0c81cc9d24aaa95c5adde8b7ba5dafef27962d5cb9285d724750f8e16ae745b",
+      "bytes": 58845,
       "errors": [],
       "overflow": false,
       "layout": "OnboardSupplier-inline",
@@ -1118,7 +1203,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1132,9 +1219,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1091,
-      "sha256": "b0bd452ee675296a09f7a78c2d1ba44ba534a07a68099f2a6d0069e1b6420a31",
-      "bytes": 46048,
+      "capturedHeight": 1330,
+      "sha256": "aa423c8b1890f07cae652e255ce1590e552b957c0fcb2f3ceb39a7269ef51a66",
+      "bytes": 56211,
       "errors": [],
       "overflow": false,
       "layout": "OnboardSupplier-inline",
@@ -1144,7 +1231,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1158,9 +1247,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1038,
-      "sha256": "f3fb3c86168a3794f2eaf4ff90908260aca35ddd2323c034c1dd1cde17546faf",
-      "bytes": 47113,
+      "capturedHeight": 1159,
+      "sha256": "cf5f3efa38298a88e517065c9e343bce4d0e56bcb694786bb4bc745b1d2de203",
+      "bytes": 57450,
       "errors": [],
       "overflow": false,
       "layout": "OnboardSupplier-inline",
@@ -1170,7 +1259,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1184,9 +1275,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1130,
-      "sha256": "c69d216ceb8436abd1df480625b18657cfcfdeeaa3c3b7865130547d1e3dd69f",
-      "bytes": 52418,
+      "capturedHeight": 1251,
+      "sha256": "24e6444d6aa38b33a957eb724b31d7bd68bcfe89a1ac570043c7b255f2633a79",
+      "bytes": 64725,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierQualification-inline",
@@ -1196,7 +1287,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -1210,9 +1303,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1234,
-      "sha256": "1c76968fa37bd46a2f0b9f515cf6f7c44e3602f9428a2253faedcda42b2b01a2",
-      "bytes": 49888,
+      "capturedHeight": 1473,
+      "sha256": "432a0a8780fa1403b23554f884af0c94f18c7eb57b35bbbb75f7237a2fd7e17d",
+      "bytes": 62550,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierQualification-inline",
@@ -1222,7 +1315,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -1236,9 +1331,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1130,
-      "sha256": "43dbbaa135e39229340d8d09421a1502d6641f27db110bb7f2f536da3bb21df8",
-      "bytes": 51237,
+      "capturedHeight": 1251,
+      "sha256": "d8d5a70ed0f8bc1d26354b3bee6bb3a7cbbe3c5f1c0d4d1c66eb7923711e22e5",
+      "bytes": 62898,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierQualification-inline",
@@ -1248,7 +1343,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 10,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 13,
       "focus": true
     },
     {
@@ -1262,9 +1359,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 987,
-      "sha256": "4b6cd019f65eadc6a49f98f5d6ea1151e8a0f9bf93cd2fe666916a21dc167cb8",
-      "bytes": 48624,
+      "capturedHeight": 1108,
+      "sha256": "ac502a578c5bcb5490ed84f8ac46935cca755a6a2a9e06291482461cdf4d7e4e",
+      "bytes": 60516,
       "errors": [],
       "overflow": false,
       "layout": "PlanSupplierRiskMitigation-inline",
@@ -1274,7 +1371,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1288,9 +1387,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 999,
-      "sha256": "17ac4a17bc3cd7679369e4625875a3317c0e992d1f7f915e99cc81ebaddee1bf",
-      "bytes": 45533,
+      "capturedHeight": 1218,
+      "sha256": "a770deae9d40bb2a1aa9ceb53bdcc49ac2f9f6b7d42d4db2260407eed9f86616",
+      "bytes": 57714,
       "errors": [],
       "overflow": false,
       "layout": "PlanSupplierRiskMitigation-inline",
@@ -1300,7 +1399,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1314,9 +1415,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 987,
-      "sha256": "77eb4c76141b9e40790a6627d908dd8fd054fe1d49b713fc101006750d604245",
-      "bytes": 48437,
+      "capturedHeight": 1108,
+      "sha256": "457d44a382151044de810b0409987f56d901a5934e13c2d29181d58dba89d8e3",
+      "bytes": 59562,
       "errors": [],
       "overflow": false,
       "layout": "PlanSupplierRiskMitigation-inline",
@@ -1326,7 +1427,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 13,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 16,
       "focus": true
     },
     {
@@ -1340,9 +1443,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 968,
-      "sha256": "ba4f8eb67f9c4681d96cf39521c7aabc140451d20dfdc1dd28382cb4d5e0c02d",
-      "bytes": 49942,
+      "capturedHeight": 1089,
+      "sha256": "a6eb66049b16615eca106bebc5356d39f26773d8ce1aea0b09de09967a36e434",
+      "bytes": 62219,
       "errors": [],
       "overflow": false,
       "layout": "NegotiateContractTerms-inline",
@@ -1352,7 +1455,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -1366,9 +1471,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1000,
-      "sha256": "0a8a1af5e9501b6930a0773cd1c1e84be95018387a5774263dd1f4d0e9459568",
-      "bytes": 46652,
+      "capturedHeight": 1239,
+      "sha256": "fb8aacc64f568e4bb0061012273718c530fc37f598a68fa57b8c322f950c0bbf",
+      "bytes": 59502,
       "errors": [],
       "overflow": false,
       "layout": "NegotiateContractTerms-inline",
@@ -1378,7 +1483,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -1392,9 +1499,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 968,
-      "sha256": "af60cd059b489333f8d84a4a1dcb0e0dcf2fd7c8cd9cae2a04ab556ddd110388",
-      "bytes": 49549,
+      "capturedHeight": 1089,
+      "sha256": "448a7b90051a183f35fe1f071d624e761ab25e7b67b06b8620368b028892b40a",
+      "bytes": 61097,
       "errors": [],
       "overflow": false,
       "layout": "NegotiateContractTerms-inline",
@@ -1404,7 +1511,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 12,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 15,
       "focus": true
     },
     {
@@ -1418,9 +1527,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1293,
-      "sha256": "15337fa1c7e7f0ceb2812a060ff62e4f429436805dc88795637d9e8123644d64",
-      "bytes": 58804,
+      "capturedHeight": 1414,
+      "sha256": "90b781b4e18eeeb1d70a5a189d3fde594a3e5baaf631c9faeb0e72a439f573f5",
+      "bytes": 71228,
       "errors": [],
       "overflow": false,
       "layout": "ManagePurchaseOrderChange-inline",
@@ -1430,7 +1539,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 11,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 14,
       "focus": true
     },
     {
@@ -1444,9 +1555,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1417,
-      "sha256": "abd2ad1796911e8c05c655e407b9882fff45a55452c3129508ea0215139a6aae",
-      "bytes": 55941,
+      "capturedHeight": 1656,
+      "sha256": "d21f331ffd36f33519512f9b157de11fddadc1529c727c002471d0f8c3eaf629",
+      "bytes": 68696,
       "errors": [],
       "overflow": false,
       "layout": "ManagePurchaseOrderChange-inline",
@@ -1456,7 +1567,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 11,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 14,
       "focus": true
     },
     {
@@ -1470,9 +1583,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1293,
-      "sha256": "205ede54ce07044e9c30b45ae9172d9d8b513cdf2ee9ebb583052a47b9d3bcbc",
-      "bytes": 57443,
+      "capturedHeight": 1414,
+      "sha256": "a750fc20604140c46fd5f4be7628728ae7d3708ae27ac730895d73792cfe2893",
+      "bytes": 69290,
       "errors": [],
       "overflow": false,
       "layout": "ManagePurchaseOrderChange-inline",
@@ -1482,7 +1595,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 11,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 14,
       "focus": true
     },
     {
@@ -1496,9 +1611,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1146,
-      "sha256": "9cb4703ffd880ebfd21d03d993ca593012342e4f0e98c4b51745d836625b8278",
-      "bytes": 52565,
+      "capturedHeight": 1267,
+      "sha256": "db8401db8eed98daedd82bf1d0bc4bfc97af2e15008f2fde32b928d53ed2eb77",
+      "bytes": 65225,
       "errors": [],
       "overflow": false,
       "layout": "TrackLeakageRecovery-inline",
@@ -1508,7 +1623,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1522,9 +1639,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1298,
-      "sha256": "be4be04a3ebf67d3625feb5b7530849a3594fad05aaaf1803c821ed2674985ad",
-      "bytes": 50460,
+      "capturedHeight": 1537,
+      "sha256": "8479990c4b0ee6f259e9c2ed5bf039224bf7051aed008bc1c93928301e9bcf53",
+      "bytes": 63216,
       "errors": [],
       "overflow": false,
       "layout": "TrackLeakageRecovery-inline",
@@ -1534,7 +1651,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1548,9 +1667,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1146,
-      "sha256": "d0b966b83fb67ce559c5d2a343d57dc72d14902a0b5d7c1960825db197adaa38",
-      "bytes": 51525,
+      "capturedHeight": 1267,
+      "sha256": "1018e7d189d40427231a5a733a5955c81cfb3c02980cb055eb43e5216abb22a9",
+      "bytes": 63330,
       "errors": [],
       "overflow": false,
       "layout": "TrackLeakageRecovery-inline",
@@ -1560,7 +1679,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1574,9 +1695,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1140,
-      "sha256": "2443432550572d947c1efae59fc993929be7f32fc396a6890ada0d30338bdb12",
-      "bytes": 51290,
+      "capturedHeight": 1334,
+      "sha256": "712db47279ddde26add4eb861cbf017838639b5dcf7a5d84e7c2ecfc55dcba89",
+      "bytes": 68659,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplierPortfolioBalance-inline",
@@ -1585,8 +1706,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 0,
-      "focusable": 9,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1600,9 +1723,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 1308,
-      "sha256": "75228d05ad3307ca8d6ecaa1f0e0d180e5843f70a2b97451f469d4f51b682a8c",
-      "bytes": 48965,
+      "capturedHeight": 1646,
+      "sha256": "d5e977f872cf77b64b826b076ca5572afa45326540838c6d071fa4c7a900dac1",
+      "bytes": 65250,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplierPortfolioBalance-inline",
@@ -1611,8 +1734,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 0,
-      "focusable": 9,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1626,9 +1751,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 1140,
-      "sha256": "7abfa59705acd91b33222973abec58c13c1b52bb6176946ac1fe66f090e94e01",
-      "bytes": 49682,
+      "capturedHeight": 1334,
+      "sha256": "d9305669f9af59cb71e296051776d0eb92d0be8ff260cb2b95853491935319be",
+      "bytes": 66292,
       "errors": [],
       "overflow": false,
       "layout": "ExploreSupplierPortfolioBalance-inline",
@@ -1637,8 +1762,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 0,
-      "focusable": 9,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -1652,9 +1779,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 2880,
-      "sha256": "8c3c1abc7c0c1eb981473f4138ffc1aad7499268149842761330cf7c02cd2c28",
-      "bytes": 208156,
+      "capturedHeight": 1329,
+      "sha256": "13f33983a48aa8d6e847661c94bc95fed3d649bc1a56e78626b5c01b261baf64",
+      "bytes": 81189,
       "errors": [],
       "overflow": false,
       "layout": "ExploreAgentCapabilities-inline",
@@ -1664,7 +1791,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 28,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 19,
       "focus": true
     },
     {
@@ -1678,9 +1807,9 @@
         "height": 920
       },
       "capturedWidth": 340,
-      "capturedHeight": 5652,
-      "sha256": "de9aa9cfd0c435a09fa9275f502da49e243a7f539fd2662b0cb8d3b43b4c5af6",
-      "bytes": 207888,
+      "capturedHeight": 1851,
+      "sha256": "66c55e6301c3acd256694aba012e2c73f37f083a4a45051dddcb7edd2dfe95ad",
+      "bytes": 79602,
       "errors": [],
       "overflow": false,
       "layout": "ExploreAgentCapabilities-inline",
@@ -1690,7 +1819,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 28,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 19,
       "focus": true
     },
     {
@@ -1704,9 +1835,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 2880,
-      "sha256": "0d749aeff7678d6f31b0c623a747533b7d424809fcbad7f33ac04f4abd5dafe8",
-      "bytes": 206993,
+      "capturedHeight": 1329,
+      "sha256": "d48e8d09e022b5248dd8f242ef7ae3ace16352181a1b3426247b4bf3fa69689e",
+      "bytes": 79840,
       "errors": [],
       "overflow": false,
       "layout": "ExploreAgentCapabilities-inline",
@@ -1716,7 +1847,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 28,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 19,
       "focus": true
     },
     {
@@ -1730,9 +1863,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1674,
-      "sha256": "4702af5fde082bebb60be5a01993b82625ebe20a3e3a49eb32212b393b9f828d",
-      "bytes": 406577,
+      "capturedHeight": 1590,
+      "sha256": "29cc4cf8b0058b29c7fe93e67d9567ab54c96a6cd724503a2d4c57f18e67aa39",
+      "bytes": 396766,
       "errors": [],
       "overflow": false,
       "layout": "sourcing-command",
@@ -1741,8 +1874,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 18,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1756,9 +1891,9 @@
         "height": 1100
       },
       "capturedWidth": 390,
-      "capturedHeight": 2349,
-      "sha256": "b2302c537be39415af7ae54ad1239904313c36eceabba79496aa7d2e22f121c2",
-      "bytes": 157365,
+      "capturedHeight": 1999,
+      "sha256": "9567eb7ffdc1c157f0434f66c082e229f04964d265990573d904a9c9b27f59da",
+      "bytes": 152827,
       "errors": [],
       "overflow": false,
       "layout": "sourcing-command",
@@ -1767,8 +1902,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 18,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1782,9 +1919,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1674,
-      "sha256": "e01ce5a33ba05c08756477920d92babeb03ce54e6451584ab46f4991384c6493",
-      "bytes": 405326,
+      "capturedHeight": 1590,
+      "sha256": "b13952f4e3b8e6d76fae8f455ca725fd4c382534639130d038896c4c1e106c14",
+      "bytes": 395979,
       "errors": [],
       "overflow": false,
       "layout": "sourcing-command",
@@ -1793,8 +1930,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 1,
-      "focusable": 18,
+      "charts": 0,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1808,9 +1947,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1837,
-      "sha256": "eacd8e2fca8a8324e8d4e988ccea68f79ba4f6dba5a70794049fd26e774d0e27",
-      "bytes": 416079,
+      "capturedHeight": 1367,
+      "sha256": "e651122777ab528e0e0b3f25d7144d27646c5eb380be9b50a777cb93ae909b55",
+      "bytes": 388926,
       "errors": [],
       "overflow": false,
       "layout": "supplier-360-command",
@@ -1820,7 +1959,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1834,9 +1975,9 @@
         "height": 1100
       },
       "capturedWidth": 390,
-      "capturedHeight": 2815,
-      "sha256": "8b153ab1028d844a642c3572f8a32e4ebfc05981c86bb855934750fedf91ec62",
-      "bytes": 180112,
+      "capturedHeight": 2273,
+      "sha256": "152a8a25b72b54983d08cc9b6b822dab1d247f72ab2a24be98e9395a60dfec52",
+      "bytes": 166406,
       "errors": [],
       "overflow": false,
       "layout": "supplier-360-command",
@@ -1846,7 +1987,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1860,9 +2003,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1837,
-      "sha256": "0ba39ccae7ae8a1e2eaff94ace4583e6d3185671ec268b876c154bd67e96b02c",
-      "bytes": 414141,
+      "capturedHeight": 1367,
+      "sha256": "64033f4a8c59932ecffe22b26fdd6ff52ed0a56a876651f1bdeceb32b7fad72d",
+      "bytes": 387328,
       "errors": [],
       "overflow": false,
       "layout": "supplier-360-command",
@@ -1872,7 +2015,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 15,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 26,
       "focus": true
     },
     {
@@ -1886,9 +2031,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 2980,
-      "sha256": "c538ad4a96a26e0a224fc0eaa030a0deeeabca43d0a3123b0b1cd428053069ea",
-      "bytes": 659838,
+      "capturedHeight": 2961,
+      "sha256": "07558159bdb75f080be8e8376cffc03c4e9bae53c489c38fe9ee68bcc1b24f01",
+      "bytes": 745769,
       "errors": [],
       "overflow": false,
       "layout": "spend-command-command",
@@ -1897,8 +2042,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 11,
-      "focusable": 33,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 143,
       "focus": true
     },
     {
@@ -1912,9 +2059,9 @@
         "height": 1100
       },
       "capturedWidth": 390,
-      "capturedHeight": 5139,
-      "sha256": "8e70637dc4baa5900bd9f412bfdb5ea17dae6ce0c713fcb699683b69568beae9",
-      "bytes": 318451,
+      "capturedHeight": 5142,
+      "sha256": "1bf19d2a5a5dbdcd3089cc2c9722b1cf91daf35fda16a1ac861baade0a95bb48",
+      "bytes": 337139,
       "errors": [],
       "overflow": false,
       "layout": "spend-command-command",
@@ -1923,8 +2070,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 11,
-      "focusable": 33,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 143,
       "focus": true
     },
     {
@@ -1938,9 +2087,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 2980,
-      "sha256": "3e22d75d6a63ac0b61f77c18049ad735111ffd1dae7917083a38aab8d18ced91",
-      "bytes": 673124,
+      "capturedHeight": 2961,
+      "sha256": "2a78eabcc91fe0b8bfd02ae1c81b19a7e8d4fb95b803dbd93574c2c573f62615",
+      "bytes": 752953,
       "errors": [],
       "overflow": false,
       "layout": "spend-command-command",
@@ -1949,8 +2098,10 @@
       "buttons": true,
       "inputsLabeled": true,
       "brokenImages": 0,
-      "charts": 11,
-      "focusable": 33,
+      "charts": 1,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 143,
       "focus": true
     },
     {
@@ -1964,9 +2115,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1874,
-      "sha256": "173f747abdd9e7645877d48581983856552238952087162528b4e46696fe2c83",
-      "bytes": 438222,
+      "capturedHeight": 1473,
+      "sha256": "3cd4b2e69758838774ffb03ae5192a4b95897d41b8f3283ff4a57b9a0c8d0496",
+      "bytes": 412227,
       "errors": [],
       "overflow": false,
       "layout": "my-requests-command",
@@ -1976,7 +2127,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 29,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 32,
       "focus": true
     },
     {
@@ -1990,9 +2143,9 @@
         "height": 1100
       },
       "capturedWidth": 390,
-      "capturedHeight": 3409,
-      "sha256": "aaf9448c351fe88dcb89fa137f713e6df33c38c6f738622f8c6e39754109c906",
-      "bytes": 212759,
+      "capturedHeight": 2714,
+      "sha256": "5d67c605254f7927394a3dec553d8cbd4c358cd80411ce7216b9497110bfebd6",
+      "bytes": 189677,
       "errors": [],
       "overflow": false,
       "layout": "my-requests-command",
@@ -2002,7 +2155,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 29,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 32,
       "focus": true
     },
     {
@@ -2016,9 +2171,9 @@
         "height": 1000
       },
       "capturedWidth": 1400,
-      "capturedHeight": 1874,
-      "sha256": "695406882cf86b045e85cd6c29a8cf0b33e168aaa42caa720ac1629873af4f1a",
-      "bytes": 436021,
+      "capturedHeight": 1473,
+      "sha256": "c8972138fbfc788b8fd3ed7febc88dd970e9f6b43942c873a2e3cd5a2a59c109",
+      "bytes": 408615,
       "errors": [],
       "overflow": false,
       "layout": "my-requests-command",
@@ -2028,7 +2183,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 29,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 32,
       "focus": true
     },
     {
@@ -2042,9 +2199,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 858,
-      "sha256": "2b2482828acbe5246b41f338db2f2685edf612fb181bc77dbd1b3838a327eae3",
-      "bytes": 44462,
+      "capturedHeight": 979,
+      "sha256": "57cdcd9c225805f9314a0fb1387f5b47982b15289b2764022d5e9db390f1bdf4",
+      "bytes": 56875,
       "errors": [],
       "overflow": false,
       "layout": "CreatePurchaseIntent-inline",
@@ -2054,7 +2211,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     },
     {
@@ -2068,9 +2227,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 790,
-      "sha256": "2ddbaeb893c8346ed53fb9771a30de24e40cfae9a7e4c90e041ecf9a5ff32d15",
-      "bytes": 46620,
+      "capturedHeight": 911,
+      "sha256": "2e8cf4c9a512054a97d54f6f1069174b4b53fcb801765d867ff47fd4686538f5",
+      "bytes": 60379,
       "errors": [],
       "overflow": false,
       "layout": "CreatePurchaseIntent-inline",
@@ -2080,7 +2239,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 7,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 10,
       "focus": true
     },
     {
@@ -2094,9 +2255,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 940,
-      "sha256": "f32378048f86d28556376a5faee83857d3b0729cfe92d1ad1f55cfbe82fb4c1e",
-      "bytes": 48511,
+      "capturedHeight": 1061,
+      "sha256": "20cb85473921750c4cdd10bd196e2b408e2b33439b4ce02c2cc7d38129ee6cc7",
+      "bytes": 60949,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierAward-inline",
@@ -2106,7 +2267,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -2120,9 +2283,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 838,
-      "sha256": "5b9ac4dadf35639f5100ad33135c70d5297c72c9691a72b726671bcc815b9425",
-      "bytes": 47460,
+      "capturedHeight": 959,
+      "sha256": "03816e4e29247d33a61e110fa4b46ff4435cf921d40adf09e6c606e980e29059",
+      "bytes": 59998,
       "errors": [],
       "overflow": false,
       "layout": "ReviewSupplierAward-inline",
@@ -2132,7 +2295,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     },
     {
@@ -2146,9 +2311,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 972,
-      "sha256": "09b490558df7bf95159256e7b99302c85d8312a9bb4cc0fb28580bc2531c4d3f",
-      "bytes": 50201,
+      "capturedHeight": 1093,
+      "sha256": "603dcad79bea1f9818216b1dec2829123181d984893103b040f658fb6dc32ce7",
+      "bytes": 62659,
       "errors": [],
       "overflow": false,
       "layout": "ResolveInvoiceException-inline",
@@ -2158,7 +2323,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 9,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 12,
       "focus": true
     },
     {
@@ -2172,9 +2339,9 @@
         "height": 920
       },
       "capturedWidth": 720,
-      "capturedHeight": 838,
-      "sha256": "56116087a932c5f75419e6e6a929ff763507be483719851b7eb214f44d052c36",
-      "bytes": 48575,
+      "capturedHeight": 959,
+      "sha256": "b65de68ea9ab5900d51d7f5066676c8d42ba98df271ed9070ccc976e0011b38f",
+      "bytes": 61060,
       "errors": [],
       "overflow": false,
       "layout": "ResolveInvoiceException-inline",
@@ -2184,7 +2351,9 @@
       "inputsLabeled": true,
       "brokenImages": 0,
       "charts": 0,
-      "focusable": 8,
+      "chartsLabeled": true,
+      "automaticTurns": 0,
+      "focusable": 11,
       "focus": true
     }
   ]

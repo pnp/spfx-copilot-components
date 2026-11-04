@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Weekly Pulse Quiz",
+    "id": "83bd87ef-96d5-454b-bbc9-124b888e11ed",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Anand Vijayaragavan",
+      "websiteUrl": "https://anandvijayaragavan.substack.com/",
+      "privacyUrl": "https://anandvijayaragavan.substack.com/",
+      "termsOfUseUrl": "https://anandvijayaragavan.substack.com/",
+      "mpnId": "Undefined-1.24.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Weekly Pulse Quiz: one multiple-choice question a week on a SharePoint page and in Microsoft 365 Copilot."
+      },
+      "longDescription": {
+        "default": "Weekly Pulse Quiz shows one multiple-choice question per ISO week from a SharePoint list, saves each answer to a Responses list with item-level security so colleagues can't see it, and gives simple, professional feedback: a check mark for right answers, the correct answer for wrong ones, and an optional justification. Works as a SharePoint web part and as a Microsoft 365 Copilot UX component. No API permissions are requested."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Weekly Pulse Quiz",
+        "description": "Weekly Pulse Quiz web part and Copilot component.",
+        "id": "6dd7ca5b-315d-46ec-a63c-6cc41dac05ca",
+        "version": "1.0.0.0"
+      }
+    ],
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/weekly-pulse-quiz.sppkg"
+  }
+}

@@ -113,6 +113,54 @@ test('mobile navigation exposes all primary destinations', async ({ page }, test
   await expect(page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'Getting started' })).toBeVisible();
 });
 
+test('header navigation fits at desktop and mobile breakpoints', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name.startsWith('mobile'), 'Desktop viewport resizing');
+  await page.goto('./');
+
+  for (const width of [1280, 1201, 1200, 1100, 1051]) {
+    await page.setViewportSize({ width, height: 900 });
+    const headerRight = await page.locator('.site-header__inner')
+      .evaluate((element) => element.getBoundingClientRect().right);
+    const actionsRight = await page.locator('.site-header__actions')
+      .evaluate((element) => element.getBoundingClientRect().right);
+    expect(actionsRight).toBeLessThanOrEqual(headerRight + 1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+
+    if (width > 1200) {
+      await expect(page.getByRole('navigation', { name: 'Primary navigation', exact: true })).toBeVisible();
+    } else {
+      await expect(page.locator('.mobile-nav summary[aria-label="Open navigation"]')).toBeVisible();
+    }
+  }
+});
+
+test('community is the first primary navigation link on gallery and detail pages', async ({ page }, testInfo) => {
+  const isMobile = testInfo.project.name.startsWith('mobile');
+  const navigation = page.getByRole('navigation', {
+    name: isMobile ? 'Mobile navigation' : 'Primary navigation',
+    exact: true,
+  });
+
+  for (const route of ['./', './samples/apps-directory/']) {
+    await page.goto(route);
+    if (isMobile) await page.locator('.mobile-nav summary[aria-label="Open navigation"]').click();
+
+    const communityLink = navigation.getByRole('link').first();
+    await expect(communityLink).toBeVisible();
+    await expect(communityLink).toHaveText('Community');
+    await expect(communityLink).toHaveAttribute('href', 'https://aka.ms/community/home');
+    await expect(communityLink).not.toHaveAttribute('aria-current');
+    if (!isMobile) {
+      await expect(communityLink.locator('svg')).toHaveAttribute('aria-hidden', 'true');
+      await expect(communityLink.locator('svg')).toHaveAttribute('width', '12');
+      await expect(communityLink.locator('svg')).toHaveAttribute('height', '12');
+    }
+
+    await expect(navigation.getByRole('link', { name: 'Components', exact: true }))
+      .toHaveAttribute('href', '/spfx-copilot-components/');
+  }
+});
+
 test('public catalog includes expected sample metadata', async ({ request }) => {
   const catalog = await fetchCatalog(request);
   expect(catalog.version).toBe(1);

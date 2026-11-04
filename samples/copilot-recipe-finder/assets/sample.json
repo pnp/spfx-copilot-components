@@ -7,11 +7,11 @@
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-recipe-finder",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-recipe-finder",
     "longDescription": [
-      "Recipe Kitchen Agent helps you find and display recipes directly from Copilot chat. Ask the agent for recipes based on ingredients, cuisine, or dietary preferences, and it presents them inline or in a detailed view.",
-      "Built with a SharePoint Copilot App (SPFx 1.24.0, @microsoft/sp-copilot-component), the same RecipeKitchenCopilotComponent renders both the compact inline card and the expanded fullscreen view, reading brokered Microsoft Graph and SharePoint REST calls with zero token-acquisition code."
+      "Recipe Kitchen Agent helps you find recipes by dish name directly from Copilot chat. Select a result to view source-linked ingredients and instructions with interactive checklists. Ingredient, cuisine, time, and dietary filters are not supported.",
+      "Built with a SharePoint Copilot App (SPFx 1.24.0, @microsoft/sp-copilot-component), RecipeSearchCopilotComponent supports inline and fullscreen views. The default provider retrieves recipes from TheMealDB; a deterministic mock provider is available for local debugging."
     ],
     "creationDateTime": "2026-11-03",
-    "updateDateTime": "2026-11-03",
+    "updateDateTime": "2026-11-04",
     "products": [
       "SharePoint",
       "Copilot"

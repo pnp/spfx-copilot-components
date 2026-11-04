@@ -1,0 +1,12 @@
+/* Same base as the original MCP App HTML pages, scoped to the component frame. */
+[data-mcp-frame] {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+[data-mcp-frame],
+[data-mcp-frame] *,
+[data-mcp-frame] *::before,
+[data-mcp-frame] *::after {
+  box-sizing: border-box;
+}

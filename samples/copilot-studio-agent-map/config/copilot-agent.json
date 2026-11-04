@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Agent Map"
+      },
+      "description": {
+        "default": "See how a Copilot Studio agent is built: an interactive map of its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets."
+      },
+      "components": [
+        "956d1594-b650-4959-a28b-784c3785bc5d"
+      ]
+    }
+  ]
+}

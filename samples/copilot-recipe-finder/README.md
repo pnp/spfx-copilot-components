@@ -6,7 +6,7 @@
 
 It aims to help you find great recipes to help you wind down at the end of day and eat great food to improve your well being and energy.
 
-The solution aims to allo you to have a provider-neutral recipe details in Microsoft 365 Copilot. TheMealDB is the packaged default provider; a deterministic mock provider is available for local debug sessions. This sample owns its component and agent package; the root Toolkit template does not build or package this solution.
+The solution provides provider-neutral recipe details in Microsoft 365 Copilot. TheMealDB is the packaged default provider; a deterministic mock provider is available for local debug sessions. This sample owns its component and agent package.
 
 ## Screenshots
 
@@ -112,7 +112,7 @@ teams/recipe-kitchen.zip                  Generated declarative agent package
 
 ## Testing & validation
 
-`npm run build` runs TypeScript, lint, 37 Jest tests, production bundling, agent generation, and `.sppkg` packaging. The scaffold currently pins SPFx `1.24.0-rc.0` dependencies; verify supported release versions before wider deployment.
+`npm run build` runs TypeScript, lint, 37 Jest tests, production bundling, agent generation, and `.sppkg` packaging. The sample pins SPFx `1.24.0` dependencies; verify supported release versions before wider deployment.
 
 In Copilot Workbench, test source links, result selection, ingredient and method checklists, navigation back to results, theme and display-mode changes, narrow viewports, keyboard focus, and image fallback. DOM tests do not replace testing in the host or with assistive technology.
 
