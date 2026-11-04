@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "recipeSearch",
+  "name_for_human": "RecipeSearch Agent",
+  "description_for_human": "Find and cook recipes from the configured recipe provider",
+  "description_for_model": "Find and cook recipes from the configured recipe provider",
+  "contact_email": "publisher@contoso.com"
+}

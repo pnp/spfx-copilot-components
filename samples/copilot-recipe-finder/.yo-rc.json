@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "recipe-copilot-spfx",
+    "environment": "spo",
+    "packageManager": "npm",
+    "skipFeatureDeployment": true,
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "none",
+    "componentName": "RecipeSearch",
+    "componentDescription": "Find and cook recipes from a configurable provider",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "26.5.0",
+    "sdksVersions": {},
+    "version": "1.24.0",
+    "libraryName": "recipe-copilot-spfx",
+    "libraryId": "25e79974-609b-40f3-9560-78905c3dec0e",
+    "solutionShortDescription": "recipe-copilot-spfx description"
+  }
+}

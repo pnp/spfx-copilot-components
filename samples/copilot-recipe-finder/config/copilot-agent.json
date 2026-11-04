@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Recipe Kitchen"
+      },
+      "description": {
+        "default": "Discover source-linked recipes and cook with ingredient and method checklists."
+      },
+      "components": [
+        "7384c492-05a3-4fcf-8fb6-8adc8bbc4c43"
+      ]
+    }
+  ]
+}

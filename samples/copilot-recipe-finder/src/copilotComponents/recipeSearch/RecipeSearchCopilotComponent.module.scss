@@ -1,0 +1,158 @@
+.recipeSearch {
+  container-type: inline-size;
+  padding: 20px;
+  min-width: 0;
+  color: var(--colorNeutralForeground1);
+  background: var(--colorNeutralBackground1);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  * { box-sizing: border-box; }
+  h2, h3, p { margin: 0; }
+  button { overflow-wrap: normal; }
+  [hidden] { display: none; }
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  > button { flex-shrink: 0; }
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  > svg { flex-shrink: 0; color: var(--colorBrandForeground1); }
+}
+.search { margin-bottom: 20px; }
+.searchControls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: start;
+  gap: 8px;
+  > span { min-width: 0; min-height: 44px; }
+  input { min-width: 0; width: 100%; }
+}
+.searchButton {
+  min-height: 44px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+.card {
+  min-width: 0;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  > button { margin-top: auto; min-height: 44px; }
+}
+.cardTitle { line-height: var(--lineHeightBase400); }
+.muted { color: var(--colorNeutralForeground2); }
+.photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
+  width: 100%;
+  height: 160px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--colorNeutralBackground3);
+  img { display: block; min-width: 0; min-height: 0; width: 100%; height: 100%; object-fit: cover; }
+}
+.photoFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--colorNeutralForeground2);
+  padding: 16px;
+}
+.detail {
+  min-width: 0;
+  > button { margin-bottom: 12px; min-height: 44px; }
+}
+.recipeHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+  h3 { line-height: var(--lineHeightBase600); }
+  a > svg { width: 14px; height: 14px; vertical-align: middle; }
+}
+.cookLayout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.recipeSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 8px;
+  > .photo { height: 180px; max-width: 360px; border-radius: 4px; }
+}
+.checklist {
+  min-width: 0;
+  ul, ol { margin: 12px 0 0; padding: 0; }
+  ul { list-style: none; }
+  ol { padding-left: 28px; }
+  li { border-bottom: 1px solid var(--colorNeutralStroke2); }
+  label { overflow-wrap: anywhere; min-width: 0; }
+}
+.checkItem {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  padding-block: var(--spacingVerticalXS);
+}
+.completed label { color: var(--colorNeutralForeground3); text-decoration: line-through; }
+.cookTabs { border-bottom: 1px solid var(--colorNeutralStroke2); }
+.status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 120px;
+  padding: 16px 0;
+  color: var(--colorNeutralForeground2);
+}
+.errorBody { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--colorNeutralStroke2);
+  font-size: var(--fontSizeBase200);
+  color: var(--colorNeutralForeground2);
+}
+@container (max-width: 360px) {
+  .searchControls { grid-template-columns: minmax(0, 1fr); }
+  .searchButton { width: 100%; }
+}
+@container (min-width: 760px) {
+  .recipeSearch[data-display-mode='fullscreen'] .cookLayout {
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    align-items: start;
+  }
+  .recipeSearch[data-display-mode='fullscreen'] .recipeSummary > .photo { height: 220px; }
+}
+@media (max-width: 380px) {
+  .recipeSearch { padding: 12px; }
+}
