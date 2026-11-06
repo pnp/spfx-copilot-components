@@ -4,15 +4,15 @@
     "source": "pnp",
     "title": "Zava Innovation Hub",
     "shortDescription": "An intent-routed innovation portfolio Copilot App with 17 inline components and five connected workspaces.",
-    "url": "https://github.com/VesaJuvonen/spfx-copilot-components/tree/main/samples/zava-innovation-portfolio",
-    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/VesaJuvonen/spfx-copilot-components/tree/main/samples/zava-innovation-portfolio",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-innovation-portfolio",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-innovation-portfolio",
     "longDescription": [
       "Zava Innovation Hub demonstrates how Microsoft Copilot can turn natural-language intent into focused innovation work. Seventeen independently routed components cover idea intake, personal progress, business cases, reviews, funding, experiments, portfolio analysis, value realization, global participation, recognition, and capability discovery.",
       "Every operational component can continue into a shared My Innovation, Programs and Pilots, Reviews and Gates, Investment, or Enterprise Insights workspace. The full-screen experience preserves the originating scenario while adding coordinated stage-gate, impact, balance, budget, growth, geography, and realized-value evidence.",
       "The sample is deterministic, offline, and safe for demonstrations. Prompt values prefill or scope the experience, while consequential mock actions require visible review and confirmation. Production validation covers catalog routing, generated plugin alignment, local media, current-source visual evidence, tests, and final SharePoint package contents."
     ],
     "creationDateTime": "2026-08-28",
-    "updateDateTime": "2026-10-28",
+    "updateDateTime": "2026-11-06",
     "products": [
       "SharePoint",
       "Copilot"
@@ -36,77 +36,77 @@
         "name": "ux-fullscreen-enterprise.png",
         "type": "image",
         "order": 100,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-enterprise.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-enterprise.png",
         "alt": "Full-screen Enterprise Insights command center with stage-gate funnel, portfolio charts, themes, and realized value"
       },
       {
         "name": "ux-inline-ExploreGlobalInnovation.png",
         "type": "image",
         "order": 101,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-ExploreGlobalInnovation.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-ExploreGlobalInnovation.png",
         "alt": "Inline global innovation view with a Natural Earth world map, regional participation markers, and conversion comparison"
       },
       {
         "name": "ux-inline-SubmitInnovationIdea.png",
         "type": "image",
         "order": 102,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-SubmitInnovationIdea.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-SubmitInnovationIdea.png",
         "alt": "Inline innovation idea canvas with controlled problem, audience, baseline, target, strategic theme, owner, evidence, and validation"
       },
       {
         "name": "ux-inline-GetInnovationReviewQueue.png",
         "type": "image",
         "order": 103,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-GetInnovationReviewQueue.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-GetInnovationReviewQueue.png",
         "alt": "Inline innovation review queue with phase buckets, status filters, evidence signals, and pending decisions"
       },
       {
         "name": "ux-inline-ExploreAgentCapabilities.png",
         "type": "image",
         "order": 104,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-ExploreAgentCapabilities.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-inline-ExploreAgentCapabilities.png",
         "alt": "Inline searchable catalog of Zava Innovation Hub operational scenarios and safe prompt previews"
       },
       {
         "name": "ux-fullscreen-my.png",
         "type": "image",
         "order": 105,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-my.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-my.png",
         "alt": "Full-screen My Innovation workspace with signed-in personal idea stages, impact, effort, and next actions"
       },
       {
         "name": "ux-fullscreen-programs.png",
         "type": "image",
         "order": 106,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-programs.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-programs.png",
         "alt": "Full-screen Programs and Pilots workspace with innovation growth, participation, and conversion evidence"
       },
       {
         "name": "ux-fullscreen-reviews.png",
         "type": "image",
         "order": 107,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-reviews.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-reviews.png",
         "alt": "Full-screen Reviews and Gates workspace with prioritized submissions and evidence-backed decision controls"
       },
       {
         "name": "ux-fullscreen-investment.png",
         "type": "image",
         "order": 108,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-investment.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-investment.png",
         "alt": "Full-screen Investment workspace with budget stewardship, funding position, and portfolio allocation evidence"
       },
       {
         "name": "ux-fullscreen-enterprise-mobile.png",
         "type": "image",
         "order": 109,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-enterprise-mobile.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-fullscreen-enterprise-mobile.png",
         "alt": "Enterprise Insights command center adapted to a narrow mobile viewport with accessible icon navigation"
       },
       {
         "name": "ux-enterprise-dark.png",
         "type": "image",
         "order": 110,
-        "url": "https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-enterprise-dark.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/ux-enterprise-dark.png",
         "alt": "Enterprise Insights command center in dark theme with readable analytical charts and semantic status colors"
       }
     ],

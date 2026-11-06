@@ -216,6 +216,7 @@ offline sample.
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Metadata correction | November 6, 2026 | Point gallery source, download and preview links to the canonical PnP repository instead of the development fork. |
 | Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0.1 | October 22, 2026 | Restore the sample-specific README view tracker required by gallery validation. |
 | 1.0 | October 20, 2026 | SPFx 1.24 RC0 showcase and validation update. |
