@@ -48,6 +48,12 @@ The production build runs lint, webpack, Copilot package generation, Jest tests,
 
 See [docs/architecture.md](docs/architecture.md) for the complete Copilot request lifecycle, component responsibilities, Graph data flow, selection persistence, fullscreen navigation, project creation flow, testing strategy, and packaging details.
 
+## Version history
+
+| Version | Date | Comments |
+| --- | --- | --- |
+| Metadata correction | November 6, 2026 | Align the gallery SPFx version with the existing 1.24.0-beta.3 package dependencies; no dependency upgrade. |
+
 ## Disclaimer
 
 **THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
