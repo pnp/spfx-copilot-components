@@ -4,7 +4,7 @@
     "title": "Expert Finder",
     "name": "copilot-expert-finder-component",
     "id": "aa4326b3-eeff-4ca7-8f74-f695935a8bbb",
-    "version": "1.0.0.4",
+    "version": "1.0.0.5",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "developer": {

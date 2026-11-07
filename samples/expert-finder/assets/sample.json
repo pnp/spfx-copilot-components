@@ -9,7 +9,8 @@
     "longDescription": [
       "An SPFx 1.24.1 Copilot UX component that renders an expert directory inline and in fullscreen using React, Fluent UI v9 and a SharePoint Experts list.",
       "Explore local filters, delegated Graph photos and free/busy availability, confirmed calendar-backed Teams meetings, and selected-profile introduction drafting in the Copilot conversation.",
-      "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls; Schedule remains a preview and live meetings require explicit confirmation."
+      "Learn component-to-Copilot context publishing: Introduce me awaits updateModelContextAsync with a minimal selected-profile snapshot, then uses sendFollowUpMessageAsync to request a draft in the existing conversation.",
+      "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls, and live meetings require explicit confirmation."
     ],
     "creationDateTime": "2026-11-07",
     "updateDateTime": "2026-11-07",
@@ -56,6 +57,11 @@
         "name": "Develop and deploy Copilot UX components",
         "description": "Understand component deployment, baseline agent synchronization and updates.",
         "url": "https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/development-and-deployment"
+      },
+      {
+        "name": "Provide Copilot with context from your component",
+        "description": "Publish selected component state and request user-triggered conversational follow-ups through the Copilot Bridge.",
+        "url": "https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot"
       }
     ]
   }

@@ -46,7 +46,7 @@ SPFx hosts the component and supplies managed runtime tool discovery. Preserve p
 | [ExpertAvailabilityPanel.tsx](../src/copilot-expert-finder/src/copilotComponents/expertFinder/components/ExpertAvailabilityPanel.tsx) | One selected expert's availability and bookable slots |
 | [MeetingConfirmationDialog.tsx](../src/copilot-expert-finder/src/copilotComponents/expertFinder/components/MeetingConfirmationDialog.tsx) | Explicit confirmation before a real calendar write |
 
-Filters operate in memory. Host theme and display-mode changes do not trigger another model call. Teams navigation uses the public host link API; **Schedule** remains a preview dialog.
+Filters operate in memory. Host theme and display-mode changes do not trigger another model call. Teams navigation uses the public host link API.
 
 ## Graph photos and calendars
 
@@ -70,5 +70,22 @@ The entry point:
 2. Awaits `updateModelContextAsync` to publish that selected profile.
 3. Calls `sendFollowUpMessageAsync` with the drafting request.
 4. Checks `isError`, handles timeout/cancellation and releases the shared pending state.
+
+The following excerpt from `_introduceExpert` shows the two Bridge operations. `contextText` comes from `buildIntroductionContext`; `options` carries the existing timeout and abort signal. The full method also checks disposal between the operations and handles failures and cleanup.
+
+```typescript
+const bridge = this.context.copilotBridge;
+await bridge.updateModelContextAsync(
+  { content: [createCopilotTextContent(contextText)] },
+  options
+);
+const result = await bridge.sendFollowUpMessageAsync(
+  [createCopilotTextContent(introductionPrompt)],
+  options
+);
+if (result.isError) throw new Error('The host rejected the draft request.');
+```
+
+`updateModelContextAsync` publishes context without generating a response. `sendFollowUpMessageAsync` adds the user-triggered message that asks Copilot to use it. Awaiting the first call ensures the selected profile is available before the follow-up is sent; the follow-up acknowledgement is separate from the draft generated in chat.
 
 Profile fields remain untrusted data. Behavioral rules belong in the agent and follow-up. A shared guard prevents overlapping requests from different cards. The host returns an acknowledgement, while the draft appears in the Copilot conversation; the component contains no draft editor and sends no Teams message. See [invocation](copilot-invocation.md) for expected draft content and [Microsoft's context guidance](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot) for the public Bridge APIs.

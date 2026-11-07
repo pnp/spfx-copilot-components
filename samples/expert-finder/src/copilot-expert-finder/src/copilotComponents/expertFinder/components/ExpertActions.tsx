@@ -3,7 +3,7 @@ import {
   Button, Dialog, DialogSurface, DialogBody, DialogTitle, DialogContent,
   DialogActions, Spinner, makeStyles, tokens, useId
 } from '@fluentui/react-components';
-import { Chat20Regular, CalendarLtr20Regular, Sparkle20Regular } from '@fluentui/react-icons';
+import { Chat20Regular, Sparkle20Regular } from '@fluentui/react-icons';
 import type { Expert } from '../models/Expert';
 import { getTeamsChatUrl } from '../utils/expertLinks';
 import type { IntroductionAction } from './IExpertFinderProps';
@@ -25,7 +25,7 @@ interface ExpertActionsProps {
 
 export function ExpertActions({ expert, isDemo, compact, onOpenLink, introduction }: ExpertActionsProps): React.ReactElement {
   const styles = useStyles();
-  const [dialog, setDialog] = React.useState<'contact' | 'schedule' | 'error'>();
+  const [dialog, setDialog] = React.useState<'contact' | 'error'>();
   const [opening, setOpening] = React.useState(false);
   const lastTrigger = React.useRef<HTMLButtonElement | null>(null);
   const introductionErrorId = useId('introduction-error-');
@@ -46,7 +46,7 @@ export function ExpertActions({ expert, isDemo, compact, onOpenLink, introductio
     finally { setOpening(false); }
   };
 
-  const title = dialog === 'schedule' ? 'Schedule preview' : dialog === 'error' ? 'Unable to open Teams' : 'Demo contact';
+  const title = dialog === 'error' ? 'Unable to open Teams' : 'Demo contact';
   return (
     <div className={styles.actions}>
       <Button className={compact ? styles.compact : undefined} appearance={compact ? 'outline' : 'primary'}
@@ -56,7 +56,6 @@ export function ExpertActions({ expert, isDemo, compact, onOpenLink, introductio
         onClick={event => { lastTrigger.current = event.currentTarget; return contact(); }}>
         {compact ? undefined : opening ? 'Opening Teams…' : 'Chat in Teams'}
       </Button>
-      {!compact && <Button appearance="outline" icon={<CalendarLtr20Regular />} onClick={event => { lastTrigger.current = event.currentTarget; setDialog('schedule'); }}>Schedule</Button>}
       {!compact && introduction && <Button appearance="outline"
         icon={introducing ? <Spinner size="tiny" aria-hidden="true" /> : <Sparkle20Regular />}
         disabled={introduction.pendingExpertId !== undefined} aria-busy={introducing}
@@ -73,7 +72,6 @@ export function ExpertActions({ expert, isDemo, compact, onOpenLink, introductio
             <DialogTitle>{title}</DialogTitle>
             <DialogContent>
               {dialog === 'contact' && <p>{expert.displayName} is a fictional demo profile. No Teams chat has been opened.</p>}
-              {dialog === 'schedule' && <p>This demonstrates scheduling with {expert.displayName}. No meeting has been created and no invitation has been sent.</p>}
               {dialog === 'error' && <p>The host could not open the Teams link. Please try again or open Teams directly.</p>}
             </DialogContent>
             <DialogActions><Button appearance="primary" onClick={close}>Close</Button></DialogActions>

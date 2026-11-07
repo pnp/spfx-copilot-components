@@ -98,6 +98,6 @@ Both IDs here are service-principal Object IDs. These are delegated permissions;
 
 Rerun step 2 and confirm the selected scope, while checking that existing scopes remain. Reload the component and validate live photos, availability and, when intended, confirmed meeting creation using the [manual checklist](validation.md). Photo failures fall back to initials; calendar failures remain an explicit unavailable state.
 
-**Create Teams meeting** sends a real invitation after confirmation. Merely opening availability, choosing **Schedule** or cancelling the confirmation creates no event. If a create request has an uncertain outcome, inspect Outlook before trying again.
+**Create Teams meeting** sends a real invitation after confirmation. Merely opening availability or cancelling the confirmation creates no event. If a create request has an uncertain outcome, inspect Outlook before trying again.
 
 Implementation reference: [Use MSGraphClientV3 in SPFx](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-msgraph).

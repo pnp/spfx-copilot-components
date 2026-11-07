@@ -6,6 +6,8 @@ Find colleagues by skill in Microsoft 365 Copilot, explore their profiles inline
 
 When the list is absent, the same component runs with bundled fictional profiles and portraits. No custom backend or additional language model is required.
 
+The **Introduce me** action also demonstrates passing selected component state back to Copilot and requesting a response in the existing conversation through the public Copilot Bridge APIs.
+
 ![Expert Finder showcase](assets/expert-finder-showcase.png)
 
 ![Architecture overview: Copilot invokes ExpertFinderTool, which renders a React directory backed by SharePoint or fictional data, with optional Microsoft Graph actions](assets/overview.svg)
@@ -33,6 +35,8 @@ The project uses React 18.3.1, TypeScript 5.8, Fluent UI v9, Zod and Heft. Node.
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| 1.3 | November 7, 2026 | Removed the unused Schedule preview; real meeting creation remains available from free availability slots. |
+| 1.2 | November 7, 2026 | Highlighted component-to-Copilot context publishing and conversational follow-ups. |
 | 1.1 | November 7, 2026 | Added PnP PowerShell provisioning for the Experts list. |
 | 1.0 | November 7, 2026 | Initial sample contribution, adapted from the Microsoft 365 Live 2026 community session. |
 
@@ -82,7 +86,19 @@ The build script already includes production bundling and packaging. Workbench c
 - Parallel profile-photo loading with shimmer, per-instance caching and initials on failure.
 - On-demand calendar availability for today, 09:00–18:00 in the viewer's local time, in 30-minute slots. Morning/Afternoon navigation reuses the loaded result.
 - User-confirmed Teams meetings from future Free slots, with both-calendar checks and duplicate-request protection.
-- **Introduce me**, which shares only the selected professional profile with Copilot and requests a first-person draft containing exactly three relevant questions.
+- Component-to-Copilot context publishing and user-triggered follow-ups through the public Bridge APIs, demonstrated by **Introduce me**: a first-person draft containing exactly three relevant questions about the selected expert's skill.
+
+### Component-to-Copilot context and follow-up
+
+**Introduce me** demonstrates a reusable pattern for grounding a Copilot response in a user's selection inside an interactive component:
+
+1. Build a bounded text snapshot of the selected expert from React application state, using `createCopilotTextContent` to prepare host content.
+2. Await `updateModelContextAsync` to replace the component's previous model context with that selected profile. Publishing context alone does not start a response.
+3. Call `sendFollowUpMessageAsync` after the context update succeeds to request the draft in the existing Copilot conversation, on behalf of the user.
+
+The snapshot contains only the expert's name, job title, department, skill and summary, plus purpose and fictional-profile metadata. It excludes email addresses, photos, calendars and other experts. Profile fields remain untrusted data; drafting instructions belong in the agent and follow-up. The component handles host rejection, timeout, cancellation and overlapping card actions, and sends no Teams message.
+
+See the [implementation and Bridge call excerpt](docs/code-walkthrough.md#selected-profile-context-and-follow-up), the [expected conversation behavior](docs/copilot-invocation.md#introduce-me), and Microsoft's [component context guidance](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot).
 
 ### Preview actions and real operations
 
@@ -90,7 +106,6 @@ The build script already includes production bundling and packaging. Workbench c
 | --- | --- | --- |
 | Search and filters | Bundled profiles; filters run locally | SharePoint filters by skill; additional filters run locally |
 | **Chat in Teams** | Contact preview | Opens a Teams chat; sends no message automatically |
-| **Schedule** | Preview dialog | Preview dialog; creates no meeting |
 | **Check availability** | Explains that fictional profiles have no calendar | Reads the selected expert's free/busy availability |
 | Select a future Free slot | Unavailable | Opens a confirmation; **Create Teams meeting** creates an event and sends a real invitation |
 | **Introduce me** | Illustrative draft for a fictional person | Draft grounded in the selected profile; sends nothing to Teams |

@@ -2,6 +2,15 @@
 
 Use this checklist after following [deployment](deployment.md). These are checks to perform in the target environment, not a claim that every scenario has already passed. Keep local build results separate from deployed Copilot observations.
 
+## Local verification on November 7, 2026
+
+- `npm run build` passed from an isolated copy of the tracked SPFx source using the already installed dependencies. This covered TypeScript compilation, lint, bundling and production packaging. Jest reported no test suites; no unit-test coverage is claimed.
+- The generated `.sppkg` passed archive-integrity checks and contained exactly one agent ZIP at version `1.0.4`, with solution version `1.0.0.5` and unchanged IDs. The packaged instructions matched the source and no longer described the removed Schedule preview.
+- Local rendering of the compiled React actions and cards confirmed that the Schedule button was absent in mock and live modes, while Teams contact, **Introduce me** and **Check availability** remained available. This was a server-rendering check, not a deployed Copilot UI test.
+- The gallery metadata passed the repository JSON schema, thumbnail-path checks and README view-tracker validation. Documentation links and heading anchors were checked locally.
+
+This run did not perform a fresh dependency installation, the complete gallery CI workflow, or tenant operations. The provisioning script's live execution and real meeting delivery still need target-tenant checks. The separate author-reported Copilot checks are recorded below.
+
 ## Local build and Workbench
 
 - Run `npm run build` from `src/copilot-expert-finder` with the development server stopped. Confirm the `.sppkg` exists and contains exactly one current agent ZIP.
@@ -38,7 +47,7 @@ This section creates a real event and sends an invitation only when **Create Tea
 - Confirm the slot immediately becomes Busy and stays Busy after **Refresh**, expert changes and fullscreen changes for the same component instance, even if Graph has not updated yet.
 - Check that self-booking, past/current slots and repeated clicks cannot start another booking. A conflicting calendar or unsupported Teams provider should stop creation.
 - If a response is uncertain, inspect Outlook before retrying or reloading. A local Busy record is session state, not attendee acceptance or a reservation against later calendar changes.
-- Manage any test event's cancellation in Outlook; the component has no cancel-event operation. **Schedule** should remain a preview in both data modes.
+- Manage any test event's cancellation in Outlook; the component has no cancel-event operation.
 
 ## Copilot conversation
 
