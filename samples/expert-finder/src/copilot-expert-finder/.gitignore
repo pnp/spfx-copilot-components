@@ -19,6 +19,9 @@ temp
 *.sppkg
 .heft
 
+# Generated Teams/Copilot packages
+/teams/*.zip
+
 # Coverage directory used by tools like istanbul
 coverage
 
