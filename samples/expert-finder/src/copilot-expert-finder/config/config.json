@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "expert-finder-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/expertFinder/ExpertFinderCopilotComponent.js",
+          "manifest": "./src/copilotComponents/expertFinder/ExpertFinderCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ExpertFinderCopilotComponentStrings": "lib/copilotComponents/expertFinder/loc/{locale}.js"
+  }
+}

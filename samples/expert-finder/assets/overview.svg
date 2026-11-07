@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Expert Finder architecture overview</title>
+  <desc id="description">A Copilot prompt selects a declarative agent tool with a typed skill. The SPFx component renders a React expert directory backed by SharePoint or fictional profiles. Optional live Graph features provide photos, availability and confirmed meetings. Introduce me shares the selected profile for a draft in the existing conversation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto-start-reverse">
+      <path d="M 1 1 L 7 5 L 1 9" fill="none" stroke="#70819a" stroke-width="1.5"/>
+    </marker>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#f3f6ff"/>
+      <stop offset="1" stop-color="#edf7f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="98" fill="#172a44" font-size="54" font-weight="700">Expert Finder</text>
+    <text x="64" y="148" fill="#4b607b" font-size="27">A visual expert directory inside Microsoft 365 Copilot</text>
+    <rect x="64" y="180" width="480" height="42" rx="21" fill="#e3eafb"/>
+    <text x="86" y="208" fill="#34518c" font-size="20" font-weight="600">SPFx 1.24.1 · React · SharePoint · Graph</text>
+
+    <g fill="none" stroke="#70819a" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M 392 346 H 432"/>
+      <path d="M 776 346 H 816"/>
+      <path d="M 1160 346 H 1200"/>
+      <path d="M 1376 432 V 496 H 284 V 550"/>
+      <path d="M 776 496 V 550"/>
+      <path d="M 1292 496 V 550"/>
+    </g>
+
+    <g fill="#fff" stroke="#d6dfec" stroke-width="2">
+      <rect x="64" y="270" width="320" height="162" rx="20"/>
+      <rect x="448" y="270" width="320" height="162" rx="20"/>
+      <rect x="832" y="270" width="320" height="162" rx="20"/>
+      <rect x="1216" y="270" width="320" height="162" rx="20" fill="#204f8c" stroke="#204f8c"/>
+    </g>
+    <g font-size="18" font-weight="700" fill="#5b7293">
+      <text x="90" y="308">01 / REQUEST</text>
+      <text x="474" y="308">02 / SELECT</text>
+      <text x="858" y="308">03 / INVOKE</text>
+      <text x="1242" y="308" fill="#c3d9f6">04 / EXPLORE</text>
+    </g>
+    <g font-size="27" font-weight="700" fill="#172a44">
+      <text x="90" y="353">User prompt</text>
+      <text x="474" y="353">Declarative agent</text>
+      <text x="858" y="353">ExpertFinderTool</text>
+      <text x="1242" y="353" fill="#fff">React directory</text>
+    </g>
+    <g font-size="20" fill="#4b607b">
+      <text x="90" y="392">“Who can help with SPFx?”</text>
+      <text x="474" y="392">Chooses the tool and skill</text>
+      <text x="858" y="392">Typed input: skill = SPFx</text>
+      <text x="1242" y="392" fill="#e4efff">Inline and fullscreen</text>
+    </g>
+
+    <g fill="#fff" stroke="#d6dfec" stroke-width="2">
+      <rect x="64" y="562" width="440" height="194" rx="20"/>
+      <rect x="536" y="562" width="480" height="194" rx="20"/>
+      <rect x="1048" y="562" width="488" height="194" rx="20"/>
+    </g>
+    <g fill="#172a44" font-size="27" font-weight="700">
+      <text x="92" y="607">Expert records</text>
+      <text x="564" y="607">Optional live Graph</text>
+      <text x="1076" y="607">Introduce me</text>
+    </g>
+    <g fill="#4b607b" font-size="22">
+      <text x="92" y="650">SharePoint Experts list</text>
+      <text x="92" y="687">HTTP 404 → fictional profiles</text>
+      <text x="92" y="724">Additional filters stay local</text>
+      <text x="564" y="650">Profile photos and free/busy</text>
+      <text x="564" y="687">Confirmed Teams invitations</text>
+      <text x="564" y="724">Delegated user permissions</text>
+      <text x="1076" y="650">Selected profile → Copilot context</text>
+      <text x="1076" y="687">Draft in the existing conversation</text>
+      <text x="1076" y="724">No message sent to Teams</text>
+    </g>
+    <rect x="64" y="802" width="1472" height="50" rx="14" fill="#e1eaf2"/>
+    <text x="88" y="835" fill="#34506d" font-size="22">Schedule is a preview. Booking a future Free slot sends an invitation only after explicit confirmation.</text>
+  </g>
+</svg>

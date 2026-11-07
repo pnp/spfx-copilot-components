@@ -1,0 +1,62 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-expert-finder",
+    "source": "pnp",
+    "title": "Expert Finder",
+    "shortDescription": "Find colleagues by skill, explore profiles and availability, and request introduction drafts or confirmed Teams meetings in Microsoft 365 Copilot.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/expert-finder",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/expert-finder",
+    "longDescription": [
+      "An SPFx 1.24.1 Copilot UX component that renders an expert directory inline and in fullscreen using React, Fluent UI v9 and a SharePoint Experts list.",
+      "Explore local filters, delegated Graph photos and free/busy availability, confirmed calendar-backed Teams meetings, and selected-profile introduction drafting in the Copilot conversation.",
+      "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls; Schedule remains a preview and live meetings require explicit confirmation."
+    ],
+    "creationDateTime": "2026-11-07",
+    "updateDateTime": "2026-11-07",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.1"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/expert-finder/assets/overview.svg",
+        "alt": "Expert Finder architecture: Copilot invokes a typed SPFx tool that renders a React directory using SharePoint or fictional profiles, with optional Graph actions and introduction drafting."
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "luismanez",
+        "pictureUrl": "https://github.com/luismanez.png",
+        "name": "Luis Mañez"
+      }
+    ],
+    "references": [
+      {
+        "name": "Copilot UX components",
+        "description": "Build interactive experiences in Microsoft 365 Copilot with the SharePoint Framework.",
+        "url": "https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/overview-copilot-apps"
+      },
+      {
+        "name": "Develop and deploy Copilot UX components",
+        "description": "Understand component deployment, baseline agent synchronization and updates.",
+        "url": "https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/development-and-deployment"
+      }
+    ]
+  }
+]

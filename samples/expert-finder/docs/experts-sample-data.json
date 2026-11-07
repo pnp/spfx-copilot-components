@@ -1,0 +1,110 @@
+{
+  "note": "Fictional examples. Resolve ExpertName to actual authorized tenant test users before manual seeding. Spanish intentionally has no rows.",
+  "items": [
+    {
+      "ExpertName": "Alex Morgan",
+      "Title": "Senior M365 Developer",
+      "Skill": "SPFx",
+      "ShortCV": "Builds modern Microsoft 365 experiences with SPFx and React.",
+      "Department": "Digital Workplace"
+    },
+    {
+      "ExpertName": "Sam Carter",
+      "Title": "Solution Architect",
+      "Skill": "SPFx",
+      "ShortCV": "Connects SharePoint, Microsoft Graph and Azure through practical architecture.",
+      "Department": "Enterprise Architecture"
+    },
+    {
+      "ExpertName": "Jamie Taylor",
+      "Title": "M365 Consultant",
+      "Skill": "SPFx",
+      "ShortCV": "Helps organizations adopt and extend Microsoft 365.",
+      "Department": "Modern Work"
+    },
+    {
+      "ExpertName": "Priya Shah",
+      "Title": "Frontend Engineer",
+      "Skill": "SPFx",
+      "ShortCV": "Creates accessible interfaces with React, TypeScript and Fluent UI.",
+      "Department": "Digital Workplace"
+    },
+    {
+      "ExpertName": "Daniel Kim",
+      "Title": "Platform Engineer",
+      "Skill": "SPFx",
+      "ShortCV": "Builds reliable platforms and developer integrations.",
+      "Department": "Engineering"
+    },
+    {
+      "ExpertName": "Noor Ahmed",
+      "Title": "Technical Consultant",
+      "Skill": "SPFx",
+      "ShortCV": "Guides teams from prototypes to useful collaboration solutions.",
+      "Department": "Modern Work"
+    },
+    {
+      "ExpertName": "Alex Morgan",
+      "Title": "Senior M365 Developer",
+      "Skill": "Copilot",
+      "ShortCV": "Builds modern Microsoft 365 experiences with SPFx and React.",
+      "Department": "Digital Workplace"
+    },
+    {
+      "ExpertName": "Sam Carter",
+      "Title": "Solution Architect",
+      "Skill": "Copilot",
+      "ShortCV": "Connects SharePoint, Microsoft Graph and Azure through practical architecture.",
+      "Department": "Enterprise Architecture"
+    },
+    {
+      "ExpertName": "Jamie Taylor",
+      "Title": "M365 Consultant",
+      "Skill": "Copilot",
+      "ShortCV": "Helps organizations adopt and extend Microsoft 365.",
+      "Department": "Modern Work"
+    },
+    {
+      "ExpertName": "Priya Shah",
+      "Title": "Frontend Engineer",
+      "Skill": "Copilot",
+      "ShortCV": "Creates accessible interfaces with React, TypeScript and Fluent UI.",
+      "Department": "Digital Workplace"
+    },
+    {
+      "ExpertName": "Daniel Kim",
+      "Title": "Platform Engineer",
+      "Skill": "Copilot",
+      "ShortCV": "Builds reliable platforms and developer integrations.",
+      "Department": "Engineering"
+    },
+    {
+      "ExpertName": "Noor Ahmed",
+      "Title": "Technical Consultant",
+      "Skill": "Copilot",
+      "ShortCV": "Guides teams from prototypes to useful collaboration solutions.",
+      "Department": "Modern Work"
+    },
+    {
+      "ExpertName": "Leo Brooks",
+      "Title": "AI Solutions Lead",
+      "Skill": "Copilot",
+      "ShortCV": "Builds useful Copilot and declarative agent experiences.",
+      "Department": "Innovation"
+    },
+    {
+      "ExpertName": "Elena Rossi",
+      "Title": "Data Architect",
+      "Skill": "Copilot",
+      "ShortCV": "Designs trustworthy data solutions.",
+      "Department": "Enterprise Architecture"
+    },
+    {
+      "ExpertName": "Elena Rossi",
+      "Title": "Data Architect",
+      "Skill": "DB",
+      "ShortCV": "Designs trustworthy data solutions.",
+      "Department": "Enterprise Architecture"
+    }
+  ]
+}

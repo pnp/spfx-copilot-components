@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.3",
+  "id": "9b076d6a-9c80-4c1d-ae8b-83dd4c3184f0",
+  "developer": {
+    "name": "Luis Manez",
+    "websiteUrl": "https://github.com/luismanez/",
+    "privacyUrl": "https://luismanez.com",
+    "termsOfUseUrl": "https://luismanez.com/#about"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Expert Finder",
+    "full": "Expert Finder — Find the right people"
+  },
+  "description": {
+    "short": "Find the right people for the skills you need",
+    "full": "Find colleagues with expertise in a specific area. Explore their profiles, filter by name, department and role, and connect through Microsoft Teams."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "expertFinderAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

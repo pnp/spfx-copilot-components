@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "24.20.0",
+    "sdksVersions": {},
+    "version": "1.24.0",
+    "libraryName": "copilot-expert-finder",
+    "libraryId": "aa4326b3-eeff-4ca7-8f74-f695935a8bbb",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "copilot-expert-finder",
+    "solutionShortDescription": "copilot-expert-finder description",
+    "skipFeatureDeployment": true,
+    "componentType": "copilotComponent"
+  }
+}
