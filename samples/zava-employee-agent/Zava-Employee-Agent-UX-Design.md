@@ -365,6 +365,10 @@ Expected normalized properties:
 The form displays the supplied dates, calculates working days, shows mocked conflicts and coverage,
 and requires user confirmation. Prompt values never submit the request automatically.
 
+In both inline and full-screen modes, Leave type fills the first row. Start date and End date share
+the next row, followed by a full-width Reason field. At viewport widths of 460 px or less, the existing
+single-column layout stacks the fields in the same reading and keyboard order.
+
 ### 04. Payroll Explainer
 
 **Purpose:** Explain pay, deductions, documents, and changes without exposing unrelated sensitive data.

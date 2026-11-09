@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-employee-agent-client-side-solution",
     "id": "9bf784ac-235a-4b13-ae57-549576e960ab",
-    "version": "1.0.0.2",
+    "version": "1.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -30,7 +30,7 @@
         "title": "Zava Employee Agent",
         "description": "Activates the Zava Employee Agent Copilot Components and shared HR workspace.",
         "id": "802316f3-0a08-400f-a7da-5fae9b7298e0",
-        "version": "1.0.0.2"
+        "version": "1.0.0.3"
       }
     ]
   },

@@ -47,7 +47,8 @@ Ask -> Understand -> Review -> Explain -> Expand -> Prioritize -> Compare -> Dec
 
 **Do:**
 
-1. Point to the editable leave type, dates, and reason.
+1. Point to the editable leave type on the first row, the paired Start date and End date pickers
+   beneath it, and the reason.
 2. Point to seven working days, the August 6 conflict, and healthy coverage.
 3. Select **Review request**.
 4. Inspect the explicit summary, then select **Submit for approval**.

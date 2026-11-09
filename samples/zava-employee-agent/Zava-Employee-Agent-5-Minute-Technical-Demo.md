@@ -112,6 +112,7 @@ Pin these files:
 **Point out:**
 
 - editable prompt-derived defaults
+- full-width leave type above paired date pickers, shared by inline and full-screen views
 - validation and calculated evidence
 - Review -> Confirm -> mocked receipt stages
 - explicit no-live-write disclosure
@@ -126,10 +127,10 @@ Pin these files:
 
 **Point out:**
 
-- 20 component entries keep separate manifests and entrypoints
+- 21 component entries (20 operational tools plus the feature explorer) keep separate manifests and entrypoints
 - all entries share `zava-employee-copilot-components`
 - React, Fluent UI, services, icon subset, and ten bundled images emit once
-- final JavaScript is 910,310 bytes and the `.sppkg` is about 0.49 MiB
+- final JavaScript is 922,235 bytes and the `.sppkg` is about 0.49 MiB (version 1.0.0.3)
 
 **Say:**
 
@@ -146,9 +147,9 @@ npm run build
 **Expected proof:**
 
 - media registry freshness
-- 32 gallery screenshots and `assets/sample.json`
-- 170 tests with zero failures
-- 20 source tool/schema pairs and RC0 dynamic MCP discovery
+- 33 gallery screenshots and `assets/sample.json`
+- 190 tests with zero failures
+- 21 source tool/schema pairs and GA dynamic MCP discovery
 - one hashed production JavaScript file
 - no stale output, duplicate media, repeated cross-bundle base64, or Fluent icon font
 - final package below configured investigation thresholds
