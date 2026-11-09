@@ -52,7 +52,7 @@ Show how a natural-language HR request becomes a purpose-built, reviewable Copil
 ## Expected proof points
 
 - `RequestTimeOff` is selected from the natural-language request.
-- Dates and reason are visible and editable.
+- Leave type appears above side-by-side Start date and End date pickers; dates and reason stay editable.
 - Seven working days, one conflict, and healthy coverage are shown.
 - Full screen opens the shared HR workspace.
 - My HR action plan discloses that recommendations are generated locally and are not saved.

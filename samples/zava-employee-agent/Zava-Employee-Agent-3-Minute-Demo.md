@@ -70,7 +70,8 @@ reason: Family trip
 
 **Do:**
 
-- Point to the prefilled leave type, dates, and reason.
+- Point to the prefilled leave type on the first row, the paired Start date and End date pickers
+  beneath it, and the reason.
 - Point to **7 working days**, the August 6 conflict, and healthy coverage.
 - Click **Review request**.
 

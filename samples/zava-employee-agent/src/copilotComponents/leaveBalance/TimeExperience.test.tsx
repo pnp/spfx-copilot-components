@@ -21,6 +21,21 @@ describe('Time experience', () => {
     expect(markup).toContain('No request is submitted until you confirm.');
   });
 
+  test('places full-width leave type before paired dates and full-width reason', () => {
+    const markup = renderToStaticMarkup(<ConfiguredFamilyInline intentKey="requestTimeOff" params={{}} />);
+    const fields: RegExpExecArray[] = [];
+    const fieldPattern = /<label class="([^"]+)">.*?aria-label="([^"]+)".*?<\/label>/g;
+    let field = fieldPattern.exec(markup);
+    while (field) {
+      fields.push(field);
+      field = fieldPattern.exec(markup);
+    }
+    expect(fields.map((field) => field[2])).toEqual(['Leave type', 'Start date', 'End date', 'Reason']);
+    expect(fields[0][1]).toBe(fields[3][1]);
+    expect(fields[1][1]).toBe(fields[2][1]);
+    expect(fields[0][1]).not.toBe(fields[1][1]);
+  });
+
   test('renders an implemented Time dashboard', () => {
     const user = new MockZavaEmployeeDataService().getEmployeeExperience().user;
     const markup = renderToStaticMarkup(<ConfiguredFamilyDashboard family="time" user={user} />);

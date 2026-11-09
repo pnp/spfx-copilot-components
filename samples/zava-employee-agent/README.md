@@ -84,7 +84,7 @@ and never reads private HR records or submits requests. Trying a prompt requires
 
 ![Employee feature explorer with search, family filtering, and dedicated HR scenario prompts](assets/inline-explore-agent-capabilities.png)
 
-![Inline time off request with editable prompt-derived values](assets/inline-request-time-off.png)
+![Inline time off request with leave type above side-by-side start and end date pickers](assets/inline-request-time-off.png)
 
 ![Inline pay change explanation](assets/inline-explain-pay-change.png)
 
@@ -187,7 +187,9 @@ Prompt-derived values visibly prefill editable controls and are validated before
 example, `I'd like vacation from August 4th to August 12th, 2027 for a family trip` opens the PTO & Leave
 request variant with `leaveType`, `startDate`, `endDate`, and `reason` prefilled. The component then
 calculates working days and mocked calendar or coverage conflicts for the user to review. It never
-submits directly from prompt values.
+submits directly from prompt values. Leave type occupies the first row, followed by side-by-side
+Start date and End date pickers and a full-width Reason field. The shared inline and full-screen form
+retains single-column stacking on narrow screens (460 px or less).
 
 The complete schemas, normalization lifecycle, examples, and per-family dashboard compositions are
 defined in [Zava-Employee-Agent-UX-Design.md](Zava-Employee-Agent-UX-Design.md).
@@ -311,7 +313,8 @@ The final gate verifies generated mock media, runs the clean production test sui
 solution, validates all generated API-plugin functions and MCP tools, and audits the final `.sppkg`
 for stale JavaScript, duplicated media, icon-font payloads, and size regressions.
 
-The package path configured by the project is
+The current SharePoint solution and feature version is **1.0.0.3**, with authored agent version
+**1.0.3**. The package path configured by the project is
 `sharepoint/solution/zava-employee-agent.sppkg`.
 
 ## Minimal Path to Awesome
@@ -351,9 +354,11 @@ focus, high contrast, or screen-reader output.
 
 ## Validation Status
 
-- 178 tests pass with zero failures, including independent Home/family root lifecycle coverage.
-- All 20 manifests, component entries, registrations, compiled schemas, and GA dynamic MCP discovery validate.
-- All 32 implementation screenshots validate against [assets/sample.json](assets/sample.json).
+- 190 tests pass with zero failures, including the paired-date layout regression and independent Home/family root lifecycle coverage.
+- All 21 manifests, component entries, registrations, compiled schemas, and GA dynamic MCP discovery validate.
+- All 33 implementation screenshots validate against [assets/sample.json](assets/sample.json).
+- November 9 local browser checks confirm paired dates in inline and full-screen modes, light/dark
+  rendering, the 460/461 px responsive boundary, no horizontal overflow, and edit/review/confirmation.
 - The final package contains one shared hashed JavaScript bundle and no stale JavaScript,
   duplicate cross-bundle media, or Fluent icon-font payload.
 - Authenticated Copilot routing, iframe focus, screen-reader, and Windows high-contrast checks remain
@@ -397,6 +402,7 @@ definition in its component manifest.
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| 1.0.0.3 | November 9, 2026 | Place leave type above paired Start date and End date pickers; refresh inline and full-screen Leave screenshots and rebuild the SharePoint package. |
 | Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0 | August 10, 2026 | Initial scaffold |
 | 1.1 | August 11, 2026 | Updated Zava naming and ten-component implementation plan |

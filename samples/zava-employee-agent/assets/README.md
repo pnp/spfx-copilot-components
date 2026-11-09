@@ -20,11 +20,16 @@ prototype does not add or simulate family business components.
 
 ## Publication screenshots
 
-The 32 PNG files directly under `assets/` are captured from the real React implementation through
-`npm run start:ux-review`. They cover all 20 inline Copilot Components, all ten full-screen families,
-mobile Home, and dark People. [sample.json](sample.json) lists every publication image, and
+The 33 PNG files directly under `assets/` are captured from the real React implementation through
+`npm run start:ux-review`. They cover all 20 operational inline Copilot Components, the feature explorer,
+all ten full-screen families, mobile Home, and dark People. [sample.json](sample.json) lists every publication image, and
 `npm run check:gallery` validates metadata, file integrity, dimensions, alt text, unique order, URL,
 and exact publication-root coverage.
+
+The November 9, 2026 time-off refresh updates `inline-request-time-off.png` and `fullscreen-time.png`
+from the shared React form: Leave type on its own row, Start date and End date together beneath it,
+then Reason. Reproduce the captures with `?intent=requestTimeOff&mode=inline&width=standard&clean=1`
+and `?family=time&mode=fullscreen&width=wide&clean=1`, respectively. Narrow screens retain stacked fields.
 
 The refreshed source uses the same visual hierarchy proven by the My Day sample: a white Copilot
 canvas, employee-first greeting, one signature gradient action band, varied editorial columns, and

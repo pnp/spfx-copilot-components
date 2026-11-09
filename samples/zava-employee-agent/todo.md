@@ -1,5 +1,17 @@
 # Zava Employee Agent implementation tracker
 
+## Time-off layout refresh - November 9, 2026
+
+- ✅ Place Leave type on the first row, pair Start date and End date beneath it, and retain narrow-screen stacking.
+- ✅ Refresh the inline request and full-screen Leave publication screenshots and related UX documentation.
+- ✅ Bump the SharePoint solution/feature to 1.0.0.3 and authored agent to 1.0.3; validate and rebuild both release archives.
+
+Validation: `npm run build` passes with 190 tests, 33 gallery screenshots, GA dynamic MCP discovery,
+and package-output checks. Local browser checks cover inline/full-screen date alignment, light/dark
+themes, 390/460/461/760/980 px viewports, no horizontal overflow, editable values, recalculated working
+days, and review/edit/confirmation. The final package is 518,979 bytes with one 922,235-byte JavaScript
+bundle; the archived solution, feature, and agent versions were independently verified.
+
 ## RC0 update - October 20, 2026
 
 The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.

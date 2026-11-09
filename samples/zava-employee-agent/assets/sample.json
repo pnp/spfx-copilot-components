@@ -9,10 +9,11 @@
     "longDescription": [
       "Zava Employee Agent demonstrates intent-driven employee experiences inside Microsoft Copilot. Twenty operational SPFx Copilot Components and a dedicated feature explorer independently route natural-language HR requests to purpose-built summaries, comparisons, timelines, forms, decision queues, and organization experiences.",
       "Every operational component expands into one responsive ten-family HR workspace covering Home, Policy, Time, Money, Benefits, Support, Learning, Rewards, Team, and People. The shared shell preserves the owning family and prompt-derived context while providing fifty complete internal routes for deeper work. The independent feature explorer retains its catalog in both host modes.",
-      "The sample is deterministic, offline, and safe for demonstrations. Prompt values may prefill or filter UX but never submit a request, open a case, or decide an approval without explicit review and confirmation. One optimized production bundle emits shared React, Fluent UI, services, icons, and bundled persona media once, with automated generated-plugin and final-package audits."
+      "The sample is deterministic, offline, and safe for demonstrations. Prompt values may prefill or filter UX but never submit a request, open a case, or decide an approval without explicit review and confirmation. One optimized production bundle emits shared React, Fluent UI, services, icons, and bundled persona media once, with automated generated-plugin and final-package audits.",
+      "The time-off workflow turns a vacation prompt into an editable request: choose leave type, compare start and end dates side by side, inspect working days and team coverage, then explicitly review and confirm. The shared form also appears in the full-screen Leave workspace and stacks on narrow screens."
     ],
     "creationDateTime": "2026-08-21",
-    "updateDateTime": "2026-10-28",
+    "updateDateTime": "2026-11-09",
     "products": [
       "SharePoint",
       "Copilot"
@@ -51,7 +52,7 @@
         "type": "image",
         "order": 102,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-time.png",
-        "alt": "Zava full-screen time and leave workspace"
+        "alt": "Zava full-screen time and leave workspace with paired start and end date pickers"
       },
       {
         "name": "fullscreen-money.png",
@@ -177,7 +178,7 @@
         "type": "image",
         "order": 208,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-request-time-off.png",
-        "alt": "Inline editable time off request component"
+        "alt": "Inline time off request with leave type above paired start and end date pickers"
       },
       {
         "name": "inline-latest-pay.png",
