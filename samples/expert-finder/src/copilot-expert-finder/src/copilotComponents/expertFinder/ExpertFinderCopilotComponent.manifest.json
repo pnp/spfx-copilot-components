@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "980d322c-2c03-4d8b-a05a-6b724ee174a1",
+  "alias": "ExpertFinderCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExpertFinderTool",
+      "description": {
+        "default": "Find people with expertise in SPFx, Copilot, databases (DB), or Spanish. Render an interactive Expert Finder directory with matching experts, local name/department/role filters and contact actions. Use when the user asks who can help with one of these skills."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/expertFinder/ExpertFinderCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

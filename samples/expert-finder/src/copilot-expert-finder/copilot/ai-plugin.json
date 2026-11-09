@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "expertFinder",
+  "name_for_human": "Expert Finder",
+  "description_for_human": "Find experts by skill and explore matching profiles in Copilot.",
+  "description_for_model": "Use ExpertFinderTool to find people who can help with a specific skill. The component retrieves and displays the matching profiles. Do not invent expert identities or search results.",
+  "contact_email": "publisher@contoso.com"
+}
