@@ -19,8 +19,8 @@ From the rendered UI, the signed-in user can:
 
 ## Compatibility
 
-![SPFx 1.24.0-beta.2](https://img.shields.io/badge/SPFx-1.24.0--beta.2-green.svg)
-![Node.js v22](https://img.shields.io/badge/Node.js-v22-green.svg)
+![SPFx 1.24.1](https://img.shields.io/badge/SPFx-1.24.1.svg)
+![Node.js v24](https://img.shields.io/badge/Node.js-v24-green.svg)
 ![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Compatible with Microsoft Copilot](https://img.shields.io/badge/Microsoft%20Copilot-Compatible-green.svg)
 
@@ -41,6 +41,7 @@ From the rendered UI, the signed-in user can:
 | Version | Date | Comments |
 | ------- | ----------------- | --------------- |
 | 1.0.0.1 | 2026-07-31 | Initial release |
+| 1.1.0.0 | 2026-11-14 | SPFx version upgrade |
 
 ## Prerequisites
 
@@ -77,8 +78,7 @@ M365 Service Health demonstrates how to surface live tenant service health insid
 This sample illustrates the following concepts:
 
 - **Copilot Component UX** — a `CopilotComponent` (`copilotType: "Ux"`) exposed as a tool (`M365ServiceHealthCopilotTool`) that a declarative agent can call, rendering its own React UI inside the Copilot host.
-- **Zod-based tool properties schema** — tool arguments (`mode`, `serviceName`) are defined with Zod, validated with `superRefine`, and exported as JSON Schema via `zod-to-json-schema` for the Copilot host.
-- **Display-mode-aware rendering** — a single React component renders a compact inline card or a fullscreen overview based on the host-advertised display mode, and can request a mode switch through the Copilot bridge.
+- **Zod-based tool properties schema** — tool arguments (`mode`, `serviceName`) are defined with Zod, validated with `superRefine`, and exported as JSON Schema 
 - **Brokered SSO to Microsoft Graph** — service health overviews and issues are read through the SPFx-brokered `MSGraphClientV3` client, with no manual token handling.
 - **Resilient Graph access** — automatic retry with exponential backoff on throttling and transient failures (429/5xx), with errors classified (unauthenticated, forbidden, throttled, network) so the UI can respond appropriately.
 - **Natural-language service resolution** — user wording like "Teams" or "SPO" is mapped to the matching Microsoft 365 service automatically.

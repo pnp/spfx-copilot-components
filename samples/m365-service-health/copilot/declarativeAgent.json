@@ -1,6 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.7/schema.json",
-  "version": "v1.7",
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
   "name": "M365 Service Health Agent",
   "description": "Check whether Microsoft 365 is running normally. Shows live service health, incidents, and advisories in an interactive view you can filter, search, and drill into for impact details and Microsoft's latest updates.",
   "instructions": "$[file('instruction.txt')]",
