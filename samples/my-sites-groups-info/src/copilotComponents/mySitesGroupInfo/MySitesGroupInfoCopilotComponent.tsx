@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent, SPCopilotDisplayMode } from '@microsoft/sp-copilot-component';
 
@@ -31,7 +31,7 @@ import { SitesGroupInfoService } from './services/SitesGroupInfoService';
  */
 export default class MySitesGroupInfoCopilotComponent extends BaseCopilotComponent<IMySitesGroupInfoCopilotComponentProperties> {
   private _service!: SitesGroupInfoService;
-
+  private _root!: Root;
   protected async onInit(): Promise<void> {
     this._service = new SitesGroupInfoService(this.context);
   }
@@ -56,11 +56,14 @@ export default class MySitesGroupInfoCopilotComponent extends BaseCopilotCompone
       onRequestSizeChange: this._onRequestSizeChange,
       hostContext: this.hostContext
     };
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
   
-    ReactDOM.render(React.createElement(MySitesGroupInfo, props), this.context.domElement);
+    this._root.render(React.createElement(MySitesGroupInfo, props));
   }
 
   protected async onTeardown(): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root.unmount();
   }
 }
