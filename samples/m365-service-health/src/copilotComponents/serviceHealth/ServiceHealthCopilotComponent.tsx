@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import type { SPCopilotDisplayMode } from '@microsoft/sp-copilot-component';
@@ -28,6 +28,7 @@ import { buildFallbackMarkup } from './utils';
 export default class ServiceHealthCopilotComponent extends BaseCopilotComponent<IServiceHealthCopilotComponentProperties> {
 
   private serviceHealthApi: ServiceHealthApi | undefined;
+    private _root: Root | undefined
 
   private readonly loadServiceHealth: IServiceHealthProps["loadServiceHealth"] = () => {
     if (!this.serviceHealthApi) {
@@ -75,7 +76,10 @@ export default class ServiceHealthCopilotComponent extends BaseCopilotComponent<
     root.style.padding = '0';
 
     try {
-      ReactDOM.render(React.createElement(ServiceHealth, props), this.context.domElement);
+      if(!this._root) {
+        this._root = createRoot(this.context.domElement);
+      }
+      this._root.render(React.createElement(ServiceHealth, props));
     } catch (renderError) {
       const message = renderError instanceof Error ? renderError.message : strings.ErrorUnknown;
       root.innerHTML = buildFallbackMarkup(this.requestedService, message, strings);
@@ -83,7 +87,7 @@ export default class ServiceHealthCopilotComponent extends BaseCopilotComponent<
   }
 
   protected onTeardown(): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root?.unmount();
     return Promise.resolve();
   }
 }
