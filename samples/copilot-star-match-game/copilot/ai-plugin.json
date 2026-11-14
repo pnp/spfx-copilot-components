@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "StarMatch",
+  "name_for_human": "StarMatch Game",
+  "description_for_human": "Star Match is an engaging, interactive math skills game.",
+  "description_for_model": "Star Match is an engaging, interactive math skills game built with React, designed to help practice simple addition and quick mental calculations.",
+  "contact_email": "publisher@contoso.com"
+}

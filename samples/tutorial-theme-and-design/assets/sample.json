@@ -1,0 +1,88 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-tutorial-theme-and-design",
+    "source": "pnp",
+    "title": "Theme and design for the Copilot canvas",
+    "shortDescription": "A Copilot UX component with sample project cards that follows the Copilot light and dark themes and adapts to the inline and fullscreen display modes.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-theme-and-design",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-theme-and-design",
+    "longDescription": [
+      "The finished solution for the article Theme and design for the Copilot canvas. The DesignShowcase component shows sample project cards built with Fluent UI. It follows the Copilot light and dark themes, adapts its layout to the inline and fullscreen display modes and to the width of the canvas, and keeps the selected card when the display mode changes.",
+      "The component uses bundled sample data. It makes no network calls and requests no API permissions; the solution package is the only thing to deploy."
+    ],
+    "creationDateTime": "2026-10-11",
+    "updateDateTime": "2026-10-11",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.5"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "preview.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-theme-and-design/assets/preview.png",
+        "alt": "The DesignShowcase component in Microsoft 365 Copilot in the fullscreen display mode and light theme, with a selected project card and its details"
+      },
+      {
+        "name": "theme-and-design-inline-light.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-theme-and-design/assets/theme-and-design-inline-light.png",
+        "alt": "The DesignShowcase component in the inline display mode and light theme, showing four project cards and a button to view all eight projects"
+      },
+      {
+        "name": "theme-and-design-inline-dark.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-theme-and-design/assets/theme-and-design-inline-dark.png",
+        "alt": "The DesignShowcase component in the inline display mode and dark theme"
+      },
+      {
+        "name": "theme-and-design-fullscreen-dark.png",
+        "type": "image",
+        "order": 400,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-theme-and-design/assets/theme-and-design-fullscreen-dark.png",
+        "alt": "The DesignShowcase component in the fullscreen display mode and dark theme, showing all eight project cards and an empty details pane"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "andrewconnell",
+        "pictureUrl": "https://github.com/andrewconnell.png",
+        "name": "Andrew Connell"
+      }
+    ],
+    "references": [
+      {
+        "name": "Theme and design for the Copilot canvas",
+        "description": "Follow the Copilot theme and adapt a Copilot UX component to the inline and fullscreen display modes.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/theme-and-design"
+      },
+      {
+        "name": "Display modes in SharePoint Copilot components",
+        "description": "How the inline and fullscreen display modes work in SharePoint Copilot components.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/displayMode"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]

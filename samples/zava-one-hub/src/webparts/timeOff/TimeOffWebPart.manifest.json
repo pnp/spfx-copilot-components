@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "d60ba737-a484-47c5-b3ee-89903b8ea4ba",
+  "alias": "TimeOffWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Time off and holidays" },
+    "description": { "default": "Check balance or prepare a personal leave request." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMxMDdjNDEiIGZpbGw9IiMxMDdjNDEiPjxwYXRoIGQ9Ik0xNy43NSAzQzE5LjU1IDMgMjEgNC40NiAyMSA2LjI1djUuNzdjLS40Ni0uMy0uOTctLjUzLTEuNS0uN1Y4LjVoLTE1djkuMjVjMCAuOTcuNzggMS43NSAxLjc1IDEuNzVoNS4wNmMuMTguNTMuNDIgMS4wNC43MSAxLjVINi4yNUEzLjI1IDMuMjUgMCAwIDEgMyAxNy43NVY2LjI1QzMgNC40NSA0LjQ2IDMgNi4yNSAzaDExLjVabTAgMS41SDYuMjVjLS45NyAwLTEuNzUuNzgtMS43NSAxLjc1VjdoMTV2LS43NWMwLS45Ny0uNzgtMS43NS0xLjc1LTEuNzVabTUuMjUgMTNhNS41IDUuNSAwIDEgMS0xMSAwIDUuNSA1LjUgMCAwIDEgMTEgMFptLTIuMTUtMi4zNWEuNS41IDAgMCAwLS43IDBsLTMuNjUgMy42NC0xLjY1LTEuNjRhLjUuNSAwIDAgMC0uNy43bDIgMmMuMi4yLjUuMi43IDBsNC00YS41LjUgMCAwIDAgMC0uN1oiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4=",
+    "properties": {
+      "description": "TimeOff"
+    }
+  }]
+}

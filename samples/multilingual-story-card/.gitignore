@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build generated files (anchored to the project root: src/**/lib is source, not output)
+/dist
+/lib
+/lib-dts
+/lib-esm
+/release
+/solution
+/sharepoint/solution
+/temp
+*.sppkg
+.heft
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# OSX
+.DS_Store
+
+# Visual Studio files
+.ntvs_analysis.dat
+.vs
+bin
+obj
+
+# Resx Generated Code
+*.resx.ts
+
+# Styles Generated Code
+*.scss.ts
+
+# Generated agent package (rebuilt by every build)
+/teams/*.zip
+
+# Build state of the copilot-agent plugin (last shipped agent version)
+/teams/.copilot-agent-hotfix.json

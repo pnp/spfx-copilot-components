@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.24",
-  "version": "1.1.0",
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.1.1",
   "id": "6aae00b7-e2d7-4481-913a-896db5eba2bd",
   "developer": {
-    "name": "Contoso",
-    "websiteUrl": "https://www.contoso.com",
-    "privacyUrl": "https://www.contoso.com/privacy",
-    "termsOfUseUrl": "https://www.contoso.com/terms"
+    "name": "Microsoft 365 PnP Community",
+    "websiteUrl": "https://pnp.github.io/",
+    "privacyUrl": "https://privacy.microsoft.com/",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
   },
   "icons": {
     "color": "color.png",
@@ -30,6 +30,8 @@
       }
     ]
   },
-  "permissions": ["identity"],
+  "permissions": [
+    "identity"
+  ],
   "validDomains": []
 }

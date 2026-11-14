@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "fc0b24a9-9db5-4cbb-88ac-b8567455d801",
+  "alias": "ShowTeamAvailabilityCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowTeamAvailability",
+      "description": {
+        "default": "Use when an authorized user asks about team availability. Do not use when the user asks to approve a vacation request."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showTeamAvailability/ShowTeamAvailabilityCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

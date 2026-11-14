@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "2b1a7883-2f53-4e6c-8047-f1f508bfac36",
+  "alias": "ShowCampusMenuCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowCampusMenu",
+      "description": {
+        "default": "Use when the user asks about a campus menu or cafeteria. Do not use when the user asks about office details."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showCampusMenu/ShowCampusMenuCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

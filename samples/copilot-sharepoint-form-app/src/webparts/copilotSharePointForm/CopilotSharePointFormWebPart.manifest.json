@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "3d7a624c-a1da-450a-a786-e3d5ff7cbf5b",
+  "alias": "CopilotSharePointFormWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Advanced" },
+    "title": { "default": "Copilot SharePoint Form" },
+    "description": { "default": "Submit a document and its metadata to one SharePoint document library. The web part owns the file picker, including files up to 50 MB." },
+    "officeFabricIconFontName": "Upload",
+    "properties": {
+      "siteUrl": "",
+      "libraryName": "Documents",
+      "libraryTitle": "Documents",
+      "configuredColumns": "",
+      "maxFileSizeMb": 50,
+      "allowedExtensions": ".pdf,.docx,.xlsx,.pptx,.md,.png,.jpg",
+      "overwriteExisting": true
+    }
+  }]
+}

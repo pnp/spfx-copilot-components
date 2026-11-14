@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.2",
+  "id": "986dd51d-45fe-4c8f-bcdc-ccbc0c9b22ad",
+  "developer": {
+    "name": "Microsoft 365 PnP Community",
+    "websiteUrl": "https://pnp.github.io/",
+    "privacyUrl": "https://privacy.microsoft.com/",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Zava One",
+    "full": "Zava One - Your company, wherever you work"
+  },
+  "description": {
+    "short": "Company and employee experiences in one place.",
+    "full": "Explore Zava company news, personal work, learning, recognition, and manager decisions through focused Copilot experiences."
+  },
+  "accentColor": "#075FCE",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "zavaOneAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}

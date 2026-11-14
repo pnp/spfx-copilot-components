@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "3b0fc43b-f8f0-46b6-9f8d-df8c02970501",
+  "alias": "ShowMyTasksCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyTasks",
+      "description": {
+        "default": "Use when the user asks about personal tasks or due work. Do not use when the user asks for approvals or required learning."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyTasks/ShowMyTasksCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

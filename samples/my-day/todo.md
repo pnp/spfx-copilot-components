@@ -1,5 +1,24 @@
 # My Day — Build Plan / TODO
 
+## RC0 update - October 20, 2026
+
+SPFx 1.24.0-rc.0 / React 18.3.1 migration is implemented with retained client roots, explicit children,
+14 passing tests and 30 passing browser states. The unused message scaffold input is replaced by a
+meaningful optional focus; four starters select four distinct visible facets of the single MyDayTool.
+Data, local task state, drill-downs and panels survive passive display/theme changes; settings remain
+session-persisted. The due-today counter excludes future tasks. Narrow drawers replace the workspace,
+the grid can shrink below 320 px of internal width, and reduced motion is honored.
+
+**Prerelease registry prerequisite:** npmjs.org returned 404 for the RC0 SDK. The requester approved
+using the environment's configured Microsoft proxy/backing feed. The sample inherits user-level npm
+configuration and permits only public npm and explicitly approved Microsoft hosts, without embedded
+credentials or URL query tokens. Do not claim a public-npm-only clean clone until publicly available.
+
+Source/compiled schemas, canonical starter focuses, dynamic discovery and current package bytes pass
+the production gate. The [root readiness report](../../RC0-updates.md) records current artifacts and
+external routing/CSP/focus/accessibility gates. Earlier entries below are historical, including the
+now-resolved message-placeholder and React 17 plans.
+
 Planning tracker for building out the **My Day** SharePoint Copilot App sample.
 Mapped to the commitments in [README.md](./README.md) and the current code baseline.
 
@@ -119,7 +138,7 @@ Order of work:
 
 ### Setup
 
-- ✅ Install Fluent UI v9 (`@fluentui/react-components`, `@fluentui/react-icons`) — React 17 compatible
+- ✅ Install Fluent UI v9 (`@fluentui/react-components`, `@fluentui/react-icons`) — React 18 compatible
 
 ### Responsive layout (iframe-aware)
 
@@ -446,7 +465,7 @@ Order of work:
 
 **Scaffold & build**
 
-- ✅ Scaffold a Copilot Component with the SPFx generator (Heft + rig, React 17, **no property pane**)
+- ✅ Scaffold a Copilot Component with the SPFx generator (Heft + rig, React 18, **no property pane**)
 - ✅ Commit the built **`.sppkg`** for mock-data samples so anyone can deploy/demo without building — un-ignore just the package in `.gitignore` (keep build junk ignored)
 
 **Architecture & rendering**
@@ -498,6 +517,6 @@ Order of work:
 
 ## Open decisions
 
-1. ~~**Fluent UI version**~~ → **Decided: Fluent UI v9** (`@fluentui/react-components`, React 17 compatible)
+1. ~~**Fluent UI version**~~ → **Decided: Fluent UI v9** (`@fluentui/react-components`, React 18 compatible)
 2. **`useMock` location** — Zod tool property vs. build constant? (deferred phase)
 3. **Data fetch location** — component `onInit` vs. a React hook inside `MyDayApp`? (deferred phase)

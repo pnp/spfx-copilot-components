@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.23.1",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.5",
+    "libraryName": "cafeteria",
+    "libraryId": "3b2d0516-a4c3-427a-8977-be66661a0f4f",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Cafeteria",
+    "solutionShortDescription": "Cafeteria description",
+    "skipFeatureDeployment": true,
+    "componentType": "copilotComponent"
+  }
+}

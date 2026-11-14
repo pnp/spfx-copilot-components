@@ -7,15 +7,27 @@
   "conversation_starters": [
     {
       "title": "My HR priorities",
-      "text": "What needs my attention across HR this week?"
+      "text": "Show my HR dashboard for this week."
     },
     {
-      "title": "Profile health",
-      "text": "Is my employee profile complete?"
+      "title": "Draft time off",
+      "text": "Draft a vacation request for November 9 through November 13, 2026."
     },
     {
-      "title": "Upcoming milestones",
-      "text": "What worklife milestones are coming up?"
+      "title": "Compare benefit plans",
+      "text": "Compare benefit plans for an employee with two children, prioritizing dental coverage and a low deductible."
+    },
+    {
+      "title": "Required learning",
+      "text": "Show my mandatory learning due in the next 14 days."
+    },
+    {
+      "title": "Manager leave approvals",
+      "text": "Show the leave requests awaiting my approval."
+    },
+    {
+      "title": "Explore employee features",
+      "text": "Explore the employee and HR features this agent supports."
     }
   ],
   "actions": [

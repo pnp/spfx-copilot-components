@@ -3,63 +3,290 @@
     "name": "pnp-sp-dev-spfx-copilot-apps-zava-employee-agent",
     "source": "pnp",
     "title": "Zava Employee Agent",
-    "shortDescription": "An employee-first SharePoint Copilot App with 20 intent-routed HR components and one shared ten-family workspace.",
+    "shortDescription": "An employee-first Copilot App with 20 operational HR components, a dedicated feature explorer, and one shared ten-family workspace.",
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-employee-agent",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-employee-agent",
     "longDescription": [
-      "Zava Employee Agent demonstrates intent-driven employee experiences inside Microsoft Copilot. Twenty SPFx Copilot Components independently route natural-language HR requests to purpose-built summaries, comparisons, timelines, forms, decision queues, and organization experiences.",
-      "Every component expands into one responsive ten-family HR workspace covering Home, Policy, Time, Money, Benefits, Support, Learning, Rewards, Team, and People. The shared shell preserves the owning family and prompt-derived context while providing fifty complete internal routes for deeper work.",
+      "Zava Employee Agent demonstrates intent-driven employee experiences inside Microsoft Copilot. Twenty operational SPFx Copilot Components and a dedicated feature explorer independently route natural-language HR requests to purpose-built summaries, comparisons, timelines, forms, decision queues, and organization experiences.",
+      "Every operational component expands into one responsive ten-family HR workspace covering Home, Policy, Time, Money, Benefits, Support, Learning, Rewards, Team, and People. The shared shell preserves the owning family and prompt-derived context while providing fifty complete internal routes for deeper work. The independent feature explorer retains its catalog in both host modes.",
       "The sample is deterministic, offline, and safe for demonstrations. Prompt values may prefill or filter UX but never submit a request, open a case, or decide an approval without explicit review and confirmation. One optimized production bundle emits shared React, Fluent UI, services, icons, and bundled persona media once, with automated generated-plugin and final-package audits."
     ],
     "creationDateTime": "2026-08-21",
-    "updateDateTime": "2026-08-21",
-    "products": ["SharePoint", "Copilot"],
+    "updateDateTime": "2026-10-28",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
     "metadata": [
-      { "key": "SAMPLE-TYPE", "value": "SPFx-CopilotComponent" },
-      { "key": "CLIENT-SIDE-DEV", "value": "React" },
-      { "key": "SPFX-VERSION", "value": "1.24.0-beta.2" }
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
     ],
     "thumbnails": [
-      { "name": "fullscreen-home.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-home.png", "alt": "Zava full-screen My HR Dashboard" },
-      { "name": "fullscreen-policy.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-policy.png", "alt": "Zava full-screen Policy Q and A workspace" },
-      { "name": "fullscreen-time.png", "type": "image", "order": 102, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-time.png", "alt": "Zava full-screen time and leave workspace" },
-      { "name": "fullscreen-money.png", "type": "image", "order": 103, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-money.png", "alt": "Zava full-screen payroll explanation workspace" },
-      { "name": "fullscreen-benefits.png", "type": "image", "order": 104, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-benefits.png", "alt": "Zava full-screen benefits and life events workspace" },
-      { "name": "fullscreen-support.png", "type": "image", "order": 105, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-support.png", "alt": "Zava full-screen private HR support workspace" },
-      { "name": "fullscreen-learning.png", "type": "image", "order": 106, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-learning.png", "alt": "Zava full-screen learning and compliance workspace" },
-      { "name": "fullscreen-rewards.png", "type": "image", "order": 107, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-rewards.png", "alt": "Zava full-screen total rewards workspace" },
-      { "name": "fullscreen-team.png", "type": "image", "order": 108, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-team.png", "alt": "Zava full-screen manager team workspace" },
-      { "name": "fullscreen-people.png", "type": "image", "order": 109, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-people.png", "alt": "Zava full-screen organization and people workspace" },
-      { "name": "fullscreen-home-mobile.png", "type": "image", "order": 110, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-home-mobile.png", "alt": "Zava My HR Dashboard at mobile width" },
-      { "name": "fullscreen-people-dark.png", "type": "image", "order": 111, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-people-dark.png", "alt": "Zava people workspace in dark mode" },
-      { "name": "inline-get-my-hr-dashboard.png", "type": "image", "order": 200, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-my-hr-dashboard.png", "alt": "Inline employee HR dashboard summary component" },
-      { "name": "inline-get-profile-health.png", "type": "image", "order": 201, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-profile-health.png", "alt": "Inline employee profile health component" },
-      { "name": "inline-get-next-best-actions.png", "type": "image", "order": 202, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-next-best-actions.png", "alt": "Inline next best HR actions component" },
-      { "name": "inline-get-worklife-snapshot.png", "type": "image", "order": 203, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-worklife-snapshot.png", "alt": "Inline employee worklife snapshot component" },
-      { "name": "inline-get-employee-milestones.png", "type": "image", "order": 204, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-employee-milestones.png", "alt": "Inline employee milestones component" },
-      { "name": "inline-policy-answer.png", "type": "image", "order": 205, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-policy-answer.png", "alt": "Inline cited HR policy answer component" },
-      { "name": "inline-policy-comparison.png", "type": "image", "order": 206, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-policy-comparison.png", "alt": "Inline HR policy comparison component" },
-      { "name": "inline-leave-balance.png", "type": "image", "order": 207, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-leave-balance.png", "alt": "Inline employee leave balance component" },
-      { "name": "inline-request-time-off.png", "type": "image", "order": 208, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-request-time-off.png", "alt": "Inline editable time off request component" },
-      { "name": "inline-latest-pay.png", "type": "image", "order": 209, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-latest-pay.png", "alt": "Inline employee latest pay component" },
-      { "name": "inline-explain-pay-change.png", "type": "image", "order": 210, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-explain-pay-change.png", "alt": "Inline employee pay change explanation component" },
-      { "name": "inline-compare-benefit-plans.png", "type": "image", "order": 211, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-compare-benefit-plans.png", "alt": "Inline employee benefit plan comparison component" },
-      { "name": "inline-start-life-event.png", "type": "image", "order": 212, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-start-life-event.png", "alt": "Inline employee benefits life event component" },
-      { "name": "inline-create-hr-case.png", "type": "image", "order": 213, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-create-hr-case.png", "alt": "Inline private HR case intake component" },
-      { "name": "inline-required-learning.png", "type": "image", "order": 214, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-required-learning.png", "alt": "Inline required employee learning component" },
-      { "name": "inline-total-rewards-summary.png", "type": "image", "order": 215, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-total-rewards-summary.png", "alt": "Inline employee total rewards component" },
-      { "name": "inline-approval-inbox.png", "type": "image", "order": 216, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-approval-inbox.png", "alt": "Inline manager approval inbox component" },
-      { "name": "inline-team-absence-calendar.png", "type": "image", "order": 217, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-team-absence-calendar.png", "alt": "Inline manager team absence calendar component" },
-      { "name": "inline-find-expert.png", "type": "image", "order": 218, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-find-expert.png", "alt": "Inline employee expert search component" },
-      { "name": "inline-explore-organization.png", "type": "image", "order": 219, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-explore-organization.png", "alt": "Inline employee organization explorer component" }
+      {
+        "name": "fullscreen-home.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-home.png",
+        "alt": "Zava full-screen My HR Dashboard"
+      },
+      {
+        "name": "fullscreen-policy.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-policy.png",
+        "alt": "Zava full-screen Policy Q and A workspace"
+      },
+      {
+        "name": "fullscreen-time.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-time.png",
+        "alt": "Zava full-screen time and leave workspace"
+      },
+      {
+        "name": "fullscreen-money.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-money.png",
+        "alt": "Zava full-screen payroll explanation workspace"
+      },
+      {
+        "name": "fullscreen-benefits.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-benefits.png",
+        "alt": "Zava full-screen benefits and life events workspace"
+      },
+      {
+        "name": "fullscreen-support.png",
+        "type": "image",
+        "order": 105,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-support.png",
+        "alt": "Zava full-screen private HR support workspace"
+      },
+      {
+        "name": "fullscreen-learning.png",
+        "type": "image",
+        "order": 106,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-learning.png",
+        "alt": "Zava full-screen learning and compliance workspace"
+      },
+      {
+        "name": "fullscreen-rewards.png",
+        "type": "image",
+        "order": 107,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-rewards.png",
+        "alt": "Zava full-screen total rewards workspace"
+      },
+      {
+        "name": "fullscreen-team.png",
+        "type": "image",
+        "order": 108,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-team.png",
+        "alt": "Zava full-screen manager team workspace"
+      },
+      {
+        "name": "fullscreen-people.png",
+        "type": "image",
+        "order": 109,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-people.png",
+        "alt": "Zava full-screen organization and people workspace"
+      },
+      {
+        "name": "fullscreen-home-mobile.png",
+        "type": "image",
+        "order": 110,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-home-mobile.png",
+        "alt": "Zava My HR Dashboard at mobile width"
+      },
+      {
+        "name": "fullscreen-people-dark.png",
+        "type": "image",
+        "order": 111,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/fullscreen-people-dark.png",
+        "alt": "Zava people workspace in dark mode"
+      },
+      {
+        "name": "inline-get-my-hr-dashboard.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-my-hr-dashboard.png",
+        "alt": "Inline employee HR dashboard summary component"
+      },
+      {
+        "name": "inline-get-profile-health.png",
+        "type": "image",
+        "order": 201,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-profile-health.png",
+        "alt": "Inline employee profile health component"
+      },
+      {
+        "name": "inline-get-next-best-actions.png",
+        "type": "image",
+        "order": 202,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-next-best-actions.png",
+        "alt": "Inline next best HR actions component"
+      },
+      {
+        "name": "inline-get-worklife-snapshot.png",
+        "type": "image",
+        "order": 203,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-worklife-snapshot.png",
+        "alt": "Inline employee worklife snapshot component"
+      },
+      {
+        "name": "inline-get-employee-milestones.png",
+        "type": "image",
+        "order": 204,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-get-employee-milestones.png",
+        "alt": "Inline employee milestones component"
+      },
+      {
+        "name": "inline-policy-answer.png",
+        "type": "image",
+        "order": 205,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-policy-answer.png",
+        "alt": "Inline cited HR policy answer component"
+      },
+      {
+        "name": "inline-policy-comparison.png",
+        "type": "image",
+        "order": 206,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-policy-comparison.png",
+        "alt": "Inline HR policy comparison component"
+      },
+      {
+        "name": "inline-leave-balance.png",
+        "type": "image",
+        "order": 207,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-leave-balance.png",
+        "alt": "Inline employee leave balance component"
+      },
+      {
+        "name": "inline-request-time-off.png",
+        "type": "image",
+        "order": 208,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-request-time-off.png",
+        "alt": "Inline editable time off request component"
+      },
+      {
+        "name": "inline-latest-pay.png",
+        "type": "image",
+        "order": 209,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-latest-pay.png",
+        "alt": "Inline employee latest pay component"
+      },
+      {
+        "name": "inline-explain-pay-change.png",
+        "type": "image",
+        "order": 210,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-explain-pay-change.png",
+        "alt": "Inline employee pay change explanation component"
+      },
+      {
+        "name": "inline-compare-benefit-plans.png",
+        "type": "image",
+        "order": 211,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-compare-benefit-plans.png",
+        "alt": "Inline employee benefit plan comparison component"
+      },
+      {
+        "name": "inline-start-life-event.png",
+        "type": "image",
+        "order": 212,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-start-life-event.png",
+        "alt": "Inline employee benefits life event component"
+      },
+      {
+        "name": "inline-create-hr-case.png",
+        "type": "image",
+        "order": 213,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-create-hr-case.png",
+        "alt": "Inline private HR case intake component"
+      },
+      {
+        "name": "inline-required-learning.png",
+        "type": "image",
+        "order": 214,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-required-learning.png",
+        "alt": "Inline required employee learning component"
+      },
+      {
+        "name": "inline-total-rewards-summary.png",
+        "type": "image",
+        "order": 215,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-total-rewards-summary.png",
+        "alt": "Inline employee total rewards component"
+      },
+      {
+        "name": "inline-approval-inbox.png",
+        "type": "image",
+        "order": 216,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-approval-inbox.png",
+        "alt": "Inline manager approval inbox component"
+      },
+      {
+        "name": "inline-team-absence-calendar.png",
+        "type": "image",
+        "order": 217,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-team-absence-calendar.png",
+        "alt": "Inline manager team absence calendar component"
+      },
+      {
+        "name": "inline-find-expert.png",
+        "type": "image",
+        "order": 218,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-find-expert.png",
+        "alt": "Inline employee expert search component"
+      },
+      {
+        "name": "inline-explore-organization.png",
+        "type": "image",
+        "order": 219,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-explore-organization.png",
+        "alt": "Inline employee organization explorer component"
+      },
+      {
+        "name": "inline-explore-agent-capabilities.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-employee-agent/assets/inline-explore-agent-capabilities.png",
+        "alt": "Employee feature explorer with search, family filtering, and dedicated HR scenario prompts"
+      }
     ],
     "authors": [
-      { "gitHubAccount": "vesajuvonen", "pictureUrl": "https://github.com/vesajuvonen.png", "name": "Vesa Juvonen" }
+      {
+        "gitHubAccount": "vesajuvonen",
+        "pictureUrl": "https://github.com/vesajuvonen.png",
+        "name": "Vesa Juvonen"
+      }
     ],
     "references": [
-      { "name": "Build your first SharePoint Copilot App", "description": "Build and package an SPFx Copilot Component with inline and full-screen experiences.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app" },
-      { "name": "Microsoft Copilot", "description": "Microsoft Copilot combines models with organizational context and extensibility.", "url": "https://www.microsoft.com/microsoft-365/copilot" },
-      { "name": "SharePoint Framework overview", "description": "Overview of SharePoint Framework client-side solutions for Microsoft 365.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview" }
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Build and package an SPFx Copilot Component with inline and full-screen experiences.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Microsoft Copilot",
+        "description": "Microsoft Copilot combines models with organizational context and extensibility.",
+        "url": "https://www.microsoft.com/microsoft-365/copilot"
+      },
+      {
+        "name": "SharePoint Framework overview",
+        "description": "Overview of SharePoint Framework client-side solutions for Microsoft 365.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
     ]
   }
 ]

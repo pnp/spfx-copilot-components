@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
   "version": "v1.8",
-  "name": "Zava Procurement Command Center",
-  "description": "Govern buying, sourcing, suppliers, invoices, spend, and realized value with evidence-backed experiences.",
+  "name": "ZavaCore Procurement Command Center",
+  "description": "Connect business cases, human approvals, supplier resilience and global investments with verified value.",
   "instructions": "$[file('instruction.txt')]",
   "conversation_starters": [
     {

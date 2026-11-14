@@ -1,11 +1,12 @@
 import { max } from 'd3-array';
 import { scaleBand, scaleLinear, scaleSqrt } from 'd3-scale';
 import { area, curveMonotoneX, line } from 'd3-shape';
+import { calculateCommercialOffer, type ICommercialInput } from '../domain';
 
 export interface ICommercialPoint {
   readonly discount: number;
   readonly margin: number;
-  readonly customerValue: number;
+  readonly contractValue: number;
 }
 
 export interface ICommercialGeometry {
@@ -77,30 +78,27 @@ const RIGHT = 494;
 const TOP = 24;
 const BOTTOM = 154;
 
-export const buildCommercialGeometry = (
-  selectedDiscount: number,
-  selectedMargin: number,
-  quantity: number
-): ICommercialGeometry => {
-  const points: ICommercialPoint[] = [0, 5, 10, 15, 20, 25, 30].map((discount) => ({
-    discount,
-    margin: Math.max(48, Math.min(88, selectedMargin + (selectedDiscount - discount) * 0.72)),
-    customerValue: Math.min(100, 34 + quantity / 24 + discount * 0.85)
-  }));
-  const x = scaleLinear().domain([0, 30]).range([LEFT, RIGHT]);
-  const y = scaleLinear().domain([45, 90]).range([BOTTOM, TOP]);
+export const buildCommercialGeometry = (input: ICommercialInput): ICommercialGeometry => {
+  const maximumDiscount = Math.max(30, input.discount);
+  const discounts = [0, 1, 2, 3, 4, 5, 6].map(index => index * maximumDiscount / 6);
+  if (discounts.indexOf(input.discount) < 0) discounts.push(input.discount);
+  discounts.sort((left, right) => left - right);
+  const points: ICommercialPoint[] = discounts.map(discount => {
+    const result = calculateCommercialOffer({ ...input, discount });
+    if (![result.grossMargin, result.contractValue].every(Number.isFinite) || result.contractValue < 0) throw new Error('Commercial curve requires finite nonnegative scenario economics.');
+    return { discount, margin: result.grossMargin, contractValue: result.contractValue };
+  });
+  const x = scaleLinear().domain([0, maximumDiscount]).range([LEFT, RIGHT]);
+  const y = scaleLinear().domain([Math.min(45, ...points.map(point => point.margin)) - 2, Math.max(90, ...points.map(point => point.margin)) + 2]).range([BOTTOM, TOP]);
   const curve = line<ICommercialPoint>().x((point) => x(point.discount)).y((point) => y(point.margin)).curve(curveMonotoneX);
   const field = area<ICommercialPoint>().x((point) => x(point.discount)).y0(BOTTOM).y1((point) => y(point.margin)).curve(curveMonotoneX);
-  const selectedPoint = {
-    discount: selectedDiscount,
-    margin: selectedMargin,
-    customerValue: Math.min(100, 34 + quantity / 24 + selectedDiscount * 0.85)
-  };
+  const selected = calculateCommercialOffer(input);
+  const selectedPoint = { discount: input.discount, margin: selected.grossMargin, contractValue: selected.contractValue };
   return {
     linePath: curve(points) || '',
     areaPath: field(points) || '',
-    selectedX: x(selectedDiscount),
-    selectedY: y(selectedMargin),
+    selectedX: x(input.discount),
+    selectedY: y(selected.grossMargin),
     selectedPoint
   };
 };
@@ -146,10 +144,11 @@ export const buildPipelineBars = (stages: readonly IPipelineStage[]): readonly I
   }));
 };
 
-export const buildRegionMarks = (regions: readonly IRegionSignal[]): readonly IRegionMark[] => {
+export const buildRegionMarks = (regions: readonly IRegionSignal[], valueDomainMaximum?: number): readonly IRegionMark[] => {
   const x = scaleLinear().domain([-180, 180]).range([LEFT, RIGHT]);
   const y = scaleLinear().domain([90, -60]).range([TOP, BOTTOM]);
-  const radius = scaleSqrt().domain([0, max(regions, (region) => region.value) || 1]).range([7, 22]);
+  const maximum = Math.max(valueDomainMaximum ?? 0, max(regions, region => region.value) || 1);
+  const radius = scaleSqrt().domain([0, maximum]).range([0, 22]);
   return regions.map((region) => ({ ...region, x: x(region.longitude), y: y(region.latitude), radius: radius(region.value) }));
 };
 

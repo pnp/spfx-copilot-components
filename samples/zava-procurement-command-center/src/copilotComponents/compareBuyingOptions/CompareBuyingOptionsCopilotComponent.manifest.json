@@ -16,7 +16,7 @@
     {
       "name": "CompareBuyingOptionsTool",
       "description": {
-        "default": "Compare catalog, contract, reuse, and sourcing routes."
+        "default": "Use when explicitly comparing contract, reuse, catalog, or sourcing routes for an existing purchase request. Do not use for a new purchase intake, supplier bid ranking, or an award decision."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/compareBuyingOptions/CompareBuyingOptionsCopilotComponentProperties.js:default;"

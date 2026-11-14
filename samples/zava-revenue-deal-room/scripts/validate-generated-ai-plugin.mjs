@@ -1,20 +1,181 @@
+import ts from 'typescript';
 import fs from 'node:fs';
 import path from 'node:path';
+import appManifestPackage from '@microsoft/app-manifest';
 import unzipper from 'unzipper';
+import { createRequire } from 'node:module';
 
+const { AppManifestUtils } = appManifestPackage;
 const root = path.resolve(import.meta.dirname, '..');
-const teamsPath = path.join(root, 'teams', 'zava-revenue-deal-room.zip');
-if (!fs.existsSync(teamsPath)) throw new Error('Generated Teams/Copilot package is missing.');
-const archive = await unzipper.Open.file(teamsPath);
+const assetsPath = path.join(root, 'sharepoint', 'solution', 'debug', 'ClientSideAssets');
+const agentFiles = fs.readdirSync(assetsPath).filter(file => file.endsWith('.zip'));
+if (agentFiles.length !== 1) throw new Error('Expected one current embedded agent ZIP.');
+const agentZipPath = path.join(assetsPath, agentFiles[0]);
+const STRING_LIMIT = 4000;
+const METADATA_LIMITS = {
+  name_for_human: 20,
+  description_for_human: 100,
+  description_for_model: 2048
+};
+const ALLOWED_PLACEHOLDERS = new Set(['{{TENANT_MCP_URL}}', '{{TENANT_ORIGIN}}']);
+
+function assert(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+function assertString(value, label, maximum = STRING_LIMIT) {
+  assert(typeof value === 'string' && value.trim().length > 0, `${label} must be a nonempty string.`);
+  assert([...value].length <= maximum, `${label} exceeds the ${maximum}-character limit.`);
+}
+
+function assertOnlyKeys(value, allowed, label) {
+  for (const key of Object.keys(value)) {
+    assert(allowed.has(key), `${label} contains unsupported keyword '${key}'.`);
+  }
+}
+
+function assertPublishedStringLimits(value, label = 'plugin') {
+  if (typeof value === 'string') {
+    if (!ALLOWED_PLACEHOLDERS.has(value)) {
+      assert([...value].length <= STRING_LIMIT, `${label} exceeds the ${STRING_LIMIT}-character plugin string limit.`);
+      assert(!value.includes('{{') && !value.includes('}}'), `${label} contains an unsupported deployment placeholder.`);
+    }
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => assertPublishedStringLimits(item, `${label}[${index}]`));
+    return;
+  }
+  if (value && typeof value === 'object') {
+    Object.entries(value).forEach(([key, item]) => assertPublishedStringLimits(item, `${label}.${key}`));
+  }
+}
+
+assert(fs.existsSync(agentZipPath), `Generated agent package not found at ${agentZipPath}. Run a production build and package-solution first.`);
+const archive = await unzipper.Open.file(agentZipPath);
 const pluginEntry = archive.files.find((entry) => entry.path === 'ai-plugin.json');
-if (!pluginEntry) throw new Error('Generated ai-plugin.json is missing from the agent ZIP.');
+assert(pluginEntry, `Generated agent package ${agentZipPath} does not contain ai-plugin.json.`);
 const plugin = JSON.parse((await pluginEntry.buffer()).toString('utf8'));
-const functions = plugin.functions || [];
-const assert = (condition, message) => { if (!condition) throw new Error(message); };
-assert(plugin.schema_version === 'v2.4', 'Generated plugin must use v2.4.');
-assert(plugin.name_for_human.length <= 20, 'name_for_human exceeds 20 characters.');
-assert(plugin.description_for_human.length <= 100, 'description_for_human exceeds 100 characters.');
-assert(plugin.description_for_model.length <= 2048, 'description_for_model exceeds 2,048 characters.');
-assert(functions.length === 21, `Expected 21 generated functions, received ${functions.length}.`);
-assert(new Set(functions.map((item) => item.name)).size === 21, 'Generated function names must be unique.');
-console.log(JSON.stringify({ schema: plugin.schema_version, functions: functions.length, nameLength: plugin.name_for_human.length }));
+assert(plugin.$schema === 'https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json', 'Generated API plugin must target the v2.4 schema.');
+assert(plugin.schema_version === 'v2.4', 'Generated API plugin schema_version must be v2.4.');
+for (const [key, limit] of Object.entries(METADATA_LIMITS)) {
+  if (plugin[key] !== undefined) {
+    assertString(plugin[key], key, limit);
+  }
+}
+assert(/^[A-Za-z0-9-]+$/.test(plugin.namespace), 'Plugin namespace contains unsupported characters.');
+assertPublishedStringLimits(plugin);
+
+const pluginWithoutPreviewRuntime = structuredClone(plugin);
+delete pluginWithoutPreviewRuntime.runtimes;
+const schemaErrors = await AppManifestUtils.validateAgainstSchema(pluginWithoutPreviewRuntime);
+assert(schemaErrors.length === 0, `Generated API plugin metadata/functions fail Microsoft v2.4 schema validation:\n${schemaErrors.join('\n')}`);
+
+assert(Array.isArray(plugin.functions) && plugin.functions.length === 0, 'SPFx 1.24 GA dynamic discovery must not embed static functions.');
+
+const remoteRuntimes = (plugin.runtimes || []).filter((runtime) => runtime.type === 'RemoteMCPServer');
+assert(remoteRuntimes.length === 1, `Expected one RemoteMCPServer runtime, found ${remoteRuntimes.length}.`);
+const runtime = remoteRuntimes[0];
+assertOnlyKeys(runtime, new Set(['type', 'auth', 'run_for_functions', 'spec', 'output_template']), 'RemoteMCPServer runtime');
+assert(runtime.auth?.type === 'None', 'Generated RemoteMCPServer runtime must use deployment-managed authentication type None.');
+const runtimeUrl = runtime.spec?.url;
+assert(runtimeUrl === '{{TENANT_MCP_URL}}' || URL.canParse(runtimeUrl), 'RemoteMCPServer URL must be the deployment placeholder or an absolute URL.');
+assertOnlyKeys(runtime.spec, new Set(['url']), 'RemoteMCPServer dynamic discovery spec');
+assert(Array.isArray(runtime.run_for_functions) && runtime.run_for_functions.length === 1 && runtime.run_for_functions[0] === '*', 'Dynamic discovery must route all discovered functions through the MCP runtime.');
+
+console.log('Verified generated API plugin v2.4 dynamic MCP tool discovery and published string limits.');
+
+function collectStarterToolNames(directory, names = new Set()) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) collectStarterToolNames(file, names);
+    else if (entry.name.endsWith('CopilotComponent.manifest.json')) {
+      const parsed = ts.parseConfigFileTextToJson(file, fs.readFileSync(file, 'utf8'));
+      assert(!parsed.error, `Invalid source manifest: ${file}`);
+      for (const tool of parsed.config.tools || []) {
+        assert(!names.has(tool.name), `Duplicate source tool: ${tool.name}`);
+        names.add(tool.name);
+      }
+    }
+  }
+  return names;
+}
+const canonicalStarters = JSON.parse(fs.readFileSync(path.join(root, 'config', 'conversation-starters.json'), 'utf8')).starters;
+const sourceAgent = JSON.parse(fs.readFileSync(path.join(root, 'copilot', 'declarativeAgent.json'), 'utf8'));
+const expectedStarters = canonicalStarters.map(({ title, text }) => ({ title, text }));
+assert(JSON.stringify(sourceAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Source starters differ from canonical targets.');
+const declaredStarterTools = collectStarterToolNames(path.join(root, 'src', 'copilotComponents'));
+const starterTargets = canonicalStarters.map(starter => starter.tool || starter.targetName);
+assert(canonicalStarters.length === 12, 'This showcase requires twelve conversation starters: eleven operational tools and the explorer last.');
+assert(JSON.stringify(starterTargets) === JSON.stringify([
+  'ExplorePipelineFlow', 'DiscoverAccountOpportunity', 'ExploreApprovalFlow',
+  'SubmitDealRequest', 'ReviewDealApproval', 'GetMyRevenuePriorities', 'MapBuyingCommittee',
+  'SimulateCommercialOffer', 'ExplorePipelineQuality', 'BuildMutualActionPlan',
+  'BuildValueCase', 'ExploreAgentCapabilities'
+]), 'Starters must map to eleven distinct operational UX components with the capability explorer last.');
+const explorerTargets = [...declaredStarterTools].filter(name => /^ExploreAgentCapabilities(?:Tool)?$/.test(name));
+assert(explorerTargets.length === 1, 'Exactly one dedicated capability-explorer tool must be registered.');
+assert(starterTargets[starterTargets.length - 1] === explorerTargets[0], 'The final starter must target the dedicated feature explorer.');
+assert(starterTargets.slice(0, -1).every(target => target !== explorerTargets[0]), 'All preceding starters must target operational components.');
+assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === canonicalStarters.length, 'Starter titles must be distinct.');
+assert(new Set(starterTargets).size === starterTargets.length, 'Starter targets must be distinct.');
+assert(new Set(canonicalStarters.map(starter => starter.text.toLowerCase().replace(/\s+/g, ' ').trim())).size === canonicalStarters.length, 'Starter prompts must be distinct.');
+for (const starter of canonicalStarters) {
+  assert(!/\b(?:imaginary|fictional|synthetic|mock|demo|sample|sankey)\b/i.test(`${starter.title} ${starter.text}`),
+    `Starter "${starter.title}" must use natural business language, without demonstration labels or chart-engine jargon.`);
+}
+const sourceInstructions = fs.readFileSync(path.join(root, 'copilot', 'instruction.txt'), 'utf8').replace(/\r\n/g, '\n').trim();
+for (const target of starterTargets) {
+  assert(declaredStarterTools.has(target), `Unknown starter target: ${target}`);
+  assert(sourceInstructions.includes(target), `Agent instructions do not name starter target: ${target}`);
+}
+const generatedAgentEntry = archive.files.find(entry => entry.path === 'declarativeAgent.json');
+assert(generatedAgentEntry, 'Generated declarative agent is missing.');
+const generatedAgent = JSON.parse((await generatedAgentEntry.buffer()).toString('utf8'));
+assert(JSON.stringify(generatedAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Packaged starter prompts are stale.');
+assert(generatedAgent.instructions.replace(/\r\n/g, '\n').includes(sourceInstructions), 'Packaged instructions are stale.');
+console.log('Canonical starter ownership verified against source and packaged agent.');
+
+const require = createRequire(import.meta.url);
+const forbidden = new Set(['minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum', 'minLength', 'maxLength', 'minItems', 'maxItems']);
+function validatePortableSchema(value, label) {
+  if (!value || typeof value !== 'object') return;
+  for (const [key, child] of Object.entries(value)) {
+    assert(!forbidden.has(key), `${label}: runtime bounds must not be exported as ${key}`);
+    validatePortableSchema(child, `${label}.${key}`);
+  }
+}
+let propertyContracts = 0;
+for (const folder of fs.readdirSync(path.join(root, 'src', 'copilotComponents'))) {
+  const directory = path.join(root, 'src', 'copilotComponents', folder);
+  for (const file of fs.readdirSync(directory).filter(name => name.endsWith('CopilotComponentProperties.ts'))) {
+    const source = fs.readFileSync(path.join(directory, file), 'utf8');
+    const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true);
+    let sourceFields;
+    function visit(node) {
+      if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'schema' && node.initializer && ts.isCallExpression(node.initializer)) {
+        const object = node.initializer.arguments[0];
+        assert(ts.isObjectLiteralExpression(object), `${file}: expected explicit property contract`);
+        sourceFields = object.properties.map(property => {
+          assert(property.name && property.getText(ast).includes('.optional().describe('), `${file}: every advertised field must be optional and described`);
+          return property.name.getText(ast);
+        });
+      }
+      ts.forEachChild(node, visit);
+    }
+    visit(ast);
+    const compiled = require(path.join(root, 'lib-commonjs', 'copilotComponents', folder, file.replace(/\.ts$/, '.js'))).default;
+    validatePortableSchema(compiled, file);
+    assert(sourceFields && JSON.stringify(sourceFields.sort()) === JSON.stringify(Object.keys(compiled.properties).sort()), `${file}: source and compiled property names differ`);
+    assert(!compiled.required?.length, `${file}: fields must remain optional`);
+    for (const [name, schema] of Object.entries(compiled.properties)) {
+      assert(['string', 'number', 'array'].includes(schema.type), `${file}.${name}: use portable property types`);
+      assertString(schema.description, `${file}.${name}.description`);
+    }
+    propertyContracts++;
+  }
+}
+assert(propertyContracts === 27, `Expected 27 compiled property contracts, found ${propertyContracts}`);
+console.log('Validated 27 source/compiled optional property contracts with portable schemas and runtime-only bounds.');

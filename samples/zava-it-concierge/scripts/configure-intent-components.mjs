@@ -109,14 +109,8 @@ await writeFile(agentConfigPath, `${JSON.stringify(agentConfig, null, 2)}\n`, 'u
 
 const declarativeAgentPath = path.join(projectRoot, 'copilot', 'declarativeAgent.json');
 const declarativeAgent = JSON.parse(await readFile(declarativeAgentPath, 'utf8'));
-declarativeAgent.conversation_starters = [
-  { title: 'Submit a support ticket', text: 'Submit an IT support ticket because my video calls drop when I undock.' },
-  { title: 'Diagnose my Surface', text: 'Run device diagnostics for battery drain on my Surface.' },
-  { title: 'Review approval queue', text: 'Show all pending requests awaiting my approval.' },
-  { title: 'Inspect fleet health', text: 'Show company fleet health by region and department.' },
-  { title: 'Correlate an incident', text: 'Correlate signals for major incident INC-7091.' },
-  { title: 'Explore capabilities', text: 'Explore what Zava IT Concierge can do.' }
-];
+const { starters } = JSON.parse(await readFile(path.join(projectRoot, 'config', 'conversation-starters.json'), 'utf8'));
+declarativeAgent.conversation_starters = starters.map(({ title, text }) => ({ title, text }));
 await writeFile(declarativeAgentPath, `${JSON.stringify(declarativeAgent, null, 2)}\n`, 'utf8');
 
 console.log(`Configured ${intents.length} intent components in one shared bundle.`);

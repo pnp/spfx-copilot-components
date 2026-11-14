@@ -18,6 +18,7 @@ solution
 temp
 *.sppkg
 .heft
+teams/.copilot-agent-hotfix.json
 
 # Coverage directory used by tools like istanbul
 coverage

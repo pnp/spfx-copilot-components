@@ -16,7 +16,7 @@
     {
       "name": "TrackLeakageRecoveryTool",
       "description": {
-        "default": "Review intervention progress and verified recovered value."
+        "default": "Use when the user asks: Is the intervention creating verified value? Outcome: An accountable recovery plan and evidence trail. Boundary: Not leakage detection."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/trackLeakageRecovery/TrackLeakageRecoveryCopilotComponentProperties.js:default;"

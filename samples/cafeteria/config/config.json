@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "cafeteria-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/getListCafeteria/GetListCafeteriaCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getListCafeteria/GetListCafeteriaCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/getMenu/GetMenuCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getMenu/GetMenuCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/searchMenuItems/SearchMenuItemsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/searchMenuItems/SearchMenuItemsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/getCafeteriaDetails/GetCafeteriaDetailsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getCafeteriaDetails/GetCafeteriaDetailsCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "GetListCafeteriaCopilotComponentStrings": "lib/copilotComponents/getListCafeteria/loc/{locale}.js",
+    "GetMenuCopilotComponentStrings": "lib/copilotComponents/getMenu/loc/{locale}.js",
+    "SearchMenuItemsCopilotComponentStrings": "lib/copilotComponents/searchMenuItems/loc/{locale}.js",
+    "GetCafeteriaDetailsCopilotComponentStrings": "lib/copilotComponents/getCafeteriaDetails/loc/{locale}.js"
+  }
+}

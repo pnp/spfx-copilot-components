@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "share-point-lists-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/sharePointLists/SharePointListsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/sharePointLists/SharePointListsCopilotComponent.manifest.json"
+        }
+      ]
+    },
+    "my-profile-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/myProfile/MyProfileCopilotComponent.js",
+          "manifest": "./src/copilotComponents/myProfile/MyProfileCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SharePointListsCopilotComponentStrings": "lib/copilotComponents/sharePointLists/loc/{locale}.js",
+    "MyProfileCopilotComponentStrings": "lib/copilotComponents/myProfile/loc/{locale}.js"
+  }
+}

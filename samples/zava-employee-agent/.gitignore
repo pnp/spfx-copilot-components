@@ -44,3 +44,6 @@ obj
 !sharepoint/solution/
 sharepoint/solution/*
 !sharepoint/solution/zava-employee-agent.sppkg
+
+# Local RC0 agent version fingerprint
+teams/.copilot-agent-hotfix.json

@@ -16,7 +16,7 @@
     {
       "name": "ReviewSupplierAwardTool",
       "description": {
-        "default": "Review supplier award evidence, alternatives, and consequences."
+        "default": "Use when a human must review a proposed single or split supplier award and its authority, concentration, and cost consequences. Do not use for read-only bid ranking or a new purchase request."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewSupplierAward/ReviewSupplierAwardCopilotComponentProperties.js:default;"

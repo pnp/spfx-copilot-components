@@ -13,9 +13,11 @@ const outputDirectory = path.join(projectRoot, 'temp', 'visual-evidence');
 const assetsDirectory = path.join(projectRoot, 'assets');
 const evidencePath = path.join(assetsDirectory, 'visual-evidence.json');
 const desktopViewport = { width: 1440, height: 1000 };
+const inlineViewport = { width: 760, height: 1000 };
 const mobileViewport = { width: 390, height: 844 };
 const intents = await loadIntentCatalog(projectRoot);
 const captureResults = [];
+const responsiveResults = [];
 
 function kebabCase(value) {
   return value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
@@ -70,7 +72,7 @@ async function settlePage() {
   });
 }
 
-async function capture(filename, query, viewport, variant, interact) {
+async function capture(filename, query, viewport, variant, interact, publication = true) {
   consoleErrors = [];
   pageErrors = [];
   await page.setViewportSize(viewport);
@@ -90,10 +92,10 @@ async function capture(filename, query, viewport, variant, interact) {
     horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
     title: document.querySelector('h1, h2')?.textContent?.trim() ?? ''
   }));
-  const filePath = path.join(assetsDirectory, filename);
-  await page.screenshot({ path: filePath, fullPage: true, animations: 'disabled', scale: 'css' });
+  const filePath = path.join(publication ? assetsDirectory : outputDirectory, filename);
+  await page.locator('.visual-harness').screenshot({ path: filePath, animations: 'disabled', scale: 'css' });
   const dimensions = await readPngDimensions(filePath);
-  captureResults.push({
+  (publication ? captureResults : responsiveResults).push({
     filename,
     variant,
     viewport,
@@ -109,7 +111,7 @@ try {
     await capture(
       `inline-${kebabCase(intent.name)}.png`,
       `intent=${encodeURIComponent(intent.name)}&mode=inline&theme=light`,
-      desktopViewport,
+      inlineViewport,
       'inline-default'
     );
   }
@@ -123,14 +125,14 @@ try {
   await capture(
     'inline-approval-queue-detail.png',
     'intent=GetApprovalQueue&mode=inline&theme=light',
-    desktopViewport,
+    inlineViewport,
     'detail',
     async (activePage) => activePage.getByRole('button', { name: /^Review / }).first().click()
   );
   await capture(
     'inline-review-device-approval-confirmation.png',
     'intent=ReviewDeviceApproval&mode=inline&theme=light',
-    desktopViewport,
+    inlineViewport,
     'confirmation',
     async (activePage) => {
       await activePage.getByRole('textbox', { name: 'Decision rationale' }).fill('The request is within policy and protects customer workshop continuity.');
@@ -140,7 +142,7 @@ try {
   await capture(
     'inline-configure-device-request-receipt.png',
     'intent=ConfigureDeviceRequest&mode=inline&theme=light',
-    desktopViewport,
+    inlineViewport,
     'receipt',
     async (activePage) => {
       await activePage.getByRole('textbox', { name: 'Business rationale' }).fill('The configuration supports customer workshops and product analysis.');
@@ -149,6 +151,20 @@ try {
     }
   );
 
+  for (const intent of intents) {
+    await capture(`inline-${kebabCase(intent.name)}-narrow.png`, `intent=${encodeURIComponent(intent.name)}&mode=inline&theme=light`, { width: 340, height: 1000 }, 'narrow-light', undefined, false);
+    await capture(`inline-${kebabCase(intent.name)}-dark.png`, `intent=${encodeURIComponent(intent.name)}&mode=inline&theme=dark`, inlineViewport, 'standard-dark', undefined, false);
+  }
+  const failed = (result) => result.horizontalOverflow || result.brokenImages.length > 0 ||
+    result.deprecatedChrome.length > 0 || result.consoleErrors.length > 0 || result.pageErrors.length > 0;
+  const responsiveFailures = responsiveResults.filter(failed);
+  await writeFile(path.join(assetsDirectory, 'rc0-responsive-evidence.json'), `${JSON.stringify({
+    generatedAt: new Date().toISOString(), intents: intents.length, publishedStates: captureResults.length,
+    supplementalStates: responsiveResults.length, failureCount: responsiveFailures.length,
+    captures: responsiveResults, screenshotLocation: 'Regenerable local temp/visual-evidence captures, not publication thumbnails.'
+  }, null, 2)}\n`, 'utf8');
+  assert(responsiveResults.length === intents.length * 2 && responsiveFailures.length === 0,
+    `Narrow/dark matrix has ${responsiveFailures.length} failure(s): ${responsiveFailures.map(result => result.filename).join(', ')}`);
   const failures = captureResults.filter((result) => result.horizontalOverflow
     || result.brokenImages.length > 0
     || result.deprecatedChrome.length > 0
@@ -168,7 +184,7 @@ try {
   await writeFile(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`, 'utf8');
   assert(captureResults.length === intents.length + 8, `Expected ${intents.length + 8} captures, found ${captureResults.length}.`);
   assert(failures.length === 0, `Visual evidence found ${failures.length} failing capture(s): ${failures.map((result) => result.filename).join(', ')}.`);
-  console.log(`Captured ${captureResults.length} implementation screenshots with zero runtime, media, or overflow failures.`);
+  console.log(`Captured ${captureResults.length} cropped publication screenshots and validated ${responsiveResults.length} supplemental narrow/dark states with zero runtime, media, or overflow failures.`);
 } finally {
   await page.close();
   await browser.close();

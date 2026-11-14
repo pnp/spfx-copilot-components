@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "251fb845-1844-4c37-8df4-664278446444",
+  "alias": "SharePointListsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ShowSharePointLists",
+      "description": {
+        "default": "Shows the lists and libraries on a SharePoint site and lets the user open a list to see its items. Use when the user asks to see, browse, or open SharePoint lists or list items. Do not use for the user's profile, mail, or calendar."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/sharePointLists/SharePointListsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

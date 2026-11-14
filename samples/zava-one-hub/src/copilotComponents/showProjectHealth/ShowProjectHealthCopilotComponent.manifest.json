@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "cc6ad2e3-a7c6-4318-87b2-74ebd6f4069a",
+  "alias": "ShowProjectHealthCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowProjectHealth",
+      "description": {
+        "default": "Use when the user asks about project or portfolio health. Do not use when the user asks about sales performance."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showProjectHealth/ShowProjectHealthCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

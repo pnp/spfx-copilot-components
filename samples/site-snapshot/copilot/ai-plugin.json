@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "siteSnapshot",
+  "name_for_human": "Site Snapshot",
+  "description_for_human": "On-demand health snapshot of a SharePoint site.",
+  "description_for_model": "Analyse a SharePoint site's health: storage, stale documents, external sharing, largest files, duplicates and a file-type breakdown.",
+  "contact_email": "publisher@contoso.com"
+}

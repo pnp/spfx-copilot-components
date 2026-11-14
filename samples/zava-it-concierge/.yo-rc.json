@@ -1,11 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
     "useGulp": false,
-    "plusBeta": true,
+    "plusBeta": false,
     "isCreatingSolution": false,
     "nodeVersion": "22.14.0",
     "sdksVersions": {},
-    "version": "1.24.0-beta.2",
+    "version": "1.24.0",
     "libraryName": "zava-it-concierge",
     "libraryId": "42067fb6-0ecc-4a7f-84e3-083f884c3264",
     "environment": "spo",

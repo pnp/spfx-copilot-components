@@ -1,0 +1,120 @@
+// Organism: story (headline + text). Type comes from the preset variables (tokens/Presets).
+
+.title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: var(--title-size);
+  font-weight: var(--title-weight);
+  line-height: var(--title-line-height);
+  letter-spacing: var(--title-tracking);
+  text-transform: var(--title-transform);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  // Display type is never hyphenated; the glyphs follow the size (optical sizing where the font has it).
+  hyphens: manual;
+  font-optical-sizing: auto;
+  // Optical alignment: the headline's box is its cap height to its baseline. A photo beside it and
+  // the gaps above and below are then measured from the letters, not the line box.
+  text-box: trim-both cap alphabetic;
+}
+
+.text {
+  margin: 0;
+  // The first line starts at its cap height: a photo next to it lines up with the letters.
+  text-box: trim-start cap alphabetic;
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  // Hyphenation dictionaries are picked by the lang attribute of the text (WCAG 3.1.2 pays twice).
+  hyphens: auto;
+}
+
+// CJK: no hyphenation; Japanese line breaking follows kinsoku rules.
+.title,
+.text {
+  &:lang(ja),
+  &:lang(zh),
+  &:lang(ko) {
+    hyphens: none;
+  }
+
+  &:lang(ja) {
+    line-break: strict;
+    word-break: normal;
+  }
+}
+
+// Connected scripts: letters join, so the presets' tracking (positive or negative) would pull them
+// apart or crush the joins.
+.title,
+.text {
+  &:lang(ar),
+  &:lang(fa),
+  &:lang(ur),
+  &:lang(ps) {
+    letter-spacing: 0;
+  }
+}
+
+// Urdu is read in Nastaliq (the slanted calligraphic style of Urdu print), not in the Naskh shapes of
+// the sans fonts. Nastaliq is tall and descends deep, so it needs more line height. Fonts as installed:
+// Windows' optional "Urdu Typesetting", Noto, or Jameel; Naskh remains the fallback.
+.title:lang(ur),
+.text:lang(ur) {
+  font-family: "Urdu Typesetting", "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", var(--font-body);
+}
+
+.title:lang(ur) {
+  line-height: 1.6;
+}
+
+.text:lang(ur) {
+  line-height: 2.1;
+}
+
+.sentence {
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.15s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.current {
+  background: var(--card-highlight-background);
+  color: var(--card-highlight-text);
+  // The marker reaches a little past the letters (no layout shift, unlike padding).
+  box-shadow: 0 0 0 0.15em var(--card-highlight-background);
+}
+
+// The word being read (CSS Custom Highlight API, registered in story.ts).
+.text::highlight(cosmopolite-word),
+.sentence::highlight(cosmopolite-word) {
+  background-color: var(--card-word-background);
+  color: var(--card-word-text);
+  // Not colour alone: the word is also underlined.
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.18em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sentence {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .current {
+    forced-color-adjust: none;
+    background: Mark;
+    color: MarkText;
+    box-shadow: 0 0 0 0.15em Mark;
+  }
+
+  .text::highlight(cosmopolite-word),
+  .sentence::highlight(cosmopolite-word) {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+}

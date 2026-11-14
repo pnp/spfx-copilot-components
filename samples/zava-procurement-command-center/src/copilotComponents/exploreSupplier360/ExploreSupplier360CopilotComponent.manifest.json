@@ -16,7 +16,7 @@
     {
       "name": "ExploreSupplier360Tool",
       "description": {
-        "default": "Explore supplier obligations, performance, risk, and owners."
+        "default": "Use when the user asks: What relationship evidence changes the next decision? Outcome: Connected contracts, obligations, performance, and owners. Boundary: Not a vendor master."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreSupplier360/ExploreSupplier360CopilotComponentProperties.js:default;"

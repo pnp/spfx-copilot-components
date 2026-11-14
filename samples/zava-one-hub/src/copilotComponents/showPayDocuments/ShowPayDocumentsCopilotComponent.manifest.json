@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "7398a2dd-285a-4c63-9302-212c6c4a7f1f",
+  "alias": "ShowPayDocumentsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowPayDocuments",
+      "description": {
+        "default": "Use when the user asks for payslips or tax documents. Do not use when the user asks about benefits or equity."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showPayDocuments/ShowPayDocumentsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

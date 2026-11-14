@@ -16,7 +16,7 @@
     {
       "name": "PlanSupplierRiskMitigationTool",
       "description": {
-        "default": "Plan owned mitigations and residual supplier exposure."
+        "default": "Use when the user asks: Which actions reduce residual exposure? Outcome: An owned, triggered mitigation plan. Boundary: Not risk scoring."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/planSupplierRiskMitigation/PlanSupplierRiskMitigationCopilotComponentProperties.js:default;"

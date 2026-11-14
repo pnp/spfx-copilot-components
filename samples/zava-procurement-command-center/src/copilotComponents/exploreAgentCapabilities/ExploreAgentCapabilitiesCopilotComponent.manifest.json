@@ -16,7 +16,7 @@
     {
       "name": "ExploreAgentCapabilitiesTool",
       "description": {
-        "default": "Search and safely preview Procurement agent operations."
+        "default": "Use when the user asks: What can Zava Procurement do safely? Outcome: Searchable safe previews of all 21 operations. Boundary: Never confirms an action."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponentProperties.js:default;"

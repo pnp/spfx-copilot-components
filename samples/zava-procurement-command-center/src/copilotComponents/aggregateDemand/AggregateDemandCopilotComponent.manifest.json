@@ -16,7 +16,7 @@
     {
       "name": "AggregateDemandTool",
       "description": {
-        "default": "Find and simulate consolidatable purchase demand."
+        "default": "Use when the user asks: Which needs should move together? Outcome: A reviewable demand cohort and timing scenario. Boundary: Not event creation."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/aggregateDemand/AggregateDemandCopilotComponentProperties.js:default;"

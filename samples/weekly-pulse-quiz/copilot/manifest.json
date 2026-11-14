@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.0",
+  "id": "08631c9c-4cfa-47a1-8a75-0c686009adcf",
+  "developer": {
+    "name": "Anand Vijayaragavan",
+    "websiteUrl": "https://anandvijayaragavan.substack.com/",
+    "privacyUrl": "https://anandvijayaragavan.substack.com/",
+    "termsOfUseUrl": "https://anandvijayaragavan.substack.com/"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Weekly Pulse",
+    "full": "Weekly Pulse Quiz"
+  },
+  "description": {
+    "short": "Answer this week's Weekly Pulse question in Copilot.",
+    "full": "Shows this week's Weekly Pulse question from SharePoint inside Microsoft 365 Copilot. Pick an answer, get instant feedback and an optional explanation. Your answer isn't shown to colleagues."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "declarativeAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": []
+}

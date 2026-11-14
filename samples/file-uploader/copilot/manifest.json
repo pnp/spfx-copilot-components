@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.8",
+  "id": "f7c5b9d9-1ee8-4a99-bc4b-c1356a9ba8d7",
+  "developer": {
+    "name": "Brightwater Community Foundation",
+    "websiteUrl": "https://www.example.org",
+    "privacyUrl": "https://www.example.org/privacy",
+    "termsOfUseUrl": "https://www.example.org/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Document Intake",
+    "full": "Document Intake"
+  },
+  "description": {
+    "short": "Complete intake for invoices and expense reports.",
+    "full": "Guides intake of invoices and expense reports so every record is complete before it is stored."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "fileUploaderAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

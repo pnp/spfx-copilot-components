@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "8d1dd58e-7fb9-4efa-adbf-207a338a6328",
+  "alias": "CompanyKnowledgeWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Verified company knowledge" },
+    "description": { "default": "Find grounded company knowledge with source and effective date." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwNzVmY2UiIGZpbGw9IiMwNzVmY2UiPjxwYXRoIGQ9Ik0xMy4yNSA3YTEgMSAwIDEgMS0yIDAgMSAxIDAgMCAxIDIgMFpNMTEuNSA5Ljc1djVhLjc1Ljc1IDAgMCAwIDEuNSAwdi01YS43NS43NSAwIDAgMC0xLjUgMFpNNCA0LjVBMi41IDIuNSAwIDAgMSA2LjUgMkgxOGEyLjUgMi41IDAgMCAxIDIuNSAyLjV2MTQuMjVjMCAuNDEtLjM0Ljc1LS43NS43NUg1LjVhMSAxIDAgMCAwIDEgMWgxMy4yNWEuNzUuNzUgMCAwIDEgMCAxLjVINi41QTIuNSAyLjUgMCAwIDEgNCAxOS41di0xNVpNMTkgMThWNC41YTEgMSAwIDAgMC0xLTFINi41YTEgMSAwIDAgMC0xIDFWMThIMTlaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "CompanyKnowledge"
+    }
+  }]
+}

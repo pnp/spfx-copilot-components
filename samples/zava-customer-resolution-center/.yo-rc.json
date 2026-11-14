@@ -1,11 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
     "useGulp": false,
-    "plusBeta": true,
+    "plusBeta": false,
     "isCreatingSolution": false,
     "nodeVersion": "22.23.2",
     "sdksVersions": {},
-    "version": "1.24.0-beta.3",
+    "version": "1.24.0",
     "libraryName": "zava-customer-resolution-center",
     "libraryId": "0a393708-8e57-4169-808b-af1a2c873d88",
     "environment": "spo",

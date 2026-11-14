@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "7c653a88-a294-4c28-8f3c-21185aaff1e5",
+  "alias": "ShowEmployeeSurveysCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowEmployeeSurveys",
+      "description": {
+        "default": "Use when the user asks about an employee poll or survey. Do not use when the user wants to send praise."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showEmployeeSurveys/ShowEmployeeSurveysCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

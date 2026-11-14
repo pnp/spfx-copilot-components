@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "tutorial-access-data",
+    "environment": "spo",
+    "packageManager": "npm",
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "react",
+    "componentName": "MyProfile",
+    "componentDescription": "Shows the user's profile, mail, and calendar",
+    "plusBeta": true,
+    "isCreatingSolution": false,
+    "nodeVersion": "22.22.3",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.5",
+    "libraryName": "tutorial-access-data",
+    "libraryId": "8dca467a-2e72-434e-88c5-8b43b607a464",
+    "solutionShortDescription": "tutorial-access-data description",
+    "skipFeatureDeployment": true
+  }
+}

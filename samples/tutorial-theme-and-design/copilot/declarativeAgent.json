@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Design Showcase Agent",
+  "description": "Shows sample project cards in a component that follows the Copilot theme and adapts to the inline and fullscreen display modes.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Design showcase",
+      "text": "Show the design showcase"
+    },
+    {
+      "title": "Sample projects",
+      "text": "Show me the sample projects"
+    }
+  ],
+  "actions": [
+    {
+      "id": "designShowcaseAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

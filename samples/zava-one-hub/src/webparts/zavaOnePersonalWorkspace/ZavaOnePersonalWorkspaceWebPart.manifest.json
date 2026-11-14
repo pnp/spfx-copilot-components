@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ded9158d-a589-4e34-a46d-25677aced30c",
+  "alias": "ZavaOnePersonalWorkspaceWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "SharePointFullPage", "TeamsPersonalApp", "TeamsTab"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One personal workspace" },
+    "description": { "default": "Zava One personal workspace opens a focused composed workspace without a tab switcher." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiM2YjNmOTEiIGZpbGw9IiM2YjNmOTEiPjxwYXRoIGQ9Ik0xMCAxMmE1IDUgMCAxIDAgMC0xMCA1IDUgMCAwIDAgMCAxMFptMC04LjVhMy41IDMuNSAwIDEgMSAwIDcgMy41IDMuNSAwIDAgMSAwLTdabS01Ljc1IDEyaDkuMTJsMS43Ny0xLjVINC4yNEMzLjAyIDE0IDIgMTUgMiAxNi4yNXYuNThjMCAuODkuMzIgMS43NS45IDIuNDNDNC40NiAyMS4xIDYuODUgMjIgMTAgMjJjLjcgMCAxLjM3LS4wNSAyLS4xNHYtMS41MmMtLjYyLjEtMS4yOC4xNi0yIC4xNi0yLjc0IDAtNC43LS43NS01Ljk2LTIuMjEtLjM1LS40MS0uNTQtLjkzLS41NC0xLjQ2di0uNThjMC0uNDIuMzMtLjc1Ljc1LS43NVptMTIuNTItMS41OGExLjEyIDEuMTIgMCAwIDEgMS40NiAwbDMuMzcgMi44N2MuMjUuMjIuNC41My40Ljg2djQuNDljMCAuNDctLjM5Ljg2LS44Ny44NmgtMS4yN2EuODYuODYgMCAwIDEtLjg2LS44NnYtMi40NWEuNy43IDAgMCAwLS42OS0uNjlIMTYuN2EuNy43IDAgMCAwLS42OS43djIuNDRjMCAuNDctLjM5Ljg2LS44Ni44NmgtMS4yN2EuODYuODYgMCAwIDEtLjg3LS44NnYtNC41YzAtLjMyLjE1LS42My40LS44NWwzLjM3LTIuODdaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "ZavaOnePersonalWorkspace"
+    }
+  }]
+}

@@ -1,0 +1,12 @@
+// Molecule: language chip (the chip itself is atoms/Chip).
+
+.chipName {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.chipTag {
+  font-family: var(--font-mono);
+  direction: ltr;
+  unicode-bidi: isolate;
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "fdcc1e97-dc2d-48a3-8b8d-751ff2f24073",
+  "alias": "TasksWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Tasks and follow-ups" },
+    "description": { "default": "Review and complete source-preserving assigned work." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwZjZjYmQiIGZpbGw9IiMwZjZjYmQiPjxwYXRoIGQ9Ik0xMi41IDEwLjI1YzAtLjQxLjM0LS43NS43NS0uNzVoMy41YS43NS43NSAwIDAgMSAwIDEuNWgtMy41YS43NS43NSAwIDAgMS0uNzUtLjc1Wm0uNzUgNC43NWEuNzUuNzUgMCAxIDAgMCAxLjVoMy41YS43NS43NSAwIDEgMCAwLTEuNWgtMy41Wm0tMi40Ny01LjIyYS43NS43NSAwIDEgMC0xLjA2LTEuMDZsLTEuNDcgMS40Ny0uNDctLjQ3YS43NS43NSAwIDAgMC0xLjA2IDEuMDZsMSAxYy4zLjMuNzcuMyAxLjA2IDBsMi0yWm0wIDQuNDRjLjMuMy4zLjc3IDAgMS4wNmwtMiAyYy0uMy4zLS43Ny4zLTEuMDYgMGwtMS0xYS43NS43NSAwIDEgMSAxLjA2LTEuMDZsLjQ3LjQ3IDEuNDctMS40N2MuMy0uMy43Ny0uMyAxLjA2IDBabTUuMjEtMTAuMTRBMi4yNSAyLjI1IDAgMCAwIDEzLjc1IDJoLTMuNWMtMS4xNiAwLTIuMTEuODctMi4yNCAySDYuMjVDNS4wMSA0IDQgNSA0IDYuMjV2MTMuNUM0IDIwLjk5IDUgMjIgNi4yNSAyMmgxMS41YzEuMjQgMCAyLjI1LTEgMi4yNS0yLjI1VjYuMjVDMjAgNS4wMSAxOSA0IDE3Ljc1IDRoLTEuNzZ2LjA4Wm0wIC4wMi4wMS4xNVY0LjFabS01Ljc0IDIuNGgzLjVjLjc4IDAgMS40Ny0uNCAxLjg3LTFoMi4xM2MuNDEgMCAuNzUuMzQuNzUuNzV2MTMuNWMwIC40MS0uMzQuNzUtLjc1Ljc1SDYuMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi4yNWMwLS40MS4zNC0uNzUuNzUtLjc1aDIuMTNjLjQuNiAxLjA5IDEgMS44NyAxWm0wLTNoMy41YS43NS43NSAwIDAgMSAwIDEuNWgtMy41YS43NS43NSAwIDAgMSAwLTEuNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4=",
+    "properties": {
+      "description": "Tasks"
+    }
+  }]
+}

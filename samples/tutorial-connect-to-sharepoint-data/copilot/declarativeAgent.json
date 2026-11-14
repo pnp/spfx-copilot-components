@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "MyCopilotApp Agent",
+  "description": "MyCopilotApp description",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Lists on a site",
+      "text": "Show me the lists on a SharePoint site"
+    }
+  ],
+  "actions": [
+    {
+      "id": "myCopilotAppAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

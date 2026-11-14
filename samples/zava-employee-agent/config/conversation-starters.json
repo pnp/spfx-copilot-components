@@ -1,0 +1,34 @@
+{
+  "starters": [
+    {
+      "title": "My HR priorities",
+      "text": "Show my HR dashboard for this week.",
+      "tool": "GetMyHRDashboard"
+    },
+    {
+      "title": "Draft time off",
+      "text": "Draft a vacation request for November 9 through November 13, 2026.",
+      "tool": "RequestTimeOff"
+    },
+    {
+      "title": "Compare benefit plans",
+      "text": "Compare benefit plans for an employee with two children, prioritizing dental coverage and a low deductible.",
+      "tool": "CompareBenefitPlans"
+    },
+    {
+      "title": "Required learning",
+      "text": "Show my mandatory learning due in the next 14 days.",
+      "tool": "GetRequiredLearning"
+    },
+    {
+      "title": "Manager leave approvals",
+      "text": "Show the leave requests awaiting my approval.",
+      "tool": "GetApprovalInbox"
+    },
+    {
+      "title": "Explore employee features",
+      "text": "Explore the employee and HR features this agent supports.",
+      "tool": "ExploreAgentCapabilitiesTool"
+    }
+  ]
+}

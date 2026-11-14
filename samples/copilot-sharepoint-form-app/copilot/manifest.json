@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.3.7",
+  "id": "f5b06608-81e0-4e5f-b34b-ede242d0ece9",
+  "developer": {
+    "name": "Anand Vijayaragavan",
+    "websiteUrl": "https://anandvijayaragavan.substack.com/",
+    "privacyUrl": "https://anandvijayaragavan.substack.com/",
+    "termsOfUseUrl": "https://anandvijayaragavan.substack.com/"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "SharePoint Form",
+    "full": "Copilot SharePoint Document Submission Form"
+  },
+  "description": {
+    "short": "Submits a document and metadata to a SharePoint library.",
+    "full": "Renders an inline SharePoint Framework form in Microsoft 365 Copilot chat so a person can pick a file up to 50 MB and fill the target document library columns without putting the file in the prompt."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "declarativeAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": []
+}

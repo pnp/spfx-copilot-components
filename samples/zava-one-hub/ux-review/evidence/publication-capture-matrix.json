@@ -1,0 +1,282 @@
+{
+  "capturedAt": "2026-10-20T10:14:47.287Z",
+  "captureMode": "rendered-element",
+  "captures": [
+    {
+      "path": "assets/preview.png",
+      "source": "local-ux-review",
+      "query": "intent=capabilities&surface=webPart",
+      "layout": "capability-explorer",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 1600,
+      "height": 778,
+      "bytes": 65203,
+      "sha256": "25061fe868fb71921eec59ece23ac26a71d730ef894dfe03326f4ec915d4282e",
+      "geometry": {
+        "width": 1600,
+        "height": 778,
+        "scrollWidth": 1600,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-company-workspace.png",
+      "source": "local-ux-review",
+      "query": "intent=workspace&mode=combined&primaryView=company",
+      "layout": "workspace-combined-company",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 1600,
+      "height": 5479,
+      "bytes": 2357179,
+      "sha256": "c1a21a27bde1ceea3ee6c42b429c7b0e7beadb8ed68db29acbc2a2c1d6f113ae",
+      "geometry": {
+        "width": 1600,
+        "height": 5479,
+        "scrollWidth": 1600,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-personal.png",
+      "source": "local-ux-review",
+      "query": "intent=workspace&mode=combined&primaryView=personal",
+      "layout": "workspace-combined-personal",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 1600,
+      "height": 3722,
+      "bytes": 621264,
+      "sha256": "d7781db0b9c65436b5388e9cabf13c2db9f4220196a6bf491411525561393037",
+      "geometry": {
+        "width": 1600,
+        "height": 3722,
+        "scrollWidth": 1600,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-company-news.png",
+      "source": "local-ux-review",
+      "query": "intent=companyNews&surface=webPart&primaryView=editorial",
+      "layout": "news-editorial",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 1600,
+      "height": 1289,
+      "bytes": 1224706,
+      "sha256": "b2f783a096c3ebf16e79a8251993af807b1209ac38233c73be9da760cdf4cd29",
+      "geometry": {
+        "width": 1600,
+        "height": 1289,
+        "scrollWidth": 1600,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-recognition-compose.png",
+      "source": "local-ux-review",
+      "query": "intent=recognition&surface=copilotInline&primaryView=compose",
+      "layout": "recognition-compose-compose",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 681,
+      "bytes": 52360,
+      "sha256": "045125f2d3ea54d57bf3584ff4b9ab25f281df84881ff0712a54706e5b81a726",
+      "geometry": {
+        "width": 720,
+        "height": 681,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-sales-performance.png",
+      "source": "local-ux-review",
+      "query": "intent=salesPerformance&surface=copilotInline",
+      "layout": "company-sales-performance",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 719,
+      "bytes": 38084,
+      "sha256": "3c12044ea83737d9466e50ea3370e41e58b9bab672b22dda2191fd5999b5f9e6",
+      "geometry": {
+        "width": 720,
+        "height": 719,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-office-map.png",
+      "source": "local-ux-review",
+      "query": "intent=officeDetails&surface=copilotInline",
+      "layout": "company-office-map",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 716,
+      "bytes": 120236,
+      "sha256": "9b62aafbc55dd1963019bf4af7c5c03000e2f9f46b7eb0daea764a676622bd4a",
+      "geometry": {
+        "width": 720,
+        "height": 716,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-vacation-approvals.png",
+      "source": "local-ux-review",
+      "query": "intent=vacationApprovals&surface=copilotInline",
+      "layout": "vacation-approvals-queue-list",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 660,
+      "bytes": 55095,
+      "sha256": "efa8a9e3fdf86051ce80e3586a129781f86194da2bd39bc9b81dfd5d83e5a0ff",
+      "geometry": {
+        "width": 720,
+        "height": 660,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-vacation-detail.png",
+      "source": "local-ux-review",
+      "query": "intent=vacationApprovals&surface=copilotInline",
+      "layout": "vacation-approvals-queue-detail",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 632,
+      "bytes": 45887,
+      "sha256": "cb8d12971a2dc411b4fd451d0590285724a17a88d457de3845132589ca5b5688",
+      "geometry": {
+        "width": 720,
+        "height": 632,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-vacation-decision.png",
+      "source": "local-ux-review",
+      "query": "intent=vacationApprovals&surface=copilotInline",
+      "layout": "vacation-approvals-queue-decision",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 490,
+      "bytes": 27342,
+      "sha256": "c50f13b374a6bbf495fe1c16eb778b7fb28a5c673af2f15f063d7c9014fbf70c",
+      "geometry": {
+        "width": 720,
+        "height": 490,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-vacation-receipt.png",
+      "source": "local-ux-review",
+      "query": "intent=vacationApprovals&surface=copilotInline",
+      "layout": "vacation-approvals-queue-receipt",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 590,
+      "bytes": 34399,
+      "sha256": "35ed469ff6736a0935b2579d8787845eaa649d242a9fbf2a4f45934ebb9e0de8",
+      "geometry": {
+        "width": 720,
+        "height": 590,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    },
+    {
+      "path": "assets/screenshot-vacation-updated-list.png",
+      "source": "local-ux-review",
+      "query": "intent=vacationApprovals&surface=copilotInline",
+      "layout": "vacation-approvals-queue-list",
+      "viewport": {
+        "width": 1600,
+        "height": 1000
+      },
+      "width": 720,
+      "height": 586,
+      "bytes": 46476,
+      "sha256": "e3b956ce816859bc5cd9a7c52269e30e5bd17682b9d9cf8f55ad730ee5e09c9a",
+      "geometry": {
+        "width": 720,
+        "height": 586,
+        "scrollWidth": 720,
+        "documentWidth": 1600,
+        "viewportWidth": 1600,
+        "brokenImages": 0
+      },
+      "runtimeErrors": 0
+    }
+  ]
+}

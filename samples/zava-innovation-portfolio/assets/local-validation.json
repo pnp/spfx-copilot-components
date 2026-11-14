@@ -1,0 +1,24 @@
+{
+  "validatedAt": "2026-10-20T14:05:39.9461136Z",
+  "commands": [
+    {
+      "command": "npm run capture:visual",
+      "result": "passed",
+      "curatedCaptures": 11,
+      "intentCaptures": 122,
+      "failures": 0
+    },
+    {
+      "command": "npx tsc --project scripts\\visual-harness\\tsconfig.json",
+      "result": "passed"
+    },
+    {
+      "command": "npm run build",
+      "result": "passed",
+      "warnings": 0,
+      "tests": 64,
+      "testFailures": 0,
+      "testSuites": 5
+    }
+  ]
+}

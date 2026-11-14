@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "starMatch Agent"
+      },
+      "description": {
+        "default": "starMatch description"
+      },
+      "components": [
+        "edd0d926-03a1-43da-9169-5525c493b95f"
+      ]
+    }
+  ]
+}

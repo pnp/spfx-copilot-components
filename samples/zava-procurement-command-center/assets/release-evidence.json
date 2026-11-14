@@ -1,12 +1,19 @@
 {
-  "generatedAt": "2026-09-22T07:12:29.224Z",
+  "generatedAt": "2026-10-28T19:10:00.075Z",
   "package": "sharepoint/solution/zava-procurement-command-center.sppkg",
-  "bytes": 441774,
-  "sha256": "a9cd21d4c6c52e9d0f5e01efae16ee861c9b20861d7569986c715578ce4c13c7",
-  "entries": 40,
+  "bytes": 856717,
+  "sha256": "2e3eeb8269f403c36fe67b2ecddf01cb7dfbcbe2afbb3042169b575eea9b41b0",
+  "solutionVersion": "1.0.0.2",
+  "agentVersion": "1.0.2",
+  "authoredAgentVersion": "1.0.2",
+  "agentSha256": "9734ca588c126745960a3017d6622f35db933a629bcf5c3ddb9165a06f564764",
+  "entries": 47,
   "javascriptAssets": 1,
   "agentArchives": 1,
-  "visualCaptures": 28,
+  "visualCaptures": 84,
+  "keynoteCaptures": 24,
+  "sharedBrandMedia": 7,
   "componentCount": 22,
-  "testCount": 6
+  "testCount": 111,
+  "externalGate": "Authenticated routing, host CSP/focus/accessibility and public media-rights approval remain separate."
 }

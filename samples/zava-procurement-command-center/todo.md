@@ -1,5 +1,87 @@
 # Zava Procurement Command Center - Creation Plan
 
+## ZavaCore modernization - approved October 26, 2026
+
+The user approved retaining the procurement scenario, 22 immutable component identities and four
+workspaces, with **ZavaCore Procurement Command Center** as the product/agent identity. No new
+generated components, GUID changes, external writes, or dependency upgrades are in scope.
+
+### Approved visual contract
+
+- Orange-to-magenta ZavaCore identity from the supplied ZavaCore asset library; warm neutral light
+  surfaces, charcoal dark surfaces, readable brand foregrounds, restrained elevation and strong type.
+- Branded navigation and a photographic field-operations hero rather than a generic KPI-card shell.
+  Use the supplied ZavaCore team portraits for their named fictional sample roles, not as photos of
+  unrelated Microsoft demo personas. Public redistribution remains subject to publisher approval.
+- Adapt the Revenue Deal Room reference's hierarchy, meaningful portraits, evidence rows and clear
+  next actions, not its green palette, sales composition or business semantics. The existing
+  procurement screenshots expose excessive whitespace and duplicate landscape charts; eliminate both.
+- D3-derived supplier evaluation, reconciled value charts and a real offline Natural Earth world
+  projection. Exact values, keyboard alternatives, semantic statuses and honest denominators accompany
+  every visualization. Region filters change records and calculations, not just captions.
+- Guided intake, explicit evidence review, authority safeguards, human rationale, confirmation,
+  connected session queues and receipts. No real awards, payments or ERP writes are implied.
+- Distinct mobile layouts, light/dark states, reduced-motion and 200% zoom evidence. Inline remains
+  focused on one question; coordinated dashboards belong only in full screen.
+
+### Workspace purpose and competitive benchmark
+
+| Workspace | Persona / benchmark | Decision and dominant surface | Data grain / operations | Must not become |
+| --- | --- | --- | --- | --- |
+| My Requests | Requester / Zip guided intake | What needs my attention? Outcome journey and approval inbox | Canonical request, budget evidence, submit and review | A second generic analytics dashboard |
+| Sourcing Workbench | Category lead / GEP sourcing optimization | Which award balances cost, delivery and continuity? Criteria and award readiness | One sourcing event, bids, scenario, explicit award review | Duplicate copies of the inline bid chart |
+| Supplier 360 | Risk lead / JAGGAER supplier intelligence | Which obligation threatens continuity? Relationship scorecard and owned mitigation | Selected supplier, contract and dependency evidence | A global investment dashboard |
+| Spend Command | CPO / Ivalua connected source-to-pay | Where are investments producing verified value? Regional world map, delivery and value bridge | EUR-reporting programs, region drill-down, interventions | Unreconciled currencies or opportunity presented as savings |
+
+Primary-source benchmark reviewed October 26, 2026 (capability descriptions, not independent rankings):
+[Zip](https://zip.com/) emphasizes intake-to-pay orchestration;
+[Ivalua](https://www.ivalua.com/solutions/process/source-to-pay-platform/) joins intake, suppliers,
+sourcing, contracts and invoices on one data model;
+[GEP](https://www.gep.com/software/gep-quantum-intelligence) describes bid optimization, risk,
+obligations and invoice matching;
+[JAGGAER](https://www.jaggaer.com/solutions/source-to-pay) connects sourcing, procurement and supplier
+intelligence. SAP and Coupa pages were access-blocked during research, so no unverified comparison
+claims are made. The sample's sweet spot is a bounded conversational task that expands into a
+decision workspace with transparent evidence and human authority, not a replica of an enterprise suite.
+
+### Delivery gates
+
+- [x] Approve scope, branding, visual contract, workspace purposes and preserved identities.
+- [x] Stage optimized local brand/portrait assets and public-domain geography with hash provenance.
+- [x] Prove the premium shell and sourcing slice; inspect representative light/dark/mobile pixels.
+- [x] Connect purchase submission to its exact review record, status queue and session timeline.
+- [x] Complete distinct role workspaces, regional investments, charts and approval journeys.
+- [x] Validate controls, calculations, bridge context, workflow safeguards and responsive evidence.
+- [x] Refresh demo scripts, screenshots, agent branding and audited production package.
+- [ ] **External gate:** authenticated tenant validation and final publisher/media-rights approval.
+
+**Validated result:** `npm run build` passed with 111 tests in both development and production,
+zero lint warnings/errors, generated-plugin validation, package audit and publication validation.
+`npm run capture:visual` produced 84 current gallery states; `npm run check:keynote` produced 24
+additional responsive/200%-page-scale and business-journey checkpoints. VS Code reports no source
+diagnostics and `git diff --check` passes. Temporary capture servers are stopped.
+
+The current `.sppkg` is **856,731 bytes**, with one shared **520,420-byte** JavaScript asset
+(154,537 compressed bytes), one ZavaCore agent ZIP, seven unique runtime brand/portrait files, and
+two declared publication screenshots. The three portraits and both embedded agent icons match
+provenance; duplicate runtime media count is zero. The package increase from the historical
+441,766-byte baseline is intentional: approved photography/portraits, real geographic geometry,
+new connected workspaces/charts and substantially richer packaged publication screenshots. It
+remains below the existing 2 MB package gate and 1 MiB JavaScript investigation threshold.
+Exact current hashes and versions are generated in [release evidence](assets/release-evidence.json);
+the additional journey matrix is [saved here](ux-review/evidence/zavacore-modernization.json).
+
+The new-intake approval flow and curated 600-device sourcing-to-value flow are separate, explicit
+rehearsal slices. New requests do not fabricate bids or orders. A confirmed curated award updates
+its modeled investment commitment but not delivery or savings. Historical completion statements
+below describe earlier releases, not evidence for this modernization.
+
+## RC0 update - October 20, 2026
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the implementation tracker for the product and UX brief in [README.md](README.md). The sample
 follows [agentic-creation-rules.md](agentic-creation-rules.md). The Zava Revenue Deal Room is an
 implementation-quality reference, not a screen template. No dependency changes, component generation,
@@ -42,7 +124,7 @@ The four operational lenses have distinct jobs:
 | Supplier 360 | What relationship, obligation, and dependency evidence changes this supplier decision? | Relationship ledger and geographic/sub-tier dependency weave | One supplier across contracts, performance, risk, and obligations | A vendor master record |
 | Spend Command | Where can intervention convert addressable spend into verified value? | Spend-to-value river with leakage, concentration, cash, and accountable actions | Portfolio to transaction-to-evidence trace | An equal-weight metric-card dashboard |
 
-`ExploreAgentCapabilities` continues to an isolated education route. It is not a fifth operational lens
+`ExploreAgentCapabilitiesTool` continues to an isolated education route. It is not a fifth operational lens
 and does not appear in operational navigation.
 
 ## Key decisions still requiring approval
@@ -83,18 +165,18 @@ The implementation order is stage-evidence driven, not the component table order
 
 ### Scope and catalog
 
-- [x] Approve these requester and approval tools as immutable names: `CreatePurchaseIntent`,
-  `CompareBuyingOptions`, `CheckPurchasePolicy`, `ReviewPurchaseRequest`, and
-  `ManagePurchaseOrderChange`.
-- [x] Approve these sourcing tools as immutable names: `AggregateDemand`, `BuildSourcingEvent`,
-  `CompareSupplierBids`, and `ReviewSupplierAward`.
-- [x] Approve these supplier and contract tools as immutable names: `OnboardSupplier`,
-  `ReviewSupplierQualification`, `ExploreSupplier360`, `ReviewContractRenewal`,
-  `NegotiateContractTerms`, `TrackSupplierRisk`, and `PlanSupplierRiskMitigation`.
-- [x] Approve these spend, AP, and portfolio tools as immutable names: `DetectSpendLeakage`,
-  `ResolveInvoiceException`, `ExploreSpendPerformance`, `TrackLeakageRecovery`, and
-  `ExploreSupplierPortfolioBalance`.
-- [x] Approve `ExploreAgentCapabilities` as the isolated education tool.
+- [x] Approve these requester and approval tools as immutable names: `CreatePurchaseIntentTool`,
+  `CompareBuyingOptionsTool`, `CheckPurchasePolicyTool`, `ReviewPurchaseRequestTool`, and
+  `ManagePurchaseOrderChangeTool`.
+- [x] Approve these sourcing tools as immutable names: `AggregateDemandTool`, `BuildSourcingEventTool`,
+  `CompareSupplierBidsTool`, and `ReviewSupplierAwardTool`.
+- [x] Approve these supplier and contract tools as immutable names: `OnboardSupplierTool`,
+  `ReviewSupplierQualificationTool`, `ExploreSupplier360Tool`, `ReviewContractRenewalTool`,
+  `NegotiateContractTermsTool`, `TrackSupplierRiskTool`, and `PlanSupplierRiskMitigationTool`.
+- [x] Approve these spend, AP, and portfolio tools as immutable names: `DetectSpendLeakageTool`,
+  `ResolveInvoiceExceptionTool`, `ExploreSpendPerformanceTool`, `TrackLeakageRecoveryTool`, and
+  `ExploreSupplierPortfolioBalanceTool`.
+- [x] Approve `ExploreAgentCapabilitiesTool` as the isolated education tool.
 - [ ] Apply the two-of-five promotion test from the creation rules to every tool and document why each
   independently earns conversational routing.
 - [x] Freeze each tool's prompt properties, operation class, first useful state, action boundary,
@@ -196,8 +278,8 @@ The implementation order is stage-evidence driven, not the component table order
 ### Supported dependency baseline
 
 - [ ] Reconcile all `@microsoft/sp-*` packages with a fresh generator output for the exact approved
-  `1.24.0-beta.3` build.
-- [x] Pin React/ReactDOM `18.3.1`, React types `18.2.79`/`18.2.25`, Fluent React Components `9.74.6`,
+  `1.24.0-rc.0` build.
+- [x] Pin React/ReactDOM `18.3.1`, React types `18.3.31`/`18.3.7`, Fluent React Components `9.74.6`,
   Fluent Icons `2.0.314`, and Griffel React `1.7.7` exactly.
 - [x] Remove direct Fluent UI v8 after proving no v8 source import remains.
 - [x] Install Jest and only the focused D3 modules/types selected by the visualization spike.
@@ -294,7 +376,7 @@ The implementation order is stage-evidence driven, not the component table order
 
 ### Representative premium slice
 
-- [ ] Build `CompareSupplierBids` inline with the final brand hierarchy, supplier media treatment,
+- [ ] Build `CompareSupplierBidsTool` inline with the final brand hierarchy, supplier media treatment,
   criteria controls, D3 weighted landscape, sensitivity rail, exceptions, exact table, and Expand.
 - [ ] Build its exact Sourcing Workbench continuation with event context, demand cohort, criteria,
   supplier evidence, risk, award readiness, and coordinated selection.
@@ -320,7 +402,7 @@ The implementation order is stage-evidence driven, not the component table order
 
 - [ ] Complete currency-normalized bid comparison, total-value landscape, weight/scenario interaction,
   missing-data confidence, exceptions, sensitivity, alternatives, and exact values.
-- [x] Prove every retained `CompareSupplierBids` control changes calculation and geometry.
+- [x] Prove every retained `CompareSupplierBidsTool` control changes calculation and geometry.
 - [x] Prove that this tool cannot award a supplier and continues exactly to `sourcing/evaluation`.
 
 ### Review proof: ReviewSupplierAward
@@ -342,27 +424,27 @@ The implementation order is stage-evidence driven, not the component table order
 
 ### Intent to sourcing
 
-- [ ] Complete `CompareBuyingOptions`, `CheckPurchasePolicy`, `ReviewPurchaseRequest`, and
-  `AggregateDemand` around the same rugged-device request.
+- [ ] Complete `CompareBuyingOptionsTool`, `CheckPurchasePolicyTool`, `ReviewPurchaseRequestTool`, and
+  `AggregateDemandTool` around the same rugged-device request.
 - [ ] Implement the intent-to-path navigator and similarity cohort with meaningful route, threshold,
   timing, savings, emissions, policy, and launch-risk changes.
-- [ ] Complete `BuildSourcingEvent` with editable requirements, weighted criteria, supplier invitations,
+- [ ] Complete `BuildSourcingEventTool` with editable requirements, weighted criteria, supplier invitations,
   timetable, fairness safeguards, conflicts, validation, reviewed confirmation, and receipt.
 
 ### Risk-adjusted award
 
-- [ ] Complete `TrackSupplierRisk` with the projected geographic/sub-tier dependency weave, signals,
+- [ ] Complete `TrackSupplierRiskTool` with the projected geographic/sub-tier dependency weave, signals,
   affected commitments, scenarios, mitigations, owners, and exact evidence.
-- [ ] Complete `PlanSupplierRiskMitigation` so actions visibly change residual exposure, continuity,
+- [ ] Complete `PlanSupplierRiskMitigationTool` so actions visibly change residual exposure, continuity,
   effort, ownership, triggers, and verification evidence.
 - [ ] Prove the selected signal changes the award scenario for defensible reasons and the reviewed split
   stays within the frozen story constraints.
 
 ### Invoice and realized-value payoff
 
-- [ ] Complete `ResolveInvoiceException` with exact PO/receipt/invoice differences, tolerance, tax/
+- [ ] Complete `ResolveInvoiceExceptionTool` with exact PO/receipt/invoice differences, tolerance, tax/
   currency, supplier history, cash consequence, authority, disposition, confirmation, and receipt.
-- [ ] Complete `ExploreSpendPerformance` with the D3 spend-to-value river, exact stage values, accountable
+- [ ] Complete `ExploreSpendPerformanceTool` with the D3 spend-to-value river, exact stage values, accountable
   drivers, and trace from opportunity to contract and realized evidence.
 - [ ] Prove the disputed surcharge is excluded from realized value until the session correction resolves
   it, then updates the downstream view without mutating seeds.
@@ -382,7 +464,7 @@ The implementation order is stage-evidence driven, not the component table order
 
 - [ ] Implement the outcome tracker, route/evidence status, approvals, delivery promise, PO changes,
   and next action with no requisition-table default.
-- [ ] Complete and validate `ManagePurchaseOrderChange` as a purpose-specific before/after review.
+- [ ] Complete and validate `ManagePurchaseOrderChangeTool` as a purpose-specific before/after review.
 
 ### Sourcing Workbench
 
@@ -394,15 +476,15 @@ The implementation order is stage-evidence driven, not the component table order
 
 - [ ] Implement relationship, contracts, spend, obligations, performance, incidents, dependencies,
   owners, and timeline around supplier decisions.
-- [ ] Complete and validate `OnboardSupplier`, `ReviewSupplierQualification`, `ExploreSupplier360`,
-  `NegotiateContractTerms`, and `ReviewContractRenewal` with distinct operation-specific bodies.
+- [ ] Complete and validate `OnboardSupplierTool`, `ReviewSupplierQualificationTool`, `ExploreSupplier360Tool`,
+  `NegotiateContractTermsTool`, and `ReviewContractRenewalTool` with distinct operation-specific bodies.
 
 ### Spend Command
 
 - [ ] Implement leakage, recovery, concentration, risk, cash, cycle time, compliance, and value-stage
   interventions around the spend-to-value river rather than an equal-weight KPI grid.
-- [ ] Complete and validate `DetectSpendLeakage`, `TrackLeakageRecovery`, and
-  `ExploreSupplierPortfolioBalance` with material filters, exact evidence, owners, and actions.
+- [ ] Complete and validate `DetectSpendLeakageTool`, `TrackLeakageRecoveryTool`, and
+  `ExploreSupplierPortfolioBalanceTool` with material filters, exact evidence, owners, and actions.
 
 ### Workspace proof
 

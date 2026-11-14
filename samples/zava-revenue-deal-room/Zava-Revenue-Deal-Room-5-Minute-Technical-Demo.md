@@ -1,4 +1,4 @@
-# Zava Revenue Deal Room - 5-minute technical demo
+# ZavaMesh Revenue Deal Room - 5-minute technical demo
 
 ## 0:00-0:40 - Immutable component catalog
 
@@ -12,11 +12,14 @@ Show `src/shared/RevenueCopilotComponentBase.tsx` and `src/shared/RevenueThemePr
 
 Explain one persistent React 18 root per entrypoint, teardown, Griffel targeting `ownerDocument`, host-authoritative `requestDisplayModeAsync('fullscreen')`, bounded model-context snapshots, and explicit user-triggered follow-ups.
 
-Call out the remaining test work honestly: complete fresh-signature/transient continuation and fake-bridge lifecycle matrices remain open in `todo.md`.
+Show the React DOM tests: passive rerenders, mode/theme continuation, fresh argument signatures,
+unmount/reset, scope no-match, committed context and visible bridge failure. The theme provider no
+longer remounts its children after the first effect.
 
 ## 1:20-2:20 - D3 visualization-first UX
 
-Show `src/shared/visualizations/revenueGeometry.ts`, `RevenueCharts.tsx`, and `RevenueApp.tsx`.
+Show `src/shared/visualizations/revenueGeometry.ts`, `RevenueCharts.tsx`, `RevenueApp.tsx`,
+`FullscreenWorkspace.tsx` and `fullscreenWorkspaceModel.ts`.
 
 Highlight:
 
@@ -25,9 +28,14 @@ Highlight:
 - D3 signed forecast-waterfall geometry
 - D3 Natural Earth projection and TopoJSON paths for the offline regional opportunity map
 - React-owned SVG marks, state, keyboard actions, accessible names, exact labels, and adjacent tables
-- Coordinated full-screen analytical regions across My Deals, Deal Room, Commercial Desk, and Revenue Command
+- Separate landing and selected-work states across My Deals, Deal Room, Commercial Desk, and Revenue Command
+- Catalog-based component-to-workspace mapping, exact scenario selection and mounted draft resume
+- Full-width country maps and fictional value flows in their business-appropriate workspace
+- Active-only model-context publishing: hidden work is retained but never presented as visible data
 
-Run the six geometry/domain tests and show that changed inputs produce different paths and coordinates.
+Show the current Jest suite and generated release evidence, including exact term/ramp costs,
+discount authority boundaries, all 27 content bodies, complete review/confirm/receipt/reset lifecycles,
+workspace navigation, scenario continuity and redraw-size notifications.
 
 ## 2:20-3:05 - Deterministic domain and people
 
@@ -39,11 +47,17 @@ Report 80 accounts, 260 contacts, 120 opportunities, the connected `ZDR-2042` ev
 
 Show `scripts/visual-harness`, `scripts/capture-gallery-assets.mjs`, `assets/gallery-evidence.json`, `assets/sample.json`, and `Zava-Revenue-Deal-Room-Routing-Matrix.md`.
 
-Report 13 current captures with zero runtime errors, broken images, or horizontal overflow. Show the projected map, pipeline, commercial contour, forecast bridge, mobile Deal Room, dark theme, and full-screen analytical dashboards.
+Report the current capture totals from release evidence, with zero runtime/console, broken-image or
+overflow failures. The supplementary matrix covers all 27 inline tools at standard/narrow/dark,
+four workspace landings, selected scenarios, ten reviews, ten receipts and property/gate states.
+Show `assets/business-matrix-evidence.json`; all visual sets are bound to current runtime source hashes.
 
 ## 3:45-4:35 - Production package gates
 
-Run `npm run build` and explain the ordered gates: catalog, routing matrix, persona provenance, gallery evidence, clean production tests, package generation, generated plugin validation, final package audit, and release-evidence freshness.
+Run `npm run build` and explain the ordered gates: catalog, routing matrix, persona provenance, curated
+and matrix freshness, publication, clean production tests, packaging, dynamic MCP plugin and portable
+source/compiled schema validation, package audit and release-evidence freshness. Also run
+`npx tsc --project scripts/visual-harness/tsconfig.json`.
 
 Show `assets/release-evidence.json` and the committed `.sppkg`.
 
@@ -54,6 +68,7 @@ Close with the service boundary: the sample is offline and deterministic. Live C
 ## Presenter checklist
 
 - Run `npm run build` before presenting and verify release evidence is current.
-- Do not claim all 20 operational bodies have complete purpose-specific lifecycle depth.
+- Show `RevenueExperiences.tsx` and `operations.ts`: every operational body is specific, while review
+  framing is shared. Do not imply that session receipts propagate into another mounted tool or CRM.
 - Do not claim authenticated host checks from the tenant-free harness.
 - Keep map, pipeline, forecast, commercial, mobile, and dark screenshots open as the fallback path.

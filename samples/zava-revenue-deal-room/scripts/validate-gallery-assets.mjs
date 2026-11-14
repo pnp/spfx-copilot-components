@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
+import { visualSourceSignature } from './visual-source-signature.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const assets = path.join(root, 'assets');
@@ -22,6 +24,12 @@ for (const thumbnail of sample.thumbnails) {
   assert(evidence.captures.some((capture) => capture.name === thumbnail.name), `${thumbnail.name} has no current evidence.`);
 }
 assert(evidence.failureCount === 0, 'Visual evidence contains failures.');
+assert(evidence.sourceSha256 === visualSourceSignature(root), 'Curated visuals are stale for the current runtime source.');
+for (const capture of evidence.captures) {
+  const bytes = fs.readFileSync(path.join(assets, capture.name));
+  assert(bytes.length === capture.bytes && crypto.createHash('sha256').update(bytes).digest('hex') === capture.sha256, `${capture.name} does not match capture evidence.`);
+  if (!capture.mode) assert(capture.inlineHeight > 0 && capture.inlineHeight <= 650, `${capture.name} exceeds the measured inline height budget.`);
+}
 const expectedWorkspaceLayouts = {
   'fullscreen-my-deals-analytics.png': 'my-deals-dashboard',
   'fullscreen-deal-room.png': 'deal-room-dashboard',

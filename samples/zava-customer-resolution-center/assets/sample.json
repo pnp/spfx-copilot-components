@@ -12,29 +12,115 @@
       "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only. Verified facts, calculations, inferences, recommendations, human decisions, and actions remain distinct."
     ],
     "creationDateTime": "2026-08-31",
-    "updateDateTime": "2026-09-21",
-    "products": ["SharePoint", "Copilot"],
+    "updateDateTime": "2026-10-28",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
     "metadata": [
-      { "key": "SAMPLE-TYPE", "value": "SPFx-CopilotComponent" },
-      { "key": "CLIENT-SIDE-DEV", "value": "React" },
-      { "key": "SPFX-VERSION", "value": "1.24.0-beta.3" }
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
     ],
     "thumbnails": [
-      { "name": "fullscreen-resolution-room.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-resolution-room.png", "alt": "Resolution Room connecting verified and contrary evidence to a safe resolution path, SLA clock, incident signal, and expert swarm" },
-      { "name": "fullscreen-service-operations.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-service-operations.png", "alt": "Service Operations command view with demand river, projected global customer map, driver Pareto, and recovery outcome matrix" },
-      { "name": "fullscreen-customer-360.png", "type": "image", "order": 102, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-customer-360.png", "alt": "Customer 360 relationship view with promise constellation, commitment runway, timeline, and recovery consequences" },
-      { "name": "fullscreen-my-queue.png", "type": "image", "order": 103, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-my-queue.png", "alt": "My Queue judgment cockpit with ranked customer cases, SLA consequence clock, and agent-prepared work" },
-      { "name": "inline-triage-customer-issue.png", "type": "image", "order": 104, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-triage-customer-issue.png", "alt": "Inline customer issue triage with resolved customer, product, impact, language, and reviewed case rationale" },
-      { "name": "inline-diagnose-case-evidence.png", "type": "image", "order": 105, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-diagnose-case-evidence.png", "alt": "Inline diagnostic evidence ledger comparing firmware, network, and entitlement hypotheses" },
-      { "name": "inline-service-recovery.png", "type": "image", "order": 106, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-service-recovery.png", "alt": "Inline recovery decision comparing cost, authority, precedent, and expected trust outcome" },
-      { "name": "inline-service-performance.png", "type": "image", "order": 107, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-service-performance.png", "alt": "Inline service performance analysis with demand river and recurring driver Pareto" },
-      { "name": "inline-capability-explorer.png", "type": "image", "order": 108, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-capability-explorer.png", "alt": "Searchable customer resolution scenario explorer with safe prompt preview" },
-      { "name": "fullscreen-service-operations-dark.png", "type": "image", "order": 109, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-service-operations-dark.png", "alt": "Dark Service Operations view with projected global map and exact-value analytical tables" }
+      {
+        "name": "fullscreen-resolution-room.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-resolution-room.png",
+        "alt": "Resolution Room connecting verified and contrary evidence to a safe resolution path, SLA clock, incident signal, and expert swarm"
+      },
+      {
+        "name": "fullscreen-service-operations.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-service-operations.png",
+        "alt": "Service Operations command view with demand river, projected global customer map, driver Pareto, and recovery outcome matrix"
+      },
+      {
+        "name": "fullscreen-customer-360.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-customer-360.png",
+        "alt": "Customer 360 relationship view with promise constellation, commitment runway, timeline, and recovery consequences"
+      },
+      {
+        "name": "fullscreen-my-queue.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-my-queue.png",
+        "alt": "My Queue judgment cockpit with ranked customer cases, SLA consequence clock, and agent-prepared work"
+      },
+      {
+        "name": "inline-triage-customer-issue.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-triage-customer-issue.png",
+        "alt": "Inline customer issue triage with resolved customer, product, impact, language, and reviewed case rationale"
+      },
+      {
+        "name": "inline-diagnose-case-evidence.png",
+        "type": "image",
+        "order": 105,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-diagnose-case-evidence.png",
+        "alt": "Inline diagnostic evidence ledger comparing firmware, network, and entitlement hypotheses"
+      },
+      {
+        "name": "inline-service-recovery.png",
+        "type": "image",
+        "order": 106,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-service-recovery.png",
+        "alt": "Inline recovery decision comparing cost, authority, precedent, and expected trust outcome"
+      },
+      {
+        "name": "inline-service-performance.png",
+        "type": "image",
+        "order": 107,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-service-performance.png",
+        "alt": "Inline service performance analysis with demand river and recurring driver Pareto"
+      },
+      {
+        "name": "inline-capability-explorer.png",
+        "type": "image",
+        "order": 108,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/inline-capability-explorer.png",
+        "alt": "Searchable customer resolution scenario explorer with safe prompt preview"
+      },
+      {
+        "name": "fullscreen-service-operations-dark.png",
+        "type": "image",
+        "order": 109,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-customer-resolution-center/assets/fullscreen-service-operations-dark.png",
+        "alt": "Dark Service Operations view with projected global map and exact-value analytical tables"
+      }
     ],
-    "authors": [{ "gitHubAccount": "vesajuvonen", "pictureUrl": "https://github.com/vesajuvonen.png", "name": "Vesa Juvonen" }],
+    "authors": [
+      {
+        "gitHubAccount": "vesajuvonen",
+        "pictureUrl": "https://github.com/vesajuvonen.png",
+        "name": "Vesa Juvonen"
+      }
+    ],
     "references": [
-      { "name": "Build your first SharePoint Copilot App", "description": "Build and package an SPFx Copilot Component.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app" },
-      { "name": "D3", "description": "Data-driven scales, shapes, and geographic projections used by the offline visualizations.", "url": "https://d3js.org/" }
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Build and package an SPFx Copilot Component.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "D3",
+        "description": "Data-driven scales, shapes, and geographic projections used by the offline visualizations.",
+        "url": "https://d3js.org/"
+      }
     ]
   }
 ]

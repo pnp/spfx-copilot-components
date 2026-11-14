@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "zava-one-hub-client-side-solution",
+    "id": "1ecc25fc-3211-40c0-9ac4-283b994bf411",
+    "version": "1.0.0.18",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Contoso",
+      "websiteUrl": "https://aka.ms/community/home",
+      "privacyUrl": "https://aka.ms/community/home",
+      "termsOfUseUrl": "https://aka.ms/community/home",
+      "mpnId": "M365PNP"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Zava One connects company news, personal work, services, and decisions."
+      },
+      "longDescription": {
+        "default": "A fixture-first SPFx employee experience with 35 shared web-part and Copilot capabilities plus three composed SharePoint and Teams workspaces."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Zava One Hub Feature",
+        "description": "Activates the Zava One Hub web parts and Copilot components.",
+        "id": "4091037b-73f4-4c7e-a0f2-a67093777e6e",
+        "version": "1.0.0.18"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/zava-one-hub.sppkg"
+  }
+}

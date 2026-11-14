@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-innovation-portfolio-client-side-solution",
     "id": "bc6e845d-3252-407d-918d-9c8994491126",
-    "version": "1.0.0.1",
+    "version": "1.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -12,7 +12,7 @@
       "websiteUrl": "https://www.contoso.com",
       "privacyUrl": "https://www.contoso.com/privacy",
       "termsOfUseUrl": "https://www.contoso.com/terms",
-      "mpnId": "Undefined-1.24.0-beta.2"
+      "mpnId": "Undefined-1.24.0-rc.0"
     },
     "metadata": {
       "shortDescription": {
@@ -32,7 +32,7 @@
         "title": "Zava Innovation Hub",
         "description": "Activates the Zava Innovation Hub Copilot Components and connected innovation workspaces.",
         "id": "d8c506a2-31e3-4315-b097-dcb203e878d1",
-        "version": "1.0.0.1"
+        "version": "1.0.0.3"
       }
     ]
   },

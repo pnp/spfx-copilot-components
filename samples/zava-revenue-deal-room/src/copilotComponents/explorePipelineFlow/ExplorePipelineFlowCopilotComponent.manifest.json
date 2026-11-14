@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "24337249-1b4b-482a-94ea-50785ab4600a",
+  "alias": "ExplorePipelineFlowCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExplorePipelineFlow",
+      "description": {
+        "default": "Use for pipeline value flows across regions, buyer readiness and next actions with inspectable stage allocations. Do not treat planning allocations as CRM totals or predicted conversion."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/explorePipelineFlow/ExplorePipelineFlowCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,8 +1,18 @@
 # Executive Sales & Revenue Dashboard
 
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
+> **Inherited lockfile limitation:** Some unchanged third-party tarballs still reference
+> the original OneDrive registry. A clean restore may require access to that feed.
+> Original pinned versions and integrity values are preserved.
+
 > An executive sales & revenue dashboard that lives inside the Microsoft Copilot canvas — store performance and customer satisfaction at a glance.
 
-![SPFx](https://img.shields.io/badge/version-1.24.0--beta.2-yellow.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-17-61DAFB.svg) ![Fluent](https://img.shields.io/badge/UI-Fluent%20UI%20v9-5B3EE8.svg) ![Data](https://img.shields.io/badge/Data-Microsoft%20Graph-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
+![SPFx](https://img.shields.io/badge/version-1.24.0-green.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg) ![Fluent](https://img.shields.io/badge/UI-Fluent%20UI%20v9-5B3EE8.svg) ![Data](https://img.shields.io/badge/Data-Microsoft%20Graph-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
 
 ## Summary
 
@@ -22,7 +32,7 @@ _Inline (left) + full-screen (right)._
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.24.0--beta.2-yellow.svg)
+![version](https://img.shields.io/badge/version-1.24.0-green.svg)
 
 ## Applies to
 
@@ -34,13 +44,13 @@ _Inline (left) + full-screen (right)._
 
 ## Prerequisites
 
-- Node.js >=22.14.0 <23.0.0
-- A Microsoft 365 tenant with SPFx 1.24 (dev preview) enabled
+- Node.js 22 (22.14 or later), 24, or 26
+- A Microsoft 365 tenant with SPFx 1.24.0 GA support
 - SharePoint App Catalog site
-- [Heft](https://heft.rushstack.io/) (`npm install -g @rushstack/heft`)
+- Project-local [Heft](https://heft.rushstack.io/) 1.3.2, restored by `npm install`
 - Yeoman + `@microsoft/generator-sharepoint` (only needed to scaffold additional components)
 
-> This solution uses the **Heft** build system (not Gulp), **React 17** functional components and **Fluent UI v9**, aligned with the SPFx 1.24 dev preview.
+> This solution uses the **Heft** build system (not Gulp), **React 18** functional components and **Fluent UI v9**, aligned with the SPFx 1.24.0 GA.
 
 ## Solution
 
@@ -51,6 +61,7 @@ _Inline (left) + full-screen (right)._
 
 | Version | Date       | Comments        |
 | ------- | ---------- | --------------- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0     | 07.08.2026 | Initial release |
 
 ## Disclaimer
@@ -68,18 +79,17 @@ _Inline (left) + full-screen (right)._
 - Clone this repository
 - Ensure that you are at the solution folder (`executive-sales-dashboard`)
 - In the command-line run:
-  - `npm install -g @rushstack/heft`
   - `npm install`
-  - `heft start --clean` — local dev server at `https://localhost:4321`
+  - `npm start` — local dev server at `https://localhost:4321`, using project-local Heft
 - Invoke the agent in Copilot and confirm the inline render, expand-to-full-screen, and dark/light theming.
 
 Production build, test, and package:
 
 ```bash
-heft test --clean --production && heft package-solution --production
+npm run build
 ```
 
-Other build commands can be listed using `heft --help`.
+Other build commands can be listed using `npx --no-install heft --help`.
 
 ## 60-second demo script
 

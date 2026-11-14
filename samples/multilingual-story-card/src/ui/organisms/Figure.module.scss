@@ -1,0 +1,66 @@
+// Organism: figure (photo, skeleton, credit). Sizes per layout are the template's business.
+
+.figure {
+  position: relative;
+  margin: 0;
+  min-inline-size: 0;
+
+  &[hidden] {
+    display: none !important;
+  }
+}
+
+// width/height attributes carry the real aspect ratio; auto block-size keeps it.
+.image {
+  display: block;
+  inline-size: auto;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--border-radius-lg);
+  // Materialise rather than pop in: blur and scale settle as the photo arrives (Apple §12).
+  transition: opacity 240ms ease-out, filter 240ms ease-out, transform 240ms ease-out;
+
+  &[data-loading] {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.01);
+  }
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  background: linear-gradient(135deg, var(--card-placeholder-from), var(--card-placeholder-to));
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+  text-align: center;
+
+  &[aria-busy="true"] {
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .placeholder[aria-busy="true"] {
+    animation: none;
+  }
+
+  .image {
+    transition: opacity 200ms ease;
+
+    &[data-loading] {
+      filter: none;
+      transform: none;
+    }
+  }
+}

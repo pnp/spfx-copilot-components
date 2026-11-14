@@ -1,0 +1,34 @@
+{
+  "starters": [
+    {
+      "title": "Submit a support ticket",
+      "text": "Submit an IT support ticket because my video calls drop when I undock.",
+      "tool": "ReportItIssueTool"
+    },
+    {
+      "title": "Diagnose my Surface",
+      "text": "Run device diagnostics for battery drain on my Surface.",
+      "tool": "RunDeviceDiagnosticsTool"
+    },
+    {
+      "title": "Review approval queue",
+      "text": "Show all pending requests awaiting my approval.",
+      "tool": "GetApprovalQueueTool"
+    },
+    {
+      "title": "Inspect fleet health",
+      "text": "Show company fleet health by region and department.",
+      "tool": "GetFleetHealthTool"
+    },
+    {
+      "title": "Correlate an incident",
+      "text": "Correlate signals for major incident INC-7091.",
+      "tool": "CorrelateMajorIncidentTool"
+    },
+    {
+      "title": "Explore capabilities",
+      "text": "Explore what Zava IT Concierge can do.",
+      "tool": "ExploreAgentCapabilitiesTool"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "externalRuntimeMedia": false,
+  "publicReviewStatus": "Pending final publisher and supplied-brand redistribution approval",
+  "items": [
+    {
+      "file": "src/shared/assets/brand/logo.png",
+      "source": "Logos\\svg\\ZavaCore-logotype-clr.svg",
+      "sourceSha256": "5460ca28c449bd5a1acd26d446451ffd8f2806e8fc5e36b1ae4da059c41ef772",
+      "sha256": "32db3fe99303f44077ee2b51190b9231bf9a7a0435ee23361ea21b254d08a0e3",
+      "width": 480,
+      "height": 82,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/logo-white.png",
+      "source": "Logos\\svg\\ZavaCore-logotype-wht.svg",
+      "sourceSha256": "4babb028f83a471deaa382ab75b160fd5d29f1866908b8f2ad8f6f6c43e013cd",
+      "sha256": "c32c4e9210c94f2e8980e9272a8d66aeeed49ac6e10e1cdc1f86dfb2cf90a877",
+      "width": 480,
+      "height": 82,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/field-operations.jpg",
+      "source": "Photos\\zavacore photo 2.jpg",
+      "sourceSha256": "5333aad5e865afdd6c72cfd3b1d237cdb3ab94b6cf20d14f2da77f137f7798f3",
+      "sha256": "0ae536bb6b01585524d271d08e7ff43099012629fcd10ec287e94f4dce79aa20",
+      "width": 960,
+      "height": 640,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/carole.jpg",
+      "source": "Photos\\Team\\carole.png",
+      "sourceSha256": "b8e8c58b9768606faeb8f8e3127e844657cec96b438272264f9f2e192ce05f14",
+      "sha256": "59f4be2a0459cacf9b1f95faf7478571bfe0a04ac3a6d4fe15184512cd481c8a",
+      "width": 160,
+      "height": 160,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/david.jpg",
+      "source": "Photos\\Team\\david.png",
+      "sourceSha256": "471346a671982b8a2c1c1d17657e176c9e1e1d8930c51ca63f18f986fe07a31f",
+      "sha256": "546011fd02cbd622fcd11552f265fcbd810f2b827fd386dedd773b78a16739eb",
+      "width": 160,
+      "height": 160,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/serena.jpg",
+      "source": "Photos\\Team\\serena.png",
+      "sourceSha256": "17306e8f011c55d3ba8b27341d182840ddb6fbb2a9b9c6f3ffca19c5a55494f1",
+      "sha256": "d8ffa503b6eadb53d37144917cb1c784b4a06fe09a94aad22c8a85c236e8ff97",
+      "width": 160,
+      "height": 160,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/assets/brand/core-pattern.jpg",
+      "source": "Backgrounds\\Card\\ZavaCore card 4.png",
+      "sourceSha256": "e595f5f371af08ace2e2d9e1a2b77572370f5396fff560af1a667e1e3643f87c",
+      "sha256": "e2c89b31be7c2ad5b7541089a2f9cdce12fd797b989814de88978b779dbac48a",
+      "width": 440,
+      "height": 464,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "copilot/color.png",
+      "source": "Logos\\svg\\ZavaCore-logotype-clr.svg",
+      "sourceSha256": "5460ca28c449bd5a1acd26d446451ffd8f2806e8fc5e36b1ae4da059c41ef772",
+      "sha256": "8556ddfa1e6aa2ce2803fe76d95cbd392b929853aec1b7e1fc773e8062440812",
+      "width": 192,
+      "height": 192,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "copilot/outline.png",
+      "source": "Logos\\svg\\ZavaCore-mark_wht.svg",
+      "sourceSha256": "3ee4be7af7fe5b13bac1ad52f2faf9c962d6834683ffbdd35ea7226f089e8f92",
+      "sha256": "7ccb5d266f361548d75a6c50ca5e0d97939c1c475b5c44dc0b2f8d2cd6c8421c",
+      "width": 32,
+      "height": 32,
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending"
+    },
+    {
+      "file": "src/shared/worldLand.ts",
+      "source": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson",
+      "sourceSha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9",
+      "sha256": "296d801811335ae254ebdb6b9af29db278d67f846484b41c2fe1bbac002c8fb9",
+      "rights": "Natural Earth public domain: https://www.naturalearthdata.com/about/terms-of-use/"
+    }
+  ]
+}

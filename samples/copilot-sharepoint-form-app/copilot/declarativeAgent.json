@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "SharePoint document submission",
+  "description": "Submits a document to one SharePoint document library. The form renders in the chat and owns the file picker, so the file never enters the prompt.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Upload a file to the Knowledge Base",
+      "text": "Upload a file to the Knowledge Base"
+    },
+    {
+      "title": "How to use this app (User guide)",
+      "text": "How do I use the Copilot SharePoint Form app to upload documents in Copilot chat and on a SharePoint page?"
+    },
+    {
+      "title": "Setup & configuration (Page owner guide)",
+      "text": "As a page owner, how do I add and configure the Copilot SharePoint Form web part on a SharePoint page and use it in Copilot chat?"
+    }
+  ],
+  "actions": [
+    {
+      "id": "openSharePointForm",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

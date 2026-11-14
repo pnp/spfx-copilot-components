@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "16b299ca-6ecf-4d7e-a92e-753beb3854dc",
+  "alias": "FindPeopleCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindPeople",
+      "description": {
+        "default": "Use when the user asks who can help or has specific expertise. Do not use when the user asks for team availability."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findPeople/FindPeopleCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

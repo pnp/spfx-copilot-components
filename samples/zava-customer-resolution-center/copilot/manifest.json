@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
   "manifestVersion": "1.29",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "id": "76c9439c-9eb2-4860-b305-5395df2920b8",
   "developer": {
     "name": "Microsoft 365 PnP Community",
@@ -30,6 +30,8 @@
       }
     ]
   },
-  "permissions": ["identity"],
+  "permissions": [
+    "identity"
+  ],
   "validDomains": []
 }

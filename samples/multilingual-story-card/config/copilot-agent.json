@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "CosmoPolite Agent"
+      },
+      "description": {
+        "default": "Ask in any language or dialect: a story card that reads itself aloud"
+      },
+      "components": [
+        "3661a4b1-f03e-4dbd-bb6f-9d2090616faa"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

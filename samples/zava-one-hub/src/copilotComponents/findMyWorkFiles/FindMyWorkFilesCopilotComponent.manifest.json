@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "9b4732b7-cf0e-4998-b05c-33573eeabc67",
+  "alias": "FindMyWorkFilesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindMyWorkFiles",
+      "description": {
+        "default": "Use when the user asks for a recent or known work file. Do not use when the user asks for company policy knowledge."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findMyWorkFiles/FindMyWorkFilesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

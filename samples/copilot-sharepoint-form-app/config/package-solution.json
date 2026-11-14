@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Copilot SharePoint Form App",
+    "id": "2a78784e-605c-4c16-a70f-5272049ee74c",
+    "version": "1.3.7.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Anand Vijayaragavan",
+      "websiteUrl": "https://anandvijayaragavan.substack.com/",
+      "privacyUrl": "https://anandvijayaragavan.substack.com/",
+      "termsOfUseUrl": "https://anandvijayaragavan.substack.com/",
+      "mpnId": "Undefined-1.24.0-rc.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Submit a document and its metadata to one SharePoint document library."
+      },
+      "longDescription": {
+        "default": "Copilot SharePoint Form App lets a person choose a file in the web part and submit it, with the library's required and optional columns, to one document library. Files up to 10 MB upload directly. Larger files up to 50 MB use SharePoint chunked upload. The file is not attached to a Copilot chat. Same-site use relies on the signed-in user's SharePoint permissions and does not request Microsoft Graph admin consent."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "copilot-sharepoint-form-app Feature",
+        "description": "The feature that activates the Copilot SharePoint Form App web part.",
+        "id": "e7b7eec6-7a17-4c6a-9d09-f4ea40c0bd58",
+        "version": "1.3.7.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/copilot-sharepoint-form-app.sppkg"
+  }
+}

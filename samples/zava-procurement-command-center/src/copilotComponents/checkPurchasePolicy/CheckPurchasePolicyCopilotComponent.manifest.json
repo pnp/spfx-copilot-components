@@ -16,7 +16,7 @@
     {
       "name": "CheckPurchasePolicyTool",
       "description": {
-        "default": "Explain applicable purchase rules, evidence, and remediation."
+        "default": "Use when the user asks: Why is this purchase allowed, warned, or blocked? Outcome: An exact policy ledger with remediation. Boundary: Never overrides policy."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/checkPurchasePolicy/CheckPurchasePolicyCopilotComponentProperties.js:default;"

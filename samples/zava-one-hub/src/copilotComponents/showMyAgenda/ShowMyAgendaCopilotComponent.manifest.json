@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "e47c0f83-19e4-4678-89a9-24e2f76ed2b2",
+  "alias": "ShowMyAgendaCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyAgenda",
+      "description": {
+        "default": "Use when the user asks about meetings, calendar, or preparation. Do not use when the user asks for company events."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyAgenda/ShowMyAgendaCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

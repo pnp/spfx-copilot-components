@@ -33,6 +33,13 @@ export interface IProcurementProperties {
   readonly proposedDecision?: string;
   readonly conditionText?: string;
   readonly query?: string;
+  readonly supplierName?: string;
+  readonly country?: string;
+  readonly owner?: string;
+  readonly riskWeight?: number;
+  readonly splitPercent?: number;
+  readonly concentrationLimit?: number;
+  readonly purchaseOrderId?: string;
 }
 
 export interface IIntentDefinition {

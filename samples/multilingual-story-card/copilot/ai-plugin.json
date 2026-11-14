@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "CosmoPolite",
+  "name_for_human": "CosmoPolite Agent",
+  "description_for_human": "Ask in any language or dialect: a story card that reads itself aloud",
+  "description_for_model": "Renders a multilingual story card. Call CosmoPoliteTool for every user message with the detected BCP 47 language of that message and a short text written in that language.",
+  "contact_email": "stefan.bauer@n8d.at"
+}

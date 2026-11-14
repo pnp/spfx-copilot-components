@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "bc6822f0-efe2-4177-9ae9-9cf73c78feae",
+  "alias": "SharePointGovernanceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "SharePointGovernanceTool",
+      "description": {
+        "default": "Renders an executive governance dashboard for the SharePoint tenant: a 0-100 governance score with trend, an AI-generated executive summary, prioritized remediation actions, a tenant-wide insights panel, an estimated risk reduction, and severity-ranked, explainable findings. Supports filtering by riskType, minimumSeverity, and maxResults."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/sharePointGovernance/SharePointGovernanceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

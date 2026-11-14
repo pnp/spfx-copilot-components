@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.2",
+  "id": "ded9158d-a589-4e34-a46d-25677aced30c",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://aka.ms/community/home",
+    "privacyUrl": "https://aka.ms/community/home",
+    "termsOfUseUrl": "https://aka.ms/community/home"
+  },
+  "name": {
+    "short": "Zava One Personal",
+    "full": "Zava One Personal - Your day, work, and services"
+  },
+  "description": {
+    "short": "Organize your day with tasks, approvals, learning, and employee services.",
+    "full": "Make room for what matters in your working day. Zava One Personal brings the focused Personal workspace into your Teams personal app, without a Company/Personal switcher. Explore your day, agenda, tasks, approvals, learning, time off, benefits, and employee services in one composed experience. Personal app installation does not grant access to employee records or create an authorization boundary. This sample uses fictional Zava data and simulated actions for demonstrations; it does not connect to live employee records. Requires the Zava One SharePoint Framework solution to be deployed in your organization's SharePoint App Catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#6B3F91",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "ded9158d-a589-4e34-a46d-25677aced30c",
+      "name": "Zava One Personal",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=ded9158d-a589-4e34-a46d-25677aced30c%26forceLocale={locale}",
+      "scopes": ["personal"],
+      "context": ["personalTab"]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "dc4b262c-ed09-439e-8f59-f4521ec2699b",
+  "alias": "ShowMyLearningCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyLearning",
+      "description": {
+        "default": "Use when the user asks about assigned or required learning. Do not use when the user asks for general tasks or onboarding."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyLearning/ShowMyLearningCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

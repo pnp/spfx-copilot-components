@@ -1,0 +1,77 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-copilot-studio-agent-map",
+    "source": "pnp",
+    "title": "Agent Map for Copilot Studio agents",
+    "shortDescription": "SPFx Copilot UX component that shows an interactive map of a Copilot Studio agent in Microsoft 365 Copilot: its skills, tools, knowledge sources, connected agents, topics, triggers, and evaluation sets.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-studio-agent-map",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-studio-agent-map",
+    "longDescription": [
+      "Agent Map is an SPFx Copilot UX component that shows how a Copilot Studio agent is built, directly in Microsoft 365 Copilot. A declarative agent (\"Agent Map\") calls it as a tool. The inline card shows only the map. The full-screen view adds the environment and agent selectors, search, filters, a list, and a details panel for each skill, tool, knowledge source, connected agent, topic, trigger, and evaluation set.",
+      "The component reads the agent definition from Dataverse with the signed-in user's delegated identity through AadHttpClient, and finds the environments with the Dataverse Global Discovery Service. It is read-only and needs no backend or Azure resources."
+    ],
+    "creationDateTime": "2026-10-29",
+    "updateDateTime": "2026-10-30",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-studio-agent-map/assets/preview.png",
+        "alt": "Agent Map of a Copilot Studio agent with its skills, connector tools, knowledge source, and connected agent"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-studio-agent-map/assets/workbench.png",
+        "alt": "Agent Map in the Copilot Workbench, with the tool properties and the event log"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Ramakrishnan24689",
+        "pictureUrl": "https://github.com/Ramakrishnan24689.png",
+        "name": "Ramakrishnan Raman"
+      }
+    ],
+    "references": [
+      {
+        "name": "Copilot UX components with the SharePoint Framework",
+        "description": "Build interactive experiences for Microsoft 365 Copilot with SharePoint Framework Copilot UX components.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/overview-copilot-apps"
+      },
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "Use the Microsoft Dataverse Web API",
+        "description": "Read and write Dataverse data with the OData v4 Web API.",
+        "url": "https://learn.microsoft.com/power-apps/developer/data-platform/webapi/overview"
+      }
+    ]
+  }
+]

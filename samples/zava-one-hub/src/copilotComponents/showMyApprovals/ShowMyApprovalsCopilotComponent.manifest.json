@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "75c8ae02-24bb-4d6b-b6b6-1bfc798224e1",
+  "alias": "ShowMyApprovalsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyApprovals",
+      "description": {
+        "default": "Use when the user asks for general approvals awaiting a decision. Do not use when the request is specifically a vacation or leave approval."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyApprovals/ShowMyApprovalsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

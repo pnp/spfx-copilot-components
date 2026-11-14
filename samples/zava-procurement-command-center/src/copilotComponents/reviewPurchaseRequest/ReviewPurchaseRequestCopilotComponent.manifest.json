@@ -16,7 +16,7 @@
     {
       "name": "ReviewPurchaseRequestTool",
       "description": {
-        "default": "Review need, budget, policy, and downstream commitment."
+        "default": "Use when the user asks: Does the need justify budget and downstream commitment? Outcome: An authority-aware demand decision. Boundary: Not route selection."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewPurchaseRequest/ReviewPurchaseRequestCopilotComponentProperties.js:default;"

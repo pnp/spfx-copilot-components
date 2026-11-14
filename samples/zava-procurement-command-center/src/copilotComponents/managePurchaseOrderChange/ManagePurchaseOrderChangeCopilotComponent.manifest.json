@@ -16,7 +16,7 @@
     {
       "name": "ManagePurchaseOrderChangeTool",
       "description": {
-        "default": "Review before-and-after purchase order consequences."
+        "default": "Use when the user asks: What does this PO change commit us to? Outcome: An exact before-and-after order decision. Boundary: Not new demand."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/managePurchaseOrderChange/ManagePurchaseOrderChangeCopilotComponentProperties.js:default;"

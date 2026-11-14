@@ -16,7 +16,7 @@
     {
       "name": "CompareSupplierBidsTool",
       "description": {
-        "default": "Compare normalized supplier bids and total-value sensitivity."
+        "default": "Use when comparing normalized supplier bids, evaluation weights, price, delivery, confidence, or risk sensitivity for an event. Do not use to approve a supplier award or compare fulfillment routes."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/compareSupplierBids/CompareSupplierBidsCopilotComponentProperties.js:default;"

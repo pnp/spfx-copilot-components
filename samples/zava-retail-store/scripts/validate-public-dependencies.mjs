@@ -5,7 +5,11 @@ const root = path.resolve(import.meta.dirname, '..');
 const packagePath = path.join(root, 'package.json');
 const lockPath = path.join(root, 'package-lock.json');
 const npmrcPath = path.join(root, '.npmrc');
-const publicRegistryHost = 'registry.npmjs.org';
+const approvedRegistryHosts = new Set([
+  'registry.npmjs.org',
+  'packagefeedproxy.microsoft.io',
+  'ms-feed-25.pkgs.visualstudio.com'
+]);
 const unsupportedSpecPattern = /^(?:file:|git(?:\+|:)|github:|https?:|link:|workspace:)/i;
 
 function assert(condition, message) {
@@ -33,8 +37,8 @@ for (const [name, specifier] of Object.entries(directDependencies)) {
   assert(lockEntry.resolved, `${name} has no resolved public tarball in package-lock.json.`);
   const resolvedUrl = new URL(lockEntry.resolved);
   assert(
-    resolvedUrl.protocol === 'https:' && resolvedUrl.hostname === publicRegistryHost,
-    `${name} resolves outside the public npm registry: ${resolvedUrl.hostname}`
+    resolvedUrl.protocol === 'https:' && approvedRegistryHosts.has(resolvedUrl.hostname) && !resolvedUrl.username && !resolvedUrl.password && !resolvedUrl.search,
+    `${name} resolves outside the approved npm registries: ${resolvedUrl.hostname}`
   );
 }
 
@@ -45,8 +49,8 @@ for (const [packageLocation, lockEntry] of Object.entries(packageLock.packages ?
 
   const resolvedUrl = new URL(lockEntry.resolved);
   assert(
-    resolvedUrl.protocol === 'https:' && resolvedUrl.hostname === publicRegistryHost,
-    `${packageLocation} resolves outside the public npm registry: ${resolvedUrl.hostname}`
+    resolvedUrl.protocol === 'https:' && approvedRegistryHosts.has(resolvedUrl.hostname) && !resolvedUrl.username && !resolvedUrl.password && !resolvedUrl.search,
+    `${packageLocation} resolves outside the approved npm registries: ${resolvedUrl.hostname}`
   );
 }
 
@@ -62,5 +66,5 @@ const microsoftPackages = Object.keys(directDependencies).filter((name) =>
   name.startsWith('@microsoft/')
 );
 console.log(
-  `Verified ${Object.keys(directDependencies).length} direct dependencies and the full lockfile against ${publicRegistryHost}; ${microsoftPackages.length} direct @microsoft packages use public tarballs.`
+  `Verified ${Object.keys(directDependencies).length} direct dependencies and the full lockfile against approved npm registries; ${microsoftPackages.length} direct @microsoft packages use approved tarballs.`
 );

@@ -35,7 +35,7 @@ Generated from the immutable intent catalog and canonical conversation starters.
 - **Review incident:** Review today's activation incident candidates and help me decide the next one. -> `ReviewIncidentResponse`
 - **Review recovery:** Review pending customer recovery requests, starting with Alpine House. -> `ReviewServiceRecovery`
 - **Prepare update:** Draft a French and English update for Alpine House with the next update time. -> `ComposeCustomerUpdate`
-- **Service performance:** Is customer-service resolution keeping up with demand today? -> `ExploreServicePerformance`
+- **Explore customer-resolution features:** Explore the customer-resolution features this agent supports. -> `ExploreAgentCapabilities`
 
 ## Nearest-Sibling Collision Matrix
 
@@ -59,3 +59,4 @@ These configuration-level cases verify positive ownership and negative boundarie
 | Where is team capacity creating SLA risk today? | `BalanceServiceWorkload` | `ManageCaseEscalation` | Analyze aggregate capacity; do not escalate one case. |
 | Bring named activation specialists into case ZCR-1048 for one decision question. | `StartExpertSwarm` | `ManageCaseEscalation`, `BalanceServiceWorkload` | Recruit expertise without transferring queue ownership. |
 | What customer-resolution scenarios can this agent help me with? | `ExploreAgentCapabilities` | `TriageCustomerIssue`, `GetPriorityServiceQueue` | Educate only when no specific operational request is clear. |
+| Explore the customer-resolution features this agent supports. | `ExploreAgentCapabilities` | `GetPriorityServiceQueue`, `ExploreServicePerformance` | Browse capabilities, not a case queue or service performance analysis. |

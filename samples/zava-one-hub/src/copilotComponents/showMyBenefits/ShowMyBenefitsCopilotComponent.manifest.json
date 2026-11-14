@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "19beeccc-fa3d-4664-8eeb-3e4598baf4f6",
+  "alias": "ShowMyBenefitsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyBenefits",
+      "description": {
+        "default": "Use when the user asks about benefits or life events. Do not use when the user asks for pay documents."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyBenefits/ShowMyBenefitsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

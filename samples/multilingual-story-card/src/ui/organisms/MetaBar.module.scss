@@ -1,0 +1,23 @@
+// Organism: meta bar.
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  // Chip text, reading time and theme labels share one baseline, not a centre line.
+  align-items: baseline;
+  gap: var(--space-3xs) var(--space-2xs);
+  margin-block-end: var(--space-3xs);
+
+  // A notice takes its own line below the row.
+  > [data-part="notice"] {
+    flex-basis: 100%;
+    order: 1;
+  }
+}
+
+.info {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+  letter-spacing: 0.01em;
+}

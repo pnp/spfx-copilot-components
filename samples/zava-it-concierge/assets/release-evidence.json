@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "package": "sharepoint/solution/zava-it-concierge.sppkg",
-  "packageBytes": 2147811,
-  "packageSha256": "070040abb6228d9541671bd78c7f539a96e4b790aa5148025b590694028f6e1e",
+  "packageBytes": 2143958,
+  "packageSha256": "d22e0e53f90220755a637b4224350bccccfc5f1eefef7d1c6d38127cb2292a9c",
   "agentPackage": "teams/zava-it-concierge.zip",
-  "agentPackageBytes": 12365,
-  "agentPackageSha256": "691b546d057226ffc92e2c9d4378a3b159401c4d95f6ae11df2b2e4b5e9c6b94",
+  "agentPackageBytes": 7815,
+  "agentPackageSha256": "6e46cb802ffbc481167a0483690df33796cab8b9075af813f3f2099e564cdce7",
   "agentIconHashes": {
     "color.png": "dc2e8cf7c5819a494d2a0809b312cb5e1eda3cd04a7132eeb1605dc4c8c2b8ed",
     "outline.png": "65f0b419ddcc3a13b909310033b1e063f1a07f8c37d32748851d0a9e68f9f934"
@@ -15,7 +15,7 @@
   "primaryJavaScriptEntries": 1,
   "lazyJavaScriptChunks": 44,
   "productionJavaScriptFiles": 45,
-  "totalJavaScriptBytes": 2549954,
+  "totalJavaScriptBytes": 2548049,
   "largestJavaScript": {
     "path": "ClientSideAssets/chunk.569_bf302c67e305112a00f4.js",
     "bytes": 1228383

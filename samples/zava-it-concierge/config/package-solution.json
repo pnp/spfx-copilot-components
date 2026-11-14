@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-it-concierge-client-side-solution",
     "id": "42067fb6-0ecc-4a7f-84e3-083f884c3264",
-    "version": "1.0.0.0",
+    "version": "1.0.0.2",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -12,7 +12,7 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.24.0-beta.2"
+      "mpnId": "Undefined-1.24.0-rc.0"
     },
     "metadata": {
       "shortDescription": {
@@ -30,7 +30,7 @@
         "title": "Zava IT Concierge",
         "description": "Activates the Zava IT Concierge Copilot Components and shared operational dashboards.",
         "id": "fad5696d-8c7e-427d-9df1-244dc8abc438",
-        "version": "1.0.0.0"
+        "version": "1.0.0.2"
       }
     ]
   },

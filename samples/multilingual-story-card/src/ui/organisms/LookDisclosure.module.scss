@@ -1,0 +1,73 @@
+// Organism: look disclosure.
+
+.look {
+  margin: 0;
+}
+
+.lookSummary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-block-size: 2rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  // Chevron that turns towards the content it reveals (hints the direction, Apple §8).
+  &::before {
+    content: "›";
+    display: inline-block;
+    font-size: 1.1em;
+    transition: transform 200ms ease;
+    [dir="rtl"] & {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.look[open] > .lookSummary::before {
+  transform: rotate(90deg);
+}
+
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-m);
+}
+
+// The settings grow out of the summary that revealed them (anchored origin, Apple §7).
+.look[open] > .settings {
+  padding-block-start: var(--space-2xs);
+  transform-origin: top left;
+  animation: lookIn 200ms ease-out;
+
+  [dir="rtl"] & {
+    transform-origin: top right;
+  }
+}
+
+@keyframes lookIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .look[open] > .settings {
+    animation: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .lookSummary {
+    min-block-size: 2.75rem;
+  }
+}

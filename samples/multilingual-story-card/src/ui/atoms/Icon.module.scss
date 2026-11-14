@@ -1,0 +1,16 @@
+// Atom: icon. The play triangle is never mirrored in RTL (it means "play", not "next").
+
+.icon {
+  display: inline-block;
+  inline-size: 1em;
+  text-align: center;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+// Arrows that do mean direction mirror in RTL.
+.mirror {
+  [dir="rtl"] & {
+    transform: scaleX(-1);
+  }
+}

@@ -15,7 +15,7 @@
 //     upcoming request makes that person appear under "Who's out" on re-render.
 //
 // Approve/Decline feedback is kept in local useState; the class re-renders via
-// ReactDOM.render (not remount) so this local state survives the data-service
+// a persistent React root (not remount) so this local state survives the data-service
 // notification, exactly like the Cancel-confirm state in the overview list.
 
 import * as React from 'react';

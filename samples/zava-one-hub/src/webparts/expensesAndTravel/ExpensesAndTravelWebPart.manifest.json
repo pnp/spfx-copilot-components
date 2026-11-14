@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7b14b1a6-cbba-4d34-bc3c-20e99c8afc60",
+  "alias": "ExpensesAndTravelWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Expenses and travel" },
+    "description": { "default": "Review an expense claim and travel handoff." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMxMDdjNDEiIGZpbGw9IiMxMDdjNDEiPjxwYXRoIGQ9Ik00IDUuMjVDNCA0LjAxIDUgMyA2LjI1IDNoOS41QzE2Ljk5IDMgMTggNCAxOCA1LjI1VjE0aDR2My43NWMwIDEuOC0xLjQ2IDMuMjUtMy4yNSAzLjI1aC01LjhjLjAzLS4xNi4wNS0uMzMuMDUtLjV2LTFoMy41VjUuMjVhLjc1Ljc1IDAgMCAwLS43NS0uNzVoLTkuNWEuNzUuNzUgMCAwIDAtLjc1Ljc1VjE0SDRWNS4yNVpNMTggMTkuNWguNzVjLjk3IDAgMS43NS0uNzggMS43NS0xLjc1VjE1LjVIMTh2NFpNOC4yNSA3YS43NS43NSAwIDAgMCAwIDEuNWg1LjVhLjc1Ljc1IDAgMCAwIDAtMS41aC01LjVabS0uNzUgNC43NWMwLS40MS4zNC0uNzUuNzUtLjc1aDUuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTUuNWEuNzUuNzUgMCAwIDEtLjc1LS43NVpNMi41IDE1Yy0uODMgMC0xLjUuNjctMS41IDEuNXY0YzAgLjgzLjY3IDEuNSAxLjUgMS41aDhjLjgzIDAgMS41LS42NyAxLjUtMS41di00YzAtLjgzLS42Ny0xLjUtMS41LTEuNWgtOFptNy41IDFhMSAxIDAgMCAwIDEgMXYxYTIgMiAwIDAgMS0yLTJoMVptLTEgNWMwLTEuMS45LTIgMi0ydjFhMSAxIDAgMCAwLTEgMUg5Wm0tNy00YTEgMSAwIDAgMCAxLTFoMWEyIDIgMCAwIDEtMiAydi0xWm0wIDJhMiAyIDAgMCAxIDIgMkgzYTEgMSAwIDAgMC0xLTF2LTFabTQuNS0yLjI1YTEuNzUgMS43NSAwIDEgMSAwIDMuNSAxLjc1IDEuNzUgMCAwIDEgMC0zLjVaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "ExpensesAndTravel"
+    }
+  }]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Data Access Agent"
+      },
+      "description": {
+        "default": "Shows SharePoint lists and the user's profile, mail, and calendar."
+      },
+      "components": [
+        "251fb845-1844-4c37-8df4-664278446444",
+        "79c31f24-cc11-468a-a997-ef8825bbeb4b"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

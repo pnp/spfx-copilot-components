@@ -118,31 +118,18 @@ const useStyles = makeStyles({
 export interface ITasksPanelProps {
   tasks: ITask[];
   now: Date;
+  onToggleTask: (id: string) => void;
 }
 
-/** Tasks card with a live completion ring and tickable checklist (local state). */
-const TasksPanel: React.FunctionComponent<ITasksPanelProps> = ({ tasks, now }) => {
+/** Task state belongs to the invocation so display-mode changes retain it. */
+const TasksPanel: React.FunctionComponent<ITasksPanelProps> = ({ tasks, now, onToggleTask: toggle }) => {
   const styles = useStyles();
 
-  const [completedIds, setCompletedIds] = React.useState<ReadonlySet<string>>(
-    () => new Set(tasks.filter((t) => t.completed).map((t) => t.id))
-  );
-
-  const toggle = (id: string): void => {
-    setCompletedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
+  const completedIds = new Set(tasks.filter(task => task.completed).map(task => task.id));
 
   const total = tasks.length;
   const completed = tasks.filter((t) => completedIds.has(t.id)).length;
-  const dueToday = tasks.filter((t) => !completedIds.has(t.id) && t.due).length;
+  const dueToday = tasks.filter(task => !task.completed && task.due?.toDateString() === now.toDateString()).length;
   const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
   const dashOffset = RING_CIRC * (1 - pct / 100);
 

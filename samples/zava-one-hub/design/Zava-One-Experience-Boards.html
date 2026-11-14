@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zava One - Coding-agent readiness v0.5</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme:light; --blue:#0f6cbd; --teal:#008272; --violet:#6750a4; --green:#107c41; --gold:#8a6500; --spectrum-blue:#075fce; --spectrum-green:#138a3d; --spectrum-magenta:#b32687; --spectrum-coral:#d84f38; --spectrum:linear-gradient(90deg,var(--spectrum-blue) 0 32%,var(--spectrum-green) 32% 55%,var(--spectrum-magenta) 55% 78%,var(--spectrum-coral) 78%); --ink:#242424; --muted:#58616b; --line:#dce1e6; --canvas:#f5f6f8; --paper:#fff; }
+  * { box-sizing:border-box; }
+  [hidden] { display:none!important; }
+  html { scroll-behavior:smooth; scroll-padding-top:90px; }
+  body { margin:0; background:#edf0f3; color:var(--ink); font:14px/1.5 "Segoe UI Variable","Segoe UI",Arial,sans-serif; }
+  h1,h2,h3,h4,p { margin:0; }
+  h1 { font-size:48px; line-height:1.12; font-weight:650; letter-spacing:-1.3px; }
+  h2 { font-size:27px; line-height:1.25; font-weight:650; letter-spacing:-.4px; }
+  h3 { font-size:16px; line-height:1.35; font-weight:650; }
+  h4 { font-size:14px; line-height:1.4; font-weight:650; }
+  a { color:var(--blue); text-underline-offset:3px; }
+  button,select,input,textarea { font:inherit; }
+  button { cursor:pointer; }
+  button:focus-visible,a:focus-visible,summary:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex="-1"]:focus-visible { outline:3px solid var(--blue); outline-offset:3px; }
+  .skip { position:absolute; top:-100px; left:20px; z-index:10; padding:12px; background:white; }
+  .skip:focus { top:12px; }
+  .docnav { position:sticky; top:0; z-index:4; border-bottom:1px solid var(--line); background:white; }
+  .docnav-inner { max-width:1400px; margin:auto; padding:12px 26px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .brand { display:flex; align-items:center; gap:10px; font-size:19px; font-weight:650; }
+  .z { display:grid; place-items:center; width:34px; height:34px; background:var(--blue); color:white; border-radius:4px; font-size:22px; font-weight:750; flex-shrink:0; }
+  .docnav nav { margin-left:auto; display:flex; gap:17px; flex-wrap:wrap; }
+  .docnav nav a { font-size:12px; color:#465260; text-decoration:none; }
+  .docnav nav a:hover { text-decoration:underline; }
+  .hero { max-width:1340px; margin:auto; padding:48px 28px 28px; }
+  .eyebrow { text-transform:uppercase; letter-spacing:1.7px; font-weight:700; color:var(--teal); font-size:11px; margin-bottom:14px; }
+  .intro { font-size:18px; color:var(--muted); max-width:920px; margin-top:18px; }
+  .meta { display:flex; gap:10px 18px; flex-wrap:wrap; font-size:12px; color:var(--muted); margin-top:20px; align-items:center; }
+  .tag { display:inline-block; border-radius:3px; padding:3px 7px; background:#e9f2fb; color:#195b90; font-size:11px; font-weight:600; }
+  .tag.green { background:#e7f4ed; color:#1b5c37; }
+  .tag.gold { background:#fff3d7; color:#795600; }
+  .tag.gray { background:#edf0f3; color:#56626d; }
+  .tag.violet { background:#f0ebf9; color:#624a91; }
+  .review-note { padding:12px 16px; background:#e4edf5; color:#395b74; font-size:12px; margin-top:22px; border-left:3px solid #6a95b5; }
+  main { max-width:1400px; margin:auto; padding:0 28px 48px; }
+  .board { margin-bottom:42px; }
+  .board-label { display:flex; gap:14px; align-items:flex-start; padding:22px 0 16px; }
+  .number { font-size:12px; font-weight:700; color:var(--blue); padding:5px 9px; background:#dce9f5; border-radius:4px; margin-top:4px; }
+  .board-label p { color:var(--muted); margin-top:6px; max-width:980px; }
+  .frame { border:1px solid #cbd4dc; border-radius:8px; overflow:hidden; background:white; box-shadow:0 5px 18px rgba(30,48,67,.04); }
+  .frame-cap { padding:7px 16px; background:#e9edf2; color:#5c6874; font-size:10px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .hostbar { background:#193e56; color:white; padding:9px 20px; display:flex; align-items:center; gap:16px; min-height:44px; font-size:12px; }
+  .hostbar.teams { background:#46455f; }
+  .host-search { padding:5px 14px; background:#fff; color:#62707c; margin:auto; border-radius:4px; width:40%; }
+  .avatar { width:29px; height:29px; background:#efe4d7; color:#644d35; border-radius:50%; display:grid; place-items:center; font-size:11px; font-weight:650; flex-shrink:0; }
+  .portal-header { padding:14px 24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+  .portal-links { display:flex; gap:22px; flex-wrap:wrap; color:#53616e; font-size:12px; }
+  .topline { height:4px; background:var(--spectrum); }
+  .productbar { background:white; padding:12px 22px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .productbar .brand { font-size:18px; }
+  .tools { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-left:auto; }
+  .searchlike { border:1px solid var(--line); padding:6px 12px; color:#61717e; border-radius:4px; font-size:11px; }
+  .buttonlike,.button { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:6px 12px; border:1px solid #bdc8d2; border-radius:4px; color:#3a4c5c; font-size:12px; font-weight:600; min-height:34px; background:white; text-decoration:none; }
+  .buttonlike { cursor:default; }
+  .button { min-height:40px; }
+  .button:hover { background:#edf4fa; }
+  .primary { background:var(--blue); color:white; border-color:var(--blue); }
+  .button.primary:hover { background:#0b5da6; }
+  .utility { color:var(--blue); font-size:12px; font-weight:600; }
+  .tabbar { background:white; border-bottom:1px solid var(--line); padding:0 22px; display:flex; align-items:center; gap:8px; }
+  .tabbar [role=tab] { border:0; border-bottom:3px solid transparent; background:white; padding:11px 19px; min-height:46px; color:#52616e; font-weight:600; font-size:14px; }
+  .tabbar [aria-selected=true] { color:var(--blue); border-bottom-color:var(--blue); }
+  .tabbar .catalog { margin-left:auto; font-size:12px; color:var(--blue); }
+  .surface { background:var(--canvas); padding:20px 24px 24px; }
+  .heading { display:flex; justify-content:space-between; gap:18px; align-items:center; margin-bottom:16px; }
+  .heading h2 { font-size:26px; }
+  .heading p { font-size:12px; color:var(--muted); margin-top:4px; }
+  .notice { padding:9px 12px; border-left:3px solid #b88800; background:#fff6df; color:#725300; font-size:12px; margin-bottom:16px; }
+  .notice a { color:#725300; }
+  .card { min-width:0; border:1px solid var(--line); border-top:0; border-radius:8px; overflow:hidden; background:var(--paper); }
+  .card::before { content:""; display:block; height:4px; background:var(--spectrum); }
+  .pad { padding:16px; }
+  .cardhead { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  .linklike { font-size:12px; color:var(--blue); font-weight:500; }
+  .subtle { color:var(--muted); font-size:12px; }
+  .source { color:#626e79; border-top:1px solid #e9edf1; padding-top:9px; margin-top:14px; font-size:10px; }
+  .row { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid #ecf0f3; align-items:flex-start; }
+  .row:last-child { border-bottom:0; }
+  .row p { font-size:12px; color:var(--muted); margin-top:4px; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:14px; }
+  .editorial { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:16px; align-items:stretch; }
+  .lead-news { grid-column:1; grid-row:1; }
+  .events { grid-column:2; grid-row:1 / 3; }
+  .supporting-news { grid-column:1; grid-row:2; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .lead-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); min-height:225px; }
+  .lead-art { position:relative; background:#dbe8ef; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:24px; min-height:160px; color:#1b526d; }
+  .lead-art::before { content:""; position:absolute; top:-18px; right:-28px; width:170px; height:170px; border:28px solid #b9d4de; transform:rotate(-30deg); }
+  .lead-art::after { content:""; position:absolute; width:120px; height:120px; border:17px solid #8ebcbf; bottom:-60px; left:-35px; transform:rotate(25deg); }
+  .lead-art b { font-size:28px; line-height:1.1; max-width:190px; z-index:1; }
+  .lead-art small { font-size:10px; letter-spacing:2px; margin-bottom:12px; z-index:1; }
+  .lead-copy { padding:20px; }
+  .lead-copy h3 { font-size:23px; line-height:1.2; margin:9px 0 10px; letter-spacing:-.3px; }
+  .lead-copy .subtle { font-size:13px; }
+  .author { margin-top:14px; color:#586775; font-size:11px; }
+  .small-story { display:flex; gap:12px; align-items:center; background:white; border:1px solid var(--line); border-radius:6px; padding:12px; }
+  .story-icon { width:44px; height:48px; border-radius:4px; background:#e1ece9; color:#316558; display:grid; place-items:center; flex-shrink:0; font-size:12px; font-weight:700; }
+  .small-story h4 { font-size:13px; }
+  .small-story p { font-size:11px; color:var(--muted); margin-top:3px; }
+  .news-shell { display:contents; }
+  .news-toolbar { padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); }
+  .news-toolbar label { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:11px; color:var(--muted); }
+  .news-layout-picker { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .news-toolbar select { max-width:100%; min-height:44px; padding:5px 8px; background:white; border:1px solid #bdc8d2; border-radius:4px; color:var(--ink); }
+  .news-viewport { container-type:inline-size; }
+  .news-items { padding:12px; }
+  .news-item { min-width:0; background:white; border:1px solid var(--line); border-radius:5px; overflow:hidden; }
+  .news-art { min-height:85px; padding:18px; background:#dbe8ef; color:#195674; display:flex; align-items:flex-end; font-size:20px; font-weight:650; }
+  .news-art.local { background:#dfede7; color:#245d4c; }
+  .news-art.team { background:#ebe5f4; color:#604684; }
+  .news-copy { padding:14px; }
+  .news-copy h4 { margin:8px 0; font-size:17px; }
+  .news-copy .author { margin-top:8px; }
+  .news-items.tiles { display:grid; grid-template-columns:1.15fr 1fr; gap:12px; }
+  .news-items.tiles .news-item:first-child { grid-row:span 2; display:flex; flex-direction:column; }
+  .news-items.tiles .news-item:first-child .news-art { min-height:170px; flex:1; }
+  .news-items.layers { display:grid; gap:12px; }
+  .news-items.layers .news-item { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr); }
+  .news-items.compact { display:grid; gap:8px; }
+  .news-items.compact .news-item { display:grid; grid-template-columns:76px minmax(0,1fr); }
+  .news-items.compact .news-art { font-size:12px; padding:8px; min-height:70px; }
+  .news-items.compact .news-copy { padding:10px; }
+  .news-items.compact .news-copy h4 { font-size:15px; }
+  .news-items.compact .news-summary { display:none; }
+  .news-items.filmstrip { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; }
+  .news-items.filmstrip .news-item { flex:0 0 46%; scroll-snap-align:start; }
+  .news-items.carousel .news-item { animation:news-enter 240ms ease-out; }
+  .news-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:12px; border-top:1px solid var(--line); }
+  .news-controls .button { min-height:44px; }
+  .news-controls .position { font-size:12px; color:var(--muted); }
+  .button:disabled { opacity:.5; cursor:default; }
+  .news-controls [aria-current=true] { background:#e6f0fa; border-color:var(--blue); }
+  @container (max-width:500px) {
+    .news-items.tiles,.news-items.layers .news-item { grid-template-columns:1fr; }
+    .news-items.tiles .news-item:first-child { grid-row:auto; }
+    .news-items.tiles .news-item:first-child .news-art { min-height:85px; }
+    .news-items.filmstrip .news-item { flex-basis:84%; }
+  }
+  @keyframes news-enter { from { opacity:.3; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
+  .stage-card .stage-label { font-size:11px; color:#604684; }
+  [data-learning-card],[data-praise-card] { min-width:0; }
+  .stage-card .stage-heading { margin-bottom:10px; }
+  .stage-card .stage-heading:focus { outline-offset:4px; }
+  .stage-face { min-width:0; backface-visibility:hidden; transform-origin:center; }
+  .stage-face.forward { animation:stage-forward 240ms ease-out; }
+  .stage-face.backward { animation:stage-backward 240ms ease-out; }
+  @keyframes stage-forward { from { transform:perspective(1000px) rotateY(-75deg); opacity:.2; } to { transform:perspective(1000px) rotateY(0); opacity:1; } }
+  @keyframes stage-backward { from { transform:perspective(1000px) rotateY(75deg); opacity:.2; } to { transform:perspective(1000px) rotateY(0); opacity:1; } }
+  .stage-card .button,.stage-card select { min-height:44px; }
+  .stage-card label { display:block; font-size:12px; font-weight:600; margin:12px 0; }
+  .stage-card select,.stage-card textarea { display:block; width:100%; margin-top:5px; border:1px solid #8b9aa7; border-radius:4px; padding:8px; color:var(--ink); background:white; }
+  .stage-card textarea { min-height:105px; resize:vertical; }
+  .stage-card .review-message { white-space:pre-wrap; overflow-wrap:anywhere; }
+  .course-list { display:grid; gap:9px; }
+  .course-choice { display:block; width:100%; text-align:left; min-height:66px; border:1px solid #cbd4dc; border-radius:4px; padding:12px; background:white; color:var(--ink); }
+  .course-choice:hover { background:#f1eef8; }
+  .course-choice[aria-current=true] { border-color:var(--violet); background:#f5f2fa; }
+  .course-choice span { display:block; margin-top:5px; font-size:12px; color:var(--muted); }
+  .stage-demo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; padding:24px; background:var(--canvas); align-items:start; }
+  .stage-demo .stage-card { max-width:520px; }
+  .stage-demo>div>p { margin-bottom:14px; }
+  .stage-rules { padding:0 24px 24px; background:var(--canvas); }
+  .stage-rules .annotation { margin-top:0; }
+  .readiness-link { margin-top:14px; }
+  .dark-study { --paper:#2d2d2d; --ink:#f5f5f5; --muted:#c8cfd6; --line:#59616a; color:var(--ink); background:#1f1f1f; padding:18px; border-radius:6px; }
+  .dark-study .source { color:var(--muted); border-color:var(--line); font-size:12px; }
+  .state-study .source { font-size:12px; }
+  .state-study .tag { font-size:12px; }
+  .state-study h4 { margin:10px 0; }
+  .state-study .buttonlike { min-height:44px; }
+  .datebox { width:43px; padding:5px; border:1px solid #cbddec; border-radius:4px; text-align:center; flex-shrink:0; color:#226390; background:#f1f7fc; }
+  .datebox small { display:block; font-size:10px; }
+  .datebox b { display:block; font-size:22px; line-height:1.1; }
+  .sectionline { display:flex; justify-content:space-between; gap:15px; align-items:center; margin:22px 0 12px; }
+  .sectionline h3 { font-size:16px; }
+  .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start; }
+  .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .span2 { grid-column:span 2; }
+  .metric { font-size:32px; font-weight:650; line-height:1.15; margin:8px 0 5px; letter-spacing:-.6px; }
+  .metric small { font-size:13px; color:var(--muted); font-weight:400; letter-spacing:0; }
+  .positive { color:#196237; font-size:12px; }
+  .chart { display:block; width:100%; height:auto; margin-top:10px; }
+  .chart text { font-family:"Segoe UI",Arial,sans-serif; }
+  .poll-option { padding:8px 10px; margin-top:7px; border:1px solid var(--line); border-radius:4px; font-size:12px; }
+  .poll-option::before { content:""; display:inline-block; width:12px; height:12px; border:1px solid #8899a8; border-radius:50%; margin-right:8px; vertical-align:-2px; }
+  .quote { border-left:2px solid #c8b7e2; padding-left:12px; font-size:14px; margin:14px 0; }
+  .barline { display:grid; grid-template-columns:32px minmax(0,1fr) 48px; gap:8px; align-items:center; font-size:12px; margin:12px 0; }
+  .bar-track { height:15px; background:#edf1f5; border-radius:3px; overflow:hidden; }
+  .bar-fill { height:100%; background:var(--blue); }
+  .bar-fill.latest { background:var(--teal); }
+  .term { font-size:26px; font-weight:650; color:#2d5977; margin:9px 0; }
+  .footnote { color:var(--muted); font-size:11px; margin-top:16px; }
+  details { margin-top:12px; font-size:12px; }
+  summary { cursor:pointer; color:var(--blue); min-height:24px; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:12px; }
+  th,td { padding:7px; border-bottom:1px solid var(--line); text-align:left; }
+  .callouts { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:16px; }
+  .callouts p { font-size:13px; color:var(--muted); }
+  .callouts b { display:block; color:#34495a; margin-bottom:4px; }
+  .host-layout { display:grid; grid-template-columns:62px minmax(0,1fr); }
+  .rail { background:#f0f0f5; text-align:center; border-right:1px solid var(--line); padding-top:10px; color:#606079; }
+  .rail div { padding:13px 3px; font-size:10px; }
+  .rail b { display:block; font-size:18px; font-weight:500; }
+  .rail .selected { color:var(--blue); border-left:3px solid var(--blue); background:white; }
+  .fullscreen-host { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:10px 18px; font-size:12px; border-bottom:1px solid var(--line); color:#586572; }
+  .company-highlights { padding:12px 14px; background:#e8f1f8; border-left:3px solid var(--blue); border-radius:4px; margin-bottom:17px; display:flex; flex-wrap:wrap; gap:8px 16px; font-size:12px; align-items:center; }
+  .company-highlights .button { margin-left:auto; }
+  .focus { display:flex; gap:16px; align-items:center; background:#0f609e; color:white; padding:16px 18px; border-radius:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .focus p { color:#e0effa; font-size:12px; margin-top:5px; }
+  .focus .buttonlike { margin-left:auto; }
+  .time { min-width:39px; font-size:12px; color:var(--muted); padding-top:2px; }
+  .event { border-left:2px solid #cfe0ee; padding-left:12px; }
+  .check { width:14px; height:14px; border:1px solid #97a6b4; border-radius:3px; margin-top:4px; flex-shrink:0; }
+  .video { height:90px; display:flex; align-items:center; justify-content:center; background:#ece8f5; border-radius:4px; color:#654f94; margin-bottom:12px; }
+  .video span { padding:7px 16px; border:1px solid #baa9d4; border-radius:4px; font-size:22px; }
+  .progress { height:6px; background:#e8edf2; border-radius:3px; margin:12px 0 6px; overflow:hidden; }
+  .progress span { display:block; height:100%; background:var(--violet); width:40%; }
+  .masked { font-size:27px; font-weight:650; letter-spacing:3px; margin:10px 0; }
+  .inline-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:26px; padding:26px; background:#f5f7f9; }
+  .bubble { background:#e9edf2; padding:12px 15px; border-radius:8px; margin:0 0 12px 30px; font-size:13px; }
+  .inline-layout .card { margin-bottom:18px; }
+  .fieldgrid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .fieldname { display:block; color:#556573; font-size:11px; margin-bottom:5px; }
+  .inputlike { display:block; border:1px solid #b8c5cf; border-radius:4px; padding:8px 10px; background:white; font-size:13px; }
+  .annotation { border-left:3px solid #89a9c0; background:#e7eef5; color:#415e74; padding:12px 14px; font-size:12px; margin-top:16px; }
+  .office-map { position:relative; aspect-ratio:2/1; background:#eff5f8; border-radius:5px; overflow:hidden; margin-top:8px; }
+  .world { width:100%; height:100%; display:block; }
+  .world path { fill:#ccdfe2; stroke:#b2ccd0; stroke-width:1.2; }
+  .map-pin { position:absolute; width:28px; height:28px; transform:translate(-50%,-50%); background:transparent; border:0; padding:0; display:grid; place-items:center; border-radius:50%; }
+  .map-pin::after { content:""; width:11px; height:11px; background:var(--teal); border:2px solid white; border-radius:50%; box-shadow:0 0 0 1px #236965; }
+  .map-pin[aria-pressed=true]::after { background:var(--blue); width:15px; height:15px; box-shadow:0 0 0 4px #0f6cbd24; }
+  .office-list { display:flex; gap:7px; flex-wrap:wrap; margin-top:10px; }
+  .office-list button { border:1px solid #c8d4dc; border-radius:4px; background:white; color:#456070; padding:5px 10px; font-size:11px; min-height:36px; }
+  .office-list button[aria-pressed=true] { background:#e8f3f7; border-color:var(--teal); color:#12594d; font-weight:650; }
+  .office-detail { background:#f1f7f6; border-left:3px solid var(--teal); padding:12px; margin-top:12px; display:grid; grid-template-columns:1fr auto; gap:12px; }
+  .office-name { font-weight:650; font-size:14px; }
+  .office-clock { font-size:24px; line-height:1.2; font-variant-numeric:tabular-nums; font-weight:650; color:#175c56; }
+  .office-date,.office-zone { display:block; font-size:11px; color:#48675f; }
+  .office-contact { display:block; font-size:11px; color:#526f69; margin-top:6px; }
+  .office-current { text-align:right; }
+  .map-stage { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; background:#f5f7f9; padding:26px; align-items:start; }
+  .map-stage .office-map { aspect-ratio:2/1; }
+  .step { border-bottom:1px solid var(--line); padding:13px 0; }
+  .step p { color:var(--muted); font-size:13px; margin-top:5px; }
+  .mobile-stage { display:grid; grid-template-columns:340px 340px minmax(200px,1fr); gap:26px; background:#f3f5f7; padding:26px; align-items:start; }
+  .phone { border:1px solid #bdc8d1; border-radius:8px; background:white; overflow:hidden; }
+  .phone-top { padding:13px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); }
+  .phone-body { padding:14px; background:#f5f6f8; }
+  .phone-body .card { margin-bottom:12px; }
+  .phone-body .pad { padding:12px; }
+  .phone-body .notice { font-size:11px; }
+  .phone-art { background:#dbe8ef; color:#1b526d; padding:18px; font-size:18px; font-weight:650; }
+  .native-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .native-card { border:1px solid var(--line); border-radius:6px; background:white; padding:12px; font-size:12px; }
+  .native-card p { color:var(--muted); font-size:11px; margin-top:5px; }
+  .phone-bottom { display:flex; justify-content:space-around; padding:12px; font-size:11px; color:#5b6b79; }
+  .phone-bottom b { color:var(--blue); }
+  .settings-stage { display:grid; grid-template-columns:minmax(0,1fr) 375px; background:#f4f6f8; }
+  .settings-context { padding:26px; }
+  .settings-drawer { background:white; padding:24px; border-left:1px solid var(--line); }
+  .settings-drawer h3 { font-size:21px; }
+  .settings-drawer fieldset { border:0; padding:0; margin:22px 0 0; }
+  .settings-drawer legend { font-weight:650; font-size:13px; margin-bottom:10px; }
+  .radio-row { display:flex; gap:18px; flex-wrap:wrap; }
+  .radio-row label { display:flex; align-items:center; gap:7px; min-height:36px; }
+  .settings-section { font-size:12px; font-weight:650; color:#586875; margin:22px 0 8px; text-transform:uppercase; letter-spacing:.6px; }
+  .setting { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid #e8edf1; align-items:center; font-size:13px; }
+  .setting small { display:block; font-size:11px; color:var(--muted); margin-top:3px; }
+  .switch { width:29px; height:17px; background:var(--blue); border-radius:10px; position:relative; flex-shrink:0; }
+  .switch::after { content:""; width:11px; height:11px; background:white; position:absolute; top:3px; right:3px; border-radius:50%; }
+  .setting input { width:17px; height:17px; accent-color:var(--blue); }
+  .settings-drawer select { width:100%; border:1px solid #b9c6d0; padding:8px; border-radius:4px; background:white; color:var(--ink); }
+  .status { font-size:12px; color:#2d6553; margin-top:12px; min-height:36px; }
+  .principles { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px; }
+  .principle { border-top:3px solid var(--blue); padding:13px 14px; background:white; border-radius:4px; }
+  .principle p { color:var(--muted); font-size:12px; margin-top:5px; }
+  .token { display:inline-flex; align-items:center; gap:7px; font-size:12px; margin:6px 14px 6px 0; }
+  .token i { width:20px; height:20px; border-radius:3px; display:block; }
+  .end { background:#15364d; border-radius:8px; padding:28px; color:white; }
+  .end p { color:#d6e3ec; margin:10px 0 16px; max-width:1000px; }
+  .end a { color:#c5e5ff; display:inline-block; margin:5px 22px 5px 0; }
+  @media (max-width:1150px) {
+    .searchlike { display:none; }
+    .mobile-stage { grid-template-columns:1fr 1fr; }
+    .mobile-stage>aside { grid-column:1 / -1; }
+    .lead-copy h3 { font-size:21px; }
+    .portal-links { gap:14px; }
+  }
+  @media (max-width:1023px) {
+    .editorial { grid-template-columns:1fr; }
+    .lead-news,.events,.supporting-news { grid-column:auto; grid-row:auto; }
+    .events .event-list { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .map-stage { grid-template-columns:1fr; }
+  }
+  @media (max-width:800px) {
+    .hero h1 { font-size:38px; }
+    .settings-stage { grid-template-columns:1fr; }
+    .settings-drawer { border-left:0; border-top:1px solid var(--line); }
+    .inline-layout { grid-template-columns:1fr; }
+    .tools .utility { font-size:11px; }
+    .principles { grid-template-columns:1fr; }
+    .office-detail { grid-template-columns:1fr; }
+    .office-current { text-align:left; }
+  }
+  @media (max-width:640px) {
+    .stage-demo { grid-template-columns:1fr; padding:16px; }
+    .stage-rules { padding:0 16px 16px; }
+    .docnav { position:static; }
+    .docnav-inner { padding:14px; }
+    .docnav nav { margin-left:0; gap:13px; }
+    .hero { padding:28px 18px 16px; }
+    .hero h1 { font-size:33px; letter-spacing:-.6px; }
+    .intro { font-size:16px; }
+    main { padding:0 12px 30px; }
+    h2 { font-size:23px; }
+    .board-label { gap:10px; }
+    .surface { padding:15px 12px; }
+    .heading { align-items:flex-start; flex-wrap:wrap; gap:8px; }
+    .heading h2 { font-size:23px; }
+    .heading>.tag { display:none; }
+    .grid,.grid.two { grid-template-columns:1fr; }
+    .span2 { grid-column:auto; }
+    .lead-layout { grid-template-columns:1fr; }
+    .lead-art { min-height:128px; padding:18px; }
+    .lead-art b { font-size:24px; max-width:220px; }
+    .lead-copy { padding:16px; }
+    .events .event-list,.supporting-news { grid-template-columns:1fr; }
+    .host-layout { grid-template-columns:1fr; }
+    .rail { display:none; }
+    .hostbar { padding:8px 12px; gap:8px; font-size:11px; }
+    .host-search { display:none; }
+    .hostbar .avatar { margin-left:auto; }
+    .portal-header,.productbar { padding:12px; gap:10px; }
+    .portal-links { font-size:11px; gap:12px; }
+    .productbar .brand { font-size:16px; }
+    .productbar .avatar { display:none; }
+    .tools { gap:6px; }
+    .tabbar { padding:0 12px; }
+    .tabbar [role=tab] { padding:10px 13px; }
+    .tabbar .catalog { font-size:10px; }
+    .callouts { grid-template-columns:1fr; gap:12px; }
+    .inline-layout,.map-stage { padding:16px; gap:18px; }
+    .office-list button { min-height:44px; }
+    .mobile-stage { grid-template-columns:1fr; padding:16px; gap:20px; }
+    .phone { width:100%; max-width:350px; justify-self:center; }
+    .mobile-stage>aside { grid-column:auto; }
+    .settings-context,.settings-drawer { padding:18px; }
+    .focus .buttonlike { margin-left:0; }
+    .end { padding:22px; }
+    .end a { display:block; }
+    .fieldgrid { grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    .stage-face,.news-items.carousel .news-item { animation:none!important; }
+  }
+  @media (forced-colors:active) {
+    .card::before { background:Highlight; }
+    .map-pin::after { background:ButtonText; border-color:Canvas; }
+    .map-pin[aria-pressed=true]::after { background:Highlight; }
+    .tag,.notice,.focus,.buttonlike { border:1px solid CanvasText; }
+  }
+  @media print {
+    .docnav { position:static; }
+    .frame { box-shadow:none; }
+    .board { break-before:page; }
+    .hero { padding-top:24px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#boards">Skip to experience boards</a>
+<header class="docnav"><div class="docnav-inner">
+  <div class="brand"><span class="z" aria-hidden="true">Z</span>Zava One <span class="tag gray">DESIGN v0.5</span></div>
+  <nav aria-label="Design boards"><a href="#portal">News layouts</a><a href="#teams">Teams</a><a href="#fullscreen">Copilot</a><a href="#inline">Inline</a><a href="#offices">World map</a><a href="#mobile">Mobile</a><a href="#customize">Customize</a><a href="#system">Design system</a><a href="#stages">Card stages</a><a href="#handoff">Coding handoff</a></nav>
+</div></header>
+<div class="hero">
+  <div class="eyebrow">Company first / Personal by choice</div>
+  <h1>A shared company story.<br>A personal place to work.</h1>
+  <p class="intro">Company news and events lead the experience. Daily signals, praise, business charts and a global office map connect the organization. Personal brings your work, required learning and employee services together.</p>
+  <div class="meta"><span class="tag">Preview handoff review</span><span>34 composable capabilities</span><span>SPFx 1.24 beta.5 + React 18</span><span>25 September 2026</span></div>
+  <div class="review-note"><b>Design-only interactions:</b> try six news layouts, browse three required courses, and turn a praise card from compose to review and confirmation. Tabs, office clocks and default-tab settings also work locally. All records are synthetic. Confirm preview never sends praise; no API calls, analytics or real submissions. <a href="#stages">Try the card-stage studies</a>.</div>
+  <p class="readiness-link"><a href="Zava-One-Agentic-Handoff.md">Read the coding-agent handoff</a> / Bounded fixture-first build after authorization, not 34 ready live integrations.</p>
+</div>
+<main id="boards">
+  <section class="board" id="portal" aria-labelledby="portal-title">
+    <div class="board-label"><span class="number">01</span><div><h2 id="portal-title">SharePoint / The company's front page</h2><p>Lead news and upcoming events own the first row. Shared corporate signals follow. Every capability remains an independently configurable web part.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>SHAREPOINT HOME SITE / PUBLISHER-COMPOSED COMPANY LANDING</span><span>Host chrome simplified</span></div>
+      <div class="hostbar"><span>Microsoft 365</span><span class="host-search">Search this site and your organization</span><span class="avatar">MB</span></div>
+      <div class="portal-header"><div class="brand"><span class="z">Z</span>Zava One</div><div class="portal-links"><b>Company</b><span>Personal</span><span>News &amp; events</span><span>People</span><span>Offices</span><span>Report now</span><span>IT help</span></div></div>
+      <div class="topline"></div><div class="surface" data-company-host="portal"></div>
+    </div>
+    <div class="callouts"><p><b>An editorial front page</b>A real lead article, supporting headlines and an event program. News is not another small productivity tile.</p><p><b>Independent web parts, honest composition</b>Use C06 lead + C10 in the first section and C06 supporting in the next for mobile lead/events/supporting order. This board is not the native page DOM.</p><p><b>Corporate communications ownership</b>Global lead, local editions, publication/expiry and event freshness remain governed. Reader settings do not edit the page.</p></div>
+  </section>
+
+  <section class="board" id="teams" aria-labelledby="teams-title">
+    <div class="board-label"><span class="number">02</span><div><h2 id="teams-title">Teams / Company and Personal, in one app</h2><p>Try the two tabs. Company is the first-use default; Personal keeps a compact company-news/event strip alongside daily work and services.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>CUSTOM TEAMS PERSONAL APP / SHARED ZAVA WORKSPACE</span><span>Tabs are review interactions</span></div>
+      <div class="hostbar teams"><span>Microsoft Teams</span><span class="host-search">Search Teams</span><span class="avatar">MB</span></div>
+      <div class="host-layout"><aside class="rail" aria-label="Illustrative Teams rail"><div><b>A</b>Activity</div><div><b>C</b>Chat</div><div class="selected"><b>Z</b>Zava One</div><div><b>...</b>Apps</div></aside><div class="workspace" data-workspace="teams"></div></div>
+    </div>
+  </section>
+
+  <section class="board" id="fullscreen" aria-labelledby="fullscreen-title">
+    <div class="board-label"><span class="number">03</span><div><h2 id="fullscreen-title">Copilot full screen / The same company experience</h2><p>A neutral launch follows the saved default. A news or office question opens Company; a leave or My day question opens Personal without changing the preference.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>COPILOT FULL SCREEN / SAME SHELL AND COMPONENT RECIPES</span><span>Not a separate portal implementation</span></div>
+      <div class="fullscreen-host"><span>Microsoft 365 Copilot / Zava One</span><span>Return to conversation / host-owned control</span></div>
+      <div class="workspace" data-workspace="copilot"></div>
+    </div>
+    <div class="callouts"><p><b>Company is not lost in conversation</b>News, events and corporate signals have the same presence as in Teams.</p><p><b>Intent wins over launch preference</b>A specific task opens the correct tab and detail route with its context intact.</p><p><b>Host boundaries remain honest</b>Copilot owns actual expansion/collapse. This review only changes illustrated tabs.</p></div>
+  </section>
+
+  <section class="board" id="inline" aria-labelledby="inline-title">
+    <div class="board-label"><span class="number">04</span><div><h2 id="inline-title">Inline / Corporate moments and employee actions</h2><p>The same capability renders a focused answer or draft. Expansion adds space, not a different source or business rule.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>COPILOT INLINE / REPRESENTATIVE INTENTS</span><span>All business actions below are illustrations</span></div>
+      <div class="inline-layout">
+        <div>
+          <div class="bubble">What's the big company news, and when is the town hall?</div>
+          <article class="card"><div class="pad"><div class="cardhead"><h3>Across Zava this week</h3><span class="linklike">Expand to Company</span></div><span class="tag">Leadership update</span><h3 style="margin-top:10px">One Zava. Our next chapter, together.</h3><p class="subtle" style="margin-top:8px">Read the strategy update, then join the conversation.</p><div class="row"><div class="datebox"><small>OCT</small><b>01</b></div><div><h4>Global town hall</h4><p>08:00 Los Angeles / 18:00 Helsinki<br>15:00 UTC / Live + captioned recording</p></div></div><div class="actions"><span class="buttonlike primary">Read the update</span><span class="buttonlike">Event details</span></div><div class="source">C06 + C10 / Fictional published communications</div></div></article>
+          <div class="bubble">Help me thank Alex for making our launch accessible.</div>
+          <div data-praise-card="compose"></div>
+        </div>
+        <div>
+          <div class="bubble">What mandatory videos do I need to finish?</div>
+          <div data-learning-card="collection"></div>
+          <div class="bubble">Help me report a suspicious message.</div>
+          <article class="card security"><div class="pad"><div class="cardhead"><h3>Report now</h3><span class="tag gray">Confidential intake</span></div><p class="subtle">Use Zava's approved phishing-reporting flow. Do not paste passwords or sensitive attachments into this conversation.</p><div class="actions"><span class="buttonlike primary">Open approved reporting</span></div><div class="source">C33 / Company + global utility / No message has been forwarded</div></div></article>
+          <div class="annotation"><b>IT support is a different route.</b> "Open an IT support ticket" opens C23 in Personal with category, impact, summary, review and source-issued ticket receipt. A security report is not sent to an unrestricted help-desk queue.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="board" id="offices" aria-labelledby="offices-title">
+    <div class="board-label"><span class="number">05</span><div><h2 id="offices-title">One global company / Office map and local time</h2><p>Select a marker or office name. The detail view shows the selected office's current local date and time, not a fixed UTC offset.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>C34 / COMPANY / EXPANDED OFFICE VIEW</span><span>Schematic geography and fictional offices / actual device-based local clocks</span></div>
+      <div class="map-stage"><div data-map-host="expanded"></div><aside>
+        <div class="eyebrow">A sense of place</div><h3>Connect locations, not just applications.</h3>
+        <div class="step"><h4>Know the office</h4><p>City, published address, contact, visitor information and workplace services from an owned directory.</p></div>
+        <div class="step"><h4>Know the local time</h4><p>IANA time zones handle daylight-saving and date rollover. Current time does not imply opening status or employee presence.</p></div>
+        <div class="step"><h4>Get something done</h4><p>Continue to book a space, view today's menu or find local site services using the same capabilities.</p></div>
+        <div class="step"><h4>Accessible without a map</h4><p>Every office is selectable from the keyboard-friendly list. No geolocation, tracking or third-party map request is required by this review.</p></div>
+        <div class="annotation">Production map geometry, office records and provider rights remain a design/technical gate. The map below the headline on Company is the compact shape of this same C34 family.</div>
+      </aside></div>
+    </div>
+  </section>
+
+  <section class="board" id="mobile" aria-labelledby="mobile-title">
+    <div class="board-label"><span class="number">06</span><div><h2 id="mobile-title">Mobile / Keep company news and events in view</h2><p>The SharePoint app in Teams retains native navigation. Its home experience should still lead with a company story and an upcoming event before supporting tools.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>FORMER VIVA CONNECTIONS / NATIVE ENTRY + SHARED PERSONAL DETAIL</span><span>Exact host layout to be verified</span></div>
+      <div class="mobile-stage">
+        <div class="phone"><div class="phone-top"><span class="z">Z</span><h3>Zava One</h3><span class="avatar" style="margin-left:auto">MB</span></div><div class="phone-body">
+          <div class="notice"><b>Site notice</b> / Building 4 opens at 10:00.</div>
+          <article class="card"><div class="phone-art">One Zava.<br>Our next chapter, together.</div><div class="pad"><span class="tag">Company news</span><h4 style="margin-top:9px">A shared direction. A company-wide conversation.</h4><p class="subtle" style="margin-top:5px">Leadership update / Sep 24</p></div></article>
+          <article class="card"><div class="pad"><div class="cardhead"><h3>Company events</h3></div><div class="row"><div class="datebox"><small>OCT</small><b>01</b></div><div><h4>Global town hall</h4><p>08:00 Los Angeles<br>Live + recording</p></div></div></div></article>
+          <div class="native-grid"><div class="native-card"><b>3 required courses</b><p>Next: 15 min / Due Oct 2<br>Open learning Quick View</p></div><div class="native-card"><b>Daily signal</b><p>One question / 20 sec</p></div><div class="native-card"><b>Report now</b><p>Security reporting</p></div><div class="native-card"><b>IT support</b><p>Open or track a ticket</p></div></div>
+        </div><div class="phone-bottom"><b>Dashboard</b><span>News</span><span>Resources</span></div></div>
+        <div class="phone"><div class="phone-top"><h3>Personal / Employee services</h3></div><div class="phone-body">
+          <div class="company-highlights"><b>Company highlights</b><span>Our next chapter / Town hall Oct 1</span></div>
+          <div data-learning-card="overview"></div>
+          <article class="card green"><div class="pad"><h3>Payslip</h3><p class="subtle">August 2026 / Available</p><div class="masked" aria-label="Pay amount hidden">****</div><span class="buttonlike">Open payslip securely</span></div></article>
+          <article class="card teal"><div class="pad"><h3>IT support</h3><p class="subtle" style="margin-top:5px">Help is available without finishing a troubleshooting wizard.</p><div class="actions"><span class="buttonlike">Open IT support ticket</span></div></div></article>
+        </div><div class="phone-bottom"><span>Company</span><b>Personal</b></div></div>
+        <aside><h3>Corporate value on every screen.</h3><div class="step"><h4>News + events remain defaults</h4><p>Do not hide the company program behind a mobile productivity dashboard.</p></div><div class="step"><h4>Respect each host</h4><p>The left study uses host-native navigation. The right study is a Zava-owned personal detail concept, not a replacement for native tabs.</p></div><div class="step"><h4>Personal does not mean disconnected</h4><p>A compact company strip keeps the latest story and next event close without repeating the whole front page.</p></div></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="board" id="customize" aria-labelledby="customize-title">
+    <div class="board-label"><span class="number">07</span><div><h2 id="customize-title">Choose your starting point / Keep both experiences</h2><p>Try saving Personal as the launch default, then simulate a neutral app launch. Clicking a tab alone does not change the saved default.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>SHARED TEAMS / COPILOT SETTINGS DESIGN</span><span>Review changes are in this page's memory only</span></div>
+      <div class="settings-stage"><div class="settings-context">
+        <h2>Company belongs here.<br>So does your day.</h2><p class="intro" style="font-size:16px">Two recipes. One preference for where you start. Specific tasks still open where they belong.</p>
+        <div class="principles"><div class="principle"><h4>Company anchors</h4><p>Lead news and upcoming events stay in the first Company row. Supporting modules can be personalized.</p></div><div class="principle"><h4>Personal choice</h4><p>Choose Personal as your default, reorder personal cards, and hide optional mail without losing corporate highlights.</p></div><div class="principle"><h4>Context wins</h4><p>A leave deep link goes to Personal. A news link goes to Company. Neither changes your launch setting.</p></div></div>
+        <div class="annotation"><b>Saved review default:</b> <span id="saved-default">Company</span><br><b>Neutral launch:</b> the selected default tab is applied to both Teams and Copilot illustrations. SharePoint's publisher-composed page is unchanged.</div>
+        <div class="actions"><button class="button primary" id="simulate-launch">Simulate neutral launch</button><a class="button" href="#teams">View Teams board</a><a class="button" href="#fullscreen">View Copilot board</a></div>
+        <div class="annotation"><b>Production persistence remains proposed.</b> A tenant-owned preference service would synchronize both recipes and the default tab across hosts/devices. This review does not store preferences across reloads or simulate a successful server save.</div>
+        <div class="annotation"><b>Real save failure:</b> show "Changes not saved," preserve the draft and keep the last confirmed preference. Required learning and relevant notices cannot be suppressed by a layout toggle.</div>
+      </div><form class="settings-drawer" id="settings-form">
+        <h3>Customize Zava One</h3><p class="subtle" style="margin-top:5px">Shared workspace preferences</p>
+        <fieldset><legend>Default launch tab</legend><div class="radio-row"><label><input type="radio" name="default-tab" value="company" checked> Company</label><label><input type="radio" name="default-tab" value="personal"> Personal</label></div></fieldset>
+        <div class="settings-section"><label for="recipe-select">Customize this tab</label></div>
+        <select id="recipe-select"><option value="company">Company</option><option value="personal">Personal</option></select>
+        <div id="company-settings">
+          <div class="setting"><span>Company news<small>Lead article + supporting headlines</small></span><span class="tag gray">Anchor</span></div>
+          <div class="setting"><span>Company events<small>Upcoming events + recordings</small></span><span class="tag gray">Anchor</span></div>
+          <div class="setting"><span>Offices and world map</span><span class="switch" aria-label="Illustrated enabled state"></span></div>
+          <div class="setting"><span>Daily signals / praise / glossary</span><span class="tag gray">Recommended</span></div>
+          <div class="setting"><span>Company outcomes / stock ticker<small>Published data / licensed feed if applicable</small></span><span class="tag gray">Recommended</span></div>
+        </div>
+        <div id="personal-settings" hidden>
+          <div class="setting"><span>My day / agenda / tasks</span><span class="tag gray">Recommended</span></div>
+          <label class="setting"><span>Important email<small>Optional Personal module</small></span><input type="checkbox" id="mail-visible" checked></label>
+          <div class="setting"><span>Required learning/video<small>Visible when applicable</small></span><span class="tag gray">Policy</span></div>
+          <div class="setting"><span>Time off / payslip / IT support</span><span class="tag gray">Recommended</span></div>
+          <div class="setting"><span>Company highlights<small>Lead headline + next event</small></span><span class="tag gray">Retained</span></div>
+        </div>
+        <p class="subtle" style="margin-top:16px">Only default-tab and email controls are interactive in this review. Reordering, density and other switches are specified in the plan.</p>
+        <div class="actions"><button class="button primary" type="submit">Save review settings</button><button class="button" type="button" id="cancel-settings">Cancel changes</button></div>
+        <div class="actions"><button class="button" type="button" id="reset-settings">Reset review defaults</button></div>
+        <p class="status" role="status" id="settings-status">No changes. Review settings last only until this page reloads.</p>
+      </form></div>
+    </div>
+  </section>
+
+  <section class="board" id="system" aria-labelledby="system-title">
+    <div class="board-label"><span class="number">08</span><div><h2 id="system-title">One component family / Thirty-four purposeful capabilities</h2><p>Every inline component and web part uses the same four-color top bar, Fluent typography and shared anatomy. Category is communicated by labels and content, never by requiring people to decode a border color.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>DESIGN SYSTEM / ONE IDENTITY BAR ON EVERY SURFACE</span><span>Stable C01-C30 plus four new capabilities</span></div><div class="surface">
+      <div><span class="token"><i style="background:#075fce"></i>Spectrum blue</span><span class="token"><i style="background:#138a3d"></i>Spectrum green</span><span class="token"><i style="background:#b32687"></i>Spectrum magenta</span><span class="token"><i style="background:#d84f38"></i>Spectrum coral</span></div>
+      <div class="principles"><div class="principle"><h4>C31 / Company stock ticker</h4><p>Source-labeled quote, change, delay and trend. Separate from private equity vesting.</p></div><div class="principle"><h4>C32 / Corporate glossary</h4><p>Approved term definitions, ownership, ambiguity and links into enterprise search.</p></div><div class="principle"><h4>C33 / Report now</h4><p>Always-findable confidential security intake. Not ordinary IT ticketing.</p></div></div>
+      <div class="principles"><div class="principle"><h4>C34 / Offices + world map</h4><p>Selectable offices, local clocks and workplace details, with list parity.</p></div><div class="principle"><h4>Stronger existing capabilities</h4><p>C13 training/video, C14 praise, C15 daily polls, C17 payslip, C23 IT tickets and C28 published charts.</p></div><div class="principle"><h4>Consistent, not identical</h4><p>Same identity, source and state across web part, inline, quick view and full-page shapes.</p></div></div>
+    </div></div>
+  </section>
+  <section class="board" id="stages" aria-labelledby="stages-title">
+    <div class="board-label"><span class="number">09</span><div><h2 id="stages-title">One card / Several purposeful stages</h2><p>A short turn keeps the experience in context. Try one-to-many-to-one learning, or compose, review and confirm a praise preview. Back reverses the transition; reduced motion uses an instant swap.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>CARD STAGE / SHARED PATTERN FOR THE NEXT UX PASS</span><span>Review only / No training launch or praise submission</span></div>
+      <div class="stage-demo"><div><p class="subtle"><b>C13 / Read flow</b><br>One next-required course - all three - a selected course - back.</p><div data-learning-card="overview"></div></div><div><p class="subtle"><b>C14 / Write flow</b><br>Send praise - compose - review - confirm preview. Edit keeps the draft.</p><div data-praise-card="overview"></div></div></div>
+      <div class="stage-rules"><div class="annotation"><b>Shared, not forced.</b> All 34 capabilities inherit this stage-navigation language for the next UX pass. Use only relevant stages. A card flip never submits data; source receipts, errors and safe retries remain explicit. Large tasks may expand. Native Dashboard cards use supported Quick Views or destinations.</div><p class="footnote">Motion inspiration: <a href="https://reactbits.dev/micro/flip-card" target="_blank" rel="noreferrer">React Bits Flip Card</a>. No code copied or dependency selected. This review uses an original 240ms card-body turn, one active face, keyboard focus return and a reduced-motion alternative.</p></div>
+    </div>
+  </section>
+  <section class="board" id="handoff" aria-labelledby="handoff-title">
+    <div class="board-label"><span class="number">10</span><div><h2 id="handoff-title">Ready for a bounded build / Not a production claim</h2><p>Keep the 34-feature model. Complete shared behavior and host contracts before scaling. SPFx 1.24 beta.5 and React 18 are selected; exact dependency/runtime verification is the first coding gate.</p></div></div>
+    <div class="frame"><div class="frame-cap"><span>CODING-AGENT HANDOFF / PREVIEW DEVELOPMENT</span><span>State studies below are illustrations, not live failures</span></div><div class="surface">
+      <div class="principles"><div class="principle"><h4>G0 / Verify the baseline</h4><p>Pinned generator, compatible exact React 18 runtime/types, generated Heft rig and real host-root behavior. No next/latest or silent React 17 fallback.</p></div><div class="principle"><h4>G1 / Prove the shared experience</h4><p>Thin host wrappers, Company/Personal shell, C06/C13 read references and C14 no-send draft/review. Do not rebuild 34 separate apps.</p></div><div class="principle"><h4>Then / Add bounded capability slices</h4><p>News/events, learning/praise, chart/map breadth, remaining employee services, then approved live providers. Every slice has fixtures and a stop gate.</p></div></div>
+      <div class="sectionline"><h3>The less glamorous states are part of the UX.</h3></div>
+      <div class="grid state-study">
+        <article class="card violet"><div class="pad"><div class="cardhead"><h3>Required learning</h3><span class="tag gold">Partial result</span></div><h4>2 assignments loaded</h4><p>We could not load the complete list. More required training may be missing.</p><div class="actions"><span class="buttonlike">Retry loading</span><span class="buttonlike">Open learning source</span></div><div class="source">C13 / Do not claim "2 required" without a complete source total. Keep accessible records useful.</div></div></article>
+        <div class="dark-study"><article class="card violet"><div class="pad"><div class="cardhead"><h3>Praise</h3><span class="tag gold">Outcome unknown</span></div><h4>We have not confirmed whether it was sent.</h4><p>Keep your draft. Check the source status before sending again.</p><div class="actions"><span class="buttonlike">Check status</span></div><div class="source">C14 / Illustrative dark surface. A timeout is neither success nor proof that nothing happened.</div></div></article></div>
+        <article class="card gold"><div class="pad"><div class="cardhead"><h3>Company stock</h3><span class="tag gray">Not configured</span></div><h4>No approved market feed is connected.</h4><p>Show a quote only when the company has a relevant listing and licensed data. No invented price or silent demo fallback.</p><div class="source">C31 / Publisher and source owner resolve configuration. Inapplicable organizations omit this module by policy.</div></div></article>
+      </div>
+      <div class="annotation"><b>Prototype-to-React boundary:</b> implement scoped Fluent themes, readable type, container-based sizing, complete enabled actions, source-aware states and real wrappers. Do not copy the boards' global CSS, synthetic Microsoft chrome or in-memory controller as application architecture. The complete light/dark/contrast and error-state matrix still gates each capability slice.</div>
+      <div class="actions"><a class="button primary" href="Zava-One-Agentic-Handoff.md">Open the agentic handoff</a><a class="button" href="Zava-One-Component-Blueprints.md">Review all 34 blueprints</a></div>
+    </div></div>
+  </section>
+  <footer class="end"><div class="eyebrow" style="color:#a5d9cd">Concept revision v0.5 / Coding-readiness review</div><h2>The same company. A clear path to code.</h2><p>Six news layouts, shared card stages and 34 capabilities now have an explicit preview baseline, all-capability stage/data matrix, host boundaries and ordered coding gates. The first build is a bounded fixture-first reference slice, not a production rollout.</p><a href="Zava-One-Agentic-Handoff.md">Start here: coding-agent handoff</a><a href="Zava-One-Concept-Plan.md">Concept, architecture and stage contract</a><a href="Zava-One-Component-Blueprints.md">All 34 component blueprints</a><p style="font-size:12px">Original design studies inspired by PnP My Day, Zava Project Tracker, SharePoint Hero and the supplied flip-card reference. No React/SPFx implementation, tenant changes, external assets, live feeds or business submissions. Review JavaScript drives local news layouts, card stages, tabs, in-memory preferences and office clocks. No preferences or drafts survive reload. Host controls are schematic.</p></footer>
+</main>
+<noscript><p style="padding:24px">These review boards need JavaScript to compose the repeated host illustrations. The complete concept and component blueprints are available in the linked Markdown documents.</p></noscript>
+
+<template id="company-template">
+  <div class="notice"><b>Required learning:</b> Protecting customer information is due Oct 2. Your private completion status remains in Personal. <span class="linklike">Continue training</span></div>
+  <div class="heading"><div><h2>One company. A world of possibilities.</h2><p>Company news, shared moments and the signals that connect us.</p></div><span class="tag gray">Global + your location</span></div>
+  <div class="editorial">
+    <div class="news-shell" data-news-host></div>
+    <article class="card events" data-capability="C10"><div class="pad">
+      <div class="cardhead"><h3>Company events</h3><span class="linklike">All events</span></div>
+      <div class="event-list"><div class="row"><div class="datebox"><small>OCT</small><b>01</b></div><div><h4>Global town hall</h4><p>Our next chapter / Live + recording</p><p>08:00 Los Angeles / 15:00 UTC</p><div class="actions"><span class="buttonlike">Event details</span></div></div></div>
+      <div class="row"><div class="datebox"><small>OCT</small><b>06</b></div><div><h4>Innovation open house</h4><p>Meet the teams shaping what's next.</p><p>10:00 Los Angeles / 17:00 UTC</p><div class="actions"><span class="linklike">Explore sessions</span></div></div></div></div>
+      <p class="subtle" style="margin-top:12px">Can't attend live? Catch up with captioned recordings and transcripts.</p><div class="source">C10 / Synthetic event program / Times shown in named zones</div>
+    </div></article>
+    <div class="supporting-news" data-news-support aria-label="Supporting company news"></div>
+  </div>
+  <div class="sectionline"><h3>A connected company</h3><span class="subtle">Participate, understand, explore</span></div>
+  <div class="grid">
+    <article class="card violet" data-capability="C15"><div class="pad"><div class="cardhead"><h3>Daily signal</h3><span class="tag violet">20 seconds</span></div><h4>What would help you connect across Zava?</h4><div class="poll-option">More cross-team showcases</div><div class="poll-option">Local office meetups</div><div class="poll-option">Short leadership Q&amp;As</div><p class="subtle" style="margin-top:10px">Illustrative identified poll. Aggregate results only after the approved privacy threshold.</p><div class="actions"><span class="buttonlike">Vote</span></div><div class="source">C15 / Not submitted / Closes Sep 30</div></div></article>
+    <div data-map-host="company"></div>
+    <article class="card gold" data-capability="C31"><div class="pad"><div class="cardhead"><h3>Company stock</h3><span class="tag gold">Fictional quote</span></div><p class="subtle">ZAVA / DEMO market / USD</p><div class="metric">$128.40</div><p class="positive">+$1.20 (+0.94%) vs previous close</p>
+      <svg class="chart" viewBox="0 0 340 110" role="img" aria-label="Synthetic stock price trend: 121.40, 123.10, 125.90, 127.20 and 128.40 US dollars on September 18, 21, 22, 23 and 24."><line x1="15" x2="324" y1="82" y2="82" stroke="#d8e0e6"/><polyline points="20,74 95,60 170,37 245,26 319,16" fill="none" stroke="#8a6500" stroke-width="3"/><circle cx="319" cy="16" r="4" fill="#8a6500"/><text x="15" y="103" font-size="10" fill="#58616b">Sep 18</text><text x="283" y="103" font-size="10" fill="#58616b">Sep 24</text></svg>
+      <details><summary>Price table</summary><table><caption>Synthetic price history, USD</caption><thead><tr><th>Date</th><th>Price</th></tr></thead><tbody><tr><td>Sep 18</td><td>121.40</td></tr><tr><td>Sep 21</td><td>123.10</td></tr><tr><td>Sep 22</td><td>125.90</td></tr><tr><td>Sep 23</td><td>127.20</td></tr><tr><td>Sep 24</td><td>128.40</td></tr></tbody></table></details>
+      <div class="source">C31 / Demo snapshot Sep 24, 13:40 UTC / Illustrative 15-min delay. Not a real issuer/listing/feed. Production requires display rights and a relevant listing.</div>
+    </div></article>
+    <div data-praise-card="overview"></div>
+    <article class="card gold" data-capability="C28"><div class="pad"><div class="cardhead"><h3>Company outcomes</h3><span class="tag gray">Published</span></div><h4>Customer experience score</h4><p class="subtle">Score out of 100 / Quarterly trend / Target 85</p><div class="barline"><span>Q1</span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><b>76/100</b></div><div class="barline"><span>Q2</span><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div><b>79/100</b></div><div class="barline"><span>Q3</span><div class="bar-track"><div class="bar-fill latest" style="width:82%"></div></div><b>82/100</b></div><p class="positive">+6 points since Q1 / 3 points below target</p><details><summary>Metric definition and table</summary><p>Fictional company-approved customer survey score; no individual employee performance is represented.</p><table><thead><tr><th>Period</th><th>Score / 100</th><th>Target</th></tr></thead><tbody><tr><td>Q1</td><td>76</td><td>85</td></tr><tr><td>Q2</td><td>79</td><td>85</td></tr><tr><td>Q3 to date</td><td>82</td><td>85</td></tr></tbody></table></details><div class="source">C28 / Published synthetic dataset / As of Sep 24. Private team/sales data remains access-controlled.</div></div></article>
+    <article class="card" data-capability="C32"><div class="pad"><div class="cardhead"><h3>Speak Zava</h3><span class="tag gray">Corporate glossary</span></div><span class="subtle">Today's term / Customer programs</span><div class="term">CXR</div><h4>Customer Experience Review</h4><p class="subtle" style="margin-top:8px">A cross-functional review of customer feedback, outcomes and agreed improvements.</p><div class="actions"><span class="buttonlike">Search the glossary</span></div><div class="source">C32 / Fictional approved definition / Owner: Customer programs. Ambiguous acronyms require domain selection.</div></div></article>
+  </div>
+  <p class="footnote">Company anchors: C06 news + C10 events. Supporting cards are configurable. All records are fictional; office clocks use the current review-device time.</p>
+</template>
+
+<template id="personal-template">
+  <div class="company-highlights"><b>Company highlights</b><span>Our next chapter, together.</span><span>Next town hall: Oct 1</span><button class="button" data-open-company>Open Company</button></div>
+  <div class="heading"><div><h2>Good morning, Megan.</h2><p>Personal workspace / Illustrative day and employee data</p></div><span class="tag gray">Your work. Your services.</span></div>
+  <div class="focus" data-capability="C01"><div><h3>A little focus goes a long way.</h3><p>3 meetings today. 2 priority tasks. 3 required courses; next due Oct 2.</p></div><span class="buttonlike">Plan my day</span></div>
+  <div class="grid">
+    <article class="card" data-capability="C02"><div class="pad"><div class="cardhead"><h3>Agenda</h3><span class="linklike">Open calendar</span></div><div class="row"><span class="time">10:00</span><div class="event"><h4>Customer review</h4><p>Microsoft Teams / 45 min</p><div class="actions"><span class="buttonlike primary">Join</span></div></div></div><div class="row"><span class="time">12:30</span><div class="event"><h4>Design critique</h4><p>Building 2 / Room Cedar</p></div></div><div class="row"><span class="time">15:00</span><div class="event"><h4>Weekly team sync</h4><p>Microsoft Teams / 30 min</p></div></div><div class="source">C02 / Calendar fixture / Pacific time</div></div></article>
+    <article class="card" data-capability="C04"><div class="pad"><div class="cardhead"><h3>My tasks</h3><span class="tag">2 priority</span></div><div class="row"><span class="check"></span><div><h4>Review launch brief</h4><p>11:00 / Planner / High priority</p></div></div><div class="row"><span class="check"></span><div><h4>Prepare customer proposal</h4><p>16:00 / To Do / High priority</p></div></div><div class="row"><span class="check"></span><div><h4>Book accessibility review</h4><p>Tomorrow / To Do</p></div></div><div class="source">C04 / Synthetic task data</div></div></article>
+    <div data-learning-card="overview"></div>
+    <article class="card" data-capability="C03"><div class="pad"><div class="cardhead"><h3>Important email</h3><span class="linklike">Open Outlook</span></div><div class="row"><span class="avatar">AG</span><div><h4>Alex Green</h4><p>Launch brief ready for review</p></div></div><div class="row"><span class="avatar">DL</span><div><h4>Dana Lee</h4><p>Customer review / preparation notes</p></div></div><div class="source">C03 / Optional module / Body previews hidden</div></div></article>
+    <article class="card green" data-capability="C16"><div class="pad"><div class="cardhead"><h3>Time off</h3><span class="tag green">Annual leave</span></div><div class="metric">18 <small>days available</small></div><p class="subtle">2026 entitlement / Example Mon-Fri schedule</p><div class="actions"><span class="buttonlike">Request time off</span></div><div class="source">C16 / HR fixture / Source balance as of Sep 24</div></div></article>
+    <article class="card green" data-capability="C17"><div class="pad"><div class="cardhead"><h3>Payslip</h3><span class="tag gray">Private</span></div><h4>August 2026</h4><p class="subtle">Your pay document is available.</p><div class="masked" aria-label="Pay amount hidden">****</div><div class="actions"><span class="buttonlike">Open payslip securely</span></div><div class="source">C17 / Payroll fixture / Eligible users only / No amount in Company feed</div></div></article>
+    <article class="card teal" data-capability="C23"><div class="pad"><div class="cardhead"><h3>IT support</h3></div><h4>Need help with something?</h4><p class="subtle" style="margin-top:8px">Open a request or check progress. A security concern uses Report now instead.</p><div class="actions"><span class="buttonlike primary">Open IT support ticket</span><span class="linklike">My requests</span></div><div class="source">C23 / Illustrative entry / No ticket has been created</div></div></article>
+  </div>
+  <p class="footnote">Personal defaults combine daily work, required learning, payslip and support. Relevant company mandates remain visible; confidential personal data never becomes a shared Company tile.</p>
+</template>
+
+<template id="workspace-template">
+  <div class="topline"></div><div class="productbar"><div class="brand"><span class="z">Z</span>Zava One</div><div class="tools"><span class="searchlike">Search Zava people, tools, and knowledge</span><span class="utility">Report now</span><span class="utility">IT help</span><a class="button" href="#customize">Customize</a><span class="avatar">MB</span></div></div>
+  <div class="tabbar" role="tablist" aria-label="Zava workspace"><button role="tab" data-tab="company" aria-selected="true">Company</button><button role="tab" data-tab="personal" aria-selected="false" tabindex="-1">Personal</button><span class="catalog">All 34 experiences</span></div>
+  <div class="surface" role="tabpanel" data-panel="company"></div><div class="surface" role="tabpanel" data-panel="personal" hidden></div>
+</template>
+
+<template id="map-template">
+  <article class="card teal office-component" data-capability="C34"><div class="pad">
+    <div class="cardhead"><h3>Our offices, around the world</h3><span class="tag gray">Select an office</span></div>
+    <p class="subtle">A connected company, across time zones.</p>
+    <div class="office-map" aria-label="Schematic office world map">
+      <svg class="world" viewBox="0 0 800 400" aria-hidden="true">
+        <path d="M42 63 L97 39 L145 43 L178 63 L199 88 L221 87 L240 108 L215 132 L194 138 L187 158 L206 181 L231 190 L244 210 L233 219 L207 199 L184 189 L164 164 L137 154 L123 132 L91 125 L83 104 L56 104 Z"/>
+        <path d="M251 211 L281 204 L303 215 L326 228 L337 257 L322 279 L308 304 L293 341 L279 355 L270 321 L265 291 L244 263 L242 235 Z"/>
+        <path d="M227 26 L277 20 L299 41 L277 65 L248 76 L226 57 Z"/>
+        <path d="M374 77 L393 59 L415 58 L425 41 L443 29 L457 38 L449 68 L472 79 L499 75 L517 89 L509 113 L473 123 L452 109 L438 123 L422 116 L406 126 L387 116 L378 100 Z"/>
+        <path d="M386 135 L430 127 L458 143 L469 171 L493 190 L474 208 L469 237 L448 265 L427 270 L413 244 L411 223 L389 204 L380 175 Z"/>
+        <path d="M470 78 L508 45 L561 33 L612 35 L646 47 L701 46 L746 64 L776 96 L749 111 L721 106 L709 127 L680 134 L668 155 L642 161 L631 187 L616 203 L603 181 L586 166 L561 182 L543 161 L532 134 L510 115 L480 119 Z"/>
+        <path d="M622 209 L644 209 L662 222 L674 232 L659 235 L639 224 Z M681 213 L694 223 L701 246 L691 248 Z"/>
+        <path d="M685 255 L721 243 L752 252 L772 279 L763 304 L740 312 L716 300 L694 302 L677 280 Z"/>
+        <path d="M775 311 L785 303 L788 323 L778 339 L770 334 Z"/>
+      </svg>
+    </div>
+    <div class="office-list" role="group" aria-label="Choose an office; equivalent to the map"></div>
+    <div class="office-detail"><div><h4 class="office-name"></h4><span class="office-address subtle"></span><span class="office-contact"></span><div class="actions"><span class="linklike">Visitor information</span><span class="linklike">Book a space</span></div></div><div class="office-current"><time class="office-clock"></time><span class="office-date"></span><span class="office-zone"></span></div></div>
+    <span class="selection-status" role="status" style="font-size:11px;color:#52675f"></span>
+    <div class="source">C34 / Fictional offices; schematic map / Current time from your device. Office opening status is not inferred. Use the list for equivalent keyboard selection.</div>
+  </div></article>
+</template>
+
+<script>
+(() => {
+  "use strict";
+  const companyTemplate = document.getElementById("company-template");
+  const personalTemplate = document.getElementById("personal-template");
+  const workspaceTemplate = document.getElementById("workspace-template");
+  const mapTemplate = document.getElementById("map-template");
+  const workspaces = [...document.querySelectorAll("[data-workspace]")];
+  const officeRecords = [
+    { id:"redmond", name:"Redmond", country:"United States", zone:"America/Los_Angeles", lat:47.67, lon:-122.12, address:"Zava Campus / Building 2", contact:"Visitor desk / Campus services" },
+    { id:"london", name:"London", country:"United Kingdom", zone:"Europe/London", lat:51.51, lon:-0.12, address:"Zava London / City office", contact:"Office reception / Visitor guidance" },
+    { id:"helsinki", name:"Helsinki", country:"Finland", zone:"Europe/Helsinki", lat:60.17, lon:24.94, address:"Zava Helsinki / Collaboration hub", contact:"Workplace team / Accessible visitor entry" },
+    { id:"singapore", name:"Singapore", country:"Singapore", zone:"Asia/Singapore", lat:1.35, lon:103.82, address:"Zava Singapore / Regional office", contact:"Office services / Meeting spaces" },
+    { id:"sydney", name:"Sydney", country:"Australia", zone:"Australia/Sydney", lat:-33.87, lon:151.21, address:"Zava Sydney / Customer hub", contact:"Reception / Visitor and site services" },
+    { id:"saopaulo", name:"Sao Paulo", country:"Brazil", zone:"America/Sao_Paulo", lat:-23.55, lon:-46.63, address:"Zava Sao Paulo / Regional office", contact:"Workplace team / Local services" }
+  ];
+  let saved = { defaultTab:"company", mailVisible:true };
+  const mapStates = [];
+
+  const selectTab = (workspace, tab, focus = false) => {
+    workspace.querySelectorAll("[data-tab]").forEach(button => {
+      const selected = button.dataset.tab === tab;
+      button.setAttribute("aria-selected", String(selected));
+      button.tabIndex = selected ? 0 : -1;
+      if (selected && focus) button.focus();
+    });
+    workspace.querySelectorAll("[data-panel]").forEach(panel => {
+      panel.hidden = panel.dataset.panel !== tab;
+    });
+    updateClocks();
+  };
+
+  document.querySelectorAll("[data-company-host]").forEach(host => {
+    host.append(companyTemplate.content.cloneNode(true));
+  });
+  workspaces.forEach(workspace => {
+    const prefix = workspace.dataset.workspace;
+    workspace.append(workspaceTemplate.content.cloneNode(true));
+    workspace.querySelector('[data-panel="company"]').append(companyTemplate.content.cloneNode(true));
+    workspace.querySelector('[data-panel="personal"]').append(personalTemplate.content.cloneNode(true));
+    workspace.querySelectorAll("[data-tab]").forEach(button => {
+      const tab = button.dataset.tab;
+      button.id = `${prefix}-tab-${tab}`;
+      button.setAttribute("aria-controls", `${prefix}-panel-${tab}`);
+      const panel = workspace.querySelector(`[data-panel="${tab}"]`);
+      panel.id = `${prefix}-panel-${tab}`;
+      panel.setAttribute("aria-labelledby", button.id);
+      button.addEventListener("click", () => selectTab(workspace, tab));
+      button.addEventListener("keydown", event => {
+        const key = event.key;
+        if (!["ArrowLeft","ArrowRight","Home","End"].includes(key)) return;
+        event.preventDefault();
+        const next = key === "Home" ? "company" : key === "End" ? "personal" : tab === "company" ? "personal" : "company";
+        selectTab(workspace, next, true);
+      });
+    });
+    workspace.querySelector("[data-open-company]").addEventListener("click", () => selectTab(workspace, "company", true));
+  });
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const stories = [
+    { id:"next-chapter", title:"One Zava. Our next chapter, together.", category:"Leadership", art:"Our next chapter starts with us.", tone:"", summary:"A shared direction for our customers, our communities and the way we work.", author:"Patti Fernandez / Sep 24 / 4 min read" },
+    { id:"innovation-week", title:"Inside our global customer innovation week", category:"Company update", art:"Ideas become impact.", tone:"team", summary:"Meet the teams sharing what they learned with customers around the world.", author:"Company communications / Sep 23 / 3 min read" },
+    { id:"helsinki", title:"Helsinki: building connections across teams", category:"Office spotlight", art:"Closer, across the globe.", tone:"local", summary:"Local stories, new connections and a welcoming place to collaborate.", author:"Workplace team / Sep 22 / 2 min read" }
+  ];
+  const layouts = [["editorial","Editorial"],["tiles","Hero tiles"],["layers","Layers"],["carousel","Carousel"],["filmstrip","Filmstrip"],["compact","Compact list"]];
+  const storyMarkup = story => `<article class="news-item" data-story="${story.id}"><div class="news-art ${story.tone}" aria-hidden="true">${story.art}</div><div class="news-copy"><span class="tag">${story.category}</span><h4>${story.title}</h4><p class="subtle news-summary">${story.summary}</p><p class="author">${story.author}</p><span class="linklike">Read article / illustration</span></div></article>`;
+  document.querySelectorAll("[data-news-host]").forEach((host, index) => {
+    host.innerHTML = `<article class="card lead-news" data-capability="C06"><div class="news-toolbar"><div><h3>Company news</h3><span class="subtle">Same stories / Six compositions</span></div><div class="news-layout-picker"><label for="news-layout-${index}">Review layout</label><select id="news-layout-${index}">${layouts.map(([value,label]) => `<option value="${value}">${label}</option>`).join("")}</select></div></div><div class="news-viewport"></div><div class="news-controls" hidden></div></article>`;
+    const select = host.querySelector("select");
+    const viewport = host.querySelector(".news-viewport");
+    const controls = host.querySelector(".news-controls");
+    const supporting = host.parentElement.querySelector("[data-news-support]");
+    let active = 0;
+    let resizeObserver;
+    function renderNews() {
+      resizeObserver?.disconnect();
+      const layout = select.value;
+      host.dataset.layout = layout;
+      controls.hidden = !["carousel","filmstrip"].includes(layout);
+      supporting.hidden = layout !== "editorial";
+      supporting.innerHTML = layout === "editorial" ? stories.slice(1).map(story => `<article class="small-story" data-story="${story.id}"><div class="story-icon" aria-hidden="true">${story.tone.toUpperCase()}</div><div><h4>${story.title}</h4><p>${story.author}</p></div></article>`).join("") : "";
+      if (layout === "editorial") {
+        const story = stories[0];
+        viewport.innerHTML = `<div class="lead-layout" data-story="${story.id}"><div class="lead-art" role="img" aria-label="Abstract Zava company editorial artwork"><small>ZAVA / TOGETHER</small><b>${story.art}</b></div><div class="lead-copy"><span class="tag">Company news / ${story.category}</span><h3>${story.title}</h3><p class="subtle">${story.summary} Read the update and join the company-wide conversation.</p><p class="author">${story.author}</p><div class="actions"><span class="buttonlike primary">Read the story</span><span class="linklike">All company news</span></div></div></div>`;
+        return;
+      }
+      viewport.innerHTML = `<div class="news-items ${layout}">${stories.map(storyMarkup).join("")}</div>`;
+      if (controls.hidden) return;
+      controls.innerHTML = `<button class="button" data-news-prev aria-label="Previous company news">Previous</button><span class="position" role="status" aria-live="polite"></span><button class="button" data-news-next aria-label="Next company news">Next</button>${layout === "carousel" ? stories.map((story,i) => `<button class="button" data-news-jump="${i}" aria-label="Show story ${i+1}: ${story.title}">${i+1}</button>`).join("") : ""}<button class="button" data-news-list>List view</button>`;
+      const previous = controls.querySelector("[data-news-prev]");
+      const next = controls.querySelector("[data-news-next]");
+      const position = controls.querySelector(".position");
+      const items = [...viewport.querySelectorAll(".news-item")];
+      const strip = viewport.querySelector(".news-items");
+      const showSlide = () => {
+        items.forEach((item,i) => { item.hidden = i !== active; });
+        previous.disabled = active === 0;
+        next.disabled = active === stories.length-1;
+        position.textContent = `Story ${active+1} of ${stories.length}`;
+        controls.querySelectorAll("[data-news-jump]").forEach(button => button.setAttribute("aria-current",String(Number(button.dataset.newsJump) === active)));
+      };
+      if (layout === "carousel") {
+        strip.setAttribute("aria-roledescription","carousel");
+        strip.setAttribute("aria-label","Featured company news");
+        strip.setAttribute("role","group");
+        showSlide();
+        previous.addEventListener("click", () => { active--; showSlide(); });
+        next.addEventListener("click", () => { active++; showSlide(); });
+        controls.querySelectorAll("[data-news-jump]").forEach(button => button.addEventListener("click", () => { active = Number(button.dataset.newsJump); showSlide(); }));
+      } else {
+        strip.tabIndex = 0;
+        strip.setAttribute("role","region");
+        strip.setAttribute("aria-label","Company news filmstrip; horizontally scrollable");
+        const updateStrip = () => {
+          previous.disabled = strip.scrollLeft <= 1;
+          next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 1;
+          const bounds = strip.getBoundingClientRect();
+          const visible = items.map((item,i) => ({i,rect:item.getBoundingClientRect()})).filter(({rect}) => rect.right > bounds.left+13 && rect.left < bounds.right-13);
+          if (visible.length) {
+            const text = `In view: ${visible[0].i+1}-${visible[visible.length-1].i+1} of ${stories.length}`;
+            if (position.textContent !== text) position.textContent = text;
+          }
+        };
+        const move = direction => strip.scrollBy({left:direction * strip.clientWidth * .8, behavior:reducedMotion.matches ? "instant" : "smooth"});
+        previous.addEventListener("click", () => move(-1));
+        next.addEventListener("click", () => move(1));
+        strip.addEventListener("scroll", updateStrip, {passive:true});
+        resizeObserver = new ResizeObserver(updateStrip);
+        resizeObserver.observe(strip);
+        updateStrip();
+      }
+      controls.querySelector("[data-news-list]").addEventListener("click", () => { select.value = "compact"; renderNews(); select.focus(); });
+    }
+    select.addEventListener("change", () => { active = 0; renderNews(); });
+    renderNews();
+  });
+
+  let stageInstance = 0;
+  function createStageCard(host, capability, title, source) {
+    const id = `stage-card-${++stageInstance}`;
+    host.innerHTML = `<article class="card violet stage-card" data-capability="${capability}" aria-labelledby="${id}-title"><div class="pad"><div class="cardhead"><h3 id="${id}-title">${title}</h3><span class="stage-label"></span></div><div class="stage-body"></div><div class="source">${source}</div></div></article>`;
+    return host.querySelector("article");
+  }
+  function showStage(root, stage, label, markup, {focus=true,back=false,target} = {}) {
+    root.dataset.stage = stage;
+    root.querySelector(".stage-label").textContent = label;
+    root.querySelector(".stage-body").innerHTML = `<div class="stage-face${focus ? back ? " backward" : " forward" : ""}">${markup}</div>`;
+    if (focus) (root.querySelector(target || ".stage-heading") || root.querySelector(".stage-heading")).focus({preventScroll:true});
+  }
+  const courses = [
+    {id:"information",title:"Protecting customer information",due:"Oct 2",duration:"15 min",progress:"2 of 5 lessons",percent:40,description:"Handle customer information safely and recognize when to use approved security reporting."},
+    {id:"accessibility",title:"Accessible collaboration",due:"Oct 9",duration:"20 min",progress:"Not started / 4 lessons",percent:0,description:"Create accessible documents, meetings and shared experiences for every colleague."},
+    {id:"conduct",title:"Code of conduct refresh",due:"Oct 16",duration:"12 min",progress:"1 of 3 lessons",percent:33,description:"Review the everyday decisions, responsibilities and reporting routes in Zava's code."}
+  ];
+  document.querySelectorAll("[data-learning-card]").forEach(host => {
+    const root = createStageCard(host,"C13","Required learning","C13 / Review-only LMS fixtures / Three incomplete assignments. Navigation neither launches training nor records completion.");
+    let selected = courses[0];
+    let detailOrigin = "overview";
+    function renderLearning(stage, options = {}) {
+      let markup;
+      if (stage === "overview") {
+        const next = courses[0];
+        markup = `<h4 class="stage-heading" tabindex="-1">Next required course</h4><span class="tag gold">3 required / Next due ${next.due}</span><div class="video" style="margin-top:12px"><span aria-hidden="true">&#9654;</span></div><h4>${next.title}</h4><p class="subtle">${next.duration} / ${next.progress}</p><div class="progress" aria-label="${next.percent}% complete"><span style="width:${next.percent}%"></span></div><div class="actions"><button class="button primary" data-stage-action="all">View all 3</button><button class="button" data-stage-action="featured">Course details</button></div>`;
+      } else if (stage === "collection") {
+        markup = `<h4 class="stage-heading" tabindex="-1">All 3 required assignments</h4><p class="subtle" style="margin-bottom:12px">Nearest due first. Select any course to see its details.</p><div class="course-list">${courses.map(course => `<button class="course-choice" data-course="${course.id}" aria-current="${selected.id === course.id}"><b>${course.title}</b><span>Due ${course.due} / ${course.duration}<br>${course.progress}</span></button>`).join("")}</div><div class="actions"><button class="button" data-stage-action="overview">Back to overview</button></div>`;
+      } else {
+        markup = `<h4 class="stage-heading" tabindex="-1">${selected.title}</h4><span class="tag gold">Due ${selected.due}</span><p class="subtle" style="margin-top:10px">${selected.duration} / ${selected.progress}</p><p style="margin-top:12px">${selected.description}</p><div class="progress" aria-label="${selected.percent}% complete"><span style="width:${selected.percent}%"></span></div><p class="subtle">Captions and transcript available in the LMS. Resume position and completion follow its rules.</p><div class="annotation"><b>LMS handoff / illustration</b><br>Continue training and Open transcript will use the approved source. This board opens neither and never marks a course complete.</div><div class="actions"><button class="button" data-stage-action="back">Back to ${detailOrigin === "collection" ? "all 3" : "overview"}</button>${detailOrigin === "overview" ? '<button class="button" data-stage-action="all">View all 3</button>' : ""}</div>`;
+      }
+      showStage(root,stage,stage === "detail" ? "Selected course" : stage === "collection" ? "Collection / 3 required" : "Overview / 3 required",markup,options);
+    }
+    root.addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button.dataset.course) {
+        selected = courses.find(course => course.id === button.dataset.course);
+        detailOrigin = "collection";
+        renderLearning("detail");
+      } else if (button.dataset.stageAction === "all") {
+        renderLearning("collection");
+      } else if (button.dataset.stageAction === "featured") {
+        selected = courses[0];
+        detailOrigin = "overview";
+        renderLearning("detail");
+      } else if (button.dataset.stageAction === "overview") {
+        renderLearning("overview",{back:true,target:'[data-stage-action="all"]'});
+      } else if (button.dataset.stageAction === "back") {
+        renderLearning(detailOrigin,{back:true,target:detailOrigin === "collection" ? `[data-course="${selected.id}"]` : '[data-stage-action="featured"]'});
+      }
+    });
+    renderLearning(host.dataset.learningCard,{focus:false});
+  });
+
+  document.querySelectorAll("[data-praise-card]").forEach(host => {
+    const root = createStageCard(host,"C14","Praise","C14 / Review only / Fictional recipients. Nothing is sent or saved; drafts disappear on reload. Do not enter sensitive information.");
+    const initialDraft = () => ({recipient:"Alex Green",audience:"Direct to recipient",message:"Thank you for making our launch accessible to everyone."});
+    let draft = initialDraft();
+    const formId = root.getAttribute("aria-labelledby").replace("-title","-form");
+    function renderPraise(stage, options = {}) {
+      let markup;
+      if (stage === "overview") {
+        markup = '<h4 class="stage-heading" tabindex="-1">Great work deserves a thank you.</h4><div class="row"><span class="avatar">AG</span><div><h4>Alex Green</h4><p>Recognized for inclusive collaboration</p></div></div><p class="quote">"You made accessibility part of the conversation from day one."</p><div class="actions"><button class="button primary" data-stage-action="compose">Send praise</button><span class="linklike">Explore communities / illustration</span></div>';
+      } else if (stage === "compose") {
+        markup = `<h4 class="stage-heading" tabindex="-1">Compose praise</h4><p class="subtle">Example recipients only. Review the message and audience before confirming.</p><form id="${formId}"><label for="${formId}-recipient">Recipient</label><select id="${formId}-recipient" name="recipient"><option>Alex Green</option><option>Dana Lee</option></select><label for="${formId}-audience">Audience</label><select id="${formId}-audience" name="audience"><option>Direct to recipient</option><option>Zava accessibility team</option></select><label for="${formId}-message">Message</label><textarea id="${formId}-message" name="message" required maxlength="500"></textarea><div class="actions"><button class="button primary" type="submit">Review praise</button><button class="button" type="button" data-stage-action="keep">Keep draft and return</button><button class="button" type="button" data-stage-action="cancel">Cancel draft</button></div></form>`;
+      } else if (stage === "review") {
+        markup = '<h4 class="stage-heading" tabindex="-1">Review before confirming</h4><span class="tag gray">Draft / not sent</span><div class="row"><div><b>Recipient</b><p data-review-recipient></p></div></div><div class="row"><div><b>Audience</b><p data-review-audience></p></div></div><p class="quote review-message"></p><p class="subtle">Production would say Confirm and send, then wait for a source receipt. This preview cannot submit.</p><div class="actions"><button class="button primary" data-stage-action="confirm">Confirm preview</button><button class="button" data-stage-action="edit">Edit praise</button></div>';
+      } else if (stage === "discard") {
+        markup = '<h4 class="stage-heading" tabindex="-1">Discard this draft?</h4><p>Your recipient, audience and message edits will be replaced with the example defaults. Nothing has been sent.</p><div class="actions"><button class="button" data-stage-action="edit">Keep editing</button><button class="button" data-stage-action="discard">Discard draft</button></div>';
+      } else {
+        markup = '<h4 class="stage-heading" tabindex="-1">Preview complete. Nothing sent.</h4><span class="tag gray">No source receipt</span><p style="margin-top:12px">You reached the confirmation point in this design study. No praise was posted and no notification was sent. A real submission would show pending, error/uncertain status or a source-issued receipt.</p><div class="actions"><button class="button" data-stage-action="review">Back to review</button><button class="button" data-stage-action="keep">Keep draft and return</button></div>';
+      }
+      showStage(root,stage,stage === "confirmed" ? "Preview only / Nothing sent" : `${stage.charAt(0).toUpperCase()+stage.slice(1)} / Not sent`,markup,options);
+      if (stage === "compose") {
+        const form = root.querySelector("form");
+        for (const key of ["recipient","audience","message"]) form.elements.namedItem(key).value = draft[key];
+        form.addEventListener("input", () => {
+          for (const key of ["recipient","audience","message"]) draft[key] = form.elements.namedItem(key).value;
+          form.elements.namedItem("message").setCustomValidity("");
+        });
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+          const message = form.elements.namedItem("message");
+          if (!message.value.trim()) {
+            message.setCustomValidity("Enter a message before reviewing praise.");
+            message.reportValidity();
+            return;
+          }
+          for (const key of ["recipient","audience","message"]) draft[key] = form.elements.namedItem(key).value;
+          renderPraise("review");
+        });
+      } else if (stage === "review") {
+        root.querySelector("[data-review-recipient]").textContent = draft.recipient;
+        root.querySelector("[data-review-audience]").textContent = draft.audience;
+        root.querySelector(".review-message").textContent = draft.message;
+      }
+    }
+    root.addEventListener("click", event => {
+      const action = event.target.closest("[data-stage-action]")?.dataset.stageAction;
+      if (!action) return;
+      if (action === "compose") renderPraise("compose");
+      else if (action === "edit") renderPraise("compose",{back:true,target:root.dataset.stage === "discard" ? '[data-stage-action="cancel"]' : 'button[type="submit"]'});
+      else if (action === "review") renderPraise("review",{back:true,target:'[data-stage-action="confirm"]'});
+      else if (action === "confirm") renderPraise("confirmed");
+      else if (action === "cancel") renderPraise("discard");
+      else if (action === "keep") renderPraise("overview",{back:true,target:'[data-stage-action="compose"]'});
+      else if (action === "discard") { draft = initialDraft(); renderPraise("overview",{back:true,target:'[data-stage-action="compose"]'}); }
+    });
+    renderPraise(host.dataset.praiseCard,{focus:false});
+  });
+
+  function updateClock(state, now) {
+    const record = state.record;
+    const time = new Intl.DateTimeFormat("en-GB", { timeZone:record.zone, hour:"2-digit", minute:"2-digit", hourCycle:"h23" }).format(now);
+    const date = new Intl.DateTimeFormat("en-GB", { timeZone:record.zone, weekday:"short", day:"numeric", month:"short", year:"numeric" }).format(now);
+    const zone = new Intl.DateTimeFormat("en-GB", { timeZone:record.zone, timeZoneName:"short" }).formatToParts(now).find(part => part.type === "timeZoneName").value;
+    const clock = state.root.querySelector(".office-clock");
+    clock.textContent = time;
+    clock.dateTime = now.toISOString();
+    clock.setAttribute("aria-label", `${record.name} local time ${time}`);
+    state.root.querySelector(".office-date").textContent = date;
+    state.root.querySelector(".office-zone").textContent = `${zone} / ${record.zone}`;
+  }
+
+  function updateClocks() {
+    const now = new Date();
+    mapStates.forEach(state => {
+      if (!state.root.closest("[hidden]")) updateClock(state, now);
+    });
+  }
+
+  document.querySelectorAll("[data-map-host]").forEach((host, index) => {
+    host.append(mapTemplate.content.cloneNode(true));
+    const root = host.querySelector(".office-component");
+    const state = { root, record:officeRecords[0] };
+    mapStates.push(state);
+    const choose = record => {
+      state.record = record;
+      root.querySelectorAll("[data-office]").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.office === record.id));
+      });
+      root.querySelector(".office-name").textContent = `${record.name}, ${record.country}`;
+      root.querySelector(".office-address").textContent = record.address;
+      root.querySelector(".office-contact").textContent = record.contact;
+      updateClock(state, new Date());
+      root.querySelector(".selection-status").textContent = `${record.name} selected. Local time and office details updated.`;
+    };
+    officeRecords.forEach(record => {
+      const pin = document.createElement("button");
+      pin.type = "button";
+      pin.className = "map-pin";
+      pin.dataset.office = record.id;
+      pin.style.left = `${(record.lon + 180) / 360 * 100}%`;
+      pin.style.top = `${(90 - record.lat) / 180 * 100}%`;
+      pin.setAttribute("aria-label", `Select ${record.name} office on map`);
+      pin.title = record.name;
+      pin.addEventListener("click", () => choose(record));
+      root.querySelector(".office-map").append(pin);
+      const listButton = document.createElement("button");
+      listButton.type = "button";
+      listButton.dataset.office = record.id;
+      listButton.textContent = record.name;
+      listButton.addEventListener("click", () => choose(record));
+      root.querySelector(".office-list").append(listButton);
+    });
+    root.dataset.mapInstance = String(index);
+    choose(officeRecords[0]);
+    root.querySelector(".selection-status").textContent = "";
+  });
+
+  const form = document.getElementById("settings-form");
+  const status = document.getElementById("settings-status");
+  const mailToggle = document.getElementById("mail-visible");
+  const recipeSelect = document.getElementById("recipe-select");
+  const showRecipe = () => {
+    document.getElementById("company-settings").hidden = recipeSelect.value !== "company";
+    document.getElementById("personal-settings").hidden = recipeSelect.value !== "personal";
+  };
+  recipeSelect.addEventListener("change", showRecipe);
+  form.querySelectorAll('input').forEach(input => input.addEventListener("change", () => {
+    status.textContent = "Unsaved review changes. Save or cancel before simulating the new default.";
+  }));
+  const applySaved = () => {
+    document.getElementById("saved-default").textContent = saved.defaultTab === "company" ? "Company" : "Personal";
+    workspaces.forEach(workspace => {
+      workspace.querySelector('[data-capability="C03"]').hidden = !saved.mailVisible;
+    });
+  };
+  const restoreDraft = () => {
+    form.querySelector(`input[name="default-tab"][value="${saved.defaultTab}"]`).checked = true;
+    mailToggle.checked = saved.mailVisible;
+  };
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    saved = { defaultTab:form.querySelector('input[name="default-tab"]:checked').value, mailVisible:mailToggle.checked };
+    applySaved();
+    status.textContent = "Saved in this review page only. Existing tabs stay where they are; try Simulate neutral launch.";
+  });
+  document.getElementById("cancel-settings").addEventListener("click", () => {
+    restoreDraft();
+    status.textContent = "Draft changes canceled. Last saved review settings retained.";
+  });
+  document.getElementById("reset-settings").addEventListener("click", () => {
+    saved = { defaultTab:"company", mailVisible:true };
+    restoreDraft();
+    applySaved();
+    workspaces.forEach(workspace => selectTab(workspace, "company"));
+    status.textContent = "Review defaults reset: Company launch, both recipes retained, email visible.";
+  });
+  document.getElementById("simulate-launch").addEventListener("click", () => {
+    workspaces.forEach(workspace => selectTab(workspace, saved.defaultTab));
+    status.textContent = `Neutral launch opened ${saved.defaultTab === "company" ? "Company" : "Personal"} in both workspace boards. SharePoint is unchanged.`;
+  });
+  let clockTimer;
+  const syncClockTimer = () => {
+    window.clearInterval(clockTimer);
+    if (!document.hidden) {
+      updateClocks();
+      clockTimer = window.setInterval(updateClocks, 30000);
+    }
+  };
+  document.addEventListener("visibilitychange", syncClockTimer);
+  window.addEventListener("pagehide", () => window.clearInterval(clockTimer));
+  window.addEventListener("pageshow", syncClockTimer);
+  syncClockTimer();
+})();
+</script>
+</body>
+</html>

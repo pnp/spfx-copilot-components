@@ -1,0 +1,62 @@
+declare interface ISharePointGovernanceCopilotComponentStrings {
+  ExpandButtonLabel: string;
+  OpenSiteButtonLabel: string;
+  DashboardTitle: string;
+  DashboardSubtitle: string;
+  GeneratedAtLabel: string;
+  LoadingLabel: string;
+  ErrorStateTitle: string;
+  EmptyStateTitle: string;
+  EmptyStateDescription: string;
+  SummaryMissingOwner: string;
+  SummaryInactive: string;
+  SummaryBroadSharing: string;
+  SummaryExcessiveGuestAccess: string;
+  SummaryExpiring: string;
+  RiskTypeMissingOwner: string;
+  RiskTypeInactive: string;
+  RiskTypeBroadSharing: string;
+  RiskTypeExpiring: string;
+  SeverityHigh: string;
+  SeverityMedium: string;
+  SeverityLow: string;
+  OwnerCountLabel: string;
+  LastActivityLabel: string;
+  ReviewDueLabel: string;
+  ExecutiveSummaryTitle: string;
+  GovernanceHealthTitle: string;
+  GovernanceScoreLabel: string;
+  HealthBandExcellent: string;
+  HealthBandGood: string;
+  HealthBandFair: string;
+  HealthBandPoor: string;
+  HealthBandCritical: string;
+  TrendImproving: string;
+  TrendStable: string;
+  TrendDeclining: string;
+  TotalFindingsLabel: string;
+  TopRiskTitle: string;
+  SeverityLabel: string;
+  PriorityActionsTitle: string;
+  PotentialRiskReductionTitle: string;
+  RiskReductionImpactHigh: string;
+  RiskReductionImpactMedium: string;
+  RiskReductionImpactLow: string;
+  EstimatedImprovementLabel: string;
+  TenantInsightsTitle: string;
+  ShowingFindingsLabel: string;
+  PriorityFindingsSuffix: string;
+  HiddenFindingsSuffix: string;
+  ShowLowPriorityButtonLabel: string;
+  HideLowPriorityButtonLabel: string;
+  RiskLabel: string;
+  ImpactLabel: string;
+  WhyItMattersLabel: string;
+  RecommendedActionLabel: string;
+  AskCopilotPrefix: string;
+}
+
+declare module 'SharePointGovernanceCopilotComponentStrings' {
+  const strings: ISharePointGovernanceCopilotComponentStrings;
+  export = strings;
+}

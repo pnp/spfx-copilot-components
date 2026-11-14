@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "81bad620-987e-4564-bed3-bb1ae9033cf6",
+  "alias": "ShowCompanyEventsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowCompanyEvents",
+      "description": {
+        "default": "Use when the user asks about company events or town halls. Do not use when the user asks for personal calendar meetings."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showCompanyEvents/ShowCompanyEventsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # `displayMode` — developer guide for SPFx Copilot Components
 
-> Status: experimental — based on the in-development SPFx Copilot Component model. APIs may change.
+> Status: SPFx 1.24.0-rc.0 / React 18.3.1 reference. This is prerelease guidance, not authenticated host certification.
 >
 > Reference source: [Display modes in SharePoint Copilot components](https://learn.microsoft.com/sharepoint/dev/spfx/copilot/displaymode)
 >
@@ -105,19 +105,29 @@ const result = await this.requestDisplayModeAsync('fullscreen');
 Wire the handler down into your render tree alongside the other host-context fields you care about:
 
 ```tsx
-protected render(): void {
-  if (!this.context?.domElement) return;
+import { createRoot, type Root } from 'react-dom/client';
 
-  ReactDOM.render(
-    <HelloWorldApp
-      message={this.properties.message}
+private _root: Root | undefined;
+
+protected render(): void {
+  if (!this._root) {
+    this._root = createRoot(this.context.domElement);
+  }
+  this._root.render(
+    <MyDayApp
+      focus={this.properties.focus}
       theme={this.hostContext.theme === 'dark' ? 'dark' : 'light'}
       displayMode={this.hostContext.displayMode}
       availableDisplayModes={this.hostContext.availableDisplayModes}
       onRequestFullscreen={this._handleRequestFullscreen}
-    />,
-    this.context.domElement
+    />
   );
+}
+
+protected async onTeardown(reason?: string): Promise<void> {
+  this._root?.unmount();
+  this._root = undefined;
+  await super.onTeardown(reason);
 }
 ```
 

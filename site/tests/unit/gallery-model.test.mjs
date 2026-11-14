@@ -39,7 +39,7 @@ describe('gallery metadata', () => {
     expect(html).toContain('rel="noopener noreferrer"');
   });
 
-  it('allows README links within samples and rejects repository escapes', () => {
+  it('allows README links within samples', () => {
     const html = renderReadme(
       'copilot-readiness-action-centre',
       '[Rules](../my-day/agentic-creation-rules.md)',
@@ -48,8 +48,38 @@ describe('gallery metadata', () => {
     expect(html).toContain(
       'href="https://github.com/pnp/spfx-copilot-components/blob/main/samples/my-day/agentic-creation-rules.md"',
     );
-    expect(() => renderReadme('demo', '[Root](../../README.md)'))
-      .toThrow('Unsafe README link in demo: ../../README.md');
+  });
+
+  it('allows README links and images elsewhere in the repository', () => {
+    const html = renderReadme(
+      'demo',
+      '[Readiness](../../RC0-updates.md#validation)\n\n![Overview](../../assets/copilot-components-github.png)',
+    );
+
+    expect(html).toContain(
+      'href="https://github.com/pnp/spfx-copilot-components/blob/main/RC0-updates.md#validation"',
+    );
+    expect(html).toContain(
+      'src="https://raw.githubusercontent.com/pnp/spfx-copilot-components/main/assets/copilot-components-github.png"',
+    );
+  });
+
+  it.each(['../../../outside.md', '../../../', '..\\..\\..\\outside.md'])(
+    'rejects README links and images that escape the repository: %s',
+    (target) => {
+      expect(() => renderReadme('demo', `[Outside](${target})`))
+        .toThrow(`Unsafe README link in demo: ${target}`);
+      expect(() => renderReadme('demo', `![Outside](${target})`))
+        .toThrow(`Unsafe README link in demo: ${target}`);
+    },
+  );
+
+  it('encodes relative README paths and normalizes Windows separators', () => {
+    const html = renderReadme('demo', '[Docs](..\\other\\setup.md#deploy)');
+
+    expect(html).toContain(
+      'href="https://github.com/pnp/spfx-copilot-components/blob/main/samples/other/setup.md#deploy"',
+    );
   });
 
   it('requires one sample-specific visitor tracker as the final README entry', () => {

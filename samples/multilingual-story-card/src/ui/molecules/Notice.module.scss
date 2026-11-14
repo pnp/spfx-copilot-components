@@ -1,0 +1,15 @@
+// Molecule: notice (warning line).
+
+.warning {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3xs) var(--space-2xs);
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-warning);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+}

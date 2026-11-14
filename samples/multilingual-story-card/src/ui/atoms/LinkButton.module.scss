@@ -1,0 +1,19 @@
+// Atom: link button.
+
+.linkButton {
+  // Buttons centre their text by default; links read as running text.
+  text-align: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-info);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (forced-colors: active) {
+  .linkButton {
+    color: LinkText;
+  }
+}

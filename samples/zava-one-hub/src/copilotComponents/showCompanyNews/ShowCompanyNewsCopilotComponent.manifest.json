@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "b234af0a-51f2-4f6f-8847-848d272f2aff",
+  "alias": "ShowCompanyNewsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowCompanyNews",
+      "description": {
+        "default": "Use when the user asks for Zava company or local news. Do not use when the user asks for events or urgent alerts."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showCompanyNews/ShowCompanyNewsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

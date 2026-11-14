@@ -1,0 +1,14 @@
+// Molecule: credit.
+
+.credit {
+  // The credit wraps to the photo's width instead of widening the figure.
+  contain: inline-size;
+  letter-spacing: 0.01em;
+  // The gap to the photo is measured from the caption's cap height, not its line box.
+  text-box: trim-start cap alphabetic;
+  margin-block-start: var(--space-2xs);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+  line-height: var(--font-text-sm-line-height);
+}

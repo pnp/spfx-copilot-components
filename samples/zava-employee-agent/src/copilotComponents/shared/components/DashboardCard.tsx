@@ -54,6 +54,7 @@ const useStyles = makeStyles({
 });
 
 export interface IDashboardCardProps {
+  children?: React.ReactNode;
   title: string;
   icon?: React.ReactElement;
   actionLabel?: string;

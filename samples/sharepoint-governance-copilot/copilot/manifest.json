@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.0",
+  "id": "cafce157-d6b2-4363-ad98-33f1b567b4a6",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://www.contoso.com",
+    "privacyUrl": "https://www.contoso.com/privacy",
+    "termsOfUseUrl": "https://www.contoso.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "SharePoint Governance Agent",
+    "full": "SharePoint Governance Agent — Executive Governance Dashboard"
+  },
+  "description": {
+    "short": "Governance score, priority actions, and explainable tenant risk findings.",
+    "full": "An executive governance advisor for Microsoft 365 Copilot. Surfaces a 0-100 governance score with a trend indicator, an AI-generated executive summary, prioritized remediation actions, a tenant-wide insights panel, and an estimated risk reduction — with every finding explained in business terms (risk, impact, why it matters, recommended action). Runs entirely on demo (mock) data."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "sharePointGovernanceAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": ["identity"],
+  "validDomains": []
+}

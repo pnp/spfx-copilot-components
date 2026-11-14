@@ -6,7 +6,7 @@
         "default": "MyDay Agent"
       },
       "description": {
-        "default": "MyDay description"
+        "default": "Personal daily overview, agenda, tasks, mail, news and a read-only focus briefing."
       },
       "components": [
         "5daff8b9-9c39-4c9c-a32b-98ab4ab6c8da"

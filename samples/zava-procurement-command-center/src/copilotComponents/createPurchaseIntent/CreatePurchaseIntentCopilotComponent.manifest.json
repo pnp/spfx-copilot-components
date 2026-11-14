@@ -16,7 +16,7 @@
     {
       "name": "CreatePurchaseIntentTool",
       "description": {
-        "default": "Create a governed purchase intent from an outcome and constraints."
+        "default": "Use when the user states a new purchase outcome, quantity, budget, or delivery need and wants an editable intake. Do not use for comparing fulfillment routes on an existing request, inspecting policy, or approving demand."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/createPurchaseIntent/CreatePurchaseIntentCopilotComponentProperties.js:default;"

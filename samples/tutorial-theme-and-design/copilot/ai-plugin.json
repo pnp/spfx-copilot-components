@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "designShowcase",
+  "name_for_human": "Design Showcase",
+  "description_for_human": "View sample project cards in the Copilot theme.",
+  "description_for_model": "Use ShowDesignShowcase to show a set of sample project cards in a component that follows the Copilot theme and adapts to the inline and fullscreen display modes.",
+  "contact_email": "publisher@contoso.com"
+}

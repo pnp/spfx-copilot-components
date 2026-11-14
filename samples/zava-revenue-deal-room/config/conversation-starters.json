@@ -1,29 +1,59 @@
 {
   "starters": [
     {
-      "title": "Advance a deal",
-      "text": "Help me get Contoso's global expansion deal to signature this quarter.",
-      "targetName": "GetDealRisk"
+      "title": "Pipeline value flow",
+      "text": "Show how pipeline value moves from regions through buyer readiness to next actions.",
+      "targetName": "ExplorePipelineFlow"
     },
     {
-      "title": "Buying committee",
-      "text": "Map the buying committee for the Contoso expansion.",
+      "title": "World opportunity map",
+      "text": "Show a world map of country opportunity value for the current quarter across all regions.",
+      "targetName": "DiscoverAccountOpportunity"
+    },
+    {
+      "title": "Approval value flow",
+      "text": "Show where approval value is waiting by intake route, current reviewer and stage outcome.",
+      "targetName": "ExploreApprovalFlow"
+    },
+    {
+      "title": "Submit a deal",
+      "text": "Help me submit an evidence-backed deal for commercial review.",
+      "targetName": "SubmitDealRequest"
+    },
+    {
+      "title": "Deal approvals",
+      "text": "Show the deals awaiting independent commercial approval.",
+      "targetName": "ReviewDealApproval"
+    },
+    {
+      "title": "My revenue priorities",
+      "text": "Show my top revenue priorities, pipeline status and next actions.",
+      "targetName": "GetMyRevenuePriorities"
+    },
+    {
+      "title": "Map the buying committee",
+      "text": "Map the buying committee for Contoso and show missing buyer access.",
       "targetName": "MapBuyingCommittee"
     },
     {
-      "title": "Commercial scenario",
-      "text": "Model a three-year ramped offer that protects 68% margin.",
+      "title": "Model a commercial offer",
+      "text": "Model a Contoso offer with 1,000 users, 24 months, 8% discount, $150,000 services and 65% seller probability.",
       "targetName": "SimulateCommercialOffer"
     },
     {
-      "title": "Meeting preparation",
-      "text": "Prepare me for tomorrow's Contoso steering meeting.",
-      "targetName": "PrepareCustomerMeeting"
+      "title": "World recorded-spend map",
+      "text": "Show recorded spend by country for the current quarter.",
+      "targetName": "ExplorePipelineQuality"
     },
     {
-      "title": "Forecast decision",
-      "text": "Should Contoso remain in commit for Q4?",
-      "targetName": "InspectForecastCommit"
+      "title": "Build a mutual action plan",
+      "text": "Build a mutual action plan for Contoso with owned dependencies.",
+      "targetName": "BuildMutualActionPlan"
+    },
+    {
+      "title": "Build the customer value case",
+      "text": "Build the Contoso value case with editable assumptions and payback.",
+      "targetName": "BuildValueCase"
     },
     {
       "title": "Explore capabilities",

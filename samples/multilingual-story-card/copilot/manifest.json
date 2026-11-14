@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.21",
+  "id": "dbe61608-7a19-4248-a71e-1d61b3fbc099",
+  "developer": {
+    "name": "Stefan Bauer · N8D",
+    "websiteUrl": "https://n8d.at",
+    "privacyUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/multilingual-story-card/PRIVACY.md",
+    "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/multilingual-story-card/TERMS.md"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "CosmoPolite Agent",
+    "full": "CosmoPolite: stories in your language"
+  },
+  "description": {
+    "short": "Ask in any language or dialect: a story card that reads itself aloud",
+    "full": "CosmoPolite answers in the language you write in, dialects included. Ask about a place, a person or an idea and get a short story card: written in your language, with a fitting photo from open collections and its credit, in one of five designs and three layouts, light or dark, and read aloud with your browser's voices. Made by Stefan Bauer · N8D."
+  },
+  "accentColor": "#C42A8C",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "cosmoPoliteAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}

@@ -64,7 +64,12 @@ describe('fullscreen panels', () => {
         onDismiss={() => undefined}
       />
     );
-    expect(markup).toContain('checked="" disabled=""');
+    const container = document.createElement('div');
+    container.innerHTML = markup;
+    const checkedPanels = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]:checked');
+    expect(checkedPanels).toHaveLength(1);
+    expect(checkedPanels[0].disabled).toBe(true);
+    expect(checkedPanels[0].closest('label')?.textContent).toContain('Action center');
   });
 
   test('renders a grounded destination detail', () => {

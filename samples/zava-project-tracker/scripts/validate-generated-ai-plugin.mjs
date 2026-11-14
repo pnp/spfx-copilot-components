@@ -1,3 +1,4 @@
+import ts from 'typescript';
 import fs from 'node:fs';
 import path from 'node:path';
 import appManifestPackage from '@microsoft/app-manifest';
@@ -19,10 +20,6 @@ const METADATA_LIMITS = {
   description_for_human: 100,
   description_for_model: 2048
 };
-const PARAMETER_TYPES = new Set(['string', 'array', 'boolean', 'integer', 'number']);
-const PARAMETER_KEYS = new Set(['type', 'items', 'enum', 'description', 'default']);
-const SIMPLE_PARAMETER_TYPES = new Set(['string', 'boolean', 'integer', 'number']);
-const SIMPLE_PARAMETER_KEYS = new Set(['type', 'enum', 'description', 'default']);
 const ALLOWED_PLACEHOLDERS = new Set(['{{TENANT_MCP_URL}}', '{{TENANT_ORIGIN}}']);
 
 function assert(condition, message) {
@@ -39,61 +36,6 @@ function assertString(value, label, maximum = STRING_LIMIT) {
 function assertOnlyKeys(value, allowed, label) {
   for (const key of Object.keys(value)) {
     assert(allowed.has(key), `${label} contains unsupported keyword '${key}'.`);
-  }
-}
-
-function assertDefaultType(value, type, label) {
-  if (value === undefined) {
-    return;
-  }
-  const matches = type === 'array'
-    ? Array.isArray(value)
-    : type === 'integer'
-      ? Number.isInteger(value)
-      : typeof value === type;
-  assert(matches, `${label}.default does not match type '${type}'.`);
-}
-
-function assertParameter(parameter, label, simple = false) {
-  assert(parameter && typeof parameter === 'object' && !Array.isArray(parameter), `${label} must be an object.`);
-  assertOnlyKeys(parameter, simple ? SIMPLE_PARAMETER_KEYS : PARAMETER_KEYS, label);
-  const supportedTypes = simple ? SIMPLE_PARAMETER_TYPES : PARAMETER_TYPES;
-  assert(supportedTypes.has(parameter.type), `${label}.type '${parameter.type}' is unsupported.`);
-  if (simple) {
-    if (parameter.description !== undefined) {
-      assertString(parameter.description, `${label}.description`);
-    }
-  } else {
-    assertString(parameter.description, `${label}.description`);
-  }
-  if (parameter.enum !== undefined) {
-    assert(parameter.type === 'string', `${label}.enum is supported only for string parameters.`);
-    assert(Array.isArray(parameter.enum) && parameter.enum.length > 0, `${label}.enum must be a nonempty array.`);
-    parameter.enum.forEach((item, index) => assertString(item, `${label}.enum[${index}]`));
-  }
-  if (parameter.type === 'array') {
-    assert(parameter.items !== undefined, `${label}.items is required for an array parameter.`);
-    assertParameter(parameter.items, `${label}.items`, true);
-  } else {
-    assert(parameter.items === undefined, `${label}.items is supported only for array parameters.`);
-  }
-  assertDefaultType(parameter.default, parameter.type, label);
-}
-
-function assertParameters(parameters, label) {
-  assert(parameters && typeof parameters === 'object' && !Array.isArray(parameters), `${label} must be an object.`);
-  assertOnlyKeys(parameters, new Set(['type', 'properties', 'required']), label);
-  assert(parameters.type === undefined || parameters.type === 'object', `${label}.type must be 'object'.`);
-  assert(parameters.properties && typeof parameters.properties === 'object', `${label}.properties is required.`);
-  for (const [name, parameter] of Object.entries(parameters.properties)) {
-    assert(/^[A-Za-z0-9_]+$/.test(name), `${label} property '${name}' is not a valid plugin parameter name.`);
-    assertParameter(parameter, `${label}.properties.${name}`);
-  }
-  if (parameters.required !== undefined) {
-    assert(Array.isArray(parameters.required), `${label}.required must be an array.`);
-    for (const name of parameters.required) {
-      assert(typeof name === 'string' && Object.hasOwn(parameters.properties, name), `${label}.required references unknown property '${name}'.`);
-    }
   }
 }
 
@@ -134,16 +76,7 @@ delete pluginWithoutPreviewRuntime.runtimes;
 const schemaErrors = await AppManifestUtils.validateAgainstSchema(pluginWithoutPreviewRuntime);
 assert(schemaErrors.length === 0, `Generated API plugin metadata/functions fail Microsoft v2.4 schema validation:\n${schemaErrors.join('\n')}`);
 
-assert(Array.isArray(plugin.functions) && plugin.functions.length > 0, 'Generated API plugin contains no functions.');
-const functionsByName = new Map();
-for (const fn of plugin.functions) {
-  assertOnlyKeys(fn, new Set(['id', 'name', 'description', 'parameters', 'returns', 'states', 'capabilities']), `function '${fn.name || '<unnamed>'}'`);
-  assert(/^[A-Za-z0-9_-]+$/.test(fn.name), `Function name '${fn.name}' is invalid.`);
-  assert(!functionsByName.has(fn.name), `Function name '${fn.name}' is duplicated.`);
-  assertString(fn.description, `function '${fn.name}'.description`);
-  assertParameters(fn.parameters, `function '${fn.name}'.parameters`);
-  functionsByName.set(fn.name, fn);
-}
+assert(Array.isArray(plugin.functions) && plugin.functions.length === 0, 'SPFx 1.24 GA dynamic discovery must not embed static functions.');
 
 const remoteRuntimes = (plugin.runtimes || []).filter((runtime) => runtime.type === 'RemoteMCPServer');
 assert(remoteRuntimes.length === 1, `Expected one RemoteMCPServer runtime, found ${remoteRuntimes.length}.`);
@@ -152,32 +85,48 @@ assertOnlyKeys(runtime, new Set(['type', 'auth', 'run_for_functions', 'spec', 'o
 assert(runtime.auth?.type === 'None', 'Generated RemoteMCPServer runtime must use deployment-managed authentication type None.');
 const runtimeUrl = runtime.spec?.url;
 assert(runtimeUrl === '{{TENANT_MCP_URL}}' || URL.canParse(runtimeUrl), 'RemoteMCPServer URL must be the deployment placeholder or an absolute URL.');
-assertOnlyKeys(runtime.spec, new Set(['url', 'mcp_tool_description']), 'RemoteMCPServer spec');
-const tools = runtime.spec.mcp_tool_description?.tools;
-assert(Array.isArray(tools), 'RemoteMCPServer inline MCP tool description must contain tools[].');
-assert(tools.length === functionsByName.size, `Expected ${functionsByName.size} mirrored MCP tools, found ${tools.length}.`);
-assert(new Set(runtime.run_for_functions || []).size === functionsByName.size, 'run_for_functions must contain every generated function exactly once.');
+assertOnlyKeys(runtime.spec, new Set(['url']), 'RemoteMCPServer dynamic discovery spec');
+assert(Array.isArray(runtime.run_for_functions) && runtime.run_for_functions.length === 1 && runtime.run_for_functions[0] === '*', 'Dynamic discovery must route all discovered functions through the MCP runtime.');
 
-for (const tool of tools) {
-  assertOnlyKeys(tool, new Set(['name', 'description', 'inputSchema', 'annotations', '_meta']), `MCP tool '${tool.name || '<unnamed>'}'`);
-  const fn = functionsByName.get(tool.name);
-  assert(fn, `MCP tool '${tool.name}' has no matching function.`);
-  assert(tool.description === fn.description, `MCP tool '${tool.name}' description drifted from its function.`);
-  assertParameters(tool.inputSchema, `MCP tool '${tool.name}'.inputSchema`);
-  assert(JSON.stringify(tool.inputSchema) === JSON.stringify(fn.parameters), `MCP tool '${tool.name}' inputSchema drifted from function parameters.`);
-  assert(tool.annotations?.readOnlyHint === true && tool.annotations?.destructiveHint === false, `MCP tool '${tool.name}' must retain SPFx read-only annotations.`);
-  assert(tool._meta?.['openai/outputTemplate'] === 'ui://spfx/component.html', `MCP tool '${tool.name}' has an unexpected output template.`);
-  assert(tool._meta?.['openai/widgetAccessible'] === true, `MCP tool '${tool.name}' must remain widget-accessible.`);
-  assert(tool._meta?.['ui/csp']?.frameDomains?.[0] === '{{TENANT_ORIGIN}}', `MCP tool '${tool.name}' frame domain must use the deployment placeholder.`);
-  assert(tool._meta?.['ui/csp']?.resourceDomains?.[0] === '{{TENANT_ORIGIN}}', `MCP tool '${tool.name}' resource domain must use the deployment placeholder.`);
+console.log('Verified generated API plugin v2.4 dynamic MCP tool discovery and published string limits.');
+
+function collectStarterToolNames(directory, names = new Set()) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) collectStarterToolNames(file, names);
+    else if (entry.name.endsWith('CopilotComponent.manifest.json')) {
+      const parsed = ts.parseConfigFileTextToJson(file, fs.readFileSync(file, 'utf8'));
+      assert(!parsed.error, `Invalid source manifest: ${file}`);
+      for (const tool of parsed.config.tools || []) {
+        assert(!names.has(tool.name), `Duplicate source tool: ${tool.name}`);
+        names.add(tool.name);
+      }
+    }
+  }
+  return names;
 }
-
-for (const name of functionsByName.keys()) {
-  assert(runtime.run_for_functions.includes(name), `run_for_functions is missing '${name}'.`);
+const canonicalStarters = JSON.parse(fs.readFileSync(path.join(root, 'config', 'conversation-starters.json'), 'utf8')).starters;
+const sourceAgent = JSON.parse(fs.readFileSync(path.join(root, 'copilot', 'declarativeAgent.json'), 'utf8'));
+const expectedStarters = canonicalStarters.map(({ title, text }) => ({ title, text }));
+assert(JSON.stringify(sourceAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Source starters differ from canonical targets.');
+const declaredStarterTools = collectStarterToolNames(path.join(root, 'src', 'copilotComponents'));
+const starterTargets = canonicalStarters.map(starter => starter.tool || starter.targetName);
+assert(canonicalStarters.length === 6, 'Exactly six conversation starters are required.');
+const explorerTargets = [...declaredStarterTools].filter(name => /^ExploreAgentCapabilities(?:Tool)?$/.test(name));
+assert(explorerTargets.length === 1, 'Exactly one dedicated capability-explorer tool must be registered.');
+assert(starterTargets[5] === explorerTargets[0], 'Starter 6 must target the dedicated feature explorer.');
+assert(starterTargets.slice(0, 5).every(target => target !== explorerTargets[0]), 'Starters 1-5 must target operational components.');
+assert(new Set(canonicalStarters.map(starter => starter.title.trim().toLowerCase())).size === 6, 'Starter titles must be distinct.');
+assert(new Set(starterTargets).size === starterTargets.length, 'Starter targets must be distinct.');
+assert(new Set(canonicalStarters.map(starter => starter.text.toLowerCase().replace(/\s+/g, ' ').trim())).size === canonicalStarters.length, 'Starter prompts must be distinct.');
+const sourceInstructions = fs.readFileSync(path.join(root, 'copilot', 'instruction.txt'), 'utf8').replace(/\r\n/g, '\n').trim();
+for (const target of starterTargets) {
+  assert(declaredStarterTools.has(target), `Unknown starter target: ${target}`);
+  assert(sourceInstructions.includes(target), `Agent instructions do not name starter target: ${target}`);
 }
-
-const descriptions = [
-  ...plugin.functions.map((fn) => fn.description),
-  ...plugin.functions.flatMap((fn) => Object.values(fn.parameters.properties).map((parameter) => parameter.description).filter(Boolean))
-];
-console.log(`Verified generated API plugin v2.4 alignment: ${plugin.functions.length} functions, ${tools.length} mirrored MCP tools, ${descriptions.length} descriptions, and published string limits.`);
+const generatedAgentEntry = archive.files.find(entry => entry.path === 'declarativeAgent.json');
+assert(generatedAgentEntry, 'Generated declarative agent is missing.');
+const generatedAgent = JSON.parse((await generatedAgentEntry.buffer()).toString('utf8'));
+assert(JSON.stringify(generatedAgent.conversation_starters) === JSON.stringify(expectedStarters), 'Packaged starter prompts are stale.');
+assert(generatedAgent.instructions.replace(/\r\n/g, '\n').includes(sourceInstructions), 'Packaged instructions are stale.');
+console.log('Canonical starter ownership verified against source and packaged agent.');

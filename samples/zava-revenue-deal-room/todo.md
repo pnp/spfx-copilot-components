@@ -1,5 +1,140 @@
 # Zava Revenue Deal Room - Creation Plan
 
+## Six-minute keynote and mode-aware continuation - November 2, 2026
+
+Validated release: solution **1.0.0.9 / authored and packaged agent 1.0.9**.
+
+- [x] Rename and rewrite the keynote as a six-minute UX-first story, with a five-minute cut, value
+  flows, world maps, buyer proof, offer economics, guided submission and independent approval.
+- [x] Demonstrate inline Continue with Copilot opening the next named UX and full-screen
+  Continue with Copilot returning a text-only summary of the actual active view.
+- [x] Publish `discussion.responseMode` for each message, omit a handoff for summaries and update the
+  referenced agent instructions. Keep local Continue to navigation and explicit Open actions separate.
+- [x] Preserve current scope, edited values, no-match feedback, request identity and human consent;
+  test the same edited scenario across full-screen summary and inline interactive handoff.
+- [x] Pass 188 focused tests and all 291 production tests. Refresh 537 visual captures: 32 gallery,
+  462 business-matrix and 43 connected-journey captures, including both continuation payload modes.
+- [x] Validate renamed publication links, the 7,876-character instruction source, 27 stable tools,
+  twelve starters, solution/feature 1.0.0.9 and matching embedded/standalone agent 1.0.9.
+- [x] Restore trusted local HTTPS serving; manifest endpoint returns 200. Preserve the exact validated
+  production agent archive after the development watcher starts.
+
+The combined build runner reported package completion but did not exit. It was stopped after the
+remaining `check:generated-plugin`, `check:package-output`, `generate:release-evidence` and
+`check:release-evidence` commands passed independently; no release gate was skipped.
+Deployed-agent text-versus-UX routing rehearsal remains an external gate, not a Workbench claim.
+
+## Current baseline and reusable automation guidance - November 2, 2026
+
+The current application uses **SPFx 1.24.0 GA**, React/ReactDOM 18.3.1 and Heft 1.3.2, with
+**27 components** and four contextual workspaces. Release versions and current test/capture totals
+come from [release evidence](assets/release-evidence.json), not the historical milestones below.
+The preceding validated release is solution 1.0.0.7 / agent 1.0.7: 290 tests and 536 visual captures.
+This business-first journey release is solution **1.0.0.8 / authored agent 1.0.8**.
+
+- [x] Apply natural business language beyond starters: continuation labels, outgoing discussions,
+  workflow controls, receipts, accessible text, workspace next steps and keynote instructions.
+  Keep session-only execution, provenance, authority, independent review and consent truthful.
+- [x] Model the approval flow's exact request destination once as `approvalRequestId`; review
+  ZM-1001's own terms and decision trail without attributing aggregate planning value to it.
+- [x] Expand the golden guide's G26, continuation contract and acceptance checklist to cover complete
+  business journeys. Do not blanket-rename technical fixtures, SDK fields or repository paths.
+- [x] Rebuild the current gallery and production archives; all 290 tests and 536 visual captures
+  pass. Measure 893 inline states with maxima of 647px desktop / 786px narrow, within 650/800px.
+  Map checks await committed context and require the country opportunity drill-down in every variant.
+- [x] Prepare this journey polish, both matching guidance copies and validated packages for the
+  requested personal-fork-only synchronization. The published revision is recorded in Git history.
+
+- [x] Capture the distinct-business-value, compact stage and contextual workspace patterns from the
+  completed portfolio work; retain all original identities and exact scoped scenario semantics.
+- [x] Update the canonical [golden creation playbook](../../assets/agentic-creation-rules-golden.md)
+  with contextual **Continue with Copilot**, discussion versus explicit tool handoffs, atomic
+  click-time context-before-message ordering, the complete 10,000-byte UTF-8 budget and visible retry.
+- [x] Replace obsolete resize guidance with intrinsic content-root measurement after committed
+  redraws, internal-state and delayed-layout coverage, owner-window frame coalescing, grow/shrink and
+  same-size reporting, supported display modes and teardown/disposal cleanup.
+- [x] Specify role-specific workspace landings versus selected work, explicit selection/Resume,
+  preserved mounted drafts and active-only context publication.
+- [x] Synchronize this sample's local `agentic-creation-rules.md` byte-for-byte with the golden guide.
+  Matching SHA-256: `A8A638911179F3B753599ECC64699751FF2DD637CBE18C40CA02DE3DC7B44368`.
+- [x] Prioritize starters for pipeline value flow, country world map, approval value flow, guided
+  submission and independent approval, with **Explore capabilities last**.
+- [x] Use the full supported capacity of **12 starters**: add owned-book priorities, buyer-network
+  access, editable offer economics, recorded-spend geography, the mutual dependency plan and the
+  customer payback model. The first 11 target different operational components; explorer is 12th.
+- [x] Golden and local creation rules allow up to 12, retain a smaller set when appropriate, and
+  validate the final explorer position without treating index 5 or six starters as a platform limit.
+- [x] Rewrite keynote starters as natural business questions without imaginary/demo/sample labels or
+  chart-engine jargon. Keep actual data provenance and execution boundaries in the UI and agent
+  context; do not claim a live system. Add a source/packaged-copy regression gate.
+- [x] Regenerate source starters and routing docs with `npm run configure:intents` and
+  `npm run generate:routing-matrix`; `npm run check:intents` and `npm run check:routing-matrix`
+  passed for 27 immutable tools, twelve starters and nine collision rehearsals.
+  Instruction source is 7,853 characters, below the SDK's 8,000-character limit.
+- [x] `npm run build` passed for the business-first journey release: **290 tests / 536 current visual
+  captures / 893 inline probes**; all twelve source/packaged starters, actual solution/feature version
+  1.0.0.8, embedded/standalone agent 1.0.8, instruction limits, compiled schemas and release hashes
+  validate.
+- [x] Prepare the canonical/local guidance, this tracker, starter configuration and matching release
+  assets for the requested VesaJuvonen commit and synchronization. The personal fork is the configured
+  `origin`; commit/push identity and exact published revision are recorded in Git history.
+- [ ] **EXTERNAL RELEASE GATES:** deployed-model starter routing, comprehensive tenant CSP/focus,
+  forced-colors/screen-reader certification and final public brand/persona redistribution approval
+  remain separate. Workbench transport checks and local harness results do not prove model routing.
+
+## ZavaMesh redesign - October 26, 2026
+
+**Approved:** offline global revenue scenario, all 21 immutable tool identities, and the written
+ZavaMesh visual contract. No new Copilot Component scaffolds or live integrations.
+
+**Visual contract:** supplied woven wordmark/mark, forest-green navigation, green/lime mesh imagery,
+bright editorial surfaces, restrained elevation, stronger numeric hierarchy, existing approved persona
+portraits, real projected geography, D3-scaled charts with exact values, distinct role workspaces,
+mobile reflow, dark theme, keyboard operation, reduced motion and explicit session-only decisions.
+
+| Workspace | Persona / benchmark | Decision / unique surface | Grain / entry | Must not become |
+| --- | --- | --- | --- | --- |
+| My Deals | Megan / Dynamics seller workflow | Guided intake, live economics, submission receipt | Deal request / existing seller intents | A fake CRM write |
+| Deal Room | Megan / evidence-led mutual plans | Buyer access, proof, dependencies, close progress | Pursuit / buying committee | Another executive dashboard |
+| Commercial Desk | Miriam / Salesforce and DealHub governance | Routed approval inbox, independent reviewers, evidence gates, audit trail | Submitted request / commercial intents | Automatic approval or duplicate queue |
+| Revenue Command | Joni / Clari forecasting | Linked period/region KPIs, pipeline, projected world investment map | Portfolio / forecast intents | Unlabeled illustrative financial claims |
+
+Primary-source benchmark (retrieved October 26, 2026): [Salesforce Revenue Cloud](https://www.salesforce.com/sales/revenue-lifecycle-management/),
+[DealHub](https://dealhub.io/platform/), [Clari / Salesloft Forecast](https://www.salesloft.com/platform/sales-forecasting-software),
+and [Dynamics 365 Sales](https://www.microsoft.com/en-us/dynamics-365/products/sales), supplemented by
+[Zoho CRM](https://www.zoho.com/crm/) team spaces and
+[Pipedrive reporting](https://www.pipedrive.com/en/features/sales-reporting) KPI/action patterns.
+The sweet spot is evidence -> economics -> human decision -> visible receipt, rather than a copy of
+any competitor's visual identity. Product pages are vendor descriptions, not independent rankings.
+
+- [x] Approve scenario, offline scope, retained identities and visual/workflow contract.
+- [x] Inspect supplied ZavaMesh wordmark, mesh background and imagery; inspect existing host and audits.
+- [x] Apply branding to shared UX, agent identity, packaged icons and metadata; media audit passed.
+- [x] Implement linked portfolio/investment analytics and guided intake/approval lifecycle.
+- [x] Prove validation, policy thresholds, independent authority, confirmation, receipts and reset.
+- [x] Capture and inspect representative inline/full-screen/mobile/dark pixels and interaction evidence.
+- [x] Run complete `npm run build`: all catalog/media/gallery/matrix/journey/publication gates,
+  clean production compilation/lint, 97 passing Jest tests, packaging, generated-plugin validation
+  and final package/media/archive audits passed with zero warnings.
+- [x] Regenerate both deployable packages and [release evidence](assets/release-evidence.json):
+  157 current visual captures, including 32 workspace/width/theme combinations, with zero failures.
+- [x] Verify monetary map bubble areas use a stable cross-period domain, zero values have no bubble,
+  and investment period changes visibly resize geometry rather than only replacing labels.
+- [x] Inspect final desktop, narrow, dark, 200% page-scale, intake, approval, receipt and investment
+  screenshots; run `git diff --check` successfully. Temporary capture servers/browsers are stopped.
+- [ ] **BLOCKED (external):** authenticated tenant routing/CSP/focus/screen-reader checks and final
+  public redistribution approval for supplied brand assets and existing persona media.
+
+Confirmed requests are a separate demo overlay, not additions to the CRM opportunity baseline.
+Unconfirmed drafts remain instance-local; approved demo requests never alter the production forecast.
+Historical completion counts below describe earlier releases, not this redesign.
+
+## RC0 update - October 20, 2026
+
+Historical RC0 baseline: SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7 and Heft 1.3.2. The [repository RC0 readiness report](../../RC0-updates.md) records that earlier readiness work, not the current GA package or starter configuration. Use the current baseline and generated release evidence above. The local creation guide must remain byte-identical to the assets golden guide.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the implementation tracker for the product and UX brief in [README.md](README.md). The
 sample follows [agentic-creation-rules.md](agentic-creation-rules.md). No feature implementation,
 dependency changes, component generation, or identity replacement begins until Phase 0 is approved.
@@ -13,17 +148,46 @@ dependency changes, component generation, or identity replacement begins until P
 
 ## Progress (latest)
 
-> Tracker reconciled after the premium UX redesign on 31 August 2026. All 21 final identities were generated
-> through Yeoman and validate in one shared React 18 bundle. The deterministic graph contains 80 accounts,
-> 260 contacts, and 120 opportunities; 6 focused domain/D3 geometry tests pass with zero warnings.
-> Thirteen Playwright captures
-> pass with no runtime or horizontal-overflow failures. Seven bundled portraits pass source/runtime
-> provenance checks and ship as seven unique hashed media assets with no duplicates. The audited
-> 341,417-byte `.sppkg` contains one 398,994-byte hashed JavaScript asset and one current agent ZIP.
-> Purpose-specific lifecycle depth for
-> every non-keynote intent, exhaustive all-intent accessibility evidence, session-store propagation, and
-> authenticated tenant-host checks remain open and are not claimed complete. After this reconciliation,
-> the tracker contains 87 validated items, 84 open items, and 2 external blockers.
+> October 20, 2026 specialist completion supersedes the August baseline. All 21 immutable tools now
+> resolve to specific working business UX: 10 analyses, 5 submissions, 5 reviews and 1 explorer.
+> Current evidence is 87 Jest tests, 13 curated visuals and 105 supplementary visuals (118 total),
+> with zero test/runtime/console/image/overflow failures. Exact current package bytes/hashes are
+> generated in `assets/release-evidence.json`, not copied from historical build output.
+
+### Current completion checklist
+
+- [x] Remove generic information and operation fallbacks; retain the four rich reference dashboards.
+- [x] Scope known accounts/opportunities/meetings/proposals/exceptions; preserve unknown, empty and
+  conflicting IDs as no-match, including model context with no substituted hero facts.
+- [x] Consume only advertised optional schema fields; validate portable source/compiled schemas and
+  retain RC0 dynamic MCP discovery rather than inventing static plugin functions.
+- [x] Bind selection, capability search, quarter/region/status filters and exact portfolio chart values.
+- [x] Bind quantity, term, discount, services, probability and annual ramps to actual commercial math;
+  charge subscription cost for every licensed year and prorate partial years.
+- [x] Implement ten domain-field workflows with validation, review, explicit unchecked confirmation,
+  actual-value receipt, edit/reset and session-only semantics.
+- [x] Block unsupported positive qualification, forecast, exception and release decisions while
+  permitting legitimate return/decline and supported meeting-commitment acceptance.
+- [x] Preserve drafts, selection and stages on passive rerenders, mode changes and theme flips; reset
+  on changed invocation arguments or a new mounted instance. Remove the theme-provider remount.
+- [x] Publish committed scope, visible records, filters, inputs, validation and receipt context; surface
+  context/follow-up/expansion failures without silent success.
+- [x] Verify all 21 actual content bodies and all ten review/confirmation/receipt/reset lifecycles with
+  React 18 DOM tests, plus scope, threshold, ramp, payback and D3 geometry tests (87 total).
+- [x] Capture all 21 inline experiences at standard/narrow/dark, four dashboards, ten reviews,
+  ten receipts and eighteen changed/filtered/no-match/gated states (105 supplementary).
+- [x] Preserve the thirteen curated filenames, metadata and portrait provenance; bind both visual
+  evidence sets to runtime source hashes and reject stale evidence during the canonical build.
+- [x] Regenerate the production `.sppkg`, matching embedded/Teams agent ZIP and release evidence
+  through the full `npm run build` gate with zero warnings.
+- [ ] External: authenticated tenant natural-language routing, Workbench CSP, focus restoration,
+  forced-colors and screen-reader host validation.
+- [ ] External: final persona redistribution/media-rights review.
+
+**Deliberate boundaries:** no live CRM/CPQ writes, customer contact, real approvals, cross-tool state
+propagation or persistence across reloads. Those are integrations, not unimplemented local controls.
+The historical phases below preserve the original broader design backlog; their old counts and
+unchecked aspirations are not the current release contract or completion checklist.
 
 ## Validated milestones (latest)
 
@@ -122,8 +286,8 @@ order from the README.
   `description_for_human` <= 100, and `description_for_model` <= 2,048.
 - [x] Approve ownership of existing solution, feature, app, and placeholder component GUIDs; final
   component GUIDs will come only from Yeoman generation.
-- [ ] Approve all six conversation starters or reduce them to the host-supported target count while
-  retaining capability exploration as the final starter.
+- [x] Approve twelve conversation starters: eleven distinct operational UX targets and capability
+  exploration as the final starter, within the supported maximum of twelve.
 - [x] Freeze and validate the bundle strategy: one shared bundle for all final component entries unless measured evidence
   justifies an isolated heavy experience.
 
@@ -151,7 +315,7 @@ order from the README.
 ### Pin the supported stack
 
 - [x] Align all `@microsoft/sp-*` dependencies to the exact approved Beta 3 generator output.
-- [x] Pin React/ReactDOM `18.3.1`, React types `18.2.79`/`18.2.25`, Fluent React Components `9.74.6`,
+- [x] Pin React/ReactDOM `18.3.1`, React types `18.3.31`/`18.3.7`, Fluent React Components `9.74.6`,
   Fluent Icons `2.0.314`, and Griffel React `1.7.7` exactly.
 - [x] Remove direct `@fluentui/react` v8 after proving no active v8 imports remain.
 - [x] Install Jest and only the focused D3 modules/types selected for the signature visuals.
@@ -467,8 +631,8 @@ Revenue Deal Room and records approved exceptions. No exception is currently app
 - [ ] Which 5-6 beats form the main-stage keynote, and which belong only in the extended demo?
 - [x] ~~Is `Zava Revenue Deal Room` the final identity?~~ **Approved:** product/agent/package use Zava
   Revenue Deal Room and plugin-facing `Zava Revenue Room` validates at 17 characters.
-- [ ] Are six conversation starters supported by the target host, or should this sample use three with
-  capability exploration last?
+- [x] ~~Are six conversation starters the host limit?~~ **Resolved:** agents support up to twelve.
+  This showcase uses eleven distinct operational components and capability exploration last.
 - [x] ~~May the untouched `DealRoom` placeholder be removed?~~ **Approved and completed** before final
   Yeoman generation; no placeholder identity or live starter code remains active.
 - [x] ~~Decide whether to use the installed focused D3 modules.~~ **Resolved:** D3 array/scale/shape/geo

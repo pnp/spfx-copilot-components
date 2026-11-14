@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "sourceSha256": "61654812526eb8c44debde715580e89a11ae5ba4d03189c844fef923c681f5f7",
+      "source": "Logos\\png\\ZavaMesh logotype_clr.png",
+      "sha256": "a6d84847a07376271e49dcee2198c2ce296ce77e380a0f07aa186142fde84545",
+      "rights": "User-supplied ZavaMesh assets; public redistribution review pending",
+      "runtime": "src/shared/assets/brand/zavamesh-color.png",
+      "width": 500,
+      "height": 81
+    },
+    {
+      "sourceSha256": "990d2384255d727705d4607e4a7edafbe62c990a7b0d2160396aa3fafef6017e",
+      "source": "Logos\\png\\ZavaMesh logotype_wht.png",
+      "sha256": "80b2055c5a10e4c8bdc9ec38de8a063907d3b9700b72fcf757a01e37af26c2c7",
+      "rights": "User-supplied ZavaMesh assets; public redistribution review pending",
+      "runtime": "src/shared/assets/brand/zavamesh-white.png",
+      "width": 500,
+      "height": 80
+    },
+    {
+      "sourceSha256": "18e9cfbaee1ac063dd9db4a72db44d4edb93c13108baf843125121d5323bcc24",
+      "source": "Backgrounds\\Secition\\ZavaMesh Background 12.png",
+      "sha256": "a04b3c78710a1d6a5848bd8aa12b715648a1231fbb5524422d444f3be80a020f",
+      "rights": "User-supplied ZavaMesh assets; public redistribution review pending",
+      "runtime": "src/shared/assets/brand/mesh-wave.png",
+      "width": 1000,
+      "height": 445
+    },
+    {
+      "sourceSha256": "95b7593038a8a9991c35b080c5688d40c016f7a5fa228e4bb3c700277b191fbc",
+      "source": "Backgrounds\\Card\\ZavaMesh Card 1.png",
+      "sha256": "df2c5e2c6dfbb95ba5979cc7ef36caf12b9adf225ec99292e858caecb0658285",
+      "rights": "User-supplied ZavaMesh assets; public redistribution review pending",
+      "runtime": "src/shared/assets/brand/mesh-textile.jpg",
+      "width": 440,
+      "height": 464
+    }
+  ]
+}

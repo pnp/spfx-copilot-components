@@ -8,6 +8,10 @@ const root = path.resolve(import.meta.dirname, '..');
 const outputPath = path.join(root, 'Zava-IT-Concierge-Prompt-Matrix.md');
 const intents = await loadIntentCatalog(root);
 const declarativeAgent = JSON.parse(await readFile(path.join(root, 'copilot', 'declarativeAgent.json'), 'utf8'));
+const starterTargets = JSON.parse(await readFile(path.join(root, 'config', 'conversation-starters.json'), 'utf8')).starters;
+if (JSON.stringify(declarativeAgent.conversation_starters) !== JSON.stringify(starterTargets.map(({ title, text }) => ({ title, text })))) {
+  throw new Error('Declarative starters differ from canonical targets.');
+}
 
 function escapeCell(value) {
   return String(value).replaceAll('|', '\\|').replaceAll('\n', ' ');
@@ -42,8 +46,7 @@ const lines = [
   '| # | Title | Prompt | Expected tool |',
   '| ---: | --- | --- | --- |',
   ...declarativeAgent.conversation_starters.map((starter, index) => {
-    const explicitTargets = ['ReportItIssue', 'RunDeviceDiagnostics', 'GetApprovalQueue', 'GetFleetHealth', 'CorrelateMajorIncident', 'ExploreAgentCapabilities'];
-    return `| ${index + 1} | ${escapeCell(starter.title)} | ${escapeCell(starter.text)} | \`${explicitTargets[index]}\` |`;
+    return `| ${index + 1} | ${escapeCell(starter.title)} | ${escapeCell(starter.text)} | \`${starterTargets[index].tool}\` |`;
   }),
   '',
   '## Rehearsal result',

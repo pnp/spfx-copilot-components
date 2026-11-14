@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "cosmopolite-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/CosmoPolite/CosmoPoliteCopilotComponent.js",
+          "manifest": "./src/copilotComponents/CosmoPolite/CosmoPoliteCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {}
+}

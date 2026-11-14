@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "4595c404-b8fb-493c-bdda-208b969da370",
+  "alias": "ShowOfficeDetailsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowOfficeDetails",
+      "description": {
+        "default": "Use when the user asks about a Zava office, location, or local time. Do not use when the user asks to book a room or see a menu."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showOfficeDetails/ShowOfficeDetailsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

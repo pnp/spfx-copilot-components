@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "dde22582-b0d8-481d-a42f-63423dfc38d0",
+  "alias": "OnboardingWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Onboarding and transitions" },
+    "description": { "default": "Show the next owned transition step and blockers." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiM2YjNmOTEiIGZpbGw9IiM2YjNmOTEiPjxwYXRoIGQ9Ik0xMy4wNiA3LjQzYTIuNSAyLjUgMCAxIDEgMy41MyAzLjU0IDIuNSAyLjUgMCAwIDEtMy41My0zLjU0Wm0yLjQ3IDEuMDZhMSAxIDAgMSAwLTEuNDEgMS40MiAxIDEgMCAwIDAgMS40MS0xLjQyWm01Ljk4LTQuMTdhMi43NSAyLjc1IDAgMCAwLTEuODEtMS44bC0uNjYtLjIxYy0yLjQtLjc1LTUtLjEtNi43OCAxLjY3bC0xIDFhMy41IDMuNSAwIDAgMC00LjU2LjMyTDUuNDUgNi41NWMtLjI5LjI5LS4yOS43NiAwIDEuMDZsMS42IDEuNTktLjE4LjE4Yy0uNjkuNjgtLjY5IDEuNzkgMCAyLjQ3bC41LjUtMS40LjhhLjc1Ljc1IDAgMCAwLS4xNiAxLjE3bDMuODkgMy45YS43NS43NSAwIDAgMCAxLjE4LS4xNmwuOC0xLjQuNS41Yy42OC42OCAxLjc4LjY4IDIuNDcgMGwuMTctLjE4IDEuNiAxLjZjLjI5LjI4Ljc2LjI4IDEuMDUgMGwxLjI1LTEuMjVhMy41IDMuNSAwIDAgMCAuMzItNC41N2wxLTFBNi43NSA2Ljc1IDAgMCAwIDIxLjcyIDVsLS4yMS0uNjdabS0yLjI2LS4zOGMuNC4xMy43LjQzLjgzLjgzbC4yLjY2Yy41OCAxLjg2LjA4IDMuOS0xLjMgNS4yN2wtNS40IDUuNGMtLjEuMS0uMjUuMS0uMzUgMGwtNS4zLTUuM2EuMjUuMjUgMCAwIDEgMC0uMzZsNS40LTUuNGE1LjI1IDUuMjUgMCAwIDEgNS4yNi0xLjNsLjY2LjJabS0xLjI5IDkuOWEyIDIgMCAwIDEtLjMgMi40M2wtLjcyLjcxLTEuMDYtMS4wNiAyLjA4LTIuMDhaTTcuNzYgNi4zNmEyIDIgMCAwIDEgMi40My0uM0w4LjEgOC4xNCA3LjA1IDcuMDhsLjctLjcyWm0yLjgyIDkuMi0uNTIuOS0yLjUtMi41LjktLjUxIDIuMTIgMi4xMVpNNi42OSAxOC40YS43NS43NSAwIDAgMC0xLjA2LTEuMDZsLTIuNDggMi40OGEuNzUuNzUgMCAwIDAgMS4wNiAxLjA2bDIuNDgtMi40OFptLTEuOTQtM2MuMjkuMy4yOS43NyAwIDEuMDZsLTEuMDcgMS4wNmEuNzUuNzUgMCAwIDEtMS4wNi0xLjA2bDEuMDYtMS4wNmMuMy0uMy43Ny0uMyAxLjA3IDBabTMuODggNC45NWEuNzUuNzUgMCAxIDAtMS4wNi0xLjA2bC0xLjA2IDEuMDZhLjc1Ljc1IDAgMCAwIDEuMDYgMS4wNmwxLjA2LTEuMDZaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "Onboarding"
+    }
+  }]
+}

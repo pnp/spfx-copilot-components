@@ -1,6 +1,12 @@
 # My Day - Personalized Intranet Copilot UX Component
 
-![SPFx](https://img.shields.io/badge/version-1.24.0--beta.2-yellow.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-17-61DAFB.svg) ![Data](https://img.shields.io/badge/Data-Mockup-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
+![SPFx](https://img.shields.io/badge/version-1.24.0-green.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg) ![Data](https://img.shields.io/badge/Data-Mockup-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
 
 ## Summary
 
@@ -38,9 +44,17 @@ _Inline (left) + full-screen (right)._
 
 ![Dark mode](./assets/screenshot-dark.png)
 
+### Focused starter experiences
+
+![Next-meeting starter opens the focused agenda](./assets/screenshot-meetings.png)
+
+![Due-today starter opens local task review](./assets/screenshot-tasks.png)
+
+![Plan starter opens a read-only local focus briefing](./assets/screenshot-plan.png)
+
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.24.0--beta.2-yellow.svg)
+![version](https://img.shields.io/badge/version-1.24.0-green.svg)
 
 ## Applies to
 
@@ -52,13 +66,19 @@ _Inline (left) + full-screen (right)._
 
 ## Prerequisites
 
-- Node.js >=22.14.0 <23.0.0
-- A Microsoft 365 tenant with SPFx 1.24 (dev preview) enabled
+- Node.js 22 (22.14 or later), 24, or 26
+- A Microsoft 365 tenant supporting SPFx 1.24.0 Copilot Components
 - SharePoint App Catalog site
-- [Heft](https://heft.rushstack.io/) (`npm install -g @rushstack/heft`)
+- The project-local [Heft](https://heft.rushstack.io/) toolchain restored by npm
 - Yeoman + `@microsoft/generator-sharepoint` (only needed to scaffold additional components)
 
-> This solution uses the **Heft** build system (not Gulp) and **React 17** functional components, aligned with the SPFx 1.24 dev preview.
+> This solution uses **SPFx 1.24.0**, **React/ReactDOM 18.3.1**, React types **18.3.31 / 18.3.7**,
+> and **Heft 1.3.2**. Dependencies use an approved registry that provides GA packages.
+>
+> This update was restored through the configured Microsoft npm proxy because npmjs.org
+> did not yet expose all required GA packages. The registry checker verifies approved hosts
+> throughout the lockfile. No credentials are stored in the repository. Ready-made packages
+> do not require a local npm restore. Tenant installation and host accessibility still require validation.
 
 ## Solution
 
@@ -70,6 +90,8 @@ _Inline (left) + full-screen (right)._
 
 | Version | Date     | Comments        |
 | ------- | -------- | --------------- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
+| 1.1     | October 20, 2026 | SPFx 1.24 RC0, React 18 roots/types, visible starter focus, retained state, fresh visuals and package audits |
 | 1.0     | 7.2.2026 | Initial version |
 
 ## Disclaimer
@@ -87,9 +109,9 @@ _Inline (left) + full-screen (right)._
 - Clone this repository
 - Ensure that you are at the solution folder (`samples/my-day`)
 - In the command-line run:
-  - `npm install -g @rushstack/heft`
-  - `npm install`
-  - `heft start --clean` - local dev server at `https://localhost:4321`
+  - Configure the approved RC0 registry in your user-level npm settings
+  - `npm ci`
+  - `npm start` - local dev server at `https://localhost:4321`
 - Invoke the agent in Copilot and confirm the inline render, expand-to-full-screen, dark/light theming, the **Plan my day** briefing, and the **settings** drawer (toggle temperature units and panel visibility to see the layout re-flow).
 
 Production build, test, and package:
@@ -99,6 +121,34 @@ npm run build
 ```
 
 Other build commands can be listed using `heft --help`.
+
+## RC0 validation and starter ownership
+
+The single generated **MyDayTool** owns one composed daily cockpit. Its optional `focus` is a visible
+facet, not an independently registered business operation. The obsolete, unused `message` input has
+been removed. All four starters map to this same component with distinct supported focus values:
+
+| Starter | Tool | Visible focus |
+| --- | --- | --- |
+| What does my day look like? | `MyDayTool` | `summary` |
+| What's my next meeting? | `MyDayTool` | `meetings` |
+| What tasks are due today? | `MyDayTool` | `tasks` |
+| Help me plan my day and tell me what to focus on first. | `MyDayTool` | `plan` |
+
+News and important-mail questions also support `news` and `mail` focus. Canonical targets are in
+[conversation-starters.json](config/conversation-starters.json). A focused prompt never changes host
+display mode or performs an external action.
+
+- **14 tests pass**, including root reuse/independence/teardown, iframe-owned styles, all six focus
+  views, deterministic planning, and task/focus retention across theme and display-mode changes.
+- **30 browser states pass** at 340/760/1440 px, light/dark, all six inline focuses, full workspaces,
+  focus briefing and settings. [Visual evidence](assets/rc0-visual-evidence.json) is regenerated with
+  `npm run capture:visual`.
+- Production build audits GA dynamic MCP discovery, canonical and packaged starters/instructions,
+  current hashed JavaScript and the exact embedded/Teams agent ZIP.
+- Task checks are local demo state; settings remain browser-session-only. Neither writes to Graph.
+- Authenticated routing, CSP, focus restoration and host accessibility remain external checks;
+  local build and package validation do not certify tenant behavior.
 
 ## 60-second demo script
 

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Zava One",
+  "description": "Trusted company answers and everyday employee experiences, wherever you work.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Catch up on Zava",
+      "text": "What's new across Zava this week?"
+    },
+    {
+      "title": "Find a trusted company answer",
+      "text": "Find the parental leave policy for Finland."
+    },
+    {
+      "title": "Recognize a colleague",
+      "text": "Help me send praise to Johanna for making the accessibility lab welcoming."
+    },
+    {
+      "title": "Review sales performance",
+      "text": "Show EMEA bookings this quarter."
+    },
+    {
+      "title": "Explore global offices",
+      "text": "Show me Zava offices around the world."
+    },
+    {
+      "title": "Explore Zava One",
+      "text": "Show me all the company and employee experiences Zava One can help with."
+    }
+  ],
+  "actions": [
+    {
+      "id": "zavaOneAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+// Design presets: five editorial type scales. Each preset is a [data-design="…"] block, so
+// switching is one attribute change and no inline styles are needed.
+//
+// Fluid type with clamp(): minimum 1.125rem × 1.125^n, maximum
+// 1.25rem × ratio^n, fluid between 320px and ~1268px viewport. Inside the Copilot iframe the
+// viewport IS the card, so vw follows the card width (inline card vs. fullscreen side panel).
+// Written as var(--card-vw, 1vw): the component sets --card-vw from the frame width but ignores
+// changes smaller than a scrollbar (stabilizeFluidWidth in lib/hostDocument.ts). Otherwise a
+// scrollbar in Copilot's widget frame made every size a fraction smaller, the card 1 px shorter,
+// the scrollbar unnecessary, the card taller again: an endless resize loop (flicker).
+//
+// Presets set type, spacing rhythm and font slots only, never colours: colours come from
+// Tokens.module.scss, so every preset works in light and dark by construction.
+//
+// Font slots: --font-title / --font-heading / --font-body, bridged to the SharePoint Brand Center
+// variables (--brand-font-*) when the host provides them.
+
+.presets {
+  // Shared spacing (identical in every preset).
+  --space-3xs: clamp(0.25rem, 0.2262rem + 0.1190 * var(--card-vw, 1vw), 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4524rem + 0.2381 * var(--card-vw, 1vw), 0.625rem);
+  --space-xs: clamp(0.75rem, 0.6786rem + 0.3571 * var(--card-vw, 1vw), 0.9375rem);
+  --space-s: clamp(1rem, 0.9048rem + 0.4762 * var(--card-vw, 1vw), 1.25rem);
+  --space-m: clamp(1.5rem, 1.3571rem + 0.7143 * var(--card-vw, 1vw), 1.875rem);
+  --space-l: clamp(2rem, 1.8095rem + 0.9524 * var(--card-vw, 1vw), 2.5rem);
+
+  --step-0: clamp(1.125rem, 1.0828rem + 0.2110 * var(--card-vw, 1vw), 1.25rem);
+
+  --font-body: var(--brand-font-body, var(--font-sans));
+  --font-heading: var(--brand-font-headline, var(--font-body));
+  --font-title: var(--brand-font-title, var(--font-heading));
+
+  --title-weight: var(--brand-font-title-weight, 700);
+  --title-transform: none;
+  --title-tracking: normal;
+  --title-line-height: 1.1;
+  --title-size: var(--step-3);
+  --title-size-inline: var(--step-2);
+  --body-size: var(--step-0);
+  --body-line-height: 1.6;
+  --card-gap: var(--space-s);
+
+  // Editorial · perfect fourth (1.333) · serif title over sans body.
+  &,
+  &[data-design="editorial"] {
+    --step-1: clamp(1.266rem, 1.131rem + 0.6751 * var(--card-vw, 1vw), 1.666rem);
+    --step-2: clamp(1.424rem, 1.155rem + 1.3452 * var(--card-vw, 1vw), 2.221rem);
+    --step-3: clamp(1.602rem, 1.1433rem + 2.2937 * var(--card-vw, 1vw), 2.961rem);
+    --step-4: clamp(1.802rem, 1.0779rem + 3.6203 * var(--card-vw, 1vw), 3.947rem);
+    --font-title: var(--brand-font-title, var(--font-serif));
+    --title-line-height: 1.05;
+    // Large serif display type tightens slightly (Apple §15: tracking is size-specific).
+    --title-tracking: -0.01em;
+    --body-line-height: 1.65;
+  }
+
+  // Classic · golden ratio (1.618) · serif throughout, generous leading.
+  &[data-design="classic"] {
+    --step-1: clamp(1.266rem, 1.0105rem + 1.2776 * var(--card-vw, 1vw), 2.023rem);
+    --step-2: clamp(1.424rem, 0.7999rem + 3.1207 * var(--card-vw, 1vw), 3.273rem);
+    --step-3: clamp(1.602rem, 0.3554rem + 6.2329 * var(--card-vw, 1vw), 5.295rem);
+    --step-4: clamp(1.802rem, -0.482rem + 11.42 * var(--card-vw, 1vw), 8.568rem);
+    --font-body: var(--brand-font-body, var(--font-serif));
+    --font-title: var(--brand-font-title, var(--font-serif));
+    --title-weight: var(--brand-font-title-weight, 400);
+    --title-line-height: 0.95;
+    --title-tracking: -0.015em;
+    --body-line-height: 1.618;
+    --card-gap: var(--space-m);
+  }
+
+  // Dramatic · perfect fifth (1.5) · heavy uppercase title.
+  &[data-design="dramatic"] {
+    --step-1: clamp(1.266rem, 1.0604rem + 1.0278 * var(--card-vw, 1vw), 1.875rem);
+    --step-2: clamp(1.424rem, 0.9551rem + 2.3443 * var(--card-vw, 1vw), 2.813rem);
+    --step-3: clamp(1.602rem, 0.7186rem + 4.4169 * var(--card-vw, 1vw), 4.219rem);
+    --step-4: clamp(1.802rem, 0.2742rem + 7.6389 * var(--card-vw, 1vw), 6.328rem);
+    // Calmer than a full-size h1: one step smaller, a touch of tracking for the capitals.
+    --title-size: clamp(1.8rem, 1.1rem + 2.4 * var(--card-vw, 1vw), 3rem);
+    --title-size-inline: clamp(1.4rem, 1rem + 1.6 * var(--card-vw, 1vw), 2rem);
+    --title-weight: var(--brand-font-title-weight, 800);
+    --title-transform: uppercase;
+    --title-tracking: 0.01em;
+    --title-line-height: 1.02;
+    --body-line-height: 1.65;
+    --card-gap: var(--space-m);
+  }
+
+  // Compact · major second (1.125) · small steps, tight rhythm.
+  &[data-design="compact"] {
+    --step-1: clamp(1.266rem, 1.2187rem + 0.2363 * var(--card-vw, 1vw), 1.406rem);
+    --step-2: clamp(1.424rem, 1.3707rem + 0.2667 * var(--card-vw, 1vw), 1.582rem);
+    --step-3: clamp(1.602rem, 1.5419rem + 0.3004 * var(--card-vw, 1vw), 1.78rem);
+    --step-4: clamp(1.802rem, 1.7345rem + 0.3376 * var(--card-vw, 1vw), 2.002rem);
+    --title-weight: var(--brand-font-title-weight, 600);
+    --title-line-height: 1.15;
+    --title-tracking: -0.005em;
+    --body-size: clamp(1rem, 0.98rem + 0.1 * var(--card-vw, 1vw), 1.0625rem);
+    --body-line-height: 1.55;
+    --card-gap: var(--space-xs);
+  }
+
+  // Magazine · image-led: full-bleed photo, title on a scrim (layout in the component SCSS).
+  // Type scale: Dramatic's perfect fifth, without the uppercase.
+  &[data-design="magazine"] {
+    --step-1: clamp(1.266rem, 1.0604rem + 1.0278 * var(--card-vw, 1vw), 1.875rem);
+    --step-2: clamp(1.424rem, 0.9551rem + 2.3443 * var(--card-vw, 1vw), 2.813rem);
+    --step-3: clamp(1.602rem, 0.7186rem + 4.4169 * var(--card-vw, 1vw), 4.219rem);
+    --step-4: clamp(1.802rem, 0.2742rem + 7.6389 * var(--card-vw, 1vw), 6.328rem);
+    --title-weight: var(--brand-font-title-weight, 800);
+    --title-line-height: 1;
+    --title-tracking: -0.015em;
+    --body-line-height: 1.7;
+  }
+}

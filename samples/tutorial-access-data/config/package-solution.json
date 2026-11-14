@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "tutorial-access-data-client-side-solution",
+    "id": "8dca467a-2e72-434e-88c5-8b43b607a464",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.5"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "tutorial-access-data description"
+      },
+      "longDescription": {
+        "default": "tutorial-access-data description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Mail.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Calendars.Read"
+      }
+    ],
+    "features": [
+      {
+        "title": "tutorial-access-data Feature",
+        "description": "The feature that activates elements of the tutorial-access-data solution.",
+        "id": "cc5a78ad-bf99-4ed9-bf99-2090a5f89ff4",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/tutorial-access-data.sppkg"
+  }
+}

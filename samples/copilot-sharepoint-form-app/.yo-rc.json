@@ -1,0 +1,23 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "copilot-sharepoint-form-app",
+    "environment": "spo",
+    "packageManager": "npm",
+    "useGulp": false,
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "CopilotSharePointForm",
+    "componentDescription": "Submits a document and its library metadata to one SharePoint document library. The web part owns the file picker.",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.23.4",
+    "sdksVersions": {},
+    "version": "1.24.0-rc.0",
+    "libraryName": "copilot-sharepoint-form-app",
+    "libraryId": "2a78784e-605c-4c16-a70f-5272049ee74c",
+    "solutionShortDescription": "Submit a document to a SharePoint document library",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}

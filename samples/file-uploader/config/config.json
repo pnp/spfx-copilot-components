@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "file-uploader-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/fileUploader/FileUploaderCopilotComponent.js",
+          "manifest": "./src/copilotComponents/fileUploader/FileUploaderCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FileUploaderCopilotComponentStrings": "lib/copilotComponents/fileUploader/loc/{locale}.js"
+  }
+}

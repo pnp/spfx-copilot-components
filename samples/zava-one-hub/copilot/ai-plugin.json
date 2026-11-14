@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "zavaOne",
+  "name_for_human": "Zava One",
+  "description_for_human": "Company news, personal work, services, and decisions in one experience.",
+  "description_for_model": "Zava One routes employees to focused corporate communications, trusted company knowledge, personal work, employee services, forms, and business charts. Use the narrowest matching tool, preserve user scope and selected records, and reserve broad workspace or capability tools for broad requests.",
+  "contact_email": "pnp@microsoft.com"
+}

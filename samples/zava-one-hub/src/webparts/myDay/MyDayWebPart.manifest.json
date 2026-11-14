@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "f4358d23-9340-42cf-957b-4757d3bab5ee",
+  "alias": "MyDayWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: My day" },
+    "description": { "default": "Prioritize the next meeting, important work, and required actions." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwZjZjYmQiIGZpbGw9IiMwZjZjYmQiPjxwYXRoIGQ9Ik0xMiAyYy40MSAwIC43NS4zNC43NS43NXYxLjVhLjc1Ljc1IDAgMCAxLTEuNSAwdi0xLjVjMC0uNDEuMzQtLjc1Ljc1LS43NVptMCAxNWE1IDUgMCAxIDAgMC0xMCA1IDUgMCAwIDAgMCAxMFptMC0xLjVhMy41IDMuNSAwIDEgMSAwLTcgMy41IDMuNSAwIDAgMSAwIDdabTkuMjUtMi43NWEuNzUuNzUgMCAwIDAgMC0xLjVoLTEuNWEuNzUuNzUgMCAwIDAgMCAxLjVoMS41Wk0xMiAxOWMuNDEgMCAuNzUuMzQuNzUuNzV2MS41YS43NS43NSAwIDAgMS0xLjUgMHYtMS41YzAtLjQxLjM0LS43NS43NS0uNzVabS03Ljc1LTYuMjVhLjc1Ljc1IDAgMCAwIDAtMS41aC0xLjVhLjc1Ljc1IDAgMCAwIDAgMS41aDEuNVptLS4wMy04LjUzYy4zLS4zLjc3LS4zIDEuMDYgMGwxLjUgMS41YS43NS43NSAwIDAgMS0xLjA2IDEuMDZsLTEuNS0xLjVhLjc1Ljc1IDAgMCAxIDAtMS4wNlptMS4wNiAxNS41NmEuNzUuNzUgMCAxIDEtMS4wNi0xLjA2bDEuNS0xLjVhLjc1Ljc1IDAgMSAxIDEuMDYgMS4wNmwtMS41IDEuNVptMTQuNS0xNS41NmEuNzUuNzUgMCAwIDAtMS4wNiAwbC0xLjUgMS41YS43NS43NSAwIDAgMCAxLjA2IDEuMDZsMS41LTEuNWMuMy0uMy4zLS43NyAwLTEuMDZabS0xLjA2IDE1LjU2YS43NS43NSAwIDEgMCAxLjA2LTEuMDZsLTEuNS0xLjVhLjc1Ljc1IDAgMSAwLTEuMDYgMS4wNmwxLjUgMS41WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg==",
+    "properties": {
+      "description": "MyDay"
+    }
+  }]
+}

@@ -1,0 +1,8 @@
+{
+  "starters": [
+    { "title": "Show my day", "text": "What does my day look like?", "tool": "MyDayTool", "properties": { "focus": "summary" } },
+    { "title": "Next meeting", "text": "What's my next meeting?", "tool": "MyDayTool", "properties": { "focus": "meetings" } },
+    { "title": "Tasks due today", "text": "What tasks are due today?", "tool": "MyDayTool", "properties": { "focus": "tasks" } },
+    { "title": "Plan my day", "text": "Help me plan my day and tell me what to focus on first.", "tool": "MyDayTool", "properties": { "focus": "plan" } }
+  ]
+}

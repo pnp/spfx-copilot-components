@@ -18,7 +18,7 @@ assert(entry.authors?.length>0&&entry.references?.length>0,'Authors and referenc
 const metadata=new Map((entry.metadata||[]).map(item=>[item.key,item.value]));
 assert(metadata.get('SAMPLE-TYPE')==='SPFx-CopilotComponent','SAMPLE-TYPE metadata is invalid.');
 assert(metadata.get('CLIENT-SIDE-DEV')==='React','CLIENT-SIDE-DEV metadata is invalid.');
-assert(metadata.get('SPFX-VERSION')==='1.24.0-beta.2','SPFX-VERSION metadata is invalid.');
+assert(metadata.get('SPFX-VERSION')==='1.24.0','SPFX-VERSION metadata is invalid.');
 assert(evidence.schemaVersion===1&&evidence.failureCount===0,'Gallery evidence is invalid or contains failures.');
 const currentSourceHash=hash(Buffer.concat(evidence.sourceFiles.map(file=>fs.readFileSync(path.join(root,file)))));
 assert(currentSourceHash===evidence.sourceSha256,'Gallery screenshots are stale relative to current UX source. Run npm run capture:visual.');
@@ -41,4 +41,22 @@ for(const thumbnail of thumbnails){
   assert(thumbnail.url===`https://github.com/VesaJuvonen/spfx-copilot-components/raw/main/samples/zava-innovation-portfolio/assets/${thumbnail.name}`,`${thumbnail.name} raw URL is invalid.`);
 }
 assert([...evidenceByName.keys()].every(name=>thumbnails.some(item=>item.name===name)),'Gallery evidence contains an unlisted publication capture.');
+const intentEvidence=JSON.parse(fs.readFileSync(path.join(assets,'intent-evidence.json'),'utf8'));
+assert(intentEvidence.failureCount===0&&intentEvidence.runtimeErrors.length===0,'Intent evidence contains runtime failures.');
+assert(intentEvidence.sourceSha256===currentSourceHash,'Supplementary intent visuals are stale. Run npm run capture:visual.');
+assert(hash(Buffer.concat(intentEvidence.sourceFiles.map(file=>fs.readFileSync(path.join(root,file)))))===currentSourceHash,'Intent evidence source list differs from the curated gallery.');
+const tools=fs.readdirSync(path.join(root,'src','copilotComponents')).map(folder=>{
+  const file=fs.readdirSync(path.join(root,'src','copilotComponents',folder)).find(name=>name.endsWith('.manifest.json'));
+  return JSON.parse(fs.readFileSync(path.join(root,'src','copilotComponents',folder,file),'utf8')).tools[0].name;
+});
+const flows=['SubmitInnovationIdea','BuildIdeaBusinessCase','CelebrateInnovationImpact','ReviewInnovationFunding','GenerateInnovationBrief','LaunchInnovationChallenge','ManageInnovationExperiment'];
+for(const tool of tools)for(const variant of ['standard','narrow','dark']){
+  assert(intentEvidence.captures.some(capture=>capture.intent===tool&&capture.state==='initial'&&capture.variant===variant),`Missing ${tool} ${variant} initial visual.`);
+  if(flows.includes(tool))for(const state of ['review','receipt'])assert(intentEvidence.captures.some(capture=>capture.intent===tool&&capture.state===state&&capture.variant===variant),`Missing ${tool} ${variant} ${state} visual.`);
+}
+for(const capture of intentEvidence.captures){
+  const bytes=fs.readFileSync(path.join(assets,capture.name));
+  assert(hash(bytes)===capture.sha256&&bytes.length===capture.bytes,`Supplementary image drift: ${capture.name}`);
+}
 console.log(`Verified PnP gallery metadata and ${thumbnails.length} current-source implementation screenshots.`);
+console.log(`Verified ${intentEvidence.totalCaptures} supplementary screenshots for all ${tools.length} tools.`);

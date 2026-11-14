@@ -1,0 +1,13 @@
+{
+  // Type-checks the tests (Vitest itself only strips types). Same settings as the component, plus
+  // Node typings for the preview and catalog writers.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["node", "webpack-env"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": []
+}

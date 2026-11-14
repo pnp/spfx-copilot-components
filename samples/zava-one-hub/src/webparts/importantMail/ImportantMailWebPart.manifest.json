@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "453ddf06-6ccc-425c-ad39-3d1026351835",
+  "alias": "ImportantMailWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Important mail" },
+    "description": { "default": "Triage a small explainable set of important messages." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwZjZjYmQiIGZpbGw9IiMwZjZjYmQiPjxwYXRoIGQ9Ik0xNy41IDFhNCA0IDAgMCAwLTQgNHYzbC0uOTUuOGMtLjMuMjYtLjQ2LjM5LS41LjVhLjUuNSAwIDAgMCAuMjQuNjVjLjEuMDUuMy4wNS43LjA1aDkuMDJjLjQgMCAuNiAwIC43LS4wNWEuNS41IDAgMCAwIC4yNS0uNjZjLS4wNS0uMS0uMi0uMjMtLjUtLjQ5TDIxLjUgOFY1YTQgNCAwIDAgMC00LTRaTTE5IDExYy0uMjIuNTgtLjggMS0xLjUgMS0uNjkgMC0xLjI4LS40Mi0xLjUtMWgzWm0zIDUuNzVWMTFoLTEuNXY1Ljg5Yy0uMDguOS0uODMgMS42MS0xLjc1IDEuNjFINS4xMWMtLjktLjA4LTEuNjEtLjgzLTEuNjEtMS43NVY5LjM3bDguMTUgNC4zLjEuMDRjLjIuMDcuNDEuMDUuNi0uMDVsMy4xLTEuNjNjLS4xNi0uMi0uMy0uNDMtLjM5LS42OGwtLjEzLS4zNWgtLjc0TDEyIDEyLjE1IDMuNSA3LjY4VjcuMWMuMDgtLjkuODMtMS42MSAxLjc1LTEuNjFoNy4yNVY1YzAtLjM0LjAzLS42OC4xLTFINS4wN0EzLjI1IDMuMjUgMCAwIDAgMiA3LjI2djkuNjhBMy4yNSAzLjI1IDAgMCAwIDUuMjYgMjBoMTMuNjhBMy4yNSAzLjI1IDAgMCAwIDIyIDE2Ljc0WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg==",
+    "properties": {
+      "description": "ImportantMail"
+    }
+  }]
+}

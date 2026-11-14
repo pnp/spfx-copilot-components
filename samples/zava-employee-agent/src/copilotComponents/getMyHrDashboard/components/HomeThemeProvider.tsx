@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 });
 
 export interface IHomeThemeProviderProps {
+  children?: React.ReactNode;
   theme?: SPCopilotTheme;
   targetDocument?: Document;
 }

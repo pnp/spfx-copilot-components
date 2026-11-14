@@ -1,0 +1,741 @@
+{
+  "generatedAt": "2026-10-20T09:52:09.968Z",
+  "react": "18.3.1",
+  "intents": 20,
+  "captures": 72,
+  "failures": 0,
+  "results": [
+    {
+      "intent": "getMyHrDashboard",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 381,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 381,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 381,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getProfileHealth",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 264,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getProfileHealth",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 264,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getProfileHealth",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 264,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getNextBestActions",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 517,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getNextBestActions",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 517,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getNextBestActions",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 517,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getWorklifeSnapshot",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 224,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getWorklifeSnapshot",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 224,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getWorklifeSnapshot",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 224,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getEmployeeMilestones",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 116,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getEmployeeMilestones",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 116,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getEmployeeMilestones",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 116,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyAnswer",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 389,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyAnswer",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 389,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyAnswer",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 389,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyComparison",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 216,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyComparison",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 216,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "policyComparison",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 216,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "leaveBalance",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 275,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "leaveBalance",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 275,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "leaveBalance",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 275,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requestTimeOff",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requestTimeOff",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requestTimeOff",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "latestPay",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 320,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "latestPay",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 320,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "latestPay",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 320,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "explainPayChange",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "explainPayChange",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "explainPayChange",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "compareBenefitPlans",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "compareBenefitPlans",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "compareBenefitPlans",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "startLifeEvent",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 435,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "startLifeEvent",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 435,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "startLifeEvent",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 435,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "createHrCase",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 594,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "createHrCase",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 594,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "createHrCase",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 594,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requiredLearning",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 369,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requiredLearning",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 369,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "requiredLearning",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 369,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "totalRewardsSummary",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "totalRewardsSummary",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "totalRewardsSummary",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "approvalInbox",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 468,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "approvalInbox",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 468,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "approvalInbox",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 468,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "teamAbsenceCalendar",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 272,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "teamAbsenceCalendar",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 272,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "teamAbsenceCalendar",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 272,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "findExpert",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 489,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "findExpert",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 489,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "findExpert",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 489,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "exploreOrganization",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 758,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "exploreOrganization",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 758,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "exploreOrganization",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 758,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "home",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 1961,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "time",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2062,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "money",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2023,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "benefits",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2344,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "rewards",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2274,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "policy",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 1523,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "support",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2541,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "learning",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2310,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "team",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2391,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "people",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 3062,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "home",
+      "width": 340,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 340,
+      "text": 1961,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "getMyHrDashboard",
+      "family": "people",
+      "width": 980,
+      "theme": "dark",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 3062,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    }
+  ]
+}

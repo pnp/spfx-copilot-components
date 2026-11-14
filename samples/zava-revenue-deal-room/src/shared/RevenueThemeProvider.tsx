@@ -10,24 +10,28 @@ import {
 import { createDOMRenderer, makeStyles, RendererProvider } from '@griffel/react';
 
 const revenueBrand: BrandVariants = {
-  10: '#06101D', 20: '#0B1A2B', 30: '#10253B', 40: '#132F4C', 50: '#123B62',
-  60: '#0D4B81', 70: '#075BA2', 80: '#0B6DC1', 90: '#147FE0', 100: '#2C91F0',
-  110: '#4AA2F5', 120: '#6CB3F8', 130: '#91C6FA', 140: '#B5D9FC', 150: '#D9ECFE', 160: '#F1F8FF'
+  10: '#071509', 20: '#102A13', 30: '#163B19', 40: '#1C4C1C', 50: '#205D1C',
+  60: '#23701A', 70: '#2C821D', 80: '#379C21', 90: '#53AA30', 100: '#72B741',
+  110: '#91C454', 120: '#ADD26F', 130: '#C6DF91', 140: '#DEEBB7', 150: '#EDF4D8', 160: '#F7FAED'
 };
 
 const lightTheme: Theme = {
   ...createLightTheme(revenueBrand),
-  colorNeutralBackground1: '#F7F4EE',
-  colorNeutralBackground2: '#EEEAE2',
-  colorNeutralForeground1: '#13263D',
-  colorNeutralForeground2: '#405064'
+  colorBrandBackground: '#23701A',
+  colorBrandForeground1: '#205D1C',
+  colorNeutralBackground1: '#FFFFFF',
+  colorNeutralBackground2: '#F4F7F0',
+  colorNeutralBackground3: '#E1E9DB',
+  colorNeutralForeground1: '#172D20',
+  colorNeutralForeground2: '#4C6053'
 };
 const darkTheme: Theme = {
   ...createDarkTheme(revenueBrand),
-  colorNeutralBackground1: '#0D1826',
-  colorNeutralBackground2: '#13263D',
-  colorNeutralForeground1: '#F7F4EE',
-  colorNeutralForeground2: '#C7D1DE'
+  colorBrandForeground1: '#ADD26F',
+  colorNeutralBackground1: '#111F17',
+  colorNeutralBackground2: '#1A2C20',
+  colorNeutralForeground1: '#F0F5EA',
+  colorNeutralForeground2: '#C1CFBE'
 };
 
 const useStyles = makeStyles({
@@ -40,17 +44,11 @@ export interface IRevenueThemeProviderProps {
   readonly children?: React.ReactNode;
 }
 
-export default function RevenueThemeProvider(props: IRevenueThemeProviderProps): React.ReactElement {
-  const renderer = React.useMemo(() => createDOMRenderer(props.targetDocument), [props.targetDocument]);
-  const [generation, setGeneration] = React.useState(0);
+function RevenueThemeSurface(props: IRevenueThemeProviderProps): React.ReactElement {
   const styles = useStyles();
-  React.useEffect(() => setGeneration(1), []);
-
   return (
-    <RendererProvider renderer={renderer} targetDocument={props.targetDocument}>
       <IdPrefixProvider value="zdr-">
         <FluentProvider
-          key={generation}
           theme={props.theme === 'dark' ? darkTheme : lightTheme}
           targetDocument={props.targetDocument}
           className={styles.provider}
@@ -58,6 +56,10 @@ export default function RevenueThemeProvider(props: IRevenueThemeProviderProps):
           {props.children}
         </FluentProvider>
       </IdPrefixProvider>
-    </RendererProvider>
   );
+}
+
+export default function RevenueThemeProvider(props: IRevenueThemeProviderProps): React.ReactElement {
+  const renderer = React.useMemo(() => createDOMRenderer(props.targetDocument), [props.targetDocument]);
+  return <RendererProvider renderer={renderer} targetDocument={props.targetDocument}><RevenueThemeSurface {...props} /></RendererProvider>;
 }

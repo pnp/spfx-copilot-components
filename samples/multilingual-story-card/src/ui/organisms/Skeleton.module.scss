@@ -1,0 +1,61 @@
+// Organism: skeleton. Placeholder colours from the tokens, so it follows light and dark.
+
+.skeleton {
+  display: grid;
+  gap: var(--space-s);
+  max-inline-size: 68ch;
+}
+
+.bar {
+  display: block;
+  block-size: 1rem;
+  border-radius: var(--border-radius-md);
+  background: linear-gradient(135deg, var(--card-placeholder-from), var(--card-placeholder-to));
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+
+  &[data-bar="chip"] {
+    inline-size: 12rem;
+    block-size: 1.25rem;
+    border-radius: var(--border-radius-full);
+  }
+
+  &[data-bar="title"] {
+    inline-size: 90%;
+    block-size: 2rem;
+  }
+
+  &[data-bar="title-short"] {
+    inline-size: 55%;
+    block-size: 2rem;
+  }
+
+  &[data-bar="photo"] {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 16 / 9;
+    max-block-size: 240px;
+    border-radius: var(--border-radius-lg);
+  }
+
+  &[data-bar="line-short"] {
+    inline-size: 70%;
+  }
+}
+
+@keyframes skeletonPulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .bar {
+    background: GrayText;
+  }
+}

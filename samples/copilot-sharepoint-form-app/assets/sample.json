@@ -1,0 +1,95 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-copilot-sharepoint-form-app",
+    "source": "pnp",
+    "title": "SharePoint Document Submission Form",
+    "shortDescription": "Submit files up to 50 MB and dynamic library metadata directly to a SharePoint document library from an inline Microsoft 365 Copilot chat form or a modern SharePoint page without passing file bytes through the LLM prompt.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-sharepoint-form-app",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/copilot-sharepoint-form-app",
+    "longDescription": [
+      "SharePoint Document Submission Form renders an interactive document-intake form inline in Microsoft 365 Copilot chat (via BaseCopilotComponent) and on modern SharePoint pages (via BaseClientSideWebPart). When a user asks to upload or submit a document, the declarative agent calls OpenDocumentSubmissionForm and opens the SPFx form inline.",
+      "The component verifies the target SharePoint document library (BaseTemplate 101), dynamically loads its required and optional editable columns via SharePoint REST, and uploads files up to 50 MB (direct upload up to 10 MB, chunked StartUpload/ContinueUpload/FinishUpload above 10 MB) followed by ValidateUpdateListItem under the signed-in user's delegated SharePoint permissions—without ever placing file bytes into the Copilot prompt or requesting Microsoft Graph admin consent.",
+      "Built-in security hardening locks siteUrl overrides to HTTPS on the active SharePoint Online tenant origin and enforces a strict file extension allowlist (.pdf, .docx, .xlsx, .pptx, .md, .png, .jpg)."
+    ],
+    "creationDateTime": "2026-10-28",
+    "updateDateTime": "2026-10-28",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-rc.0"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "name": "copilot-chat-kb-1-form-masked.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-sharepoint-form-app/assets/copilot-chat-kb-1-form-masked.png",
+        "alt": "Inline SharePoint document submission form rendered in Microsoft 365 Copilot chat with a verified Knowledge base library, staged presentation file, and required and optional metadata columns"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "name": "copilot-chat-kb-2-submitted.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-sharepoint-form-app/assets/copilot-chat-kb-2-submitted.png",
+        "alt": "Document submitted confirmation state in Microsoft 365 Copilot chat showing the uploaded file, saved metadata values, and direct Open file link"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "name": "copilot-chat-kb-3-success-reply.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-sharepoint-form-app/assets/copilot-chat-kb-3-success-reply.png",
+        "alt": "Follow-up confirmation message from the SharePoint document submission agent in Microsoft 365 Copilot chat"
+      },
+      {
+        "type": "image",
+        "order": 103,
+        "name": "copilot-sharepoint-form-page-4-embedded-masked.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/copilot-sharepoint-form-app/assets/copilot-sharepoint-form-page-4-embedded-masked.png",
+        "alt": "Copilot SharePoint Form web part embedded on a two-column modern SharePoint page"
+      },
+      {
+        "type": "video",
+        "order": 200,
+        "url": "https://www.youtube.com/embed/HNiq6eZ6itc",
+        "alt": "Video walkthrough: submitting a document to a SharePoint Knowledge Base from Copilot Chat"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "anandragav",
+        "pictureUrl": "https://github.com/anandragav.png",
+        "name": "Anand Vijayaragavan"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "SharePoint Framework v1.24 release notes",
+        "description": "Release notes for SPFx 1.24 including Copilot UX components (BaseCopilotComponent) and Heft toolchain updates.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/release-1.24.0"
+      }
+    ]
+  }
+]

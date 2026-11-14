@@ -193,7 +193,7 @@ const PlanMyDayPanel: React.FunctionComponent<IPlanMyDayPanelProps> = ({ data, n
       title="Plan my day"
       icon={<Sparkle20Regular />}
       onDismiss={onDismiss}
-      footnote="AI-generated suggestions for this demo are based on sample data and are not saved."
+      footnote="Generated locally from sample data. No AI or WorkIQ service was called, and no external data was changed."
     >
       {generating && <div className={styles.shimmer} aria-hidden="true" />}
       {phase === 'thinking' ? (

@@ -1,11 +1,12 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot } from 'react-dom/client';
 
 import { getIntentDefinition } from '../../mockData/intentCatalog';
 import type { IIntentTransientState } from '../../models/intentInvocation';
 import { getSessionActionReceipts, resetSessionActions } from '../../services/SessionActionStore';
 import ProjectFullscreenShell from './ProjectFullscreenShell';
+
+const { act } = React;
 
 const clickButton = (container: HTMLElement, label: string): void => {
   const button = Array.from(container.querySelectorAll('button')).find((item) => item.textContent?.indexOf(label) !== -1 || item.getAttribute('aria-label') === label);
@@ -30,14 +31,15 @@ const renderShell = (intentKey: string, properties = { projectId: 'PRJ-2601' } a
     return <ProjectFullscreenShell initialDefinition={getIntentDefinition(invocation.intentKey)} initialProperties={invocation.properties} propertiesVersion={invocation.propertiesVersion} transientState={invocation.transientState} currentUserName="Megan Bowen" containerWidth={980}/>;
   };
   document.body.appendChild(container);
+  const root = createRoot(container);
   act(() => {
-    ReactDOM.render(<Harness/>, container);
+    root.render(<Harness/>);
   });
   return {
     container,
     rerender: (nextIntentKey, nextProperties = {}, nextTransientState) => act(() => { updateInvocation?.(nextIntentKey, nextProperties, nextTransientState); }),
     cleanup: () => act(() => {
-      ReactDOM.unmountComponentAtNode(container);
+      root.unmount();
       container.remove();
     })
   };
@@ -46,10 +48,11 @@ const renderShell = (intentKey: string, properties = { projectId: 'PRJ-2601' } a
 const renderNarrowShell = (): { container: HTMLDivElement; cleanup: () => void } => {
   const container = document.createElement('div');
   document.body.appendChild(container);
+  const root = createRoot(container);
   act(() => {
-    ReactDOM.render(<ProjectFullscreenShell initialDefinition={getIntentDefinition('GetMyWorkSummary')} initialProperties={{}} currentUserName="Megan Bowen" containerWidth={340}/>, container);
+    root.render(<ProjectFullscreenShell initialDefinition={getIntentDefinition('GetMyWorkSummary')} initialProperties={{}} currentUserName="Megan Bowen" containerWidth={340}/>);
   });
-  return { container, cleanup: () => act(() => { ReactDOM.unmountComponentAtNode(container); container.remove(); }) };
+  return { container, cleanup: () => act(() => { root.unmount(); container.remove(); }) };
 };
 
 describe('ProjectFullscreenShell', () => {

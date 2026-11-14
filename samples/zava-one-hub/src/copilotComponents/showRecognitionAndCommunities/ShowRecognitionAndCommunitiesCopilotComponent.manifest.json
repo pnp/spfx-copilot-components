@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "169e979f-fb09-4bdc-b129-b9b253c93483",
+  "alias": "ShowRecognitionAndCommunitiesCopilotComp",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowRecognitionAndCommunities",
+      "description": {
+        "default": "Use when the user wants to draft or send praise to a colleague. Do not use when the user asks for people expertise, approvals, or surveys."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showRecognitionAndCommunities/ShowRecognitionAndCommunitiesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

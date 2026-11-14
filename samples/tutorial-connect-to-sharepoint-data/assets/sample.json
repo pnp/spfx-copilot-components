@@ -1,0 +1,81 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-tutorial-connect-to-sharepoint-data",
+    "source": "pnp",
+    "title": "Lists and items on a site",
+    "shortDescription": "The tutorial project that shows the lists on a SharePoint site, and the items in the list the user selects, from a site URL the agent passes to the tool.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-connect-to-sharepoint-data",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-connect-to-sharepoint-data",
+    "longDescription": [
+      "The finished project for the tutorial Connect your Copilot UX component to SharePoint data. It's the my-copilot-app project from Build your first SharePoint Copilot App with the tutorial changes applied.",
+      "The agent passes a site URL to the MyCopilotAppTool tool in the siteUrl parameter. The MyCopilotApp component uses spHttpClient to show the lists on that site and the first 25 items of the list the user selects. It handles a missing URL, a URL that isn't a site, a site the user can't access, and a site that doesn't exist. The component uses no framework, and all code runs in the browser."
+    ],
+    "creationDateTime": "2026-10-04",
+    "updateDateTime": "2026-10-04",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "No framework"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.5"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "copilot-lists.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-connect-to-sharepoint-data/assets/copilot-lists.png",
+        "alt": "Microsoft 365 Copilot showing the lists on a SharePoint site in the MyCopilotApp component after the user asked for the lists on the site"
+      },
+      {
+        "name": "copilot-items.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-connect-to-sharepoint-data/assets/copilot-items.png",
+        "alt": "The MyCopilotApp component showing the items in the Apollo Missions list with a Back to lists button"
+      },
+      {
+        "name": "workbench.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-connect-to-sharepoint-data/assets/workbench.png",
+        "alt": "The MyCopilotApp component showing the lists on a site in the Copilot Workbench"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "andrewconnell",
+        "pictureUrl": "https://github.com/andrewconnell.png",
+        "name": "Andrew Connell"
+      }
+    ],
+    "references": [
+      {
+        "name": "Connect your Copilot UX component to SharePoint data",
+        "description": "Tutorial: pass a site URL to the tool and show the lists and items on the site with the SharePoint REST API.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/connect-to-sharepoint-data"
+      },
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Create a SharePoint Copilot App with SPFx, test it in the Copilot Workbench, and use it in Microsoft 365 Copilot.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]

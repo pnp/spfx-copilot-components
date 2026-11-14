@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "d48c2178-27ab-4f5d-b685-b3016b5f1b08",
+  "alias": "ExploreAgentCapabilitiesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExploreAgentCapabilitiesTool",
+      "description": {
+        "default": "Use when the user asks which employee or HR features this agent supports, wants to browse available scenarios, or needs help choosing a capability. Do not use for a specific dashboard, leave request, pay, benefits, policy, learning, approval, or people task."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

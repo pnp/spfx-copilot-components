@@ -16,7 +16,7 @@
     {
       "name": "ReviewContractRenewalTool",
       "description": {
-        "default": "Review renewal, renegotiation, consolidation, or exit scenarios."
+        "default": "Use when the user asks: Should we renew, renegotiate, consolidate, or exit? Outcome: A time-bound renewal decision. Boundary: Not negotiation planning."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewContractRenewal/ReviewContractRenewalCopilotComponentProperties.js:default;"

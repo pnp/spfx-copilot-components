@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.0",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.3",
+    "libraryName": "file-uploader",
+    "libraryId": "4b4dd365-a232-4116-ba56-85f640477b2e",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "file-uploader",
+    "solutionShortDescription": "file-uploader description",
+    "skipFeatureDeployment": true,
+    "componentType": "copilotComponent"
+  }
+}

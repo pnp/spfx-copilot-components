@@ -1,9 +1,9 @@
-# Agentic Creation Rules - SPFx Copilot Apps
+# Agentic Creation Rules - SPFx Copilot Component Samples
 
-> **Purpose.** This file is the reusable engineering, UX, and release-automation playbook for SPFx
-> Copilot App samples. It includes a clearly labeled **Zava IT Concierge specialization** based on
-> patterns validated by the Zava sample family. Preserve every mandatory action/gate unless the
-> approved brief and `todo.md` record a deliberate exception.
+> **Purpose.** This is the official golden engineering and automation playbook validated by the
+> **Zava AI Project Portfolio Agent** and cross-checked against the **Zava Employee Agent** and **Zava Customer Resolution Center** samples in this repo. Copy it
+> into future samples, replace solution-specific names and counts, and preserve every mandatory
+> action/gate unless `todo.md` records an approved exception.
 > It covers independently routed Copilot Components, shared full-screen experiences, coherent mock
 > data, session-local workflows, visualization-first React UX, automated evidence, and packaging.
 >
@@ -18,178 +18,10 @@
   and acceptance gates.
 - This file controls implementation quality, supported scaffolding, architecture, testing, and safety.
 - The validated reference implementations supply proven patterns where neither document is explicit.
+  When the user names a reference sample as the quality bar, inspect its rendered screenshots **and**
+  the owning source styles, media catalog, asset provenance, responsive rules, and package audit before
+  designing the new shared shell. A textual summary of the reference is not enough.
 - Resolve a conflict in that order and record an approved exception in `todo.md` before coding.
-
-## Default UX contract - override only when the brief says so
-
-These are inherited defaults, not suggestions. A README, supplied design, or approved `todo.md` item
-may replace one only by naming the different behavior and its validation criteria. Silence means use
-the defaults.
-
-- One shared inline header shows the agent/brand name with the literal current action title. One
-  accessible **View in full screen** control sits in the top-right corner when the host supports it.
-- The body begins with domain work. Do not add generic prompt echo, extracted-property dumps,
-  `From your prompt`, generic `Decision insight`, chatbot bubbles, sparkle/robot chrome, or a second
-  prompt box inside the component.
-- Prompt properties silently initialize a real selected entity, filter, scenario, or editable draft.
-  Show provenance beside a domain field only when the user needs it to judge that field.
-- Treat the AI-to-UI handoff as the core product story. AI provides probabilistic, non-deterministic
-  natural-language understanding and selects or configures a bounded experience for the user's need.
-  The component owns deterministic records, calculations, validation, state transitions, decisions,
-  and actions. Never imply that model inference itself completed a consequential operation.
-- Information, review, submit, and education experiences have purpose-designed compositions. Share
-  framing and mechanics, not one generic card body or evidence rail.
-- Expose exactly six conversation starters by default. Starters 1-5 open five distinct, high-value
-  operational tools; starter 6 is capability discovery and targets the generated
-  `ExploreAgentCapabilities` experience. Each starter contains one primary task and is expected to fire
-  exactly one tool.
-- Include `ExploreAgentCapabilities` as the default education experience. It is searchable and
-  filterable, advertises every operational tool from the canonical catalog, excludes itself, offers
-  realistic copyable prompts and safe previews, and never applies a submit/review action from preview.
-- Ship a professional agent identity with `copilot/color.png` and `copilot/outline.png`. Use one
-  domain-relevant mark that remains recognizable at 16-32 px, coordinate it with manifest
-  `accentColor`, and generate/check both files deterministically. Placeholder template icons never
-  reach visual review or packaging.
-- Use Fluent UI v9 controls and icons, a neutral operational canvas, one primary accent pair, one warm
-  contrast accent, and Fluent semantic status colors. Keep headings compact, layouts stable, and cards
-  reserved for repeated records, modals, or genuinely bounded tools. Do not nest cards.
-- Choose DOM for exact operational content, React SVG for compact analytical graphics, and Babylon only
-  when spatial or dimensional interaction materially improves the decision. A supplied design may call
-  out a different renderer, but accessibility, fallback, performance, and evidence gates still apply.
-- Every visible control works and every consequential action stops at visible review and confirmation.
-  Unsupported controls are removed rather than displayed as decorative or disabled promises.
-- Keep focused information, review, and action in the Copilot canvas. The primary happy path does not
-  send the user through a deep link, app switch, portal handoff, or duplicate external form. Inline
-  components answer or complete the immediate task directly in the flow of work.
-- Full screen adds context, comparison, planning, or coordinated operations. It preserves the invoking
-  entity/filter/draft where supported and never opens generic home merely because a route exists. It
-  is the application-scale continuation inside Copilot, not a transition to a separate application.
-
-When the approved design conflicts with one of these defaults, record the override once in `todo.md`,
-implement it consistently, and add a focused automated check so later cleanup does not restore the
-default accidentally.
-
-## Project specialization - Zava IT Concierge
-
-This section specializes the reusable defaults for this solution. Future samples adopt the mechanics,
-not the Zava labels, people, device domain, three-lens information architecture, or named visuals.
-The product and visual commitments in the design brief are binding; `todo.md` freezes their
-implementation order, component identities, evidence, and approved exceptions.
-
-### Product story and people
-
-- Build one connected device-to-resolution story: diagnose Megan Bowen's Surface device, recommend a
-  supported Surface configuration, route Diego Siciliani's budget-aware decision, advance fulfillment,
-  and let Lee Gu inspect the resulting company estate impact.
-- Use the standard fictional Microsoft 365 demo personas and approved bundled portraits from the Zava
-  reference samples. The primary roles are Megan Bowen (employee), Diego Siciliani (manager), and Lee
-  Gu (IT operations). Supporting people come from the same approved reference set.
-- Human context is evidence, not decoration. Portraits appear beside ownership, approvals, service
-  accountability, assignments, and handoffs. Dense charts do not need decorative face piles.
-- Use official Microsoft Surface product imagery and Microsoft 365 product icons where they identify
-  the represented product or service. Copy approved assets into this sample, optimize them, package
-  them locally, and record source/reference path, retrieval date, intended use, and usage note in one
-  provenance manifest. Do not fetch media at runtime or invent unreleased product names/specifications.
-- Do not introduce unrelated third-party brands or media. Every image has meaningful alternative text
-  when informative, or empty alternative text when adjacent content already provides the same identity.
-
-### Visual language and vertical navigation
-
-- Treat the supplied design images as composition references, then push their visual quality through
-  stronger hierarchy, coordinated filtering, data-driven dimensional views, and exact inline-to-full-
-  screen continuation. Do not reproduce their app chrome or placeholder values blindly.
-- Full screen uses one shared vertical tab shell with the stable primary lenses **Me**, **Team**, and
-  **Company**. Each tab opens a useful default dashboard. Request/approval and analytics routes remain
-  within their owning lens so users retain orientation.
-- The desktop/keynote tab rail combines Fluent icons, short labels, selection indicator, and tooltips.
-  It may collapse to an icon rail only while labels remain available to assistive technology and on
-  hover/focus. At narrow widths use an accessible drawer or selector while preserving lens IDs, order,
-  route state, and focus behavior.
-- Inline components are compact business applications, not Adaptive Card imitations. Use unframed
-  analytical regions, bounded records/forms where needed, and stable chart dimensions. Full screen adds
-  breadth, comparison, planning, and evidence rather than enlarging the inline composition.
-- Map the README's steel-to-cyan palette specification into named theme/custom tokens once. Component
-  styles consume tokens only; semantic success, warning, and danger colors keep their standard meaning.
-- Surface hardware imagery, the radial estate-health ring, and accountable people are first-viewport
-  signals for the personal experience. The company lens gives its dominant analytical canvas to the
-  fleet visualization instead of a grid of equal-weight KPI cards.
-
-### Data-driven visualization contract
-
-- **Model first, renderer second.** Every visual exports one pure typed analytical model containing
-  stable record IDs, labels, exact and formatted values, groups/relationships, semantic colors,
-  geometry inputs, selection relationships, legend data, and fallback rows. Inline, full-screen,
-  screenshot, accessible, and test views consume this same model so they cannot disagree.
-- **Choose the cheapest renderer that answers the question well.** Fluent DOM owns tables, lists,
-  forms, status boards, and exact-value evidence. React-rendered SVG is the default for compact rings,
-  lines, columns, Pareto, waterfall, capacity, and journey charts where direct labels and predictable
-  scaling matter most. Babylon is reserved for approved spatial, geographic, relationship, or
-  dimensional scenes where depth, camera framing, instances, or guided focus materially improve the
-  decision. Do not turn an ordinary bar or line chart into 3D merely to look advanced.
-- In React SVG charts, D3 may calculate scales, ticks, bins, stacks, arcs, paths, projections, and
-  deterministic layouts, but React owns the SVG elements, events, selection state, and lifecycle.
-  D3 never selects or mutates DOM and never owns transitions, timers, drag, brush, or zoom.
-- In Babylon scenes, Babylon owns cameras, lights, thin/regular instances, meshes, picking, scene/camera
-  animation, and rendering. React still owns business state, filters, selected IDs, accessible content,
-  and lifecycle. Keep primary labels, controls, legends, evidence, and keyboard commands in Fluent DOM.
-- D3 is optional headless analytical math, not a component architecture. Retain a focused module only
-  when it replaces substantial, tested domain-independent calculation that Babylon does not provide:
-  - `d3-array` for grouping, rollups, bins, extents, sorting, cumulative totals, and derived series;
-  - `d3-scale` for screen/world coordinates, radius/height, time, threshold, and deliberate color domains;
-  - `d3-shape` for line/area points, stack extents, pie/arc angles, and link control points consumed by React SVG or Babylon meshes;
-  - `d3-geo` plus `topojson-client` only for an approved geographic projection/boundary model;
-  - `d3-hierarchy` for partition/treemap and `d3-force` for deterministic relationship layouts;
-  - `d3-sankey` only for an approved flow whose layout would otherwise be hand-rolled.
-- Before retaining a D3 module, compare a small deterministic local implementation on correctness,
-  test surface, maintenance complexity, raw/compressed bytes, and stable output. Record the decision in
-  `todo.md`. If no module has material value, remove D3 entirely. Do not retain a package merely because
-  it appeared in a reference sample or makes a trivial calculation shorter.
-- Do not install or import D3 selection, axis, transition, timer, interpolate/ease, brush, drag, zoom,
-  fetch, or formatting modules. D3 calculation functions never receive DOM, canvas, Babylon, React
-  state, timing, or animation references. Use `Intl` for formatting, CSS/React state for compact SVG
-  transitions, and Babylon `Animation`/`AnimationGroup` for scene effects.
-- Install one pinned `@babylonjs/core` version during the visualization spike and use direct ES-module
-  class imports for production tree shaking. Never import `@babylonjs/core/Legacy/legacy`, add a React-
-  specific Babylon renderer, or use Babylon GUI for primary text and controls. Fluent DOM overlays own
-  semantic headings, filters, legends, evidence, tooltips, keyboard commands, and live announcements.
-- Build reusable responsive chart cores with compact inline and immersive full-screen profiles. The
-  initial signature set is:
-  - **Estate Health Landscape:** region x department/device-family footprint, device count as height,
-    and labeled health/compliance state as the top treatment. Use headless rollups and band scales for world X/Z,
-    linear/sqrt scales for height/footprint, threshold scales for semantic state, and Babylon thin
-    instances for the numerous mostly stable marks. Inline uses a fixed camera; full screen uses a
-    bounded `ArcRotateCamera`, guided focus, selection, and coordinated evidence.
-  - **Incident Correlation Constellation:** user reports converge into symptom/service clusters with
-    link strength and incident state. Use a seeded headless D3 force simulation with link, many-body, collision,
-    center, and fixed tick count; never let each render settle differently. Prefer regular instances or
-    dedicated meshes where nodes change frequently. Inline answers whether reports represent one
-    incident; full screen adds time depth, services, people, and declaration evidence.
-  - **Refresh Wave Horizon:** quarter/wave depth, device count and cost height, and capacity/policy
-    overlays. Use headless rollups/stacks plus band/time/linear scales and Babylon
-    thin instances for stable cohort marks. It remains `Scenario - not applied` until review.
-- One canonical selected ID coordinates the full dashboard. React derives optional interpretation, KPI context,
-  evidence rail, supporting Babylon charts, scene emphasis, legend, and table selection from that same state.
-  Camera state never becomes business selection state, and renderers never mutate each other directly.
-- Every chart has a decision question, deterministic geometry, visible legend, selected-value detail,
-  and a keyboard-reachable exact-value rail or table. Add a domain-specific takeaway only when it
-  explains a non-obvious pattern or changes the next action; do not render a generic insight block.
-  A 3D chart also has
-  Reset view and an adjacent 2D table/list equivalent. Perspective, depth, color,
-  lighting, hover, and motion are never the only carriers of exact values or status.
-- Provide WebGL capability detection and a complete SVG/2D fallback. Constrain camera motion, expose
-  keyboard-operable selection outside the canvas, and retain visible focus. Reduced motion renders the
-  settled scene immediately and disables auto-rotation, pulsing, or camera flights.
-- Render only while a scene is dirty, animating, or actively manipulated; stop the Babylon render loop
-  when settled and pause while hidden. Cap hardware scaling, resize from the host element, and batch
-  thin-instance buffers. Freeze static materials/world matrices only after transitions settle and
-  unfreeze before updates. Disable pointer-move picking unless a tested hover interaction requires it.
-- Dispose animation groups, observables, controls, scene, engine, instance buffers, meshes, materials,
-  textures, and render targets on teardown. Instrument draw calls plus CPU/GPU frame time; optimize from
-  measured evidence rather than enabling aggressive scene flags blindly.
-- Validate each scene with desktop/mobile screenshots, nonblank canvas-pixel checks, WebGL fallback,
-  keyboard/table equivalence, reduced motion, 200% zoom, theme contrast, no overflow, direct-import
-  bundle audit, draw-call/frame-time evidence, teardown memory check, and context-loss fallback. A
-  visually impressive but ambiguous, inaccessible, unstable, or continuously expensive scene fails.
 
 ---
 
@@ -201,33 +33,14 @@ Use this short path to start the next sample. The detailed sections below remain
 criteria; this sequence prevents rediscovery and avoids implementing breadth before the shared model
 is proven.
 
-**Quality-level blueprint - establish this before scaling the catalog:**
-
-1. Define one domain-specific visual grammar: neutral operational canvas, one primary accent pair, one
-  warm contrast accent, semantic states, typography, spacing, radii, elevation, and three permitted
-  gradient roles. Remove or bypass the generator's purple welcome/header styling before visual review.
-2. Classify each experience as information, review, submit, or education and sketch its first useful
-  state. For action work, sketch the complete list -> detail -> decision -> confirmation -> updated
-  list loop before building a single record card.
-3. Build one shared inline frame, one full-screen shell, one list/detail action panel, one operation
-  reducer, one media catalog, and one chart-model contract. Prove each at narrow and standard widths
-  before generating route-specific composition at scale.
-4. Make the mock graph tell one coherent story across people, devices/items, money, policy, requests,
-  incidents, and outcomes. Bundle every accountable person's portrait before queue/dashboard polish.
-5. Select chart form from the decision question, not from novelty. Use DOM for exact operational data,
-  React SVG for compact analytical charts, and Babylon only when spatial/dimensional interaction earns it.
-6. Validate the first representative information, list/detail review, submit, 2D chart, and signature
-  scene end to end. Then scale with catalog-driven metadata and focused tests instead of copying bodies.
-7. Capture the real host widths early. Test long labels, nonzero counts, completed statuses, missing
-  media fallback, dark mode, 200% zoom, and the full-screen detail expansion before broad polish.
-
-**Execution sequence:**
-
-1. **Write the brief bundle.** Provide README objectives, one or more UX designs, a current-target
+1. **Write the brief bundle and visual-quality contract.** Provide README objectives, one or more UX designs, a current-target
   component portfolio, and a prompt-routing matrix. For a small sample these may be sections in
   `todo.md`; a complex multi-family sample may use separate component-plan and demo-prompt documents.
   Decide the short keynote, longer business demo, and technical/code walkthrough before polish so
-  implementation evidence naturally supports all three.
+  implementation evidence naturally supports all three. Name the visual reference, list the concrete
+  patterns that establish its quality (hero composition, gradients, elevation, typography, people/media,
+  data-visual treatment, navigation, motion, responsive behavior, and dark mode), and state how the new
+  sample will adapt them without copying its domain composition or palette.
 2. **Freeze identities and package metadata.** Approve final component/tool names, GUID ownership,
   routes, package IDs, and short plugin metadata before generation. API plugin v2.4
   `name_for_human` MUST be **20 characters or fewer**; use a short plugin-facing name when the full
@@ -241,9 +54,12 @@ is proven.
   generated-plugin, and final package-output validators before scaling bodies. Generate/validate bundle
   membership from the catalog instead of maintaining component entries by hand. Confirm the clean
   baseline compiles.
-6. **Prove the shared boundary and three operation slices.** Build owner-document theming, current-user
-  fallback, intent resolution, fresh-invocation versioning, display-mode routing, then one complete
-  information, review, and submit experience.
+6. **Prove the premium shared boundary and three operation slices.** Build owner-document theming,
+  current-user fallback, intent resolution, fresh-invocation versioning, and display-mode routing. In
+  the same slice, render one representative inline and full-screen experience with final-quality
+  navigation, hero, typography, purposeful gradients, elevation, real approved persona/media treatment,
+  signature visualization, mobile reflow, and dark mode. Capture and inspect the pixels before building
+  sibling bodies, then complete one information, review, and submit experience on that foundation.
 7. **Scale from the catalog.** Reuse host/workflow/chart mechanics while keeping domain composition and
   evidence specific. Add focused tests and visual evidence with each family or workspace.
 8. **Ship through one command.** Source/catalog/media/gallery audits -> clean production tests ->
@@ -262,11 +78,15 @@ component scaffold by hand.
 1. **Approve the final catalog before generation.** The user decides how many Copilot Components the
   solution has and their final names. The user or coding agent may run the generator. Example:
 
-   ```bash
-   npm install -g yo @microsoft/generator-sharepoint
-   yo @microsoft/sharepoint      # choose "Copilot Component"; repeat / re-run to add more components
-   npm install                    # if scaffolded with --skip-install
-   ```
+  ```bash
+  npm install -g yo @microsoft/generator-sharepoint@1.24.0-rc.0
+  yo @microsoft/sharepoint      # choose "Copilot Component"; repeat / re-run to add more components
+  npm install                    # if scaffolded with --skip-install
+  ```
+
+  SPFx preview tags move. For a newer approved preview, resolve `@next`, record the returned version,
+  and install that exact version; never let an unpinned global generator silently change between
+  components in one sample.
 
   > [!IMPORTANT]
   > When adding a new inline Copilot Component to an existing solution, always create the clean,
@@ -274,7 +94,7 @@ component scaffold by hand.
   > with the intended component name):
   >
   > ```bash
-  > yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework none --skip-install
+  > yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework react --skip-install
   > ```
   >
   > After generation, update the implementation to follow this playbook. Do not rename the component,
@@ -282,10 +102,14 @@ component scaffold by hand.
   > has the wrong name, remove it through an explicit scaffold-cleanup step and generate a new component
   > with the final name; never turn it into a different component.
 
-1. **Add the UX design(s)** to the repo (mockups/wireframes under `assets/`, e.g. `assets/*.png`) and
+2. **Add the UX design(s)** to the repo (mockups/wireframes under `assets/`, e.g. `assets/*.png`) and
    **write the README objectives** - the summary, the experiences (how many inline / full-screen), the
-   signature feature, and the data story. This README-as-brief is the **input** the agent builds from.
-2. **Make these rules available to the agent** - reference `agentic-creation-rules.md` one of these ways
+  signature feature, and the data story. This README-as-brief is the **input** the agent builds from.
+  Also approve the people/media plan and visual-quality reference. If no mockup is supplied, the user
+  must explicitly approve a written visual contract containing composition, color/gradient direction,
+  typography, elevation, persona placement, signature-visual treatment, responsive checkpoints, and
+  examples from the named reference. “Follow the reference” without this extraction is not a design.
+3. **Make these rules available to the agent** - reference `agentic-creation-rules.md` one of these ways
    so the agent actually follows it:
    - as a **skill** the agent can load (e.g. a `SKILL.md` that points at / embeds these rules), or
    - as an **agent configuration file** (e.g. `AGENTS.md` / `.github/copilot-instructions.md` / a custom
@@ -293,7 +117,7 @@ component scaffold by hand.
    - **referenced directly in the prompt** ("follow `agentic-creation-rules.md`") when kicking off work.
 
    Keep a copy of this file in the new sample's root so it travels with the solution.
-3. **Approve `todo.md` before implementation.** Dependency installation, mock-data work, and React work
+4. **Approve `todo.md` before implementation.** Dependency installation, mock-data work, and React work
   then follow the order in the approved project plan.
 
 **Agent (this file):**
@@ -302,7 +126,9 @@ component scaffold by hand.
   implementation. They do not need to precede pure mock-data modeling.
 2. **Read the README objectives + the UX design.** Identify how many independently routed inline
   intents are approved and how they continue into full-screen routes. Mirror the final catalog in
-  `todo.md`, not any temporary placeholder scaffold.
+  `todo.md`, not any temporary placeholder scaffold. When a reference is named, inspect its actual
+  screenshots, primary React/style implementation, media catalog, provenance, visual harness, and
+  package report. Record the adapted visual primitives and deliberate differences in `todo.md`.
 3. **Generate `todo.md` first** (see §2) from the README + UX. This becomes the user's primary task
    tracker - they review and steer from it. Do **not** start coding until the phased `todo.md` exists.
 4. **Implement phase by phase** (see §3), updating `todo.md` as you go (§2.3).
@@ -319,51 +145,69 @@ approved sample values, but keep the actions and gates.
 
 1. **Freeze the brief and catalog.** Read the README/design assets, approve final component names,
    operation ownership, inline/full-screen routes, personas, data story, signature visuals, package
-  identity, agent-icon concept, manifest accent color, and plugin-facing metadata limits
-  (`name_for_human` <= 20). Write `todo.md`; do not code
+   identity, and plugin-facing metadata limits (`name_for_human` <= 20). Write `todo.md`; do not code
    before approval. An intent earns a current-target component when it satisfies at least two of:
    frequent/time-sensitive decision value, meaningful prompt-driven variation, useful interaction or
    review, a distinctive visualization, and a natural full-screen continuation. Keep other candidates
    documented as future tools or internal routes rather than generating them speculatively.
+  Before approving full-screen scope, write one **workspace purpose matrix** with a row per workspace:
+  primary persona, benchmark workflow from relevant competitor/category offerings, decision question,
+  unique default queue/visual/evidence/operation, data grain, entry intent, and explicit “must not become”
+  boundary. A workspace name or different nav icon is not an information architecture.
 2. **Generate final identities through Yeoman.** Generate every approved Copilot Component with its
    immutable final name. Never copy, rename, or repurpose a generated folder/GUID.
 3. **Create catalog automation immediately.** Add one declarative intent catalog plus scripts that
    configure and validate manifests, adapters, schemas, bundles, localized resources, registrations,
-  tool descriptions, starter definitions, preview metadata, and documentation. The validator MUST fail
-  on duplicate GUID/tool/description, wrong counts, placeholder descriptions/properties, missing
-  registrations, missing generated files, duplicate bundle membership, a manifest absent from the
-  approved bundle strategy, preview/property type drift, a starter without one declared target, a
-  duplicate starter target unless explicitly approved, or a stale generated routing matrix.
-4. **Install and pin the shared stack once.** React 17, Fluent v9, Griffel, Jest, and only approved
-  optional libraries. Add modular Babylon and focused D3 modules only when the renderer decision and
-  measured spike justify them. Run a clean compile before feature implementation.
-5. **Build the shared host before 30 bodies.** Implement current-user resolution, `ownerDocument`
-   Griffel rendering, theme provider, consistent top-right full-screen action, operation dispatcher,
-   intent metadata, and fresh-properties/passive-rerender behavior. Test this boundary first.
+   and tool descriptions. The validator MUST fail on duplicate GUID/tool/description, wrong counts,
+  placeholder descriptions/properties, missing registrations, missing generated files, duplicate bundle
+  membership, or a manifest absent from the approved bundle strategy. Every description MUST include a
+  positive `Use when` trigger and a nearest-sibling `Do not use` boundary; generate collision tests for
+  prompts that could plausibly route to either sibling.
+4. **Install and pin the shared stack once.** React 18, Fluent v9, Griffel, focused D3 modules/types,
+   Jest, and only approved optional libraries. Run a clean compile before feature implementation.
+5. **Build and visually approve the premium shared host before 30 bodies.** Implement current-user
+  resolution, `ownerDocument` Griffel rendering, theme provider, consistent top-right full-screen
+  action, operation dispatcher, intent metadata, and fresh-properties/passive-rerender behavior. The
+  first host slice MUST also contain the final navigation treatment, strong hero hierarchy, intentional
+  gradient/elevation system, approved persona photography or domain imagery, polished repeated rows,
+  one signature data visualization, and responsive/dark variants. Capture one inline, desktop full-
+  screen, narrow full-screen, and dark screenshot; inspect the actual pixels against the named reference.
+  Do not scale the catalog while this slice still looks like a generic component-library/Tailwind card
+  layout, uses initials where approved portraits exist, or relies on a thin brand line as its main visual
+  identity. Test this boundary first.
 6. **Model one coherent offline domain.** Add source-appropriate typed records, deterministic clock,
    service interface/mock implementation, calculations, scenarios, relationships, and bundled media.
    Add referential-integrity and calculation tests before visual scale-out.
 7. **Classify every intent by operation.** Information/status, Review/decision, or Request/submit.
    Implement one complete vertical slice of each operation before scaling siblings.
 8. **Give every intent a purpose-designed body.** Shared framing/workflow mechanics are allowed;
-   shared generic evidence/review bodies are not. Every root/stage gets a unique `data-layout` identity.
+  shared generic evidence/review bodies are not. Every root/stage gets a unique `data-layout` identity.
+  Inline answers one conversational question with one dominant visual/list/form. Split independent
+  chart questions into separately generated components; reserve coordinated multi-chart dashboards for
+  full screen.
 9. **Audit every visible control.** A retained filter/toggle/select/button MUST change records,
    grouping, chart marks, calculations, selected evidence, or workflow stage. Remove unsupported
    decorative affordances. Do not ship controls that only change a caption.
 10. **Make forms and decisions explicit.** Prompt values prefill only. Use Draft -> Validate -> Review
   -> Confirm -> Receipt -> Reset/queue, with operation-specific review content, visible validation,
   semantic status colors, and session-only language.
-11. **Use charts as data products.** Build typed analytical models first, then choose Fluent DOM,
-  React SVG, or Babylon from the decision and rendering profile. Selector changes MUST supply materially
-  different records, geometry, calculations, selected evidence, or narratives, not merely rename a chart.
+11. **Use charts as data products.** When visualization is an approved objective, install and use the
+  focused D3/Vega modules in the first representative slice; installed-but-unused chart packages and
+  hand-authored fixed paths do not satisfy the objective. Use D3/Vega for scaled geometry, labels,
+  legends, accessible summaries, and dynamic redraws. Selector changes MUST supply materially different
+  datasets, paths, coordinates, or hierarchy, not merely rename or normalize the same chart. For maps,
+  use a real offline projection and bundled geography/topology when geographic position matters; a
+  decorative coordinate plot is not a map.
 12. **Add focused test matrices while implementing.** Assert catalog/layout uniqueness, all information
   defaults, retained control effects, selected detail, no-match/error fallback, all review safeguards,
-  and every form's prefill/validation/Edit/review/confirm/receipt/reset lifecycle.
+  and every form's prefill/validation/Edit/review/confirm/receipt/reset lifecycle. Assert every tool
+  publishes one activation snapshot plus updated snapshots for material visible-state changes.
 13. **Create a local visual harness before Workbench review.** It MUST render every intent, width, and
   theme without a tenant. Automate screenshots plus runtime, overflow, image, control-label, chart,
-  keyboard-focus, reduced-motion, and 200% browser-zoom checks. Fail when deprecated shared chrome,
-  broken images, blank required canvases, active engines after teardown, page errors, or console errors
-  appear. Save a machine-readable evidence file and validate committed screenshots against it.
+  keyboard-focus, reduced-motion, and 200% browser-zoom checks. Save a machine-readable evidence file.
+  Automated metrics are necessary but not sufficient: a human or multimodal reviewer MUST inspect the
+  representative pixels for hierarchy, image cropping, gradient/contrast quality, density, alignment,
+  clipping hidden by `overflow`, generic/repetitive composition, and keynote readability before scale-out.
 14. **Run tenant-host smoke separately.** If `{tenantDomain}` or authentication is unavailable, record
   the exact external prerequisite in `todo.md`; never mark CSP, iframe focus, or screen-reader host
   behavior complete from the local harness.
@@ -371,89 +215,115 @@ approved sample values, but keep the actions and gates.
   zero warnings, production build, Teams/Copilot package generation, `.sppkg` generation,
   generated-plugin validation, final package-output/size audit, diagnostics, and `git diff --check`.
   Stop temporary servers and update `todo.md` immediately.
-16. **Include capability education by default.** Generate `ExploreAgentCapabilities`, add it to the
-  catalog as education/discovery, and reserve conversation starter 6 for it (§6.4). Starters 1-5 target
-  five distinct high-value operational tools. A deliberately smaller starter set or omitted explorer
-  requires an explicit approved UX override and replacement discovery path in `todo.md`.
-17. **Enforce one request -> one primary tool.** Every tool description starts with a positive use
-  boundary and names nearby exclusions. Every conversation starter has one expected target, one primary
-  task, and no compound request that invites parallel tools. Generate the all-tool prompt/property/
-  collision matrix from the catalog and check it in the build. Actual model selection is rehearsed in
-  an authenticated tenant and must show exactly one selected tool per starter/request.
-18. **Publish from verified evidence.** Preserve the approved product specification as a design brief
-  before converting README to PnP publication format. Generate or validate the routing matrix,
-  `assets/sample.json`, visual evidence, release evidence, demo scripts, package hashes, and the final
-  `.sppkg`; do not hand-copy counts from terminal memory.
+16. **Educate users when the tool catalog is large.** If the agent has more than 10 purpose-designed
+  inline tools, add the catalog-driven Agent Capability Explorer pattern (§6.4) and reserve the final
+  conversation starter for “What can this agent do?”. Do not expect three generic starters to explain
+  a complex business agent.
 
 **Required reusable automation assets:**
 
 ```text
 scripts/configure-intent-components.mjs   # catalog -> adapters/schemas/manifests/registrations
 scripts/validate-intent-components.mjs    # fail-fast identity/schema/registration audit
-scripts/load-intent-catalog.mjs           # one loader used by all generators and validators
-scripts/generate-routing-matrix.mjs       # catalog -> prompt/property/collision doc + --check
-scripts/generate-agent-icons.*            # one source mark -> color/outline PNGs + check mode
-scripts/validate-generated-ai-plugin.mjs  # shipped ZIP -> plugin v2.4/functions/MCP/length audit
+scripts/validate-react-baseline.mjs       # target profile/root lifecycle/dependency/import audit
+scripts/validate-generated-ai-plugin.mjs  # shipped ZIP -> plugin v2.4/dynamic MCP/length audit
 scripts/validate-package-output.mjs        # .sppkg -> JS/media/icon/stale-output/size audit
 scripts/validate-gallery-assets.mjs        # sample.json -> metadata/PNG/order/URL coverage audit
-scripts/validate-assets.mjs               # provenance paths/hashes/fallback policy audit
-scripts/capture-visual-evidence.mjs       # Playwright -> catalog-named PNGs + evidence
-scripts/visual-harness/                   # tenant-free all-intent host
+scripts/validate-media-provenance.mjs      # source/runtime media -> rights/hash/catalog audit
+scripts/validate-publication-assets.mjs    # demos/routing/README/chart stack -> publication audit
+scripts/generate-embedded-faces.mjs       # deterministic bundled-media generator/check
+scripts/generate-routing-matrix.mjs       # canonical starters/manifests -> routing/collision matrix
+scripts/generate-release-evidence.mjs      # final package/agent/media/visual hashes -> release JSON
+scripts/serve-ux-review.mjs               # tenant-free visual harness builder/server
+scripts/capture-gallery-assets.mjs         # recommended harness -> catalog-named publication PNGs
+ux-review/                                # all-intent host, widths, themes, evidence controls
+ux-review/evidence/screenshots/           # one approved image per intent
+ux-review/evidence/<phase>-matrix.json     # machine-readable quality evidence
 assets/sample.json                         # unified gallery metadata; references real assets only
-assets/visual-evidence.json                # dimensions/runtime/media/overflow results
-assets/release-evidence.json               # artifact counts, sizes, and SHA-256 values
 ```
 
 Recommended scripts for future samples:
 
 ```json
 {
-  "validate:intents": "node scripts/validate-intent-components.mjs",
-  "generate:agent-icons": "pwsh -NoProfile -File scripts/generate-agent-icons.ps1",
-  "check:agent-icons": "pwsh -NoProfile -File scripts/generate-agent-icons.ps1 -Check",
-  "validate:assets": "node scripts/validate-assets.mjs",
-  "generate:routing-matrix": "node scripts/generate-routing-matrix.mjs",
+  "check:intents": "node scripts/validate-intent-components.mjs",
+  "check:react": "node scripts/validate-react-baseline.mjs",
+  "check:media": "node scripts/validate-media-provenance.mjs",
+  "check:publication": "node scripts/validate-publication-assets.mjs",
   "check:routing-matrix": "node scripts/generate-routing-matrix.mjs --check",
-  "capture:visual": "node scripts/capture-visual-evidence.mjs",
   "check:gallery": "node scripts/validate-gallery-assets.mjs",
   "check:generated-plugin": "node scripts/validate-generated-ai-plugin.mjs",
+  "check:mock-media": "node scripts/generate-embedded-faces.mjs --check",
   "check:package-output": "node scripts/validate-package-output.mjs",
-  "start:visual": "node scripts/visual-harness/start.mjs",
-  "validate": "npm run validate:intents && npm run check:agent-icons && npm run validate:assets && npm run check:routing-matrix && npm run check:gallery && heft test --clean",
-  "build": "npm run validate:intents && npm run check:agent-icons && npm run validate:assets && npm run check:routing-matrix && npm run check:gallery && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output"
+  "start:ux-review": "node scripts/serve-ux-review.mjs",
+  "generate:release-evidence": "node scripts/generate-release-evidence.mjs",
+  "check:release-evidence": "node scripts/generate-release-evidence.mjs --check",
+  "validate": "npm run check:intents && npm run check:react && npm run check:routing-matrix && npm run check:media && npm run check:mock-media && npm run check:gallery && npm run check:publication && heft test --clean",
+  "build": "npm run validate && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output && npm run generate:release-evidence && npm run check:release-evidence"
 }
 ```
 
-Keep capture and verification separate. `capture:visual` needs a pinned Playwright package and installed
-Chromium (`npx playwright install chromium`) and intentionally rewrites PNG evidence. The canonical
-build verifies committed evidence but does not silently recapture it. Run capture after material UX,
-theme, responsive, media, or browser-rendering changes; then run the build. CI may add a separate
-capture-and-diff job on an image-stable runner.
-
 ### 0.3 Dependencies - install before the owning implementation
 
-The generator scaffolds `@microsoft/sp-copilot-component`, `zod`, and `zod-to-json-schema`. Before the
-first React implementation, the agent adds the **React 17 + Fluent UI v9 + Griffel** baseline (pin to
-React 17 - do not take React 18), then verifies the build:
+The SPFx 1.24 RC0 React template scaffolds `@microsoft/sp-copilot-component`, React 18, `zod`, and
+`zod-to-json-schema`. For every new sample, preserve the generator's exact SPFx preview build and pin
+the **React 18 + Fluent UI v9 + Griffel** baseline before the first React implementation, then verify
+the build. The versions below are the RC0 baseline validated with Zava Project Tracker from
+`1.24.0-rc.0`; when a newer release is intentionally adopted, regenerate a clean reference
+component and update the complete version set together rather than mixing release lines:
+
+| Target | SPFx 1.24 RC0 validated value |
+| --- | --- |
+| Generator and direct SPFx runtime/build/lint packages | `1.24.0-rc.0` |
+| Node.js | `>=22.14.0 <23.0.0` or `>=24.0.0 <25.0.0` or `>=26.0.0 <27.0.0` |
+| Heft (including any existing override) | `1.3.2` |
+| TypeScript | `~5.8.0` (`5.8.3` resolved) |
+| React / ReactDOM | `18.3.1` / `18.3.1` |
+| React types / ReactDOM types | `18.3.31` / `18.3.7` |
+| Fluent UI React Components | `9.74.6` |
+| Fluent UI React Icons | `2.0.314` |
+| Griffel React | `1.7.7` |
+| Declarative agent / API plugin schema | `v1.8` / `v2.4` |
+
+This table is one coherent target profile, not a forever-latest list. Refresh it from a clean generated
+reference when the approved SPFx build changes, compile that reference, and update all rows in one
+reviewed change. Preview APIs and manifests may change before general availability.
 
 ```bash
-# React 17 runtime + types (UX rendering)
-npm install react@17.0.1 react-dom@17.0.1 --save
-npm install @types/react@17.0.45 @types/react-dom@17.0.17 --save-dev
+# React 18 runtime + compatible types (UX rendering)
+npm install react@18.3.1 react-dom@18.3.1 --save-exact
+npm install @types/react@18.3.31 @types/react-dom@18.3.7 --save-dev --save-exact
 
-# Fluent UI v9 (components + icons) - pin the validated sample baseline (G4)
-npm install @fluentui/react-components@9.74.6 @fluentui/react-icons@2.0.337 --save
+# Fluent UI v9 (components + icons) - the required UI stack (G4)
+npm install @fluentui/react-components@9.74.6 @fluentui/react-icons@2.0.314 --save-exact
 
 # Griffel styling used directly by shared and visualization components
-npm install @griffel/react@1.7.7 --save
+npm install @griffel/react@1.7.7 --save-exact
 ```
 
-Visualization is a core requirement for the Zava specialization, not a universal dependency. During
-an approved visualization spike, add and pin modular `@babylonjs/core` plus only headless D3
-calculation modules that pass the value test.
-Never add the full `d3` bundle or D3 rendering/interaction modules. Use direct Babylon ES-module imports
-over the legacy barrel. Do not add Vega/Vega-Lite or another 2D/3D engine to the current target without
-an approved measured exception. Validate CSP, teardown, keyboard behavior, and bundle output immediately.
+Keep `react`, `react-dom`, `@types/react`, and `@types/react-dom` single-versioned across the dependency
+graph **owned by the application**. SPFx intentionally contains an isolated React 17/ReactDOM 17 copy
+under `@microsoft/sp-loader`; mixed-host solutions can also have generator-owned isolated copies under
+`@microsoft/sp-property-pane` and `@microsoft/sp-webpart-base`, as audited by Zava One. Preserve these
+framework dependencies and do not override them to
+React 18. Fail on additional or unexpected application copies, mixed application majors, invalid peers,
+or a root other than React 18.3.1. Pin direct packages exactly, use `overrides` / `resolutions` only for
+compatible application type packages, and keep `npm ls` free of dependency problems. Do not upgrade
+React independently of the target SPFx generator baseline. New samples use the React Copilot Component
+generator template. Remove the legacy `@fluentui/react` v8 package after confirming there are no v8
+imports; do not ship Fluent v8 and v9 together solely because an older scaffold added it.
+
+`validate-react-baseline.mjs` MUST inspect `package.json`, the lockfile, and source imports. It verifies
+the target-profile pins, allows only the audited generator-owned SPFx React 17 paths for that host mix,
+rejects legacy `react-dom` render APIs and React 19-only APIs, requires one persistent `createRoot` per
+Copilot Component entrypoint, and rejects a direct Fluent v8 dependency or imports. Run `npm ci` plus
+the validator in the clean-clone rehearsal; do not validate only a developer's existing `node_modules`.
+
+Visualization is a core requirement for this sample. During the approved visualization spike, add
+and pin only the D3 modules required by the selected charts, plus their type packages. Prefer focused
+modules over the full `d3` bundle. Add Vega/Vega-Lite only where a declarative grammar provides a
+clearer or smaller implementation than D3. Validate CSP, teardown, keyboard behavior, and bundle output
+immediately after installation.
 
 Add **only when a scenario needs them** (not baseline):
 
@@ -465,22 +335,9 @@ npm install @pnp/spfx-controls-react --save --save-exact
 npm install @pnp/sp @pnp/graph @pnp/logging --save
 ```
 
-> Keep versions aligned across samples for consistency (React 17.0.1, Fluent `@fluentui/react-components`
-> 9.x, `@fluentui/react-icons` 2.x). Confirm the exact `@microsoft/sp-copilot-component` /
-> `@microsoft/spfx-*` dev-preview versions from what the generator produced for the target SPFx build.
-
-**Tool execution rules:**
-
-- Use the repository's Heft/Jest integration. Do not run `npx jest` when Jest is not a direct executable;
-  npm may offer to install an unrelated version. Use `heft test` or the repository's focused test task.
-- Never run `heft test --clean`, `heft clean`, or the release build while `heft start` watches the same
-  tree. Stop the watcher, verify port 4321 is closed, run the gate, then restart only if more work remains.
-- Run one focused executable check immediately after the first substantive edit. Scale validation from
-  touched model/component to visual capture to the canonical release command.
-- Pin Playwright and its browser revision for deterministic evidence. Treat a missing browser binary as
-  a tooling prerequisite, not an application failure.
-- Use scripts for deterministic generation and bulk checks; manual code edits remain small and scoped.
-  Every generator supports a check/dry mode that exits nonzero when committed output is stale.
+> Keep versions aligned across samples for consistency (React 18.3.1 and the compatible type pins above
+> for SPFx 1.24 RC0). Confirm the exact `@microsoft/sp-copilot-component`, `@microsoft/spfx-*`, React,
+> Fluent, and TypeScript versions from a freshly generated project for the target SPFx build.
 
 ### 0.4 Example human kickoff prompt (design pic + high-level README)
 
@@ -497,19 +354,22 @@ Context:
 - Generate each component with its final name through the supported Yeoman command when its phase starts.
 - The high-level objectives are in README.md.
 - The UX design is attached (and saved at assets/<design-inline>.png / assets/<design-fullscreen>.png).
-- The default UX contract applies unless the approved brief explicitly overrides one of its rules.
+- The named visual-quality reference is samples/<reference>; inspect its screenshots, owning React/styles,
+  media catalog/provenance, responsive behavior, dark mode, visual harness, and package report.
 
 Please:
 1. Read the README objectives and the attached design, then generate todo.md with Markdown checkboxes
-  for me to review. Do NOT start coding until I approve the plan.
-2. Freeze one primary tool per request and conversation starter. Put descriptions, starter targets,
-  preview properties, routes, and prompt/collision metadata in one catalog-owned source.
-3. After approval, follow its phase order. Add React 17, Fluent v9, and Griffel before React work and
+  for me to review. Record the concrete reference patterns to adapt: hero, gradients, elevation,
+  typography, people/media, visualization, navigation, responsive behavior, and dark mode. Do NOT start
+  coding until I approve the plan and visual-quality contract.
+2. After approval, follow its phase order. Add React 18, Fluent v9, and Griffel before React work and
   confirm the build (`heft test --clean`). Pure mock-data modeling may happen first.
-4. Implement phase by phase against mock data - fully offline, source-appropriate data, Fluent v9,
-  purpose-selected visualization, and the polish defined in the rules.
-5. Finish with catalog-derived routing docs, Playwright implementation screenshots, PnP metadata,
-  business and technical demos, the canonical build, package audit, and a reconciled release tracker.
+3. Before scaling components, stage approved persona/domain media with provenance and build one premium
+  representative inline/full-screen slice. Capture inline, desktop, narrow, and dark screenshots and
+  inspect the actual pixels against the reference. Do not proceed while it still resembles a generic
+  card/KPI dashboard, uses initials where portraits exist, or lacks purposeful gradient/elevation depth.
+4. After the representative slice passes, implement phase by phase against mock data - fully offline,
+  source-appropriate data, Fluent v9, the signature "wow" feature, and the polish defined in the rules.
 ```
 
 **Why this works:** it anchors the agent to these rules, makes the approved `todo.md` catalog the naming
@@ -525,15 +385,22 @@ phased implementation. If only planning is requested, stop before dependency or 
 ## 1. Golden rules (non-negotiable)
 
 - **G1 - Copilot Component, not a web part.** No `BaseClientSideWebPart`, **no property pane**, no
-  `getPropertyPaneConfiguration`, no `@pnp/spfx-property-controls`.
+  `getPropertyPaneConfiguration`, no `.module.scss` theme tokens, no `@pnp/spfx-property-controls`.
+  This is the new Copilot-only creation baseline. Preserve the approved generated SharePoint/Teams
+  hosts in an existing mixed-host sample such as Zava One; document that architecture exception rather
+  than deleting working hosts during a framework upgrade.
 - **G2 - Heft, not Gulp.** Configs extend the rig. Never add `gulpfile.js`.
-- **G3 - React 17 only.** Functional components. `import * as React from 'react'`. Classic JSX
-  (`jsx: "react"`). Use `ReactDOM.render` / `ReactDOM.unmountComponentAtNode`. **No** `createRoot`,
-  no concurrent APIs, no React 18+ features.
-- **G4 - Fluent UI v9 always** (`@fluentui/react-components`, `@fluentui/react-icons`). Define brand
-  values once as semantic custom tokens and use Fluent semantic tokens for controls and states. Static,
-  responsive composition MAY use CSS Modules; use Griffel when runtime theme/style composition adds
-  value. Never duplicate visible styling across generated component wrappers. (See §8 and §17.)
+- **G3 - React 18 for all new samples.** Pin the runtime and types to the target SPFx generator
+  baseline; for SPFx 1.24 RC0 use React/ReactDOM 18.3.1 and types 18.3.31/18.3.7. Functional
+  components, `import * as React from 'react'`, and classic JSX (`jsx: "react"`) remain the baseline;
+  a minimal shared class error boundary is the allowed exception because React 18 core error boundaries
+  are class-based. Create one persistent `Root` with `createRoot`, reuse it for framework rerenders, and
+  unmount it in `onTeardown`. Do not create a root inside a React component or on every `render()` call.
+  Effects and subscriptions are idempotent with complete cleanup, and async work is abortable so React
+  18 development remounts and host rerenders cannot duplicate bridge messages, timers, requests, or
+  receipts.
+- **G4 - Fluent UI v9 always** (`@fluentui/react-components`, `@fluentui/react-icons`). **Tokens only**
+  - never hard-code colors. Style with `makeStyles`. (See §8, §17 for Griffel/lint gotchas.)
 - **G5 - Mock data first, source-shaped where useful.** All data flows through typed service
   interfaces with a mock implementation. Mirror Microsoft Graph only for entities Graph actually
   supplies. Use Planner/Project-shaped or canonical project-domain contracts for other sources (§9).
@@ -557,10 +424,9 @@ phased implementation. If only planning is requested, stop before dependency or 
   independent tools. Full-screen mode may use a shared multi-workspace shell, an isolated scenario
   workspace, or both. Shared shells initialize the owning workspace/route/context; isolated full
   screens remain outside operational navigation and preserve only their own scenario state (§4.1, §7).
-- **G14 - Visualization serves decisions.** One typed model feeds the approved DOM, React SVG, and/or
-  Babylon rendering profile. D3 supplies analytical math only and never mutates DOM. Every chart needs
-  a decision question, clear context, exact-value equivalent, deterministic data, and measured
-  bundle/runtime cost (§11, §13-§17).
+- **G14 - Visualization serves decisions.** D3 and Vega/Vega-Lite may provide high-fidelity charts,
+  but every chart needs a decision question, accessible equivalent, deterministic data, and measured
+  bundle/runtime cost (§13–§17).
 - **G15 - No decorative controls.** Every visible control changes records, grouping, chart geometry,
   calculations, selected evidence, draft values, or workflow stage. Remove controls that cannot yet
   fulfill their label. Static context is text, not a disabled/fake selector.
@@ -596,32 +462,52 @@ phased implementation. If only planning is requested, stop before dependency or 
   filters, selections, drafts, and review stage in a typed transient snapshot across host display-mode
   rerenders; clear it only for a fresh signature. Persist only confirmed mock actions/receipts in a
   sandbox-safe session store. Never put unconfirmed drafts or host context in shared session storage.
-- **G25 - Establish the visual grammar before route scale-out.** One neutral canvas, one primary accent
-  pair, one contrast accent, semantic status colors, consistent type/spacing/radius/elevation, and a
-  small named gradient vocabulary serve the whole sample. Generic purple AI gradients, sparkle/robot
-  motifs, nested cards, and scaffold welcome chrome never reach a review build.
-- **G26 - Action surfaces default to work that needs action.** A queue opens on pending/actionable
-  records, keeps completed statuses available through counted filters, and uses one list -> detail ->
-  decision -> confirmation -> updated-list flow. The list owner retains filters and processed state;
-  detail never embeds another queue.
-- **G27 - People and products are first-class data.** Every visible accountable person and inspectable
-  product has a packaged media mapping, meaningful alternative text, provenance, and initials/silhouette
-  fallback before visual sign-off. Never leave the most important queue rows with missing faces.
-- **G28 - One request selects one primary tool.** Tool descriptions, agent instructions, starters, and
-  collision tests converge on exactly one tool for the user's primary request. Do not invoke adjacent
-  tools in parallel because several could contribute context. A true multi-step request is handled
-  sequentially, one visible tool at a time, with explicit continuation before a consequential next step.
-- **G29 - One catalog drives generated surfaces.** Manifests, Zod bindings, bundle membership, agent
-  registration, starter definitions, explorer education, preview properties, routing matrix, and
-  expected counts derive from one typed catalog or catalog-owned configuration. Generated output is
-  never fixed by hand; update the source and regenerate.
-- **G30 - UX evidence is an artifact.** Real implementation screenshots and machine-readable visual
-  evidence are versioned publication inputs. Historical design references are labeled and stored
-  separately and never presented as current implementation screenshots.
-- **G31 - Agent icons are designed assets, not scaffold residue.** Approve one brand/domain mark, derive
-  `color.png` and `outline.png` from the same deterministic source, validate their dimensions,
-  transparency/color treatment, manifest mapping, provenance, and packaged bytes, and inspect them at
-  actual small size before release.
+- **G25 - Communicate through the SPFx Copilot bridge only.** Never call `window.parent.postMessage` or
+  depend on transport envelopes. Publish a concise, complete semantic snapshot with
+  `updateModelContextAsync`; start a conversation turn only from an explicit user action with
+  `sendFollowUpMessageAsync`; use dedicated APIs for display mode, size, links, tools, and resources.
+  Every inline and full-screen experience demonstrates this contract (§7.1).
+- **G26 - Premium visual foundation before breadth.** “Premium” is an executable early gate, not a
+  Phase 6 repaint. Before implementing sibling intent bodies, the representative inline/full-screen
+  slice must visibly establish the approved brand through purposeful multi-stop gradients, clear type
+  hierarchy, restrained elevation, polished navigation, domain-relevant imagery, real approved persona
+  portraits wherever people are decision evidence, refined rows/controls, a high-fidelity signature
+  visualization, and coherent light/dark/mobile states. Use the named reference’s actual source and
+  screenshots to calibrate density and finish, but adapt its visual language to the new domain. Reject
+  generic white panels, interchangeable KPI/card grids, default-looking controls, tiny decorative icons,
+  initials-only people lists when portraits are available, and “AI dashboard” composition that could be
+  relabeled for another product.
+- **G27 - Share mechanics, never workspace purpose.** A shared shell may own navigation, responsive
+  constraints, theme, focus, bridge callbacks, panels, and chart primitives. It MUST NOT own one universal
+  dashboard composition rendered under different workspace labels. Every primary workspace has a unique
+  `data-layout`, persona, data grain, default question, dominant visual/queue, supporting evidence,
+  operations, and benchmark workflow. Automated visual evidence MUST fail if two workspaces resolve to
+  the same default layout identity or repeat the same focused chart/module without an explicit comparison
+  reason.
+- **G28 - Publication is generated, not reconstructed at the end.** Create canonical conversation-
+  starter configuration, routing/collision generation, demo-script placeholders, visual evidence, and
+  release-evidence automation before scale-out. The final build regenerates and validates package hashes,
+  bundle/media counts, screenshots, routing matrix, and README/demo links from current artifacts. Never
+  hand-copy remembered counts or hashes into release claims.
+- **G29 - Every tool owns one unique LLM routing boundary.** Each generated tool description MUST state
+  both a positive trigger (`Use when ...`) and the nearest negative boundary (`Do not use ...`). The
+  catalog also owns one realistic prompt, decision question, outcome, excluded sibling intents, and
+  normalized properties. Validators fail duplicate or placeholder descriptions, missing positive/
+  negative boundaries, route collisions, and untested collision pairs. A different component name over
+  the same routing semantics is not a new intent.
+- **G30 - One conversational question, one focused inline answer.** Inline is not a dashboard canvas.
+  Give one immediate question one dominant visual/list/form and only the supporting context required to
+  interpret or act on it. If independent user questions need different charts (for example trend, map,
+  and driver Pareto), promote them to separately routed, final-named Yeoman components when each earns
+  intent status. Coordinate those charts together only in full screen, where multi-view analysis is the
+  explicit job. Do not stack several independently meaningful charts into one inline component merely
+  to show breadth.
+- **G31 - Every rendered state tells Copilot what the user can see.** Every inline and full-screen
+  activation MUST publish one complete, bounded, purpose-specific semantic snapshot after the useful
+  view commits. Update it after material list/detail, selection, filter, chart, workflow, receipt, or
+  route changes. Include intent, route/view, display mode, visible entity IDs/labels, active filters,
+  workflow stage, visible summary, and safe next actions. Deduplicate equal snapshots. Generic catalog
+  outcome text alone is insufficient; the summary must identify the actual visual/data currently shown.
 
 ---
 
@@ -669,13 +555,6 @@ scope and progress from it. Generate it **before** coding, from the provided UX 
   prerequisite work.
 - Evidence files supplement `todo.md`; they do not replace it. Store machine-readable matrices and
   screenshots under the sample's review/evidence folder and link/name them in the relevant checkbox.
-- At publication time, reconcile the tracker into verified delivered scope, explicitly superseded early
-  concepts, exact local evidence, tenant-only blocked validation, and deferred production integration.
-  Preserve the original product specification as a design brief rather than keeping hundreds of stale
-  unchecked planning bullets that contradict the released architecture.
-- Record test totals, screenshot totals, package sizes, JavaScript/chunk counts, and SHA-256 values only
-  from machine-readable evidence or the latest complete command. Never infer them from a filtered run or
-  copy them from an older progress paragraph.
 
 ---
 
@@ -685,14 +564,16 @@ Build UX-first against mock data and defer live API work. `todo.md` owns the act
 The reusable order below is guidance, not a numbering contract, and package installation may occur
 before or after pure mock-data modeling as long as it precedes the code that imports those packages:
 
-0. **Phase 0 - Scope & brief.** User approves final names, UX, and the component catalog. User or agent
-  generates components only at the approved phase using Yeoman.
+0. **Phase 0 - Scope, visual contract & brief.** User approves final names, UX, component catalog,
+  named quality reference, adapted visual primitives, people/media plan, and representative inline/full-
+  screen composition. User or agent generates components only at the approved phase using Yeoman.
 1. **Phase 1 - Mock data structure.** Source-shaped mock modules + view models + mapper + relative-time
    resolution + `MockDataService`. (§9)
-2. **Phase 2 - Inline experience.** React components for each inline view; responsive; theming. (§6–§8)
-3. **Capability education gate (default for every full sample).** Catalog-driven
-  `ExploreAgentCapabilities` experience, sixth conversation starter, safe prompt action, isolated
-  full-screen preview gallery, and evidence (§6.4).
+2. **Phase 2 - Premium visual foundation, then inline experiences.** First approve one representative
+  inline/full-screen slice with final navigation, hero, gradients, elevation, people/media, signature
+  visualization, responsive behavior, and dark mode; only then scale React bodies. (§6–§8, §13–§15)
+3. **Capability education gate (required for 11+ inline tools).** Catalog-driven inline explorer,
+  final conversation starter, safe prompt action, isolated full-screen preview gallery, and evidence (§6.4).
 4. **Phase 3 - Full-screen experience.** Approved navigation topology + useful default workspace
   dashboards + exact intent continuation + isolated scenario workspaces where appropriate + the
   **signature hero feature**. (§4.1, §6, §11, §14)
@@ -720,10 +601,14 @@ isolated explicitly, and relevant `todo.md` items are reconciled immediately aft
 Each Copilot Component lives under `src/copilotComponents/<name>/`:
 
 - `` `<Name>CopilotComponent.ts` `` - extends `BaseCopilotComponent<TProperties>`. `render()` mounts the
-  React tree into `this.context.domElement`; `onTeardown` unmounts. Pass host state + resolved user
-  down as props:
+  React tree into `this.context.domElement`; `onTeardown` unmounts the persistent React 18 root. Pass
+  host state, bridge callbacks, and resolved user down as props:
 
   ```ts
+  import { createRoot, type Root } from 'react-dom/client';
+
+  private _root: Root | undefined;
+
   protected render(): void {
     const element = React.createElement(<Name>App, {
       /* tool inputs */ ...this.properties,
@@ -731,15 +616,43 @@ Each Copilot Component lives under `src/copilotComponents/<name>/`:
       theme: this.hostContext.theme,
       displayMode: this.hostContext.displayMode,
       availableDisplayModes: this.hostContext.availableDisplayModes,
-      onRequestFullscreen: this._handleRequestFullscreen
+      onRequestFullscreen: this._handleRequestFullscreen,
+      onUpdateModelContext: this._handleUpdateModelContext,
+      onSendFollowUp: this._handleSendFollowUp
     });
-    ReactDOM.render(element, this.context.domElement);
+
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+    this._root.render(element);
   }
-  protected onTeardown(reason?: string): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
-    return super.onTeardown(reason);
+
+  protected async onTeardown(reason?: string): Promise<void> {
+    this._root?.unmount();
+    this._root = undefined;
+    await super.onTeardown(reason);
   }
   ```
+
+  Keep bridge imports and calls in the SPFx host adapter when practical. React views receive narrow,
+  typed callbacks rather than the entire bridge, which makes intent behavior testable with fakes and
+  prevents UI code from depending on preview transport details.
+
+  React 18 automatically batches state updates. Do not read a just-set value and assume it committed;
+  derive bridge snapshots from committed state in an effect and deduplicate them. `startTransition`,
+  `useDeferredValue`, and `useId` are available when they solve a measured rendering/accessibility need,
+  but transitions never wrap confirmation, persistence, bridge, or receipt state. Do not use React
+  19-only APIs in a React 18 sample.
+
+  React 18 types do not implicitly add `children` to function-component props. Declare
+  `children?: React.ReactNode` explicitly on providers, layouts, and other wrappers that accept it.
+  Tests and local review harnesses also use persistent `createRoot` roots and `act` from `react`.
+  Set `IS_REACT_ACT_ENVIRONMENT` in the Jest configuration, render/dispatch/unmount inside `act`,
+  and test root reuse, independent instances, teardown before first render, and unmount-before-base
+  cleanup. Do not retain legacy test APIs merely because runtime code compiles.
+  Assert DOM semantics rather than serialized attribute order, which can change between React majors.
+  Copilot Component cleanup belongs in `onTeardown` and must await the base implementation; do not use
+  a web-part-only disposal hook for a Copilot Component.
 
 - `` `<Name>CopilotComponent.manifest.json` `` - `componentType: "CopilotComponent"`, `copilotType: "Ux"`,
   `capabilities.availableDisplayModes`, and the `tools` array (name, localized description,
@@ -778,8 +691,9 @@ interface IResolvedIntent<TNormalized> {
 
 - Keep exported tool Zod schemas simple and packaging-safe. A separate runtime-only Zod schema MAY use
   `z.enum`, `.min()`, `.max()`, transforms, `safeParse`, and `.catch()` because it is not passed to
-  `zodToJsonSchema`; alternatively use plain normalization functions. Invalid input falls back to a
-  useful default instead of failing render.
+  `zodToJsonSchema`; alternatively use plain normalization functions. Missing optional values can use
+  documented sample defaults. Invalid supplied values need visible correction states; unknown record
+  IDs must remain no-match states, never silently select another record or publish a healthy result.
 - Build signatures from normalized values in a deterministic field order. Increment a properties-
   version token only when that signature changes. Theme, dimensions, host context, or other passive
   rerenders MUST NOT increment it or reset edits.
@@ -789,21 +703,9 @@ interface IResolvedIntent<TNormalized> {
   because the host can replace inline React with full screen while preserving the component instance.
   Inline operation bodies report snapshots through one callback; full screen consumes the same object.
   Representative information, review, and submit paths MUST prove this boundary before scaling adapters.
-- Treat snapshot coverage honestly. Silent state transfer is the foundation; a visible prompt/context
-  summary neither proves nor is required for continuation. Exact continuation is complete only when the
-  destination module consumes the transferred entity, filter, selected evidence, draft, or what-if values.
-
-Use an explicit adapter kind in intent metadata rather than route-specific conditionals:
-
-| Adapter | Inline snapshot | Full-screen continuation |
-| --- | --- | --- |
-| `selection` | selected record/mark ID | Focus the matching entity, evidence, legend, and table row. |
-| `filters` | normalized filter/group/period values | Rebuild the dashboard model with the same scope. |
-| `form` | controlled draft plus validation-safe options | Open the owning form/review route with edits intact; never submit. |
-| `review` | selected queue record, decision draft, and rationale | Open that record's evidence/decision stage while the outer queue retains list state. |
-
-Test each adapter for fresh invocation, passive rerender, Expand, invalid/stale IDs, and Reset. Transfer
-only normalized values needed by the destination; do not render a generic property dump to demonstrate it.
+- Treat snapshot coverage honestly. A visible continued-context summary is useful foundation, but exact
+  route continuation is complete only when the destination module consumes the transferred entity,
+  filter, selected evidence, draft, or what-if values. Track specialized adapters explicitly.
 
 ### 4.1 Full-screen topology and routing contract
 
@@ -857,8 +759,17 @@ interface IIntentDefinition<TProperties> {
 
 - Every primary workspace opens to a useful default dashboard, not an empty shell, route dropdown, or
   enlarged copy of one inline component.
+- Every primary workspace implements its approved purpose-matrix row. Its default data grain and action
+  model must differ where the personas differ: for example, a seller workspace may prioritize owned
+  deals and customer moments; a pursuit room may coordinate one account's people/evidence/critical path;
+  a commercial desk may join scenarios, policy, authority, and exception queues; an executive command
+  center may aggregate pipeline, movement, concentration, and named interventions. Do not render the
+  same map/pipeline/forecast/side panel under four labels.
 - A dashboard coordinates several decision-relevant regions: identity/scope hero, 3-5 reconciled
   metrics, one dominant visual or work queue, supporting evidence, and clear operations.
+- Reuse a chart in two workspaces only when each workspace asks a materially different question, applies
+  a different scope/filter/selection, and composes it with different operations. Never repeat the invoked
+  intent's focused chart again in the surrounding dashboard. Use complementary context instead.
 - Selectors such as project, account, employee, store, period, or scenario update all compatible
   dashboard regions together. Show the selected scope and offer Reset where state can accumulate.
 - Enter dashboards without opening a detail/review/action panel automatically. An explicit Review or
@@ -887,6 +798,10 @@ interface IIntentDefinition<TProperties> {
 **Required validation:**
 
 - Test one exact landing per workspace and every isolated destination.
+- Assert one unique default `data-layout` per workspace and fail when two workspace roots share the same
+  identity. Save one settled screenshot per workspace and compare composition regions, not only titles.
+- Add a duplicate-module audit for the default viewport: fail when a workspace renders the same chart or
+  focused module twice unless an approved comparison contract names why.
 - Test fresh invocation versus passive rerender and at least one transient inline interaction surviving
   Expand for each operation model (information, review, submit).
 - Test keyboard navigation and focus for both navigation orientations used by the solution.
@@ -906,10 +821,12 @@ Use this order to avoid rebuilding navigation and state after route bodies alrea
 3. **Build one shell and one isolated-root adapter.** Implement host mode detection, catalog destination
   resolution, exact landing, focus management, settings location, and responsive canvas constraints.
   Do this before creating multiple full-screen pages.
-4. **Build useful default dashboards first.** Implement one representative workspace dashboard with
-  scope selector, metrics, dominant visual/queue, evidence, and operations. Validate it at mobile and
-  keynote widths, then scale the composition pattern to sibling workspaces without copying one generic
-  card grid.
+4. **Build useful default dashboards from the purpose matrix.** Implement one representative workspace
+  dashboard with scope selector, metrics, dominant visual/queue, evidence, and operations. Validate it at
+  mobile and keynote widths. Then implement each sibling from its own persona, data grain, benchmark
+  workflow, decision question, dominant visual/queue, and operations; reuse shell and chart primitives,
+  not the representative dashboard composition. Capture all workspace defaults side by side before
+  route-specific scale-out and reject merely relabeled or reordered duplicates.
 5. **Embed the invoked intent as focused context.** Reuse the validated intent body inside the owning
   dashboard when deep-linked. Key stateful review/submit bodies by route/entity so switching requests
   cannot leak stale local state.
@@ -922,6 +839,8 @@ Use this order to avoid rebuilding navigation and state after route bodies alrea
 8. **Automate the visual matrix.** Add harness controls for every real host checkpoint, including a
   desktop/keynote width. Remove harness-only transitions that make measurements stale. Measure the
   settled host and dashboard widths, not just the selected option label.
+  Record workspace `data-layout` values and rendered chart/module identities in evidence so uniqueness
+  and accidental duplication are executable checks rather than reviewer memory.
 9. **Validate and package once per material slice.** Run focused shell/dashboard tests immediately,
   capture screenshots and machine-readable evidence, then run the complete production package gate.
 
@@ -937,19 +856,25 @@ dashboard with different labels.
 ```ts
 import { z } from 'zod';
 import zodToJsonSchema from 'zod-to-json-schema';
-const schema = z.object({ message: z.string().describe('...') });
+const schema = z.object({
+  query: z.string().optional().describe('User-supplied search terms for this tool, applied visibly to its owning experience.')
+});
 export type I<Name>Props = z.infer<typeof schema>;
 export default zodToJsonSchema(schema);
 ```
 
 - Every field MUST have `.describe()` - the text drives how Copilot populates the tool.
+- Do not keep a scaffold `message` property that the UI ignores. Advertise only fields whose visible
+  behavior, draft/review values, or record selection are implemented and tested.
 - All prompt fields SHOULD be optional so `{}` produces a useful default and extraction can be partial.
   This sample's catalog validator makes `.optional()` mandatory.
-- The authored Copilot Component schema is JSON Schema draft-07, but SPFx packaging translates it into
-  API plugin v2.4 `functions[].parameters` and mirrored MCP `tools[].inputSchema`. Validate generated
-  `ai-plugin.json` from the agent ZIP embedded under `sharepoint/solution/debug/ClientSideAssets/`, not
-  only the Zod source or the seed `copilot/ai-plugin.json`.
-- The packaged API plugin parameter subset supports top-level `type: object`, `properties`, and optional
+- The authored Copilot Component schema is JSON Schema draft-07. RC0 discovers tools dynamically from
+  SharePoint; `ai-plugin.json` deliberately contains no static parameter/function catalog. Validate
+  source manifests and compiled property schemas separately, then inspect the generated plugin in the
+  embedded agent ZIP and the final `.sppkg`, not only the seed `copilot/ai-plugin.json`.
+- Preserve the portable v2.4 parameter subset for compatibility, including any rollout-time static
+  fallback. Do not infer broader tenant schema support merely from a successful local build.
+  The portable subset supports top-level `type: object`, `properties`, and optional
   `required`; each parameter supports `type`, `items`, string `enum`, `description`, and `default`.
   Supported types are `string`, `array`, `boolean`, `integer`, and `number`; array items are simple
   parameters. Property names match `^[A-Za-z0-9_]+$`.
@@ -969,65 +894,16 @@ export default zodToJsonSchema(schema);
 - Use `z.object({})` when prompt extraction cannot improve the initial experience. Do not add ceremonial
   placeholder inputs. Finalize useful optional parameters with the initial component implementation.
 
-### 5.1 Prompt routing and conversation starters - exactly one tool
-
-Routing quality is authored before it is model-tested. The local build can prove metadata alignment and
-collision coverage; only an authenticated host rehearsal can prove actual model selection. Never claim
-the latter from string matching alone.
-
-**Tool description contract:**
-
-- Begin with a positive boundary: `Use for ...` or `Use when ...` naming the exact task and required
-  entities. End with `Do not use ...` naming the nearest sibling intents.
-- Keep one business operation per tool. Do not combine browse + configure, diagnose + submit, queue +
-  decide, overall health + age distribution, or broad summary + specific metric in one description.
-- Prefer specific entities and verbs over broad nouns. When two tools share vocabulary, define a
-  discriminating verb, scope, identifier, or outcome and add the pair to the collision matrix.
-- Broad help/capability language routes only to education. Specific task language always wins over an
-  explorer or broad-summary fallback.
-
-**Conversation starter contract:**
-
-- Every starter is one natural sentence with one primary verb, one scope, and one expected tool. Do not
-  join tasks with `and`, `then`, a slash, or multiple sentences when that can invite more than one tool.
-- Store starters and their expected target names in catalog-owned configuration. Generate
-  `declarativeAgent.json` from that source and validate exact title/text/order/target coverage.
-- Prefer distinct high-value first-run tasks across operation types and audiences. Do not repeat the
-  same target merely to expose more phrasing unless the product owner explicitly approves that trade-off.
-- Expose exactly six starters by default. Starters 1-5 target five distinct high-value operational
-  tools across the sample's important audiences or operation types. Starter 6 targets
-  `ExploreAgentCapabilities`; its prompt is broad discovery only.
-- Changing the count or omitting capability exploration is an explicit UX exception. Record the reason,
-  replacement discovery path, expected targets, and validation in the brief and `todo.md`.
-- The declarative-agent schema may not encode a hard target. In that case the expected target is a
-  validation/rehearsal contract, not a claim that local code controls model routing.
-
-**Catalog-derived routing matrix:**
-
-Generate one row per current tool containing tool name, operation, scope/lens, copy/paste prompt,
-optional property previews, exact full-screen destination, positive boundary, nearest negative
-collision boundary, and fresh-invocation expectation. Add an explicit starter table. `--check` rebuilds
-the expected content in memory and byte-compares it with the committed file; it does not merely check
-that the file exists.
-
-**Required gates:**
-
-1. Local validator: unique descriptions; every description has positive/negative boundaries; all
-   starter expected targets exist; starter title/text/order match generated JSON; explorer is last when
-   required; preview values match schema types; routing matrix is current.
-2. Collision tests: representative sibling prompts map to one expected name in deterministic routing
-   fixtures/documentation. These test authored boundaries, not the production language model.
-3. Tenant rehearsal: send every starter and matrix prompt in a fresh authenticated conversation; record
-   the selected function/tool and extracted properties; fail any zero-tool or multi-tool primary result.
-4. Multi-step prompts: when intentionally tested, require sequential handling and never allow prompt
-   extraction to approve, submit, delegate, declare, wipe, or apply a plan automatically.
-
 ---
 
 ## 6. Component & view structure
 
 - **Root selector** (`<Name>App.tsx`) - thin; picks the view from `displayMode`
   (`'fullscreen'` → full-screen view; anything else → inline). Wraps children in the theme provider.
+- **Error boundary** - wrap each mode root in one shared React error boundary keyed by the fresh
+  invocation signature. Render a localized, accessible recovery state with Retry/Reset where safe;
+  never expose stack traces or raw host/tool payloads. Errors in event handlers and async work still
+  require explicit `try/catch` because React error boundaries do not catch them.
 - **Per-mode views** - each component owns a focused `<Name>Inline.tsx`; a multi-tab application may
   delegate full-screen mode to one shared shell rather than create `<Name>Fullscreen.tsx` 30 times.
   Approved isolated destinations use a dedicated root selected from catalog metadata.
@@ -1036,27 +912,6 @@ that the file exists.
   keeps a separate inline list only where the compact UX differs).
 - **Drill-down navigation** - inline owns local `view` state via `useState`; provide a back affordance
   (a shared `InlineDetailHeader` with an optional title so reused cards don't double their title).
-
-**Inline header contract:**
-
-- Use one shared full-width header with `grid-template-columns: minmax(0, 1fr) auto`, stable vertical
-  rhythm, and no layout shift between routes. The left identity block shows the agent/brand name and
-  optional small brand mark first, then the literal current action title as the heading. Example:
-  `Zava IT Concierge` above `Device health`. Do not use a generic greeting or “AI result” title.
-- Place one **View in full screen** button in the top-right corner when the host supports full screen.
-  Use the Fluent expand icon plus text, a minimum 38 px control height, restrained outlined/tinted brand
-  treatment, visible focus, and an accessible name. Keep it visually separate from the primary business
-  action so Expand cannot be confused with Approve, Submit, or Run.
-- At narrow inline widths, keep a stable 36-38 px icon button, hide only the visible label, and retain
-  the full accessible name and tooltip. Never wrap the full-screen label into the title or let the
-  button shrink the action heading below a readable width.
-- The body starts with the domain content. Do **not** add reusable `From your prompt`, `Prompt context`,
-  or generic `Decision insight` blocks to the shared frame. Prompt-derived values silently initialize
-  the relevant filter, selected entity, or draft. When users need provenance, show concise domain
-  context beside the affected field or evidence, not a dump of extracted property names/values.
-- A domain-specific takeaway or evidence panel is optional only when it changes interpretation or the
-  next action. Do not reserve an empty right rail or repeat a generic insight sentence on every route.
-  Existing sample-specific demo overlays may remain, but future samples do not copy them by default.
 
 ### 6.1 Operation models and dispatchers
 
@@ -1073,9 +928,16 @@ type from component names at render time.
   and submit dispatchers. Unknown intents fail loudly in development; do not render a generic KPI body.
 - Every intent/stage root has a stable unique `data-layout` value. Add a catalog test that renders all
   intents and asserts the expected count of unique default layouts.
-- A shared application root owns only framing: brand/action header, full-screen action, routed body,
-  and an optional domain status footer. It does not own a universal intent body, prompt echo, or
-  decision-insight rail.
+- A shared application root owns only framing: workspace accent, title/summary, full-screen action,
+  routed body, and status/context footer. It does not own a universal intent body.
+- **Inline density budget:** the settled first view has one dominant answer and normally no more than
+  one chart/data visualization. Supporting exact-value tables, compact evidence, legends, and one local
+  action area are allowed when they explain that answer. Two visuals may coexist only when they answer
+  one inseparable question and selection is coordinated. Three independently useful charts MUST NOT be
+  shipped as one inline experience; generate separately routed components and join them in full screen.
+- Before splitting, write the three candidate user questions. If each can be asked naturally, has a
+  distinct `Use when`/`Do not use` boundary, and produces a useful standalone answer, each earns its own
+  final-named Yeoman component. If not, keep the material as supporting detail or full-screen analysis.
 
 ### 6.2 Truthful control audit
 
@@ -1112,61 +974,31 @@ tab, and clickable chart mark:
   Return/Reject rationale requirements are visible beside the field; never hide a character threshold
   behind a disabled button.
 
-#### 6.3.1 List -> detail action process
+### 6.4 Agent Capability Explorer - mandatory for more than 10 inline tools
 
-Use this pattern when users must triage several records and then make a consequential decision on one.
-Do not begin with a large generic form or render every record's evidence in the queue.
-
-1. **Default to action.** Open on pending/actionable records and label the view in user language such as
-  `Action items`. Keep `Pending`, `Approved`, `Declined`, and `All` available with live counts so users
-  can audit prior outcomes without mixing them into the default workload.
-2. **Keep the queue compact.** Target roughly 56-58 px rows: 32-36 px accountable-person portrait,
-  one strong identity/request line, one secondary status/time line, and one explicit `Review` or `View`
-  action. Cost, policy, justification, and full evidence belong in detail, not in the scanning row.
-3. **Make filters layout-stable.** Use a full-width segmented group with equal tracks, `aria-pressed`,
-  tabular counts, and explicit 4-6 px label/count spacing. Stack the title/count above the filters when
-  compact; never squeeze long status labels into leftover header width.
-4. **Replace list with detail in the same bounded surface.** Detail starts with Back, a larger portrait,
-  status, identity/title, and concise summary; then justification/evidence, 2-column fact grid, decision
-  fields, and specific actions. Collapse the fact grid to one column at narrow width.
-5. **Separate decision from confirmation.** Require and explain rationale before enabling Approve/Decline;
-  show a confirmation step naming the record, action, condition, and rationale; only then append a
-  session receipt and update the immutable queue overlay.
-6. **Completed records are inspectable, not editable.** `Approved` and `Declined` detail shows the stored
-  rationale and outcome with semantic text/icon/color. It does not offer a second decision unless the
-  product explicitly defines reopening.
-7. **Preserve work context.** Returning to the list retains the selected status filter and reflects the
-  changed counts. Remounting restores confirmed decisions from guarded session receipts; drafts and
-  unconfirmed rationale do not persist.
-8. **Expand the owning layout, not the child queue.** In a dashboard, hide or reflow adjacent summary
-  content while detail is open so the review uses the available width. The outer list owns selection,
-  filters, and completion; embedded reviewers expose only detail/decision/confirmation/receipt.
-
-Required tests: pending-default IDs and order, all filter counts, compact label fit, selection-to-detail,
-Back preserving filter, rationale safeguard, confirmation, immutable update, completed read-only detail,
-receipt restoration after remount, missing-media fallback, and narrow/full-screen overflow.
-
-### 6.4 ExploreAgentCapabilities - default education experience
-
-Every full sample includes one final-named `ExploreAgentCapabilities` Copilot Component by default. Its
-job is to explain the agent's business capabilities and help users start the right experience. This is
-not technical API documentation and not a static help page. A deliberately tiny sample may omit it only
-through the explicit UX override process and must provide an approved replacement discovery path.
+Complex agents need an end-user education surface. When an agent exposes **more than 10 independently
+routed, purpose-designed inline tools**, it MUST include one additional final-named Copilot Component
+whose job is to explain the agent's business capabilities and help users start the right experience.
+This is not technical API documentation and not a static help page.
 
 **Conversation starter contract:**
 
-- Follow the single-tool rules in §5.1. Expose **exactly six conversation starters** by default and
-  reserve **conversation starter 6** for `ExploreAgentCapabilities`. Recommended generic copy:
+- Reserve the **last conversation starter** for the explorer. Recommended copy:
 
   ```json
   {
-    "title": "Explore capabilities",
-    "text": "Explore what this agent can do."
+    "title": "Explore what this agent can do",
+    "text": "Show me the project and portfolio scenarios you can help with."
   }
   ```
 
-  Starters 1-5 target five distinct high-value operational tools and starter 6 covers the remaining
-  breadth through discovery. Do not create compound starters to advertise more tools.
+  If the agent intentionally exposes exactly three starters, this is the **third** starter. Retain two
+  high-value direct tasks and let the explorer cover the remaining breadth.
+
+  An existing approved curated showcase can retain operational-only starters or its existing
+  full-screen discovery path. Document the exception and replacement help/navigation in `todo.md`,
+  and still validate every starter's distinct owning tool. This is not permission for a new large
+  catalog to omit discovery without an explicit UX decision.
 
 - Agent instructions route broad capability/help prompts (“what can you do?”, “show available
   scenarios”, “help me get started”) to the explorer before broad summary fallbacks.
@@ -1175,7 +1007,7 @@ through the explicit UX override process and must provide an approved replacemen
 
 **Component identity and ownership:**
 
-- Generate the immutable final-named `ExploreAgentCapabilities` component through Yeoman.
+- Generate one immutable final-named component such as `ExploreAgentCapabilities` through Yeoman.
 - Classify it as an **education/discovery** operation in the intent catalog rather than forcing it into
   information/review/submit. It may use a dedicated dispatcher because its navigation and preview
   behavior differ from operational answers.
@@ -1198,6 +1030,11 @@ through the explicit UX override process and must provide an approved replacemen
   equals the advertised catalog count.
 
 **Inline education UX:**
+
+- List every current operational scenario. Do not truncate with an unlabelled `slice` or show a total
+  count that cannot be reached. Use search/filter plus Previous/Next paging or virtualization when all
+  items do not fit. Display visible range, total result count, and page position; reset paging when the
+  query/filter changes and publish range/page/selected-preview state to Copilot.
 
 - Lead with business language: “What are you trying to accomplish?” not component/tool names.
 - Group scenarios into 4-7 understandable categories based on the agent domain (for Zava: My Work,
@@ -1228,9 +1065,8 @@ through the explicit UX override process and must provide an approved replacemen
 
 **Required tests and evidence:**
 
-- Default-contract rule: validation expects exactly six starters, five distinct operational targets,
-  and `ExploreAgentCapabilities` as starter 6. An approved exception must be represented explicitly in
-  catalog-owned configuration and validated against its replacement discovery contract.
+- Threshold rule: catalogs with 10 or fewer tools do not require the explorer; catalogs with 11+ fail
+  validation unless the explorer component, route, and final starter exist.
 - Catalog completeness and exclusion of the explorer itself.
 - Category/search/filter counts; selected-detail and keyboard navigation; prompt copy success/failure;
   host launch feature detection and fallback; preview reset; Previous/Next and featured tour.
@@ -1259,7 +1095,101 @@ metadata, routes, and preview adapters rather than copying Zava-specific UI/data
 - Display mode and route are separate concerns: the host owns mode, while the application owns internal
   workspace/route state after full screen is active.
 - Do not use Expand as generic “open app” navigation. It is continuation of the current component,
-  including its normalized invocation state and, where implemented, transient interaction state.
+  including its prompt context and, where implemented, transient interaction state.
+
+### 7.1 MCP Apps host communication contract
+
+SPFx Copilot Components implement the MCP Apps model, but application code uses the public RC0
+`BaseCopilotComponent` and `context.copilotBridge` APIs. The framework owns the `postMessage` transport,
+JSON-RPC handshake, tool-input delivery, host-context updates, and teardown. Never implement a second
+transport or send raw protocol messages.
+
+| Need | SPFx RC0 API | Rule |
+| --- | --- | --- |
+| Tell Copilot what the UI currently shows | `copilotBridge.updateModelContextAsync(...)` | Publish one complete semantic snapshot; the latest call replaces the previous context and does not start a chat turn. |
+| Ask Copilot to continue the conversation | `copilotBridge.sendFollowUpMessageAsync(...)` | User-initiated only; build content with `createCopilotTextContent` and handle host rejection. |
+| Expand the current experience | `requestDisplayModeAsync('fullscreen')` | Offer only when full screen is declared/available; wait for `hostContext.displayMode` instead of changing mode locally. |
+| Resize inline content | automatic host sizing; `requestSizeChangeAsync(width, height)` when needed | Prefer the framework observer. If list/detail, workflow, filter, or responsive changes are not reflected reliably, observe the rendered inline root, clamp to `hostContext.containerDimensions`, batch per animation frame, deduplicate equal sizes, skip full screen, and disconnect on teardown. |
+| Open an external destination | `copilotBridge.openLinkAsync(...)` | User-initiated, valid HTTPS URL, and handle `isError`. Internal routes stay inside React state. |
+| Execute or refresh server work | `copilotBridge.callServerToolAsync(...)` | Use for an actual MCP server operation, not for local UI transitions; inspect `isError`. |
+| Read server resources | `copilotBridge.readServerResourceAsync(...)` | Use for declared server resources; keep large payloads out of model context. |
+
+**Model-context snapshots:**
+
+- Publish an initial purpose-specific snapshot for **every** component after its first useful state
+  commits. A static information body still needs context; do not limit reporting to forms or components
+  with interactive filters. The activation summary names the visible visual grammar and decisive data
+  (for example demand river, selected regional map, ranked queue, evidence canvas, or review draft), not
+  merely the catalog outcome.
+- Every inline and full-screen root defines a typed `IModelContextSnapshot` containing at minimum the
+  intent/tool key, display mode, semantic route/view, selected entity IDs and labels, active filters,
+  visible summary, workflow stage, and available next actions. Full screen adds its focused workspace
+  and selected evidence; inline keeps the payload glanceable.
+- Send a complete bounded snapshot after the relevant UI state has committed: initial useful view,
+  mode/route change, material filter or selection change, review entry, and confirmed receipt. Coalesce
+  rapid changes and deduplicate by a stable semantic signature. Never call the bridge from render or
+  send on every keystroke, animation frame, hover, focus event, or chart redraw.
+- List/detail experiences publish list result count/query before selection, selected entity and visible
+  detail after drill-in, and restored list state after Back. Paginated surfaces publish visible range,
+  total count, page, active filters, and selected preview. Charts publish the filter/selection values
+  that materially determine the marks, paths, coordinates, hierarchy, or exact-value table.
+- Prefer `structuredContent` for stable IDs/state and a short `content` summary for model grounding.
+  Include only what the user can currently see or has explicitly selected. Do not send hidden records,
+  secrets, access tokens, raw telemetry, or unconfirmed sensitive/free-text draft values. For a form,
+  publish field presence and validation state during Draft; publish reviewed values only after the user
+  enters Review.
+- `updateModelContextAsync` is context, not persistence or a notification. Keep local state local and
+  confirmed mock receipts in the session store. Catch bridge failures, keep the UI usable, and expose a
+  non-blocking retry/status only when communication is necessary to the current action.
+
+**Conversation turns:**
+
+- A follow-up is equivalent to the user sending a message in the existing Copilot conversation. Never
+  emit one automatically from mount, mode changes, filters, selection, typing, validation, or submit.
+- Give each sample at least one useful, explicit message action in both mode journeys. Inline stays
+  within the two-action guideline, for example `Ask Copilot about this risk`. Full screen may offer a
+  contextual command such as `Draft a status update` or `Summarize this decision`; the button label and
+  accessible description make the exact outgoing intent clear.
+- Disable the initiating control while awaiting acknowledgement, catch transport errors, inspect
+  `result.isError`, and show local success/error feedback. Do not claim the host accepted a message
+  merely because the promise resolved.
+- A component does not intercept arbitrary chat text. To react while full screen is open, define a
+  purpose-specific tool and schema and route matching prompts in the agent instructions. The host invokes
+  the routed component with fresh properties; do not assume the currently open component intercepts the
+  text or that its instance is reused. If the host reuses the logical invocation, the deterministic
+  signature refreshes the workflow; if it creates a new instance, initialize the same catalog destination
+  from those properties. Test both application paths and record actual tenant-host behavior.
+
+**Required message-driven update demonstration (status update is the reference pattern):**
+
+1. From a status summary, the user opens full screen and selects a project; the component publishes the
+   current project, period, visible health summary, and available action via `updateModelContextAsync`.
+2. The user either types “I want to submit a new status update” in Copilot chat or chooses the explicit
+   `Draft a status update` action, which calls `sendFollowUpMessageAsync` with that intent and the
+   selected project label/ID.
+3. Agent instructions route the turn to a final-named `SubmitStatusUpdate` tool. Its optional Zod fields
+   capture only useful prompt defaults such as `projectId`, `reportingPeriod`, and `summary`; they never
+   auto-submit.
+4. The host-delivered properties create a fresh signature and focus the full-screen Draft -> Validate
+   -> Review -> Confirm -> Receipt workflow. Review/Confirm remain explicit human actions.
+5. On receipt, publish the status ID, project, period, result, and safe next actions as model context.
+   Offer a separate user-triggered follow-up such as `Ask Copilot to summarize this update`; never send
+   it automatically.
+
+Every sample implements this interaction shape, but uses a domain-appropriate final tool and operation
+(`CreateRequest`, `UpdatePlan`, `SubmitReview`, etc.) when status reporting is not part of its brief.
+Do not add a ceremonial `SubmitStatusUpdate` tool to an unrelated sample merely to satisfy the example.
+
+**Communication validation:**
+
+- Use a typed fake host adapter in unit tests. Assert snapshot payload and deduplication for inline and
+  full screen, no bridge call during render, no sensitive draft leakage, and a final receipt snapshot.
+- Assert follow-ups occur only after a click/keyboard command, use the expected localized text/content
+  block, suppress duplicate clicks while pending, and render both thrown-error and `isError` recovery.
+- In Copilot Workbench, verify the follow-up appears in chat, mode remains host-authoritative, context
+  grounds the next user message, and a routed status-update invocation opens the expected full-screen
+  draft. Record unsupported/preview behavior as an external host gate rather than replacing it with raw
+  messaging.
 
 ---
 
@@ -1267,21 +1197,6 @@ metadata, routes, and preview adapters rather than copying Zava-specific UI/data
 
 - **Single provider.** A `<Name>ThemeProvider` wraps the tree once; derive the Fluent theme from the
   `theme` prop (`'dark'` → `webDarkTheme`, else `webLightTheme`; default light when undefined).
-- **One style ownership model.** Put sample-wide brand/custom properties on the shared root and static
-  responsive compositions in shared CSS Modules. Use Fluent component APIs and Griffel for states or
-  runtime composition that benefit from them. Generated per-component SCSS may remain as scaffold
-  ownership, but shared routed experiences MUST NOT render its default purple header/welcome styling.
-- **Use the control that matches the behavior.** Use icon or icon+text `Button` for commands, familiar
-  Fluent icons for tools, `Checkbox`/switch for binary settings, segmented controls/tabs for modes,
-  sliders/steppers/inputs for numeric values, and `Dropdown`/`Option` for styled transactional option
-  sets. A compact `Select` is acceptable for a simple dense dashboard filter when its native popup and
-  host styling are intentional and tested. Do not build rounded text pills that imitate a familiar icon.
-- **Fields explain requirements.** Wrap editable controls in `Field` with visible label, required state,
-  hint, and validation message. Keep textareas tall enough for the expected rationale, do not hide rules
-  behind a disabled button, and give touch controls at least a 44 px target where space permits.
-- **Stable layout beats incidental reflow.** Give boards, charts, queues, toolbars, icon buttons, and
-  repeated rows explicit grid tracks, min/max constraints, or aspect ratios so hover, loading, long
-  labels, counts, and validation cannot resize adjacent regions unexpectedly.
 
 ### 8.1 Host-document Griffel renderer
 
@@ -1319,37 +1234,6 @@ metadata, routes, and preview adapters rather than copying Zava-specific UI/data
   entire gradient. Inspect computed styles for workspace accents in light/dark modes; never assume a
   Fluent token exists because a similarly named token exists.
 
-### 8.2 Operational visual grammar and gradients
-
-Define this vocabulary before building route bodies and keep it in one shared theme/style module:
-
-- **Canvas:** neutral Background 1/2 surfaces with dark equivalents; use color to establish hierarchy,
-  not to tint every section. Keep at most three accent colors visible in one operational viewport.
-- **Primary accent pair:** one dark, trustworthy anchor plus one brighter highlight. Zava uses steel
-  `#0B5A7A` and cyan `#00B7C3`; future samples replace the values, not the roles or contrast checks.
-- **Contrast accent:** one warm color may call out deadlines, selected evidence, or a comparison, while
-  success/warning/danger retain their semantic meanings. Never repurpose status colors as decoration.
-- **Typography and density:** use the host/product type family; 19-22 px compact headings, 12-14 px
-  operational body text, 9-11 px supporting metadata, and tabular numerals for money/counts/percentages.
-  Queue and roster rows stay compact; dashboards gain whitespace between regions rather than padding
-  every item into a large card.
-- **Shape and elevation:** 4-8 px radii for bounded tools and repeated records, restrained elevation for
-  overlays/selected evidence, one-pixel separators for dense lists. Do not nest cards or float every
-  page section in a card.
-
-Only three gradient roles are permitted:
-
-| Role | Use | Treatment |
-| --- | --- | --- |
-| Surface depth | Separate one hero/tool stage from the neutral canvas | Very low-contrast two-stop light/dark pair; content remains readable without it. |
-| Focus halo | Place visual emphasis behind a product, selected mark, or signature scene | Local radial gradient that fades to transparent; never a decorative orb. |
-| Analytical ramp | Encode ordered health, risk, progress, or bridge direction | Named data stops with a visible legend and exact values; never the only status signal. |
-
-Do not use full-page gradients, gradient text, arbitrary multi-hue backgrounds, or the generator's
-purple/blue AI banner. One gradient-dominant surface per view is normally enough. Centralize each
-gradient, provide an explicit dark counterpart and high-contrast solid fallback, and test computed
-background images so an invalid custom property cannot silently remove the treatment.
-
 ---
 
 ## 9. Data (source-shaped mock to canonical view models)
@@ -1370,8 +1254,15 @@ background images so an invalid custom property cannot silently remove the treat
 ### 9.2 Personas & the real signed-in user
 
 - Use the **standard Microsoft 365 demo personas** (Megan Bowen, Diego Siciliani, Lee Gu, ...) for all
-  senders/authors/organizers, represented as Zava employees with consistent `@zava.example.com` demo
-  email addresses via a shared `mockData/people.ts`.
+  senders/authors/organizers - consistent Contoso names/emails via a shared `mockData/people.ts`.
+- **People are visual evidence, not text decoration.** When identity, ownership, influence, review,
+  contribution, or handoff matters, show the approved portrait in the relevant header/profile, person
+  row, relationship graph, evidence source, queue, milestone, or owner control. Do not reduce a people-
+  centered experience to colored dots and names, and do not reuse one portrait for different people.
+- Approve and stage persona media before the representative React slice. Every visible named person maps
+  to one typed media key, source copy, intended use, hash, rights status, and initials fallback. If public
+  redistribution rights are pending, state that in provenance and README and fail the media validator if
+  the disclosure disappears. Never silently substitute an unrelated person photo for a missing persona.
 - Resolve the signed-in user's name synchronously from page context. If host context already provides
   a usable `https:`, `data:`, or `blob:` photo URL, render it without issuing another request. Do not
   construct `userphoto.aspx` or call Graph for a photo. If no usable host photo exists, use the bundled
@@ -1390,24 +1281,6 @@ background images so an invalid custom property cannot silently remove the treat
 
 ### 9.4 Narrative coherence (storytelling)
 
-- Make the best-of-both-worlds pattern the primary story for every sample and scenario:
-  1. The user expresses a need naturally rather than navigating an application hierarchy.
-  2. AI interprets the language and selects a bounded tool, record, filter, or editable draft.
-  3. A purpose-built inline component presents exact information or deterministic controls directly
-     in the flow of work in the Copilot canvas.
-  4. The user reviews consequences and explicitly owns every decision or action.
-  5. When broader context is useful, full screen preserves the origin and expands into a full-scale
-     application experience inside Copilot.
-- Describe AI interpretation honestly as probabilistic or non-deterministic. Describe business data,
-  calculations, validation, workflow states, and confirmed operations as deterministic. Do not blur
-  these responsibilities with claims that AI approved, submitted, deleted, or otherwise committed an
-  action on the user's behalf.
-- Demonstrate adaptive UX through meaningful differences in composition: an information request opens
-  focused evidence, a review request opens records and consequences, and a submit request opens an
-  editable guarded workflow. Do not call cosmetic copy changes or a generic generated card adaptive.
-- Make the absence of navigation part of the value proposition: no link chase, portal transition, or
-  app switch is required for the primary task. Do not add an external destination merely to make the
-  sample resemble a conventional chatbot response.
 - Curate meetings + tasks + mail + news into **one connected story** so any AI/summary feature reads as
   insightful, not random (My Day themes the day around shipping the app: design-review meeting ↔
   related task ↔ flagged mail ↔ news post).
@@ -1425,6 +1298,10 @@ background images so an invalid custom property cannot silently remove the treat
   hosted asset URLs for substantial media; a generated base64 catalog is acceptable only when the
   production build emits it once in a measured shared bundle. Add a `--check` mode that fails if source
   count, generated count, keys, or output drift. Never edit generated media catalogs manually.
+- Validate both source and runtime copies before compile: expected count, byte/hash identity, unique
+  person-to-key mapping, catalog coverage, intended use, and redistribution status. Visual capture MUST
+  fail when any portrait is broken, zero-sized, incorrectly cropped, or absent where the approved design
+  calls for a person.
 - Use a session-local action overlay for confirmed mock actions. Seed data remains immutable; Reset
   removes overlays and restores the deterministic baseline.
 - Current dates derive from one supplied clock per fresh invocation. Do not hard-code stale “today”
@@ -1434,6 +1311,10 @@ background images so an invalid custom property cannot silently remove the treat
 
 ## 10. Imagery and host-provided media
 
+- **Media readiness precedes visual implementation.** Do not build a people-heavy experience with
+  initials/placeholders and plan to “add photos during polish.” Acquire or generate approved media,
+  create provenance, wire the typed catalog, and prove one rendered portrait/fallback before composing
+  the first representative screen. This avoids designing spacing and hierarchy around fake content.
 - **One source, one catalog, one emitted payload.** Keep authored images in shared `assets/` folders and
   expose typed keys from one shared media catalog. Components reference keys/URLs; they never own copied
   binaries or per-component image registries.
@@ -1450,13 +1331,10 @@ background images so an invalid custom property cannot silently remove the treat
 - **Authoring workflow.** Download royalty-free media once, optimize dimensions/quality for its rendered
   size, record source/license beside it, and generate/check the catalog deterministically. Missing images
   use initials or a gradient/icon fallback; keys remain valid identifiers.
-- **Complete the visible cast before polish.** Derive required persona/product keys from queues,
-  dashboards, details, and mock records; validate that every visible key resolves. A known portrait is
-  not optional merely because initials exist. Initials are a resilient loading/missing-data fallback,
-  not the planned final state for one or two conspicuous rows among photographed peers.
-- **Use faces where accountability matters.** Show portraits beside requester, approver, owner,
-  assignee, incident commander, and handoff. Keep decorative face piles out of dense charts and KPI
-  strips. Use 32-36 px portraits in compact rows and a larger 48 px identity in detail when space allows.
+- **Portrait treatment is part of composition.** Define small/list, profile/header, hero, stacked-team,
+  and visualization-node sizes with stable dimensions, `object-fit: cover`, deliberate crop/focal point,
+  accessible alt text, border/elevation treatment, and dark/forced-color behavior. A tiny avatar added to
+  one header does not satisfy a people-centered design; identity must remain legible at the decision point.
 - **Cache data, not invocation state.** Immutable seed records, parsed media catalogs, and expensive pure
   lookup/calculation results may live in module-level caches shared by the bundle. Key scenario/date-
   dependent results explicitly. Do not cache mutable drafts, selected evidence, host context, current
@@ -1464,56 +1342,15 @@ background images so an invalid custom property cannot silently remove the treat
 - The release audit (§18.4) verifies one emitted copy/hash per substantial image and zero repeated full
   base64 catalogs across JavaScript entries.
 
-### 10.1 Agent app icon contract
-
-Design the app/agent identity during scope and branding, not after packaging. The icon should explain
-the product at a glance through one clear silhouette: a brand initial/mark plus at most one restrained
-domain cue such as health, workflow, portfolio, support, or people. It must feel credible in Microsoft
-365 navigation, not like a decorative illustration.
-
-**Required files:**
-
-- `copilot/color.png`: exactly 192 x 192 PNG. Use a flat opaque brand field coordinated with manifest
-  `accentColor`, a high-contrast central mark, generous safe margins, and no photographic detail.
-- `copilot/outline.png`: exactly 32 x 32 PNG. Use the same recognizable silhouette in monochrome white
-  on transparency. No opaque tile, colored pixels, text label, or detail that disappears at 16-32 px.
-- Keep manifest references exactly `color.png` and `outline.png` unless the target schema requires
-  different names. Both files live beside the agent manifest and are included in the generated agent ZIP.
-
-**Design rules:**
-
-- Prefer a custom geometric mark over a font-rendered letter so generation does not depend on an
-  installed typeface. A single brand initial is valid when paired with one subtle domain signal.
-- Keep the mark flat and restrained: no gradients, photos, shadows, tiny strokes, generic robot/chat
-  bubbles, or AI sparkles unless the approved product identity specifically requires one.
-- Use two or three colors at most in the color icon. Semantic warning/danger colors are not decorative
-  brand accents. The outline icon is white only, with alpha used solely for edge smoothing.
-- Inspect the color icon at 192, 32, and 16 px. Inspect the outline icon at 32 and 16 px on light,
-  dark, and manifest-accent backgrounds. The same silhouette must remain identifiable without a label.
-
-**Automation and evidence:**
-
-- Keep a deterministic generator such as `scripts/generate-agent-icons.ps1` or an equivalent
-  cross-platform bitmap script. It owns both files and provides generation plus non-writing `--check`
-  or `-Check` behavior that fails when committed PNGs differ from regeneration.
-- The generator validates exact dimensions, PNG output, visible-pixel coverage, transparent outline
-  corners, and monochrome-white visible outline pixels. Asset validation checks manifest mappings,
-  dimensions, manifest `accentColor`, provenance hashes, and source-file existence.
-- Record both icons in asset provenance as original/generated work, including the design rationale,
-  generator path, intended use, and SHA-256. Do not describe a generated mark as an official Microsoft
-  product logo.
-- After packaging, inspect the generated agent ZIP and final `.sppkg` to prove both icon entries match
-  the current source bytes. Save a visual preview when reviewing a 32 px transparent icon is otherwise
-  difficult against the editor canvas.
-
 ---
 
 ## 11. Signature decision experiences
 
-- Build the signature experiences named in `todo.md` deterministically from coherent mock data. For
-  this sample they include the Estate Health Landscape, Incident Correlation Constellation, Surface
-  recommendation and configuration journey, budget-aware manager approval, and Refresh Wave Horizon.
-- Prefer immediate, explainable decision value over generic AI theater. Use a thinking/shimmer/streaming state
+- Build the signature experiences named in `todo.md` deterministically from coherent mock data. The
+  validated Zava references included Project comparison, AI spend control tower, and resource what-if
+  approval; each new sample chooses domain-specific signatures in its approved brief rather than
+  inheriting those examples.
+- Prefer immediate, explainable insight over generic AI theater. Use a thinking/shimmer/streaming state
   only when the user explicitly initiates a generation step and the delay helps explain that action.
   Do not add fake waiting to charts, filters, comparisons, forms, or approvals.
 - Every signature experience connects one decisive visual, the relevant people, the surprising change
@@ -1522,58 +1359,9 @@ domain cue such as health, workflow, portfolio, support, or people. It must feel
   once, no streaming/animation.
 - A later live implementation replaces only services/calculators and returns the same view-model shape.
 
-### 11.1 Chart model and selection matrix
-
-Start with a minimal renderer-neutral contract and extend it only when a real chart needs more geometry:
-
-```ts
-type ChartKind = 'ring' | 'columns' | 'line' | 'pareto' | 'waterfall' |
-  'journey' | 'horizon' | 'network' | 'landscape';
-
-interface IChartMark {
-  readonly id: string;
-  readonly label: string;
-  readonly value: number;
-  readonly secondaryValue?: number;
-  readonly color: string;
-  readonly group?: string;
-  readonly parentId?: string;
-}
-
-interface IChartModel {
-  readonly kind: ChartKind;
-  readonly title: string;
-  readonly ariaLabel: string;
-  readonly valueFormat: 'count' | 'currency' | 'percent';
-  readonly marks: readonly IChartMark[];
-}
-```
-
-| Decision question | Preferred model | Default rendering profile |
-| --- | --- | --- |
-| How healthy/complete is one thing across a few dimensions? | Ring/gauge | Compact React SVG plus DOM legend; Babylon only if the ring anchors an immersive scene. |
-| Which categories are largest or outside target? | Columns/bars | DOM bars for dashboard summaries; React SVG for axes, selection, or projection. |
-| How is a measure changing over time? | Line/ribbon | React SVG with direct labels, exact values, and prior-period delta. |
-| Which causes explain most of the total? | Pareto | Sorted React SVG bars plus cumulative line and visible 80% threshold. |
-| How did a starting value become an ending value? | Waterfall/bridge | React SVG with connectors and running totals. |
-| Where is a request in a known process? | Journey | Fluent DOM for ordinary status; SVG only when scale/branching adds value. |
-| Is planned work within time/capacity? | Horizon/capacity | React SVG inline; Babylon for a genuinely spatial multi-quarter planning scene. |
-| Which signals belong together? | Network | Deterministic fixed-tick layout; SVG for small networks, Babylon for dense spatial focus. |
-| Where is risk concentrated across geography or two dimensions? | Landscape/map | Babylon for the signature spatial scene; DOM/SVG summary and exact-value table remain adjacent. |
-
-One canonical selected ID coordinates marks, legend/data rail, optional interpretation, KPI context, evidence, and table
-selection. Filters rebuild or filter the model immutably and reset selection only when the selected mark
-no longer exists. Every model builder is pure and tested for stable IDs, meaningful mark variance,
-correct totals/domains, formatting, empty data, and deterministic output.
-
 ---
 
 ## 12. Configuration impact - session-persisted settings (optional)
-
-Keep five state classes separate: host state comes from props; normalized invocation state comes from
-the current prompt signature; transient selection/filter/draft state stays with the component instance;
-user-visible settings may persist for the session; confirmed actions/receipts use the session overlay.
-Never persist host context or unconfirmed drafts merely because both use React state.
 
 - A settings drawer whose values persist to **`sessionStorage`** (intentionally session-scoped for the
   demo; call out "stored in this session only, not saved permanently").
@@ -1604,6 +1392,9 @@ Never persist host context or unconfirmed drafts merely because both use React s
   MUST NOT break the workflow. Expose immutable reads, append-only record commands, subscriptions for
   cross-route synchronization, and Reset. Test storage reload, denied-storage fallback, subscriptions,
   remount restoration, and UI reset.
+- React consumers of a shared session store use `useSyncExternalStore` with stable `subscribe`,
+  `getSnapshot`, and server/fallback snapshot functions. Do not mirror an external store through an
+  ad hoc effect plus `setState`; snapshots must be immutable/referentially stable until data changes.
 - Persist only confirmed actions. Prompt defaults, in-progress drafts, selected evidence, host context,
   and transient workflow stage remain component-instance state unless a product requirement explicitly
   defines resumable drafts and their privacy/lifecycle contract.
@@ -1625,38 +1416,28 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 
 ## 13. Motion & first impression
 
-- Shared `utils/motion.ts` exports keyframes, named duration/easing tokens, reduced-motion detection,
-  and one transition coordinator that cancels superseded DOM and Babylon work. Components do not
-  invent arbitrary durations or leave stale timers, observables, animation groups, or frames alive.
-- Use three motion tiers: micro feedback around 120-180 ms, view/evidence transitions around 220-320 ms,
-  and guided Babylon camera focus around 500-700 ms. Use the shortest tier that explains the change.
-- **Lens and route transitions:** keep the product bar and vertical tab rail stationary. De-emphasize the
-  outgoing canvas, update route/focus state, then reveal the incoming heading and primary visual with a
-  subtle 8-12 px directional offset. Keep shell dimensions stable so transition wrappers never cause
-  layout shift. Move keyboard focus to the destination heading immediately after route selection.
-- **Babylon chart transitions:** use stable record/mark keys and explicit enter/update/exit targets.
-  Babylon animation groups interpolate mesh geometry/transforms, material emphasis, DOM label/legend
-  state, and cross-highlighting from the settled prior model. Rapid filter changes begin from current
-  rendered values and settle only at the latest target, with no flash of stale data.
-- **Babylon transitions:** use `Animation`/`AnimationGroup` with named easing mapped to the shared motion
-  tokens for mesh transforms, material emphasis, and camera position/target. Run only one guided camera
-  focus at a time, preserve orientation cues, constrain camera bounds, and expose Reset view. A new
-  selection stops the previous group and starts from current values; completion stops the render loop.
-- **Staggered entrance** is reserved for the first useful reveal and bounded groups of 3-6 records. Since
-  authored animation timing is static presentation, implement stagger with **static delay classes** in `makeStyles`
+- **First-render quality gate.** Before scaling beyond the representative slice, the first settled frame
+  MUST show the product identity, current scope/persona, immediate business question, decisive visual,
+  relevant people, and next action without scrolling or explanatory copy. Compare it side by side with
+  the named reference at equivalent inline and full-screen widths. If the new screen has materially less
+  hierarchy, depth, media, information density, or visual specificity, stop and improve the shared system.
+- **Purposeful gradients and depth.** Define one domain-specific multi-stop brand gradient for the main
+  hero/navigation relationship and restrained secondary gradients for data fields or selected states.
+  Gradients must express brand, progression, risk, or value - never generic decorative blobs. Pair them
+  with token-based foregrounds, tested light/dark contrast, restrained `shadow*` elevation, 4-8px radii,
+  and clear border hierarchy. A thin rainbow/brand line over otherwise default white panels is not a
+  complete visual identity.
+- **Polished repeated content.** Lists, queues, milestones, evidence rows, and scenario selectors need
+  designed grid tracks, meaningful icon/avatar/status placement, hover/focus/selected states, numeric
+  alignment, and row rhythm. Do not ship raw button stacks, undifferentiated text rows, or default control
+  groups merely because they are functional.
+- Shared `utils/motion.ts` exporting keyframe objects (`fadeIn`, `fadeInUp`).
+- **Staggered entrance** for cards/panels and smooth view transitions. Because inline `style` is
+  **forbidden by lint**, implement stagger with **static delay classes** in `makeStyles`
   (`delay0..delayN`) + `mergeClasses`, not inline `animationDelay`.
-- Skeleton-to-content, evidence swaps, receipts, and error recovery cross-fade in place without moving
-  adjacent controls. Workflow forward/back movement is directional; decision results use semantic
-  icon/text changes rather than celebratory effects.
-- Never use uncontrolled spins, long fly-throughs, parallax backgrounds, particles, bloom, pulsing loops,
-  or perpetual auto-rotation as substitutes for information. Do not animate every dashboard region at
-  once; prioritize the selected story and leave surrounding context stable.
-- **Every animation** includes a `@media (prefers-reduced-motion: reduce)` guard. The shared signal also
-  bypasses Babylon mark animation/camera travel, rendering final state immediately.
-  Motion never gates exact values, state, focus, validation, or the next action.
-- Test repeated navigation/filtering, interruption, teardown, hidden-tab pause, focus continuity,
-  screenshot suppression, and zero active render loops after idle. A single uninterrupted recording is
-  not sufficient motion evidence.
+- **Every animation** MUST include a `@media (prefers-reduced-motion: reduce)` guard that disables it.
+- D3 transitions use the same reduced-motion signal and render their final state immediately when
+  motion is reduced. Motion explains changed state; it is never required to read exact values.
 
 ---
 
@@ -1682,17 +1463,21 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 - Use cards only for repeated entities, approvals, modals, or genuinely bounded tools. Do not nest
   cards or turn full-width sections and every chart into floating cards. Maps, Sankey flows, radial
   views, comparison canvases, and timelines may use unframed analytical space.
-- **Action detail gets priority.** A compact queue may share a dashboard row with roster/summary content,
-  but opening record detail gives the action panel the full useful row and hides or reflows the neighbor.
-  Do not compress evidence, rationale, and confirmation into the queue's summary column.
-- **Long labels are a required responsive state.** Test the longest status/filter label with a nonzero
-  count. Use equal segmented tracks and stack the filter group below its heading before truncating or
-  reducing text to unreadable sizes.
 
 ---
 
 ## 15. Accessibility & visual finish
 
+- **Pixel review is mandatory before breadth and release.** Inspect representative screenshots at 100%
+  and 200% for image crop/focal point, type hierarchy, density, whitespace, alignment, elevation,
+  gradient quality, chart framing, selected/hover/focus affordances, and keynote readability. Inspect
+  narrow captures for text or badges clipped by an ancestor with `overflow: hidden`; a passing
+  `document.scrollWidth` check does not prove that content is visible.
+- **Reject generic composition.** A screen fails visual review when its domain could be changed by
+  swapping labels: repeated pale cards, uniform KPI tiles, default buttons/inputs, arbitrary icon use,
+  flat text lists, and one generic chart are not a purpose-designed agent experience. Require at least
+  one domain-specific composition or visualization and one meaningful people/media treatment where the
+  workflow involves humans.
 - **Dark-mode contrast:** token-based throughout; no hard-coded text colors; audit badges, rings,
   banners, and any brand surfaces.
 - **Real links:** external links use `target="_blank"` **and** `rel="noopener noreferrer"`.
@@ -1701,47 +1486,45 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 - **Iconography:** make it meaningful and domain-specific; status, risk, approval, budget, and capacity
   icons reinforce visible labels rather than decorating the surface.
 - Provide `aria-label`s on icon-only controls; decorative visuals use `aria-hidden`.
-- Every Babylon visual has a visible title/question, selected-value detail, and keyboard-reachable Fluent
-  table/list equivalent. Add interpretation only when it contributes beyond the visible values. Tooltips
-  supplement labels and never contain the only exact value. Color, area, link width, angle,
+- Every D3/Vega chart has a visible insight sentence and keyboard-reachable table/list equivalent.
+  Tooltips supplement labels and never contain the only exact value. Color, area, link width, angle,
   geography, proximity, or animation is never the sole carrier of meaning.
 
 ---
 
-## 16. Visualization libraries and deferred live integration
+## 16. Live integration (deferred phase) & libraries
 
-- **Headless D3 calculation modules** - allow only `d3-array`, `d3-scale`, `d3-shape`, `d3-geo`,
-  `d3-hierarchy`, `d3-force`, and approved `d3-sankey` imports that replace substantial algorithms.
-  Allow `topojson-client` only with approved local geographic boundaries. Reject D3 selection,
-  axis, transition, timer, interpolate/ease, brush, drag, zoom, fetch, formatting, and full-bundle imports.
-  Pure calculation functions return typed immutable models and never receive DOM/Babylon references.
-- Prefer reusable React SVG components for compact trend/ribbon, capacity, waterfall, radial, Pareto,
-  and journey forms. Prefer typed Babylon scene adapters for spatial landscape, dense network, geographic,
-  flow, or dimensional forms that earn camera/depth behavior. Headless calculations prepare scales,
-  layout, paths, and projections; React owns data, SVG rendering, selection, accessible names, and
-  lifecycle; Babylon owns only the marks inside an approved scene.
-- **Babylon.js** - use direct imports from `@babylonjs/core` and include only classes/features proven by
-  the spike. Prefer a bounded `ArcRotateCamera`, simple hemispheric/directional lighting, thin instances
-  for large stable sets, and regular instances for frequently changing marks. Keep labels/controls in
-  Fluent DOM. Do not ship the legacy barrel, inspector, physics, loaders, post-process pipelines,
-  particles, Babylon GUI, WebXR, or WebGPU code unless an approved measured requirement uses it.
-- Profile each production scene with Babylon instrumentation at inline, desktop, and keynote sizes.
-  Record draw calls, active meshes/instances, average frame/render time during transition and idle,
-  engine/canvas count, and teardown result. Production idle must have no active render loop.
-- Do not hand-position data marks with CSS. Use tested analytical model builders and approved headless
-  scale/arc/hierarchy/force/flow algorithms so Babylon geometry is derived from data.
+- **D3 visualization modules** - use the smallest set required for the approved chart: selection,
+  scale, shape, hierarchy, Sankey, geo, zoom, array, or time formatting. Wrap imperative rendering in
+  React components with deterministic teardown; do not let D3 own application state.
+- Keep pure D3 geometry functions separate from React rendering. Unit-test scale domains, generated
+  paths, coordinates, bar dimensions, signed waterfall accumulation, hierarchy shares, and projection
+  output. React consumes those results and owns marks, keyboard behavior, selection, labels, tables, and
+  lifecycle. This makes visual logic testable without a browser and prevents D3 from owning UI state.
+- Use stable business domains when comparisons must remain visually comparable. A per-dataset `extent`
+  can normalize materially different scenarios into the same path; add a test proving changed business
+  inputs change the expected path/coordinates and preserve comparable axes. Use dynamic extents only when
+  intentional and label the changing domain.
+- Prefer reusable typed React chart components for recurring forms (trend/area, capacity bars,
+  waterfall, progress donut, bubbles, treemap, Sankey). D3 computes scales/layout/paths; React owns
+  data, selection, events, accessible names, and lifecycle.
+- Do not hand-position data marks with CSS when an installed chart/layout module can encode the values.
+  Use `scale*`, `pie`/`arc`, `hierarchy`/`treemap`, or `sankey` so geometry is derived from data.
 - Metric/grouping controls supply materially different arrays, hierarchy shares, paths, group headings,
   and narratives. Add tests that compare geometry/data identities before and after selection.
 - Separate comparison series enough to read them. Preserve established values/endpoints, but avoid
   overlapping actual/forecast paths that visually collapse into one line.
 - Every SVG uses `role="img"`, a metric-specific `aria-label`, `<title>`, `<desc>`, visible exact values
-  where practical, and neighboring evidence or interpretation only when useful. Interactive marks
-  support keyboard activation.
-- **No parallel visualization engine** - React-rendered SVG and Fluent DOM are first-party rendering
-  profiles, not extra chart engines. Vega/Vega-Lite and other chart/3D engines are outside the current
-  target. Add one only through an approved exception with a smaller measured bundle/maintenance cost
-  than the existing React SVG/Babylon plus headless-analysis implementation; never fetch runtime
-  specifications or map tiles.
+  where practical, and a neighboring textual insight. Interactive marks support keyboard activation.
+- For geographic questions, use `d3-geo` (or an approved equivalent), a real projection, and bundled
+  local TopoJSON/GeoJSON. Provide selectable keyboard-reachable marks and an exact table/list. Never fetch
+  tiles or geography at runtime, and never call a bubble plot on a blank rectangle a map.
+- After chart integration, run the tenant-free browser harness immediately. TypeScript cannot detect
+  Griffel runtime rule failures, blank SVG paths, broken topology, clipped labels, wrapped metric badges,
+  sign-formatting errors, or duplicate modules. Treat console style warnings as failures and inspect the
+  actual pixels before adding another chart.
+- **Vega/Vega-Lite** - optional for declarative analytical views where it reduces custom code. Bundle
+  specifications and geography locally; never fetch runtime map tiles or specifications.
 
 - **PnP React controls** (`@pnp/spfx-controls-react`) - use when they add value; **deep imports only**
   (`.../lib/ListView`). Pass the component context down. Do **not** use `@pnp/spfx-property-controls`.
@@ -1756,33 +1539,55 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 
 ### 17.1 Commands
 
-- Dev: `heft start --clean` (open `localhost:4321`).
+- Dev: `heft start --clean` (`https://localhost:4321`).
 - Validate: `heft test --clean` (build + lint + jest).
 - Release/final gate: `npm run build`.
 - The future-sample `build` script MUST run this order as one command:
 
   ```bash
-  npm run validate:intents && npm run check:agent-icons && npm run validate:assets && npm run check:routing-matrix && npm run check:gallery && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output
+  npm run check:intents && npm run check:react && npm run check:routing-matrix && npm run check:media && npm run check:mock-media && npm run check:gallery && npm run check:publication && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output && npm run generate:release-evidence && npm run check:release-evidence
   ```
 
-  Keep both generated-output checks after `package-solution`: `check:generated-plugin` validates
-  generated `ai-plugin.json` inside the SharePoint-embedded agent ZIP, then `check:package-output`
-  audits the final `.sppkg`. Do not ask operators to remember separate release commands that can package
-  an invalid catalog or skip generated output validation.
-- Run `npm run capture:visual` before this command whenever source, styles, media, viewport behavior, or
-  browser rendering changed. The build validates committed evidence; it does not rewrite screenshots.
-- Node.js **>=22.14.0 <23.0.0**.
-- **Never run a clean build while `heft start` is watching the same tree.** `heft test --clean` removes
-  generated bundle entries, Sass typings, and static-asset typings that the watcher still expects,
-  producing noisy missing-module errors unrelated to source. Stop the dev server, run the clean test or
-  package gate to completion, then restart the watcher if more visual work is needed. Verify port 4321
-  is closed when the review session ends.
+  Keep generated-output checks after `package-solution`: `check:generated-plugin` validates generated
+  `ai-plugin.json` inside the SharePoint-embedded agent ZIP, `check:package-output` audits the final
+  `.sppkg`, then release evidence is generated from those exact bytes and checked immediately. Do not ask
+  operators to remember separate release commands that can package an invalid catalog, stale docs, or
+  mismatched evidence.
+- RC0 generates API plugin v2.4 with an empty `functions` array, one `RemoteMCPServer` runtime,
+  `run_for_functions: ["*"]`, and a URL-only `spec` for dynamic tool discovery. Do not require the
+  older embedded `mcp_tool_description` or static functions. Validate source tool names, unique IDs,
+  descriptions, property schemas, and registration independently; inspect both the embedded agent ZIP
+  and the final `.sppkg`. A copied Teams ZIP must match the one generated by the current build.
+- RC0 may append a fourth hotfix segment to the authored three-part Teams manifest version when agent
+  content changes. Validate the authored base plus the generator-produced hotfix, and record the
+  actual packaged version. Keep `teams/.copilot-agent-hotfix.json` ignored; do not hand-edit or commit
+  this local fingerprint cache. Source and packaged instruction comparison normalizes CRLF/LF.
+- A unique tool name or `data-layout` label is not proof of unique UX. Reject repeated working-note
+  fallbacks and copied superset schemas. Test each actual business surface, visible parameter effects,
+  near-sibling boundaries, numeric/authority thresholds, unknown-record states, and every operation's
+  review/confirm/receipt path. Only advertise parameters the owning surface can use meaningfully.
+- Use the Node.js range in the target scaffold's `package.json`; for SPFx 1.24 RC0 it is
+  **>=22.14.0 <23.0.0 || >=24.0.0 <25.0.0 || >=26.0.0 <27.0.0**. The clean-clone gate verifies the
+  active Node version before `npm ci`.
+- Verify registry availability for the exact prerelease before claiming public clean-clone
+  reproducibility. In this rollout RC0 was available through the configured Microsoft proxy/backing
+  feed but not npmjs.org. An explicitly approved prerelease feed is a documented prerequisite, not a
+  reason to fake public tarball URLs, bypass peer checks, or commit credentials. Rehearse a public
+  restore again when the public release is available.
+- Keep current prerequisites, badges, generator metadata, gallery metadata, technical demos, and
+  release evidence aligned. Version-history entries retain their historical versions. RC0 alignment
+  is not proof of GA availability or authenticated-host validation.
 
 ### 17.2 Lint / Griffel gotchas (learned - avoid these)
 
-- **No static inline `style={{…}}`.** Use CSS Modules or `makeStyles` classes for authored layout and
-  presentation. Restrict inline/SVG attributes to genuinely data-driven geometry such as computed bar
-  width/height, mark color, transforms, or positions; keep those values typed and bounded.
+- **No inline `style={{…}}` by this playbook's convention.** Use `makeStyles` classes; for dynamic values
+  like stagger delay, use discrete static classes. Enforce the convention in the sample lint/source audit
+  instead of assuming the base SPFx lint preset rejects inline styles.
+- RC0 lint also visits authored review-harness TypeScript. Give it a dedicated no-emit tsconfig and
+  include that project in ESLint. Ignore only generated review bundles, not authored harness source.
+- If preserving an older Fluent v9 profile, validate its resolved motion packages in a clean
+  production bundle. Zava's `9.54.0` profile requires the reference `@fluentui/react-motion@9.16.1`
+  compatibility pin; a successful type check alone does not catch missing runtime exports.
 - **No `background` shorthand** in `makeStyles` (Griffel) → use `backgroundImage` (+ `backgroundColor`).
 - Do not mix a border shorthand in a base Griffel style with `borderColor` in a nested state such as
   `:disabled`; override the complete `border` declaration in that state. Disabled controls must pair
@@ -1798,9 +1603,6 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
 - After the first structural edit, compile immediately before another edit. If a patch corrupts a
   boundary, recover the smallest owning function from the last compiled state/session evidence; do not
   continue stacking edits on malformed JSX.
-- CSS Module class names are generated types. Add/rename the SCSS selector and its TSX reference in the
-  same slice, then run the focused compile so a transient missing `IStyles` property is not mistaken for
-  an application defect.
 - Manual code edits use the repository patch tool. Formatting/bulk generation may use approved scripts;
   scripts must be deterministic and rerunnable.
 
@@ -1829,19 +1631,14 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
   - runtime/page errors, horizontal overflow, blank charts, unreadable labels, and stranded inline-width
     content checks in light and dark themes.
 - Save one screenshot per intent and a JSON evidence summary with timestamp, counts, failures, test total,
-  warning count, source/build fingerprint, package artifacts, and external prerequisites. The capture
-  MUST include all inline defaults, every default full-screen workspace/isolated root, mobile and dark
-  representatives, and detail/confirmation/receipt variants for consequential work. Record broken
-  images, horizontal overflow, deprecated shared chrome, console/page errors, canvas count, engine
-  count, and required nonblank-pixel checks. Evidence belongs under a predictable `assets/` or
+  warning count, package artifacts, and external prerequisites. Evidence belongs under a predictable
   `ux-review/evidence/` path and is refreshed after material visual changes.
-- Use two gates: `capture:visual` deliberately writes PNG/evidence files using pinned Playwright;
-  `check:gallery`/`check:visual` performs no capture and fails when metadata, dimensions, fingerprints,
-  expected counts, or files are stale. This keeps the canonical build deterministic and browser-optional.
 - Local harness evidence cannot prove tenant CSP, `requestDisplayModeAsync`, iframe focus restoration,
   or host screen-reader output. Record unresolved `{tenantDomain}`/authentication as a single explicit
   external gate; do not leave broad implementation tasks ambiguously open.
 - Required test families:
+  - React 18 root creation/reuse/unmount, error-boundary recovery, StrictMode effect cleanup,
+    aborted async work, automatic-batching-safe model snapshots, and no updates after teardown;
   - catalog/layout uniqueness and registration/schema/media audits;
   - intent resolver normalization, compact params, deterministic signatures, and fresh-versus-passive
     properties-version behavior;
@@ -1857,8 +1654,7 @@ evidence, safeguards, rationale, confirmation, semantic receipt, updated queue, 
   `.gitignore` (re-include the folder, ignore its contents, un-ignore the `.sppkg`); keep `debug/` and
   other build junk ignored. Repackage after substantive changes.
 - Keep exactly the current Teams/Copilot agent ZIP; delete stale pre-rename/generated ZIPs before
-  packaging. Inspect ZIP entries to confirm manifest, color icon, outline icon, and plugin/agent files;
-  compare icon hashes with `copilot/color.png` and `copilot/outline.png`.
+  packaging. Inspect ZIP entries to confirm manifest, color icon, outline icon, and plugin/agent files.
 - After packaging, report audit counts, tests/failures, warning count, artifact names/sizes/timestamps,
   diagnostics, `git diff --check`, and whether temporary review/dev servers were stopped.
 
@@ -1931,9 +1727,6 @@ manifest coverage. It validates component entries, not `Object.keys(config.bundl
 - After packaging, staging MUST contain only the current hashed production component JavaScript and
   its required license/static files. A plain `*-copilot-component.js` beside a hashed
   `*-copilot-component_<hash>.js` is a release failure.
-- Reject `*.hot-update.js`, `*.hot-update.json`, source maps, plain development entry bundles, stale
-  pre-rename agent ZIPs, and any generated agent ZIP whose SHA-256 does not match the copy embedded in
-  the final `.sppkg`. Clean packaging must remove watcher residue before archive creation.
 - Do not judge production delivery size from `dist` after a development build. Inspect the `.sppkg`
   archive and its `ClientSideAssets` entries.
 
@@ -1960,18 +1753,16 @@ JavaScript entry, and duplicate media count in `todo.md` or the build log.
 `config/package-solution.json` after packaging and fail on:
 
 - zero production JavaScript files or any unhashed/stale JavaScript under `ClientSideAssets/`;
-- hot-update artifacts, plain development entries, source maps, stale agent ZIPs, or a packaged agent
-  ZIP whose hash differs from the freshly generated ZIP;
 - duplicate substantial media hashes in package-hosted files;
+- missing expected package-hosted media, unhashed media filenames, media whose bytes do not match
+  approved provenance, or a people catalog emitted without the approved portrait count;
 - the same inline base64 image payload appearing across multiple JavaScript bundles;
 - Fluent icon-font payloads when the sample uses named SVG icon imports.
 
 It MUST report package bytes, production JavaScript file count/total bytes/largest entry, packaged media
-count, primary entry count, intentional lazy chunk count, inline image count, duplicate counts,
-stale-output count, icon-font presence, agent/package SHA-256 values, and configurable thresholds.
-Derive expected primary entries from bundle configuration while allowing intentional hashed lazy chunks;
-do not incorrectly require total JavaScript file count to equal bundle count. Use
-`MAX_PRODUCTION_ENTRY_BYTES`, `MAX_PRODUCTION_JS_BYTES`, and `MAX_SPPKG_BYTES` as investigation
+count, expected/actual portrait count, provenance mismatches, inline image count, duplicate counts,
+icon-font presence, and configurable investigation flags.
+Use `MAX_PRODUCTION_JS_BYTES` and `MAX_SPPKG_BYTES` (defaults: 1 MiB and 10 MiB) as investigation
 thresholds, not automatic architectural verdicts. Save or capture this JSON-shaped output in the build
 log/evidence and update `todo.md` when the accepted baseline changes.
 
@@ -1979,12 +1770,12 @@ log/evidence and update `todo.md` when the accepted baseline changes.
 
 ## 19. Docs & sample gallery
 
-- Before replacing a specification-form README, preserve it as `<Sample>-Design-Brief.md`. Publication
-  docs must not erase the approved product/UX intent or leave the tracker pointing at obsolete README
-  section numbers.
-- Document the agent mark, generation/check commands, dimensions, accent-color relationship, and
-  provenance. Show the product through implementation screenshots; do not enlarge the icon into a
-  substitute hero illustration.
+- **Scaffold publication assets before feature scale-out.** Create canonical
+  `config/conversation-starters.json`, generated routing/collision matrix, short keynote, business demo,
+  technical walkthrough, designer/rehearsal guide, and release-evidence generator while the representative
+  slice is still small. Populate exact prompts, expected tools/properties, screenshots, fallback paths,
+  safety claims, and current limitations as features land. Do not reconstruct the product story after
+  packaging from memory.
 - **README** from the PnP sample template: Summary, Screenshots, Applies to, Prerequisites, **Minimal
   Path to Awesome** (with a "ready-made package" callout linking the `.sppkg`), Features, mock-data and
   safety disclosure, accessibility/responsive evidence, localization/worldwide scope, validation
@@ -1993,9 +1784,13 @@ log/evidence and update `todo.md` when the accepted baseline changes.
 - If a public tenant-testing/deployment video exists, include a GitHub-compatible clickable thumbnail
   (`img.youtube.com` linked to the video) plus a text link. Do not use unsupported iframe embeds in a
   GitHub README.
-- Generate one prompt-routing matrix for every current-target tool from the catalog as specified in
-  §5.1. Never maintain a second hand-written prompt list that can drift. Use the generated matrix as
-  routing test data and demo rehearsal input.
+- Maintain one prompt-routing matrix for every current-target tool: primary prompt, expected tool,
+  expected normalized properties, inline result, and full-screen destination. Add sibling collision
+  pairs and record selected tool, extracted properties, visible UX, Expand destination, and whether a
+  fresh prompt resets defaults. Use the same matrix as routing test data and demo rehearsal input.
+- Keep conversation starters in one canonical structured file consumed by agent configuration and the
+  routing-matrix generator. Validation MUST fail when the declarative agent, generated matrix, or expected
+  target tool differs from that source.
 - For a complex catalog, keep a concise component plan that separates current-target tools from future
   candidates and states why each current tool earned independent routing. Keep demo scripts separate
   from this engineering playbook. Publish three useful cuts where scope warrants it:
@@ -2003,13 +1798,10 @@ log/evidence and update `todo.md` when the accepted baseline changes.
   - a roughly 10-minute business-value journey across evidence, trade-offs, workspaces, and confirmation;
   - a roughly 5-minute developer walkthrough pairing live UX with exact owning code and build output.
   Each script includes audience, setup/reset, prompts, expected tools/properties, presenter actions,
-  safety/feature guardrails, fallback path, and rehearsal checklist. Every cut explicitly demonstrates
-  the same story spine: natural-language interpretation -> need-specific inline UX -> deterministic
-  user-owned information/decision/action -> context-preserving full screen inside Copilot. State that
-  the primary flow requires no external link or application transition.
-- Document `ExploreAgentCapabilities`, its sixth conversation starter, category model, prompt
-  copy/launch behavior, safe preview mode, and how future maintainers add education metadata for a new
-  tool without editing the explorer UI.
+  safety/feature guardrails, fallback path, and rehearsal checklist.
+- For agents with 11+ operational tools, document the capability explorer, its final conversation
+  starter, category model, prompt copy/launch behavior, safe preview mode, and how future maintainers add
+  education metadata for a new tool without editing the explorer UI.
 - **`assets/sample.json`** (PnP gallery schema): unique `name`, `source: "pnp"`, title, short/long
   descriptions, `products`, `metadata` (`SAMPLE-TYPE`, `CLIENT-SIDE-DEV: React`, `SPFX-VERSION`),
   `thumbnails` (reference **only assets that exist**), `authors`, `references`. Keep thumbnails in sync
@@ -2017,26 +1809,24 @@ log/evidence and update `todo.md` when the accepted baseline changes.
 - Capture every current inline component plus representative full-screen workspace, mobile, dark,
   education, and receipt states for publication. Promote only settled, validated harness evidence or
   recapture from the current build with animation disabled and the host frame clipped consistently.
-- Prefer a deterministic `capture-visual-evidence.mjs` Playwright script: derive intent names from the
+- Prefer a deterministic `capture-gallery-assets.mjs` Playwright script: derive intent names from the
   catalog, select harness intent/mode/width controls, disable animation/transition during capture, wait
   for two animation frames, clip `.host` rather than the harness toolbar, use stable kebab-case names,
   and fail on missing/blank/overflowing output. Recapture only after the visual matrix is green.
 - `validate-gallery-assets.mjs` MUST parse `sample.json`, enforce required PnP metadata, unique names and
   orders, local file existence, PNG signature/minimum dimensions, descriptive alt text, exact raw GitHub
   URLs, expected screenshot count, and no unlisted publication PNGs.
-- Keep historical mockups/design boards clearly named as references and outside publication coverage.
-  `sample.json` lists only screenshots captured from the current implementation.
-- Generate or validate three separate demo cuts when the sample warrants them: short keynote, business
-  value, and technical architecture. Each uses exact matrix prompts and states expected tool, presenter
-  interaction, safeguard, fallback/recovery path, and mock/live boundary. Demo prose never claims an
-  unimplemented workflow, external write, or tenant validation. Each cut distinguishes probabilistic
-  AI interpretation from deterministic component behavior and shows inline work before full-screen
-  application context without leaving the Copilot canvas.
 - Before public submission, validate README/demo links, run the canonical clean build, report final
   artifact hashes, stop review servers, perform a clean-clone/offline rehearsal, and isolate any
   tenant-authenticated CSP/focus/screen-reader/high-contrast prerequisite as one external gate.
-- Do not add another competing rules, skill, or agent-definition file for this sample. This project-
-  specific playbook and `todo.md` are the implementation authorities.
+- Generate `assets/release-evidence.json` from the **final** `.sppkg`, agent ZIP, configured bundle/tool
+  count, production JavaScript, packaged media, and current visual evidence. The build writes it after
+  package audit and immediately checks freshness. README hashes/counts must match it exactly.
+- Treat tenant/authentication, public media-rights approval, and any external service provisioning as
+  explicit GitHub publication blockers in `todo.md`. A locally valid package is not automatically safe to
+  publish when bundled media rights remain pending.
+- Do not add another competing rules, skill, or agent-definition file for this sample. This golden
+  playbook and the sample's `todo.md` are the implementation authorities.
 
 ---
 
@@ -2046,18 +1836,17 @@ log/evidence and update `todo.md` when the accepted baseline changes.
 samples/<name>/
   README.md
   todo.md                         # phased Markdown checkbox tracker
-  agentic-creation-rules.md       # project-specific engineering playbook
+  agentic-creation-rules.md       # official golden engineering playbook
   <Sample>-3-Minute-Demo.md       # short inline-first keynote
-  <Sample>-10-Minute-Business-Demo.md # comprehensive business-value journey
-  <Sample>-5-Minute-Technical-Demo.md # UX + architecture/code walkthrough
-  <Sample>-Prompt-Matrix.md        # generated all-tool routing/property/collision matrix
-  <Sample>-Design-Brief.md         # preserved approved product/UX specification
-  assets/                         # sample.json, screenshots, visual/release evidence, provenance
-  scripts/                        # catalog/media/gallery/plugin/package-output validators and generators
+  <Sample>-10-Minute-Demo.md      # comprehensive business-value journey
+  <Sample>-5-Minute-Tech-Demo.md  # UX + architecture/code walkthrough
+  <Sample>-Demo-Prompts.md        # all-tool routing/property/collision matrix
+  assets/                         # sample.json, screenshots, faces/, source images
+    release-evidence.json         # generated from final package/agent/media/visual artifacts
+  scripts/                        # catalog/React/media/gallery/plugin/package validators and generators
   config/                         # Heft/SPFx + copilot-agent.json, config.json, package-solution.json
+    conversation-starters.json    # canonical starter text + expected target tool
   copilot/                        # manifest.json, declarativeAgent.json, ai-plugin.json, instruction.txt
-    color.png                     # 192 x 192 professional color agent icon
-    outline.png                   # 32 x 32 monochrome white icon on transparency
   sharepoint/solution/<name>.sppkg  # committed, ready-to-deploy
   src/copilotComponents/<name>/
     <Name>CopilotComponent.ts / .manifest.json / <Name>CopilotComponentProperties.ts
@@ -2072,7 +1861,7 @@ samples/<name>/
     models/                        # sources/, canonical models, seeds, routes
     services/                      # mock aggregate, mappers, session store, current user
     mockData/                      # source records, people, embedded media
-    visualizations/                # analytical models, React SVG charts, Babylon scenes, DOM equivalents
+    visualizations/                # D3/Vega adapters, renderers, specs, summaries
     utils/                         # datetime, formatting, motion, settings
 ```
 
@@ -2080,67 +1869,49 @@ samples/<name>/
 
 ## 21. Cross-sample consistency checklist (apply to every sample)
 
-- [ ] A named operational visual grammar is implemented centrally: neutral canvas, primary accent pair,
-  contrast accent, semantic states, type/density/radius/elevation, and only surface/focus/analytical
-  gradients. No generated purple AI header, gradient text, full-page gradient, or nested card grid ships.
-- [ ] Every inline component uses the shared brand/action header: agent brand name plus literal action
-  title on the left and an accessible View in full screen control at top right; narrow mode preserves
-  the heading and collapses only the button's visible label.
-- [ ] The shared frame contains no default `From your prompt`, property dump, or generic `Decision insight`
-  region. Prompt values initialize real controls/state silently; optional interpretation is domain-specific
-  and included only when it changes understanding or action.
-- [ ] Every multi-record action experience defaults to actionable work and proves counted status filters,
-  compact portrait-led rows, list -> detail -> decision -> confirmation -> updated list, read-only
-  completed detail, preserved filters, session restoration, and narrow/full-screen fit.
-- [ ] Chart form and renderer are selected from the decision question. One immutable model feeds DOM,
-  React SVG, and/or Babylon profiles; compact exact charts do not become 3D by default, and signature
-  scenes retain clear context, exact-value selection, and accessible equivalent.
-- [ ] Every visible accountable person and inspectable product resolves through the packaged media
-  catalog with provenance, meaningful alternative text, and initials/silhouette fallback.
-- [ ] A professional agent mark is approved and generated into 192 x 192 `copilot/color.png` plus
-  32 x 32 `copilot/outline.png`; the outline is monochrome white on transparency, both icons remain
-  recognizable at small size, manifest/accent/provenance checks pass, and packaged hashes match source.
-
-**Zava IT Concierge specialization only:**
-
-- [ ] IT Concierge uses the stable Me, Team, and Company vertical tab model at desktop/keynote widths;
-  narrow navigation preserves the same lens IDs, order, route state, semantics, and focus behavior.
-- [ ] Official Microsoft Surface/Microsoft 365 assets and reference-sample persona portraits are
-  optimized, package-hosted once, represented in the typed media catalog, and recorded in the asset
-  provenance manifest; no runtime media requests or unapproved third-party brands exist.
-- [ ] Estate Health Landscape, Incident Correlation Constellation, and Refresh Wave Horizon use
-  deterministic analytical models plus Babylon rendering with compact/full-screen profiles, truthful
-  controls, complete disposal, WebGL/reduced-motion fallbacks, context/legend, and 2D equivalents.
-
-**Reusable checks continue:**
-
-- [ ] Babylon production imports are modular (`@babylonjs/core`, never `Legacy/legacy`); unused GUI,
-  physics, loaders, inspector, post-process, particles, WebXR, and WebGPU paths are absent unless an
-  approved measured feature needs them. Bundle attribution and duplicate-engine audit pass.
-- [ ] Every retained headless D3 module has a recorded measured value decision; the package audit rejects
-  full `d3` plus selection, axis, transition, timer, interpolate/ease, brush, drag, zoom, fetch, and
-  formatting modules. If none pass the value gate, D3 is absent from dependencies and production output.
-- [ ] Lens/route, Babylon mark, evidence, workflow, and camera transitions use shared timing/easing,
-  cancel cleanly on rapid input, preserve focus, resolve immediately for reduced motion/capture, and
-  leave zero timers, animation groups, or render loops active after idle/teardown.
 - [ ] Final component catalog approved; every component generated with its final immutable name through
   Yeoman by the user or agent; no manually copied scaffold.
 - [ ] Package identity frozen before generation; API plugin v2.4 `name_for_human` is 20 characters or
   fewer (using a short plugin-facing name if needed), human description <= 100, model description <= 2,048.
 - [ ] Current-target tools satisfy the component selection test; future/supporting intents remain
   documented internal routes or candidates rather than speculative component bundles.
-- [ ] Every description has a positive use boundary and nearest-sibling exclusions; agent instructions
-  require one primary tool; every starter has one explicit expected target and no compound task; local
-  starter/matrix checks pass and tenant rehearsal records exactly one selected tool per request.
+- [ ] Named visual-quality reference inspected at screenshot and source level; `todo.md` records adapted
+  hero, gradient, elevation, typography, people/media, visualization, navigation, responsive, and dark-
+  mode primitives plus deliberate domain-specific differences.
+- [ ] Representative inline/full-screen visual foundation passes pixel review before catalog scale-out;
+  it is not a generic card/KPI layout, thin accent-line skin, or initials-only people experience.
 - [ ] Catalog-driven configure/validate scripts pass: unique GUIDs/tools/descriptions, expected bundles,
   schemas, resources, registrations, and no scaffold placeholders.
-- [ ] Copilot Component (no web part / no property pane); Heft; React 17; Fluent v9.
+- [ ] Every tool description has one tested `Use when` trigger and `Do not use` nearest-sibling
+  boundary; positive, negative, and collision prompts cover every current tool.
+- [ ] Copilot Component (no web part / no property pane); Heft; target-profile React 18 runtime/types
+  pinned and single-versioned in the application graph; only audited generator-owned isolated React 17
+  copy is accepted; one persistent `createRoot`; abortable/idempotent effects; Fluent v9 only.
 - [ ] Focused inline root + approved shared/isolated/hybrid full-screen topology;
   `requestDisplayModeAsync` for the consistent top-right View in full screen control.
+- [ ] Each inline component answers one conversational question with one dominant visual/list/form;
+  independently useful trend/map/driver or other chart questions are separate final-named generated
+  components, while coordinated multi-chart analysis lives in full screen.
+- [ ] Inline size changes are verified in the tenant host. Where automatic sizing is insufficient,
+  `requestSizeChangeAsync(width, height)` is bounded, batched, deduplicated, inline-only, and cleaned up.
 - [ ] Every primary workspace has a useful default dashboard; navigation orientation is justified by
   workspace count/labels/workflow and uses the available mobile, desktop, and projector canvas.
+- [ ] Workspace purpose matrix covers persona, competitor/category benchmark, data grain, decision
+  question, unique visual/queue/evidence/operation, entry intent, and “must not become” boundary for every
+  primary workspace.
+- [ ] Every workspace default has a unique `data-layout`, distinct composition, and role-specific
+  operations; gallery evidence fails on duplicate layout identities or repeated focused modules.
 - [ ] Every intent catalog entry owns an exact shared-workspace or isolated full-screen destination;
-  Expand preserves normalized invocation and validated transient state rather than opening generic home.
+  Expand preserves prompt context and validated transient state rather than opening generic home.
+- [ ] Every inline/full-screen journey publishes a bounded, deduplicated semantic snapshot with
+  `updateModelContextAsync`; each sample demonstrates an explicit user-triggered follow-up; bridge
+  rejection/error paths and no-automatic-message behavior are tested.
+- [ ] Every component publishes one purpose-specific activation snapshot naming the actual visible UX
+  and data; list/detail, paging, filter, chart selection, workflow, receipt, and Back transitions publish
+  updated visible state without hidden/sensitive payloads.
+- [ ] Message-driven update demo works end to end: current full-screen selection grounds Copilot, chat
+  or an explicit message action routes to the domain-appropriate update tool, and fresh tool properties
+  open a prefilled Draft -> Validate -> Review -> Confirm -> Receipt flow without auto-submission.
 - [ ] Intent resolvers normalize unknown input, compact absent params, and increment a deterministic
   properties-version token only for fresh prompt state, never passive host rerenders.
 - [ ] The component instance owns typed transient information/review/submit state across host mode
@@ -2148,18 +1919,26 @@ samples/<name>/
   continuation is claimed.
 - [ ] Operation-aware information/review/submit dispatchers; unique `data-layout` identities; no generic
   fallback body or shared domain review evidence.
-- [ ] One generated `ExploreAgentCapabilities` education experience exists by default, complete
-  education metadata validates, it advertises all operational tools while excluding itself, and exactly
-  six starters validate with five distinct operational targets plus the explorer as starter 6.
-- [ ] Single stable-key theme provider; Griffel renderer targets `ownerDocument`; shared semantic custom
-  properties plus Fluent tokens; CSS Modules/Griffel ownership is explicit; no static inline styles.
+- [ ] If the catalog has 11+ operational inline tools, one generated Agent Capability Explorer exists,
+  complete education metadata validates, and the final conversation starter routes to it. Every
+  operational scenario is reachable through search/filter and paging/virtualization; visible range,
+  total count, page, and selected preview are accessible and reported to Copilot.
+- [ ] Single stable-key theme provider; Griffel renderer targets `ownerDocument`; tokens only; no
+  `background` shorthand; no inline styles.
+- [ ] Shared mode-root error boundary provides localized accessible recovery; event-handler/async
+  failures are caught explicitly; representative roots pass StrictMode cleanup and teardown tests.
 - [ ] Typed service contracts + Mock impl; source-appropriate raw data; canonical view models; mappers;
   relative-time resolution.
 - [ ] Standard M365 demo personas; host identity/photo when already available; bundled fallback; one
   connected story.
+- [ ] People who carry identity, ownership, influence, evidence, review, or handoff meaning appear with
+  the correct approved portrait at the decision point; header/list/graph/queue/milestone treatments use
+  stable sizes and fallbacks, and no photo is reused for a different named person.
 - [ ] Authored imagery is offline and referenced through one shared media catalog; substantial images
   are package-hosted or a measured base64 catalog is emitted once; no app-initiated media requests;
   graceful fallbacks.
+- [ ] Media provenance validator passes expected source/runtime count, hashes, catalog mapping, intended
+  use, rights status, and broken-image checks; README carries any pending redistribution caveat.
 - [ ] Every retained control changes records/grouping/geometry/calculation/evidence/stage; unsupported
   decorative affordances removed; option datasets have material variance.
 - [ ] Information intents cover useful default, changed/filter, selected-detail, no-match, and shared
@@ -2171,12 +1950,20 @@ samples/<name>/
 - [ ] Confirmed decisions/submissions append typed immutable session receipts; in-memory fallback,
   guarded sessionStorage, subscriptions, remount restoration, and Reset are tested. Unconfirmed drafts
   and host context are not persisted.
-- [ ] DOM, React SVG, and Babylon render from typed analytical models; metric/group selectors redraw
-  materially different data; accessible names, exact values/context, keyboard behavior, and text/list
-  equivalent are supplied.
-- [ ] Approved deterministic signature experiences provide immediate decision value and reduced-motion safety.
+- [ ] Shared external stores use `useSyncExternalStore` with referentially stable immutable snapshots.
+- [ ] D3/Vega geometry derives from data; metric/group selectors redraw materially different data;
+  accessible names, exact values/insight, keyboard behavior, and text/list equivalent supplied.
+- [ ] When visualization is an approved objective, focused D3/Vega modules are imported and used - not
+  merely installed - and pure geometry tests prove stable domains plus changed paths/coordinates/bars/
+  projections for materially different input.
+- [ ] Geographic views use a real offline projection with bundled topology/geography, keyboard-reachable
+  marks, exact table/list equivalents, and no runtime tile/specification fetch.
+- [ ] Approved deterministic signature experiences with immediate insight and reduced-motion safety.
 - [ ] Optional session-persisted settings that reshape the UX; visibility-driven re-flow layout.
 - [ ] Staggered entrance + reduced-motion guards; large-display scaling; positive empty states.
+- [ ] Purposeful domain-specific gradients, token-safe contrast, restrained elevation, polished repeated
+  rows, real-person media where relevant, and actual pixel parity with the named reference are proven in
+  inline, desktop, narrow, and dark screenshots before publication.
 - [ ] Tenant-free all-intent harness passes width/theme/runtime/overflow/image/label/chart/keyboard/reduced-
   motion/200%-zoom matrix; screenshots and JSON evidence saved.
 - [ ] Capability explorer search/categories/prompt actions/read-only previews/tour pass; every advertised
@@ -2184,19 +1971,20 @@ samples/<name>/
 - [ ] Tenant-authenticated Workbench smoke passes CSP, display-mode request, iframe focus, and screen-reader
   output, or the missing tenant/auth prerequisite is explicitly recorded.
 - [ ] Catalog/media audits and `heft test --clean` green (zero warnings); current agent ZIP and committed
-  `.sppkg` inspected and regenerated; generated plugin v2.4 metadata/functions/MCP tools and length
+  `.sppkg` inspected and regenerated; plugin v2.4 metadata/dynamic runtime, source tools/schemas, and length
   limits pass against the actual SharePoint-embedded ZIP; no stale package artifacts.
 - [ ] Bundle strategy is measured: shared component entries deduplicate common runtime/media/icons or
   intentional split bundles document their lazy-loading benefit; production icon output contains only
   supported named imports; package report records JS count/size and duplicate-media count.
-- [ ] `check:package-output` runs last and passes against the final `.sppkg`: hashed JS only, no duplicate
-  media/base64 payloads across bundles, no hot-update/plain development output, matching embedded agent
-  ZIP hash, no accidental Fluent icon font, and size thresholds recorded against the accepted baseline.
+- [ ] `check:package-output` runs after packaging and passes against the final `.sppkg`: current hashed JS only, no duplicate
+  media/base64 payloads across bundles, no accidental Fluent icon font, and size investigation flags
+  recorded against the accepted baseline.
 - [ ] `check:gallery` passes: every publication screenshot exists, is a valid adequately sized PNG,
   has unique order/alt text/raw URL in `assets/sample.json`, and no publication PNG is unlisted.
-- [ ] `capture:visual` covers all inline defaults, full-screen defaults, mobile/dark, and representative
-  detail/confirmation/receipt states with zero broken media, overflow, deprecated shared chrome,
-  console/page errors, unexpected engines, or blank required canvases; committed evidence is current.
+- [ ] Canonical starters, generated routing/collision matrix, keynote/business/technical demos, designer
+  review, publication validator, and generated release evidence exist and are linked from README.
+- [ ] README package hash/counts match generated release evidence; `todo.md` progress counts come from the
+  latest executable output and retain explicit tenant/media-rights blockers.
 - [ ] Prompt-routing matrix covers every current tool, normalized properties, inline result, exact
   full-screen destination, sibling collisions, and fresh-invocation reset behavior.
 - [ ] README includes real screenshots, ready-made package, safety/accessibility/worldwide/validation

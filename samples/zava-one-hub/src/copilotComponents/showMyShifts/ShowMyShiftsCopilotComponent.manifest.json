@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "35367419-3664-4bf1-a865-57d48a2807d8",
+  "alias": "ShowMyShiftsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyShifts",
+      "description": {
+        "default": "Use when the user asks about their shifts or attendance options. Do not use when the user asks about calendar meetings."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyShifts/ShowMyShiftsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

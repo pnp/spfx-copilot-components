@@ -1,0 +1,106 @@
+// Atom: button. Values are tokens (tokens/Tokens.module.scss) and accent colours (--card-accent*).
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-block-size: 2rem;
+  padding-block: 0.25rem;
+  padding-inline: 0.75rem;
+  border: var(--border-width-regular) solid var(--color-border-primary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-md-size);
+  line-height: var(--font-text-md-line-height);
+  cursor: pointer;
+  // Press feedback on pointer-down, instantly (Apple §1); colours ease with the theme.
+  transition: transform 100ms ease-out, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+
+  &:hover {
+    background: var(--color-background-secondary);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  // Completion: a brief visible ✓ after a follow-up was accepted (Apple §16, feedback).
+  &[data-state="done"] {
+    border-color: var(--color-border-success);
+    color: var(--color-text-success);
+
+    &::after {
+      content: "✓";
+    }
+  }
+
+  // display: inline-flex would otherwise win over the hidden attribute.
+  &[hidden] {
+    display: none;
+  }
+
+  &:disabled {
+    color: var(--color-text-disabled);
+    background: var(--color-background-disabled);
+    border-color: var(--color-border-disabled);
+    cursor: default;
+  }
+}
+
+// Inside running text (a notice): one line high. Two classes, so touch sizing below can't undo it.
+.button.small {
+  min-block-size: 1.625rem;
+  padding-block: 0.125rem;
+  font-size: var(--font-text-sm-size);
+}
+
+.primary {
+  border-color: var(--card-accent);
+  background: var(--card-accent);
+  color: var(--card-accent-text);
+
+  &:hover {
+    background: var(--card-accent);
+    filter: brightness(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  // Gentler equivalent, not no feedback: colour changes stay, movement goes (Apple §14).
+  .button {
+    transition: background-color 100ms ease;
+  }
+
+  .button:active:not(:disabled) {
+    transform: none;
+    background: var(--color-background-tertiary);
+  }
+}
+
+@media (prefers-contrast: more) {
+  .button {
+    border-width: 2px;
+  }
+}
+
+// Touch: comfortable targets (the desktop app also runs on touch screens).
+@media (pointer: coarse) {
+  .button {
+    min-block-size: 2.75rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .button {
+    border-color: ButtonText;
+  }
+
+  .primary {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+}

@@ -16,7 +16,7 @@
     {
       "name": "BuildSourcingEventTool",
       "description": {
-        "default": "Build a fair, validated supplier sourcing event draft."
+        "default": "Use when the user asks: How do we run a fair, controlled event? Outcome: A validated sourcing-event draft. Boundary: Not bid evaluation."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/buildSourcingEvent/BuildSourcingEventCopilotComponentProperties.js:default;"

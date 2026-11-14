@@ -3,7 +3,7 @@
   "agents": [
     {
       "name": {
-        "default": "Zava Revenue Deal Room"
+        "default": "ZavaMesh Revenue Deal Room"
       },
       "description": {
         "default": "Turn buyer evidence into coordinated deal action and a defensible forecast."
@@ -29,7 +29,13 @@
         "088868c8-9948-47e7-932c-4cc9acca0f1e",
         "fd309a8e-faea-4d38-a683-67d1313b7f4c",
         "89f48b2b-b5c8-4c8a-8aec-0518b4be6cce",
-        "e4e5bdc2-bc81-4b28-be64-6f3c59d87e41"
+        "e4e5bdc2-bc81-4b28-be64-6f3c59d87e41",
+        "7bdb1a83-eab0-4d48-a145-a6031abc0171",
+        "a427a46d-a6ca-4cb7-82af-91bf1a4b0172",
+        "eb059c62-ec7a-4199-aa83-a6e110aa0173",
+        "95a2b711-33a0-45e4-8dad-47bf7a028a25",
+        "24337249-1b4b-482a-94ea-50785ab4600a",
+        "441a95fc-e197-4147-abda-23682907d5c8"
       ]
     }
   ]

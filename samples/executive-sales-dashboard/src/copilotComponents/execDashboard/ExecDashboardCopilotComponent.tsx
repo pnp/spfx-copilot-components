@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import { SPHttpClient, type SPHttpClientResponse } from '@microsoft/sp-http';
@@ -29,6 +29,7 @@ import * as strings from 'ExecDashboardCopilotComponentStrings';
 export default class ExecDashboardCopilotComponent extends BaseCopilotComponent<IExecDashboardCopilotComponentProperties> {
   private _siteTitle: string = '';
   private _siteUrl: string = '';
+  private _root: Root | undefined;
 
   protected async onInit(): Promise<void> {
     this._siteUrl = this.context.pageContext.web.absoluteUrl;
@@ -80,10 +81,16 @@ export default class ExecDashboardCopilotComponent extends BaseCopilotComponent<
       onRequestFullscreen: this._requestFullscreen
     };
 
-    ReactDOM.render(React.createElement(ExecDashboard, props), this.context.domElement);
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(React.createElement(ExecDashboard, props));
   }
 
-  protected async onTeardown(): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+  protected async onTeardown(reason: string | undefined): Promise<void> {
+    this._root?.unmount();
+    this._root = undefined;
+    await super.onTeardown(reason);
   }
 }

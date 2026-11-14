@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import type { ISPCopilotContainerDimensions } from '@microsoft/sp-copilot-component';
@@ -32,6 +32,7 @@ abstract class ZavaIntentCopilotComponentBase<
 > extends BaseCopilotComponent<TProperties> {
   private _signature?: string;
   private _propertiesVersion = 0;
+  private _root: Root | undefined;
 
   protected abstract resolveIntent(properties: unknown): TIntent;
   protected abstract renderInline(intent: TIntent, host: IZavaInlineHost): React.ReactElement;
@@ -67,16 +68,19 @@ abstract class ZavaIntentCopilotComponentBase<
       onRequestFullscreen: canExpand ? this._handleRequestFullscreen : undefined
     }), { key: this._propertiesVersion });
 
-    ReactDOM.render(
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+    this._root.render(
       <HomeThemeProvider theme={this.hostContext.theme} targetDocument={targetDocument}>
         {content}
-      </HomeThemeProvider>,
-      this.context.domElement
+      </HomeThemeProvider>
     );
   }
 
   protected onTeardown(reason: string | undefined): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root?.unmount();
+    this._root = undefined;
     return super.onTeardown(reason);
   }
 

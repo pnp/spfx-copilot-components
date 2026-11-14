@@ -1,10 +1,9 @@
 {
-  "$schema": "https://aka.ms/json-schemas/copilot-extensions/v2.1/plugin.schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
   "schema_version": "v2.4",
   "namespace": "myDay",
   "name_for_human": "My Day",
   "description_for_human": "Your personal daily cockpit — next meeting, tasks due, news and mail at a glance.",
   "description_for_model": "Renders the signed-in user's personalized daily summary on the Copilot canvas: greeting, upcoming meetings, tasks due today, latest SharePoint news, and important mail, plus a 'Plan my day' focus briefing. Invoke when the user asks about their day, schedule, agenda, what's next, what to focus on, their tasks, news, or important mail.",
-  "contact_email": "publisher@contoso.com"
+  "contact_email": "pnp@microsoft.com"
 }
-

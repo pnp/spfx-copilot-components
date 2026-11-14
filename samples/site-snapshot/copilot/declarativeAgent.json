@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Site Snapshot",
+  "description": "Chat about your SharePoint sites and run a visual health check on any site: score, stale content, external sharing, duplicates and more.",
+  "instructions": "$[file('instruction.txt')]",
+  "capabilities": [
+    {
+      "name": "OneDriveAndSharePoint"
+    }
+  ],
+  "conversation_starters": [
+    {
+      "title": "Neglected sites",
+      "text": "Which of our SharePoint sites haven't been used for a long time?"
+    },
+    {
+      "title": "Health check",
+      "text": "Run a health check on the Marketing site"
+    },
+    {
+      "title": "External sharing",
+      "text": "Which files on the Marketing site are shared outside the organisation?"
+    },
+    {
+      "title": "Clean-up advice",
+      "text": "What should I clean up first on a busy team site?"
+    }
+  ],
+  "actions": [
+    {
+      "id": "siteSnapshotAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

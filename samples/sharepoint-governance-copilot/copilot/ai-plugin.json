@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "sharePointGovernance",
+  "name_for_human": "SharePoint Governance Agent",
+  "description_for_human": "An executive governance dashboard — score, trends, priority actions, and explainable risk findings for your SharePoint tenant.",
+  "description_for_model": "Renders an executive governance dashboard on the Copilot canvas: a 0-100 governance score with a trend indicator, an AI-generated executive summary, the top 3-5 prioritized remediation actions, a tenant-wide insights panel (sites without owners, inactive sites, anonymous sharing, excessive guest access, expiring reviews), an estimated risk reduction percentage, and severity-ranked findings (high/medium shown first, low-priority collapsed) each with risk, impact, why it matters, and a recommended action. Invoke when the user asks about governance risk, site health, ownership, sharing, guest access, lifecycle reviews, or their governance score. Supports optional filters: riskType (missingOwner, inactive, broadSharing, expiring, all), minimumSeverity (low, medium, high), and maxResults (1-50).",
+  "contact_email": "publisher@contoso.com"
+}

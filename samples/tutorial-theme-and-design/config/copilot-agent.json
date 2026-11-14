@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Design Showcase Agent"
+      },
+      "description": {
+        "default": "Shows sample project cards that follow the Copilot theme and display modes."
+      },
+      "components": [
+        "1410b787-8bbe-4588-ab10-fc117876c1d6"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

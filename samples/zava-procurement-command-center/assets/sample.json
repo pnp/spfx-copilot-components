@@ -2,43 +2,151 @@
   {
     "name": "pnp-sp-dev-spfx-copilot-components-zava-procurement-command-center",
     "source": "pnp",
-    "title": "Zava Procurement Command Center",
-    "shortDescription": "An evidence-led procurement Copilot App with 22 routed components and four connected workspaces.",
+    "title": "ZavaCore Procurement Command Center",
+    "shortDescription": "Guided intake, human approvals, resilient sourcing and global investment insights in 22 Copilot experiences.",
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-procurement-command-center",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/zava-procurement-command-center",
     "longDescription": [
-      "Zava Procurement Command Center turns natural-language buying intent into focused, inspectable work across guided intake, policy, demand aggregation, sourcing, supplier evaluation, risk, award, contracts, invoices, leakage, and realized value.",
+      "ZavaCore Procurement Command Center connects natural-language business cases to human review, supplier deal evaluation, governed awards, global investment maps, delivery progress and verified procurement value.",
       "Twenty-one operational components and one capability explorer continue into My Requests, Sourcing Workbench, Supplier 360, and Spend Command. The connected rugged-device story preserves request, event, supplier, policy, award, invoice, and value context across roles.",
       "The sample is deterministic, offline, responsive, and explicit that confirmed actions are session-only demonstrations. D3-derived decision visuals include keyboard interaction, accessible summaries, and exact-value alternatives."
     ],
     "creationDateTime": "2026-08-31",
-    "updateDateTime": "2026-08-31",
-    "products": ["SharePoint", "Copilot"],
+    "updateDateTime": "2026-10-28",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
     "metadata": [
-      { "key": "SAMPLE-TYPE", "value": "SPFx-CopilotComponent" },
-      { "key": "CLIENT-SIDE-DEV", "value": "React" },
-      { "key": "SPFX-VERSION", "value": "1.24.0-beta.3" }
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
     ],
     "thumbnails": [
-      { "name": "ux-sourcing-workbench.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-workbench.png", "alt": "Full-screen Sourcing Workbench with total-value supplier landscape, exact bid evidence, policy readiness, and award milestones" },
-      { "name": "ux-inline-CreatePurchaseIntent.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-CreatePurchaseIntent.png", "alt": "Inline purchase intent experience for a rugged-device outcome with governed draft and review progression" },
-      { "name": "ux-inline-CompareSupplierBids.png", "type": "image", "order": 102, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-CompareSupplierBids.png", "alt": "Inline D3 supplier total-value landscape with editable risk weight, confidence bubbles, and exact bid table" },
-      { "name": "ux-inline-ReviewSupplierAward.png", "type": "image", "order": 103, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ReviewSupplierAward.png", "alt": "Inline split-award review showing cost, blended risk, delivery confidence, policy evidence, and confirmation control" },
-      { "name": "ux-inline-ResolveInvoiceException.png", "type": "image", "order": 104, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ResolveInvoiceException.png", "alt": "Inline invoice exception review reconciling purchase order, receipt, invoice, freight variance, and tolerance" },
-      { "name": "ux-supplier-360.png", "type": "image", "order": 105, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-supplier-360.png", "alt": "Full-screen Supplier 360 workspace connecting contract notice, quality, evidence, ownership, and supply dependency" },
-      { "name": "ux-spend-command.png", "type": "image", "order": 106, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-spend-command.png", "alt": "Full-screen Spend Command workspace tracing identified opportunity through negotiated, contracted, and realized value" },
-      { "name": "ux-my-requests.png", "type": "image", "order": 107, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-my-requests.png", "alt": "Full-screen My Requests workspace showing the rugged-device outcome path, evidence status, approval, and delivery promise" },
-      { "name": "ux-sourcing-mobile.png", "type": "image", "order": 108, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-mobile.png", "alt": "Sourcing Workbench adapted to a narrow mobile viewport with scrollable navigation and readable supplier evidence" },
-      { "name": "ux-sourcing-dark.png", "type": "image", "order": 109, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-dark.png", "alt": "Sourcing Workbench in dark theme with accessible supplier geometry, policy states, evidence table, and milestones" },
-      { "name": "ux-inline-ExploreAgentCapabilities.png", "type": "image", "order": 110, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ExploreAgentCapabilities.png", "alt": "Inline searchable catalog of twenty-one procurement operations with role questions and safe capability previews" }
+      {
+        "name": "ux-sourcing-workbench.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-workbench.png",
+        "alt": "Full-screen Sourcing Workbench with total-value supplier landscape, exact bid evidence, policy readiness, and award milestones"
+      },
+      {
+        "name": "ux-inline-CreatePurchaseIntent.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-CreatePurchaseIntent.png",
+        "alt": "Inline purchase intent experience for a rugged-device outcome with governed draft and review progression"
+      },
+      {
+        "name": "ux-inline-CompareSupplierBids.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-CompareSupplierBids.png",
+        "alt": "Inline D3 supplier total-value landscape with editable risk weight, confidence bubbles, and exact bid table"
+      },
+      {
+        "name": "ux-inline-ReviewSupplierAward.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ReviewSupplierAward.png",
+        "alt": "Inline split-award review showing cost, blended risk, delivery confidence, policy evidence, and confirmation control"
+      },
+      {
+        "name": "ux-inline-ResolveInvoiceException.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ResolveInvoiceException.png",
+        "alt": "Inline invoice exception review reconciling purchase order, receipt, invoice, freight variance, and tolerance"
+      },
+      {
+        "name": "ux-supplier-360.png",
+        "type": "image",
+        "order": 105,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-supplier-360.png",
+        "alt": "Full-screen Supplier 360 workspace connecting contract notice, quality, evidence, ownership, and supply dependency"
+      },
+      {
+        "name": "ux-spend-command.png",
+        "type": "image",
+        "order": 106,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-spend-command.png",
+        "alt": "Full-screen Spend Command workspace tracing identified opportunity through negotiated, contracted, and realized value"
+      },
+      {
+        "name": "ux-my-requests.png",
+        "type": "image",
+        "order": 107,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-my-requests.png",
+        "alt": "Full-screen My Requests workspace showing the rugged-device outcome path, evidence status, approval, and delivery promise"
+      },
+      {
+        "name": "ux-sourcing-mobile.png",
+        "type": "image",
+        "order": 108,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-mobile.png",
+        "alt": "Sourcing Workbench adapted to a narrow mobile viewport with scrollable navigation and readable supplier evidence"
+      },
+      {
+        "name": "ux-sourcing-dark.png",
+        "type": "image",
+        "order": 109,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-sourcing-dark.png",
+        "alt": "Sourcing Workbench in dark theme with accessible supplier geometry, policy states, evidence table, and milestones"
+      },
+      {
+        "name": "ux-inline-ExploreAgentCapabilities.png",
+        "type": "image",
+        "order": 110,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-inline-ExploreAgentCapabilities.png",
+        "alt": "Inline searchable catalog of twenty-one procurement operations with role questions and safe capability previews"
+      },
+      {
+        "name": "ux-ReviewSupplierAward-review.png",
+        "type": "image",
+        "order": 111,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-ReviewSupplierAward-review.png",
+        "alt": "Supplier award review with exact primary and resilient shares, cost, risk, on-time confidence, decision and human rationale before explicit confirmation"
+      },
+      {
+        "name": "ux-ReviewSupplierAward-receipt.png",
+        "type": "image",
+        "order": 112,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-procurement-command-center/assets/ux-ReviewSupplierAward-receipt.png",
+        "alt": "Confirmed offline award receipt with the matching sourcing event, supplier shares, human rationale and an explicit statement that no external system changed"
+      }
     ],
     "authors": [
-      { "gitHubAccount": "vesajuvonen", "pictureUrl": "https://github.com/vesajuvonen.png", "name": "Vesa Juvonen" }
+      {
+        "gitHubAccount": "vesajuvonen",
+        "pictureUrl": "https://github.com/vesajuvonen.png",
+        "name": "Vesa Juvonen"
+      }
     ],
     "references": [
-      { "name": "Build your first SharePoint Copilot App", "description": "Build and package an SPFx Copilot Component.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app" },
-      { "name": "SharePoint Framework overview", "description": "Overview of SharePoint Framework solutions.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview" },
-      { "name": "D3", "description": "Data-driven scales and shapes used by the local decision visualizations.", "url": "https://d3js.org/" }
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Build and package an SPFx Copilot Component.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "SharePoint Framework overview",
+        "description": "Overview of SharePoint Framework solutions.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "D3",
+        "description": "Data-driven scales and shapes used by the local decision visualizations.",
+        "url": "https://d3js.org/"
+      }
     ]
   }
 ]

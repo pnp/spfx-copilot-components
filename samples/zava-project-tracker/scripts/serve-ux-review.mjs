@@ -26,7 +26,8 @@ const contentTypes = {
 };
 
 const server = http.createServer((request, response) => {
-  const requestPath = request.url === '/' ? '/index.html' : request.url || '/index.html';
+  const pathname = new URL(request.url || '/', 'http://127.0.0.1').pathname;
+  const requestPath = pathname === '/' ? '/index.html' : pathname;
   const filePath = path.join(reviewRoot, requestPath.replace(/^\//, ''));
   if (!filePath.startsWith(reviewRoot) || !fs.existsSync(filePath)) {
     response.writeHead(404);

@@ -3,23 +3,23 @@
   "solution": {
     "name": "my-day-client-side-solution",
     "id": "20739318-a47a-41d4-93a8-a9739e34fe95",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.24.0-dev.5"
+      "name": "Microsoft 365 PnP Community",
+      "websiteUrl": "https://pnp.github.io/",
+      "privacyUrl": "https://privacy.microsoft.com/",
+      "termsOfUseUrl": "https://www.microsoft.com/servicesagreement",
+      "mpnId": "Undefined-1.24.0-rc.0"
     },
     "metadata": {
       "shortDescription": {
-        "default": "my-day description"
+        "default": "A personal daily cockpit with agenda, tasks, mail, news and a read-only focus briefing in Copilot."
       },
       "longDescription": {
-        "default": "my-day description"
+        "default": "A self-contained SPFx Copilot Component demonstrating React 18, host-controlled display modes, purposeful personal-day focus, Fluent UI theming, deterministic mock data and session-only settings."
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -30,7 +30,7 @@
         "title": "my-day Feature",
         "description": "The feature that activates elements of the my-day solution.",
         "id": "a10d8f25-fef4-4fd3-8993-eea59db3e54c",
-        "version": "1.0.0.0"
+        "version": "1.0.0.1"
       }
     ]
   },

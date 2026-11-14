@@ -25,7 +25,7 @@
 // are missing or a call fails, so the UI never changes and always renders.
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import type { ICopilotComponentHostContext } from '@microsoft/sp-copilot-component';
@@ -40,6 +40,7 @@ import type { ITimeOffOverviewCopilotComponentProperties } from './TimeOffOvervi
 export default class TimeOffOverviewCopilotComponent extends BaseCopilotComponent<ITimeOffOverviewCopilotComponentProperties> {
   private _dataService!: ITimeOffDataService;
   private _unsubscribe?: () => void;
+  private _root: Root | undefined;
   // Bumps every time render() runs. Passed to the React tree so it can detect a
   // fresh tool invocation (vs a passive re-render from host-context changes or
   // data-service mutations) and re-seed its local UI state.
@@ -70,7 +71,11 @@ export default class TimeOffOverviewCopilotComponent extends BaseCopilotComponen
     const targetDocument: Document | undefined =
       this.context.domElement.ownerDocument || undefined;
 
-    ReactDOM.render(
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(
       <TimeOffApp
         dataService={this._dataService}
         hostContext={this.hostContext}
@@ -79,8 +84,7 @@ export default class TimeOffOverviewCopilotComponent extends BaseCopilotComponen
         initialHighlight={this.properties.leaveType}
         propertiesVersion={this._propertiesVersion}
         targetDocument={targetDocument}
-      />,
-      this.context.domElement
+      />
     );
   }
 
@@ -96,9 +100,8 @@ export default class TimeOffOverviewCopilotComponent extends BaseCopilotComponen
       this._unsubscribe();
       this._unsubscribe = undefined;
     }
-    if (this.context && this.context.domElement) {
-      ReactDOM.unmountComponentAtNode(this.context.domElement);
-    }
+    this._root?.unmount();
+    this._root = undefined;
   }
 
   // Request fullscreen via the SPFx Copilot bridge. We don't mutate local state

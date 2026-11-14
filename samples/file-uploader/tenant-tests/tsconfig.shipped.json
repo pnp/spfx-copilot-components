@@ -1,0 +1,28 @@
+{
+  // Compiles the SHIPPED store and its pure setting rules for loop 2 — the same
+  // source the component bundles, to CommonJS in temp/ (git-ignored). Only these
+  // two entry files and what they import; nothing that touches React or the host.
+  // getSP.ts is listed for its TYPES only: its side-effect imports are what add
+  // `sp.web` to SPFI. The harness never loads the getSP.js this emits — it builds
+  // its own SPFI and imports the same areas itself (stores/sharepoint.mjs).
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "lib": ["es2020", "dom"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "types": [],
+    "rootDir": "../src",
+    "outDir": "../temp/tenant-lib",
+    "noEmitOnError": true,
+    "declaration": false,
+    "sourceMap": false
+  },
+  "files": [
+    "../src/copilotComponents/fileUploader/services/SharePointDocumentStoreService.ts",
+    "../src/copilotComponents/fileUploader/services/storeSetting.ts",
+    "../src/copilotComponents/fileUploader/services/getSP.ts"
+  ]
+}

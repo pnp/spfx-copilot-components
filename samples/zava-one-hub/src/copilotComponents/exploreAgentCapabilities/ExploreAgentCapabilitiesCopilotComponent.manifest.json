@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "08cc8263-2ccb-427e-a1da-cfd5f0a03cb1",
+  "alias": "ExploreAgentCapabilitiesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExploreAgentCapabilities",
+      "description": {
+        "default": "Use when the user asks what Zava One can do. Do not use when the user has a known specific business task."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

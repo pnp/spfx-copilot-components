@@ -1,6 +1,9 @@
 # Zava Innovation Hub - designer review guide
 
-Review the implemented React experience, not the four historical design references. The current evidence index is `assets/visual-evidence.json`.
+Review the implemented React experience, not historical references. Current RC0 evidence is
+`assets/gallery-evidence.json` (11 curated publication captures) and `assets/intent-evidence.json`
+(all 17 tools at standard/narrow/dark, seven flows at review/receipt, gate decisions, and no-match).
+The August `visual-evidence.json` and Workbench artifacts are historical, not fresh RC0 evidence.
 
 ## Review goals
 
@@ -16,18 +19,18 @@ Review the implemented React experience, not the four historical design referenc
 | Experience | Evidence |
 | --- | --- |
 | Enterprise Insights keynote | `assets/ux-fullscreen-enterprise.png` |
-| Enterprise recognition applied | `assets/ux-fullscreen-enterprise-recognition.png` |
+| Recognition review | `assets/intent-visuals/CelebrateInnovationImpact-standard-review.png` |
 | My Innovation | `assets/ux-fullscreen-my.png` |
 | Programs & Pilots | `assets/ux-fullscreen-programs.png` |
 | Reviews & Gates | `assets/ux-fullscreen-reviews.png` |
 | Investment | `assets/ux-fullscreen-investment.png` |
-| Incoming review queue | `assets/ux-inline-review-queue.png` |
-| Review detail | `assets/ux-inline-review-detail.png` |
-| Send-back confirmation | `assets/ux-inline-review-send-back-confirm.png` |
-| Decline receipt | `assets/ux-inline-review-decline-receipt.png` |
-| Recognition composer | `assets/ux-inline-CelebrateInnovationImpact.png` |
+| Incoming review queue | `assets/ux-inline-GetInnovationReviewQueue.png` |
+| Review detail | `assets/intent-visuals/ReviewIdeaGate-standard.png` |
+| Gate confirmation | `assets/intent-visuals/ReviewIdeaGate-standard-confirm.png` |
+| Gate receipt | `assets/intent-visuals/ReviewIdeaGate-standard-receipt.png` |
+| Recognition composer | `assets/intent-visuals/CelebrateInnovationImpact-standard.png` |
 
-Every catalog intent also has `assets/ux-inline-<IntentName>.png`.
+Every catalog intent has `assets/intent-visuals/<IntentName>-standard.png`, `-narrow.png`, and `-dark.png`.
 
 ## Visual language
 
@@ -44,13 +47,18 @@ Every catalog intent also has `assets/ux-inline-<IntentName>.png`.
 - Toggle Compact and confirm density changes without losing context.
 - In Program growth, switch submissions, conversion, and value.
 - In Reviews & Gates, select each phase and status bucket.
-- Complete Approve, Send back, and Decline; Send back/Decline must require rationale.
-- In Enterprise Insights, acknowledge one top-performing idea and verify the recognition banner.
+- The queue is inspection-only. Invoke ReviewIdeaGate to complete Approve, Send back, and Decline;
+  every decision requires a human rationale and explicit confirmation.
+- In Celebrate impact, name contribution/source and edit the message before review/confirmation.
+  Enterprise Insights is read-only and has no acknowledgement mutation.
 - Use Reset demo data before another review session.
 
 ## Accessibility states
 
-Local evidence covers narrow/standard/keynote, representative dark, reduced motion, forced colors, keyboard focus, and 200% page scale. Confirm in design review:
+Current automated evidence covers standard/narrow/dark and curated full-screen role defaults, with
+runtime/overflow/broken-image checks and mode/theme draft retention. Reduced-motion capture is used.
+Forced colors, 200% scale, screen readers, and full keyboard rehearsal require fresh accessibility
+review; do not infer those results from historical screenshots. Confirm:
 
 - Focus remains visible against grape, marigold, and neutral surfaces.
 - No meaning depends only on color.

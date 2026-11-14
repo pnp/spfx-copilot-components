@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "site-snapshot-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/siteSnapshot/SiteSnapshotCopilotComponent.js",
+          "manifest": "./src/copilotComponents/siteSnapshot/SiteSnapshotCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SiteSnapshotComponentStrings": "lib/copilotComponents/siteSnapshot/loc/{locale}.js"
+  }
+}

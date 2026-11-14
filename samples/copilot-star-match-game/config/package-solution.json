@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "copilot-star-match-game-client-side-solution",
+    "id": "9b76c934-bef8-4453-b337-b023243786d7",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "copilot-star-match-game description"
+      },
+      "longDescription": {
+        "default": "copilot-star-match-game description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "copilot-star-match-game Feature",
+        "description": "The feature that activates elements of the copilot-star-match-game solution.",
+        "id": "b4ed0906-c505-4158-92b6-67b2c0457faf",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/copilot-star-match-game.sppkg"
+  }
+}

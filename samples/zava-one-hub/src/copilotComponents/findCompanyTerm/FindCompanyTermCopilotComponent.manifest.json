@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "9c99cc55-cc16-4744-a32f-2d3873d6b03d",
+  "alias": "FindCompanyTermCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindCompanyTerm",
+      "description": {
+        "default": "Use when the user asks for a Zava term or acronym. Do not use when the user asks a broader policy question."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findCompanyTerm/FindCompanyTermCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

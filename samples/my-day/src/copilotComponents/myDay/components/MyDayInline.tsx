@@ -4,11 +4,12 @@ import { makeStyles, tokens } from '@fluentui/react-components';
 import type { SPCopilotTheme } from '@microsoft/sp-copilot-component';
 
 import type { IMyDayCopilotComponentProperties } from '../MyDayCopilotComponentProperties';
-import type { IUser } from '../models/myDay';
-import { MockMyDayDataService } from '../services/MockMyDayDataService';
+import type { IMyDayData } from '../models/myDay';
 import { fadeIn } from '../utils/motion';
 import AgendaTimeline from './fullscreen/AgendaTimeline';
 import TasksPanel from './fullscreen/TasksPanel';
+import ImportantMail from './fullscreen/ImportantMail';
+import { planMyDay } from '../services/planMyDay';
 import InlineDetailHeader from './inline/InlineDetailHeader';
 import InlineSummary from './inline/InlineSummary';
 import NewsList from './inline/NewsList';
@@ -19,8 +20,11 @@ import type { InlineView } from './inline/views';
  * `'inline'`.
  */
 export interface IMyDayInlineProps extends IMyDayCopilotComponentProperties {
-  /** Signed-in user resolved from the SPFx page context. */
-  currentUser?: IUser;
+  view: InlineView;
+  onViewChange: (view: InlineView) => void;
+  data: IMyDayData;
+  now: Date;
+  onTaskToggle: (id: string) => void;
   /** Color theme advertised by the Copilot host. */
   theme?: SPCopilotTheme;
   /** Requests the host to switch the component into fullscreen. */
@@ -44,11 +48,13 @@ const useStyles = makeStyles({
       animationName: 'none',
       animationDuration: '1ms'
     }
+  },
+  plan: {
+    padding: '16px',
+    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: tokens.colorNeutralBackground2
   }
 });
-
-/** Single shared mock data service instance for the inline view. */
-const dataService = new MockMyDayDataService();
 
 /**
  * Inline display-mode view. Owns the local drill-down navigation state and
@@ -59,24 +65,24 @@ const dataService = new MockMyDayDataService();
  */
 const MyDayInline: React.FunctionComponent<IMyDayInlineProps> = (props) => {
   const styles = useStyles();
-  const { currentUser, onRequestFullscreen } = props;
+  const { data, now, onTaskToggle, onRequestFullscreen, view, onViewChange: setView } = props;
 
-  const [view, setView] = React.useState<InlineView>('summary');
-
-  // Resolve the mock data once per mount against the current clock so relative
-  // times stay live and future-biased.
-  const now = React.useMemo(() => new Date(), []);
-  const data = React.useMemo(() => {
-    const myDay = dataService.getMyDay(now);
-    // Prefer the real signed-in user from the page context over the mock user,
-    // keeping the mock user as a fallback (e.g. tests without a page context).
-    return currentUser ? { ...myDay, user: currentUser } : myDay;
-  }, [now, currentUser]);
-
-  const back = React.useCallback(() => setView('summary'), []);
+  const back = React.useCallback(() => setView('summary'), [setView]);
 
   let content: React.ReactNode;
   switch (view) {
+    case 'plan': {
+      const plan = planMyDay(data, now);
+      content = <><InlineDetailHeader onBack={back} /><section className={styles.plan}>
+        <h2>Plan my day</h2><p>{plan.headline}</p>
+        <ol>{plan.items.map(item => <li key={item.id}><strong>{item.title}</strong><p>{item.reason}</p>{item.suggestedTime && <p>{item.suggestedTime}</p>}</li>)}</ol>
+        <p>Read-only briefing generated locally from sample data. No meeting, task, or message was changed.</p>
+      </section></>;
+      break;
+    }
+    case 'mail':
+      content = <><InlineDetailHeader onBack={back} /><ImportantMail mail={data.mail} now={now} /></>;
+      break;
     case 'meetings':
       content = (
         <>
@@ -89,7 +95,7 @@ const MyDayInline: React.FunctionComponent<IMyDayInlineProps> = (props) => {
       content = (
         <>
           <InlineDetailHeader onBack={back} />
-          <TasksPanel tasks={data.tasks} now={now} />
+          <TasksPanel tasks={data.tasks.filter(task => task.due?.toDateString() === now.toDateString())} now={now} onToggleTask={onTaskToggle} />
         </>
       );
       break;
@@ -108,7 +114,7 @@ const MyDayInline: React.FunctionComponent<IMyDayInlineProps> = (props) => {
   }
 
   return (
-    <div className={styles.surface} data-display-mode="inline">
+    <div className={styles.surface} data-display-mode="inline" data-my-day-view={view}>
       {view === 'summary' ? (
         content
       ) : (

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "1410b787-8bbe-4588-ab10-fc117876c1d6",
+  "alias": "DesignShowcaseCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ShowDesignShowcase",
+      "description": {
+        "default": "Shows a set of sample project cards that follow the Copilot theme and adapt to the inline and fullscreen display modes. Use when the user asks to see the design showcase, the sample projects, or the project cards."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/designShowcase/DesignShowcaseCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

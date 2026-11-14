@@ -5,7 +5,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const assetsDirectory = path.join(root, 'assets');
 const samplePath = path.join(assetsDirectory, 'sample.json');
 const repositoryPath = 'samples/zava-employee-agent/assets';
-const expectedScreenshots = 32;
+const expectedScreenshots = 33;
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

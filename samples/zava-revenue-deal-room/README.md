@@ -1,38 +1,125 @@
-# Zava Revenue Deal Room
+# ZavaMesh Revenue Deal Room
+
+> **Current release: solution 1.0.0.9 / authored agent 1.0.9.** Built with SPFx 1.24.0 GA
+> and React 18.3.1. Current package versions, test results and screenshot hashes are recorded in
+> [release evidence](assets/release-evidence.json). Local validation is not tenant deployment or
+> certification of every Copilot host.
+
+## ZavaMesh experience
+
+The sample uses the supplied ZavaMesh woven identity, green/lime visual language and locally bundled
+brand imagery. The original 21 Copilot tool names and package identities remain stable. Six additional
+components bring the catalog to **27**: attention drill-down, personal priorities, guided deal
+submission, independent approval, pipeline value flow and approval progress.
+
+The keynote connects **My Deals -> Deal Room -> Commercial Desk -> reviewed submission and independent
+decision -> Revenue Command**. Each workspace has its own useful landing; a deal, request or scenario
+appears only through component context or explicit selection. Country opportunity values come from
+the scoped offline catalog with account-headquarters attribution. Recorded spend comes from a
+separate **$3.4M** expense ledger, not requested investment, rollout revenue or ROI.
+
+The redesign is informed by public enterprise revenue patterns from
+[Salesforce Revenue Cloud](https://www.salesforce.com/sales/revenue-lifecycle-management/) (guided
+quoting and human governance), [DealHub](https://dealhub.io/platform/) (commercial orchestration),
+[Clari / Salesloft](https://www.salesloft.com/platform/sales-forecasting-software) (risk-to-action
+forecasting) and [Dynamics 365 Sales](https://www.microsoft.com/en-us/dynamics-365/products/sales)
+(connected seller workflow). These are category benchmarks, not a worldwide market ranking.
+
+### Global competitor benchmark and design choices
+
+Public product descriptions were reviewed on October 26, 2026. The comparison considers globally
+available offerings; it is not a hands-on certification, exhaustive competitive audit or market ranking.
+
+| Offering / primary source | Relevant pattern | ZavaMesh response |
+| --- | --- | --- |
+| [Salesforce Revenue Cloud](https://www.salesforce.com/sales/revenue-lifecycle-management/) | Guided quoting, pricing rules and human-controlled revenue governance | Live commercial math followed by visible policy routing and explicit confirmation |
+| [DealHub](https://dealhub.io/platform/) | Context-led, traceable commercial orchestration | One canonical request inbox, independent role stages and matching audit receipts |
+| [Clari / Salesloft Forecast](https://www.salesloft.com/platform/sales-forecasting-software) | Period/region forecasting and risk-to-action visibility | Linked portfolio filters, seller-weighted outlook and evidence-aware interventions |
+| [Dynamics 365 Sales](https://www.microsoft.com/en-us/dynamics-365/products/sales) | Enterprise seller-workflow category benchmark | Separate seller, pursuit, commercial and leadership destinations rather than one universal dashboard |
+| [Zoho CRM](https://www.zoho.com/crm/) | Team-specific spaces, collaboration, forecasting and BI | Role-owned workspaces with a shared confirmed-request overlay, not duplicated workflow records |
+| [Pipedrive reporting](https://www.pipedrive.com/en/features/sales-reporting) | Clear KPI dashboards, pipeline visibility and actionable reporting | Readable value hierarchy, real filter-linked chart geometry, geographic focus and exact-value alternatives |
+
+**Sweet spot:** a focused conversational entry expands into an evidence-aware system of action:
+inspect the opportunity, shape the economics, submit the actual request, make an independent human
+decision, and inspect the result. The sample borrows workflow principles, not competitor UI or assets.
+
+The implementation contract and workspace boundaries are tracked in [todo.md](todo.md).
+
+**Brand redistribution:** ZavaMesh logos and imagery were supplied for this sample. Final public
+redistribution approval remains pending, alongside the existing persona-media review. Optimized
+runtime images and source hashes are recorded in [brand-provenance.json](assets/brand-provenance.json).
+To reimport approved originals, run
+`.\scripts\import-zavamesh-brand.ps1 -Source '<local ZavaMesh asset folder>'`.
+
+This release targets **SPFx 1.24.0 and React 18.3.1**. Current local validation and package hashes
+are recorded in the generated [release evidence](assets/release-evidence.json). Starter ownership is defined in
+[conversation-starters.json](config/conversation-starters.json).
 
 > [!IMPORTANT]
 > **Ready-made package:** deploy
 > [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg) without building the
 > project. The experience is a deterministic offline showcase; confirmations and receipts do not write
 > to CRM, contact customers, approve terms, or change a production forecast.
+> The deployment package is **1.0.0.9**; its embedded agent matches the standalone
+> [Teams agent archive](teams/zavamesh-revenue-deal-room.zip), authored as **1.0.9**.
+> SPFx may append a generated fourth agent-version segment; see release evidence for the packaged value.
 
 > **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
-> **Catalog:** 20 operational inline components + 1 capability explorer<br>
+> **Source catalog:** 26 operational inline components + 1 capability explorer<br>
 > **Full-screen model:** 4 role-aware lenses in one shared revenue application<br>
 > **Reference quality bar:** [Zava Innovation Hub](../zava-innovation-portfolio/README.md) and its
 > [agentic creation rules](../zava-innovation-portfolio/agentic-creation-rules.md)
 
 ## Summary
 
-Zava Revenue Deal Room demonstrates how an agent can become a precise system of action rather than a
-chat response or sales dashboard. Twenty independently routed operational tools and one capability
+ZavaMesh Revenue Deal Room demonstrates how an agent can become a precise system of action rather than a
+chat response or sales dashboard. Twenty-six independently routed operational tools and one capability
 explorer share a React 18 application, one connected Contoso revenue graph, four full-screen workspaces,
 and human-controlled review and confirmation patterns.
 
-The keynote path connects deal risk, buyer influence, mutual commitments, commercial simulation,
-exception governance, and forecast evidence for Contoso Global Expansion / `ZDR-2042`. Facts, seller
-judgment, stale records, contrary evidence, deterministic calculations, and inference remain visibly
-different throughout the journey.
+The keynote follows Contoso Global Expansion / `ZDR-2042` from an owned priority through buyer proof,
+commercial choice and an independently reviewed request. The generated `ZM-...` request ID remains
+distinct from the opportunity. Facts, seller judgment, stale records, contrary evidence, deterministic
+calculations and inference remain visibly different throughout the journey.
 
 ## Screenshots
 
-![Full-screen Deal Room coordinating buyer influence and evidence](assets/fullscreen-deal-room.png)
+### Four purposeful workspace landings
 
-![Commercial scenario with live value, margin, authority, and forecast calculations](assets/inline-commercial-scenario.png)
+Left-menu navigation opens these starting points, not an unrelated task appended below a dashboard.
+Select an item to work on it; **Resume** restores explicitly selected work and its mounted draft.
 
-![D3 projected global opportunity map with regional value and slip risk](assets/inline-global-opportunity-map.png)
+![My Deals landing with owned-book outlook, evidence-linked next action and exact opportunity selection](assets/fullscreen-my-deals-home.png)
 
-![Revenue Command with D3 pipeline, map, forecast bridge, and evidence](assets/fullscreen-revenue-command.png)
+![Deal Room landing with scoped opportunities and recorded buyer-proof coverage before opening one deal](assets/fullscreen-deal-room-home.png)
+
+![Commercial Desk landing with independent review workload, proposed-offer entry and exact stored requests](assets/fullscreen-commercial-desk-home.png)
+
+![Revenue Command landing with country opportunity, separate recorded spend and explicit pipeline interventions](assets/fullscreen-revenue-command-home.png)
+
+### Selected work, country maps and value flows
+
+![Selected Contoso Deal Room with buyer-role network, evidence records and relevant next business step](assets/fullscreen-deal-room.png)
+
+![Commercial Desk selected offer with editable actual economics, margin curve and exact-value request continuation](assets/fullscreen-commercial-desk.png)
+
+![Full-width country opportunity choropleth using scoped catalog value and headquarters attribution](assets/fullscreen-my-deals-analytics.png)
+
+![Country recorded-spend bubbles from a separate expense ledger with country drill-down](assets/fullscreen-country-spend.png)
+
+![Pipeline value flow with conserved regional USD allocations, buyer readiness and next actions](assets/fullscreen-pipeline-value-flow.png)
+
+![Approval value flow with independent-review semantics and an exact named-request continuation](assets/fullscreen-approval-progress.png)
+
+### Focused chat and responsive layouts
+
+![Inline owned-action cockpit with exact deal links and evidence-based next actions rather than numerical priority scores](assets/inline-my-priorities.png)
+
+![Inline deal value versus observable attention flags with exact deal inspection, not predicted losses](assets/inline-deal-attention.png)
+
+![Guided inline deal submission with explicit reviewed-value confirmation](assets/inline-deal-submission.png)
+
+![Inline independent approval inbox with actual stored-request workload and explicit decisions](assets/inline-deal-approvals.png)
 
 ![Deal Room adapted to a narrow mobile viewport](assets/fullscreen-deal-room-mobile.png)
 
@@ -40,18 +127,45 @@ different throughout the journey.
 
 ## Applies to
 
-- SharePoint Framework `1.24.0-beta.3`
+- SharePoint Framework `1.24.0`
 - Microsoft Copilot declarative agents and Copilot Components preview
 - React `18.3.1`, Fluent UI v9 `9.74.6`, and Griffel `1.7.7`
-- Node.js `>=22.14.0 <23.0.0`
+- Node.js 22 (22.14 or later), 24, or 26
 
 ## Minimal Path to Awesome
 
 1. Download and deploy [zava-revenue-deal-room.sppkg](sharepoint/solution/zava-revenue-deal-room.sppkg)
    to the tenant app catalog.
 2. Approve deployment for all sites when prompted.
-3. Add the packaged **Zava Revenue Deal Room** agent in Microsoft Copilot.
-4. Start with “Help me get Contoso's global expansion deal to signature this quarter.”
+3. Add the packaged **ZavaMesh Revenue Deal Room** agent in Microsoft Copilot.
+4. Start with **Pipeline value flow**, **World opportunity map**, **Approval value flow**,
+   **Submit a deal** or **Deal approvals**. **Explore capabilities** is always the last starter.
+
+### High-impact conversation starters
+
+| Order | Starter | Opens |
+| ---: | --- | --- |
+| 1 | Pipeline value flow | Fictional regional value -> buyer readiness -> next-action Sankey. |
+| 2 | World opportunity map | Current-quarter, all-region country opportunity choropleth; no default account filter. |
+| 3 | Approval value flow | Fictional intake -> independent reviewer -> stage-outcome Sankey, distinct from stored requests. |
+| 4 | Submit a deal | Guided story, economics, evidence and explicit reviewed-value submission. |
+| 5 | Deal approvals | Actual stored demo requests, independent role stages and explicit decisions. |
+| 6 | My revenue priorities | Owned-action cockpit with exact deal links and pipeline status. |
+| 7 | Map the buying committee | Recorded buyer-role network, portraits and access gaps for Contoso. |
+| 8 | Model a commercial offer | Editable 1,000-user / 24-month offer, live economics and computed margin curve. |
+| 9 | World recorded-spend map | Country spend bubbles from the separate current-quarter demo expense ledger. |
+| 10 | Build a mutual action plan | Buyer/seller ownership and an editable dependency plan for Contoso. |
+| 11 | Build the customer value case | Editable benefit/cost assumptions and customer payback timeline. |
+| 12 | Explore capabilities | The complete scenario explorer; never a substitute for one of the operational starters above. |
+
+The agent uses all **12 supported starters**: 11 distinct operational component targets and the
+capability explorer in the final position. The exact prompts and component targets are maintained in
+[conversation-starters.json](config/conversation-starters.json) and generated into the agent.
+Starter copy uses natural business questions rather than demonstration labels or chart-engine names;
+the component and agent context retain the data's actual provenance and decision boundaries.
+The [routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) records the same ordered prompts.
+Fictional approval-flow values are not stored-request totals; neither opening approvals nor selecting
+a starter submits or approves anything.
 
 To build locally:
 
@@ -60,11 +174,273 @@ npm ci
 npm run build
 ```
 
+Stop any Heft watcher before the production build and validate the package before restarting
+`npm exec -- heft start --nobrowser`. Watch mode regenerates development assets and the Teams ZIP;
+the validated `.sppkg` remains the production artifact. When restarting watch without source changes
+and retaining a byte-identical release, restore its embedded
+`ClientSideAssets/zavamesh-revenue-deal-room.zip` to
+[teams/zavamesh-revenue-deal-room.zip](teams/zavamesh-revenue-deal-room.zip) after startup.
+This keeps the standalone agent archive and release-evidence hashes aligned with the solution.
+
 Use `npm run capture:visual` to regenerate tenant-free publication screenshots and evidence.
+Use `npm run capture:matrix` for the supplementary all-intent/business-state matrix, and
+`npx tsc --project scripts/visual-harness/tsconfig.json` to typecheck the persistent-root harness.
+Use `npm run capture:journeys` to exercise intake, approvals, storage reload/reset, keyboard actions,
+200% page-scale emulation and all four workspaces at 340/760/1440/1920px in both themes.
+Current results for all three visual suites are included in [release-evidence.json](assets/release-evidence.json).
+
+### Compact component-by-component dialogue
+
+Inline cards show one decision stage at a time, rather than a miniature full-screen dashboard.
+The complete card, including its header and Copilot continuation, is limited to **650 px at a
+760 px desktop viewport** and **800 px at a 390 px narrow viewport**. The business matrix measures
+rendered height and rejects clipped content or nested vertical scrolling as substitutes for staging.
+
+Short lists, focused evidence details, individual charts and form steps keep the conversation moving.
+The primary continuation requests the next relevant component with the exact deal or request ID;
+alternative questions discuss the currently visible stage. Copilot receives the current stage,
+selection, entered values and confirmation state before the chat message, within the complete
+10,000-byte UTF-8 context budget. Switching stages does not submit, approve or reset a draft.
+**Expand** remains available for the existing full-screen workspaces.
+
+### Try the connected deal journey
+
+1. Expand a component into its matching workspace. Use the left menu to open a workspace landing,
+   then select an actual opportunity or request; no unrelated task is appended to another view.
+2. In My Deals, work a priority or open an opportunity. Connect buyer proof in Deal Room, then use
+   **Continue to Commercial scenario** and **Continue to Submit a deal** to carry actual values.
+   Enter the outcome and explicitly attest the evidence.
+3. Review the exact values. Submission stays disabled until the confirmation is checked.
+4. In **Commercial Desk**, select the same request, choose its assigned **simulated** reviewer role,
+   enter a 15-1,000-character rationale, and explicitly confirm the stage decision.
+5. The route always starts with Sales manager; discount above 10% adds Commercial director; discount
+   above 18% or margin below 68% adds Executive committee. Each stage requires independent authority.
+   Missing security or sponsor evidence blocks approval but permits a reasoned return/rejection.
+6. Inspect the matching receipt, decision trail and updated status filter. Returned requests can seed
+   a revised submission. **Reset session data** explicitly restores the two canonical baseline requests.
+7. In **Revenue Command**, change quarter, region and **Opportunity / Recorded spend**. Country
+   geometry, values and record drill-down share the visible scope; approved demo-request status
+   remains distinct from the unchanged CRM-shaped catalog.
+
+Only confirmed demo requests and decisions are stored in browser-session storage. Drafts and review
+consent stay with the current invocation. If storage is denied, a visible warning explains that
+confirmed actions remain memory-only. The shared request overlay survives route changes/reloads in
+the same browser session, but does not mutate the separate specialist workflows or CRM catalog.
+Role switching is a demonstration affordance, not authentication or real delegated approval.
+The agent ZIP is [zavamesh-revenue-deal-room.zip](teams/zavamesh-revenue-deal-room.zip); the `.sppkg`
+filename and component GUIDs are unchanged.
+
+## Current specialist experiences
+
+All 27 intents have business-specific content: **14 read-only analyses, 6 draft submissions,
+6 governed reviews and 1 capability explorer**. There is no generic analysis/operation fallback.
+Only the following optional arguments are advertised; decisions and approvals are never prompt fields.
+
+| Tool | Consumed optional arguments | Working business UX |
+| --- | --- | --- |
+| `BuildAccountBrief` | `accountId`, `selectedId` | Account growth-value footprint from recorded opportunity values, with source changes and whitespace kept distinct. |
+| `QualifyOpportunity` | `opportunityId` | Evidence-based pursuit gate, discovery owner and missing criteria; return/decline remain available. |
+| `MapBuyingCommittee` | `opportunityId`, `selectedId` | Contact portrait network with recorded roles/influence and unproven economic access; inspect the actual contact. |
+| `GetDealRisk` | `opportunityId`, `selectedId` | Evidence-to-signature blocker network linking contrary/stale/inferred signals to relevant close checkpoints. |
+| `PrepareCustomerMeeting` | `meetingId`, `opportunityId`, `selectedId` | Distinct steering/discovery agenda clocks, known attendees and proposed 30-minute allocations; not accepted outcomes. |
+| `BuildMutualActionPlan` | `opportunityId` | Editable dependency DAG, buyer/seller owners and proposed signature target; the 21-day guard remains enforced. |
+| `ReviewMeetingCommitments` | `meetingId`, `opportunityId` | Proposed-claim versus transcript/email reconciliation; unsupported funding/security cannot become accepted proof. |
+| `ShapeSolutionProposal` | `opportunityId`, `proposalId` | Editable outcome, requirement-to-proof traceability, adoption, exclusions and solution owner. |
+| `SimulateCommercialOffer` | `opportunityId`, `quantity`, `termMonths`, `discount`, `services`, `probability`, `ramp` | Five numeric inputs and annual licensing ramp recalculate TCV, full-run-rate ARR, margin, authority and weighted forecast. |
+| `ReviewDealException` | `exceptionId`, `opportunityId` | Cash-timing runway and calculated incremental receivables exposure; finance/legal authority remains absent. |
+| `InspectForecastCommit` | `opportunityId` | Seller-weighted outlook funnel versus sponsor/control/timing proof; draft category changes never change CRM. |
+| `ExplorePipelineQuality` | `period`, `region`, `selectedId`, `countryId`, `mapMetric` | Filtered stage/proof/value health matrix, country recorded-spend analysis and exact-country continuations. |
+| `DiscoverAccountOpportunity` | `accountId`, `period`, `region`, `selectedId`, `countryId`, `mapMetric` | Country opportunity choropleth or separate expense bubbles; exact country/deal drill-down. Omitted account scope means portfolio discovery. |
+| `ResearchCompetitivePosition` | `opportunityId`, `selectedId` | Customer criteria, explicitly missing competitor proof and a scored-workshop proof plan. |
+| `CoachDealStrategy` | `opportunityId`, `selectedId` | Constraint-led strategy choice canvas; access, proof and value plays do not claim win-rate uplift. |
+| `CreateExecutiveEngagementPlan` | `opportunityId` | Proposed executive introduction path with actual demo identities, edited purpose and explicit contact guardrails. |
+| `TrackMeetingFollowUp` | `opportunityId`, `meetingId`, `selectedId` | Buyer/seller commitment ownership board with recorded status and due offsets; elapsed time does not mean completion. |
+| `BuildValueCase` | `opportunityId` | Customer investment/payback timeline using actual edited hours, rate, adoption and costs; no guaranteed ROI. |
+| `ReviewProposalReadiness` | `opportunityId`, `proposalId` | Release-control board sourced from security, claims and terms flags; readiness drafts do not authorize release. |
+| `PlanCustomerSuccessHandoff` | `opportunityId` | Outcome-to-measure-to-owner success canvas with an edited checkpoint and explicit unsigned-scope constraint. |
+| `ExploreAgentCapabilities` | `query` | Search all 26 operational scenarios, inspect safe previews, or open the clicked component in Copilot with one explicit chat action. |
+| `SubmitDealRequest` | `accountId`, `opportunityId`, `quantity`, `termMonths`, `discount`, `services`, `probability` | Inline story, exact full-license scenario prefills, evidence attestations, reviewed submission and receipt. |
+| `ReviewDealApproval` | `requestId` | Current independent-review workload from stored requests, focused request list, exact values, authority/evidence/consent and audit receipts. |
+| `ExploreDealAttention` | `period`, `region`, `selectedId` | Actual deal value versus observed attention flags, short ranked lists and focused economic/buyer/evidence facets. |
+| `GetMyRevenuePriorities` | `period`, `region` | Owned-action cockpit with recorded due/source cues, not editorial score bars; scoped pipeline/status graphics remain separate. |
+| `ExplorePipelineFlow` | `period`, `region`, `selectedId` | Regional value -> buyer readiness -> next action; inspect stages/connections, exact USD and conserved allocations. |
+| `ExploreApprovalFlow` | `period`, `selectedId` | Intake route -> current reviewer -> stage outcome; distinguish stage versus final approval and inspect a named request's own terms. |
+
+### Business value-flow dialogue
+
+Ask **Show how pipeline value moves from regions through buyer readiness to next actions.**
+The current all-region scenario allocates **$29.4M**. Select any ribbon or node to replace the diagram
+with exact-value details; connections are paginated two at a time. Quarter and region filters change
+the planning model, not the separate catalog pipeline. **Planning assumptions** explains the 20% next
+scenario multiplier, conserved integer-USD allocation and provenance. Pointer, Enter and Space are
+supported; **Back to value flow** restores the chart. Its business title is **Pipeline value & actions**.
+
+The overview continuation opens **Approval progress**, whose current planning scenario allocates
+**$30.0M** from intake routes to current independent reviewer stages and stage outcomes. Requests at
+later stages are assumed to have passed earlier reviews; **Stage completion is not final approval**.
+Its Copilot continuation opens **ZM-1001** in **Deal approvals**, using that request's own values,
+evidence and decision trail.
+No chart volume is attributed to that request, and the chart never submits or approves anything.
+Both components publish the selected flow, visible page, scope, full model and assumptions within
+the existing 10,000-byte context budget. They obey the 650/800px complete-card budgets.
+
+### Task-specific qualification and competitive charts
+
+**Qualification gate** uses a five-dimension buyer-proof ring: scope, budget, authority, security
+and timing. The Contoso example has **1 of 5 evidenced**; the discovery example has **0 of 5**.
+Contrary sponsor evidence, inferred security concerns and stale timing remain distinct. Editing a
+seller draft cannot establish proof or enable the blocked pursuit decision.
+
+**Competitive position** uses a different lollipop chart of **proposed workshop importance**:
+security 35%, rollout 30%, value 25% and commercial fit 10%. The discovery scenario instead proposes
+budget 35%, integration 30%, decision process 20% and pilot proof 15%. These are explicit planning
+assumptions, not buyer-validated weights or invented competitor-performance scores. Selecting a
+driver opens its exact proposed weighting and supporting/missing evidence in the same component.
+Chart geometry and Copilot context use the same scoped business models.
+
+### Keynote-quality portfolio contract
+
+All 27 registered components keep stable identities and answer distinct business questions.
+Operational charts no longer fall back to shared source-classification, age or generic value bars.
+An unregistered business visualization fails explicitly rather than rendering a plausible generic
+chart. Each primary experience has a task-specific model, meaningful source/proposal semantics,
+material selection or editing, and a relevant contextual continuation.
+
+Information experiences start with the business graphic; **Evidence records** opens the short
+source list. Draft workflows separate **Review impact** from **Edit business fields**, then review
+the exact values. Long values are disclosed in 240-code-point parts without losing characters;
+all review pages must be visited before confirmation. Submission remains a dedicated initial form,
+and approval remains an independently assigned human decision with explicit rationale/consent.
+
+Country opportunity value sums the provided catalog records and attributes them to explicit
+account headquarters, never international rollout revenue. **Recorded spend** uses a
+separate recorded expense ledger: current totals reconcile to **$3.4M**. Country details show exact
+opportunities or one expense per compact page. The next-quarter expense ledger is genuinely empty:
+the component shows an empty-spend stage, not a decorative zero map or invented future actuals.
+Quarter/region recovery updates the parent scope before any Copilot handoff. Maps use the offline
+Natural Earth atlas; no external tiles, data calls or customer records are fetched.
+
+Commercial curve samples now recalculate full licensing term, ramp and services cost at every
+discount. The former arbitrary adoption index and approximated margin curve are removed.
+
+### Keynote: one conversation, one decision journey
+
+Use the [6-minute keynote](Zava-Revenue-Deal-Room-6-Minute-Keynote.md), with an optional five-minute cut:
+**value flows -> world opportunity/spend -> Deal Room -> Commercial Desk -> reviewed submission ->
+independent decision -> Revenue Command**. Keep `ZDR-2042` throughout the deal discussion; the new
+`ZM-...` receipt identifies the submitted request, not a replacement opportunity.
+
+Show both continuation results: inline **Continue with Copilot: [next business step]** requests the
+next interactive component, while full-screen **Continue with Copilot: Summary & next steps** requests
+a text-only chat summary of the active view, edited values, evidence gaps and confirmed status.
+It has no tool handoff and never submits or approves. **Continue to [business step]** remains local
+workspace navigation. More-discussion questions remain text; explicitly selected Open actions can
+still launch a component. An unfinished form's discussion cannot bypass its required review.
+
+The personal brief uses Megan Bowen's **illustrative** eight-deal book, including named Northwind,
+Fabrikam, Alpine, Litware, AdventureWorks, Tailspin and Proseware examples. Current-quarter catalog
+math gives **$18.54M open / $11.72M seller-weighted**, with **1 of 5** recorded close milestones
+complete. Quarter/region filters change the actual data. This is not the signed-in user's real workload.
+Each priority has a direct scoped Copilot action, including exact request IDs for approval evidence.
+
+The value bridge reconciles open value to seller-weighted value; it is not invented history or a
+loss prediction. Approved requests update the work overlay, not the CRM-shaped pipeline.
+This distinction is the final trust moment in the keynote.
+
+For the complete pricing-to-submission path use **1,000 users / 24 months / 8% discount /
+$150,000 services / 65% seller probability**, without a ramp. Full-screen **Continue to Submit a deal**
+opens the matching seller workflow with the exact inputs, preserving **$2,818,000 TCV**. Inline
+**Continue with Copilot: Submit a deal** requests that component through chat instead. In either path,
+the user still enters the outcome, attests evidence, reviews and explicitly confirms. Ramp scenarios
+cannot silently enter a non-ramped intake.
+
+### Inline deal-to-decision and Copilot dialogue
+
+1. Ask for **Deals needing attention**. Filter the quarter and region, rank by open value or
+   seller-unweighted value, then select a chart bar or **Details for** a deal. Buyer coverage, exact
+   economic facts and recorded evidence have separate focused detail stages in the same inline component, without
+   expanding. Focus moves to the detail heading; **Back to attention catalog** restores the filters
+   and ranking and returns focus to the catalog.
+2. Use **Continue with Copilot** to discuss the visible detail, or request a focused risk, buying
+   committee, commercial or forecast component for that exact deal. The original view remains intact.
+3. Ask to **Submit a deal**. Enter the deal story and economics, explicitly attest the evidence,
+   visit all three exact-value review pages, and check confirmation before **Submit deal request** becomes available.
+4. **Continue with Copilot: Deal approvals** sends the exact `ZM-...` receipt to `ReviewDealApproval`. The approval
+   component shows the same stored request; required stages, independent reviewer authority, rationale
+   and explicit confirmation remain mandatory. Other components in the same browser tab receive
+   confirmed submission/decision updates through shared session storage.
+5. After a confirmed approval, **Continue with Copilot: My priorities** opens the refreshed work
+   overlay. Pending additional approval stages remain pending; the pipeline catalog is unchanged.
+
+Each inline stage has one primary continuation; **More discussions** holds alternative questions
+and component launches. The keynote chain is priorities -> buying committee -> deal risk ->
+commercial scenario -> submission -> approval -> refreshed priorities.
+Capability previews never execute automatically. Each capability card has **Open [title] in Copilot**:
+one click sends a chat request for that card's registered component, without first selecting a preview
+or scrolling to a separate continuation control. The host/model, not the UI, decides tool routing.
+Unknown or filtered-out selections cannot hand off to a substituted deal.
+
+The bridge publishes the click-time context **before** sending the follow-up, as one serialized
+operation. Context includes the discussion topic, exact scope and selection, source provenance,
+visible filters/records, edited draft, calculations, validation, confirmation/receipt, visible
+workspace state and requested next-tool properties. The complete `content` + `structuredContent`
+payload is capped at **10,000 UTF-8 bytes**. Large views retain separate selected detail and report
+sampled/truncated paths and original counts; omitted evidence is unknown. Context or message failures
+are visible and retryable, and a failed context update never sends a context-free follow-up.
+
+Attention flags are deterministic source/evidence observations, not an AI risk score. Seller-weighted
+and seller-unweighted values are arithmetic, not forecast commit or predicted loss. Submitted demo
+requests remain a separate session overlay; no CRM, customer communication or production approval is
+changed. The production package, publication screenshots and release evidence have been rebuilt for
+all 27 tools, and the full production build passes.
+
+Current source validation: `npm run build` covers the full inline
+submission/approval journey, in-place detail/focus restoration and the exact UTF-8 budget.
+`npm run check:intents`, `npm run check:routing-matrix`, `npm run check:generated-plugin` and
+`npm run check:package-output` validate 27 registered tools, twelve starters, compiled schemas and
+matching production archives.
+
+For production packaging, stop the development watcher and use
+`npm exec -- heft build --clean --production` followed by
+`npm exec -- heft package-solution --production`. Do not package watch output: its unminified
+bundle and hot-update files are development assets. Run package-output checks before restarting
+local validation with `npm exec -- heft start --nobrowser`: watch mode rewrites `release/assets`
+with development output, while the already-built production package remains unchanged.
+
+Known example scopes: `CONTOSO` / `ZDR-2042`, `ACC-002` / `ZDR-2043`,
+`MTG-2042` / `MTG-2043`, `PROP-2042` / `PROP-2043`, `EX-2042` / `EX-2043`,
+and submitted demo request IDs such as `ZM-1001`.
+Omitting deal scope intentionally opens the Contoso specialist showcase; attention defaults to the
+current quarter/all regions, and approvals open the seeded request inbox. Explicit unknown, empty or conflicting IDs
+produce visible no-match and publish no substituted hero facts. Known alternate accounts never inherit
+Contoso evidence. Missing source records remain evidence gaps, not positive findings. Unknown or
+filtered `selectedId` values remain visible until cleared. `period` is `current` (quarter offset 0),
+`next` (1), or `all`; `region` is `all` or an actual account region.
+
+Every submission/review has domain fields, runtime validation, a read-only review of actual chosen
+values, an initially unchecked explicit confirmation, a scope/value-bearing session receipt, Edit and
+Reset. Unsupported positive qualification/commit/exception/readiness decisions are blocked; valid
+return/decline paths remain usable. Prompt values cannot grant authority. Receipt and draft state
+survives passive rerenders, inline/full-screen continuation and theme changes. Changed invocation
+arguments or a new mounted tool instance reset the draft; Reset restores invocation defaults.
+State is **mounted-session only**: receipts are not propagated to other tool instances, persisted across
+reloads, or written to CRM. Bridge failures are visible, not silently acknowledged.
+
+Commercial math charges recurring delivery cost for **every licensed year**, prorates partial years
+and annual licensed ramps, and charges services cost once. An omitted ramp means 100% licensing each
+year; `[60,80,100]` models a three-year ramp. Full-run-rate ARR is distinct from ramped subscription
+revenue. Weighted forecast is TCV × probability. The 68% floor and 10%/18% discount thresholds route
+authority; they never approve an offer. Commercial curves sample the actual entered economics.
+Value-case savings are explicit deterministic assumptions, not customer-validated benefits.
+The four workspaces have separate landing and selected-work states. Each component expands into its
+matching business view with relevant scope and controls, without an extra origin banner. Left-menu
+navigation opens the target workspace's landing; selecting a record or choosing **Resume** explicitly
+opens work. Mounted drafts survive navigation, and only the visible workspace/task publishes model
+context. Full-width country maps and value flows remain in their appropriate workspaces.
 
 ## Features
 
-- 21 immutable Yeoman-generated Copilot Component identities with unique GUIDs and tool schemas.
+- 27 Copilot Component identities with unique GUIDs and tool schemas; original identities are unchanged.
 - One shared production bundle for React, Fluent, Griffel, domain data, and all component entries.
 - Host-authoritative inline-to-full-screen expansion across My Deals, Deal Room, Commercial Desk, and
   Revenue Command.
@@ -79,13 +455,15 @@ Use `npm run capture:visual` to regenerate tenant-free publication screenshots a
   evidence, commitments, and win strategy; Commercial Desk joins live offer economics to exception
   authority and policy; Revenue Command connects aggregate pipeline, forecast movement, geography, and
   named leadership interventions.
-- Seven bundled Microsoft 365 demo persona portraits across headers, deal-team identity, stakeholder
+- Seven bundled Microsoft 365 demo persona portraits across deal-team identity, stakeholder
   nodes, evidence sources, and commitment owners, with initials retained as the runtime fallback.
 - Material commercial controls that recalculate contract value, annual recurring revenue, gross margin,
   approval authority, and weighted forecast.
 - Review and submit workflows with Draft/Evidence, Review/Decision, Confirm, Receipt, Edit, and Reset.
-- Bounded model-context snapshots and explicit user-triggered Copilot follow-up actions.
-- Searchable capability explorer covering all 20 operational scenarios without advertising itself.
+- 10,000-byte bounded model-context snapshots, context-first suggested dialogue and exact-scope component handoffs.
+- Searchable capability explorer covering all 26 operational scenarios with direct scoped chat launches.
+- D3 Sankey experiences for imaginary pipeline and approval-stage value, with conserved allocations,
+  accessible node/ribbon inspection, paginated details and explicit separation from live records.
 - Deterministic offline graph with 80 accounts, 260 contacts, 120 opportunities, connected Contoso
   evidence, and no runtime data or profile-photo requests.
 - Owner-document Griffel rendering, light/dark themes, reduced motion, responsive navigation, semantic
@@ -93,7 +471,39 @@ Use `npm run capture:visual` to regenerate tenant-free publication screenshots a
 
 ## Validation status
 
-The 31 August 2026 clean production gate completed with zero TypeScript or lint warnings:
+The production gate validates source tools, compiled schemas, React root lifecycle, current
+visuals, and both deployment archives. See generated [release evidence](assets/release-evidence.json)
+for the current test total, sizes, and hashes.
+
+Current completion evidence includes the passing Jest suite, **32 curated publication captures**, and
+the expanded [business matrix](assets/business-matrix-evidence.json): all 27 inline tools at
+standard/narrow/dark widths/themes (81), every Sankey node and ribbon, country opportunity/spend maps and recovery scopes, focused detail/chart stages, paginated fields and records,
+inline submission/approval receipts, four dashboards, ten reviews, ten full-screen receipts, and
+changed/filtered/drilled/no-match/gated states. Every inline stage is measured at desktop and narrow
+widths, including pages that are not saved as screenshots. Another **42 journey captures** cover
+connected workflows and 32 workspace width/theme variants. The generated release evidence records
+current test/capture totals and maximum measured heights. Validation rejects runtime, console,
+broken-image, clipping, nested vertical scrolling and horizontal-overflow failures.
+Inline Copilot-send success is acknowledged by an accessible checkmark in the existing continuation,
+without adding card height; changing the visible scope clears that acknowledgement.
+All three visual sets are SHA-256-bound to current
+runtime sources; `npm run build` rejects stale screenshots. The DOM suite uses React 18 `act`, persistent
+roots and `IS_REACT_ACT_ENVIRONMENT`, and tests content, parameters, calculations, gates and lifecycle
+rather than layout labels alone.
+Every host redraw and committed subtree change schedules an SDK `requestSizeChangeAsync` notification
+after layout. A content-root `ResizeObserver` also covers delayed image/font layout and responsive
+changes. Requests are coalesced per animation frame and measure the actual app rather than the
+iframe or theme provider, so shorter stages can shrink correctly. Observers and queued measurements
+are cancelled on teardown or disposal.
+
+The production `.sppkg` contains one shared hashed JavaScript asset, 11 unique runtime media assets,
+zero stale bundles and matching embedded/Teams agent archives. Package validation reads the actual
+solution and feature versions from the archive XML and the embedded agent version from its manifest,
+instead of relying only on source configuration. Generated release evidence records
+the current sizes and hashes. Local validation does not deploy
+these archives to the tenant.
+
+Historical baseline (31 August 2026, before RC0):
 
 - 21 components, 21 unique GUIDs, 21 unique tools, and one shared bundle.
 - 6 deterministic domain/D3 geometry tests passed; 0 failed.
@@ -117,7 +527,7 @@ reader output remain environment-specific validation gates and are not claimed f
 ## Solution structure
 
 ```text
-src/copilotComponents/    21 final Yeoman-generated identities and schemas
+src/copilotComponents/    27 registered identities and schemas
 src/shared/               catalog, deterministic domain, React host, theme, and experiences
 scripts/                  catalog, visual evidence, gallery, plugin, and package automation
 assets/                   publication screenshots, evidence, and PnP sample metadata
@@ -127,16 +537,16 @@ sharepoint/solution/      ready-to-deploy production package
 
 ## Demo and review assets
 
-- [4-minute keynote](Zava-Revenue-Deal-Room-4-Minute-Keynote.md) - the focused Microsoft stage story
-  from buyer influence through commercial judgment and forecast evidence.
+- [6-minute keynote](Zava-Revenue-Deal-Room-6-Minute-Keynote.md) - beautiful interactive UX, contextual
+  owned priority and buyer proof through exact commercial values and an accountable decision.
 - [10-minute business demo](Zava-Revenue-Deal-Room-10-Minute-Business-Demo.md) - the broader cross-role
   revenue journey with guardrails and current implementation boundaries.
 - [5-minute technical demo](Zava-Revenue-Deal-Room-5-Minute-Technical-Demo.md) - immutable catalog,
   React 18 host, D3 geometry, offline map, evidence, and package gates.
 - [Designer and rehearsal review](Zava-Revenue-Deal-Room-Designer-Review.md) - visual language,
   interaction/accessibility checks, screenshot acceptance, and fallback path.
-- [Routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) - 21 tool boundaries, six canonical
-  starters, five sibling-collision rehearsals, and tenant validation notes.
+- [Routing matrix](Zava-Revenue-Deal-Room-Routing-Matrix.md) - 27 tool boundaries, twelve canonical
+  starters, nine sibling-collision rehearsals, and tenant validation notes.
 - [Release evidence](assets/release-evidence.json) - generated package, bundle, media, visual, and hash
   evidence. Run `npm run generate:release-evidence` only after the final package build.
 
@@ -165,8 +575,9 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 - Tenant-authenticated model routing, Workbench CSP, iframe focus, forced colors, and screen-reader host
   output require a Microsoft 365 test tenant and remain external validation gates.
-- Secondary catalog tools share the polished operation host, but complete purpose-specific lifecycle
-  depth for every one of the 20 operational intents remains tracked in [todo.md](todo.md).
+- Specialist drafts/receipts remain tool-instance-local. The new full-screen request center shares
+  only confirmed demo requests/decisions through a session overlay; it never updates specialist
+  evidence or the opportunity baseline. Live CRM/CPQ/approval integrations are absent.
 - Persona redistribution is pending final media-rights review as recorded in
   [assets/asset-provenance.json](assets/asset-provenance.json).
 - For sample issues, use the repository issue tracker and include the component name, prompt, host mode,
@@ -176,9 +587,25 @@ mode; never use inferred sentiment or relationship strength as employee-performa
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| 1.0.0.9 / agent 1.0.9 | 2026-11-02 | Six-minute keynote with beautiful value flows, world maps and an accountable deal journey. Full-screen Continue with Copilot requests a text-only chat summary; inline handoffs request the next interactive UX. Explicit response-mode context and agent rules preserve scope, edited values and consent. |
+| 1.0.0.8 / agent 1.0.8 | 2026-11-02 | Business-first continuation/discussion routes, request/approval controls and workspace copy; exact named-request handoffs, refreshed gallery and rebuilt archives. Golden and local creation rules now apply the same language policy across complete journeys while preserving provenance and consent. |
+| 1.0.0.7 / agent 1.0.7 | 2026-11-02 | Business-first keynote starter wording, with demonstration labels and chart-engine jargon removed from all starter copy. Twelve distinct starter routes and truthful data/execution boundaries remain intact. |
+| 1.0.0.6 / agent 1.0.6 | 2026-11-02 | Twelve conversation starters: eleven distinct operational UX components and the capability explorer last. Canonical and local automation guidance now documents the supported maximum of twelve rather than a six-starter assumption. |
+| 1.0.0.5 / agent 1.0.5 | 2026-11-02 | High-impact pipeline/approval value-flow, world-map, submission and approval starters; capability explorer last. Reusable context-first dialogue, exact-scope continuation, bounded stages, workspace and resize lessons synchronized to the canonical golden guide and local creation rules. |
+| 1.0.0.4 / agent 1.0.4 | 2026-11-02 | SPFx 1.24.0 GA; 27 distinct components, four explicit workspace stories, country opportunity/spend maps, fictional value flows, exact commercial/request continuity and reliable redraw sizing. Refreshed README/gallery and rebuilt production archives; current validation totals and packaged agent suffix are recorded in release evidence. |
+| 1.0.0.3 / agent 1.0.3 | 2026-10-26 | ZavaMesh branding, linked worldwide revenue/investment analytics, guided deal intake, sequential demo approvals and session audit receipts. Current test/visual totals are generated in release evidence. |
+| 1.0.0.1 / agent 1.0.1 | 2026-10-20 | RC0 specialist completion: 21 scoped experiences, 10 guarded workflows, 87 tests, 118 current visual captures. The SDK may append a fourth agent hotfix segment. |
 | 1.0.0 | 2026-08-31 | Initial GitHub candidate with 21 tools, four visualization-led workspaces, D3 charts/map, persona media, demo scripts, publication evidence, and audited `.sppkg`. |
 
-## Business story
+<details>
+<summary>Historical design exploration (not the shipping contract)</summary>
+
+The remaining original product brief records broader design aspirations (including fields, comparisons,
+cross-tool overlays and integrations that are **not advertised or implemented** in this offline release).
+The current specialist table, runtime schemas, validation evidence and limitations above are
+authoritative; do not present the historical interaction matrix below as current behavior.
+
+### Business story
 
 **A seller names the account and desired outcome. The agent turns scattered relationship evidence into
 an inspectable deal strategy; the revenue team commits to actions, tests commercial choices, and closes
@@ -268,7 +695,7 @@ Command** emphasizes forecast evidence and intervention, not duplicate regional 
 
 ## Inline component portfolio
 
-Target: **20 operational components plus one safe capability explorer**. The expanded catalog covers
+Target: **26 operational components plus one safe capability explorer**. The expanded catalog covers
 account executive, sales development, deal strategy, solution engineering, value engineering,
 executive sponsorship, finance, legal/security, sales management, revenue operations, and customer
 success handoff.
@@ -391,7 +818,7 @@ blue CRM dashboard and not the Innovation Hub recolored.
 
 ### Hero 1 - Rescue the Contoso expansion deal
 
-**Prompt:** “Help me get Contoso's global expansion deal to signature this quarter.”
+**Prompt:** “Show the risks threatening Contoso's global expansion deal this quarter.”
 
 `GetDealRisk` identifies strong champion support but no economic-buyer access, an unowned security
 milestone, and a stale launch assumption. `MapBuyingCommittee` reveals the influence gap and assigns an
@@ -430,7 +857,7 @@ leadership rollup without a generic dashboard.
 
 | # | Title | Starter | Expected component |
 | ---: | --- | --- | --- |
-| 1 | Advance a deal | Help me get Contoso's global expansion deal to signature this quarter. | `GetDealRisk` |
+| 1 | Advance a deal | Show the risks threatening Contoso's global expansion deal this quarter. | `GetDealRisk` |
 | 2 | Buying committee | Map the buying committee for the Contoso expansion. | `MapBuyingCommittee` |
 | 3 | Commercial scenario | Model a three-year ramped offer that protects 68% margin. | `SimulateCommercialOffer` |
 | 4 | Meeting preparation | Prepare me for tomorrow's Contoso steering meeting. | `PrepareCustomerMeeting` |
@@ -474,7 +901,7 @@ records retention, data residency, and audit remain system-of-record responsibil
 
 ## Planned delivery gates
 
-- [ ] **Gate 0 - Plan lock:** approve README, 21-component catalog, routes, hero scenarios,
+- [ ] **Gate 0 - Plan lock:** approve README, 25-component catalog, routes, hero scenarios,
   identity, market baseline, and non-goals; synchronize to GitHub.
 - [ ] **Gate 1 - Creation plan:** copy approved creation rules and write `todo.md`, routing matrix,
   metadata/GUID plan, demos, and evidence plan before code.
@@ -484,7 +911,7 @@ records retention, data residency, and audit remain system-of-record responsibil
   `SimulateCommercialOffer`, `ReviewDealException`, and exact Deal Room continuation first.
 - [ ] **Gate 4 - Connected hero:** run Contoso from risk through access, plan, meeting updates, offer,
   exception, and forecast receipt across personas.
-- [ ] **Gate 5 - Catalog:** generate and implement only 21 approved immutable identities; validate prompt
+- [ ] **Gate 5 - Catalog:** preserve the original 21 identities and add the three inline workflow tools; validate prompt
   routing collisions and capability preview safety.
 - [ ] **Gate 6 - Quality:** accessibility, global formats/RTL, themes, responsive captures, tests,
   provenance, generated plugin, package audit, and clean offline rehearsal pass.
@@ -500,14 +927,17 @@ records retention, data residency, and audit remain system-of-record responsibil
 
 ## Definition of done
 
-The future implementation is complete only when all 20 operational inline components are independently
+The future implementation is complete only when all 26 operational inline components are independently
 valuable; the capability explorer safely previews them; every full-screen lens has a useful default;
 the three hero scenarios run on one coherent graph; buyer evidence and inference are distinguishable;
 commercial and forecast math is inspectable; consequential actions use human review, confirmation, and
 receipt; exact continuation preserves context; accessible/global evidence passes; and an audited offline
 package deploys without runtime data dependencies.
 
-The local implementation and audited package are complete. Tenant-host checks remain explicitly
-separate because they require an authenticated Microsoft 365 environment.
+The locally scoped specialist implementation is validated against the current contract above, not every
+aspiration in this historical brief. Tenant-host checks remain explicitly separate because they require
+an authenticated Microsoft 365 environment.
+
+</details>
 
 <img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-revenue-deal-room" />

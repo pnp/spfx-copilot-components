@@ -16,7 +16,7 @@
     {
       "name": "ExploreSpendPerformanceTool",
       "description": {
-        "default": "Trace identified procurement opportunity to realized value."
+        "default": "Use when the user asks: Did identified opportunity become verified value? Outcome: A traceable spend-to-value flow. Boundary: Not a KPI dashboard."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/exploreSpendPerformance/ExploreSpendPerformanceCopilotComponentProperties.js:default;"

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import { captureIntentVisuals } from './capture-intent-visuals.mjs';
 
 const root=path.resolve(import.meta.dirname,'..');
 const harness=path.join(root,'temp','visual-harness');
@@ -10,11 +11,11 @@ const assets=path.join(root,'assets');
 const sharedRoot=path.join(root,'src','shared');
 const sourceFiles=[...fs.readdirSync(sharedRoot).filter(file=>/\.(?:ts|tsx|scss)$/.test(file)&&!file.endsWith('.test.ts')&&!file.endsWith('.test.tsx')).map(file=>`src/shared/${file}`).sort(),'package-lock.json'];
 const captures=[
-  {name:'ux-inline-SubmitInnovationIdea.png',intent:'SubmitInnovationIdea',width:760,height:900,alt:'Inline innovation idea canvas with editable outcome, strategic theme, accountable owner, evidence, and readiness score'},
+  {name:'ux-inline-SubmitInnovationIdea.png',intent:'SubmitInnovationIdea',width:760,height:900,alt:'Inline innovation idea canvas with controlled problem, audience, baseline, target, strategic theme, owner, evidence, and validation'},
   {name:'ux-inline-GetInnovationReviewQueue.png',intent:'GetInnovationReviewQueue',width:900,height:900,alt:'Inline innovation review queue with phase buckets, status filters, evidence signals, and pending decisions'},
   {name:'ux-inline-ExploreGlobalInnovation.png',intent:'ExploreGlobalInnovation',width:760,height:900,alt:'Inline global innovation view with a Natural Earth world map, regional participation markers, and conversion comparison'},
   {name:'ux-inline-ExploreAgentCapabilities.png',intent:'ExploreAgentCapabilities',width:760,height:900,alt:'Inline searchable catalog of Zava Innovation Hub operational scenarios and safe prompt previews'},
-  {name:'ux-fullscreen-my.png',intent:'GetMyInnovation',mode:'fullscreen',width:1440,height:950,alt:'Full-screen My Innovation workspace with personal idea progress, readiness, feedback, and next actions'},
+  {name:'ux-fullscreen-my.png',intent:'GetMyInnovation',mode:'fullscreen',width:1440,height:950,alt:'Full-screen My Innovation workspace with signed-in personal idea stages, impact, effort, and next actions'},
   {name:'ux-fullscreen-programs.png',intent:'GetInnovationGrowth',mode:'fullscreen',width:1440,height:950,alt:'Full-screen Programs and Pilots workspace with innovation growth, participation, and conversion evidence'},
   {name:'ux-fullscreen-reviews.png',intent:'GetInnovationReviewQueue',mode:'fullscreen',width:1440,height:950,alt:'Full-screen Reviews and Gates workspace with prioritized submissions and evidence-backed decision controls'},
   {name:'ux-fullscreen-investment.png',intent:'TrackInnovationBudget',mode:'fullscreen',width:1440,height:950,alt:'Full-screen Investment workspace with budget stewardship, funding position, and portfolio allocation evidence'},
@@ -58,6 +59,7 @@ try{
     evidence.push({...capture,capturedWidth:bytes.readUInt32BE(16),capturedHeight:bytes.readUInt32BE(20),bytes:bytes.length,sha256:hash(bytes),layouts:metrics.layouts});
     await page.close();
   }
+  await captureIntentVisuals(browser,`http://127.0.0.1:${port}`,root,sourceFiles,sourceHash);
 } finally {
   await browser.close();
   await new Promise(resolve=>server.close(resolve));

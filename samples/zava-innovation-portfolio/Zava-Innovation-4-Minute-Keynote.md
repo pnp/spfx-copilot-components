@@ -25,7 +25,8 @@ Copilot understands the business intent and selects the right Copilot Component.
 Prompt: **Submit an idea to reduce new-hire onboarding time by half.**
 
 Show the prefilled idea canvas appearing directly in chat. Point out the structured fields, accountable
-owner, evidence, and readiness state. Edit one field, advance through evidence and confirmation, and
+owner, evidence, and validation. Enter problem, audience, source, baseline 20/target 10 process days;
+review the calculated 50% reduction, proceed to human confirmation, and
 show the visible receipt.
 
 "Copilot handles intent and handoff. The component owns deterministic validation, human confirmation,
@@ -35,12 +36,13 @@ and the business record of what happened."
 
 Prompt: **Show my innovation ideas and what needs attention.**
 
-Show Smart Onboarding Journey in Megan's personal innovation view. Point out its status, readiness, and
-next action alongside her other work.
+Show the seeded Smart Onboarding Journey in Megan's personal innovation view. Point out status,
+impact/effort, and next action. Explicitly distinguish this immutable catalog from the new intake receipt.
 
 **Say:**
 
-"The submission is not lost in the chat history. Copilot can bring Megan's active work back as a
+"The session receipt captures the submission, while this offline catalog illustrates Megan's existing work.
+With a production data adapter, Copilot could bring active work back as a
 personalized operating view, with the progress and next action already in context. The UX changes from
 capturing one idea to helping her move a portfolio of work forward."
 
@@ -56,7 +58,8 @@ Show the review experience inline with evidence completeness, strategic fit, val
 done. This is not a generic card and not another chatbot response. It is a bounded approval experience
 with the evidence and consequences visible before the human decides."
 
-Choose **Approve and advance**, review the consequence, and confirm.
+Enter a specific rationale addressing the APAC accessibility evidence gap. Choose **Approve and advance**,
+review the mock consequence, and explicitly confirm. No notification or tenant update occurs.
 
 ## 2:00-2:40 - Inline 4: See the idea in portfolio context
 
@@ -67,11 +70,11 @@ Show the stage-gate funnel, impact versus effort, horizon balance, program momen
 **Say:**
 
 "We started with one onboarding problem, shaped it into an idea, and advanced it through a human gate.
-Now leadership can see that work in the context of the whole portfolio. The conversation becomes an
+This separate illustrative snapshot shows leadership portfolio context; it is not recalculated from our receipt. The conversation becomes an
 analytical workspace without sending the user away to find and configure a dashboard."
 
-Point to stage conversion, impact versus effort, and horizon balance. Briefly connect the approved idea
-to the portfolio evidence leaders use to judge whether work is moving and remains strategically balanced.
+Point to stage conversion, impact versus effort, and horizon balance. Explain how the evidence would
+support leadership review without claiming this offline dashboard reflects the preceding mock action.
 
 ## 2:40-3:30 - Expand without losing context
 

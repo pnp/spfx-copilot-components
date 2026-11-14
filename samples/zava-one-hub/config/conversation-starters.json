@@ -1,0 +1,34 @@
+{
+  "starters": [
+    {
+      "title": "Catch up on Zava",
+      "text": "What's new across Zava this week?",
+      "tool": "ShowCompanyNews"
+    },
+    {
+      "title": "Find a trusted company answer",
+      "text": "Find the parental leave policy for Finland.",
+      "tool": "FindCompanyKnowledge"
+    },
+    {
+      "title": "Recognize a colleague",
+      "text": "Help me send praise to Johanna for making the accessibility lab welcoming.",
+      "tool": "ShowRecognitionAndCommunities"
+    },
+    {
+      "title": "Review sales performance",
+      "text": "Show EMEA bookings this quarter.",
+      "tool": "ShowSalesPerformance"
+    },
+    {
+      "title": "Explore global offices",
+      "text": "Show me Zava offices around the world.",
+      "tool": "ShowOfficeDetails"
+    },
+    {
+      "title": "Explore Zava One",
+      "text": "Show me all the company and employee experiences Zava One can help with.",
+      "tool": "ExploreAgentCapabilities"
+    }
+  ]
+}

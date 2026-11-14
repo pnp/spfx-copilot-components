@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "2dad8e06-a08e-491a-a1b2-96996acce0e2",
+  "alias": "ReviewVacationRequestsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ReviewVacationRequests",
+      "description": {
+        "default": "Use when a manager needs to review vacation requests. Do not use when the user wants to request their own time off or review other approval types."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/reviewVacationRequests/ReviewVacationRequestsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

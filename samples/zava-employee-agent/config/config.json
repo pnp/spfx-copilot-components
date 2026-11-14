@@ -7,101 +7,86 @@
         {
           "entrypoint": "./lib/copilotComponents/getMyHrDashboard/GetMyHrDashboardCopilotComponent.js",
           "manifest": "./src/copilotComponents/getMyHrDashboard/GetMyHrDashboardCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/getProfileHealth/GetProfileHealthCopilotComponent.js",
           "manifest": "./src/copilotComponents/getProfileHealth/GetProfileHealthCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/getNextBestActions/GetNextBestActionsCopilotComponent.js",
           "manifest": "./src/copilotComponents/getNextBestActions/GetNextBestActionsCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/getWorklifeSnapshot/GetWorklifeSnapshotCopilotComponent.js",
           "manifest": "./src/copilotComponents/getWorklifeSnapshot/GetWorklifeSnapshotCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/getEmployeeMilestones/GetEmployeeMilestonesCopilotComponent.js",
           "manifest": "./src/copilotComponents/getEmployeeMilestones/GetEmployeeMilestonesCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/policyAnswer/PolicyAnswerCopilotComponent.js",
           "manifest": "./src/copilotComponents/policyAnswer/PolicyAnswerCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/policyComparison/PolicyComparisonCopilotComponent.js",
           "manifest": "./src/copilotComponents/policyComparison/PolicyComparisonCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/leaveBalance/LeaveBalanceCopilotComponent.js",
           "manifest": "./src/copilotComponents/leaveBalance/LeaveBalanceCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/requestTimeOff/RequestTimeOffCopilotComponent.js",
           "manifest": "./src/copilotComponents/requestTimeOff/RequestTimeOffCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/latestPay/LatestPayCopilotComponent.js",
           "manifest": "./src/copilotComponents/latestPay/LatestPayCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/explainPayChange/ExplainPayChangeCopilotComponent.js",
           "manifest": "./src/copilotComponents/explainPayChange/ExplainPayChangeCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/compareBenefitPlans/CompareBenefitPlansCopilotComponent.js",
           "manifest": "./src/copilotComponents/compareBenefitPlans/CompareBenefitPlansCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/startLifeEvent/StartLifeEventCopilotComponent.js",
           "manifest": "./src/copilotComponents/startLifeEvent/StartLifeEventCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/createHrCase/CreateHrCaseCopilotComponent.js",
           "manifest": "./src/copilotComponents/createHrCase/CreateHrCaseCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/requiredLearning/RequiredLearningCopilotComponent.js",
           "manifest": "./src/copilotComponents/requiredLearning/RequiredLearningCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/totalRewardsSummary/TotalRewardsSummaryCopilotComponent.js",
           "manifest": "./src/copilotComponents/totalRewardsSummary/TotalRewardsSummaryCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/approvalInbox/ApprovalInboxCopilotComponent.js",
           "manifest": "./src/copilotComponents/approvalInbox/ApprovalInboxCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/teamAbsenceCalendar/TeamAbsenceCalendarCopilotComponent.js",
           "manifest": "./src/copilotComponents/teamAbsenceCalendar/TeamAbsenceCalendarCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/findExpert/FindExpertCopilotComponent.js",
           "manifest": "./src/copilotComponents/findExpert/FindExpertCopilotComponent.manifest.json"
-        }
-      ,
+        },
         {
           "entrypoint": "./lib/copilotComponents/exploreOrganization/ExploreOrganizationCopilotComponent.js",
           "manifest": "./src/copilotComponents/exploreOrganization/ExploreOrganizationCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.manifest.json"
         }
       ]
     }

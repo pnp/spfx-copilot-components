@@ -1,6 +1,37 @@
-import fs from 'node:fs';import path from 'node:path';
-const root=path.resolve(import.meta.dirname,'..'),source=fs.readFileSync(path.join(root,'src','shared','catalog.ts'),'utf8');
-const pattern=/d\('([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)'\)/g;
-const rows=[...source.matchAll(pattern)].map(match=>match.slice(1));if(rows.length!==22)throw new Error(`Expected 22 catalog definitions, found ${rows.length}`);
-const lines=['# Zava Procurement Command Center - Routing Matrix','','Generated from `src/shared/catalog.ts`. Edit the catalog, not this table.','','| Tool | Operation | Lens and route | Role | Route when | Exclude when | Canonical prompt |','| --- | --- | --- | --- | --- | --- | --- |',...rows.map(([key,title,lens,route,operation,role,question,,prompt,excludes])=>`| \`${key}\` | ${operation} | ${lens} / \`${route}\` | ${role} | ${question} | ${excludes} | ${prompt} |`),'','## Collision rehearsal','','- Purchase intent captures an outcome; buying options compares fulfillment routes; policy explains rules; purchase review owns approval.','- Bid comparison owns normalized analysis and sensitivity; supplier award owns the consequential decision.','- Supplier 360 owns relationship context; supplier risk owns exposure; mitigation owns the reviewed action plan.','- Spend leakage detects opportunity; leakage recovery governs intervention; spend performance verifies realized value.','- Capability exploration is educational and must never route for a specific operational request.',''];
-const output=`${lines.join('\n')}\n`,file=path.join(root,'Zava-Procurement-Routing-Matrix.md');if(process.argv.includes('--check')){if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==output)throw new Error('Routing matrix is stale');console.log('Routing matrix validation passed: 22 catalog-owned routes.');}else{fs.writeFileSync(file,output);console.log('Generated routing matrix with 22 routes.');}
+import fs from 'node:fs';
+import path from 'node:path';
+const root = path.resolve(import.meta.dirname, '..');
+const source = fs.readFileSync(path.join(root, 'src', 'shared', 'catalog.ts'), 'utf8');
+const rows = [...source.matchAll(/d\('([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)','([^']+)'\)/g)].map(match => match.slice(1));
+if (rows.length !== 22) throw new Error(`Expected 22 catalog definitions, found ${rows.length}`);
+const starters = JSON.parse(fs.readFileSync(path.join(root, 'config', 'conversation-starters.json'), 'utf8')).starters;
+const declared = JSON.parse(fs.readFileSync(path.join(root, 'copilot', 'declarativeAgent.json'), 'utf8')).conversation_starters;
+if (JSON.stringify(declared) !== JSON.stringify(starters.map(({ title, text }) => ({ title, text })))) throw new Error('Canonical and declarative starters differ.');
+const tools = new Set(rows.map(row => `${row[0]}Tool`));
+if (starters.length !== 6 || new Set(starters.map(starter => starter.tool)).size !== 6 || starters.some(starter => !tools.has(starter.tool))) throw new Error('Starters require six distinct registered tools.');
+const lines = [
+  '# ZavaCore Procurement Command Center - Routing Matrix', '',
+  'Generated from `src/shared/catalog.ts` and `config/conversation-starters.json`. Tool names retain the registered `Tool` suffix; component/view keys do not.', '',
+  '| Tool | Operation | Lens and route | Role | Route when | Exclude when | Canonical prompt |',
+  '| --- | --- | --- | --- | --- | --- | --- |',
+  ...rows.map(([key, , lens, route, operation, role, question, , prompt, excludes]) => `| \`${key}Tool\` | ${operation} | ${lens} / \`${route}\` | ${role} | ${question} | ${excludes} | ${prompt} |`),
+  '', '## Conversation starters', '',
+  '| Starter | Prompt | Expected registered tool |', '| --- | --- | --- |',
+  ...starters.map(starter => `| ${starter.title} | ${starter.text} | \`${starter.tool}\` |`),
+  '', '## Nearest-sibling rehearsal', '',
+  '- New outcome/quantity/budget intake -> CreatePurchaseIntentTool; explicit route alternatives on an existing request -> CompareBuyingOptionsTool; controls/remediation -> CheckPurchasePolicyTool; existing demand approval -> ReviewPurchaseRequestTool.',
+  '- Bid weights/ranking -> CompareSupplierBidsTool; proposed award and authority -> ReviewSupplierAwardTool.',
+  '- Relationship obligations -> ExploreSupplier360Tool; one supplier continuity -> TrackSupplierRiskTool; owned mitigation -> PlanSupplierRiskMitigationTool; cross-supplier allocation -> ExploreSupplierPortfolioBalanceTool.',
+  '- New supplier capture -> OnboardSupplierTool; evidence/expiry/conditions decision -> ReviewSupplierQualificationTool.',
+  '- Renewal/exit judgment -> ReviewContractRenewalTool; give/get mandate -> NegotiateContractTermsTool.',
+  '- New buying demand -> CreatePurchaseIntentTool; existing PO consequences -> ManagePurchaseOrderChangeTool; unmatched invoice disposition -> ResolveInvoiceExceptionTool.',
+  '- Opportunity -> DetectSpendLeakageTool; intervention acceptance -> TrackLeakageRecoveryTool; verified stage/value analysis -> ExploreSpendPerformanceTool.',
+  '- Capability discovery is educational, not a fallback for an operational request.',
+  '', 'Local checks prove metadata, inputs, registrations, and starter targets agree. Rehearse these positive and excluded prompts in fresh authenticated Copilot conversations; local tests do not prove model selection.', ''
+];
+const output = `${lines.join('\n')}\n`;
+const file = path.join(root, 'Zava-Procurement-Routing-Matrix.md');
+if (process.argv.includes('--check')) {
+  if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== output) throw new Error('Routing matrix is stale.');
+} else fs.writeFileSync(file, output);
+console.log('Verified 22 registered tool owners and six canonical starter targets.');

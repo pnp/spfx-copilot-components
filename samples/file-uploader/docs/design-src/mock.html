@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>File Uploader — design mock</title>
+<style>
+:root{
+  --bg:#f5f5f5; --surface:#ffffff; --surface2:#f7f7f7; --border:#e0e0e0; --border-strong:#c7c7c7;
+  --text:#242424; --text2:#616161; --text3:#808080;
+  --accent:#0f6cbd; --accent-hover:#115ea3; --accent-soft:#ebf3fc; --on-accent:#fff;
+  --amber:#8a6a00; --amber-bg:#fff4ce; --amber-dot:#c19c00;
+  --green:#0e700e; --green-bg:#dff6dd; --green-dot:#107c10;
+  --red:#a4262c; --red-bg:#fde7e9; --red-dot:#c4314b;
+  --focus:#0f6cbd; --shadow:0 1px 2px rgba(0,0,0,.08);
+}
+[data-theme=dark]{
+  --bg:#1b1a19; --surface:#292929; --surface2:#333333; --border:#3d3d3d; --border-strong:#5c5c5c;
+  --text:#ffffff; --text2:#adadad; --text3:#8a8a8a;
+  --accent:#479ef5; --accent-hover:#62abf5; --accent-soft:#1f3552; --on-accent:#0b1b2e;
+  --amber:#f5d76e; --amber-bg:#3a3110; --amber-dot:#f5d76e;
+  --green:#8ee08e; --green-bg:#12331a; --green-dot:#54b054;
+  --red:#f28b95; --red-bg:#3f1a1f; --red-dot:#e57380;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 "Segoe UI",system-ui,-apple-system,sans-serif}
+body{padding:16px}
+.component{background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px 16px;gap:12px}
+.hdr h1{font-size:20px;line-height:1.2;font-weight:600;margin:0}
+.hdr .sub{color:var(--text2);font-size:12px;margin-top:2px}
+.meta{font-size:11px;color:var(--text3)}
+.num{font-variant-numeric:tabular-nums}
+.body{padding:4px 16px 16px 16px}
+.row{display:flex;gap:12px;align-items:flex-start}
+.col{flex:1;min-width:0}
+.divider{height:1px;background:var(--border);margin:12px 0}
+label.f{display:block;font-size:12px;color:var(--text2);margin:0 0 4px}
+label.f b{color:var(--red);font-weight:600;margin-left:2px}
+.field{margin-bottom:12px}
+.input,.select{height:32px;width:100%;border:1px solid var(--border-strong);border-radius:4px;background:var(--surface);color:var(--text);padding:0 10px;display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.input.ph{color:var(--text3)}
+.input.invalid{border-color:var(--red-dot);box-shadow:0 0 0 1px var(--red-dot) inset}
+.err{color:var(--red);font-size:11px;margin-top:4px;display:flex;gap:4px;align-items:center}
+.hint{color:var(--text3);font-size:11px;margin-top:4px}
+.prefilled{font-size:11px;color:var(--accent);margin-top:4px}
+.chev{width:10px;height:10px;border-right:1.5px solid var(--text2);border-bottom:1.5px solid var(--text2);transform:rotate(45deg) translate(-2px,-2px)}
+.btn{height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);font:600 13px "Segoe UI",system-ui,sans-serif;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.icon{width:36px;padding:0;justify-content:center}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px;flex-wrap:wrap}
+.actions .left{margin-right:auto;color:var(--text2);font-size:12px;align-self:center}
+.drop{border:1.5px dashed var(--border-strong);border-radius:8px;padding:22px 16px;text-align:center;color:var(--text2);background:var(--surface2)}
+.drop.hot{border-color:var(--accent);background:var(--accent-soft)}
+.drop .ico{width:32px;height:32px;margin:0 auto 8px;border-radius:6px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:16px}
+.drop b{color:var(--text);font-weight:600;display:block;margin-bottom:2px}
+.file{display:flex;align-items:center;gap:10px;padding:10px 0}
+.fico{width:32px;height:36px;border-radius:4px;background:var(--red-bg);color:var(--red);font:700 9px/36px sans-serif;text-align:center;flex:none;letter-spacing:.3px}
+.fico.xls{background:var(--green-bg);color:var(--green)}
+.fname{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:5px;height:20px;padding:0 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.amber{background:var(--amber-bg);color:var(--amber)}
+.pill.green{background:var(--green-bg);color:var(--green)}
+.pill.red{background:var(--red-bg);color:var(--red)}
+.pill.neutral{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+.summary{display:grid;grid-template-columns:130px 1fr;gap:6px 12px;font-size:13px}
+.summary dt{color:var(--text2);margin:0}
+.summary dd{margin:0;overflow-wrap:anywhere}
+.path{font-family:Consolas,"Cascadia Mono",monospace;font-size:12px;color:var(--text2);overflow-wrap:anywhere}
+.banner{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:4px;font-size:13px;margin-bottom:12px}
+.banner.ok{background:var(--green-bg);color:var(--green)}
+.banner.warn{background:var(--amber-bg);color:var(--amber)}
+.banner.err{background:var(--red-bg);color:var(--red)}
+.banner .t{font-weight:600}
+.banner .d{color:inherit;opacity:.9;font-weight:400}
+.dot{width:8px;height:8px;border-radius:50%;flex:none;margin-top:5px;background:currentColor}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+.chip{height:28px;padding:0 10px;border-radius:14px;border:1px solid var(--border-strong);display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text)}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.chip .x{font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--text3);text-align:left;font-weight:600;padding:8px 8px 6px 0;border-bottom:1px solid var(--border)}
+td{padding:9px 8px 9px 0;border-bottom:1px solid var(--border);vertical-align:middle;height:56px}
+tr.sel td{background:var(--accent-soft)}
+tr.sel td:first-child{border-left:3px solid var(--accent);padding-left:8px}
+td .fname{font-size:13px}
+td .meta{display:block}
+.detail{background:var(--surface2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 12px 12px 19px}
+.empty{padding:26px 16px;text-align:center;color:var(--text2)}
+.empty b{display:block;color:var(--text);font-weight:600;font-size:14px;margin-bottom:2px}
+.link{color:var(--accent);text-decoration:underline;font-weight:600}
+/* fullscreen */
+.fs{display:grid;grid-template-columns:340px 1fr;min-height:640px}
+.fs .list{border-right:1px solid var(--border);padding:8px 0}
+.fs .list .lh{padding:8px 16px 6px;font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px;font-weight:600;display:flex;justify-content:space-between}
+.fs .item{display:flex;gap:10px;align-items:center;padding:10px 16px;height:58px;border-left:3px solid transparent}
+.fs .item.sel{background:var(--accent-soft);border-left-color:var(--accent)}
+.fs .item .fname{font-size:13px}
+.fs .pane{padding:16px 20px}
+.fs .shared{padding:0 0 4px;margin-bottom:16px;border-bottom:1px solid var(--border)}
+.fs .shared h3{margin:0 0 8px;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.fs .shared .meta{font-weight:400}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 16px}
+.fs .btn{height:38px}
+.narrow .hdr h1{font-size:19px}
+.narrow .body{padding:4px 12px 12px}
+.narrow .hdr{padding:12px 12px 8px}
+.narrow .summary{grid-template-columns:1fr}
+.narrow .summary dt{margin-top:4px}
+.narrow .actions .btn{flex:1;justify-content:center}
+.narrow .actions .left{flex-basis:100%;margin:0 0 4px}
+.narrow td.hidenarrow, .narrow th.hidenarrow{display:none}
+.narrow td:first-child{max-width:200px}
+.narrow table{table-layout:fixed}
+.narrow th:first-child{width:auto}
+.narrow td:nth-child(3),.narrow th:nth-child(3){width:70px}
+.narrow td:nth-child(4),.narrow th:nth-child(4){width:78px;padding-right:0}
+.narrow .pill{padding:0 6px}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const state = q.get('state') || 'inline-draft';
+const theme = q.get('theme') || 'light';
+document.documentElement.dataset.theme = theme;
+const narrow = q.get('narrow') === '1';
+
+const kind = k => `<div class="field"><label class="f">Document kind<b>*</b></label><div class="select"><span>${k||'<span style="color:var(--text3)">Choose a kind</span>'}</span><span class="chev"></span></div></div>`;
+const dept = (d,pre) => `<div class="field"><label class="f">Department<b>*</b></label><div class="select"><span>${d||'<span style="color:var(--text3)">Choose a department</span>'}</span><span class="chev"></span></div>${pre?'<div class="prefilled">Pre-filled from your prompt · change if wrong</div>':''}</div>`;
+const input = (l,v,opt={}) => `<div class="field"><label class="f">${l}${opt.req!==false?'<b>*</b>':''}</label><div class="input ${v?'':'ph'} ${opt.invalid?'invalid':''}">${v||opt.ph||''}</div>${opt.err?`<div class="err">⚠ ${opt.err}</div>`:''}${opt.hint?`<div class="hint">${opt.hint}</div>`:''}${opt.pre?'<div class="prefilled">Pre-filled from your prompt · change if wrong</div>':''}</div>`;
+const fileRow = (name,size,cls='',extra='') => `<div class="file"><div class="fico ${cls}">${cls==='xls'?'XLSX':'PDF'}</div><div class="col"><div class="fname">${name}</div><div class="meta">${size}${extra}</div></div></div>`;
+const hdr = (t,s,right='') => `<div class="hdr"><div><h1>${t}</h1><div class="sub">${s}</div></div>${right}</div>`;
+const pill = (c,t)=>`<span class="pill ${c}">${t}</span>`;
+
+const states = {
+ 'inline-empty': () => hdr('File a document','Drop a file and I\'ll ask only for what this record needs.') + `<div class="body">
+  <div class="drop"><div class="ico">↑</div><b>Drop a file here</b>PDF, Word, Excel or image · up to 250 MB<div style="margin-top:12px"><span class="btn">Browse files</span></div></div>
+  <div class="meta" style="margin-top:10px">Files go to the Records library. The destination folder is set from the document kind and department.</div></div>`,
+
+ 'inline-draft': () => hdr('File a document','1 file · Invoice · not saved yet') + `<div class="body">
+  ${fileRow('Riverside-Print-Co_INV-20417.pdf','412 KB · ','',' <span class="link" style="font-weight:400;text-decoration:none">Replace</span>')}
+  <div class="divider"></div>
+  ${kind('Invoice')}
+  ${dept('Programs',true)}
+  ${input('Vendor','Riverside Print Co.')}
+  ${input('Invoice date','',{ph:'Select a date'})}
+  ${input('Amount','',{ph:'0.00'})}
+  <div class="field"><label class="f">Status<b>*</b></label><div class="select"><span>Received</span><span class="chev"></span></div></div>
+  <div class="actions"><span class="left">Destination: Finance › Invoices › Programs</span><span class="btn">Cancel</span><span class="btn primary">Review and save</span></div></div>`,
+
+ 'inline-validation': () => hdr('File a document','1 file · Invoice · 2 fields need attention') + `<div class="body">
+  <div class="banner warn"><span class="dot"></span><div><span class="t">Nothing has been saved.</span> <span class="d">An invoice needs a date and an amount before it can be filed.</span></div></div>
+  ${fileRow('Riverside-Print-Co_INV-20417.pdf','412 KB')}
+  <div class="divider"></div>
+  ${kind('Invoice')}
+  ${dept('Programs')}
+  ${input('Vendor','Riverside Print Co.')}
+  ${input('Invoice date','',{ph:'Select a date',invalid:true,err:'Required for an invoice'})}
+  ${input('Amount','',{ph:'0.00',invalid:true,err:'Enter the invoice total'})}
+  <div class="field"><label class="f">Status<b>*</b></label><div class="select"><span>Received</span><span class="chev"></span></div></div>
+  <div class="actions"><span class="left">Destination: Finance › Invoices › Programs</span><span class="btn">Cancel</span><span class="btn primary">Review and save</span></div></div>`,
+
+ 'inline-review': () => hdr('Confirm filing','Check the record before it is saved. Nothing is stored until you confirm.') + `<div class="body">
+  ${fileRow('Riverside-Print-Co_INV-20417.pdf','412 KB')}
+  <div class="divider"></div>
+  <dl class="summary">
+   <dt>Document kind</dt><dd>Invoice</dd>
+   <dt>Department</dt><dd>Programs</dd>
+   <dt>Vendor</dt><dd>Riverside Print Co.</dd>
+   <dt>Invoice date</dt><dd class="num">3 days ago (Fri)</dd>
+   <dt>Amount</dt><dd class="num">$1,284.50</dd>
+   <dt>Status</dt><dd>${pill('amber','Received')}</dd>
+   <dt>Will be saved to</dt><dd class="path">Records / Finance / Invoices / Programs / 2026 / Riverside-Print-Co_INV-20417.pdf</dd>
+  </dl>
+  <div class="actions"><span class="btn">Back to edit</span><span class="btn primary">Confirm and save</span></div></div>`,
+
+ 'inline-receipt': () => hdr('Filed','Saved just now by Dana Whitfield') + `<div class="body">
+  <div class="banner ok"><span class="dot"></span><div><span class="t">Riverside-Print-Co_INV-20417.pdf is filed.</span> <span class="d">Receipt #F-10932</span></div></div>
+  <dl class="summary">
+   <dt>Document kind</dt><dd>Invoice</dd>
+   <dt>Department</dt><dd>Programs</dd>
+   <dt>Vendor</dt><dd>Riverside Print Co.</dd>
+   <dt>Invoice date</dt><dd class="num">3 days ago (Fri)</dd>
+   <dt>Amount</dt><dd class="num">$1,284.50</dd>
+   <dt>Status</dt><dd>${pill('amber','Received')}</dd>
+   <dt>Saved to</dt><dd class="path">Records / Finance / Invoices / Programs / 2026 / <span class="link">Riverside-Print-Co_INV-20417.pdf</span></dd>
+  </dl>
+  <div class="actions"><span class="left">Metadata can be corrected in SharePoint.</span><span class="btn">Open in SharePoint</span><span class="btn primary">File another</span></div></div>`,
+
+ 'inline-error': () => hdr('File a document','1 file · Invoice · not saved') + `<div class="body">
+  <div class="banner err"><span class="dot"></span><div><span class="t">The records library didn\'t respond.</span> <span class="d">Your file and the details you entered are still here. Nothing was saved.</span></div></div>
+  ${fileRow('Riverside-Print-Co_INV-20417.pdf','412 KB · kept in this card')}
+  <div class="divider"></div>
+  <dl class="summary">
+   <dt>Document kind</dt><dd>Invoice</dd>
+   <dt>Department</dt><dd>Programs</dd>
+   <dt>Vendor</dt><dd>Riverside Print Co.</dd>
+   <dt>Amount</dt><dd class="num">$1,284.50</dd>
+  </dl>
+  <div class="actions"><span class="left">Tried 20 seconds ago</span><span class="btn">Download details</span><span class="btn primary">Try again</span></div></div>`,
+
+ 'recent-default': () => recent({}),
+ 'recent-filtered': () => recent({filter:true}),
+ 'recent-selected': () => recent({selected:true}),
+ 'recent-no-match': () => recent({filter:true,none:true}),
+
+ 'fullscreen-bulk': () => fs({}),
+ 'fullscreen-bulk-receipt': () => fs({receipt:true}),
+};
+
+function recent({filter,selected,none}){
+  const rows = [
+   ['Riverside-Print-Co_INV-20417.pdf','Invoice','Programs','$1,284.50','amber','Received','12 min ago'],
+   ['ER-Aug_Okafor.xlsx','Expense report','Development','$642.10','green','Approved','2 h ago','xls'],
+   ['Harborview-Catering_INV-0088.pdf','Invoice','Operations','$3,910.00','amber','Received','Yesterday'],
+   ['ER-Aug_Marin.xlsx','Expense report','Finance','$218.75','amber','Pending review','Yesterday','xls'],
+   ['Northgate-Supplies_INV-5521.pdf','Invoice','Finance','$486.20','green','Paid','2 days ago'],
+   ['ER-Jul_Whitfield.xlsx','Expense report','Programs','$1,020.00','green','Approved','3 days ago','xls'],
+   ['Lantern-Media_INV-2210.pdf','Invoice','Development','$2,400.00','red','Returned','4 days ago'],
+   ['ER-Jul_Sato.xlsx','Expense report','Operations','$77.40','green','Paid','5 days ago','xls'],
+  ];
+  const shown = filter && !none ? rows.filter(r=>r[2]==='Finance' && (r[5]==='Pending review'||r[5]==='Received')) : none ? [] : rows;
+  const chips = `<div class="chips">
+    <span class="chip ${filter?'':'on'}">All kinds <span class="chev" style="width:7px;height:7px"></span></span>
+    <span class="chip ${filter?'on':''}">${filter?'Finance <span class="x">✕</span>':'All departments <span class="chev" style="width:7px;height:7px"></span>'}</span>
+    <span class="chip ${filter?'on':''}">${filter?(none?'Returned <span class="x">✕</span>':'Pending <span class="x">✕</span>'):'Any status <span class="chev" style="width:7px;height:7px"></span>'}</span>
+    <span class="chip">Last 30 days</span></div>`;
+  let body;
+  if(none){
+    body = `<div class="empty"><b>Nothing returned for Finance.</b>Every Finance filing in the last 30 days went through cleanly.<div style="margin-top:12px"><span class="btn">Clear filters</span></div></div>`;
+  } else {
+    body = `<table><thead><tr><th>Document</th><th class="hidenarrow">Department</th><th class="num" style="text-align:right">Amount</th><th>Status</th><th class="hidenarrow">Filed</th></tr></thead><tbody>` +
+      shown.map((r,i)=>{
+        const sel = selected && i===0;
+        return `<tr class="${sel?'sel':''}"><td><div style="display:flex;gap:10px;align-items:center"><div class="fico ${r[7]||''}" style="height:32px;line-height:32px;width:28px">${r[7]?'XLSX':'PDF'}</div><div class="col"><div class="fname">${r[0]}</div><span class="meta">${narrow?r[2]+' · '+r[6]:r[1]}</span></div></div></td><td class="hidenarrow">${r[2]}</td><td class="num" style="text-align:right">${r[3]}</td><td>${pill(r[4],narrow&&r[5]==='Pending review'?'Pending':r[5])}</td><td class="hidenarrow meta" style="font-size:12px;color:var(--text2)">${r[6]}</td></tr>` +
+        (sel ? `<tr><td colspan="5" style="padding:0;height:auto"><div class="detail"><dl class="summary">
+          <dt>Vendor</dt><dd>Riverside Print Co.</dd><dt>Invoice date</dt><dd class="num">3 days ago (Fri)</dd><dt>Filed by</dt><dd>Dana Whitfield · 12 min ago</dd><dt>Receipt</dt><dd class="num">#F-10932</dd>
+          <dt>Location</dt><dd class="path">Records / Finance / Invoices / Programs / 2026 / <span class="link">Riverside-Print-Co_INV-20417.pdf</span></dd></dl>
+          <div class="actions" style="margin-top:10px"><span class="left">To correct metadata, open the file in SharePoint.</span><span class="btn">Open in SharePoint</span></div></div></td></tr>` : '');
+      }).join('') + `</tbody></table>`;
+  }
+  return hdr('Recent filings', filter ? (none?'Finance · Returned · last 30 days':`${shown.length} of 14 filings · Finance · Pending`) : `14 filings in the last 30 days · showing the 8 most recent`) + `<div class="body">${chips}${body}
+   <div class="meta" style="margin-top:10px">Showing the 8 most recent. Select a row for the full record.</div></div>`;
+}
+
+function fs({receipt}){
+  const files = [
+   ['ER-Aug_Okafor.xlsx','xls','kim.okafor@example.org','$642.10',receipt?'green':'green',receipt?'Saved':'Ready'],
+   ['ER-Aug_Marin.xlsx','xls','luis.marin@example.org','$218.75',receipt?'green':'amber',receipt?'Saved':'Needs amount'],
+   ['ER-Aug_Whitfield.xlsx','xls','dana.whitfield@example.org','$1,020.00',receipt?'green':'green',receipt?'Saved':'Ready'],
+   ['ER-Aug_Sato.pdf','','tom.sato@example.org','$77.40',receipt?'green':'green',receipt?'Saved':'Ready'],
+  ];
+  const list = `<div class="list"><div class="lh"><span>4 files</span><span>${receipt?'4 saved':'3 ready · 1 needs input'}</span></div>` +
+    files.map((f,i)=>`<div class="item ${!receipt&&i===1?'sel':''}"><div class="fico ${f[1]}" style="height:32px;line-height:32px;width:28px">${f[1]?'XLSX':'PDF'}</div><div class="col"><div class="fname">${f[0]}</div><span class="meta">${f[2]} · <span class="num">${f[3]}</span></span></div>${pill(f[4],f[5])}</div>`).join('') +
+    (receipt?'':`<div style="padding:12px 16px"><span class="btn" style="width:100%;justify-content:center">+ Add more files</span></div>`) + `</div>`;
+  let pane;
+  if(receipt){
+    pane = `<div class="pane">
+     <div class="banner ok"><span class="dot"></span><div><span class="t">4 expense reports are filed.</span> <span class="d">Receipts #F-10933 to #F-10936 · saved just now by Dana Whitfield</span></div></div>
+     <table><thead><tr><th>Document</th><th>Owner</th><th class="num" style="text-align:right">Amount</th><th>Saved to</th><th>Receipt</th></tr></thead><tbody>` +
+     files.map((f,i)=>`<tr><td><div class="fname">${f[0]}</div></td><td>${f[2]}</td><td class="num" style="text-align:right">${f[3]}</td><td class="path">Records / Finance / Expense reports / Development / 2026 / <span class="link">${f[0]}</span></td><td class="num">#F-1093${3+i}</td></tr>`).join('') +
+     `</tbody></table>
+     <div class="actions" style="margin-top:16px"><span class="left">Metadata can be corrected in SharePoint.</span><span class="btn">Open folder in SharePoint</span><span class="btn primary">File more</span></div></div>`;
+  } else {
+    pane = `<div class="pane">
+     <div class="shared"><h3>Applies to all 4 files <span class="meta">Change here, override per file below</span></h3>
+      <div class="grid3">${kind('Expense report')}${dept('Development',true)}${input('Period end','Last day of last month',{pre:true})}</div>
+      <div class="grid3" style="margin-top:-4px">${input('Status','Pending review')}<div></div><div></div></div>
+     </div>
+     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><h2 style="font-size:16px;margin:0;font-weight:600">ER-Aug_Marin.xlsx</h2><span class="meta">2 of 4 · 188 KB</span></div>
+     <div class="grid2">
+      ${input('Report owner email','luis.marin@example.org')}
+      ${input('Amount','',{ph:'0.00',invalid:true,err:'Enter the report total'})}
+      ${input('Department','Development',{hint:'Inherited from shared fields',req:false})}
+      ${input('Period end','Last day of last month',{hint:'Inherited from shared fields',req:false})}
+     </div>
+     <div class="actions" style="margin-top:12px"><span class="btn">← Previous</span><span class="btn">Next →</span></div>
+     <div class="divider" style="margin:20px 0"></div>
+     <div class="actions"><span class="left">Destination: Finance › Expense reports › Development · 3 of 4 ready</span><span class="btn">Cancel</span><span class="btn primary">Save 3 ready files</span></div>
+    </div>`;
+  }
+  return hdr(receipt?'Filed 4 documents':'File 4 documents','Records library', '') + `<div class="fs">${list}${pane}</div>`;
+}
+
+const root = document.getElementById('root');
+root.className = 'component' + (narrow?' narrow':'');
+root.innerHTML = (states[state]||(()=>'<p>unknown state</p>'))();
+</script>
+</body>
+</html>

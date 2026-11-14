@@ -20,6 +20,7 @@ const useStyles = makeStyles({
 });
 
 export interface IMyDayThemeProviderProps {
+  children?: React.ReactNode;
   /** Color theme advertised by the Copilot host. */
   theme?: SPCopilotTheme;
   /** Document that owns the Copilot component's host element. */

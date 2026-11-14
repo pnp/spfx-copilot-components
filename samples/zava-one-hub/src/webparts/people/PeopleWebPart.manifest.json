@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "57025869-d12e-481a-a3e0-0f1540d32238",
+  "alias": "PeopleWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: People and expertise" },
+    "description": { "default": "Find people with evidence-backed expertise." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwNzVmY2UiIGZpbGw9IiMwNzVmY2UiPjxwYXRoIGQ9Ik01LjUgOGEyLjUgMi41IDAgMSAxIDUgMCAyLjUgMi41IDAgMCAxLTUgMFpNOCA0YTQgNCAwIDEgMCAwIDggNCA0IDAgMCAwIDAtOFptNy41IDVhMS41IDEuNSAwIDEgMSAzIDAgMS41IDEuNSAwIDAgMS0zIDBaTTE3IDZhMyAzIDAgMSAwIDAgNiAzIDMgMCAwIDAgMC02Wm0tMi43NSAxMy4wNGMuNy4yOCAxLjYuNDYgMi43NS40NiAyLjI4IDAgMy41OS0uNyA0LjMtMS41NmEzLjE0IDMuMTQgMCAwIDAgLjctMS43M3YtLjAzYzAtMS4yLS45Ny0yLjE4LTIuMTgtMi4xOEgxNC4xYy40LjQxLjY4LjkzLjgxIDEuNWg0LjkxYS42OC42OCAwIDAgMSAuNjguN2wtLjA0LjE4Yy0uMDQuMTYtLjEzLjM4LS4zMi42QzE5LjggMTcuNDIgMTguOTcgMTggMTcgMThjLS45OCAwLTEuNjctLjE1LTIuMTctLjM0LS4xLjQtLjI4Ljg4LS41OCAxLjM4Wk00LjI1IDE0QzMuMDEgMTQgMiAxNSAyIDE2LjI1di4yOGEyLjA3IDIuMDcgMCAwIDAgLjAxLjJjLjAyLjE0LjA0LjMyLjEuNTMuMDkuNDIuMjkuOTguNjggMS41NUMzLjYxIDE5Ljk3IDUuMTcgMjEgOCAyMXM0LjM5LTEuMDMgNS4yLTIuMmE0LjQ4IDQuNDggMCAwIDAgLjgtMi4yN3YtLjI4YzAtMS4yNC0xLTIuMjUtMi4yNS0yLjI1aC03LjVabS0uNzUgMi41di0uMjVjMC0uNDEuMzQtLjc1Ljc1LS43NWg3LjVjLjQxIDAgLjc1LjM0Ljc1Ljc1di4zNGwtLjA2LjMzYy0uMDcuMjgtLjIuNjUtLjQ2IDEuMDItLjUuNzEtMS41NiAxLjU2LTMuOTggMS41NnMtMy40OS0uODUtMy45OC0xLjU2YTIuOTkgMi45OSAwIDAgMS0uNTItMS40M1oiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4=",
+    "properties": {
+      "description": "People"
+    }
+  }]
+}

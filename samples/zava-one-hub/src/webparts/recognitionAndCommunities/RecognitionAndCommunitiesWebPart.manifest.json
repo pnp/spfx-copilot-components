@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "4920f13c-30ff-4ddd-ae36-299561791a57",
+  "alias": "RecognitionAndCommunitiesWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Praise and communities" },
+    "description": { "default": "Draft and safely review recognition." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwNzVmY2UiIGZpbGw9IiMwNzVmY2UiPjxwYXRoIGQ9Ik0xMC43OSAzLjFjLjUtMSAxLjkyLTEgMi40MiAwbDIuMzYgNC43OCA1LjI3Ljc3YzEuMS4xNiAxLjU1IDEuNTIuNzUgMi4zbC0zLjgyIDMuNzIuOSA1LjI1YTEuMzUgMS4zNSAwIDAgMS0xLjk2IDEuNDJMMTIgMTguODZsLTQuNzIgMi40OGExLjM1IDEuMzUgMCAwIDEtMS45Ni0xLjQybC45LTUuMjUtMy44MS0zLjcyYy0uOC0uNzgtLjM2LTIuMTQuNzUtMi4zbDUuMjctLjc3IDIuMzYtNC43OFptMS4yLjk0TDkuNzUgOC42Yy0uMi40LS41OC42OC0xLjAyLjc0bC01LjA1Ljc0IDMuNjYgMy41NmMuMzIuMy40Ni43Ni4zOSAxLjJsLS44NyA1LjAyIDQuNTItMi4zN2MuNC0uMi44Ni0uMiAxLjI2IDBsNC41MSAyLjM3LS44Ni01LjAzYy0uMDctLjQzLjA3LS44OC4zOS0xLjJsMy42NS0zLjU1LTUuMDUtLjc0YTEuMzUgMS4zNSAwIDAgMS0xLjAxLS43NEwxMiA0LjA0WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg==",
+    "properties": {
+      "description": "RecognitionAndCommunities"
+    }
+  }]
+}

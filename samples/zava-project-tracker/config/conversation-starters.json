@@ -1,0 +1,34 @@
+{
+  "starters": [
+    {
+      "title": "Review my priorities",
+      "text": "What needs my attention across my projects this week?",
+      "tool": "GetMyWorkSummary"
+    },
+    {
+      "title": "Compare projects",
+      "text": "Compare Customer Service Copilot with Contract Intelligence on delivery and value.",
+      "tool": "CompareProjects"
+    },
+    {
+      "title": "Project delivery health",
+      "text": "Show the current delivery health of Customer Service Copilot.",
+      "tool": "GetProjectHealth"
+    },
+    {
+      "title": "Portfolio AI spending",
+      "text": "Analyze AI spending across the portfolio this quarter.",
+      "tool": "GetPortfolioAiSpend"
+    },
+    {
+      "title": "Review a budget request",
+      "text": "Review the project budget request for Customer Service Copilot.",
+      "tool": "ReviewProjectBudget"
+    },
+    {
+      "title": "Explore what this agent can do",
+      "text": "Show me the project and portfolio scenarios you can help with.",
+      "tool": "ExploreAgentCapabilities"
+    }
+  ]
+}

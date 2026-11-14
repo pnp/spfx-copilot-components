@@ -9,10 +9,10 @@
     "longDescription": [
       "My Time Off is a SharePoint Copilot App built as an SPFx 1.24 Copilot Components sample (not a classic web part). It ships three components that render directly in the Microsoft Copilot chat: timeOffOverview (GetMyTimeOff) shows the signed-in user's balances, upcoming leave and request history; timeOffRequest (RequestTimeOff) is a booking form that checks the user's Outlook calendar for conflicts before writing a new request; and timeOffTeam (GetTeamTimeOff) surfaces who's out, a manager approvals inbox and a full-screen team absence calendar.",
       "The headline capability the sample highlights is authenticated, delegated client-side API calls — something the MCP app specification itself does not provide. Every component reads and writes with the signed-in user's own identity, calling SharePoint REST (three lists: TimeOffRequests, LeaveBalances, CompanyHolidays) and Microsoft Graph (calendar conflict pre-check, manager and team roster resolution, and 48x48 profile photos) directly from the browser — no MCP server, no middle tier, no app-only secrets. New requests are routed to the submitter's line manager resolved via Graph (/me/manager) with a self-approval fallback that keeps single-user demo tenants working.",
-      "The data services call SharePoint and Graph live but never throw: on any failure they fall back to an in-memory data set so the components always render, and the team calendar self-heals to a demo roster when User.Read.All is not consented. A PnP PowerShell provisioning script creates and seeds the lists, and a TimeOffSite tenant property lets an admin repoint the components at a different lists site without rebuilding. Built with the Heft build system, React 17 and Fluent UI v9 with host-driven theming inside Copilot's sandboxed iframe."
+      "The data services call SharePoint and Graph live but never throw: on any failure they fall back to an in-memory data set so the components always render, and the team calendar self-heals to a demo roster when User.Read.All is not consented. A PnP PowerShell provisioning script creates and seeds the lists, and a TimeOffSite tenant property lets an admin repoint the components at a different lists site without rebuilding. Built with the Heft build system, React 18.3.1 and Fluent UI v9 with host-driven theming inside Copilot's sandboxed iframe."
     ],
     "creationDateTime": "2026-07-06",
-    "updateDateTime": "2026-07-06",
+    "updateDateTime": "2026-10-28",
     "products": [
       "SharePoint",
       "Copilot"
@@ -28,7 +28,7 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.0"
       }
     ],
     "thumbnails": [

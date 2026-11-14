@@ -49,6 +49,8 @@ Every sample `README.md` must end with exactly one sample-specific view tracker.
 
 Pull request validation rejects missing trackers, stale repository prefixes, folder-name mismatches, duplicate trackers, and content placed after the tracker.
 
+Relative README links may point to files anywhere within this repository, including root-level documentation. The gallery converts them to GitHub links and rejects paths that escape the repository.
+
 ## Submitting your pull request
 
 - Keep each pull request focused on a single sample or a single logical change.

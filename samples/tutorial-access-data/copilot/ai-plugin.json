@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "sharePointLists",
+  "name_for_human": "Data Access",
+  "description_for_human": "View SharePoint lists and your profile, mail, and calendar.",
+  "description_for_model": "Use ShowSharePointLists to show the lists on a SharePoint site and the items in a list. Use ShowMyProfile to show the signed-in user's profile with their recent mail or their calendar events for the next 7 days.",
+  "contact_email": "publisher@contoso.com"
+}

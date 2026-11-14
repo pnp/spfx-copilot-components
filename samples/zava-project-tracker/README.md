@@ -1,5 +1,11 @@
 # Zava AI Project Portfolio Agent
 
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
 ## Summary
 
 Zava demonstrates intent-driven UX inside Microsoft Copilot. Thirty independently routed
@@ -27,9 +33,9 @@ testing, use the complete [31-component prompt catalog](Zava-Project-Tracker-Dem
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.24.0--beta.2-yellow.svg)
+![version](https://img.shields.io/badge/version-1.24.0-green.svg)
 
-This sample targets the SPFx `1.24.0-beta.2` Copilot Component preview used by the repository. Confirm
+This sample targets SPFx `1.24.0` with React `18.3.1`. Confirm
 the supported SPFx Copilot component version in your target tenant before production adoption.
 
 ## Applies to
@@ -41,7 +47,7 @@ the supported SPFx Copilot component version in your target tenant before produc
 
 ## Prerequisites
 
-- Node.js `>=22.14.0 <23.0.0` for local development.
+- Node.js 22 (22.14.0 or later), 24, or 26 for local development.
 - A SharePoint app catalog and Microsoft Copilot access for deployment and tenant-host validation.
 - No external API, Azure resource, or runtime network dependency is required for the sample data.
 - For local Workbench testing, replace `{tenantDomain}` in `config/serve.json` with the target tenant
@@ -57,6 +63,8 @@ the supported SPFx Copilot component version in your target tenant before produc
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
+| 1.1 | October 19, 2026 | Upgrade to SPFx 1.24 RC0 and React 18.3.1, including root lifecycle, explicit children props, and React 18 UI tests |
 | 1.0 | August 20, 2026 | Public sample baseline with 31 Copilot Components |
 
 ## Disclaimer
@@ -72,7 +80,7 @@ the supported SPFx Copilot component version in your target tenant before produc
   to the tenant app catalog, or build locally:
 
   ```bash
-  npm install
+  npm ci
   npm run build
   ```
 
@@ -82,8 +90,22 @@ the supported SPFx Copilot component version in your target tenant before produc
   npm start
   ```
 
-- Add the generated Zava agent to Microsoft Copilot and start with one of the three conversation
+- Add the generated Zava agent to Microsoft Copilot and start with one of the six conversation
   starters. Use the prompt catalog for deterministic routing checks.
+
+### Six conversation starters
+
+The [canonical starter map](config/conversation-starters.json) and agent instructions select one
+owning component per prompt. Five operational starters are followed by the dedicated feature explorer.
+
+| Starter | Owning component tool |
+| --- | --- |
+| What needs my attention across my projects this week? | `GetMyWorkSummary` |
+| Compare Customer Service Copilot with Contract Intelligence on delivery and value. | `CompareProjects` |
+| Show the current delivery health of Customer Service Copilot. | `GetProjectHealth` |
+| Analyze AI spending across the portfolio this quarter. | `GetPortfolioAiSpend` |
+| Review the project budget request for Customer Service Copilot. | `ReviewProjectBudget` |
+| Show me the project and portfolio scenarios you can help with. | `ExploreAgentCapabilities` |
 
 ### Video: test the package in Microsoft 365
 
@@ -107,7 +129,7 @@ Other build commands can be listed using `heft --help`.
 - Explicit Draft -> Review -> Confirm -> session receipt workflows.
 - Typed invocation versioning and supported inline-to-full-screen context continuation.
 - Deterministic mock project/portfolio data, bundled personas, and no external writes.
-- Fluent UI v9, React 17, Griffel owner-document styling, and focused D3 visualizations.
+- Fluent UI v9, React 18, Griffel owner-document styling, and focused D3 visualizations.
 - Tenant-free UX review harness with responsive, dark, reduced-motion, and zoom evidence.
 - Optimized shared production bundle with generated plugin and package-output validation.
 
@@ -139,10 +161,13 @@ Other build commands can be listed using `heft --help`.
 
 ## Validation status
 
-- `168/168` tests pass with zero build warnings.
+- `172/172` tests pass with zero build warnings, including root reuse, independent instances, and teardown.
 - All 31 manifests, tools, schemas, registrations, and 188 optional prompt properties validate.
-- The generated API plugin and final `.sppkg` pass automated output audits.
+- The generated API plugin uses SPFx 1.24 GA dynamic MCP tool discovery; it and the final `.sppkg`
+  pass automated output audits.
 - All 39 unified-gallery screenshots are validated against `assets/sample.json`.
+- A local React 18 browser smoke test covers all 31 inline layouts, state retention across width and
+  theme changes, full-screen navigation, fresh invocations, and returning to inline mode.
 - Tenant-authenticated CSP, iframe focus, screen-reader, and high-contrast smoke testing requires a
   configured tenant and remains an explicit external validation step.
 

@@ -61,9 +61,9 @@ schema.
 **Say:**
 
 > "The declarative agent decides when to call the tool. The component manifest gives that tool a
-> deployment identity, description, schema, and supported display modes. The current `message` field
-> is a minimal scaffold input; the useful scenario context comes from the signed-in user, current
-> time, and the data service."
+> deployment identity, description, schema, and supported display modes. The optional `focus` input
+> selects the actual summary, meetings, tasks, news, mail or read-only plan view. The old unused
+> `message` scaffold input is gone; all four starter targets have explicit supported focus values."
 
 ### 1:15-2:00 - Show the SPFx host boundary
 
@@ -74,7 +74,7 @@ schema.
 - `BaseCopilotComponent<IMyDayCopilotComponentProperties>`
 - current user resolution from the SPFx page context
 - host-owned theme, display mode, available modes, and `ownerDocument`
-- React 17 `ReactDOM.render` and teardown
+- one retained React 18 `createRoot`, root reuse and unmount-before-base teardown
 - `requestDisplayModeAsync('fullscreen')`
 
 **Say:**
@@ -89,7 +89,7 @@ schema.
 
 **Point out:**
 
-- the thin root selects `MyDayInline` or `MyDayFullscreen`
+- the root selects `MyDayInline` or `MyDayFullscreen` while retaining drill-down, data, local task checks and panel state
 - host state flows down through props instead of mirrored React state
 - Griffel targets `context.domElement.ownerDocument`
 - Fluent light/dark theme follows host context
@@ -145,7 +145,7 @@ schema.
 
 ### 4:15-5:00 - Show packaging and release gates
 
-**In code:** Open `package.json`, `.npmrc`, and `scripts/validate-public-dependencies.mjs`.
+**In code:** Open `package.json`, `.npmrc`, and `scripts/validate-registry-dependencies.mjs`.
 
 **In terminal:** Run or show the latest output from:
 
@@ -155,9 +155,9 @@ npm run build
 
 **Expected proof:**
 
-- direct and transitive dependencies resolve through public npm
+- dependencies use the approved public/Microsoft RC0 registry hosts with no committed credentials
 - TypeScript and ESLint complete without warnings
-- the owner-document Jest regression passes
+- all 14 lifecycle, focus/state and owner-document Jest tests pass
 - the declarative agent ZIP is generated
 - a hashed JavaScript bundle is included in `sharepoint/solution/my-day.sppkg`
 
@@ -214,12 +214,12 @@ Natural-language request
 - Source-to-view mapping: `src/copilotComponents/myDay/services/mappers.ts`
 - Focus-plan logic: `src/copilotComponents/myDay/services/planMyDay.ts`
 - Session settings: `src/copilotComponents/myDay/utils/settings.ts`
-- Dependency provenance: `scripts/validate-public-dependencies.mjs`
+- Dependency provenance: `scripts/validate-registry-dependencies.mjs`
 
 ## Presenter guardrails
 
-- This sample targets SPFx `1.24.0-beta.2`; describe it as preview technology.
-- The `message` Zod property is currently a scaffold placeholder, not a rich intent schema.
+- This sample targets SPFx `1.24.0-rc.0`; describe it as preview technology.
+- The single composed `MyDayTool` has a meaningful optional focus schema; do not call it six independently registered tools.
 - Meetings, tasks, mail, news, weather, quick actions, and focus recommendations are deterministic
   sample data.
 - Only the user's name and profile-photo URL come from the signed-in SharePoint context.

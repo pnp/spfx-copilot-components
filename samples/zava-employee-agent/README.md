@@ -1,5 +1,11 @@
 # Zava Employee Agent
 
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
 Powered by SPFx Copilot Components
 
 ## Summary
@@ -18,10 +24,10 @@ focused answers and actions, plus a full-screen experience for deeper work. The 
 mocked Zava HR data so it can be deployed and demonstrated without a live line-of-business system.
 
 > [!IMPORTANT]
-> All 20 current-target Copilot Components and all 50 internal full-screen routes are implemented.
-> The clean production gate passes 39 suites and 170 tests, validates the generated 20-function API
-> plugin, validates 32 gallery screenshots, and packages all components into one shared 0.493 MiB
-> `.sppkg`. Authenticated Copilot prompt routing and the final manual accessibility/host matrix remain
+> All 20 operational Copilot Components, the dedicated feature explorer, and all 50 internal full-screen routes are implemented.
+> The production gate runs all behavior tests, validates GA dynamic MCP discovery, validates 33 gallery
+> screenshots, and packages all components into one shared `.sppkg`.
+> Authenticated Copilot prompt routing and the final manual accessibility/host matrix remain
 > explicit pre-publication evidence gates in `todo.md`.
 
 The product source brief is
@@ -38,23 +44,45 @@ launch, use the [ten-video global social campaign](Copilot-Apps-Social-Campaign.
 
 ## Applies To
 
-- SharePoint Framework 1.24 Copilot Components
+- SharePoint Framework 1.24.0 Copilot Components
 - Microsoft Copilot declarative agents
-- React 17 and Fluent UI React v9
+- React 18 and Fluent UI React v9
+
+The application uses React/ReactDOM **18.3.1** and persistent React 18 roots. Supported development
+versions are Node.js 22 (22.14 or later), 24, and 26.
+
+### Starter routing
+
+| Starter | Owning component tool |
+| --- | --- |
+| Show my HR dashboard for this week. | `GetMyHRDashboard` |
+| Draft a vacation request for November 9 through November 13, 2026. | `RequestTimeOff` |
+| Compare benefit plans for an employee with two children, prioritizing dental coverage and a low deductible. | `CompareBenefitPlans` |
+| Show my mandatory learning due in the next 14 days. | `GetRequiredLearning` |
+| Show the leave requests awaiting my approval. | `GetApprovalInbox` |
+| Explore the employee and HR features this agent supports. | `ExploreAgentCapabilitiesTool` |
+
+[Canonical starter targets](config/conversation-starters.json) distinguish the broad dashboard from
+the narrower ranked next-action component. The first five starters open distinct operational UX.
+The sixth opens a searchable, family-filtered catalog covering all 20 operational tools. Discovery
+stays in its own explorer in inline and full-screen modes, never falls back to the HR dashboard,
+and never reads private HR records or submits requests. Trying a prompt requires an explicit user action.
 
 ## At a Glance
 
 | Metric | Target |
 | --- | --- |
 | Copilot Component families | 10 |
-| Prompt-addressable Copilot Components/tools | 20 value-ranked tools across 10 families |
+| Prompt-addressable Copilot Components/tools | 20 operational tools across 10 families + 1 feature explorer |
 | Full-screen sections | 10, one per family |
-| Inline surfaces | 20, one per Copilot Component/tool |
+| Inline surfaces | 21, one per Copilot Component/tool |
 | Hub entry point | 1 Zava Employee Agent |
 | Data source | Offline mocked HR data |
-| Current implementation | 20 of 20 components complete across all 10 implemented full-screen families |
+| Current implementation | 21 of 21 components complete; 10 full-screen families and a dedicated explorer |
 
 ## Screenshots
+
+![Employee feature explorer with search, family filtering, and dedicated HR scenario prompts](assets/inline-explore-agent-capabilities.png)
 
 ![Inline time off request with editable prompt-derived values](assets/inline-request-time-off.png)
 
@@ -95,11 +123,11 @@ are defined in [Zava-Employee-Agent-Component-Plan.md](Zava-Employee-Agent-Compo
 > first, then update its code to the standards and implementation model in
 > [agentic-creation-rules.md](agentic-creation-rules.md).
 
-All 20 current-target components already exist. If an optimal-future intent is explicitly promoted,
+All 21 current-target components already exist. If an optimal-future intent is explicitly promoted,
 create it from the solution root with the catalog's component name:
 
 ```bash
-yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework none --skip-install
+yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework react --skip-install
 npm install
 ```
 
@@ -251,7 +279,7 @@ for README, gallery, review, and publication.
 
 - SharePoint Framework 1.24 Copilot Components, not classic web parts.
 - Heft build system, not Gulp.
-- React 17 functional components.
+- React 18 functional components.
 - Fluent UI React v9 components, icons, and theme tokens.
 - Zod schemas with descriptions for every tool property.
 - Host-derived theme, dimensions, and display mode.
@@ -323,10 +351,10 @@ focus, high contrast, or screen-reader output.
 
 ## Validation Status
 
-- 39 suites and 170 tests pass with zero failures.
-- All 20 manifests, component entries, agent registrations, functions, and mirrored MCP tools validate.
+- 178 tests pass with zero failures, including independent Home/family root lifecycle coverage.
+- All 20 manifests, component entries, registrations, compiled schemas, and GA dynamic MCP discovery validate.
 - All 32 implementation screenshots validate against [assets/sample.json](assets/sample.json).
-- The final package contains one 910,310-byte hashed JavaScript bundle and no stale JavaScript,
+- The final package contains one shared hashed JavaScript bundle and no stale JavaScript,
   duplicate cross-bundle media, or Fluent icon-font payload.
 - Authenticated Copilot routing, iframe focus, screen-reader, and Windows high-contrast checks remain
   explicit manual gates in [todo.md](todo.md).
@@ -369,6 +397,7 @@ definition in its component manifest.
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0 | August 10, 2026 | Initial scaffold |
 | 1.1 | August 11, 2026 | Updated Zava naming and ten-component implementation plan |
 | 1.2 | August 11, 2026 | Added canonical UX, action-plan, and prompt-parameter contracts |

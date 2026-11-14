@@ -65,9 +65,9 @@ const assertions = [
   [agent.agents[0].components.length === 31, 'Agent registration count does not match the catalog.'],
   [new Set(agent.agents[0].components).size === 31, 'Agent registrations are not unique.'],
   [manifests.every((item) => agent.agents[0].components.includes(item.id)), 'A manifest GUID is missing from the agent registration.'],
-  [starters.length === 3, `Expected exactly 3 conversation starters, found ${starters.length}.`],
-  [starters[2]?.title === 'Explore what this agent can do', 'The final conversation starter must open capability exploration.'],
-  [starters[2]?.text === 'Show me the project and portfolio scenarios you can help with.', 'The final capability starter prompt is incorrect.'],
+  [starters.length === 6, `Expected exactly 6 conversation starters, found ${starters.length}.`],
+  [starters[5]?.title === 'Explore what this agent can do', 'The final conversation starter must open capability exploration.'],
+  [starters[5]?.text === 'Show me the project and portfolio scenarios you can help with.', 'The final capability starter prompt is incorrect.'],
   [instructions.includes('ExploreAgentCapabilities'), 'Agent instructions do not route capability prompts to ExploreAgentCapabilities.']
 ];
 

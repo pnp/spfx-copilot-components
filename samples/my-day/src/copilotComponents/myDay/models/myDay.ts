@@ -78,6 +78,14 @@ export interface IMyDayData {
   quickActions?: IQuickAction[];
 }
 
+export interface IMyDayModelSnapshot extends Record<string, unknown> {
+  readonly source: 'mock';
+  readonly mode: string;
+  readonly focus: string;
+  readonly panel: string;
+  readonly summary: string;
+}
+
 /** Current-conditions weather shown in the full-screen hero (mock only). */
 export interface IWeather {
   temperatureC: number;

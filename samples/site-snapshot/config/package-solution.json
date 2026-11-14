@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "site-snapshot-client-side-solution",
+    "id": "f691b7b5-134d-4014-aab4-193d79d1736b",
+    "version": "1.0.5.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.3"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "On-demand health snapshot of a SharePoint site."
+      },
+      "longDescription": {
+        "default": "Site Snapshot gives an opinionated health score for a SharePoint site (storage, stale docs, external sharing, largest files, duplicates and a file-type breakdown) inside Microsoft 365 Copilot, and can export or email the result."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Sites.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Files.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Mail.Send"
+      }
+    ],
+    "features": [
+      {
+        "title": "site-snapshot Feature",
+        "description": "The feature that activates elements of the site-snapshot solution.",
+        "id": "b02524ae-8748-4806-a44c-e1413a4609e2",
+        "version": "1.0.5.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/site-snapshot.sppkg"
+  }
+}

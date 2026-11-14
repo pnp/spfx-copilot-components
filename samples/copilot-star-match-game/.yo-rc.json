@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.18.0",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.2",
+    "libraryName": "copilot-star-match-game",
+    "libraryId": "9b76c934-bef8-4453-b337-b023243786d7",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "copilot-star-match-game",
+    "solutionShortDescription": "copilot-star-match-game description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "copilotComponent"
+  }
+}

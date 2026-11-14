@@ -1,0 +1,19 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Cafeteria Agent"
+      },
+      "description": {
+        "default": "Find out what's for lunch, which cafeterias are open, and what dishes fit your diet and budget."
+      },
+      "components": [
+        "00b3d4e4-4289-4d49-b8a0-c524bff361cf",
+        "a9b480ec-c762-452d-8ec8-ac0d668ba299",
+        "8b4c1019-221f-4b9c-9d62-6293ccce3aa0",
+        "0f19d523-6f23-460d-9e14-b0889eda0e39"
+      ]
+    }
+  ]
+}

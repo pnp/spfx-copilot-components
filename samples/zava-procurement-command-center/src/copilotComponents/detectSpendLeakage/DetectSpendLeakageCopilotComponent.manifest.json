@@ -16,7 +16,7 @@
     {
       "name": "DetectSpendLeakageTool",
       "description": {
-        "default": "Detect addressable off-contract and price leakage patterns."
+        "default": "Use when identifying addressable off-contract spend or price leakage opportunities. Do not use to accept recovered savings, execute an intervention, or report verified realized value."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/detectSpendLeakage/DetectSpendLeakageCopilotComponentProperties.js:default;"

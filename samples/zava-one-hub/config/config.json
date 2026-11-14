@@ -1,0 +1,316 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "zava-one-webparts": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/companyNews/CompanyNewsWebPart.js",
+          "manifest": "./src/webparts/companyNews/CompanyNewsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/learning/LearningWebPart.js",
+          "manifest": "./src/webparts/learning/LearningWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/recognitionAndCommunities/RecognitionAndCommunitiesWebPart.js",
+          "manifest": "./src/webparts/recognitionAndCommunities/RecognitionAndCommunitiesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/vacationRequestApprovals/VacationRequestApprovalsWebPart.js",
+          "manifest": "./src/webparts/vacationRequestApprovals/VacationRequestApprovalsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/zavaOneWorkspace/ZavaOneWorkspaceWebPart.js",
+          "manifest": "./src/webparts/zavaOneWorkspace/ZavaOneWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/zavaOneCompanyWorkspace/ZavaOneCompanyWorkspaceWebPart.js",
+          "manifest": "./src/webparts/zavaOneCompanyWorkspace/ZavaOneCompanyWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/zavaOnePersonalWorkspace/ZavaOnePersonalWorkspaceWebPart.js",
+          "manifest": "./src/webparts/zavaOnePersonalWorkspace/ZavaOnePersonalWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/myDay/MyDayWebPart.js",
+          "manifest": "./src/webparts/myDay/MyDayWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/agenda/AgendaWebPart.js",
+          "manifest": "./src/webparts/agenda/AgendaWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/importantMail/ImportantMailWebPart.js",
+          "manifest": "./src/webparts/importantMail/ImportantMailWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/tasks/TasksWebPart.js",
+          "manifest": "./src/webparts/tasks/TasksWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/approvals/ApprovalsWebPart.js",
+          "manifest": "./src/webparts/approvals/ApprovalsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/activeAnnouncements/ActiveAnnouncementsWebPart.js",
+          "manifest": "./src/webparts/activeAnnouncements/ActiveAnnouncementsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/companyKnowledge/CompanyKnowledgeWebPart.js",
+          "manifest": "./src/webparts/companyKnowledge/CompanyKnowledgeWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/employeeServices/EmployeeServicesWebPart.js",
+          "manifest": "./src/webparts/employeeServices/EmployeeServicesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/companyEvents/CompanyEventsWebPart.js",
+          "manifest": "./src/webparts/companyEvents/CompanyEventsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/people/PeopleWebPart.js",
+          "manifest": "./src/webparts/people/PeopleWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/onboarding/OnboardingWebPart.js",
+          "manifest": "./src/webparts/onboarding/OnboardingWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/employeeSurveys/EmployeeSurveysWebPart.js",
+          "manifest": "./src/webparts/employeeSurveys/EmployeeSurveysWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/timeOff/TimeOffWebPart.js",
+          "manifest": "./src/webparts/timeOff/TimeOffWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/payDocuments/PayDocumentsWebPart.js",
+          "manifest": "./src/webparts/payDocuments/PayDocumentsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/benefits/BenefitsWebPart.js",
+          "manifest": "./src/webparts/benefits/BenefitsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/equity/EquityWebPart.js",
+          "manifest": "./src/webparts/equity/EquityWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/expensesAndTravel/ExpensesAndTravelWebPart.js",
+          "manifest": "./src/webparts/expensesAndTravel/ExpensesAndTravelWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/campusMenu/CampusMenuWebPart.js",
+          "manifest": "./src/webparts/campusMenu/CampusMenuWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/workplaceSpace/WorkplaceSpaceWebPart.js",
+          "manifest": "./src/webparts/workplaceSpace/WorkplaceSpaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/itHelp/ItHelpWebPart.js",
+          "manifest": "./src/webparts/itHelp/ItHelpWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/workplaceHelp/WorkplaceHelpWebPart.js",
+          "manifest": "./src/webparts/workplaceHelp/WorkplaceHelpWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/shifts/ShiftsWebPart.js",
+          "manifest": "./src/webparts/shifts/ShiftsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/projectHealth/ProjectHealthWebPart.js",
+          "manifest": "./src/webparts/projectHealth/ProjectHealthWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/salesPerformance/SalesPerformanceWebPart.js",
+          "manifest": "./src/webparts/salesPerformance/SalesPerformanceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/goalsAndScorecards/GoalsAndScorecardsWebPart.js",
+          "manifest": "./src/webparts/goalsAndScorecards/GoalsAndScorecardsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/workFiles/WorkFilesWebPart.js",
+          "manifest": "./src/webparts/workFiles/WorkFilesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/teamAvailability/TeamAvailabilityWebPart.js",
+          "manifest": "./src/webparts/teamAvailability/TeamAvailabilityWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/companyStock/CompanyStockWebPart.js",
+          "manifest": "./src/webparts/companyStock/CompanyStockWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/corporateGlossary/CorporateGlossaryWebPart.js",
+          "manifest": "./src/webparts/corporateGlossary/CorporateGlossaryWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/securityReporting/SecurityReportingWebPart.js",
+          "manifest": "./src/webparts/securityReporting/SecurityReportingWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/officeDetails/OfficeDetailsWebPart.js",
+          "manifest": "./src/webparts/officeDetails/OfficeDetailsWebPart.manifest.json"
+        }
+      ]
+    },
+    "zava-one-copilot-components": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/showCompanyNews/ShowCompanyNewsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showCompanyNews/ShowCompanyNewsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyLearning/ShowMyLearningCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyLearning/ShowMyLearningCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showRecognitionAndCommunities/ShowRecognitionAndCommunitiesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showRecognitionAndCommunities/ShowRecognitionAndCommunitiesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/reviewVacationRequests/ReviewVacationRequestsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/reviewVacationRequests/ReviewVacationRequestsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/openZavaWorkspace/OpenZavaWorkspaceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/openZavaWorkspace/OpenZavaWorkspaceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/exploreAgentCapabilities/ExploreAgentCapabilitiesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyDay/ShowMyDayCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyDay/ShowMyDayCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyAgenda/ShowMyAgendaCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyAgenda/ShowMyAgendaCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showImportantMail/ShowImportantMailCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showImportantMail/ShowImportantMailCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyTasks/ShowMyTasksCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyTasks/ShowMyTasksCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyApprovals/ShowMyApprovalsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyApprovals/ShowMyApprovalsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showActiveAnnouncements/ShowActiveAnnouncementsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showActiveAnnouncements/ShowActiveAnnouncementsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findCompanyKnowledge/FindCompanyKnowledgeCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findCompanyKnowledge/FindCompanyKnowledgeCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findEmployeeService/FindEmployeeServiceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findEmployeeService/FindEmployeeServiceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showCompanyEvents/ShowCompanyEventsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showCompanyEvents/ShowCompanyEventsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findPeople/FindPeopleCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findPeople/FindPeopleCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyOnboarding/ShowMyOnboardingCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyOnboarding/ShowMyOnboardingCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showEmployeeSurveys/ShowEmployeeSurveysCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showEmployeeSurveys/ShowEmployeeSurveysCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showTimeOff/ShowTimeOffCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showTimeOff/ShowTimeOffCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showPayDocuments/ShowPayDocumentsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showPayDocuments/ShowPayDocumentsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyBenefits/ShowMyBenefitsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyBenefits/ShowMyBenefitsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyEquity/ShowMyEquityCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyEquity/ShowMyEquityCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showExpensesAndTravel/ShowExpensesAndTravelCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showExpensesAndTravel/ShowExpensesAndTravelCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showCampusMenu/ShowCampusMenuCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showCampusMenu/ShowCampusMenuCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findWorkplaceSpace/FindWorkplaceSpaceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findWorkplaceSpace/FindWorkplaceSpaceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/getItHelp/GetItHelpCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getItHelp/GetItHelpCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/getWorkplaceHelp/GetWorkplaceHelpCopilotComponent.js",
+          "manifest": "./src/copilotComponents/getWorkplaceHelp/GetWorkplaceHelpCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyShifts/ShowMyShiftsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyShifts/ShowMyShiftsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showProjectHealth/ShowProjectHealthCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showProjectHealth/ShowProjectHealthCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showSalesPerformance/ShowSalesPerformanceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showSalesPerformance/ShowSalesPerformanceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showGoalsAndScorecards/ShowGoalsAndScorecardsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showGoalsAndScorecards/ShowGoalsAndScorecardsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findMyWorkFiles/FindMyWorkFilesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findMyWorkFiles/FindMyWorkFilesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showTeamAvailability/ShowTeamAvailabilityCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showTeamAvailability/ShowTeamAvailabilityCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showCompanyStock/ShowCompanyStockCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showCompanyStock/ShowCompanyStockCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findCompanyTerm/FindCompanyTermCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findCompanyTerm/FindCompanyTermCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/reportSecurityConcern/ReportSecurityConcernCopilotComponent.js",
+          "manifest": "./src/copilotComponents/reportSecurityConcern/ReportSecurityConcernCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showOfficeDetails/ShowOfficeDetailsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showOfficeDetails/ShowOfficeDetailsCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {}
+}

@@ -1,5 +1,39 @@
 # Zava Innovation Hub - implementation plan
 
+## RC0 update - October 20, 2026
+
+### Current product-completion contract (supersedes historical scope/checkmarks below)
+
+- [x] Replace the generic Workflow form with separate opportunity intake, financial model,
+  recognition composer, capital committee, executive narrative, challenge recruitment, and
+  measured pilot-learning experiences. Controlled values reach reviewed snapshots and semantic receipts.
+- [x] Require Draft → Review → Confirm → receipt; no automatic confirmation or fake publishing.
+- [x] Validate measurable process targets, confidence/payback, capital envelope/gate eligibility,
+  challenge dates/scoring weights, pilot sample/reduction/safety thresholds, and human rationales.
+- [x] Make review queue inspection-only and gate decisions exact-record/human-owned.
+- [x] Audit all 17 tools; consume advertised properties or narrow schemas to actual supported scope.
+  Keep fixed portfolio/health/budget/growth snapshots honest rather than advertising ignored filters.
+- [x] Preserve unknown IDs/regions as visible no-match and publish no-match context.
+- [x] Retain primary draft/review/receipt state across passive theme/width/inline-fullscreen changes;
+  reset on fresh invocation; unmount once and await framework teardown.
+- [x] Publish only committed visible context; report host errors visibly.
+- [x] Keep all existing tool GUIDs/names, six canonical starters, and the exact capability starter last.
+- [x] Keep offline source data immutable; receipts are in memory, not cross-dashboard durable state.
+- [x] Add executable domain/DOM/lifecycle tests and current-source standard/narrow/dark intent
+  captures plus review, confirmation, receipt, and no-match evidence.
+- [ ] External: RC0 tenant installation, real model routing/extraction, host bridge/CSP support,
+  iframe focus/screen-reader rehearsal, production permissions/services, and portrait redistribution.
+
+Current executable evidence is `assets/gallery-evidence.json`, `assets/intent-evidence.json`,
+and `assets/release-evidence.json`. Run `npm run capture:visual`,
+`npx tsc --project scripts\visual-harness\tsconfig.json`, and `npm run build`.
+Older visual/workbench reports and the detailed August plan below are historical only; they are
+not claims of current data integration, current test totals, or current RC0 tenant validation.
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the build source of truth for the product scope in [README.md](README.md). Engineering, UX,
 validation, packaging, and safety requirements come from
 [agentic-creation-rules.md](agentic-creation-rules.md). Do not begin implementation until Phase 0 and
@@ -153,7 +187,7 @@ open item when appropriate.
 
 ### Shared stack and host
 
-- [x] Pin React 17.0.1, React DOM 17.0.1, matching types, Fluent UI v9, Fluent icons, and Griffel at
+- [x] Pin React 18.0.1, React DOM 18.3.1, matching types, Fluent UI v9, Fluent icons, and Griffel at
   approved reference versions before React implementation.
 - [x] Establish one measured shared-bundle strategy for all component entries.
 - [x] Build one owner-document Fluent/Griffel host with namespaced provider IDs, theme, brand/action

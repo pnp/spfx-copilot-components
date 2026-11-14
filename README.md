@@ -4,7 +4,7 @@
 
 **[Explore the Copilot Components gallery](https://pnp.github.io/spfx-copilot-components/)**
 
-This repository contains Microsoft and community provided samples that demonstrate how to build, extend, and customize **Copilot experiences for Microsoft Copilot**. The goal is to provide a curated, open collection of reusable SPFx Copilot components that help you get started faster when building SharePoint Copilot Apps with UX directly in the Microsoft Copilot canvas.
+This repository contains Microsoft and community provided samples that demonstrate how to build, extend, and customize **Copilot experiences for Microsoft Copilot**. The goal is to provide a curated, open collection of reusable SPFx Copilot components that help you get started faster when building Copilot UX components in the Microsoft Copilot canvas.
 
 See more details from the announcement blog post at [Going beyond text in Microsoft 365 Copilot – Introducing SharePoint Copilot Apps](https://devblogs.microsoft.com/microsoft365dev/going-beyond-text-in-microsoft-365-copilot-introducing-sharepoint-copilot-apps/).
 
@@ -15,13 +15,13 @@ See more details from the announcement blog post at [Going beyond text in Micros
 
 **Ready-built packages.** Several samples include a ready-built `.sppkg` file under `sharepoint/solution/`. Follow that sample's README to upload the package to your tenant App Catalog and deploy the scenario without building it from source first. Sample-specific setup, permissions, and data prerequisites still apply.
 
-**No Microsoft Copilot add-on is required during public preview.** You can build, deploy, and run SharePoint Copilot Apps without a Microsoft Copilot add-on license or configuring consumption-based Copilot billing. An eligible Microsoft 365 user license, a SharePoint tenant, and the required deployment permissions are still needed. Optional services used by an individual sample, such as Microsoft Graph, external APIs, added knowledge sources, or Copilot Studio capabilities, can have separate licensing or usage costs. See the [official SharePoint Copilot Apps preview guidance](https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app#prerequisites).
+**No Microsoft Copilot add-on is required during public preview.** You can build, deploy, and run Copilot UX components without a Microsoft Copilot add-on license or configuring consumption-based Copilot billing. An eligible Microsoft 365 user license, a SharePoint tenant, and the required deployment permissions are still needed. Optional services used by an individual sample, such as Microsoft Graph, external APIs, added knowledge sources, or Copilot Studio capabilities, can have separate licensing or usage costs. See the [official Copilot UX components preview guidance](https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app#prerequisites).
 
 ## Get moving
 
-- **Try** - [Test and demo SharePoint Copilot Apps in minutes - in any Microsoft 365 tenant](https://www.youtube.com/watch?v=4asOZi4PNUQ)
+- **Try** - [Test and demo Copilot UX components in minutes - in any Microsoft 365 tenant](https://www.youtube.com/watch?v=4asOZi4PNUQ)
 - **Explore** - [Copilot Just Got a Body: Real Enterprise Apps, Live Inside the Canvas](https://www.youtube.com/watch?v=sq2HRK1J3_o)
-- **Build** - [Creating your first SharePoint Copilot App - Tutorial](https://www.youtube.com/watch?v=1TaK6osdvc0)
+- **Build** - [Creating your first Copilot UX component - Tutorial](https://www.youtube.com/watch?v=1TaK6osdvc0)
 
 ## What you'll find here
 
@@ -58,13 +58,24 @@ Each sample folder contains its own `README.md` with the exact prerequisites, bu
 
 ## Contributing
 
+### Zava RC0 readiness
+
+The [RC0 upgrade report](./RC0-updates.md) tracks eight Zava samples contributed by Vesa Juvonen and My Day:
+SPFx 1.24 RC0 / React 18, source and deployment-package validation, intent/starter ownership, refreshed
+visuals, and remaining authenticated release gates. Other contributors' samples retain their own
+documented framework versions.
+
+Source builds of these prereleases require an approved Microsoft RC0 npm registry; public npm did not
+provide the requested SDK version during validation. See the report for provenance and release gates.
+Ready-built sample packages do not require a local source restore.
+
 These samples come directly from Microsoft and the broader community. We welcome your contributions, issue reports, and suggestions for new samples.
 
 Before submitting a pull request, please review the [Contribution Guidance](./CONTRIBUTING.md) so we can process your contribution as quickly as possible. You can use the assets in the [`templates`](./templates) folder as a starting point for your own sample.
 
-All contributors on this repository will be acknowledged with special SharePoint Skills Credly badge.
+All contributors on this repository will be acknowledged with special Copilot UX components Credly badge.
 
-![SharePoint Skills Credly Badge](./assets/sharepoint-copilot-apps-badge.png)
+![SharePoint Skills Credly Badge](./assets/contributor-badge.png)
 
 ## Have issues or questions?
 
@@ -75,7 +86,7 @@ Before submitting an issue, determine whether it is a general SharePoint or Shar
 
 ## Additional resources
 
-- [Going beyond text in Microsoft 365 Copilot – Introducing SharePoint Copilot Apps](https://devblogs.microsoft.com/microsoft365dev/going-beyond-text-in-microsoft-365-copilot-introducing-sharepoint-copilot-apps/)
+- [Going beyond text in Microsoft 365 Copilot – Introducing Copilot UX components](https://devblogs.microsoft.com/microsoft365dev/going-beyond-text-in-microsoft-365-copilot-introducing-sharepoint-copilot-apps/)
 - [Build agents for Microsoft Copilot](https://learn.microsoft.com/microsoft-365-copilot/extensibility/)
 - [Overview of the SharePoint Framework](https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview)
 - [SharePoint Framework development tools and libraries](https://learn.microsoft.com/sharepoint/dev/spfx/tools-and-libraries)

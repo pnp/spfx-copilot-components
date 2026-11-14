@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.7/schema.json",
+  "version": "v1.7",
+  "name": "StarMatch Agent",
+  "description": "StarMatch description",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Get started",
+      "text": "Run the tool starMatchTool"
+    }
+  ],
+  "actions": [
+    {
+      "id": "starMatchAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

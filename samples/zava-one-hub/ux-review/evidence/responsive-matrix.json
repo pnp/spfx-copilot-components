@@ -1,0 +1,329 @@
+{
+  "generatedAt": "2026-10-20T11:20:08.622Z",
+  "browser": "Microsoft Edge / Playwright",
+  "capabilities": 35,
+  "states": 4080,
+  "viewportWidths": [
+    320,
+    390,
+    560,
+    768,
+    1024,
+    1280,
+    1440,
+    1600
+  ],
+  "desktopColumnWidths": [
+    320,
+    390,
+    560,
+    768
+  ],
+  "darkViewportWidths": [
+    320,
+    768,
+    1440
+  ],
+  "failures": 0,
+  "assertions": [
+    "document and component bounds",
+    "internal clipping",
+    "runtime errors",
+    "loaded images",
+    "poll answers and stacked results",
+    "poll selection retained",
+    "workflow submissions and return actions",
+    "workspace edit and settings states",
+    "default desktop column spread <= 20%"
+  ],
+  "defaultColumns": [
+    {
+      "name": "workspace-combined-company-sharepoint-viewport-1280-light",
+      "heights": [
+        5113,
+        4855,
+        5541
+      ],
+      "spread": 0.1327
+    },
+    {
+      "name": "workspace-combined-company-teams-viewport-1280-light",
+      "heights": [
+        5113,
+        4855,
+        5541
+      ],
+      "spread": 0.1327
+    },
+    {
+      "name": "workspace-combined-personal-sharepoint-viewport-1280-light",
+      "heights": [
+        3331,
+        3309,
+        3872
+      ],
+      "spread": 0.1607
+    },
+    {
+      "name": "workspace-combined-personal-teams-viewport-1280-light",
+      "heights": [
+        3331,
+        3309,
+        3872
+      ],
+      "spread": 0.1607
+    },
+    {
+      "name": "workspace-company-company-sharepoint-viewport-1280-light",
+      "heights": [
+        5113,
+        4855,
+        5541
+      ],
+      "spread": 0.1327
+    },
+    {
+      "name": "workspace-company-company-teams-viewport-1280-light",
+      "heights": [
+        5113,
+        4855,
+        5541
+      ],
+      "spread": 0.1327
+    },
+    {
+      "name": "workspace-personal-personal-sharepoint-viewport-1280-light",
+      "heights": [
+        3331,
+        3309,
+        3872
+      ],
+      "spread": 0.1607
+    },
+    {
+      "name": "workspace-personal-personal-teams-viewport-1280-light",
+      "heights": [
+        3331,
+        3309,
+        3872
+      ],
+      "spread": 0.1607
+    },
+    {
+      "name": "workspace-combined-company-sharepoint-viewport-1440-light",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-combined-company-teams-viewport-1440-light",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-combined-personal-sharepoint-viewport-1440-light",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-combined-personal-teams-viewport-1440-light",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-company-company-sharepoint-viewport-1440-light",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-company-company-teams-viewport-1440-light",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-personal-personal-sharepoint-viewport-1440-light",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-personal-personal-teams-viewport-1440-light",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-combined-company-sharepoint-viewport-1600-light",
+      "heights": [
+        4942,
+        4502,
+        5036
+      ],
+      "spread": 0.1106
+    },
+    {
+      "name": "workspace-combined-company-teams-viewport-1600-light",
+      "heights": [
+        4942,
+        4502,
+        5036
+      ],
+      "spread": 0.1106
+    },
+    {
+      "name": "workspace-combined-personal-sharepoint-viewport-1600-light",
+      "heights": [
+        3105,
+        3097,
+        3164
+      ],
+      "spread": 0.0215
+    },
+    {
+      "name": "workspace-combined-personal-teams-viewport-1600-light",
+      "heights": [
+        3105,
+        3097,
+        3164
+      ],
+      "spread": 0.0215
+    },
+    {
+      "name": "workspace-company-company-sharepoint-viewport-1600-light",
+      "heights": [
+        4942,
+        4502,
+        5036
+      ],
+      "spread": 0.1106
+    },
+    {
+      "name": "workspace-company-company-teams-viewport-1600-light",
+      "heights": [
+        4942,
+        4502,
+        5036
+      ],
+      "spread": 0.1106
+    },
+    {
+      "name": "workspace-personal-personal-sharepoint-viewport-1600-light",
+      "heights": [
+        3105,
+        3097,
+        3164
+      ],
+      "spread": 0.0215
+    },
+    {
+      "name": "workspace-personal-personal-teams-viewport-1600-light",
+      "heights": [
+        3105,
+        3097,
+        3164
+      ],
+      "spread": 0.0215
+    },
+    {
+      "name": "workspace-combined-company-sharepoint-viewport-1440-dark",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-combined-company-teams-viewport-1440-dark",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-combined-personal-sharepoint-viewport-1440-dark",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-combined-personal-teams-viewport-1440-dark",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-company-company-sharepoint-viewport-1440-dark",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-company-company-teams-viewport-1440-dark",
+      "heights": [
+        5038,
+        4634,
+        5150
+      ],
+      "spread": 0.1044
+    },
+    {
+      "name": "workspace-personal-personal-sharepoint-viewport-1440-dark",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    },
+    {
+      "name": "workspace-personal-personal-teams-viewport-1440-dark",
+      "heights": [
+        3176,
+        3137,
+        3407
+      ],
+      "spread": 0.0833
+    }
+  ]
+}

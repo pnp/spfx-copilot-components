@@ -1,5 +1,11 @@
 # Zava Customer Resolution Center
 
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
 > [!IMPORTANT]
 > **Status: OFFLINE SHOWCASE IMPLEMENTED - EXTERNAL GATES REMAIN.** All 22 operational Copilot
 > Components plus the capability explorer have immutable Yeoman-generated identities and one shared
@@ -8,9 +14,9 @@
 > audits are implemented. Authenticated tenant routing/host accessibility, localization/RTL completion,
 > and public media-rights approval remain explicit release gates.
 
-> **Planned sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
-> **Planned catalog:** 22 operational inline components + 1 capability explorer<br>
-> **Planned full-screen model:** 4 role-aware lenses in one shared application<br>
+> **Sample type:** self-contained, offline-first SPFx Copilot Components showcase<br>
+> **Catalog:** 22 operational inline components + 1 capability explorer<br>
+> **Full-screen model:** 4 role-aware lenses in one shared application<br>
 > **Reference quality bar:** [Zava Innovation Hub](../zava-innovation-portfolio/README.md) and its
 > [agentic creation rules](../zava-innovation-portfolio/agentic-creation-rules.md)
 
@@ -37,7 +43,7 @@ Mobile and dark-mode evidence is available in
 | | | |
 | --- | --- | --- |
 | **Balance service workload**<br>![Balance service workload](assets/inline-balance-service-workload.png) | **Build resolution plan**<br>![Build resolution plan](assets/inline-build-resolution-plan.png) | **Compose customer update**<br>![Compose customer update](assets/inline-compose-customer-update.png) |
-| **Coordinate field service**<br>![Coordinate field service](assets/inline-coordinate-field-service.png) | **Create resolution knowledge**<br>![Create resolution knowledge](assets/inline-create-knowledge-from-resolution.png) | **Detect service incident**<br>![Detect service incident](assets/inline-detect-service-incident.png) |
+| **Coordinate field service**<br>![Coordinate field service](assets/inline-coordinate-field-service.png) | **Create knowledge from resolution**<br>![Create knowledge from resolution](assets/inline-create-knowledge-from-resolution.png) | **Detect service incident**<br>![Detect service incident](assets/inline-detect-service-incident.png) |
 | **Diagnose case evidence**<br>![Diagnose case evidence](assets/inline-diagnose-case-evidence.png) | **Explore agent capabilities**<br>![Explore agent capabilities](assets/inline-explore-agent-capabilities.png) | **Explore customer health**<br>![Explore customer health](assets/inline-explore-customer-health.png) |
 | **Explore service performance**<br>![Explore service performance](assets/inline-explore-service-performance.png) | **Priority service queue**<br>![Priority service queue](assets/inline-get-priority-service-queue.png) | **Manage case escalation**<br>![Manage case escalation](assets/inline-manage-case-escalation.png) |
 | **Explore regional service impact**<br>![Explore regional service impact](assets/inline-explore-regional-service-impact.png) | **Explore recurring service drivers**<br>![Explore recurring service drivers](assets/inline-explore-recurring-service-drivers.png) | **Manage customer commitments**<br>![Manage customer commitments](assets/inline-manage-customer-commitments.png) |
@@ -65,8 +71,8 @@ screen-reader validation.
 
 ## Build and deploy
 
-Prerequisites are Node.js 22.14 or later in the Node 22 line and an SPFx 1.24 Beta 3 compatible
-environment.
+This sample targets **SPFx 1.24.0 with React 18.3.1**. Use Node.js 22 (22.14 or later), 24,
+or 26 and a GA-compatible tenant. Review the local validation and external release gates below.
 
 ```powershell
 npm ci
@@ -76,12 +82,13 @@ npm run build
 
 The ready-to-deploy offline package is
 [sharepoint/solution/zava-customer-resolution-center.sppkg](sharepoint/solution/zava-customer-resolution-center.sppkg).
-This release uses Teams/declarative-agent app version **1.0.1**, SPFx solution and feature version
-**1.0.0.1**, and sample package version **0.0.2**.
-The validated package is 369,440 bytes with SHA-256
-`3f9104422470d80a81691698326c1e10688d038561ab1763c80a99943a5d14d8`. It contains one 605,450-byte
-hashed JavaScript asset, one current agent ZIP, five unique provenance-matched portraits, and 23
-Copilot Component definitions.
+This release uses Teams/declarative-agent app version **1.0.3**, SPFx solution and feature version
+**1.0.0.3**, and sample package version **0.0.2**.
+Current package sizes and SHA-256 values are recorded in
+[release-evidence.json](assets/release-evidence.json), generated from the production build.
+The package contains one shared hashed JavaScript asset, one current agent ZIP, five unique
+provenance-matched portraits, and 23 Copilot Component definitions. RC0 discovers tools dynamically
+through MCP; the source manifests remain the authority for tool names, boundaries, and schemas.
 
 ## Business story
 
@@ -257,10 +264,12 @@ source inspection belong inside the owning component and must not become separat
 
 ### Sweet-spot inline scenarios
 
-These six scenarios are the primary conversation starters and Microsoft keynote path. Together they
-demonstrate two compact submissions, two one-at-a-time review queues, and two focused visual answers.
+These six operational scenarios remain the Microsoft keynote and flagship regression path. Together
+they demonstrate two compact submissions, two one-at-a-time review queues, and two focused visual
+answers. The agent's six conversation starters use five of these operational tools followed by the
+dedicated feature explorer; service-performance analysis remains directly prompt-addressable.
 
-| Type | Starter intent | Inline experience | Intent resolution route |
+| Type | Operational intent | Inline experience | Intent resolution route |
 | --- | --- | --- | --- |
 | Submit | `TriageCustomerIssue` | Four-field case intake -> Review -> Create case -> session receipt | `my-queue/new-case` |
 | Submit | `ComposeCustomerUpdate` | Verified facts and editable customer message -> Review -> mock-send receipt | `customer-360/communications` |
@@ -470,9 +479,10 @@ evidence, consequential review, confirmation, receipt, and leadership impact.
 
 ## Conversation starters
 
-Use exactly six starters; each targets one primary tool.
+Use exactly six starters: five distinct operational UX components followed by the dedicated feature
+explorer. Broad feature discovery never substitutes for a specific case or analysis request.
 
-The generated routing matrix also carries 16 nearest-sibling collision cases. The canonical build
+The generated routing matrix also carries 17 nearest-sibling collision cases. The canonical build
 fails if a starter drifts, two starters target the same tool, or an expected positive/negative routing
 boundary disappears. Configuration-level checks do not replace fresh-conversation Copilot rehearsal.
 
@@ -483,7 +493,7 @@ boundary disappears. Configuration-level checks do not replace fresh-conversatio
 | 3 | Review incident | Review today's activation incident candidates and help me decide the next one. | `ReviewIncidentResponse` |
 | 4 | Review recovery | Review pending customer recovery requests, starting with Alpine House. | `ReviewServiceRecovery` |
 | 5 | Prepare update | Draft a French and English update for Alpine House with the next update time. | `ComposeCustomerUpdate` |
-| 6 | Service performance | Is customer-service resolution keeping up with demand today? | `ExploreServicePerformance` |
+| 6 | Explore customer-resolution features | Explore the customer-resolution features this agent supports. | `ExploreAgentCapabilities` |
 
 ## Coherent mock data contract
 
@@ -582,5 +592,12 @@ Implementation status and validation evidence are tracked in [todo.md](todo.md) 
 [assets/release-evidence.json](assets/release-evidence.json). The local gate currently reports 41 tests,
 zero warnings, 81 visual captures, zero visual failures, 36 unique layout identities, one production
 bundle, and zero duplicate media. Local evidence does not claim authenticated host behavior.
+
+
+## Version history
+
+| Version | Date | Comments |
+| --- | --- | --- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 
 <img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/zava-customer-resolution-center" />

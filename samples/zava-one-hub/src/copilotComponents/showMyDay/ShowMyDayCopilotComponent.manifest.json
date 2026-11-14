@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "eee8bfe9-6d19-4450-b30b-187ef936af57",
+  "alias": "ShowMyDayCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyDay",
+      "description": {
+        "default": "Use when the user asks what matters today or wants a daily briefing. Do not use when the user asks only for calendar events or tasks."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyDay/ShowMyDayCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

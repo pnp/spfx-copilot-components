@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "5117a643-0c52-4023-8fe5-cfd0794ea2be",
+  "alias": "WorkplaceSpaceWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Rooms and workplace booking" },
+    "description": { "default": "Find an available room or desk and review a reservation." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMxMDdjNDEiIGZpbGw9IiMxMDdjNDEiPjxwYXRoIGQ9Ik02LjI1IDMuNWEuNzUuNzUgMCAwIDAtLjc1Ljc1VjIwLjVoMnYtMi43NWMwLS42OS41Ni0xLjI1IDEuMjUtMS4yNWg2LjVjLjY5IDAgMS4yNS41NiAxLjI1IDEuMjV2Mi43NWgydi04Ljc1YS43NS43NSAwIDAgMC0uNzUtLjc1aC0yYS43NS43NSAwIDAgMS0uNzUtLjc1di02YS43NS43NSAwIDAgMC0uNzUtLjc1aC04Wk05IDE4djIuNWgyLjI1VjE4SDlabTMuNzUgMHYyLjVIMTVWMThoLTIuMjVabTYuNSA0SDQuNzVhLjc1Ljc1IDAgMCAxLS43NS0uNzV2LTE3QzQgMy4wMSA1IDIgNi4yNSAyaDhjMS4yNCAwIDIuMjUgMSAyLjI1IDIuMjVWOS41aDEuMjVjMS4yNCAwIDIuMjUgMSAyLjI1IDIuMjV2OS41YzAgLjQxLS4zNC43NS0uNzUuNzVaTTcuNSA2LjVhMSAxIDAgMSAxIDIgMCAxIDEgMCAwIDEtMiAwWm0xIDZhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yWm0wLTMuNWExIDEgMCAxIDAgMCAyIDEgMSAwIDAgMCAwLTJaTTEyIDUuNWExIDEgMCAxIDAgMCAyIDEgMSAwIDAgMCAwLTJabTAgN2ExIDEgMCAxIDAgMCAyIDEgMSAwIDAgMCAwLTJabTMuNSAwYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMlpNMTIgOWExIDEgMCAxIDAgMCAyIDEgMSAwIDAgMCAwLTJaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "WorkplaceSpace"
+    }
+  }]
+}

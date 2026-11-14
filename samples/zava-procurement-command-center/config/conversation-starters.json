@@ -1,0 +1,34 @@
+{
+  "starters": [
+    {
+      "title": "Start a purchase",
+      "text": "Find the fastest compliant path for 600 rugged devices within EUR 1.2 million.",
+      "tool": "CreatePurchaseIntentTool"
+    },
+    {
+      "title": "Compare supplier bids",
+      "text": "Compare the final rugged-device bids and show how risk changes the award.",
+      "tool": "CompareSupplierBidsTool"
+    },
+    {
+      "title": "Supplier risk",
+      "text": "Show our concentration and continuity exposure for Fabrikam Devices.",
+      "tool": "TrackSupplierRiskTool"
+    },
+    {
+      "title": "Award decision",
+      "text": "Review the proposed split award for sourcing event ZPC-RFP-31.",
+      "tool": "ReviewSupplierAwardTool"
+    },
+    {
+      "title": "Spend leakage",
+      "text": "Show the largest addressable spend leakage this quarter.",
+      "tool": "DetectSpendLeakageTool"
+    },
+    {
+      "title": "Explore capabilities",
+      "text": "Explore what the Procurement agent can do.",
+      "tool": "ExploreAgentCapabilitiesTool"
+    }
+  ]
+}

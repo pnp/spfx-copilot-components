@@ -1,6 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.5/schema.json",
-  "version": "v1.5",
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
   "name": "My Day",
   "description": "Your personal daily cockpit inside Microsoft Copilot — see your next meeting, tasks due, latest news and important mail at a glance, then expand to a full daily dashboard with a Plan my day focus assistant.",
   "instructions": "$[file('instruction.txt')]",

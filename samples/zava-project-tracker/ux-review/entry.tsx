@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import ProjectIntentApp from '../src/copilotComponents/shared/components/ProjectIntentApp';
 import ProjectThemeProvider from '../src/copilotComponents/shared/components/ProjectThemeProvider';
@@ -66,4 +66,8 @@ const ReviewHarness: React.FunctionComponent = () => {
   );
 };
 
-ReactDOM.render(<ReviewHarness />, document.getElementById('root'));
+const container = document.getElementById('root');
+if (!container) {
+  throw new Error('The UX review root element was not found.');
+}
+createRoot(container).render(<ReviewHarness />);

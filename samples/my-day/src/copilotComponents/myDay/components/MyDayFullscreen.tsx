@@ -4,8 +4,7 @@ import { makeStyles, mergeClasses, tokens, Text } from '@fluentui/react-componen
 import type { SPCopilotTheme } from '@microsoft/sp-copilot-component';
 
 import type { IMyDayCopilotComponentProperties } from '../MyDayCopilotComponentProperties';
-import type { IUser } from '../models/myDay';
-import { MockMyDayDataService } from '../services/MockMyDayDataService';
+import type { IMyDayData } from '../models/myDay';
 import { fadeInUp } from '../utils/motion';
 import { useMyDaySettings, type PanelId } from '../utils/settings';
 import AgendaTimeline from './fullscreen/AgendaTimeline';
@@ -23,13 +22,16 @@ import TasksPanel from './fullscreen/TasksPanel';
  * is `'fullscreen'`.
  */
 export interface IMyDayFullscreenProps extends IMyDayCopilotComponentProperties {
-  /** Signed-in user resolved from the SPFx page context. */
-  currentUser?: IUser;
+  data: IMyDayData;
+  now: Date;
+  onTaskToggle: (id: string) => void;
+  openPanel: MyDayPanel;
+  onPanelChange: (panel: MyDayPanel) => void;
   /** Color theme advertised by the Copilot host. */
   theme?: SPCopilotTheme;
 }
 
-type OpenPanel = 'none' | 'plan' | 'settings';
+export type MyDayPanel = 'none' | 'plan' | 'settings';
 
 const useStyles = makeStyles({
   root: {
@@ -47,6 +49,9 @@ const useStyles = makeStyles({
     height: '100%',
     overflowY: 'auto',
     boxSizing: 'border-box'
+  },
+  mainWithPanel: {
+    '@media (max-width: 760px)': { display: 'none' }
   },
   content: {
     display: 'flex',
@@ -70,7 +75,7 @@ const useStyles = makeStyles({
     display: 'grid',
     // Auto-fit tracks so the dashboard re-flows to the number of visible
     // columns and to the available width (3 → 2 → 1) without fixed breakpoints.
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
     gap: '20px',
     alignItems: 'start',
     width: '100%'
@@ -125,9 +130,6 @@ const useStyles = makeStyles({
   }
 });
 
-/** Single shared mock data service instance for the fullscreen view. */
-const dataService = new MockMyDayDataService();
-
 /**
  * Fullscreen display-mode view: a responsive dashboard with the time-aware hero,
  * a "Plan my day" briefing, and the agenda / tasks / mail / news / quick-action
@@ -136,18 +138,8 @@ const dataService = new MockMyDayDataService();
  */
 const MyDayFullscreen: React.FunctionComponent<IMyDayFullscreenProps> = (props) => {
   const styles = useStyles();
-  const { currentUser } = props;
-
-  const [openPanel, setOpenPanel] = React.useState<OpenPanel>('none');
+  const { data, now, onTaskToggle, openPanel, onPanelChange: setOpenPanel } = props;
   const [settings, updateSettings] = useMyDaySettings();
-
-  // Resolve the mock data once per mount against the current clock so relative
-  // times stay live and future-biased.
-  const now = React.useMemo(() => new Date(), []);
-  const data = React.useMemo(() => {
-    const myDay = dataService.getMyDay(now);
-    return currentUser ? { ...myDay, user: currentUser } : myDay;
-  }, [now, currentUser]);
 
   const isPanelVisible = (id: PanelId): boolean =>
     settings.visiblePanels.indexOf(id) !== -1;
@@ -172,7 +164,7 @@ const MyDayFullscreen: React.FunctionComponent<IMyDayFullscreenProps> = (props) 
 
   const middleColumn: React.ReactNode[] = [];
   if (isPanelVisible('tasks')) {
-    middleColumn.push(<TasksPanel key="tasks" tasks={data.tasks} now={now} />);
+    middleColumn.push(<TasksPanel key="tasks" tasks={data.tasks} now={now} onToggleTask={onTaskToggle} />);
   }
   if (isPanelVisible('mail')) {
     middleColumn.push(<ImportantMail key="mail" mail={data.mail} now={now} />);
@@ -202,7 +194,7 @@ const MyDayFullscreen: React.FunctionComponent<IMyDayFullscreenProps> = (props) 
 
   return (
     <div className={styles.root} data-display-mode="fullscreen">
-      <div className={styles.main}>
+      <div className={mergeClasses(styles.main, openPanel !== 'none' ? styles.mainWithPanel : undefined)}>
         <div className={styles.content}>
           <div className={enterAt(0)}>
             <FullscreenHero

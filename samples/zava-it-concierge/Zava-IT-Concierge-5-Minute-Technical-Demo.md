@@ -96,7 +96,7 @@ Run:
 npm run build
 ```
 
-The canonical gate validates routing, media, gallery metadata, and generated docs; runs the clean production test suite; packages the solution; validates the generated v2.4 API plugin and 31 mirrored MCP tools; then audits the `.sppkg` for stale output, hashes, bundle/chunk strategy, duplicate media, icon fonts, and size thresholds.
+The canonical gate validates routing, media, gallery metadata, and generated docs; runs the clean production test suite; packages the solution; validates the generated API plugin v2.4 dynamic discovery for 31 source tools; then audits the `.sppkg` for stale output, hashes, bundle/chunk strategy, duplicate media, icon fonts, and size thresholds.
 
 The local gate complements, but does not replace, authenticated Copilot host validation for routing, CSP, display-mode transitions, iframe focus, high contrast, and screen-reader output.
 

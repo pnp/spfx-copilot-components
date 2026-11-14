@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "2e90e4fd-75ce-424a-bc1e-380810044370",
+  "alias": "ShowActiveAnnouncementsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowActiveAnnouncements",
+      "description": {
+        "default": "Use when the user asks about active notices or alerts. Do not use when the user asks for ordinary company news."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showActiveAnnouncements/ShowActiveAnnouncementsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

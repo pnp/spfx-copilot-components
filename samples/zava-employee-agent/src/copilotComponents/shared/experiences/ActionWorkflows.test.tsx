@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot, type Root } from 'react-dom/client';
+import { act } from 'react';
 
 import { MockZavaEmployeeDataService } from '../services/MockZavaEmployeeDataService';
 import { ConfiguredFamilyDashboard, ConfiguredFamilyInline } from './ConfiguredFamilyExperience';
@@ -17,8 +17,9 @@ const click = (button: HTMLButtonElement): void => {
   act(() => { button.dispatchEvent(new MouseEvent('click', { bubbles: true })); });
 };
 
-const render = (element: React.ReactElement, container: HTMLDivElement): void => {
-  act(() => { ReactDOM.render(element, container); });
+let root: Root;
+const render = (element: React.ReactElement, _container: HTMLDivElement): void => {
+  act(() => { root.render(element); });
 };
 
 describe('shared action workflows', () => {
@@ -28,10 +29,11 @@ describe('shared action workflows', () => {
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
+    root = createRoot(container);
   });
 
   afterEach(() => {
-    act(() => { ReactDOM.unmountComponentAtNode(container); });
+    act(() => { root.unmount(); });
     container.remove();
   });
 

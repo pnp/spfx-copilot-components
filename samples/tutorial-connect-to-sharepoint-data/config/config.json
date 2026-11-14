@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "my-copilot-app-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/myCopilotApp/MyCopilotAppCopilotComponent.js",
+          "manifest": "./src/copilotComponents/myCopilotApp/MyCopilotAppCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MyCopilotAppCopilotComponentStrings": "lib/copilotComponents/myCopilotApp/loc/{locale}.js"
+  }
+}

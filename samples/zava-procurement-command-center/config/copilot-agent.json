@@ -3,7 +3,7 @@
   "agents": [
     {
       "name": {
-        "default": "Zava Procurement Command Center"
+        "default": "ZavaCore Procurement Command Center"
       },
       "description": {
         "default": "Govern buying, sourcing, suppliers, spend, and value with evidence-backed agent experiences."

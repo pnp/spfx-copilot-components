@@ -7,11 +7,11 @@
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/executive-sales-dashboard",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/executive-sales-dashboard",
     "longDescription": [
-      "A SharePoint Framework Copilot Component (React 17 + Fluent UI v9) that surfaces an Executive Sales & Revenue Dashboard directly inside Microsoft Copilot. It renders a compact inline card and, on request, a rich full-screen dashboard, switching on the host displayMode. All data comes from a locally generated, Graph-shaped mock so the sample runs fully offline; a data-service interface plus a useMock flag make switching to a real backend a drop-in change.",
+      "A SharePoint Framework Copilot Component (React 18.3.1 + Fluent UI v9) that surfaces an Executive Sales & Revenue Dashboard directly inside Microsoft Copilot. It renders a compact inline card and, on request, a rich full-screen dashboard, switching on the host displayMode. All data comes from a locally generated, Graph-shaped mock so the sample runs fully offline; a data-service interface plus a useMock flag make switching to a real backend a drop-in change.",
       "Features include KPI cards, an actual-vs-target revenue trend, revenue by region and by product, a quarter-forecast gauge, generated insights, host-driven light/dark theming, a gear-activated settings panel, filters (region/product/segment) that noticeably reshape the data, and a data-loading spinner. All charts are drawn with inline SVG (no external chart library)."
     ],
     "creationDateTime": "2026-07-08",
-    "updateDateTime": "2026-07-08",
+    "updateDateTime": "2026-10-28",
     "products": [
       "SharePoint",
       "Copilot"
@@ -27,7 +27,7 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.0"
       }
     ],
     "thumbnails": [

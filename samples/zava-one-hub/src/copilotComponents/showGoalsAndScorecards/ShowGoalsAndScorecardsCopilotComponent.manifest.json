@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a14176ee-1791-4bf1-830d-04c2d73da9e0",
+  "alias": "ShowGoalsAndScorecardsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowGoalsAndScorecards",
+      "description": {
+        "default": "Use when the user asks about published company outcomes or goals. Do not use when the user asks for confidential sales details."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showGoalsAndScorecards/ShowGoalsAndScorecardsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

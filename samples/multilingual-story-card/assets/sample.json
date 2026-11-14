@@ -1,0 +1,101 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-multilingual-story-card",
+    "source": "pnp",
+    "title": "CosmoPolite - multilingual story card",
+    "shortDescription": "Ask in any language or dialect and get a story card in that language: labels, reading direction, fonts, photo credit and a read-aloud voice all follow the story, including right-to-left scripts.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/multilingual-story-card",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/multilingual-story-card",
+    "longDescription": [
+      "CosmoPolite is a Copilot UX Component, packaged with a declarative agent, that answers in the language you ask in. The agent detects the language of every message, dialects included, and the card shows a short story written in that language with a photo from open collections (Wikipedia, Wikimedia Commons, Openverse, The Met, NASA) and its credit.",
+      "Everything on the card follows the story's language: UI labels in 58 languages, lang and dir on every part and on the frame's html element, right-to-left layout for Arabic, Hebrew, Persian and Urdu, a Nastaliq font for Urdu, and read-aloud with a matching Web Speech voice and word highlighting.",
+      "Users can switch between five designs, three photo layouts and light or dark, open the card fullscreen, and translate the story, after which the agent continues and suggests follow-ups in the new language. The component uses no framework and no Microsoft Graph permissions."
+    ],
+    "creationDateTime": "2026-10-18",
+    "updateDateTime": "2026-10-29",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "TypeScript"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "cosmopolite-inline.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/multilingual-story-card/assets/cosmopolite-inline.png",
+        "alt": "Inline CosmoPolite card in Microsoft 365 Copilot answering an Arabic question about Copilot UX components in SPFx, written and labelled in Arabic, right to left"
+      },
+      {
+        "name": "cosmopolite-translate.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/multilingual-story-card/assets/cosmopolite-translate.png",
+        "alt": "A CosmoPolite card translated from German into Spanish on request, with Spanish labels and a Spanish voice"
+      },
+      {
+        "name": "cosmopolite-read-aloud.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/multilingual-story-card/assets/cosmopolite-read-aloud.png",
+        "alt": "An English CosmoPolite card being read aloud: the current sentence is marked and the spoken word highlighted"
+      },
+      {
+        "name": "cosmopolite-fullscreen.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/multilingual-story-card/assets/cosmopolite-fullscreen.png",
+        "alt": "Fullscreen CosmoPolite card in Japanese in the Magazine design, dark theme, with a large photo above the headline"
+      },
+      {
+        "name": "cosmopolite-greek.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/multilingual-story-card/assets/cosmopolite-greek.png",
+        "alt": "A CosmoPolite card in Greek with Greek labels and a Greek read-aloud voice"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "StfBauer",
+        "pictureUrl": "https://github.com/StfBauer.png",
+        "name": "Stefan Bauer"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "Web Speech API",
+        "description": "Speech synthesis in the browser: voices, utterances and word boundary events used for read-aloud.",
+        "url": "https://developer.mozilla.org/docs/Web/API/Web_Speech_API"
+      },
+      {
+        "name": "WCAG 2.2: Language of Page and Language of Parts",
+        "description": "Why the lang attribute matters for screen readers and speech (success criteria 3.1.1 and 3.1.2).",
+        "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html"
+      }
+    ]
+  }
+]

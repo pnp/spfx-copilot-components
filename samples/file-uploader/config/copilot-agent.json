@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Document Intake"
+      },
+      "description": {
+        "default": "Guides intake of invoices and expense reports so every record is complete before it is stored."
+      },
+      "components": [
+        "943d7397-87dc-43df-92aa-ad9d20a7b955"
+      ]
+    }
+  ]
+}

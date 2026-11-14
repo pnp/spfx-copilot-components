@@ -1,0 +1,13 @@
+{
+  "extends": "@microsoft/spfx-web-build-rig/profiles/default/config/typescript.json",
+
+  // The rig also emits a CommonJS copy to lib-commonjs/ for Jest. The tests run on Vitest from the
+  // sources and webpack bundles lib/ (ESM), so the copy isn't needed.
+  "additionalModuleKindsToEmit": null,
+
+  "staticAssetsToCopy": {
+    "fileExtensions": [".resx", ".jpg", ".png", ".woff", ".eot", ".ttf", ".svg", ".gif"],
+
+    "includeGlobs": ["webparts/*/loc/*.js"]
+  }
+}

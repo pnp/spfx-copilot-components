@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "SharePoint Governance Agent",
+  "description": "An executive governance advisor for your SharePoint tenant — a governance score with trend, an AI-generated executive summary, prioritized remediation actions, and explainable, severity-ranked findings for orphaned sites, broad sharing, excessive guest access, and overdue lifecycle reviews.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Governance overview",
+      "text": "What's my tenant's governance score and what should I fix first?"
+    },
+    {
+      "title": "Highest risks",
+      "text": "Show me only the high severity governance risks."
+    },
+    {
+      "title": "Ownership gaps",
+      "text": "Which sites are missing an owner?"
+    },
+    {
+      "title": "Sharing & guest access",
+      "text": "Show me sites with broad sharing or excessive guest access."
+    }
+  ],
+  "actions": [
+    {
+      "id": "sharePointGovernanceAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

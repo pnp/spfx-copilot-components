@@ -7,7 +7,7 @@ module.exports = [
     languageOptions: {
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: './tsconfig.json'
+        project: ['./tsconfig.json', './scripts/visual-harness/tsconfig.json']
       }
     }
   }

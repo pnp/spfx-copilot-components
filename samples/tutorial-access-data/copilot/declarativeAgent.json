@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Data Access Agent",
+  "description": "Shows the lists on a SharePoint site and the signed-in user's profile, recent mail, and upcoming calendar events.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Lists on this site",
+      "text": "Show me the SharePoint lists"
+    },
+    {
+      "title": "My recent mail",
+      "text": "Show my profile and recent email"
+    },
+    {
+      "title": "My week",
+      "text": "What is on my calendar this week?"
+    }
+  ],
+  "actions": [
+    {
+      "id": "sharePointListsAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

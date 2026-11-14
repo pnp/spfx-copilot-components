@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "private": true,
   "engines": {
-    "node": ">=22.14.0 < 23.0.0"
+    "node": ">=22.14.0 <23.0.0 || >=24.0.0 <25.0.0 || >=26.0.0 <27.0.0"
   },
   "scripts": {
     "build": "npm run check:dependencies && heft test --clean --production && heft package-solution --production",
@@ -13,30 +13,30 @@
     "start": "heft start --clean"
   },
   "dependencies": {
-    "@microsoft/sp-copilot-component": "1.24.0-beta.2",
+    "@microsoft/sp-copilot-component": "1.24.0",
     "@fluentui/react-components": "9.59.0",
     "@fluentui/react-icons": "2.0.312",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "tslib": "2.3.1",
     "zod": "3.24.1",
     "zod-to-json-schema": "3.24.1"
   },
   "devDependencies": {
-    "@microsoft/eslint-plugin-spfx": "1.24.0-beta.2",
-    "@microsoft/eslint-config-spfx": "1.24.0-beta.2",
-    "@microsoft/spfx-web-build-rig": "1.24.0-beta.2",
-    "@microsoft/spfx-heft-plugins": "1.24.0-beta.2",
-    "@rushstack/heft": "1.2.19",
+    "@microsoft/eslint-plugin-spfx": "1.24.0",
+    "@microsoft/eslint-config-spfx": "1.24.0",
+    "@microsoft/spfx-web-build-rig": "1.24.0",
+    "@microsoft/spfx-heft-plugins": "1.24.0",
+    "@rushstack/heft": "1.3.2",
     "@types/jest": "30.0.0",
     "@types/webpack-env": "~1.15.2",
     "css-loader": "~7.1.2",
     "eslint": "9.37.0",
-    "@types/react": "17.0.86",
-    "@types/react-dom": "17.0.25",
+    "@types/react": "18.2.79",
+    "@types/react-dom": "18.2.25",
     "typescript": "~5.8.0"
   },
   "overrides": {
-    "@rushstack/heft": "1.2.19"
+    "@rushstack/heft": "1.3.2"
   }
 }

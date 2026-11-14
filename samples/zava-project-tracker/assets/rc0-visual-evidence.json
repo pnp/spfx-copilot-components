@@ -1,0 +1,1009 @@
+{
+  "generatedAt": "2026-10-20T10:04:34.918Z",
+  "react": "18.3.1",
+  "intents": 31,
+  "captures": 100,
+  "failures": 0,
+  "results": [
+    {
+      "intent": "GetMyWorkSummary",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 578,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyWorkSummary",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 578,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyWorkSummary",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 578,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyTasks",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 724,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyTasks",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 724,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyTasks",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 724,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyCapacity",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 365,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyCapacity",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 365,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyCapacity",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 365,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyGoalContributions",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 622,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyGoalContributions",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 622,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyGoalContributions",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 622,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitWeeklyUpdate",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 448,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitWeeklyUpdate",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 448,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitWeeklyUpdate",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 448,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitTimesheet",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 282,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitTimesheet",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 271,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitTimesheet",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 282,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectHealth",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 310,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectHealth",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 310,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectHealth",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 310,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTimeline",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTimeline",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTimeline",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 285,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectMilestones",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 267,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectMilestones",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 267,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectMilestones",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 267,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectRisks",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 238,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectRisks",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 238,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectRisks",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 238,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectBudget",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 408,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectBudget",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 408,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectBudget",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 408,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectAiSpend",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 495,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectAiSpend",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 495,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectAiSpend",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 495,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTeamCapacity",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 236,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTeamCapacity",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 236,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectTeamCapacity",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 236,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectStatus",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 540,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectStatus",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 540,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectStatus",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 540,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitAiUsage",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 436,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitAiUsage",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 436,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitAiUsage",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 436,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectRequest",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 323,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectRequest",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 323,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "SubmitProjectRequest",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 323,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "RequestAiBudget",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 473,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "RequestAiBudget",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 473,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "RequestAiBudget",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 473,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "CompareProjects",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "CompareProjects",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "CompareProjects",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 373,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioHealth",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 476,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioHealth",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 476,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioHealth",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 476,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetStrategicAlignment",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 280,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetStrategicAlignment",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 280,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetStrategicAlignment",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 280,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRoadmap",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRoadmap",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRoadmap",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 355,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioBudgetForecast",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioBudgetForecast",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioBudgetForecast",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 413,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioAiSpend",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 484,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioAiSpend",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 484,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioAiSpend",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 484,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioCapacity",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 458,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioCapacity",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 458,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioCapacity",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 458,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRiskExposure",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 245,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRiskExposure",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 245,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioRiskExposure",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 245,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetApprovalInbox",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 621,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetApprovalInbox",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 621,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetApprovalInbox",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 621,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectRequest",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 509,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectRequest",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 509,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectRequest",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 509,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectBudget",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 523,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectBudget",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 523,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewProjectBudget",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 523,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewResourceAssignment",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 521,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewResourceAssignment",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 521,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewResourceAssignment",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 521,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewStageGate",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 519,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewStageGate",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 519,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ReviewStageGate",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 519,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ExploreAgentCapabilities",
+      "width": 760,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 4308,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ExploreAgentCapabilities",
+      "width": 340,
+      "theme": "light",
+      "mode": "inline",
+      "scrollWidth": 340,
+      "text": 4308,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ExploreAgentCapabilities",
+      "width": 760,
+      "theme": "dark",
+      "mode": "inline",
+      "scrollWidth": 760,
+      "text": 4308,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyWorkSummary",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 1961,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetProjectHealth",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 1533,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioHealth",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2941,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetApprovalInbox",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2007,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "ExploreAgentCapabilities",
+      "width": 980,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 4425,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetPortfolioHealth",
+      "width": 980,
+      "theme": "dark",
+      "mode": "fullscreen",
+      "scrollWidth": 980,
+      "text": 2941,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    },
+    {
+      "intent": "GetMyWorkSummary",
+      "width": 340,
+      "theme": "light",
+      "mode": "fullscreen",
+      "scrollWidth": 340,
+      "text": 1894,
+      "brokenImages": 0,
+      "runtimeErrors": 0
+    }
+  ]
+}

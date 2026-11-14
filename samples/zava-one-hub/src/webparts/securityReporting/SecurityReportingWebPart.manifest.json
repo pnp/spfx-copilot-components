@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "df97598c-69df-4b7e-a827-c09e2db2f79d",
+  "alias": "SecurityReportingWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Report a security concern" },
+    "description": { "default": "Prepare a confidential security report safely." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiNkODNiMDEiIGZpbGw9IiNkODNiMDEiPjxwYXRoIGQ9Ik0zIDUuNzVjMC0uNDEuMzQtLjc1Ljc1LS43NSAyLjY2IDAgNS4yNi0uOTQgNy44LTIuODUuMjctLjIuNjMtLjIuOSAwQzE0Ljk5IDQuMDUgMTcuNTkgNSAyMC4yNSA1Yy40MSAwIC43NS4zNC43NS43NVYxMWwtLjAxLjU0YTMuNSAzLjUgMCAwIDAtMS40OS0uOVY2LjQ4YTE0LjM2IDE0LjM2IDAgMCAxLTcuNS0yLjggMTQuMzYgMTQuMzYgMCAwIDEtNy41IDIuOFYxMWMwIDQuMjYgMi40NSA3LjM4IDcuNSA5LjQ0YTIxIDIxIDAgMCAwIDEtLjQ0djEuNjVsLS43My4zYS43NS43NSAwIDAgMS0uNTQgMEM1Ljk2IDE5LjY4IDMgMTYgMyAxMVY1Ljc1Wk0xNiAxNXYtMWEyLjUgMi41IDAgMCAxIDUgMHYxaC41Yy44MyAwIDEuNS42NyAxLjUgMS41djVjMCAuODMtLjY3IDEuNS0xLjUgMS41aC02YTEuNSAxLjUgMCAwIDEtMS41LTEuNXYtNWMwLS44My42Ny0xLjUgMS41LTEuNWguNVptMS41LTF2MWgydi0xYTEgMSAwIDEgMC0yIDBabTIgNWExIDEgMCAxIDAtMiAwIDEgMSAwIDAgMCAyIDBaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "SecurityReporting"
+    }
+  }]
+}

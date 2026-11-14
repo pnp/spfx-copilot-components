@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
   "schema_version": "v2.4",
   "namespace": "zavaRevenue",
-  "name_for_human": "Zava Revenue Room",
+  "name_for_human": "ZavaMesh Revenue",
   "description_for_human": "Evidence-led deal strategy, commercial decisions, and forecast experiences.",
   "description_for_model": "Route each revenue request to the narrowest matching tool. Preserve account and opportunity context. Never imply that mock actions write to CRM, approve terms, contact customers, or change forecasts without explicit human review and confirmation.",
   "contact_email": "pnp@microsoft.com"

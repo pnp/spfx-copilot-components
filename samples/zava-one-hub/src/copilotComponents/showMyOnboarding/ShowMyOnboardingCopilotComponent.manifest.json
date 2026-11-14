@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a920905f-0b9e-4e05-96af-792353cec35b",
+  "alias": "ShowMyOnboardingCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyOnboarding",
+      "description": {
+        "default": "Use when the user asks about onboarding or employee transition steps. Do not use when the user asks only for learning assignments."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyOnboarding/ShowMyOnboardingCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

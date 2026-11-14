@@ -1,0 +1,33 @@
+// Atom: chip.
+
+.chip {
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.4em;
+  padding-block: 2px;
+  padding-inline: 10px;
+  border: var(--border-width-regular) solid var(--color-border-secondary);
+  border-radius: var(--border-radius-full);
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+  line-height: var(--font-text-sm-line-height);
+  // Small text reads better with a touch of positive tracking (Apple §15).
+  letter-spacing: 0.01em;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .chip {
+    border-color: ButtonText;
+  }
+}

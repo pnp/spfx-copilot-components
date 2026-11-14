@@ -1,5 +1,11 @@
 # Zava IT Concierge release tracker
 
+## RC0 update - October 20, 2026
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the current source of truth for local release readiness. The approved product and UX specification is preserved in [Zava-IT-Concierge-Design-Brief.md](Zava-IT-Concierge-Design-Brief.md), and reusable implementation guidance lives in [agentic-creation-rules.md](agentic-creation-rules.md).
 
 > **Status:** Release candidate on 2026-08-25. The canonical local build is green and the ready-made package is delivered. Public release remains gated on clean-install reproducibility, current tenant-host validation, publication metadata/rights review, and the focused quality items below.
@@ -64,7 +70,7 @@ Machine-readable records:
 
 ### Inline UX
 
-- [x] Use one React 17, Fluent UI v9, and owner-document Griffel host across all 31 components.
+- [x] Use one React 18, Fluent UI v9, and owner-document Griffel host across all 31 components.
 - [x] Present the Zava IT Concierge brand with the action title in the shared header.
 - [x] Keep the top-right full-screen control stable and host-authoritative.
 - [x] Remove generic `From your prompt` and `Decision insight` rails from default inline UX.
@@ -148,7 +154,7 @@ npm run build
 - [ ] **Expand local accessibility automation.** Add executable keyboard/focus assertions, 200% browser zoom, reduced motion, forced-colors/high-contrast styling, long-label/locale stress, and accessible-name checks. Either test RTL behavior or narrow the README worldwide-readiness wording to the evidence actually collected.
 - [ ] **Enforce visualization ownership and teardown.** Make the harness fail unless every inline route has zero Babylon engines, each approved full-screen scene stays within its expected engine/canvas count, and unmount returns `EngineStore.Instances` to zero. Add context-loss/fallback and nonblank-pixel assertions where canvas is required.
 - [ ] **Add a small runtime performance budget.** Record settled first render for representative inline tools and each dashboard, lazy geography/chart load time, full-screen scene frame/render cost, and zero idle render loops. Define investigation thresholds and save the accepted baseline with release evidence.
-- [ ] **Pin release-tool ranges exactly.** Change direct declarations from `playwright: ^1.62.1` and `unzipper: ^0.12.3` to exact validated versions, refresh `package-lock.json`, install the matching Playwright browser revision, and rerun the canonical build. Keep SPFx `1.24.0-beta.2`, Node 22, and React 17 unchanged until the Copilot Component toolchain publishes and validates a supported upgrade.
+- [ ] **Pin release-tool ranges exactly.** Change direct declarations from `playwright: ^1.62.1` and `unzipper: ^0.12.3` to exact validated versions, refresh `package-lock.json`, install the matching Playwright browser revision, and rerun the canonical build. Keep SPFx `1.24.0-rc.0`, Node 22, and React 18 unchanged until the Copilot Component toolchain publishes and validates a supported upgrade.
 
 ### Optional follow-ups
 

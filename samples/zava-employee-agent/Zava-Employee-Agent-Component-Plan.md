@@ -1,7 +1,7 @@
 # Zava Employee Agent intent-component plan
 
 This is the canonical MCP app tool and SPFx Copilot Component catalog. The current showcase targets
-**20 independently routable components/tools** across ten full-screen families. Five completed Home
+**20 operational components/tools plus a dedicated feature explorer (21 total)** across ten full-screen families. Five completed Home
 tools are retained, and fifteen additional tools are selected for decision value, visual density, and
 meaningful inline interaction. The other 30 catalog intents are tracked as optimal-future components.
 
@@ -36,19 +36,28 @@ the optimal-future catalog and may still appear as internal full-screen routes w
 
 This allocation intentionally averages two tools per family rather than forcing an identical quota. Home has
 five because those components are complete. Support, Learning, and Rewards each have one especially strong
-flagship; their lower-density intents remain available for future growth. Exactly **15 components remain to
-be generated** for the current target.
+flagship; their lower-density intents remain available for future growth. All 20 operational
+components are implemented; the 30 other catalog intents remain internal full-screen routes.
+
+### Dedicated feature discovery
+
+`ExploreAgentCapabilitiesTool` is the sixth starter's owner, not an HR dashboard variant. It has
+generated GUID `d48c2178-27ab-4f5d-b685-b3016b5f1b08`, optional `query` and `category` inputs,
+and a catalog checked against all 20 operational manifests. Search and family filtering reveal
+purposes and example prompts without reading employee records. Only an explicit user action sends
+a selected prompt to Copilot; unavailable host actions and errors are visible. Both host display modes
+retain the explorer and its local search state. Its entry joins the existing shared bundle.
 
 ## Non-negotiable component model
 
-- One selected current-target intent equals one component folder, manifest GUID, Webpack bundle,
+- One selected current-target intent equals one component folder, manifest GUID, Webpack entry,
   agent registration, tool description, Zod schema, inline root, and test slice. Future inventory
   rows receive these artifacts only after explicit promotion into the current portfolio.
 - Never create or copy a component structure manually. Before implementing a selected intent, generate it from
   the solution root:
 
   ```bash
-  yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework none --skip-install
+  yo @microsoft/sharepoint --component-type copilotComponent --component-name NameOfTheComponent --framework react --skip-install
   ```
 
 - Run `npm install` after each approved generation batch, then verify every generated GUID appears
@@ -66,7 +75,8 @@ be generated** for the current target.
 - Expand requests host fullscreen from the invoked component. In fullscreen mode the same component
   renders the shared shell with its fixed `initialFamily`, fixed `initialRoute`, normalized
   `initialParams`, and properties version. The shell focuses that route and then owns internal tab
-  navigation.
+  navigation. The dedicated capability explorer is the intentional exception: it keeps its own
+  discovery UX in full screen, rather than opening an unrelated HR workspace.
 
 ## Shared host contract
 

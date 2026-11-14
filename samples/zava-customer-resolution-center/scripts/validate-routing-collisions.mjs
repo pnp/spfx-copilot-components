@@ -33,5 +33,7 @@ for(const starter of starters){
   assert(match.expectedTool===starter.tool,`Starter “${starter.title}” targets ${starter.tool}, but collision matrix expects ${match.expectedTool}.`);
 }
 const flagshipTools=new Set(starters.map(item=>item.tool));
-assert(flagshipTools.size===6,'Expected six unique flagship starter tools.');
+assert(starters.length===6&&flagshipTools.size===6,'Expected six unique starter tools.');
+assert(starters[5].tool==='ExploreAgentCapabilities','The sixth starter must own capability discovery.');
+assert(starters.slice(0,5).every(item=>item.tool!=='ExploreAgentCapabilities'),'First five starters must own operational UX.');
 console.log(JSON.stringify({collisionCases:cases.length,starters:starters.length,uniqueStarterTools:flagshipTools.size,descriptions:descriptions.size,configurationCollisions:0,hostRoutingPrerequisite:'Rehearse prompts in fresh Copilot conversations before public release.'}));

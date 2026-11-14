@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Copilot SharePoint Form App"
+      },
+      "description": {
+        "default": "Opens a form so a person can submit one document to one SharePoint document library. The form's file picker uploads the file. The file is not attached to the chat."
+      },
+      "components": [
+        "c7e4a1b8-2d56-4f90-9a33-1e8b6c5d4a27"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

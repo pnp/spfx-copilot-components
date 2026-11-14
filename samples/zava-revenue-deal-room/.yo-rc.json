@@ -1,11 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
     "useGulp": false,
-    "plusBeta": true,
+    "plusBeta": false,
     "isCreatingSolution": false,
     "nodeVersion": "22.23.2",
     "sdksVersions": {},
-    "version": "1.24.0-beta.3",
+    "version": "1.24.0",
     "libraryName": "zava-revenue-deal-room",
     "libraryId": "495d56a1-a3bf-4540-9dbe-f57085cd0289",
     "environment": "spo",

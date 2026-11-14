@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Cafeteria Agent",
+  "description": "Find out what's for lunch, which cafeterias are open, and what dishes fit your diet and budget.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "What's for lunch?",
+      "text": "What's for lunch today?"
+    },
+    {
+      "title": "Open now",
+      "text": "Which cafeterias are open right now?"
+    },
+    {
+      "title": "Vegan options",
+      "text": "Show me vegan options today"
+    },
+    {
+      "title": "Closing time",
+      "text": "When does the Building 4 cafeteria close?"
+    }
+  ],
+  "actions": [
+    {
+      "id": "cafeteriaAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

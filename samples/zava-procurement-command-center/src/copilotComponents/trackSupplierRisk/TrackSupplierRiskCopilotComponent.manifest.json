@@ -16,7 +16,7 @@
     {
       "name": "TrackSupplierRiskTool",
       "description": {
-        "default": "Explore geographic and sub-tier supplier exposure."
+        "default": "Use when analyzing one named supplier continuity, corridor, or sub-tier exposure. Do not use for a cross-supplier allocation scenario, relationship overview, or mitigation approval."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/trackSupplierRisk/TrackSupplierRiskCopilotComponentProperties.js:default;"

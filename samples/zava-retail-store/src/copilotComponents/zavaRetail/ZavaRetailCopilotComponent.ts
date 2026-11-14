@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 
@@ -8,6 +8,8 @@ import { parseBoolean, parseOptionalString, parseTargetStore, parseTheme } from 
 import ZavaRetailApp from './ZavaRetailApp';
 
 export default class ZavaRetailCopilotComponent extends BaseCopilotComponent<IZavaRetailCopilotComponentProperties> {
+  private _root: Root | undefined;
+
   protected render(): void {
     const element: React.ReactElement = React.createElement(ZavaRetailApp, {
       context: this.context,
@@ -20,11 +22,16 @@ export default class ZavaRetailCopilotComponent extends BaseCopilotComponent<IZa
       onRequestFullscreen: this._handleRequestFullscreen
     });
 
-    ReactDOM.render(element, this.context.domElement);
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(element);
   }
 
   protected onTeardown(reason: string | undefined): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root?.unmount();
+    this._root = undefined;
     return super.onTeardown(reason);
   }
 

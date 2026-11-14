@@ -1,0 +1,30 @@
+// Atom: select.
+
+.select {
+  min-block-size: 2rem;
+  // A list of long names (languages) would otherwise be as wide as its longest option and push
+  // what follows off a narrow card: it may shrink, down to a usable width.
+  flex: 1 1 8em;
+  min-inline-size: 6em;
+  max-inline-size: 14em;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  border: var(--border-width-regular) solid var(--color-border-primary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-md-size);
+}
+
+@media (pointer: coarse) {
+  .select {
+    min-block-size: 2.75rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .select {
+    border-color: ButtonText;
+  }
+}

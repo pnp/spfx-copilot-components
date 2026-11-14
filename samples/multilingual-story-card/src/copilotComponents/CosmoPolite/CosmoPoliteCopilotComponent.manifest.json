@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "3661a4b1-f03e-4dbd-bb6f-9d2090616faa",
+  "alias": "CosmoPoliteCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "CosmoPoliteTool",
+      "description": {
+        "default": "Shows a story card in the language of the user's latest message: a title, a short text written in that language, a Wikimedia Commons photo found by English keywords, and a read-aloud button. Call it once for every user message."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/CosmoPolite/CosmoPoliteCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

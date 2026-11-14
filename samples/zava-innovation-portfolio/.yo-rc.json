@@ -1,11 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
     "useGulp": false,
-    "plusBeta": true,
+    "plusBeta": false,
     "isCreatingSolution": false,
     "nodeVersion": "22.23.2",
     "sdksVersions": {},
-    "version": "1.24.0-beta.2",
+    "version": "1.24.0",
     "libraryName": "zava-innovation-portfolio",
     "libraryId": "bc6e845d-3252-407d-918d-9c8994491126",
     "environment": "spo",

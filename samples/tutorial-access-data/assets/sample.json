@@ -1,0 +1,81 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-tutorial-access-data",
+    "source": "pnp",
+    "title": "Access data with the SharePoint REST API and Microsoft Graph",
+    "shortDescription": "Two Copilot UX components that show the lists on a site with the SharePoint REST API, and the user's profile, mail, and calendar with Microsoft Graph.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-access-data",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/tutorial-access-data",
+    "longDescription": [
+      "The finished solution for the article Access data from a Copilot UX component. One declarative agent has two Copilot UX components. SharePointLists uses spHttpClient to show the lists and libraries on a SharePoint site and the items in a selected list. MyProfile uses msGraphClientFactory to show the signed-in user's profile, recent email, and calendar events for the next 7 days.",
+      "Both components load data in the view so they render right away with a loading state, show a message when a Microsoft Graph permission isn't approved, and follow the Copilot light and dark themes. All code runs in the browser; the solution package is the only thing to deploy."
+    ],
+    "creationDateTime": "2026-10-04",
+    "updateDateTime": "2026-10-04",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.5"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "copilot-sharepoint-lists.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-access-data/assets/copilot-sharepoint-lists.png",
+        "alt": "The SharePointLists component in Microsoft 365 Copilot showing the lists on a SharePoint site with the number of items in each list"
+      },
+      {
+        "name": "copilot-my-profile-calendar.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-access-data/assets/copilot-my-profile-calendar.png",
+        "alt": "The MyProfile component in Microsoft 365 Copilot showing the user's profile and upcoming calendar events"
+      },
+      {
+        "name": "no-permission.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/tutorial-access-data/assets/no-permission.png",
+        "alt": "The MyProfile component showing a message that the Mail.Read permission isn't approved"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "andrewconnell",
+        "pictureUrl": "https://github.com/andrewconnell.png",
+        "name": "Andrew Connell"
+      }
+    ],
+    "references": [
+      {
+        "name": "Access data from a Copilot UX component",
+        "description": "Call the SharePoint REST API and Microsoft Graph from a Copilot UX component.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/access-data"
+      },
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Create a SharePoint Copilot App with SPFx, test it in the Copilot Workbench, and use it in Microsoft 365 Copilot.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]

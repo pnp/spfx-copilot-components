@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b032a93e-8ba0-40fa-b854-f4cbf44e290f",
+  "alias": "CompanyNewsWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Company and local news" },
+    "description": { "default": "Read current global and local Zava stories." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwNzVmY2UiIGZpbGw9IiMwNzVmY2UiPjxwYXRoIGQ9Ik0xOC43NSAyMEg1LjI1YTMuMjUgMy4yNSAwIDAgMS0zLjI0LTMuMDdMMiAxNi43NVY2LjI1YzAtMS4yLjkzLTIuMTcgMi4xLTIuMjRMNC4yNSA0aDEyLjVjMS4yIDAgMi4xNy45MyAyLjI0IDIuMWwuMDEuMTVWN2guNzVjMS4yIDAgMi4xNy45MyAyLjI0IDIuMWwuMDEuMTV2Ny41YTMuMjUgMy4yNSAwIDAgMS0zLjA3IDMuMjRsLS4xOC4wMUg1LjI1aDEzLjVabS0xMy41LTEuNWgxMy41Yy45MiAwIDEuNjctLjcgMS43NC0xLjZsLjAxLS4xNXYtNy41YzAtLjM4LS4yOC0uNy0uNjUtLjc0bC0uMS0uMDFIMTl2Ny43NWMwIC4zOC0uMjguNy0uNjUuNzRsLS4xLjAxYS43NS43NSAwIDAgMS0uNzQtLjY1bC0uMDEtLjF2LTEwYzAtLjM4LS4yOC0uNy0uNjUtLjc0bC0uMS0uMDFINC4yNWMtLjM4IDAtLjcuMjgtLjc0LjY1bC0uMDEuMXYxMC41YzAgLjkyLjcgMS42NyAxLjYgMS43NGwuMTUuMDFoMTMuNS0xMy41Wm03LTRoM2EuNzUuNzUgMCAwIDEgLjEgMS41aC0zLjFhLjc1Ljc1IDAgMCAxLS4xLTEuNWgzLjEtM1ptLTMtMy41Yy40IDAgLjc0LjM0Ljc0Ljc1djMuNWMwIC40MS0uMzMuNzUtLjc1Ljc1aC0zLjVhLjc1Ljc1IDAgMCAxLS43NC0uNzV2LTMuNWMwLS40MS4zMy0uNzUuNzUtLjc1aDMuNVptLS43NiAxLjVoLTJ2Mmgydi0yWm0zLjc2LTEuNWgzYS43NS43NSAwIDAgMSAuMSAxLjVoLTMuMWEuNzUuNzUgMCAwIDEtLjEtMS40OWgzLjEtM1ptLTYuNS0zLjVoOS41YS43NS43NSAwIDAgMSAuMSAxLjVoLTkuNmEuNzUuNzUgMCAwIDEtLjEtMS41aDkuNi05LjVaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "CompanyNews"
+    }
+  }]
+}

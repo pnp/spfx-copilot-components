@@ -1,0 +1,65 @@
+{
+  "captures": [
+    {
+      "bytes": 501644,
+      "path": "assets/screenshot-teams-combined.png",
+      "width": 1492,
+      "sha256": "f6fec3c2b2539531ae4058afc465a49678a4b3a5ee474e10df3b1a363e669b66",
+      "crop": {
+        "x": 4,
+        "height": 760,
+        "y": 4,
+        "width": 1492
+      },
+      "source": "user-provided-authenticated-teams",
+      "sourceHeight": 768,
+      "mode": "combined",
+      "sourceSha256": "3b07070b1ffbcb065360f1008ca9894c4c53cf20a1801fb7cbe2dbef118ae795",
+      "pixelsMatchSource": true,
+      "height": 760,
+      "captureMode": "viewport",
+      "sourceWidth": 1500
+    },
+    {
+      "bytes": 539779,
+      "path": "assets/screenshot-teams-company.png",
+      "width": 1487,
+      "sha256": "942b9f25570ea378388d541613655bcad946819870ef77f364747b5dcfd4b2fb",
+      "crop": {
+        "x": 4,
+        "height": 760,
+        "y": 4,
+        "width": 1487
+      },
+      "source": "user-provided-authenticated-teams",
+      "sourceHeight": 768,
+      "mode": "company",
+      "sourceSha256": "f29305333be321acd70b0e1c442570850e53b508494fda02e975179a9f84c2ba",
+      "pixelsMatchSource": true,
+      "height": 760,
+      "captureMode": "viewport",
+      "sourceWidth": 1495
+    },
+    {
+      "bytes": 365114,
+      "path": "assets/screenshot-teams-personal.png",
+      "width": 1490,
+      "sha256": "812b7c0c0aaa79d661dadf19aeb88b256ad4f9a71e5ca7f15d0d6ef2dae440d8",
+      "crop": {
+        "x": 4,
+        "height": 760,
+        "y": 4,
+        "width": 1490
+      },
+      "source": "user-provided-authenticated-teams",
+      "sourceHeight": 768,
+      "mode": "personal",
+      "sourceSha256": "90a1d0a2984f991753d32254fb56f05223d87e8d20aba8f35a731d097dd7ed35",
+      "pixelsMatchSource": true,
+      "height": 760,
+      "captureMode": "viewport",
+      "sourceWidth": 1498
+    }
+  ],
+  "capturedAt": "2026-10-01T17:34:05.1842838Z"
+}

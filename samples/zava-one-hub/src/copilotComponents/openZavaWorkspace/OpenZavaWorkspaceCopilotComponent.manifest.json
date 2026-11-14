@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "01cf651a-7b63-4315-b6f1-cc5c210f0d4f",
+  "alias": "OpenZavaWorkspaceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "OpenZavaWorkspace",
+      "description": {
+        "default": "Use when the user asks to open Zava One broadly. Do not use when a specific capability answers directly."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/openZavaWorkspace/OpenZavaWorkspaceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "7a56a91b-1de9-4276-b3fb-344dc269a027",
+  "alias": "FindCompanyKnowledgeCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindCompanyKnowledge",
+      "description": {
+        "default": "Use when the user asks for a company policy or verified answer. Do not use when the user asks for an acronym definition or service."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findCompanyKnowledge/FindCompanyKnowledgeCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "file-uploader-client-side-solution",
+    "id": "4b4dd365-a232-4116-ba56-85f640477b2e",
+    "version": "1.0.12.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Brightwater Community Foundation",
+      "websiteUrl": "https://www.example.org",
+      "privacyUrl": "https://www.example.org/privacy",
+      "termsOfUseUrl": "https://www.example.org/terms",
+      "mpnId": "Undefined-1.24.0-beta.3"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Complete intake for invoices and expense reports."
+      },
+      "longDescription": {
+        "default": "Guides intake of invoices and expense reports so every record is complete before it is stored. Installs the Document Intake agent for Microsoft 365 Copilot. Runs on sample data until the tenant sets DocumentIntake.Store to sharepoint and DocumentIntake.SharePoint.SiteUrl to the records site."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Document Intake",
+        "description": "Registers the Document Intake Copilot Component and its declarative agent.",
+        "id": "313db3ee-d9dd-4ecc-bed0-12cb1f36bdbb",
+        "version": "1.0.12.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/file-uploader.sppkg"
+  }
+}

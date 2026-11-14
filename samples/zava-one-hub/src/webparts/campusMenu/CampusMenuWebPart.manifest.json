@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b39c5304-93b1-4148-8068-93779d4185eb",
+  "alias": "CampusMenuWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Cafeteria and campus food" },
+    "description": { "default": "Show the valid site menu and dietary labels." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMxMDdjNDEiIGZpbGw9IiMxMDdjNDEiPjxwYXRoIGQ9Ik0zLjIgMy43M2ExLjkgMS45IDAgMCAxIDMuMDktMS4zMSAyIDIgMCAwIDEgMi40MyAwIDEuOSAxLjkgMCAwIDEgMy4wOSAxLjNjLjA4Ljk4LjE5IDIuNDkuMTkgMy43OGE0LjUgNC41IDAgMCAxLTIuMTggMy44NWMtLjIyLjE0LS4yOC4zLS4yNy4zOS4xMyAxLjkzLjQ1IDYuOTUuNDUgNy43NmEyLjUgMi41IDAgMCAxLTUgMGMwLS44LjMyLTUuODMuNDUtNy43NiAwLS4wOS0uMDUtLjI1LS4yNy0uMzlBNC41IDQuNSAwIDAgMSAzIDcuNWMwLTEuMy4xLTIuOC4yLTMuNzdabTYuMyAzLjUyYS43NS43NSAwIDAgMS0xLjUgMFY0YS41LjUgMCAwIDAtMSAwdjMuMjVhLjc1Ljc1IDAgMCAxLTEuNSAwVjMuOTJhLjQyLjQyIDAgMCAwLS40Mi0uNDIuNC40IDAgMCAwLS40LjM2QTQ2IDQ2IDAgMCAwIDQuNSA3LjVhMyAzIDAgMCAwIDEuNDUgMi41N2MuNTUuMzMgMS4wNS45NiAxIDEuNzctLjEzIDEuOTgtLjQ1IDYuOTItLjQ1IDcuNjZhMSAxIDAgMSAwIDIgMGMwLS43NC0uMzItNS42OC0uNDUtNy42Ni0uMDUtLjgxLjQ1LTEuNDQgMS0xLjc3QTMgMyAwIDAgMCAxMC41IDcuNWE0NiA0NiAwIDAgMC0uMTktMy42NC40LjQgMCAwIDAtLjQtLjM2LjQyLjQyIDAgMCAwLS40MS40MnYzLjMzWm0zLjUuNUE1Ljc1IDUuNzUgMCAwIDEgMTguNzUgMmMuNDEgMCAuNzUuMzQuNzUuNzV2OC41YzAgLjMyLjEgMS45LjIyIDMuNjRsLjAxLjA4Yy4xMyAxLjkxLjI3IDMuOTkuMjcgNC41M2EyLjUgMi41IDAgMCAxLTUgMGMwLS41Mi4xMy0yLjYxLjI1LTQuNTRsLjE3LTIuNi4wMy0uMzZoLS43Yy0uOTcgMC0xLjc1LS43OC0xLjc1LTEuNzV2LTIuNVptNCAzLjU1LS4wMi4zMmE3OTcuODEgNzk3LjgxIDAgMCAwLS40OCA3Ljg4IDEgMSAwIDEgMCAyIDBjMC0uNDgtLjE0LTIuNTMtLjI3LTQuNXYtLjExYTExOS40IDExOS40IDAgMCAxLS4yMy0zLjY0VjMuNTdhNC4yNSA0LjI1IDAgMCAwLTMuNSA0LjE4djIuNWMwIC4xNC4xMS4yNS4yNS4yNWgxLjVhLjc1Ljc1IDAgMCAxIC43NS44WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg==",
+    "properties": {
+      "description": "CampusMenu"
+    }
+  }]
+}

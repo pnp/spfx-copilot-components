@@ -1,5 +1,13 @@
 # Zava Customer Resolution Center - Creation Plan
 
+## RC0 update - October 20, 2026
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Starter exception: retain six distinct operational flagship starters. Capability discovery is still explicitly routed through ExploreAgentCapabilities when asked for help; it is not the final starter in this curated six-story portfolio. Public media-rights approval remains blocked independently of local technical validation.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the implementation tracker for the product and UX brief in [README.md](README.md). The sample
 follows [agentic-creation-rules.md](agentic-creation-rules.md). No dependency changes, component
 generation, placeholder cleanup, mock implementation, or React feature work begins until Phase 0 is
@@ -382,8 +390,8 @@ forced into the main-stage story.
 
 ### Supported dependency baseline
 
-- [x] Align all `@microsoft/sp-*` packages to one approved SPFx 1.24 Beta 3 generator output.
-- [x] Pin React/ReactDOM `18.3.1`, React types `18.2.79`/`18.2.25`, Fluent React Components
+- [x] Align all `@microsoft/sp-*` packages to one approved SPFx 1.24 RC0 generator output.
+- [x] Pin React/ReactDOM `18.3.1`, React types `18.3.31`/`18.3.7`, Fluent React Components
   `9.74.6`, Fluent Icons `2.0.314`, and Griffel React `1.7.7` exactly.
 - [x] Remove direct Fluent UI v8 after proving no active v8 imports remain.
 - [x] Install Jest and only the focused D3 modules/types required by approved visuals.

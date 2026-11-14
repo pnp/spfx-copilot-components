@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot } from 'react-dom/client';
+import { act } from 'react';
 
 import { makeStyles } from '@griffel/react';
 
@@ -21,16 +21,17 @@ describe('MyDayThemeProvider', () => {
   test('inserts Griffel styles into the supplied component document', () => {
     const iframe = document.createElement('iframe');
     document.body.appendChild(iframe);
-    const targetDocument = iframe.contentDocument as Document;
+    const targetDocument = iframe.contentDocument;
+    if (!targetDocument) throw new Error('Test iframe document is unavailable.');
     const target = targetDocument.createElement('div');
     targetDocument.body.appendChild(target);
 
+    const root = createRoot(target);
     act(() => {
-      ReactDOM.render(
+      root.render(
         <MyDayThemeProvider targetDocument={targetDocument} theme="light">
           <StyledChild />
-        </MyDayThemeProvider>,
-        target
+        </MyDayThemeProvider>
       );
     });
 
@@ -40,7 +41,7 @@ describe('MyDayThemeProvider', () => {
     ).toBeGreaterThan(0);
 
     act(() => {
-      ReactDOM.unmountComponentAtNode(target);
+      root.unmount();
     });
     iframe.remove();
   });

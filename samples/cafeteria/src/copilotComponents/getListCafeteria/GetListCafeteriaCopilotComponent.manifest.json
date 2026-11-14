@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "00b3d4e4-4289-4d49-b8a0-c524bff361cf",
+  "alias": "GetListCafeteriaCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+  "tools": [
+    {
+      "name": "getListCafeteria",
+      "description": {
+        "default": "Show all cafeterias with their building, hours, and whether they are open right now."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getListCafeteria/GetListCafeteriaCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

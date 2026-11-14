@@ -8,210 +8,658 @@
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "8cb1a6b848e1de1f24edd53a00c918f5336f1b9d39479ac7c4abeda87836dd1a"
+      "sha256": "6b473049ea3e42db6d167677df449da8becd7575ac286dab150a397dfe1dafd2"
+    },
+    {
+      "file": "assets/ux-inline-CreatePurchaseIntent-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "2c4463aeac3188fa731cb4477c328dd584567ac635122b2448537b6a95791453"
+    },
+    {
+      "file": "assets/ux-inline-CreatePurchaseIntent-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "ae5d34dd3ebceaac6c9976061a512d85322ff03bd47eba7d37150a042d0f8914"
     },
     {
       "file": "assets/ux-inline-CompareBuyingOptions.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "139153eef80aae1ee344467c16df50bd4a887e0b6be1c12ad9c0dacf6a3f6a98"
+      "sha256": "94dae1c794fc47808a45310c1cf4b89ad31b042ccde809684375e7c41d7977f3"
+    },
+    {
+      "file": "assets/ux-inline-CompareBuyingOptions-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "521916142eb3fc9cb6f9e0dc9e3b0019929ff71c32dceaad59d03b41f64ef3e4"
+    },
+    {
+      "file": "assets/ux-inline-CompareBuyingOptions-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "3a79d39a9629a2fb92df0992469d92dceef07480287e54d1d469ed27e3489f9d"
     },
     {
       "file": "assets/ux-inline-CheckPurchasePolicy.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "b4ff9e5cd4a9af6a0250d6a0533d39e2456d1734fc0df5ad0ca8cb3b84f2b0a5"
+      "sha256": "4830f7b023754b4328a23f72df3d86df493caf1327d0bbe50a34af9bc1d8884b"
+    },
+    {
+      "file": "assets/ux-inline-CheckPurchasePolicy-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "a20af7e4437d1a2de559bf06536a3359db3441f632f2f974dfd11acdac92aff7"
+    },
+    {
+      "file": "assets/ux-inline-CheckPurchasePolicy-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "728a95d4ecd3d2b57d8e68f4013ac0589f0b1017920a71625e2c17739f1bec93"
     },
     {
       "file": "assets/ux-inline-ReviewPurchaseRequest.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "741fc52cda96684c18d770dc41e68a9665af559368a41713ae64e0780ae380d1"
+      "sha256": "b97079b6e37f69295145e469cb941633ceca054fdd8b4c7afe6c0d4c07995f5d"
+    },
+    {
+      "file": "assets/ux-inline-ReviewPurchaseRequest-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "a4486148afc2bb4d546f83a3f594f4f51ff21f1af177643e626b8821b7e92da4"
+    },
+    {
+      "file": "assets/ux-inline-ReviewPurchaseRequest-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "7b4e86e934d97cbace7a0b48da1c746e30d48ac9fbdc1d0f33498e2896d6ef9d"
     },
     {
       "file": "assets/ux-inline-AggregateDemand.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "1e1416305683748d9800141e6b5549b50d807c0a8c97c0290985727b3698a0eb"
+      "sha256": "efd8351f4f7997edb7dab8fc2c7310b779a3f2f13156f3e3dcfb415845296d9e"
+    },
+    {
+      "file": "assets/ux-inline-AggregateDemand-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "cd5fe11657442898aec059ccbfd85f8bb1364e9e3d9fcf6447d7b244da6822b6"
+    },
+    {
+      "file": "assets/ux-inline-AggregateDemand-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "05d134345ad343936de3dcfe60cf3eca594176633ce4ea1283194f07a5c0cf4c"
     },
     {
       "file": "assets/ux-inline-BuildSourcingEvent.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "a17428c18fb4af120c33ca4881512af3cefbc8fb7641e5282d7f01a6312496b7"
+      "sha256": "cefb5136a76ae76d4d337696da0ebd7e6c27ab8a660e3c5cdea3c399508d8270"
+    },
+    {
+      "file": "assets/ux-inline-BuildSourcingEvent-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "906630711d0985dd57120efa76b7d8e04c8634c5c0093c47836b225374d3cfa3"
+    },
+    {
+      "file": "assets/ux-inline-BuildSourcingEvent-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "637b961dee941cf03ad9cb73913980b758397961310a09265ef14071e2e39eff"
     },
     {
       "file": "assets/ux-inline-CompareSupplierBids.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "c4558712f12d0dcb513310cfe310d64819b2494024ba6812c7797587dd48e951"
+      "sha256": "149c3141f703c4e5ff1fa5116d3f6c182d8aae4be4e05faeaa436543b2ab45e8"
+    },
+    {
+      "file": "assets/ux-inline-CompareSupplierBids-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "f1012e85ba6cdddc49154779d315669da17f9dd5617415d28939d7350ea276ae"
+    },
+    {
+      "file": "assets/ux-inline-CompareSupplierBids-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "7fe1b46596c9672f95ab475cb9f331ac024cdc88788f190f2ddfea2506f0fdc3"
     },
     {
       "file": "assets/ux-inline-ReviewSupplierAward.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "9373161cf87ca8f45a8345c254e481df483c8406a2f29090f9426636c511f2e8"
+      "sha256": "723a7dc4192b1a8caa2e34b743a2b844df26ff6788826d5a5b6af1b2dca02b44"
+    },
+    {
+      "file": "assets/ux-inline-ReviewSupplierAward-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "b2c3fdd2859b1997f3aa72d3f61640e5f26b462453e2cc88275674824784dbc6"
+    },
+    {
+      "file": "assets/ux-inline-ReviewSupplierAward-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "60e7bddb13c368eb2556c4140ab59331e34d1a3b18ea930178ca09430c4529bb"
     },
     {
       "file": "assets/ux-inline-ExploreSupplier360.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "b64fae0a025bde53f18d58333069dc1b114a567af947bc0dda7417d93ed323cc"
+      "sha256": "a85af2d7ea6541c1ef548bfd3c62cbe03545478b891e2bb3f2b234a19dee57d0"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSupplier360-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "54956602a3a84cb4aa3ee36b03f338d3b2b309d74d602ec8ee7c678230e012dc"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSupplier360-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "9dd84a476dd5910541ce3e08c16a5b27e9694edb408bd5bc609312a592d83199"
     },
     {
       "file": "assets/ux-inline-ReviewContractRenewal.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "58e62c88e91ece4773ce67dca7d1835664eae67eda0c83c77b76a91e0c430c98"
+      "sha256": "34afcd92341b74d7e4c2bc641b4d604908255170d4b2de7979c498554ac8e0b8"
+    },
+    {
+      "file": "assets/ux-inline-ReviewContractRenewal-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "142318a6bcf54b9542bef1633b6ee11c94716a073f5eff29292a7658a52c64b6"
+    },
+    {
+      "file": "assets/ux-inline-ReviewContractRenewal-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "08b4ec501c9c1e61dfe32bf9fd290bb87153219dca5e1a3729b033b897c8efd6"
     },
     {
       "file": "assets/ux-inline-DetectSpendLeakage.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "6ce28adb5665413773f5d12a9b68512ef45c1cc640b94220be52937b9d1c8218"
+      "sha256": "d3402ab1dffbaf5fa669c17192a49a34103140d0e05fd155dbcbe526838ab3da"
+    },
+    {
+      "file": "assets/ux-inline-DetectSpendLeakage-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "a016f048a116d5a230b4f9c687e39d660742aebd4a87d7d359f50a848a8be1fa"
+    },
+    {
+      "file": "assets/ux-inline-DetectSpendLeakage-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "786c4627249cedf06e496011931a1f44c5b1600f7d040eee50e8e0e5b5c02654"
     },
     {
       "file": "assets/ux-inline-TrackSupplierRisk.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "6b3a0a8d92b474b35dcf08b0ebef637fbea58e3f494666e2425fa7592db838db"
+      "sha256": "0068780d809f8e4722e95d28f3f8b663fc2e1191a0b4141213835653e73219f5"
+    },
+    {
+      "file": "assets/ux-inline-TrackSupplierRisk-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "dea5e6cdba66d208a11c7b4beb6deb89f943a53f19fe08d085537a58d7d59d2f"
+    },
+    {
+      "file": "assets/ux-inline-TrackSupplierRisk-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "848e61547e35059ad2638a9ee8f92f0e51a3c45ff258795354075831f0985127"
     },
     {
       "file": "assets/ux-inline-ResolveInvoiceException.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "2abcfb87d2580c98fee82232ccf1d19fab94c16eba9a7a99548d9618035cd6e7"
+      "sha256": "6a4d2738a3eb94af75a0731754c6445c98b93782146754c61e6eafb07dd2fe0e"
+    },
+    {
+      "file": "assets/ux-inline-ResolveInvoiceException-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "c8a988f7438e8358a7c2f538e9a78607201ca2b8e2b7afb201702d8562b2c811"
+    },
+    {
+      "file": "assets/ux-inline-ResolveInvoiceException-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "090628171bb597ddd846aaaf761a55ef14f00aefb15a70f058d0e597a04df59b"
     },
     {
       "file": "assets/ux-inline-ExploreSpendPerformance.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "8016c4484f1185a88133d701eb0b9a6fa1bb90d7f51182a087aae323f268492b"
+      "sha256": "3f99b78beda2b3ff09ebd7277a1e4c12d79d0602014b9397a2e922d976c9427b"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSpendPerformance-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "61a37c7334d9879295641ffd1b5017541096e5940743a5363402a2ec3354f904"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSpendPerformance-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "07aa773fd9afd81ed26f9e0a2bdd0641c6d385ed0d9a1e79e20c4d5d81af9d75"
     },
     {
       "file": "assets/ux-inline-OnboardSupplier.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "110b5e86f71e4f41ebad1a400c3d9d4290861e453f1099aad708a9b4ebdeb3ed"
+      "sha256": "d62db60aea648ff8a585b4849d671bf74e4c85ac22e9da73073aaaa504b9a53e"
+    },
+    {
+      "file": "assets/ux-inline-OnboardSupplier-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "b0bd452ee675296a09f7a78c2d1ba44ba534a07a68099f2a6d0069e1b6420a31"
+    },
+    {
+      "file": "assets/ux-inline-OnboardSupplier-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "f3fb3c86168a3794f2eaf4ff90908260aca35ddd2323c034c1dd1cde17546faf"
     },
     {
       "file": "assets/ux-inline-ReviewSupplierQualification.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "45c5bd3d3ff5dce93f32e8861b0ab42e74559267e814d1f7388ada7bc0a59c97"
+      "sha256": "c69d216ceb8436abd1df480625b18657cfcfdeeaa3c3b7865130547d1e3dd69f"
+    },
+    {
+      "file": "assets/ux-inline-ReviewSupplierQualification-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "1c76968fa37bd46a2f0b9f515cf6f7c44e3602f9428a2253faedcda42b2b01a2"
+    },
+    {
+      "file": "assets/ux-inline-ReviewSupplierQualification-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "43dbbaa135e39229340d8d09421a1502d6641f27db110bb7f2f536da3bb21df8"
     },
     {
       "file": "assets/ux-inline-PlanSupplierRiskMitigation.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "b39413269d6634800a0d54e46e21fbe787d32525d5efaba524961b8dcb3f6361"
+      "sha256": "4b6cd019f65eadc6a49f98f5d6ea1151e8a0f9bf93cd2fe666916a21dc167cb8"
+    },
+    {
+      "file": "assets/ux-inline-PlanSupplierRiskMitigation-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "17ac4a17bc3cd7679369e4625875a3317c0e992d1f7f915e99cc81ebaddee1bf"
+    },
+    {
+      "file": "assets/ux-inline-PlanSupplierRiskMitigation-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "77eb4c76141b9e40790a6627d908dd8fd054fe1d49b713fc101006750d604245"
     },
     {
       "file": "assets/ux-inline-NegotiateContractTerms.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "2918a035641747f0f588496fe9a053973e01e399812359dd8ad3b00bc78f4001"
+      "sha256": "ba4f8eb67f9c4681d96cf39521c7aabc140451d20dfdc1dd28382cb4d5e0c02d"
+    },
+    {
+      "file": "assets/ux-inline-NegotiateContractTerms-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "0a8a1af5e9501b6930a0773cd1c1e84be95018387a5774263dd1f4d0e9459568"
+    },
+    {
+      "file": "assets/ux-inline-NegotiateContractTerms-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "af60cd059b489333f8d84a4a1dcb0e0dcf2fd7c8cd9cae2a04ab556ddd110388"
     },
     {
       "file": "assets/ux-inline-ManagePurchaseOrderChange.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "9c7f729547a712e3c4a16ba1e7ee8a91a888b3a61b2a3ced065bffb74436c2cb"
+      "sha256": "15337fa1c7e7f0ceb2812a060ff62e4f429436805dc88795637d9e8123644d64"
+    },
+    {
+      "file": "assets/ux-inline-ManagePurchaseOrderChange-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "abd2ad1796911e8c05c655e407b9882fff45a55452c3129508ea0215139a6aae"
+    },
+    {
+      "file": "assets/ux-inline-ManagePurchaseOrderChange-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "205ede54ce07044e9c30b45ae9172d9d8b513cdf2ee9ebb583052a47b9d3bcbc"
     },
     {
       "file": "assets/ux-inline-TrackLeakageRecovery.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "aa53c237be7c98f577561d6730f3563308ec079c76619e44c2b37179842b38b5"
+      "sha256": "9cb4703ffd880ebfd21d03d993ca593012342e4f0e98c4b51745d836625b8278"
+    },
+    {
+      "file": "assets/ux-inline-TrackLeakageRecovery-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "be4be04a3ebf67d3625feb5b7530849a3594fad05aaaf1803c821ed2674985ad"
+    },
+    {
+      "file": "assets/ux-inline-TrackLeakageRecovery-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "d0b966b83fb67ce559c5d2a343d57dc72d14902a0b5d7c1960825db197adaa38"
     },
     {
       "file": "assets/ux-inline-ExploreSupplierPortfolioBalance.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "c0252ad735a57ea62b513d9b91757545cfcafc580da0bd3a9559ef186f18190b"
+      "sha256": "2443432550572d947c1efae59fc993929be7f32fc396a6890ada0d30338bdb12"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSupplierPortfolioBalance-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "75228d05ad3307ca8d6ecaa1f0e0d180e5843f70a2b97451f469d4f51b682a8c"
+    },
+    {
+      "file": "assets/ux-inline-ExploreSupplierPortfolioBalance-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "7abfa59705acd91b33222973abec58c13c1b52bb6176946ac1fe66f090e94e01"
     },
     {
       "file": "assets/ux-inline-ExploreAgentCapabilities.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "049d28ee7f483a45ad76600c9651bc67c03ec29ff1cac538e846f51e303da8cf"
+      "sha256": "8c3c1abc7c0c1eb981473f4138ffc1aad7499268149842761330cf7c02cd2c28"
+    },
+    {
+      "file": "assets/ux-inline-ExploreAgentCapabilities-narrow.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "de9aa9cfd0c435a09fa9275f502da49e243a7f539fd2662b0cb8d3b43b4c5af6"
+    },
+    {
+      "file": "assets/ux-inline-ExploreAgentCapabilities-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "0d749aeff7678d6f31b0c623a747533b7d424809fcbad7f33ac04f4abd5dafe8"
     },
     {
       "file": "assets/ux-sourcing-workbench.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "a967c8434a739c00f3dfe41590a7745afdd9d7b451d6259d53f963515cdba9fa"
-    },
-    {
-      "file": "assets/ux-supplier-360.png",
-      "kind": "publication-screenshot",
-      "origin": "Locally rendered from the deterministic tenant-free UX harness",
-      "rights": "Repository-generated sample evidence",
-      "sha256": "b8bb5f5d64fbe8c4b3c0146ff8a4f5dbd3226cf9847e4fc5b222296f50d393d3"
-    },
-    {
-      "file": "assets/ux-spend-command.png",
-      "kind": "publication-screenshot",
-      "origin": "Locally rendered from the deterministic tenant-free UX harness",
-      "rights": "Repository-generated sample evidence",
-      "sha256": "1371fb22905d236be66aced597840be2c9d589b65d0059b9fd31fd2b69ff42fc"
-    },
-    {
-      "file": "assets/ux-my-requests.png",
-      "kind": "publication-screenshot",
-      "origin": "Locally rendered from the deterministic tenant-free UX harness",
-      "rights": "Repository-generated sample evidence",
-      "sha256": "2f0ab25f484f7499e1fc6f505919f1fc36ca3a2bb0f139b26f1e004d37f35924"
+      "sha256": "4702af5fde082bebb60be5a01993b82625ebe20a3e3a49eb32212b393b9f828d"
     },
     {
       "file": "assets/ux-sourcing-mobile.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "ad82e203cf2e61fad260d14a1e39de485ced4783318e79649b00c8f4ba1535bb"
+      "sha256": "b2302c537be39415af7ae54ad1239904313c36eceabba79496aa7d2e22f121c2"
     },
     {
       "file": "assets/ux-sourcing-dark.png",
       "kind": "publication-screenshot",
       "origin": "Locally rendered from the deterministic tenant-free UX harness",
       "rights": "Repository-generated sample evidence",
-      "sha256": "6c532d2096d1a26d530aeb5849977fcb9e86d16d6d9ceed3bd474b50e3157c29"
+      "sha256": "e01ce5a33ba05c08756477920d92babeb03ce54e6451584ab46f4991384c6493"
+    },
+    {
+      "file": "assets/ux-supplier-360.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "eacd8e2fca8a8324e8d4e988ccea68f79ba4f6dba5a70794049fd26e774d0e27"
+    },
+    {
+      "file": "assets/ux-supplier-360-mobile.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "8b153ab1028d844a642c3572f8a32e4ebfc05981c86bb855934750fedf91ec62"
+    },
+    {
+      "file": "assets/ux-supplier-360-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "0ba39ccae7ae8a1e2eaff94ace4583e6d3185671ec268b876c154bd67e96b02c"
+    },
+    {
+      "file": "assets/ux-spend-command.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "c538ad4a96a26e0a224fc0eaa030a0deeeabca43d0a3123b0b1cd428053069ea"
+    },
+    {
+      "file": "assets/ux-spend-command-mobile.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "8e70637dc4baa5900bd9f412bfdb5ea17dae6ce0c713fcb699683b69568beae9"
+    },
+    {
+      "file": "assets/ux-spend-command-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "3e22d75d6a63ac0b61f77c18049ad735111ffd1dae7917083a38aab8d18ced91"
+    },
+    {
+      "file": "assets/ux-my-requests.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "173f747abdd9e7645877d48581983856552238952087162528b4e46696fe2c83"
+    },
+    {
+      "file": "assets/ux-my-requests-mobile.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "aaf9448c351fe88dcb89fa137f713e6df33c38c6f738622f8c6e39754109c906"
+    },
+    {
+      "file": "assets/ux-my-requests-dark.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "695406882cf86b045e85cd6c29a8cf0b33e168aaa42caa720ac1629873af4f1a"
+    },
+    {
+      "file": "assets/ux-CreatePurchaseIntent-review.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "2b2482828acbe5246b41f338db2f2685edf612fb181bc77dbd1b3838a327eae3"
+    },
+    {
+      "file": "assets/ux-CreatePurchaseIntent-receipt.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "2ddbaeb893c8346ed53fb9771a30de24e40cfae9a7e4c90e041ecf9a5ff32d15"
+    },
+    {
+      "file": "assets/ux-ReviewSupplierAward-review.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "f32378048f86d28556376a5faee83857d3b0729cfe92d1ad1f55cfbe82fb4c1e"
+    },
+    {
+      "file": "assets/ux-ReviewSupplierAward-receipt.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "5b9ac4dadf35639f5100ad33135c70d5297c72c9691a72b726671bcc815b9425"
+    },
+    {
+      "file": "assets/ux-ResolveInvoiceException-review.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "09b490558df7bf95159256e7b99302c85d8312a9bb4cc0fb28580bc2531c4d3f"
+    },
+    {
+      "file": "assets/ux-ResolveInvoiceException-receipt.png",
+      "kind": "publication-screenshot",
+      "origin": "Locally rendered from the deterministic tenant-free UX harness",
+      "rights": "Repository-generated sample evidence",
+      "sha256": "56116087a932c5f75419e6e6a929ff763507be483719851b7eb214f44d052c36"
+    },
+    {
+      "file": "src/shared/assets/brand/logo.png",
+      "kind": "brand-media",
+      "origin": "Logos\\svg\\ZavaCore-logotype-clr.svg",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "32db3fe99303f44077ee2b51190b9231bf9a7a0435ee23361ea21b254d08a0e3"
+    },
+    {
+      "file": "src/shared/assets/brand/logo-white.png",
+      "kind": "brand-media",
+      "origin": "Logos\\svg\\ZavaCore-logotype-wht.svg",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "c32c4e9210c94f2e8980e9272a8d66aeeed49ac6e10e1cdc1f86dfb2cf90a877"
+    },
+    {
+      "file": "src/shared/assets/brand/field-operations.jpg",
+      "kind": "brand-media",
+      "origin": "Photos\\zavacore photo 2.jpg",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "0ae536bb6b01585524d271d08e7ff43099012629fcd10ec287e94f4dce79aa20"
+    },
+    {
+      "file": "src/shared/assets/brand/carole.jpg",
+      "kind": "brand-media",
+      "origin": "Photos\\Team\\carole.png",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "59f4be2a0459cacf9b1f95faf7478571bfe0a04ac3a6d4fe15184512cd481c8a"
+    },
+    {
+      "file": "src/shared/assets/brand/david.jpg",
+      "kind": "brand-media",
+      "origin": "Photos\\Team\\david.png",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "546011fd02cbd622fcd11552f265fcbd810f2b827fd386dedd773b78a16739eb"
+    },
+    {
+      "file": "src/shared/assets/brand/serena.jpg",
+      "kind": "brand-media",
+      "origin": "Photos\\Team\\serena.png",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "d8ffa503b6eadb53d37144917cb1c784b4a06fe09a94aad22c8a85c236e8ff97"
+    },
+    {
+      "file": "src/shared/assets/brand/core-pattern.jpg",
+      "kind": "brand-media",
+      "origin": "Backgrounds\\Card\\ZavaCore card 4.png",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "e2c89b31be7c2ad5b7541089a2f9cdce12fd797b989814de88978b779dbac48a"
     },
     {
       "file": "copilot/color.png",
       "kind": "agent-icon",
-      "origin": "SharePoint Yeoman generator template customized for this sample package",
-      "rights": "Generated sample asset pending final publisher review",
-      "sha256": "4aa6b1320582738d1019eb5dcbde9b1f004423d0d89e67be44981e05b4f05918"
+      "origin": "Logos\\svg\\ZavaCore-logotype-clr.svg",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "8556ddfa1e6aa2ce2803fe76d95cbd392b929853aec1b7e1fc773e8062440812"
     },
     {
       "file": "copilot/outline.png",
       "kind": "agent-icon",
-      "origin": "SharePoint Yeoman generator template customized for this sample package",
-      "rights": "Generated sample asset pending final publisher review",
-      "sha256": "b1ddc76f79027d9c0300689721649ce1f1950271a5fc4ca50ae56545228fb566"
+      "origin": "Logos\\svg\\ZavaCore-mark_wht.svg",
+      "rights": "User-supplied ZavaCore brand library; public redistribution approval pending",
+      "sha256": "7ccb5d266f361548d75a6c50ca5e0d97939c1c475b5c44dc0b2f8d2cd6c8421c"
+    },
+    {
+      "file": "src/shared/worldLand.ts",
+      "kind": "offline-geography",
+      "origin": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson",
+      "rights": "Natural Earth public domain: https://www.naturalearthdata.com/about/terms-of-use/",
+      "sha256": "296d801811335ae254ebdb6b9af29db278d67f846484b41c2fe1bbac002c8fb9"
     }
   ]
 }

@@ -1,6 +1,16 @@
 # My Time Off — Time-Off & Absence Copilot UX Component
 
-![SPFx](https://img.shields.io/badge/SPFx-1.24.0--beta.2-yellow.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-17-61DAFB.svg) ![Data](https://img.shields.io/badge/Data-SharePoint%20%2B%20Graph-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
+> **Inherited lockfile limitation:** Some unchanged third-party tarballs still reference
+> the original OneDrive registry. A clean restore may require access to that feed.
+> Original pinned versions and integrity values are preserved.
+
+![SPFx](https://img.shields.io/badge/SPFx-1.24.0-green.svg) ![Node](https://img.shields.io/badge/Node.js-22.x-339933.svg) ![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg) ![Data](https://img.shields.io/badge/Data-SharePoint%20%2B%20Graph-2D9CDB.svg) ![Modes](https://img.shields.io/badge/Modes-inline%20%2B%20fullscreen-5B3EE8.svg)
 
 ## Summary
 
@@ -52,7 +62,7 @@ The Fluent v9 styling shell injects theme tokens twice — through `FluentProvid
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/SPFx-1.24.0--beta.2-yellow.svg)
+![version](https://img.shields.io/badge/SPFx-1.24.0-green.svg)
 
 ## Applies to
 
@@ -64,14 +74,14 @@ The Fluent v9 styling shell injects theme tokens twice — through `FluentProvid
 
 ## Prerequisites
 
-- Node.js >=22.14.0 <23.0.0
+- Node.js 22 (22.14 or later), 24, or 26
 - A Microsoft 365 tenant with **SharePoint** and **Microsoft Copilot** enabled
 - A **SharePoint App Catalog** (tenant or site collection) and rights to deploy to it
 - Rights to **approve API permissions** in the SharePoint admin center (for the Microsoft Graph scopes)
-- [Heft](https://heft.rushstack.io/) (`npm install -g @rushstack/heft`)
+- Project-local [Heft](https://heft.rushstack.io/) 1.3.2, restored by `npm install`
 - [PnP.PowerShell](https://pnp.github.io/powershell/) to provision the SharePoint lists (see [`scripts/README.md`](./scripts/README.md))
 
-> This solution uses the **Heft** build system (not Gulp) and **React 17** functional components, aligned with the SPFx 1.24 dev preview.
+> This solution uses the **Heft** build system (not Gulp) and **React 18** functional components, aligned with the SPFx 1.24.0 GA.
 
 ## Solution
 
@@ -83,6 +93,7 @@ The Fluent v9 styling shell injects theme tokens twice — through `FluentProvid
 
 | Version | Date          | Comments |
 |---------|---------------|----------|
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0     | July 6, 2026 | Initial release |
 
 ## Disclaimer
@@ -145,7 +156,7 @@ The **host** is taken automatically from the SPFx page context at runtime, so on
 ### 3. Build the package (only if building from source)
 
 ```powershell
-heft test --clean --production && heft package-solution --production
+npm run build
 ```
 
 This produces:
@@ -153,7 +164,7 @@ This produces:
 - `sharepoint/solution/time-off.sppkg` — the SharePoint package.
 - `teams/my-time-off.zip` — the Copilot/Teams agent package.
 
-Other build commands can be listed using `heft --help`.
+Other build commands can be listed using `npx --no-install heft --help`.
 
 ### 4. Deploy the solution
 
@@ -196,7 +207,7 @@ This sample illustrates the following concepts:
 
 - **Delegated client-side API calls from a Copilot Component** — SharePoint REST (`/_api/web/lists`) and Microsoft Graph (`/me/calendarView`, `/me/manager`, `/users/{id}/photo`) called with the signed-in user's token, no backend. This is the headline capability the MCP app spec itself does not provide.
 - **One tool per component** — each component exposes a single, well-described Copilot tool, so the model has an unambiguous reason to invoke it.
-- **Rich, themed UI in the Copilot canvas** — Fluent UI v9 rendered inside Copilot's sandboxed React-17 iframe, with theme tokens injected so the components match the host theme.
+- **Rich, themed UI in the Copilot canvas** — Fluent UI v9 rendered inside Copilot's sandboxed React 18 iframe, with theme tokens injected so the components match the host theme.
 - **Resilient live data services** — each service calls SharePoint / Graph live but never throws: on any failure it falls back to a built-in in-memory data set so the demo always renders.
 - **Write-back with a Graph pre-check** — the request component checks the user's Outlook calendar for conflicts (Microsoft Graph) before a new request is written to SharePoint.
 - **Manager-as-approver, resolved client-side** — a new request is routed to the submitter's line manager, looked up live via Microsoft Graph (`/me/manager`) and converted to a site user via `/_api/web/ensureuser`, with a **self-approval fallback** that keeps single-user demo tenants working.

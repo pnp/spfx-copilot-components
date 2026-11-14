@@ -17,6 +17,10 @@ release
 solution
 temp
 *.sppkg
+!sharepoint/
+!sharepoint/solution/
+sharepoint/solution/*
+!sharepoint/solution/zava-procurement-command-center.sppkg
 .heft
 
 # Coverage directory used by tools like istanbul
@@ -36,3 +40,6 @@ obj
 
 # Styles Generated Code
 *.scss.ts
+
+# Local RC0 agent version fingerprint
+teams/.copilot-agent-hotfix.json

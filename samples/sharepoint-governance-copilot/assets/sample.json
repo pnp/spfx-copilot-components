@@ -1,0 +1,63 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-sharepoint-governance-copilot",
+    "source": "pnp",
+    "title": "Governance Risk Advisor — Executive Tenant Governance Dashboard",
+    "shortDescription": "A SharePoint Copilot App (SPFx 1.24 Copilot Component) that turns tenant governance findings into an executive briefing: a governance score with trend, an AI-generated executive summary, prioritized remediation actions, explainable findings, and a tenant-wide insights panel.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/sharepoint-governance-copilot",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/sharepoint-governance-copilot",
+    "longDescription": [
+      "Governance Risk Advisor is a SharePoint Copilot App built as an SPFx 1.24 Copilot Component (not a classic web part). Instead of a flat list of governance risks, it opens with a 0-100 governance score and a trend indicator (Improving, Stable, Declining), an AI-style executive summary of the tenant's posture, and the top 3-5 prioritized remediation actions ranked by severity-weighted impact.",
+      "Findings are shown severity-first: high and medium findings are always visible, while low-priority findings are collapsed behind a 'Show low-priority findings' toggle. Every finding explains the Risk, Impact, Why this matters, and Recommended action in business language, with a primary remediation call-to-action (for example Assign Owner, Review Permissions, Review Guest Access, Start Access Review) that sends a follow-up message back into the Copilot conversation, plus a secondary Open site link.",
+      "A tenant-wide insights panel (sites without owners, sites inactive 180+ days, sites with anonymous sharing, sites with excessive guest access, expiring reviews) and an estimated risk reduction projection round out the executive story. The sample ships with mocked data behind a swappable IGovernanceService interface, so a live Microsoft Graph / SharePoint Admin API implementation can be dropped in without touching the UI. Built with the Heft build system, React and Fluent UI v9 with host-driven light/dark theming."
+    ],
+    "creationDateTime": "2026-10-03",
+    "updateDateTime": "2026-10-03",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.5"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "preview.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/sharepoint-governance-copilot/assets/preview.png",
+        "alt": "Governance Risk Advisor executive dashboard — score, executive summary, priority actions, and findings"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "mnbatista",
+        "pictureUrl": "https://github.com/mnbatista.png",
+        "name": "Maycon de Novaes Batista"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build agents for Microsoft Copilot",
+        "description": "Extend Microsoft Copilot with declarative agents, plugins, and connectors to tailor Copilot to your organization's needs.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "The SharePoint Framework (SPFx) is a page and web part model that provides full support for client-side SharePoint development.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]

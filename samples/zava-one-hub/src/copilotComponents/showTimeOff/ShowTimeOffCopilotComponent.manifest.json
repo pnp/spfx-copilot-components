@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "363e10ef-db58-4ec8-a5d5-3728ed12a319",
+  "alias": "ShowTimeOffCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowTimeOff",
+      "description": {
+        "default": "Use when the user asks about their leave balance or wants to draft time off. Do not use when a manager needs to approve someone else’s vacation request."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showTimeOff/ShowTimeOffCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

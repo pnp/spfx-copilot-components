@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a366a5c5-e692-4ea6-85fd-beaf8bfd5c22",
+  "alias": "ShowCompanyStockCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowCompanyStock",
+      "description": {
+        "default": "Use when the user asks about public Zava stock performance. Do not use when the user asks about personal equity."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showCompanyStock/ShowCompanyStockCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 
@@ -15,6 +15,7 @@ const fallbackUser: IZavaUser = new MockZavaEmployeeDataService().getEmployeeExp
 abstract class HomeIntentCopilotComponentBase<TProperties> extends BaseCopilotComponent<TProperties> {
   private _propertiesSignature?: string;
   private _propertiesVersion = 0;
+  private _root: Root | undefined;
 
   protected abstract resolveIntent(properties: unknown): IResolvedHomeIntent;
 
@@ -43,11 +44,15 @@ abstract class HomeIntentCopilotComponentBase<TProperties> extends BaseCopilotCo
       onRequestFullscreen: this._handleRequestFullscreen
     });
 
-    ReactDOM.render(element, this.context.domElement);
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+    this._root.render(element);
   }
 
   protected onTeardown(reason: string | undefined): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root?.unmount();
+    this._root = undefined;
     return super.onTeardown(reason);
   }
 

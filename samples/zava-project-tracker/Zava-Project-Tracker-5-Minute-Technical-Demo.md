@@ -72,7 +72,7 @@ Pin these files in editor tabs:
 - current-user resolution from page context
 - `requestDisplayModeAsync('fullscreen')`
 - one shared `ProjectIntentApp` for every generated component
-- React 17 `render` and teardown lifecycle
+- React 18 root reuse, `root.render`, and `root.unmount` during teardown
 
 **Say:**
 
@@ -158,8 +158,8 @@ npm run build
 
 - 31 tools and 188 optional properties
 - 39 unified-gallery screenshots
-- 168 tests with zero failures/warnings
-- generated API plugin v2.4 function/MCP mirroring
+- 172 tests with zero failures/warnings
+- generated API plugin v2.4 dynamic MCP tool discovery
 - one hashed production JavaScript file
 - no stale JS, duplicate media, repeated base64 across bundles, or Fluent icon font
 - final `.sppkg` below configured investigation thresholds
@@ -218,7 +218,7 @@ Natural-language prompt
 ## Presenter guardrails
 
 - Present Zava as a reference implementation, not as the limit of the Copilot Component pattern.
-- This is SPFx `1.24.0-beta.2` preview code; confirm target-tenant support before production adoption.
+- This is SPFx `1.24.0-rc.0` preview code; confirm target-tenant support before production adoption.
 - Data, people, calculations, and receipts are deterministic mock records.
 - Describe component calculations and the explicit action boundary as implementation and governance choices, not as limits of AI capability.
 - The local harness proves UX behavior but not authenticated tenant CSP, iframe focus, high contrast, or screen-reader output.

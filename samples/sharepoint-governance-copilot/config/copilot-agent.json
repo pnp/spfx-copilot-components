@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "SharePointGovernance Agent"
+      },
+      "description": {
+        "default": "SharePointGovernance description"
+      },
+      "components": [
+        "bc6822f0-efe2-4177-9ae9-9cf73c78feae"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}

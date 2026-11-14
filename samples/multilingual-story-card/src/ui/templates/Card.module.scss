@@ -1,0 +1,480 @@
+// Template: card. Places the parts and handles the card's state (see card.ts). Pieces style their
+// inside; this file only positions and sizes them, addressing them by [data-part], never by another
+// file's class. Every value is a token (tokens/Tokens) or a preset variable (tokens/Presets).
+// Logical properties only (inline/block), so RTL content and chrome mirror without extra rules.
+//
+// Parts: meta, title, figure, text, footer (set by card.ts); inside the figure: image, placeholder,
+// credit (and its link buttons: link). Mode-only parts carry data-show (dom.ts showIn).
+
+.shell {
+  container: card / inline-size;
+}
+
+.card {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "meta"
+    "title"
+    "figure"
+    "text"
+    "footer";
+  align-content: start;
+  gap: var(--card-gap);
+  padding: var(--space-xs);
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+  font-family: var(--font-body);
+  font-size: var(--font-text-md-size);
+  line-height: var(--font-text-md-line-height);
+  // The host wraps the card in a left-to-right Fluent UI provider with an explicit text-align: left.
+  // Inherited as is, it pins right-to-left headlines and text to the left; start follows dir.
+  text-align: start;
+  // Ease light ↔ dark instead of an abrupt brightness jump (Apple §14); off under reduced motion.
+  transition: background-color 200ms ease, color 200ms ease;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring-primary);
+    outline-offset: 2px;
+  }
+
+  // Fullscreen (the desktop side panel): the card takes the whole viewport, edge to edge and top to
+  // bottom. Readable line length comes from the text column itself (68ch), not from a narrower card.
+  &[data-mode="fullscreen"] {
+    inline-size: 100%;
+    min-block-size: 100dvh;
+    padding: var(--space-m) var(--space-m) var(--space-l);
+  }
+}
+
+// Parts that only exist in one mode are hidden (display:none also removes them from the tab order).
+.card[data-mode="inline"] [data-show="fullscreen"],
+.card[data-mode="fullscreen"] [data-show="inline"] {
+  display: none !important;
+}
+
+// ---- placement ------------------------------------------------------------------------------------
+
+.card > [data-part="meta"] {
+  grid-area: meta;
+}
+
+.card > [data-part="title"] {
+  grid-area: title;
+  view-transition-name: cosmo-title;
+}
+
+.card > [data-part="figure"] {
+  grid-area: figure;
+  view-transition-name: cosmo-figure;
+}
+
+.card > [data-part="text"] {
+  grid-area: text;
+  view-transition-name: cosmo-text;
+}
+
+.card > [data-part="footer"] {
+  grid-area: footer;
+}
+
+// The text column starts where its own language starts: an Urdu or Arabic story in a card with
+// English (left-to-right) labels sits on the right, not in a right-aligned column on the left. A
+// logical margin follows the text's own dir, so for left-to-right text nothing changes.
+.card > [data-part="text"] {
+  margin-inline-end: auto;
+}
+
+// Comfortable line length. In "beside" the paragraph's box also holds the floated photo, so its
+// width allows for the photo column: the wrapped lines themselves stay near 68ch.
+.card:not([data-layout="beside"]) [data-part="text"] {
+  max-inline-size: 68ch;
+}
+
+.card[data-layout="beside"] [data-part="text"] {
+  // --figure-inline is the photo column's real width, kept current by card.ts.
+  max-inline-size: calc(68ch + var(--figure-inline, 0px) + var(--space-m));
+}
+
+// ---- layout: teaser (photo beside headline and text) ------------------------------------------
+
+.card[data-layout="teaser"] {
+  // The photo column shrinks to the (height-capped) photo, at most 34 % of the card.
+  grid-template-columns: fit-content(34%) minmax(0, 1fr);
+  grid-template-areas:
+    "meta meta"
+    "figure title"
+    "figure text"
+    "footer footer";
+  column-gap: var(--space-s);
+
+  [data-part="figure"] {
+    align-self: start;
+  }
+}
+
+// No photo: the side-by-side layouts become one clean column (no empty column, no stray gap).
+.card[data-layout="teaser"]:has(> [data-part="figure"][hidden]) {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "meta"
+    "title"
+    "text"
+    "footer";
+}
+
+// Side photos never dominate: scaled down to a height cap, aspect ratio kept (no cropping).
+.card[data-layout="teaser"] [data-part="image"],
+.card[data-layout="beside"] [data-part="image"] {
+  max-block-size: min(70cqi, 360px);
+}
+
+.card[data-layout="teaser"][data-mode="inline"] [data-part="image"],
+.card[data-layout="beside"][data-mode="inline"] [data-part="image"] {
+  max-block-size: 200px;
+}
+
+// Narrow portrait photos still leave the credit room to wrap sensibly.
+.card[data-layout="teaser"] [data-part="figure"],
+.card[data-layout="beside"] [data-part="figure"] {
+  min-inline-size: min(30%, 12rem);
+}
+
+// ---- layout: beside (text wraps around the photo) ---------------------------------------------
+
+.card[data-layout="beside"] {
+  display: block;
+
+  > * + * {
+    margin-block-start: var(--card-gap);
+  }
+
+  [data-part="figure"] {
+    // Physical fallback first: hosts on an older WebView ignore the logical value, and a
+    // non-floating 40% figure pushes the whole text below the photo.
+    float: left;
+    float: inline-start;
+    // Shrink to the (height-capped) photo, at most 40 % of the card.
+    inline-size: auto;
+    max-inline-size: min(38%, 520px);
+    // Same distance under the headline as the paragraph (card gap), so photo top and the cap
+    // height of the first text line sit on one line (the paragraph is trimmed to its cap height).
+    margin-block: var(--card-gap) var(--space-xs);
+    margin-inline-end: var(--space-m);
+  }
+
+  &[dir="rtl"] [data-part="figure"] {
+    float: right;
+    float: inline-start;
+  }
+
+  [data-part="footer"] {
+    clear: both;
+  }
+}
+
+// Inline, the photo column gets a fixed cap instead of a share of the card's width. A photo held by
+// a percentage gets shorter when the card gets narrower; when Copilot's widget frame showed its
+// scrollbar (15 px) the card then fit, the scrollbar went, the card grew back: an endless resize
+// loop. Fixed caps keep the height independent of such small width changes.
+@container card (min-width: 26rem) {
+  // Not Magazine: its photo spans the card (a fixed-height band, see below).
+  // Only with a photo: without one the teaser is a single column (see above).
+  .card[data-layout="teaser"][data-mode="inline"]:not([data-design="magazine"]):has(> [data-part="figure"]:not([hidden])) {
+    grid-template-columns: fit-content(15rem) minmax(0, 1fr);
+  }
+
+  .card[data-layout="beside"][data-mode="inline"]:not([data-design="magazine"]) [data-part="figure"] {
+    max-inline-size: 16rem;
+  }
+}
+
+// Narrow containers: side-by-side layouts stack (the photo stays uncropped).
+@container card (max-width: 26rem) {
+  .card[data-layout="teaser"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "meta"
+      "title"
+      "figure"
+      "text"
+      "footer";
+  }
+
+  .card[data-layout="beside"] [data-part="figure"] {
+    float: none;
+    inline-size: 100%;
+    margin-inline-end: 0;
+  }
+}
+
+// ---- story in the other direction than the labels (data-mixed-dir) ----------------------------------
+// An Urdu or Persian story with English labels: headline and text start on the right, so the photo
+// goes there too. The chrome rows keep the labels' direction.
+
+.card[data-mixed-dir] > [data-part="figure"] {
+  justify-self: end;
+}
+
+.card[data-layout="teaser"][data-mixed-dir] {
+  grid-template-columns: minmax(0, 1fr) fit-content(34%);
+  grid-template-areas:
+    "meta meta"
+    "title figure"
+    "text figure"
+    "footer footer";
+}
+
+.card[data-layout="beside"][dir="ltr"][data-mixed-dir] [data-part="figure"] {
+  float: right;
+}
+
+.card[data-layout="beside"][dir="rtl"][data-mixed-dir] [data-part="figure"] {
+  float: left;
+}
+
+.card[data-layout="beside"][data-mixed-dir] [data-part="figure"] {
+  float: inline-end;
+  margin-inline-end: 0;
+  margin-inline-start: var(--space-m);
+}
+
+@container card (max-width: 26rem) {
+  .card[data-layout="teaser"][data-mixed-dir] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "meta"
+      "title"
+      "figure"
+      "text"
+      "footer";
+  }
+
+  .card[data-layout="beside"][data-mixed-dir] [data-part="figure"] {
+    float: none;
+    margin-inline-start: 0;
+  }
+}
+
+// ---- layout: lead (photo between headline and text) -------------------------------------------
+
+.card[data-layout="lead"] [data-part="image"] {
+  // Flush with the headline and text edge (a centred photo floats off the column's axis).
+  max-block-size: min(60cqi, 400px);
+}
+
+.card[data-layout="lead"][data-mode="inline"] [data-part="image"] {
+  // A fixed cap, not a share of the width: inline, the card's height must not follow small width
+  // changes (see the inline Magazine photo below).
+  max-block-size: 240px;
+}
+
+.card[data-layout="lead"] [data-part="placeholder"] {
+  aspect-ratio: 21 / 9;
+  max-block-size: min(45cqi, 240px);
+}
+
+// ---- headline and text per mode -----------------------------------------------------------------
+
+.card[data-mode="inline"] [data-part="title"] {
+  font-size: var(--title-size-inline);
+}
+
+// Inline cards keep a compact height: the full text lives in fullscreen. Growing inline content
+// feeds SPFx auto-resize → host → iframe replacement (observed in Copilot).
+.card[data-mode="inline"] [data-part="text"] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.card[data-mode="inline"][data-layout="lead"] [data-part="text"] {
+  -webkit-line-clamp: 3;
+}
+
+// ---- Magazine design: headline on the photo (same DOM, other grid placement) -----------------
+
+.card[data-design="magazine"] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "meta"
+    "figure"
+    "text"
+    "footer";
+
+  > * + * {
+    margin-block-start: 0;
+  }
+
+  // Edge to edge in every layout: the side-photo limits of teaser/beside don't apply here.
+  [data-part="figure"] {
+    justify-self: stretch;
+    float: none;
+    inline-size: auto;
+    min-inline-size: 0;
+    max-inline-size: none;
+    margin: 0 calc(var(--space-xs) * -1);
+  }
+
+  // Full width with the layouts' height caps lifted. The caps of the inline layouts
+  // (.card[data-layout][data-mode="inline"] …) are more specific than a plain magazine rule, and a
+  // capped height under a forced full width squished the photo: [data-layout][data-mode] matches
+  // every card and lifts this above them.
+  &[data-layout][data-mode] [data-part="image"] {
+    inline-size: 100%;
+    max-block-size: none;
+    border-radius: 0;
+    // Should any cap ever win again: crop, never distort.
+    object-fit: cover;
+
+    // Every search hit was portrait: Magazine still gets a horizontal band, cropped to 3:2. Only
+    // here; every other layout shows the whole photo. The band sits in the upper part, not the
+    // centre: in a portrait the face is in the top third, and a centred band cuts off the eyes (the
+    // headline covers the band's lower part anyway). 20 % of the excess is taken from the top.
+    &[data-crop] {
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      object-position: 50% 20%;
+    }
+  }
+
+  &[data-layout][data-mode] [data-part="placeholder"] {
+    aspect-ratio: 16 / 9;
+    max-block-size: none;
+    border-radius: 0;
+  }
+
+  [data-part="title"] {
+    grid-area: figure;
+    align-self: end;
+    z-index: 1;
+    margin-inline: calc(var(--space-xs) * -1);
+    padding: var(--space-l) var(--space-s) var(--space-s);
+    background: linear-gradient(to top, var(--card-scrim) 0%, var(--card-scrim) 55%, transparent 100%);
+    color: var(--card-scrim-text);
+  }
+
+  // Credit sits on the photo's top corner, so the headline can own the bottom edge.
+  [data-part="credit"] {
+    // A positioned label sizes to its text (containment would collapse it to zero width).
+    contain: none;
+    max-inline-size: 60%;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 2px 8px;
+    background: var(--card-scrim);
+    color: var(--card-scrim-text);
+
+    [data-part="link"] {
+      color: var(--card-scrim-text);
+    }
+  }
+}
+
+.card[data-design="magazine"]:has(> [data-part="figure"][hidden]) [data-part="title"] {
+  // No photo to sit on: an ordinary headline, no scrim.
+  margin-inline: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+// Inline Magazine: a fixed-height band, cropped to fit, instead of the photo at its own aspect ratio.
+// Copilot's widget frame shows a scrollbar for a moment while it catches up with the card; that
+// takes 15 px of width. A full-width photo then got about 10 px shorter, the card fit, the scrollbar
+// went, the card widened and grew again: a scrollbar flickering on and off. With a fixed height the
+// card's height no longer shrinks when it gets narrower, so the loop can't start.
+.card[data-design="magazine"][data-mode="inline"][data-layout] {
+  [data-part="image"],
+  [data-part="image"][data-crop],
+  [data-part="placeholder"] {
+    block-size: 320px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    // Faces sit in the upper part of most portraits; the headline covers the band's lower part.
+    object-position: 50% 25%;
+  }
+}
+
+@container card (max-width: 26rem) {
+  .card[data-design="magazine"][data-mode="inline"][data-layout] {
+    [data-part="image"],
+    [data-part="image"][data-crop],
+    [data-part="placeholder"] {
+      block-size: 240px;
+    }
+  }
+}
+
+.card[data-design="magazine"][data-mode="fullscreen"] {
+  [data-part="figure"],
+  [data-part="title"] {
+    margin-inline: calc(var(--space-m) * -1);
+  }
+
+  [data-part="title"] {
+    padding-inline: var(--space-m);
+  }
+}
+
+// ---- engines without text-box trimming -----------------------------------------------------------
+// Approximate the cap-height alignment: push the side photo down by half the leading plus the
+// space above the capitals (cap height ≈ 0.7 em in Segoe UI / system faces).
+@supports not (text-box: trim-both cap alphabetic) {
+  .card[data-layout="beside"] [data-part="figure"] {
+    margin-block-start: calc(var(--card-gap) + (var(--body-size) * var(--body-line-height) - var(--body-size) * 0.7) / 2);
+  }
+
+  .card[data-layout="teaser"] [data-part="figure"] {
+    margin-block-start: calc((var(--title-size) * var(--title-line-height) - var(--title-size) * 0.7) / 2);
+  }
+}
+
+// ---- user preferences -------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+// Reduced transparency: the Magazine scrim becomes a solid band.
+@media (prefers-reduced-transparency: reduce) {
+  .card[data-design="magazine"] [data-part="title"],
+  .card[data-design="magazine"] [data-part="credit"] {
+    background: #1f1f1f;
+  }
+}
+
+// More contrast: quiet greys become primary text, hairlines become real borders.
+@media (prefers-contrast: more) {
+  .card[data-theme][data-mode] {
+    --color-text-secondary: var(--color-text-primary);
+    --color-text-tertiary: var(--color-text-primary);
+    --color-border-primary: var(--color-text-primary);
+    --color-border-secondary: var(--color-text-primary);
+    --color-border-tertiary: var(--color-text-primary);
+  }
+}
+
+// Windows High Contrast / forced colours: no scrim tricks.
+@media (forced-colors: active) {
+  .card[data-design="magazine"] [data-part="title"],
+  .card[data-design="magazine"] [data-part="credit"] {
+    forced-color-adjust: none;
+    background: Canvas;
+    color: CanvasText;
+  }
+}

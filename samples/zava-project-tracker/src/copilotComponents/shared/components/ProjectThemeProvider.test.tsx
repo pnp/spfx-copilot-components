@@ -1,10 +1,11 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot } from 'react-dom/client';
 
 import { makeStyles } from '@griffel/react';
 
 import ProjectThemeProvider from './ProjectThemeProvider';
+
+const { act } = React;
 
 const useTestStyles = makeStyles({
   root: {
@@ -24,13 +25,13 @@ describe('ProjectThemeProvider', () => {
     const target = targetDocument.createElement('div');
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
     targetDocument.body.appendChild(target);
+    const root = createRoot(target);
 
     act(() => {
-      ReactDOM.render(
+      root.render(
         <ProjectThemeProvider targetDocument={targetDocument} theme="light">
           <StyledChild />
-        </ProjectThemeProvider>,
-        target
+        </ProjectThemeProvider>
       );
     });
 
@@ -38,7 +39,7 @@ describe('ProjectThemeProvider', () => {
     expect(targetDocument.head.querySelectorAll('style[data-make-styles-bucket]').length).toBeGreaterThan(0);
 
     act(() => {
-      ReactDOM.unmountComponentAtNode(target);
+      root.unmount();
     });
     consoleError.mockRestore();
   });

@@ -1,0 +1,478 @@
+{
+  "generatedAt": "2026-09-24T14:46:40.136Z",
+  "clock": "2026-08-18T09:00:00 (local)",
+  "states": 17,
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "captures": [
+    {
+      "id": "filing-empty",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-empty.light.standard.png",
+      "layout": "filing-empty",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-empty",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-empty.dark.standard.png",
+      "layout": "filing-empty",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-draft",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-draft.light.standard.png",
+      "layout": "filing-draft",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-draft",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-draft.dark.standard.png",
+      "layout": "filing-draft",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-draft",
+      "theme": "light",
+      "variant": "w340",
+      "width": 340,
+      "file": "assets/filing-draft.light.w340.png",
+      "layout": "filing-draft",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-draft",
+      "theme": "light",
+      "variant": "zoom200",
+      "width": 760,
+      "file": "assets/filing-draft.light.zoom200.png",
+      "layout": "filing-draft",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-validation",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-validation.light.standard.png",
+      "layout": "filing-validation",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-validation",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-validation.dark.standard.png",
+      "layout": "filing-validation",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-review",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-review.light.standard.png",
+      "layout": "filing-review",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-review",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-review.dark.standard.png",
+      "layout": "filing-review",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-receipt",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-receipt.light.standard.png",
+      "layout": "filing-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-receipt",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-receipt.dark.standard.png",
+      "layout": "filing-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-error",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-error.light.standard.png",
+      "layout": "filing-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-error",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-error.dark.standard.png",
+      "layout": "filing-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-default",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-default.light.standard.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-default",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-default.dark.standard.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-default",
+      "theme": "light",
+      "variant": "w340",
+      "width": 340,
+      "file": "assets/recent-default.light.w340.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-filtered",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-filtered.light.standard.png",
+      "layout": "recent-filtered",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-filtered",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-filtered.dark.standard.png",
+      "layout": "recent-filtered",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-no-match",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-no-match.light.standard.png",
+      "layout": "recent-no-match",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-no-match",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-no-match.dark.standard.png",
+      "layout": "recent-no-match",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-error",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-error.light.standard.png",
+      "layout": "recent-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-error",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-error.dark.standard.png",
+      "layout": "recent-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk",
+      "theme": "light",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk.light.standard.png",
+      "layout": "filing-bulk",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk.dark.standard.png",
+      "layout": "filing-bulk",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk",
+      "theme": "light",
+      "variant": "zoom200",
+      "width": 1280,
+      "file": "assets/filing-bulk.light.zoom200.png",
+      "layout": "filing-bulk",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk-receipt",
+      "theme": "light",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk-receipt.light.standard.png",
+      "layout": "filing-bulk-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk-receipt",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk-receipt.dark.standard.png",
+      "layout": "filing-bulk-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-receipt-link",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-receipt-link.light.standard.png",
+      "layout": "filing-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-receipt-link",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/filing-receipt-link.dark.standard.png",
+      "layout": "filing-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-receipt-link",
+      "theme": "light",
+      "variant": "w340",
+      "width": 340,
+      "file": "assets/filing-receipt-link.light.w340.png",
+      "layout": "filing-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-row-link",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-row-link.light.standard.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-row-link",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/recent-row-link.dark.standard.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "recent-row-link",
+      "theme": "light",
+      "variant": "w340",
+      "width": 340,
+      "file": "assets/recent-row-link.light.w340.png",
+      "layout": "recent-default",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk-receipt-link",
+      "theme": "light",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk-receipt-link.light.standard.png",
+      "layout": "filing-bulk-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "filing-bulk-receipt-link",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 1280,
+      "file": "assets/filing-bulk-receipt-link.dark.standard.png",
+      "layout": "filing-bulk-receipt",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "render-error",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/render-error.light.standard.png",
+      "layout": "render-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": [
+        "Error: The records library could not be read.\n    at ctx.store.getKinds (http://127.0.0.1:56970/harness.js:18194:17)\n    at FilingInline (http://127.0.0.1:56970/harness.js:16143:25)\n    at Ch (http://127.0.0.1:56970/harness.js:3595:13)\n    at li (http://127.0.0.1:56970/harness.js:4041:13)\n    at ck (http://127.0.0.1:56970/harness.js:6028:92)\n    at bk (http://127.0.0.1:56970/harness.js:5552:17)\n    at ak (http://127.0.0.1:56970/harness.js:5546:30)\n    at Tj (http://127.0.0.1:56970/harness.js:5531:13)\n    at Lj (http://127.0.0.1:56970/harness.js:5305:34)\n    at http://127.0.0.1:56970/harness.js:2895:23",
+        "[Document Intake] render error Error: The records library could not be read.\n    at ctx.store.getKinds (http://127.0.0.1:56970/harness.js:18194:17)\n    at FilingInline (http://127.0.0.1:56970/harness.js:16143:25)\n    at Ch (http://127.0.0.1:56970/harness.js:3595:13)\n    at li (http://127.0.0.1:56970/harness.js:4041:13)\n    at ck (http://127.0.0.1:56970/harness.js:6028:92)\n    at bk (http://127.0.0.1:56970/harness.js:5552:17)\n    at ak (http://127.0.0.1:56970/harness.js:5546:30)\n    at Tj (http://127.0.0.1:56970/harness.js:5531:13)\n    at Lj (http://127.0.0.1:56970/harness.js:5305:34)\n    at http://127.0.0.1:56970/harness.js:2895:23 \n    at FilingInline (http://127.0.0.1:56970/harness.js:16137:15)\n    at FileUploaderInline (http://127.0.0.1:56970/harness.js:16890:45)\n    at RenderErrorBoundary (http://127.0.0.1:56970/harness.js:15434:7)\n    at div\n    at TextDirectionProvider (http://127.0.0.1:56970/harness.js:9336:34)\n    at http://127.0.0.1:56970/harness.js:12897:19\n    at RendererProvider (http://127.0.0.1:56970/harness.js:9320:29)\n    at AppProviders (http://127.0.0.1:56970/harness.js:15460:23)\n    at FileUploaderApp (http://127.0.0.1:56970/harness.js:17363:24)"
+      ],
+      "expectsConsoleError": true
+    },
+    {
+      "id": "render-error",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/render-error.dark.standard.png",
+      "layout": "render-error",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": [
+        "Error: The records library could not be read.\n    at ctx.store.getKinds (http://127.0.0.1:56970/harness.js:18194:17)\n    at FilingInline (http://127.0.0.1:56970/harness.js:16143:25)\n    at Ch (http://127.0.0.1:56970/harness.js:3595:13)\n    at li (http://127.0.0.1:56970/harness.js:4041:13)\n    at ck (http://127.0.0.1:56970/harness.js:6028:92)\n    at bk (http://127.0.0.1:56970/harness.js:5552:17)\n    at ak (http://127.0.0.1:56970/harness.js:5546:30)\n    at Tj (http://127.0.0.1:56970/harness.js:5531:13)\n    at Lj (http://127.0.0.1:56970/harness.js:5305:34)\n    at http://127.0.0.1:56970/harness.js:2895:23",
+        "[Document Intake] render error Error: The records library could not be read.\n    at ctx.store.getKinds (http://127.0.0.1:56970/harness.js:18194:17)\n    at FilingInline (http://127.0.0.1:56970/harness.js:16143:25)\n    at Ch (http://127.0.0.1:56970/harness.js:3595:13)\n    at li (http://127.0.0.1:56970/harness.js:4041:13)\n    at ck (http://127.0.0.1:56970/harness.js:6028:92)\n    at bk (http://127.0.0.1:56970/harness.js:5552:17)\n    at ak (http://127.0.0.1:56970/harness.js:5546:30)\n    at Tj (http://127.0.0.1:56970/harness.js:5531:13)\n    at Lj (http://127.0.0.1:56970/harness.js:5305:34)\n    at http://127.0.0.1:56970/harness.js:2895:23 \n    at FilingInline (http://127.0.0.1:56970/harness.js:16137:15)\n    at FileUploaderInline (http://127.0.0.1:56970/harness.js:16890:45)\n    at RenderErrorBoundary (http://127.0.0.1:56970/harness.js:15434:7)\n    at div\n    at TextDirectionProvider (http://127.0.0.1:56970/harness.js:9336:34)\n    at http://127.0.0.1:56970/harness.js:12897:19\n    at RendererProvider (http://127.0.0.1:56970/harness.js:9320:29)\n    at AppProviders (http://127.0.0.1:56970/harness.js:15460:23)\n    at FileUploaderApp (http://127.0.0.1:56970/harness.js:17363:24)"
+      ],
+      "expectsConsoleError": true
+    },
+    {
+      "id": "store-starting",
+      "theme": "light",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/store-starting.light.standard.png",
+      "layout": "store-starting",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "store-starting",
+      "theme": "dark",
+      "variant": "standard",
+      "width": 760,
+      "file": "assets/store-starting.dark.standard.png",
+      "layout": "store-starting",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    },
+    {
+      "id": "store-starting",
+      "theme": "light",
+      "variant": "w340",
+      "width": 340,
+      "file": "assets/store-starting.light.w340.png",
+      "layout": "store-starting",
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": []
+    }
+  ],
+  "summary": {
+    "total": 41,
+    "brokenImages": 0,
+    "horizontalOverflow": 0,
+    "unexpectedConsoleErrors": 0,
+    "expectedConsoleErrorsMissing": 0,
+    "harnessErrors": 0
+  }
+}

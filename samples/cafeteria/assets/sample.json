@@ -1,0 +1,88 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-cafeteria",
+    "source": "pnp",
+    "title": "Cafeteria - Browse Cafeterias and Menus in Copilot",
+    "shortDescription": "Browse cafeteria hours, menus, and dish options from Microsoft Copilot.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/cafeteria",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/cafeteria",
+    "longDescription": [
+      "Cafeteria brings cafeteria listings, daily menus, dish search, and cafeteria details into Microsoft Copilot through four SPFx Copilot Component tools. Users can find cafeterias by building or open status, view a menu by cafeteria and date, search dishes by name or dietary and price criteria, and check hours, contact, and payment information.",
+      "The sample uses bundled synthetic data, supports inline and full-screen display modes, and requires no live SharePoint or Microsoft Graph connection."
+    ],
+    "creationDateTime": "2026-10-19",
+    "updateDateTime": "2026-10-22",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.5"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "Screenshot-fullscreen-main.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/cafeteria/assets/Screenshot-fullscreen-main.png",
+        "alt": "Cafeteria full-screen home view"
+      },
+      {
+        "name": "Screenshot-fullscreen-menu.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/cafeteria/assets/Screenshot-fullscreen-menu.png",
+        "alt": "Cafeteria full-screen menu"
+      },
+      {
+        "name": "Screenshot-fullscreen-search.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/cafeteria/assets/Screenshot-fullscreen-search.png",
+        "alt": "Cafeteria full-screen menu search results"
+      },
+      {
+        "name": "Screenshot-inline-search.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/cafeteria/assets/Screenshot-inline-search.png",
+        "alt": "Cafeteria inline menu search results"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Sandeep-FED",
+        "pictureUrl": "https://github.com/Sandeep-FED.png",
+        "name": "Sandeep P S"
+      }
+    ],
+    "references": [
+      {
+        "name": "Microsoft Copilot extensibility",
+        "description": "Build and extend experiences for Microsoft Copilot with agents and tools.",
+        "url": "https://learn.microsoft.com/microsoft-365-copilot/extensibility/"
+      },
+      {
+        "name": "Overview of the SharePoint Framework",
+        "description": "Learn about the SharePoint Framework client-side development model.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      },
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Create, test, package, and deploy an SPFx Copilot Component.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      }
+    ]
+  }
+]

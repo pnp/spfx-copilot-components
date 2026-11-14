@@ -42,3 +42,6 @@ obj
 !sharepoint/solution/
 sharepoint/solution/*
 !sharepoint/solution/my-day.sppkg
+
+# Local RC0 generated-agent version fingerprint
+teams/.copilot-agent-hotfix.json

@@ -1,0 +1,52 @@
+// Molecule: radio group. The pills' look and states belong to atoms/OptionPill; here only the
+// group: legend, spacing, and the joined shape of the segmented variant.
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3xs);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-sans);
+
+  legend {
+    float: inline-start;
+    margin-inline-end: var(--space-2xs);
+    padding: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-text-sm-size);
+    letter-spacing: 0.01em;
+  }
+}
+
+// Segmented: one joined pill; the legend stays for screen readers only.
+.segmented {
+  gap: 0;
+
+  legend {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  [data-part="pill"] {
+    border-radius: 0;
+    margin-inline-start: -1px;
+  }
+
+  label:first-of-type [data-part="pill"] {
+    border-start-start-radius: var(--border-radius-full);
+    border-end-start-radius: var(--border-radius-full);
+    margin-inline-start: 0;
+  }
+
+  label:last-of-type [data-part="pill"] {
+    border-start-end-radius: var(--border-radius-full);
+    border-end-end-radius: var(--border-radius-full);
+  }
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
   "manifestVersion": "1.29",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "id": "2a634411-c178-40b0-9061-aa15a6b330c7",
   "developer": {
     "name": "Zava",
@@ -30,6 +30,8 @@
       }
     ]
   },
-  "permissions": ["identity"],
+  "permissions": [
+    "identity"
+  ],
   "validDomains": []
 }

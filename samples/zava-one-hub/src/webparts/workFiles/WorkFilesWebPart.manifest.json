@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7b694796-6b66-450d-aaf2-4e87d1668c01",
+  "alias": "WorkFilesWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Recent files" },
+    "description": { "default": "Resume recent work or find curated material." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwZjZjYmQiIGZpbGw9IiMwZjZjYmQiPjxwYXRoIGQ9Ik00IDRjMC0xLjEuOS0yIDItMmg2LjE3YTIgMiAwIDAgMSAxLjQyLjU5TDE5LjQgOC40QTIgMiAwIDAgMSAyMCA5LjgzVjIwYTIgMiAwIDAgMS0yIDJoLTQuMDJjLS4wNS0uMzYtLjIxLS43LS41LS45OWwtLjUtLjUxSDE4YS41LjUgMCAwIDAgLjUtLjVWMTBIMTRhMiAyIDAgMCAxLTItMlYzLjVINmEuNS41IDAgMCAwLS41LjV2Ny4xYy0uNTMuMDktMS4wMy4yNi0xLjUuNVY0Wm0xMCA0LjVoMy4zOEwxMy41IDQuNjJWOGMwIC4yOC4yMi41LjUuNVpNNi41IDIxYy45NyAwIDEuODctLjMgMi42LS44M2wyLjYyIDIuNjFhLjc1Ljc1IDAgMSAwIDEuMDYtMS4wNmwtMi42MS0yLjYxQTQuNSA0LjUgMCAxIDAgNi41IDIxWm0wLTEuNWEzIDMgMCAxIDEgMC02IDMgMyAwIDAgMSAwIDZaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+",
+    "properties": {
+      "description": "WorkFiles"
+    }
+  }]
+}

@@ -1,0 +1,172 @@
+// Colour and shape tokens for the card.
+//
+// SPFx Copilot UX components receive NO design tokens from the host, only hostContext.theme
+// (verified in Copilot with @microsoft/sp-copilot-component 1.24.0-rc.0). The names follow the
+// MCP Apps styles.variables vocabulary, plus a few card-specific ones prefixed --card-.
+//
+// The root carries data-theme="light" | "dark" (from hostContext.theme), which sets color-scheme.
+// Where light-dark() is supported (Chromium 123+, Safari 17.5+) every colour is one light-dark()
+// declaration that follows that color-scheme; older engines get the data-theme blocks instead.
+//
+// scripts/check-contrast.mjs parses the $light / $dark maps below: keep one "name: value," per line.
+
+@use 'sass:map';
+
+$light: (
+  color-background-primary: #ffffff,
+  color-background-secondary: #f5f5f5,
+  color-background-tertiary: #ebebeb,
+  color-background-inverse: #242424,
+  color-background-info: #ebf3fc,
+  color-background-danger: #fdf3f4,
+  color-background-success: #f1faf1,
+  color-background-warning: #fff9f5,
+  color-background-disabled: #f0f0f0,
+  color-text-primary: #242424,
+  color-text-secondary: #424242,
+  color-text-tertiary: #616161,
+  color-text-inverse: #ffffff,
+  color-text-ghost: #707070,
+  color-text-info: #0f6cbd,
+  color-text-danger: #b10e1c,
+  color-text-success: #0e700e,
+  color-text-warning: #bc4b09,
+  color-text-disabled: #bdbdbd,
+  color-border-primary: #d1d1d1,
+  color-border-secondary: #e0e0e0,
+  color-border-tertiary: #ebebeb,
+  color-border-inverse: #424242,
+  color-border-info: #b4d6fa,
+  color-border-danger: #eeacb2,
+  color-border-success: #9fd89f,
+  color-border-warning: #fdcfb4,
+  color-border-disabled: #e0e0e0,
+  color-ring-primary: #0f6cbd,
+  color-ring-secondary: #616161,
+  color-ring-inverse: #ffffff,
+  color-ring-info: #0f6cbd,
+  color-ring-danger: #c50f1f,
+  color-ring-success: #107c10,
+  color-ring-warning: #da3b01,
+  card-accent: #0f6cbd,
+  card-accent-text: #ffffff,
+  card-highlight-background: #ffe9a8,
+  card-highlight-text: #242424,
+  card-word-background: #f59e0b,
+  card-word-text: #000000,
+  card-placeholder-from: #dbe9f8,
+  card-placeholder-to: #f3e8fb,
+);
+
+$dark: (
+  color-background-primary: #1f1f1f,
+  color-background-secondary: #292929,
+  color-background-tertiary: #333333,
+  color-background-inverse: #f5f5f5,
+  color-background-info: #082338,
+  color-background-danger: #3b0509,
+  color-background-success: #052505,
+  color-background-warning: #4a1e04,
+  color-background-disabled: #141414,
+  color-text-primary: #ffffff,
+  color-text-secondary: #d6d6d6,
+  color-text-tertiary: #adadad,
+  color-text-inverse: #242424,
+  color-text-ghost: #9e9e9e,
+  color-text-info: #62abf5,
+  color-text-danger: #dc626d,
+  color-text-success: #54b054,
+  color-text-warning: #faa06b,
+  color-text-disabled: #5c5c5c,
+  color-border-primary: #666666,
+  color-border-secondary: #525252,
+  color-border-tertiary: #3d3d3d,
+  color-border-inverse: #d1d1d1,
+  color-border-info: #0e4775,
+  color-border-danger: #6e0811,
+  color-border-success: #094509,
+  color-border-warning: #8a3707,
+  color-border-disabled: #424242,
+  color-ring-primary: #479ef5,
+  color-ring-secondary: #adadad,
+  color-ring-inverse: #242424,
+  color-ring-info: #479ef5,
+  color-ring-danger: #dc626d,
+  color-ring-success: #54b054,
+  color-ring-warning: #faa06b,
+  card-accent: #479ef5,
+  card-accent-text: #000000,
+  card-highlight-background: #5c4600,
+  card-highlight-text: #ffffff,
+  card-word-background: #ffc83d,
+  card-word-text: #000000,
+  card-placeholder-from: #10314f,
+  card-placeholder-to: #3a1d4a,
+);
+
+.tokens {
+  // ---- theme-independent ----------------------------------------------------
+  --font-sans: "Segoe UI", "Segoe UI Web (West European)", system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Noto Serif", "Times New Roman", serif;
+  --font-mono: "Cascadia Code", "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-text-sm-size: 12px;
+  --font-text-sm-line-height: 16px;
+  --font-text-md-size: 14px;
+  --font-text-md-line-height: 20px;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
+  --border-radius-full: 9999px;
+  --border-width-regular: 1px;
+
+  --color-background-ghost: transparent;
+  --color-border-ghost: transparent;
+
+  // Image scrim (Magazine): the text on it is always white, in both themes.
+  --card-scrim: rgba(0, 0, 0, 0.66);
+  --card-scrim-text: #ffffff;
+
+  color-scheme: light;
+
+  &[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  // ---- colours ----------------------------------------------------------------
+  @supports (color: light-dark(#000, #fff)) {
+    @each $name, $value in $light {
+      --#{$name}: light-dark(#{$value}, #{map.get($dark, $name)});
+    }
+  }
+
+  @supports not (color: light-dark(#000, #fff)) {
+    @each $name, $value in $light {
+      --#{$name}: #{$value};
+    }
+
+    &[data-theme="dark"] {
+      @each $name, $value in $dark {
+        --#{$name}: #{$value};
+      }
+    }
+  }
+
+  // ---- shadows (not colours, so no light-dark()) -----------------------------
+  --shadow-hairline: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+
+  &[data-theme="dark"] {
+    --shadow-hairline: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28), 0 0 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.28), 0 0 2px rgba(0, 0, 0, 0.24);
+  }
+}

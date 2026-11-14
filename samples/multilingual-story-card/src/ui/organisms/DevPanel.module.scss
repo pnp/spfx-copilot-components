@@ -1,0 +1,101 @@
+// Organism: developer drawer (devPanel.ts). Loaded with its chunk, so these rules never reach a page
+// that did not ask for diagnostics. Values are tokens and preset variables.
+
+.panel {
+  border: var(--border-width-regular) solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size);
+}
+
+.summary {
+  padding-block: 6px;
+  padding-inline: 10px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: 0 10px 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+}
+
+.pre {
+  max-block-size: 320px;
+  margin: 0;
+  overflow: auto;
+  padding: 8px;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-background-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+// ---- readable sections: headings, key/value tables, data tables ------------------------------------
+
+.readable {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.heading {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-text-sm-size);
+  font-weight: var(--font-weight-semibold);
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  line-height: 1.4;
+
+  th,
+  td {
+    padding: 3px 6px;
+    border-block-end: var(--border-width-regular) solid var(--color-border-tertiary);
+    text-align: start;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+
+  th {
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+  }
+
+  tr[data-outcome="found"] td {
+    color: var(--color-text-success);
+  }
+
+  tr[data-outcome="failed"] td {
+    color: var(--color-text-danger);
+  }
+
+  tr[data-outcome="skipped"] td {
+    color: var(--color-text-tertiary);
+  }
+}
+
+.panelNote {
+  margin: 0;
+  color: var(--color-text-tertiary);
+}
+
+.raw > summary {
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}

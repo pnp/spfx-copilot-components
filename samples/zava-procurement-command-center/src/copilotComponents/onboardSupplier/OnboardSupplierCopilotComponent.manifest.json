@@ -16,7 +16,7 @@
     {
       "name": "OnboardSupplierTool",
       "description": {
-        "default": "Create an evidence-aware supplier candidate draft."
+        "default": "Use when the user asks: What evidence does this candidate need? Outcome: A region and category-aware supplier candidate. Boundary: Does not approve a vendor."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/onboardSupplier/OnboardSupplierCopilotComponentProperties.js:default;"

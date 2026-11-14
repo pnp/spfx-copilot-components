@@ -267,7 +267,7 @@ export const FamilyNavigation: React.FunctionComponent<IFamilyNavigationProps> =
   );
 };
 
-export const ChromeBody: React.FunctionComponent = (props) => {
+export const ChromeBody: React.FunctionComponent<{ children?: React.ReactNode }> = (props) => {
   const styles = useStyles();
   return <div className={styles.body}>{props.children}</div>;
 };

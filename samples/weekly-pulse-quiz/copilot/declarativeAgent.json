@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Weekly Pulse",
+  "description": "Shows this week's Weekly Pulse question from SharePoint and gives instant, private feedback.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "This week's quiz",
+      "text": "What's this week's quiz?"
+    },
+    {
+      "title": "Weekly Pulse",
+      "text": "Show me the Weekly Pulse question"
+    }
+  ],
+  "actions": [
+    {
+      "id": "weeklyPulseQuiz",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

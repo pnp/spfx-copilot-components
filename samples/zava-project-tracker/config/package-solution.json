@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-project-tracker-client-side-solution",
     "id": "2f61811a-8e4e-4234-8a27-811ee8199a4e",
-    "version": "1.0.0.0",
+    "version": "1.1.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -12,7 +12,7 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.24.0-beta.2"
+      "mpnId": "Undefined-1.24.0-rc.0"
     },
     "metadata": {
       "shortDescription": {
@@ -30,7 +30,7 @@
         "title": "zava-project-tracker Feature",
         "description": "The feature that activates elements of the zava-project-tracker solution.",
         "id": "9dad5dc9-1893-403c-828d-82ce5f4fbc87",
-        "version": "1.0.0.0"
+        "version": "1.0.0.1"
       }
     ]
   },

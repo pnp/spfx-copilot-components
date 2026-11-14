@@ -1,0 +1,13 @@
+{
+  "tenantId": "<tenant>.onmicrosoft.com",
+  "clientId": "00000000-0000-0000-0000-000000000000",
+  "auth": "user",
+  "certificatePath": "",
+  "certificateThumbprint": "",
+  "store": "sharepoint",
+  "sharepoint": {
+    "siteUrl": "https://<tenant>.sharepoint.com/sites/<site>",
+    "libraryName": "Records"
+  },
+  "filingUsers": []
+}

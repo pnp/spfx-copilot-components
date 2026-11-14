@@ -3,7 +3,7 @@
   "solution": {
     "name": "zava-customer-resolution-center-client-side-solution",
     "id": "0a393708-8e57-4169-808b-af1a2c873d88",
-    "version": "1.0.0.1",
+    "version": "1.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "developer": {
@@ -11,7 +11,7 @@
       "websiteUrl": "https://pnp.github.io/",
       "privacyUrl": "https://privacy.microsoft.com/",
       "termsOfUseUrl": "https://www.microsoft.com/servicesagreement",
-      "mpnId": "Undefined-1.24.0-beta.3"
+      "mpnId": "Undefined-1.24.0-rc.0"
     },
     "metadata": {
       "shortDescription": {
@@ -31,7 +31,7 @@
         "title": "Zava Customer Resolution Center",
         "description": "Activates the Zava Customer Resolution Copilot Components and declarative agent.",
         "id": "dd98a7a9-58c5-40a8-9f36-70537f82aab5",
-        "version": "1.0.0.1"
+        "version": "1.0.0.3"
       }
     ]
   },

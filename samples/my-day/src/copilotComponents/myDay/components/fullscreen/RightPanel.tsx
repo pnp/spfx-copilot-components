@@ -18,8 +18,12 @@ const useStyles = makeStyles({
     boxShadow: tokens.shadow28,
     animationDuration: tokens.durationGentle,
     animationName: {
-      from: { transform: 'translateX(24px)', opacity: 0 },
-      to: { transform: 'translateX(0)', opacity: 1 }
+      from: { opacity: 0 },
+      to: { opacity: 1 }
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+      animationName: 'none',
+      animationDuration: '1ms'
     }
   },
   header: {

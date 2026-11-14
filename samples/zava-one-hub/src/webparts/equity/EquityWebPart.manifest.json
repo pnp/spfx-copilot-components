@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ee61c0de-e36f-4f99-9f43-b83e0f0c8f45",
+  "alias": "EquityWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Equity and vesting" },
+    "description": { "default": "Explain grants and vesting without financial advice." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMxMDdjNDEiIGZpbGw9IiMxMDdjNDEiPjxwYXRoIGQ9Ik0xMC41IDhhMyAzIDAgMSAwIDAgNiAzIDMgMCAwIDAgMC02Wk05IDExYTEuNSAxLjUgMCAxIDEgMyAwIDEuNSAxLjUgMCAwIDEtMyAwWk0yIDcuMjVDMiA2LjAxIDMgNSA0LjI1IDVoMTIuNUMxNy45OSA1IDE5IDYgMTkgNy4yNXY3LjVjMCAxLjI0LTEgMi4yNS0yLjI1IDIuMjVINC4yNUMzLjAxIDE3IDIgMTYgMiAxNC43NXYtNy41Wm0yLjI1LS43NWEuNzUuNzUgMCAwIDAtLjc1Ljc1VjhoLjc1Yy40MSAwIC43NS0uMzQuNzUtLjc1VjYuNWgtLjc1Wm0tLjc1IDZoLjc1YzEuMjQgMCAyLjI1IDEgMi4yNSAyLjI1di43NWg4di0uNzVjMC0xLjI0IDEtMi4yNSAyLjI1LTIuMjVoLjc1di0zaC0uNzVjLTEuMjQgMC0yLjI1LTEtMi4yNS0yLjI1VjYuNWgtOHYuNzVjMCAxLjI0LTEgMi4yNS0yLjI1IDIuMjVIMy41djNabTE0LTQuNXYtLjc1YS43NS43NSAwIDAgMC0uNzUtLjc1SDE2di43NWMwIC40MS4zNC43NS43NS43NWguNzVabTAgNmgtLjc1YS43NS43NSAwIDAgMC0uNzUuNzV2Ljc1aC43NWMuNDEgMCAuNzUtLjM0Ljc1LS43NVYxNFptLTE0IC43NWMwIC40MS4zNC43NS43NS43NUg1di0uNzVhLjc1Ljc1IDAgMCAwLS43NS0uNzVIMy41di43NVptLjkgMy43NUEzIDMgMCAwIDAgNyAyMGgxMC4yNUE0Ljc1IDQuNzUgMCAwIDAgMjIgMTUuMjVWMTBhMyAzIDAgMCAwLTEuNS0yLjZ2Ny44NWMwIDEuOC0xLjQ2IDMuMjUtMy4yNSAzLjI1SDQuNFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4=",
+    "properties": {
+      "description": "Equity"
+    }
+  }]
+}

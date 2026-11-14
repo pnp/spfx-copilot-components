@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
   "schema_version": "v2.4",
   "namespace": "zavaProcurement",
-  "name_for_human": "Zava Procurement",
+  "name_for_human": "ZavaCore Procurement",
   "description_for_human": "Govern buying, sourcing, suppliers, spend, and value with evidence-backed experiences.",
-  "description_for_model": "Use the Zava Procurement tools for bounded procurement operations. Select the narrowest matching tool. Analysis tools never approve or apply decisions. Submit and review tools prefill a draft but require the user to review and explicitly confirm consequential session-only mock actions.",
+  "description_for_model": "Use the ZavaCore Procurement tools for bounded procurement operations. Select the narrowest matching tool. Analysis tools never approve or apply decisions. Submit and review tools prefill a draft but require the user to review and explicitly confirm consequential session-only mock actions.",
   "contact_email": "publisher@contoso.com"
 }

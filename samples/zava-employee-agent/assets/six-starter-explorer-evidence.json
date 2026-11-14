@@ -1,0 +1,159 @@
+{
+  "generatedAt": "2026-10-20T17:10:17.990Z",
+  "states": 12,
+  "publicationScreenshots": 1,
+  "failures": 0,
+  "interactions": {
+    "search": true,
+    "familyFilter": true,
+    "noMatch": true,
+    "stateRetainedAcrossThemeAndMode": true,
+    "offlineHostActionsNotSimulated": true
+  },
+  "results": [
+    {
+      "mode": "inline",
+      "theme": "light",
+      "requestedWidth": 340,
+      "width": 340,
+      "scrollWidth": 340,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "inline",
+      "theme": "light",
+      "requestedWidth": 760,
+      "width": 760,
+      "scrollWidth": 760,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "inline",
+      "theme": "light",
+      "requestedWidth": 1440,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "inline",
+      "theme": "dark",
+      "requestedWidth": 340,
+      "width": 340,
+      "scrollWidth": 340,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "inline",
+      "theme": "dark",
+      "requestedWidth": 760,
+      "width": 760,
+      "scrollWidth": 760,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "inline",
+      "theme": "dark",
+      "requestedWidth": 1440,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "light",
+      "requestedWidth": 340,
+      "width": 340,
+      "scrollWidth": 340,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "light",
+      "requestedWidth": 760,
+      "width": 760,
+      "scrollWidth": 760,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "light",
+      "requestedWidth": 1440,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "color": "rgb(36, 36, 36)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "dark",
+      "requestedWidth": 340,
+      "width": 340,
+      "scrollWidth": 340,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "dark",
+      "requestedWidth": 760,
+      "width": 760,
+      "scrollWidth": 760,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    },
+    {
+      "mode": "fullscreen",
+      "theme": "dark",
+      "requestedWidth": 1440,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "color": "rgb(255, 255, 255)",
+      "familyChoices": 11,
+      "buttons": 0,
+      "cards": 20,
+      "runtimeErrors": 0
+    }
+  ]
+}

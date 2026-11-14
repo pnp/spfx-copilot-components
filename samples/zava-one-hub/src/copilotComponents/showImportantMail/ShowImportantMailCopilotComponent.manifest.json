@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "beca2c96-a517-4dbb-9a66-39f0f5c86c7c",
+  "alias": "ShowImportantMailCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowImportantMail",
+      "description": {
+        "default": "Use when the user asks for flagged, unread, or important mail. Do not use when the user asks for tasks or approvals."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showImportantMail/ShowImportantMailCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -4,145 +4,289 @@
       "id": "new-issue-vs-existing-case-work",
       "prompt": "42 Alpine House stores cannot activate their handhelds. Create the support case.",
       "expectedTool": "TriageCustomerIssue",
-      "excludedTools": ["BuildResolutionPlan", "DiagnoseCaseEvidence"],
-      "positiveTerms": ["customer reports a new or unresolved issue", "case intake"],
-      "boundaryTerms": ["after a case and resolution goal already exist"],
+      "excludedTools": [
+        "BuildResolutionPlan",
+        "DiagnoseCaseEvidence"
+      ],
+      "positiveTerms": [
+        "customer reports a new or unresolved issue",
+        "case intake"
+      ],
+      "boundaryTerms": [
+        "after a case and resolution goal already exist"
+      ],
       "reason": "Create a new case; do not diagnose or plan an existing case."
     },
     {
       "id": "plan-vs-intake-diagnosis",
       "prompt": "Build an editable resolution plan for existing case ZCR-1048.",
       "expectedTool": "BuildResolutionPlan",
-      "excludedTools": ["TriageCustomerIssue", "DiagnoseCaseEvidence"],
-      "positiveTerms": ["named case", "resolution plan"],
-      "boundaryTerms": ["diagnose a cause"],
+      "excludedTools": [
+        "TriageCustomerIssue",
+        "DiagnoseCaseEvidence"
+      ],
+      "positiveTerms": [
+        "named case",
+        "resolution plan"
+      ],
+      "boundaryTerms": [
+        "diagnose a cause"
+      ],
       "reason": "Plan an existing case; do not create intake or investigate hypotheses."
     },
     {
       "id": "diagnosis-vs-plan-incident",
       "prompt": "Compare the competing hypotheses and contrary evidence for case ZCR-1048.",
       "expectedTool": "DiagnoseCaseEvidence",
-      "excludedTools": ["BuildResolutionPlan", "DetectServiceIncident"],
-      "positiveTerms": ["competing hypotheses", "verified, contrary, and missing evidence"],
-      "boundaryTerms": ["build the final plan"],
+      "excludedTools": [
+        "BuildResolutionPlan",
+        "DetectServiceIncident"
+      ],
+      "positiveTerms": [
+        "competing hypotheses",
+        "verified, contrary, and missing evidence"
+      ],
+      "boundaryTerms": [
+        "build the final plan"
+      ],
       "reason": "Diagnose one case; do not build the final plan or correlate a cohort."
     },
     {
       "id": "incident-detection-vs-decision",
       "prompt": "Are today's activation failures isolated or one emerging incident?",
       "expectedTool": "DetectServiceIncident",
-      "excludedTools": ["ReviewIncidentResponse"],
-      "positiveTerms": ["similar cases", "emerging incident or cohort"],
-      "boundaryTerms": ["declare, escalate, monitor, or close"],
+      "excludedTools": [
+        "ReviewIncidentResponse"
+      ],
+      "positiveTerms": [
+        "similar cases",
+        "emerging incident or cohort"
+      ],
+      "boundaryTerms": [
+        "declare, escalate, monitor, or close"
+      ],
       "reason": "Analyze similarity; do not make the incident decision."
     },
     {
       "id": "incident-decision-vs-detection",
       "prompt": "Review today's activation incident candidates and help me decide the next one.",
       "expectedTool": "ReviewIncidentResponse",
-      "excludedTools": ["DetectServiceIncident"],
-      "positiveTerms": ["decide whether to declare, monitor, escalate, or close", "incident candidate"],
-      "boundaryTerms": ["exploratory similarity analysis"],
+      "excludedTools": [
+        "DetectServiceIncident"
+      ],
+      "positiveTerms": [
+        "decide whether to declare, monitor, escalate, or close",
+        "incident candidate"
+      ],
+      "boundaryTerms": [
+        "exploratory similarity analysis"
+      ],
       "reason": "Decide an existing candidate; do not rerun exploratory clustering."
     },
     {
       "id": "recovery-decision-vs-entitlement-update",
       "prompt": "Review pending customer recovery requests, starting with Alpine House.",
       "expectedTool": "ReviewServiceRecovery",
-      "excludedTools": ["ReviewEntitlementCoverage", "ComposeCustomerUpdate"],
-      "positiveTerms": ["recovery or concession decision", "policy-aware"],
-      "boundaryTerms": ["draft customer communication"],
+      "excludedTools": [
+        "ReviewEntitlementCoverage",
+        "ComposeCustomerUpdate"
+      ],
+      "positiveTerms": [
+        "recovery or concession decision",
+        "policy-aware"
+      ],
+      "boundaryTerms": [
+        "draft customer communication"
+      ],
       "reason": "Decide a remedy; do not explain coverage or draft the message."
     },
     {
       "id": "entitlement-vs-recovery",
       "prompt": "Explain what Alpine House's agreement covers for case ZCR-1048.",
       "expectedTool": "ReviewEntitlementCoverage",
-      "excludedTools": ["ReviewServiceRecovery"],
-      "positiveTerms": ["contract, warranty, sla, exclusion, or remedy coverage"],
-      "boundaryTerms": ["approve compensation"],
+      "excludedTools": [
+        "ReviewServiceRecovery"
+      ],
+      "positiveTerms": [
+        "contract, warranty, sla, exclusion, or remedy coverage"
+      ],
+      "boundaryTerms": [
+        "approve compensation"
+      ],
       "reason": "Explain effective coverage without approving compensation."
     },
     {
       "id": "customer-update-vs-recovery-commitment",
       "prompt": "Draft a French and English update for Alpine House with the next update time.",
       "expectedTool": "ComposeCustomerUpdate",
-      "excludedTools": ["ReviewServiceRecovery", "ManageCustomerCommitments"],
-      "positiveTerms": ["customer-facing update", "localized"],
-      "boundaryTerms": ["recovery approval", "commitment governance"],
+      "excludedTools": [
+        "ReviewServiceRecovery",
+        "ManageCustomerCommitments"
+      ],
+      "positiveTerms": [
+        "customer-facing update",
+        "localized"
+      ],
+      "boundaryTerms": [
+        "recovery approval",
+        "commitment governance"
+      ],
       "reason": "Compose a safe message; do not approve recovery or govern the promise ledger."
     },
     {
       "id": "demand-trend-vs-region-driver",
       "prompt": "Is customer-service resolution keeping up with demand today?",
       "expectedTool": "ExploreServicePerformance",
-      "excludedTools": ["ExploreRegionalServiceImpact", "ExploreRecurringServiceDrivers"],
-      "positiveTerms": ["service demand, backlog, or resolution throughput", "over time"],
-      "boundaryTerms": ["geography", "recurring drivers"],
+      "excludedTools": [
+        "ExploreRegionalServiceImpact",
+        "ExploreRecurringServiceDrivers"
+      ],
+      "positiveTerms": [
+        "service demand, backlog, or resolution throughput",
+        "over time"
+      ],
+      "boundaryTerms": [
+        "geography",
+        "recurring drivers"
+      ],
       "reason": "Answer movement over time; do not route to geography or cause analysis."
     },
     {
       "id": "region-vs-demand-driver",
       "prompt": "Which regions have the highest case volume and SLA exposure?",
       "expectedTool": "ExploreRegionalServiceImpact",
-      "excludedTools": ["ExploreServicePerformance", "ExploreRecurringServiceDrivers"],
-      "positiveTerms": ["which regions", "sla risk"],
-      "boundaryTerms": ["demand trends", "recurring drivers"],
+      "excludedTools": [
+        "ExploreServicePerformance",
+        "ExploreRecurringServiceDrivers"
+      ],
+      "positiveTerms": [
+        "which regions",
+        "sla risk"
+      ],
+      "boundaryTerms": [
+        "demand trends",
+        "recurring drivers"
+      ],
       "reason": "Answer where impact occurs; do not answer trend or recurring cause."
     },
     {
       "id": "driver-vs-demand-region",
       "prompt": "Which recurring causes create the most customer effort?",
       "expectedTool": "ExploreRecurringServiceDrivers",
-      "excludedTools": ["ExploreServicePerformance", "ExploreRegionalServiceImpact"],
-      "positiveTerms": ["recurring causes", "customer effort"],
-      "boundaryTerms": ["geography", "demand trends"],
+      "excludedTools": [
+        "ExploreServicePerformance",
+        "ExploreRegionalServiceImpact"
+      ],
+      "positiveTerms": [
+        "recurring causes",
+        "customer effort"
+      ],
+      "boundaryTerms": [
+        "geography",
+        "demand trends"
+      ],
       "reason": "Rank recurring causes; do not answer time trend or geography."
     },
     {
       "id": "priority-vs-escalation",
       "prompt": "Which customer cases need my judgment next?",
       "expectedTool": "GetPriorityServiceQueue",
-      "excludedTools": ["ManageCaseEscalation"],
-      "positiveTerms": ["which cases need judgment or attention next"],
-      "boundaryTerms": ["diagnosis or resolution detail"],
+      "excludedTools": [
+        "ManageCaseEscalation"
+      ],
+      "positiveTerms": [
+        "which cases need judgment or attention next"
+      ],
+      "boundaryTerms": [
+        "diagnosis or resolution detail"
+      ],
       "reason": "Rank the queue; do not move one selected case."
     },
     {
       "id": "escalation-vs-workload-swarm",
       "prompt": "Escalate case ZCR-1048 to another queue with acceptance criteria.",
       "expectedTool": "ManageCaseEscalation",
-      "excludedTools": ["BalanceServiceWorkload", "StartExpertSwarm"],
-      "positiveTerms": ["named case", "another queue or owner"],
-      "boundaryTerms": ["recruit specialists", "balance the whole team"],
+      "excludedTools": [
+        "BalanceServiceWorkload",
+        "StartExpertSwarm"
+      ],
+      "positiveTerms": [
+        "named case",
+        "another queue or owner"
+      ],
+      "boundaryTerms": [
+        "recruit specialists",
+        "balance the whole team"
+      ],
       "reason": "Move one case; do not rebalance a team or recruit experts."
     },
     {
       "id": "workload-vs-case-escalation",
       "prompt": "Where is team capacity creating SLA risk today?",
       "expectedTool": "BalanceServiceWorkload",
-      "excludedTools": ["ManageCaseEscalation"],
-      "positiveTerms": ["capacity creates sla risk", "across teams"],
-      "boundaryTerms": ["one case escalation"],
+      "excludedTools": [
+        "ManageCaseEscalation"
+      ],
+      "positiveTerms": [
+        "capacity creates sla risk",
+        "across teams"
+      ],
+      "boundaryTerms": [
+        "one case escalation"
+      ],
       "reason": "Analyze aggregate capacity; do not escalate one case."
     },
     {
       "id": "swarm-vs-escalation",
       "prompt": "Bring named activation specialists into case ZCR-1048 for one decision question.",
       "expectedTool": "StartExpertSwarm",
-      "excludedTools": ["ManageCaseEscalation", "BalanceServiceWorkload"],
-      "positiveTerms": ["named specialists", "bounded decision question"],
-      "boundaryTerms": ["queue reassignment", "workload balancing"],
+      "excludedTools": [
+        "ManageCaseEscalation",
+        "BalanceServiceWorkload"
+      ],
+      "positiveTerms": [
+        "named specialists",
+        "bounded decision question"
+      ],
+      "boundaryTerms": [
+        "queue reassignment",
+        "workload balancing"
+      ],
       "reason": "Recruit expertise without transferring queue ownership."
     },
     {
       "id": "capability-help-vs-operation",
       "prompt": "What customer-resolution scenarios can this agent help me with?",
       "expectedTool": "ExploreAgentCapabilities",
-      "excludedTools": ["TriageCustomerIssue", "GetPriorityServiceQueue"],
-      "positiveTerms": ["what the agent can do", "help choosing"],
-      "boundaryTerms": ["specific operational request"],
+      "excludedTools": [
+        "TriageCustomerIssue",
+        "GetPriorityServiceQueue"
+      ],
+      "positiveTerms": [
+        "what the agent can do",
+        "help choosing"
+      ],
+      "boundaryTerms": [
+        "specific operational request"
+      ],
       "reason": "Educate only when no specific operational request is clear."
+    },
+    {
+      "id": "features-vs-operational-resolution",
+      "prompt": "Explore the customer-resolution features this agent supports.",
+      "expectedTool": "ExploreAgentCapabilities",
+      "excludedTools": [
+        "GetPriorityServiceQueue",
+        "ExploreServicePerformance"
+      ],
+      "positiveTerms": [
+        "what the agent can do",
+        "help choosing"
+      ],
+      "boundaryTerms": [
+        "specific operational request"
+      ],
+      "reason": "Browse capabilities, not a case queue or service performance analysis."
     }
   ]
 }

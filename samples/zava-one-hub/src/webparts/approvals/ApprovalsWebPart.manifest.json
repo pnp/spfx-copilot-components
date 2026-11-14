@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "4730fa2b-4c19-481c-9c2a-0ec3d8e06738",
+  "alias": "ApprovalsWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Approvals and decisions" },
+    "description": { "default": "Review non-vacation decisions with evidence and safeguards." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwZjZjYmQiIGZpbGw9IiMwZjZjYmQiPjxwYXRoIGQ9Ik0xMS43OCAxLjcyYS43NS43NSAwIDEgMC0xLjA2IDEuMDZMMTEuOTQgNGE5IDkgMCAxIDAgOS4wMiA5LjgyLjc1Ljc1IDAgMCAwLTEuNS0uMTMgNy41IDcuNSAwIDEgMS03LjUyLTguMTlsLTEuMjIgMS4yMmEuNzUuNzUgMCAwIDAgMS4wNiAxLjA2bDIuNS0yLjVhLjc1Ljc1IDAgMCAwIDAtMS4wNmwtMi41LTIuNVptNCA4LjVjLjMuMy4zLjc3IDAgMS4wNmwtNC41IDQuNWEuNzUuNzUgMCAwIDEtMS4wNiAwbC0yLTJhLjc1Ljc1IDAgMCAxIDEuMDYtMS4wNmwxLjQ3IDEuNDcgMy45Ny0zLjk3Yy4zLS4zLjc3LS4zIDEuMDYgMFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4=",
+    "properties": {
+      "description": "Approvals"
+    }
+  }]
+}

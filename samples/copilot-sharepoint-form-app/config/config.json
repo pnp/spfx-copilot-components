@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "copilot-sharepoint-form-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/copilotSharePointForm/CopilotSharePointFormWebPart.js",
+          "manifest": "./src/webparts/copilotSharePointForm/CopilotSharePointFormWebPart.manifest.json"
+        }
+      ]
+    },
+    "copilot-sharepoint-form-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/copilotSharePointForm/CopilotSharePointFormCopilotComponent.js",
+          "manifest": "./src/copilotComponents/copilotSharePointForm/CopilotSharePointFormCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CopilotSharePointFormWebPartStrings": "lib/webparts/copilotSharePointForm/loc/{locale}.js"
+  }
+}

@@ -28,12 +28,12 @@ const assert = (value, message) => {
   if (!value) throw new Error(message);
 };
 assert(
-  packageConfig.solution.version === "1.0.0.1",
-  `Expected SPFx solution version 1.0.0.1, received ${packageConfig.solution.version}.`,
+  packageConfig.solution.version === "1.0.0.3",
+  `Expected SPFx solution version 1.0.0.3, received ${packageConfig.solution.version}.`,
 );
 assert(
-  packageConfig.solution.features?.[0]?.version === "1.0.0.1",
-  `Expected SPFx feature version 1.0.0.1, received ${packageConfig.solution.features?.[0]?.version}.`,
+  packageConfig.solution.features?.[0]?.version === "1.0.0.3",
+  `Expected SPFx feature version 1.0.0.3, received ${packageConfig.solution.features?.[0]?.version}.`,
 );
 assert(
   js.length === 1,

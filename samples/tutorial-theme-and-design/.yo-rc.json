@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "tutorial-theme-and-design",
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "react",
+    "componentName": "DesignShowcase",
+    "componentDescription": "Shows how to theme and lay out a Copilot UX component",
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.3",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.5",
+    "libraryName": "tutorial-theme-and-design",
+    "libraryId": "ef53ed87-1326-4027-928b-2a06c94afab7",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "tutorial-theme-and-design description",
+    "skipFeatureDeployment": true
+  }
+}

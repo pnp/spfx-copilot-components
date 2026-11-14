@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sharepoint-governance-copilot-client-side-solution",
+    "id": "a9f01e5b-e3b8-4504-8bb0-5544235a8a28",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.5"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "sharepoint-governance-copilot description"
+      },
+      "longDescription": {
+        "default": "sharepoint-governance-copilot description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "sharepoint-governance-copilot Feature",
+        "description": "The feature that activates elements of the sharepoint-governance-copilot solution.",
+        "id": "ee1c9701-6705-4ee4-8aae-28828523e5c1",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/sharepoint-governance-copilot.sppkg"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
   "manifestVersion": "1.29",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "id": "c1f4c0ca-8c2e-4e5b-871e-71637b7440c5",
   "developer": {
     "name": "Contoso",
@@ -14,14 +14,14 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "Zava Procurement",
-    "full": "Zava Procurement Command Center"
+    "short": "ZavaCore Procurement",
+    "full": "ZavaCore Procurement Command Center"
   },
   "description": {
     "short": "Govern buying and supplier decisions with evidence.",
-    "full": "Turn business intent into governed buying, sourcing, supplier, invoice, and spend decisions."
+    "full": "ZavaCore connects guided business-case intake, human approvals, resilient sourcing, global investment visibility and verified procurement value."
   },
-  "accentColor": "#173F35",
+  "accentColor": "#F17826",
   "copilotAgents": {
     "declarativeAgents": [
       {
@@ -30,6 +30,8 @@
       }
     ]
   },
-  "permissions": ["identity"],
+  "permissions": [
+    "identity"
+  ],
   "validDomains": []
 }

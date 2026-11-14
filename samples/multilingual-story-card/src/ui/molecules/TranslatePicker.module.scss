@@ -1,0 +1,11 @@
+// Molecule: translate picker.
+
+.group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3xs);
+  // Never wider than its line: on a narrow card the list shrinks instead of being cut off.
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}

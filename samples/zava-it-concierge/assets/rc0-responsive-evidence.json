@@ -1,0 +1,1188 @@
+{
+  "generatedAt": "2026-10-20T11:55:58.005Z",
+  "intents": 31,
+  "publishedStates": 39,
+  "supplementalStates": 62,
+  "failureCount": 0,
+  "captures": [
+    {
+      "filename": "inline-my-device-status-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 71261,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "My Surface",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-my-device-status-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 121159,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "My Surface",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-device-health-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 65381,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-device-health-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 116951,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-refresh-eligibility-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 57466,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Refresh eligibility",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-refresh-eligibility-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 120410,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Refresh eligibility",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-explore-device-catalog-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 93042,
+      "width": 340,
+      "height": 706,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Surface catalog",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-explore-device-catalog-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 140006,
+      "width": 760,
+      "height": 557,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Surface catalog",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-configure-device-request-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 49624,
+      "width": 340,
+      "height": 1238,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Configure a request",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-configure-device-request-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 50754,
+      "width": 760,
+      "height": 832,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Configure a request",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-draft-device-justification-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 50058,
+      "width": 340,
+      "height": 1228,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Draft justification",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-draft-device-justification-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 53551,
+      "width": 760,
+      "height": 827,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Draft justification",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-report-it-issue-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 55587,
+      "width": 340,
+      "height": 1254,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Report an IT issue",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-report-it-issue-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 57998,
+      "width": 760,
+      "height": 866,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Report an IT issue",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-run-device-diagnostics-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 55664,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device diagnostics",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-run-device-diagnostics-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 118693,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device diagnostics",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-my-requests-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 60990,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "My requests",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-my-requests-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 123438,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "My requests",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-find-knowledge-match-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 60003,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Knowledge match",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-find-knowledge-match-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 118858,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Knowledge match",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-track-device-shipment-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 60318,
+      "width": 340,
+      "height": 541,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device shipment",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-track-device-shipment-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 121531,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device shipment",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-review-device-approval-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 47712,
+      "width": 340,
+      "height": 1059,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device approval",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-review-device-approval-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 51015,
+      "width": 760,
+      "height": 739,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device approval",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-approval-queue-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 44344,
+      "width": 340,
+      "height": 654,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Approval queue",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-approval-queue-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 49811,
+      "width": 760,
+      "height": 630,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Approval queue",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-budget-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 63130,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team IT budget",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-budget-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 111729,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team IT budget",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-assets-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 61861,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team assets",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-assets-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 120844,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team assets",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-preview-request-cost-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 51704,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Request cost impact",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-preview-request-cost-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 92607,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Request cost impact",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-review-policy-exception-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 47160,
+      "width": 340,
+      "height": 1060,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Policy exception",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-review-policy-exception-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 50560,
+      "width": 760,
+      "height": 755,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Policy exception",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-ticket-trend-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 52014,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team ticket trend",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-team-ticket-trend-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 94976,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Team ticket trend",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-delegate-approval-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 50668,
+      "width": 340,
+      "height": 1129,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Delegate approval",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-delegate-approval-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 52423,
+      "width": 760,
+      "height": 788,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Delegate approval",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-fleet-health-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 69991,
+      "width": 340,
+      "height": 765,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Fleet health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-fleet-health-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 109656,
+      "width": 760,
+      "height": 565,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Fleet health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-device-age-distribution-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 57467,
+      "width": 340,
+      "height": 812,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device age distribution",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-device-age-distribution-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 100767,
+      "width": 760,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Device age distribution",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-ticket-deflection-trend-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 54739,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Ticket deflection",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-ticket-deflection-trend-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 98693,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Ticket deflection",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-top-it-issues-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 55407,
+      "width": 340,
+      "height": 812,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Top IT issues",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-top-it-issues-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 97546,
+      "width": 760,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Top IT issues",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-service-health-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 66142,
+      "width": 340,
+      "height": 765,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Service health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-service-health-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 106788,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Service health",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-license-reclaim-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 64847,
+      "width": 340,
+      "height": 718,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "License reclaim",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-license-reclaim-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 114117,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "License reclaim",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-it-spend-bridge-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 55076,
+      "width": 340,
+      "height": 765,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT spend bridge",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-it-spend-bridge-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 93117,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT spend bridge",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-plan-refresh-waves-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 62726,
+      "width": 340,
+      "height": 812,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Refresh wave plan",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-plan-refresh-waves-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 106112,
+      "width": 760,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Refresh wave plan",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-correlate-major-incident-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 65944,
+      "width": 340,
+      "height": 765,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Incident correlation",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-correlate-major-incident-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 117167,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Incident correlation",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-process-journey-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 61035,
+      "width": 340,
+      "height": 541,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Process journey",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-get-process-journey-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 122154,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "Process journey",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-generate-it-brief-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 61610,
+      "width": 340,
+      "height": 517,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT brief",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-generate-it-brief-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 119902,
+      "width": 760,
+      "height": 495,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT brief",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-explore-agent-capabilities-narrow.png",
+      "variant": "narrow-light",
+      "viewport": {
+        "width": 340,
+        "height": 1000
+      },
+      "bytes": 73989,
+      "width": 340,
+      "height": 704,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT Concierge capabilities",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "filename": "inline-explore-agent-capabilities-dark.png",
+      "variant": "standard-dark",
+      "viewport": {
+        "width": 760,
+        "height": 1000
+      },
+      "bytes": 136539,
+      "width": 760,
+      "height": 624,
+      "brokenImages": [],
+      "canvasCount": 0,
+      "deprecatedChrome": [],
+      "engineCount": 0,
+      "horizontalOverflow": false,
+      "title": "IT Concierge capabilities",
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ],
+  "screenshotLocation": "Regenerable local temp/visual-evidence captures, not publication thumbnails."
+}

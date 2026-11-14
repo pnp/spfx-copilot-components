@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "1e61f5be-d599-40b0-bdae-727db9f8a138",
+  "alias": "FindWorkplaceSpaceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindWorkplaceSpace",
+      "description": {
+        "default": "Use when the user asks to find a room or desk. Do not use when the user asks only for office information."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findWorkplaceSpace/FindWorkplaceSpaceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

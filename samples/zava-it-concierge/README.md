@@ -1,5 +1,16 @@
 # Zava IT Concierge
 
+> **SPFx 1.24.0 GA upgrade (October 28, 2026):** Build dependencies target GA.
+> React/ReactDOM use 18.3.1. Earlier readiness reports, screenshots, test counts,
+> and tenant evidence remain historical, not fresh GA host certification.
+> Restore was validated using the configured Microsoft npm proxy; npmjs.org did not yet expose
+> all required GA packages. Use an approved registry with 1.24.0 available; do not commit credentials.
+
+This release targets **SPFx 1.24.0 and React 18.3.1**. Use Node.js 22 (22.14 or later), 24, or
+26. The host retains one React root and releases it through the framework teardown lifecycle.
+Local validation does not certify tenant routing, CSP/focus, or accessibility. See the
+[canonical starter targets](config/conversation-starters.json) for the six distinct entry components.
+
 Powered by SPFx Copilot components
 
 ## Summary
@@ -11,13 +22,13 @@ The solution contains 30 independently routed operational tools plus one searcha
 > [!IMPORTANT]
 > The sample uses deterministic offline data and session-only confirmed actions. Prompt values can filter or prefill a component, but they never submit, approve, decline, delegate, declare, wipe, or apply a refresh plan without visible review and confirmation. Live Microsoft Graph, Intune, service-health, procurement, shipment, and finance integrations are intentionally deferred.
 >
-> The canonical production gate passes eight suites and 35 tests, validates 39 implementation screenshots, validates the generated 31-function API plugin and mirrored MCP tools, and audits a 2,147,811-byte `.sppkg` with no stale output, duplicate media, or icon-font payload.
+> The GA production gate passes 39 tests, validates 39 implementation screenshots, validates dynamic MCP discovery for 31 source tools, and audits the current `.sppkg` with no stale output, duplicate media, or icon-font payload. The package-output validator reports package sizes and hashes during the build.
 
 ## Applies To
 
 - SharePoint Framework 1.24 Copilot Components
 - Microsoft Copilot declarative agents and API plugin v2.4
-- React 17 and Fluent UI React v9
+- React 18 and Fluent UI React v9
 
 ## At a Glance
 
@@ -152,7 +163,7 @@ Run the canonical production gate before sharing or deploying the solution:
 npm run build
 ```
 
-The canonical build validates routing, local assets, gallery metadata, and generated documentation; runs the clean production test suite; packages the solution; validates the generated 31-function API plugin and mirrored MCP tools; and audits the `.sppkg` for stale output, hashes, bundle/chunk strategy, duplicate media, icon fonts, and size thresholds.
+The canonical build validates routing, local assets, gallery metadata, and generated documentation; runs the clean production test suite; packages the solution; validates GA dynamic MCP discovery for 31 source tools; and audits the `.sppkg` for stale output, hashes, bundle/chunk strategy, duplicate media, icon fonts, and size thresholds.
 
 The ready-to-deploy package is [sharepoint/solution/zava-it-concierge.sppkg](sharepoint/solution/zava-it-concierge.sppkg).
 
@@ -216,7 +227,7 @@ See [assets/README.md](assets/README.md), [assets/sample.json](assets/sample.jso
 | `npm run check:routing-matrix` | Verify the prompt/property/collision matrix is current |
 | `npm run capture:visual` | Capture 39 real implementation screenshots and runtime evidence |
 | `npm run check:gallery` | Validate PnP metadata, files, dimensions, URLs, alt text, and coverage |
-| `npm run check:generated-plugin` | Validate API plugin v2.4 functions and mirrored MCP tools |
+| `npm run check:generated-plugin` | Validate API plugin v2.4 metadata and GA dynamic MCP discovery |
 | `npm run check:package-output` | Audit final package contents, hashes, sizes, stale output, and duplication |
 | `npm run build` | Run the canonical clean production and packaging gate |
 
@@ -224,6 +235,7 @@ See [assets/README.md](assets/README.md), [assets/sample.json](assets/sample.jso
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0.0 | August 25, 2026 | Initial publication with 31 tools, three dashboards, deterministic evidence, demos, and package audits |
 
 ## References

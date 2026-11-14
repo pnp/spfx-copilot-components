@@ -8,6 +8,7 @@ import type { SPCopilotTheme } from '@microsoft/sp-copilot-component';
 export interface IProjectThemeProviderProps {
   theme?: SPCopilotTheme;
   targetDocument?: Document;
+  children?: React.ReactNode;
 }
 
 const ProjectThemeProvider: React.FunctionComponent<IProjectThemeProviderProps> = (props) => {

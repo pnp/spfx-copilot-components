@@ -3,7 +3,7 @@ import { createDOMRenderer, RendererProvider } from '@griffel/react';
 import type { GriffelRenderer } from '@griffel/react';
 import { FluentProvider, webDarkTheme, webLightTheme } from '@fluentui/react-components';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { getIntentDefinition } from '../intents/intentCatalog';
 import type { IntentName } from '../intents/intentCatalog';
@@ -16,6 +16,7 @@ function createPropertySignature(properties: object): string {
 export abstract class IntentCopilotComponent<TProperties extends object> extends BaseCopilotComponent<TProperties> {
   protected abstract readonly intentName: IntentName;
   private griffelRenderer: GriffelRenderer | undefined;
+  private _root: Root | undefined;
 
   protected onInit(): Promise<void> {
     this.griffelRenderer = createDOMRenderer(this.context.domElement.ownerDocument);
@@ -44,12 +45,16 @@ export abstract class IntentCopilotComponent<TProperties extends object> extends
       theme: isDarkTheme ? webDarkTheme : webLightTheme
     }, app);
     const renderedApp = React.createElement(RendererProvider, { renderer, targetDocument, children: fluentApp });
-    ReactDOM.render(renderedApp, this.context.domElement);
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+    this._root.render(renderedApp);
   }
 
-  protected onDispose(): void {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
-    super.onDispose();
+  protected async onTeardown(reason?: string): Promise<void> {
+    this._root?.unmount();
+    this._root = undefined;
+    await super.onTeardown(reason);
   }
 
   private handleDisplayModeChange = (mode: 'inline' | 'fullscreen'): void => {

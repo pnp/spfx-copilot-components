@@ -1,0 +1,266 @@
+{
+  "$source": {
+    "capturedBy": "scripts/capture-tenant-fixtures.mjs",
+    "capturedOn": "2026-09-23",
+    "pnpjs": "4.21.0"
+  },
+  "library": {
+    "contentTypes": [
+      {
+        "Id": {
+          "StringValue": "0x0101000EB0C3B95210A5468477ADB9D118C3C8001E4A56293B888697448E025371567C5F"
+        },
+        "Name": "Invoice"
+      },
+      {
+        "Id": {
+          "StringValue": "0x012000916C782BEB9670F22ABD2579386CFEFE"
+        },
+        "Name": "Folder"
+      },
+      {
+        "Id": {
+          "StringValue": "0x0101002CBD7F89D68461F2F2D230CAC2116B5B006A2483FC04257BA313C17869B5E76E44"
+        },
+        "Name": "Expense report"
+      }
+    ],
+    "fieldLinks": {
+      "0x0101000EB0C3B95210A5468477ADB9D118C3C8001E4A56293B888697448E025371567C5F": [
+        {
+          "Name": "ContentType",
+          "DisplayName": "ContentType",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "SelectFilename",
+          "DisplayName": "SelectFilename",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "FileLeafRef",
+          "DisplayName": "FileLeafRef",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "Created",
+          "DisplayName": "Created",
+          "Required": false,
+          "Hidden": true
+        },
+        {
+          "Name": "Title",
+          "DisplayName": "Title",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "Modified",
+          "DisplayName": "Modified",
+          "Required": false,
+          "Hidden": true
+        },
+        {
+          "Name": "Modified_x0020_By",
+          "DisplayName": "Modified_x0020_By",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "Created_x0020_By",
+          "DisplayName": "Created_x0020_By",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "FilingDepartment",
+          "DisplayName": "FilingDepartment",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "Vendor",
+          "DisplayName": "Vendor",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "DocumentDate",
+          "DisplayName": "Invoice date",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "Amount",
+          "DisplayName": "Amount",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "FilingStatus",
+          "DisplayName": "FilingStatus",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "ReceiptNumber",
+          "DisplayName": "ReceiptNumber",
+          "Required": false,
+          "Hidden": false
+        }
+      ],
+      "0x0101002CBD7F89D68461F2F2D230CAC2116B5B006A2483FC04257BA313C17869B5E76E44": [
+        {
+          "Name": "ContentType",
+          "DisplayName": "ContentType",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "SelectFilename",
+          "DisplayName": "SelectFilename",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "FileLeafRef",
+          "DisplayName": "FileLeafRef",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "Created",
+          "DisplayName": "Created",
+          "Required": false,
+          "Hidden": true
+        },
+        {
+          "Name": "Title",
+          "DisplayName": "Title",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "Modified",
+          "DisplayName": "Modified",
+          "Required": false,
+          "Hidden": true
+        },
+        {
+          "Name": "Modified_x0020_By",
+          "DisplayName": "Modified_x0020_By",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "Created_x0020_By",
+          "DisplayName": "Created_x0020_By",
+          "Required": false,
+          "Hidden": false
+        },
+        {
+          "Name": "FilingDepartment",
+          "DisplayName": "FilingDepartment",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "ReportOwner",
+          "DisplayName": "ReportOwner",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "DocumentDate",
+          "DisplayName": "Period end",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "Amount",
+          "DisplayName": "Amount",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "FilingStatus",
+          "DisplayName": "FilingStatus",
+          "Required": true,
+          "Hidden": false
+        },
+        {
+          "Name": "ReceiptNumber",
+          "DisplayName": "ReceiptNumber",
+          "Required": false,
+          "Hidden": false
+        }
+      ]
+    }
+  },
+  "choices": {
+    "FilingDepartment": [
+      "Programs",
+      "Development",
+      "Finance",
+      "Operations"
+    ],
+    "FilingStatus": [
+      "Received",
+      "Pending review",
+      "Approved",
+      "Paid",
+      "Returned"
+    ]
+  },
+  "recent": {
+    "documentDateWritten": "2026-08-01",
+    "items": [
+      {
+        "File": {
+          "Length": "43"
+        },
+        "Author": {
+          "Title": "Filing User"
+        },
+        "Id": 101,
+        "ContentTypeId": "0x0101000EB0C3B95210A5468477ADB9D118C3C8001E4A56293B888697448E025371567C5F",
+        "FileLeafRef": "captured-invoice.pdf",
+        "FilingDepartment": "Programs",
+        "Vendor": "Capture Vendor Ltd",
+        "DocumentDate": "2026-08-01T07:00:00Z",
+        "Amount": 1284.5,
+        "FilingStatus": "Received",
+        "ReceiptNumber": "F-00101",
+        "Created": "2026-08-18T09:00:00Z",
+        "ID": 101,
+        "FileRef": "/sites/records/Records/Finance/Invoices/Programs/2026/captured-invoice.pdf"
+      },
+      {
+        "File": {
+          "Length": "43"
+        },
+        "ReportOwner": {
+          "Title": "Report Owner"
+        },
+        "Author": {
+          "Title": "Filing User"
+        },
+        "Id": 102,
+        "ContentTypeId": "0x0101002CBD7F89D68461F2F2D230CAC2116B5B006A2483FC04257BA313C17869B5E76E44",
+        "FileLeafRef": "captured-expense-report.pdf",
+        "FilingDepartment": "Programs",
+        "Vendor": null,
+        "DocumentDate": "2026-08-01T07:00:00Z",
+        "Amount": 1284.5,
+        "FilingStatus": "Pending review",
+        "ReceiptNumber": "F-00102",
+        "Created": "2026-08-18T09:00:00Z",
+        "ID": 102,
+        "FileRef": "/sites/records/Records/Finance/Expense reports/Programs/2026/captured-expense-report.pdf"
+      }
+    ]
+  }
+}

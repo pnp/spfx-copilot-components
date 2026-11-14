@@ -1,5 +1,16 @@
 # Zava Employee Agent implementation tracker
 
+## RC0 update - October 20, 2026
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Six-starter follow-up: five distinct operational tools plus a final dedicated `ExploreAgentCapabilitiesTool`.
+The missing explorer was created with the supported RC0 Yeoman generator; it catalogs all 20 operational
+tools without reading private HR records. Its generated GUID is retained, bringing the package to 21
+components in the existing shared bundle. Current validation is recorded in the readiness report.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This is the single source of truth for implementation progress against [README.md](README.md),
 [Zava-Employee-Agent-Intro-Brief.md](Zava-Employee-Agent-Intro-Brief.md), and the canonical
 [Zava-Employee-Agent-UX-Design.md](Zava-Employee-Agent-UX-Design.md). Follow
@@ -79,10 +90,10 @@ in [Zava-Employee-Agent-Component-Plan.md](Zava-Employee-Agent-Component-Plan.md
 
 ### Initial configuration - agent
 
-- ✅ Install `react@17.0.1` and `react-dom@17.0.1` as runtime dependencies.
-- ✅ Install `@types/react@17.0.45` and `@types/react-dom@17.0.17` as development dependencies.
+- ✅ Install `react@18.3.1` and `react-dom@18.3.1` as runtime dependencies.
+- ✅ Install `@types/react@18.3.31` and `@types/react-dom@18.3.7` as development dependencies.
 - ✅ Install `@fluentui/react-components@9.54.0` and `@fluentui/react-icons@2.0.270`.
-- ✅ Confirm TypeScript uses classic React JSX and remains compatible with React 17.
+- ✅ Confirm TypeScript uses classic React JSX and remains compatible with React 18.
 - ✅ Run `heft test --clean` and resolve all warnings or errors introduced by initial configuration.
 
 ### Design-source cleanup
@@ -152,7 +163,7 @@ in [Zava-Employee-Agent-Component-Plan.md](Zava-Employee-Agent-Component-Plan.md
 
 ### React and theme foundation
 
-- ✅ Replace the generated string-template UI with React 17 and `ReactDOM.render`.
+- ✅ Replace the generated string-template UI with React 18 and `ReactDOM.render`.
 - ✅ Add a thin root selector with separate inline and full-screen views.
 - ✅ Add one FluentProvider/theme provider targeting the component document and preserving state on
   host theme changes.
@@ -822,7 +833,7 @@ schema, and a human-run Yeoman scaffold.
 
 - ✅ Recheck the golden [agentic-creation-rules.md](agentic-creation-rules.md) and synchronize this
   sample's reference copy byte-for-byte.
-- ✅ Preserve React 17, Fluent UI v9, Heft, token-only styling, mock-first services, relative dates,
+- ✅ Preserve React 18, Fluent UI v9, Heft, token-only styling, mock-first services, relative dates,
   accessibility, reduced motion, and offline runtime behavior throughout implementation.
 - ✅ Record progress only in this file; do not create parallel implementation-status documents.
 

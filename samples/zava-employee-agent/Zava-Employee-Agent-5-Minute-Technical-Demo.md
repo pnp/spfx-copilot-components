@@ -66,7 +66,7 @@ Pin these files:
 - current-user resolution from host context with bundled fallback
 - host-owned theme, dimensions, display mode, and available modes
 - normalized intent family, route, and parameters
-- React 17 render and teardown
+- React 18 render and teardown
 - host-authoritative `requestDisplayModeAsync('fullscreen')`
 
 **Say:**
@@ -148,7 +148,7 @@ npm run build
 - media registry freshness
 - 32 gallery screenshots and `assets/sample.json`
 - 170 tests with zero failures
-- 20 generated API-plugin functions and mirrored MCP tools
+- 20 source tool/schema pairs and RC0 dynamic MCP discovery
 - one hashed production JavaScript file
 - no stale output, duplicate media, repeated cross-bundle base64, or Fluent icon font
 - final package below configured investigation thresholds
@@ -187,7 +187,7 @@ Natural-language request
 
 ## Presenter guardrails
 
-- This is SPFx `1.24.0-beta.2` preview code; confirm target-tenant support.
+- This is SPFx `1.24.0-rc.0` preview code; confirm target-tenant support.
 - All HR records, calculations, recommendations, and receipts are deterministic sample data.
 - The local harness does not prove authenticated tenant CSP, iframe focus, screen-reader output, or high contrast.
 - Do not describe mocked receipts as writes to a production HR platform.

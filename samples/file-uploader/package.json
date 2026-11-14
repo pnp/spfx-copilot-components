@@ -1,0 +1,66 @@
+{
+  "name": "file-uploader",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=22.14.0 < 23.0.0"
+  },
+  "scripts": {
+    "check:dependencies": "node scripts/validate-public-dependencies.mjs",
+    "check:copilot-assets": "node scripts/gen-copilot-assets.mjs --check",
+    "check:tenant-config": "node scripts/check-tenant-config.mjs",
+    "gen:copilot-assets": "node scripts/gen-copilot-assets.mjs",
+    "validate:agent-package": "node scripts/validate-agent-package.mjs",
+    "clean:jest-output": "node scripts/clean-jest-output.mjs",
+    "check:package-fresh": "node scripts/check-package-fresh.mjs",
+    "test:package-fresh": "node --test scripts/check-package-fresh.test.mjs",
+    "test:no-drag-wording": "node --test scripts/no-drag-wording.test.mjs",
+    "test:agent-instructions": "node --test scripts/agent-instructions.test.mjs",
+    "capture:visual": "node scripts/capture-visual-evidence.mjs",
+    "check:gallery": "node scripts/check-gallery.mjs",
+    "test:tenant": "node scripts/test-tenant.mjs",
+    "capture:fixtures": "node scripts/capture-tenant-fixtures.mjs",
+    "check:fixtures": "node scripts/capture-tenant-fixtures.mjs --check",
+    "build": "npm run check:dependencies && npm run check:tenant-config && npm run check:copilot-assets && npm run check:gallery && npm run clean:jest-output && heft test --clean --production && heft package-solution --production && npm run validate:agent-package",
+    "build:instruction-update": "npm run check:dependencies && npm run check:tenant-config && node scripts/gen-copilot-assets.mjs --inline && node scripts/gen-copilot-assets.mjs --check --inline && npm run check:gallery && npm run clean:jest-output && heft test --clean --production && heft package-solution --production && node scripts/validate-agent-package.mjs --allow-inline",
+    "clean": "heft clean",
+    "eject-webpack": "heft eject-webpack",
+    "start": "heft start --clean"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "9.74.7",
+    "@microsoft/sp-copilot-component": "1.24.0-beta.2",
+    "@microsoft/sp-lodash-subset": "1.24.0-beta.2",
+    "@pnp/logging": "4.21.0",
+    "@pnp/sp": "4.21.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tslib": "2.3.1",
+    "zod": "3.24.1",
+    "zod-to-json-schema": "3.24.1"
+  },
+  "devDependencies": {
+    "@azure/msal-node": "3.8.10",
+    "@microsoft/eslint-config-spfx": "1.24.0-beta.2",
+    "@microsoft/eslint-plugin-spfx": "1.24.0-beta.2",
+    "@microsoft/spfx-heft-plugins": "1.24.0-beta.2",
+    "@microsoft/spfx-web-build-rig": "1.24.0-beta.2",
+    "@pnp/nodejs": "4.21.0",
+    "@rushstack/heft": "1.2.22",
+    "@types/jest": "30.0.0",
+    "@types/react": "17.0.45",
+    "@types/react-dom": "17.0.17",
+    "@types/webpack-env": "~1.15.2",
+    "css-loader": "~7.1.2",
+    "esbuild": "0.28.2",
+    "eslint": "9.37.0",
+    "jest": "30.3.0",
+    "playwright": "1.63.0",
+    "typescript": "~5.8.0"
+  },
+  "overrides": {
+    "@rushstack/heft": "1.2.22",
+    "qs": ">=6.15.2",
+    "uuid": ">=11.1.1"
+  }
+}

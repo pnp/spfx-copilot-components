@@ -25,7 +25,7 @@ export const VALUE_STAGES:readonly IValueStage[]=[
 export const POLICY_RULES=[
   {id:'POL-EMEA-17',state:'Pass',title:'Competitive event',detail:'Three qualified bids received',version:'4.2',owner:'Procurement governance'},
   {id:'POL-ESG-08',state:'Pass',title:'Sustainability evidence',detail:'Product carbon evidence dated 12 Aug 2026',version:'2.7',owner:'Responsible sourcing'},
-  {id:'POL-RISK-11',state:'Warning',title:'Concentration threshold',detail:'Single award exceeds 60% corridor exposure',version:'3.1',owner:'Supplier risk'}
+  {id:'POL-RISK-11',state:'Warning',title:'Concentration threshold',detail:'Above 60% primary share requires concentration rationale; above 70% exceeds demo authority',version:'3.1',owner:'Supplier risk'}
 ] as const;
 
 export const normalizeScore=(bid:ISupplierBid,weights:IWeights):number=>{

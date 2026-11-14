@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "22b98a60-972e-4cf9-a8f4-5f3d98db82f6",
+  "alias": "SiteSnapshotCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "analyzeSite",
+      "description": {
+        "default": "Analyse a SharePoint site and show a health snapshot: storage, stale docs, external sharing, largest files, duplicates and a file-type breakdown."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/siteSnapshot/SiteSnapshotCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot } from 'react-dom/client';
 
 import { PROJECT_INTENT_CATALOG } from '../../mockData/intentCatalog';
 import { getInlineOperation } from '../../models/intentOperations';
@@ -11,6 +10,8 @@ import InlineExperienceRouter from './InlineExperienceRouter';
 import CapabilityPreview from '../../capabilityExplorer/CapabilityPreview';
 import { CapabilityExplorerErrorBoundary } from '../../capabilityExplorer/CapabilityExplorer';
 import { getSessionActionReceipts, resetSessionActions } from '../../services/SessionActionStore';
+
+const { act } = React;
 
 const clickButton = (container: HTMLElement, label: string): void => {
   const button = Array.from(container.querySelectorAll('button')).find((item) => item.textContent?.trim() === label);
@@ -48,8 +49,9 @@ const renderIntent = (intentKey: string, properties:IProjectIntentProperties = {
     throw new Error(`Unknown intent: ${intentKey}`);
   }
   const container = document.createElement('div');
+  const root = createRoot(container);
   act(() => {
-    ReactDOM.render(
+    root.render(
       <InlineExperienceRouter
         definition={definition}
         properties={properties}
@@ -58,14 +60,13 @@ const renderIntent = (intentKey: string, properties:IProjectIntentProperties = {
         displayMode={displayMode}
         compact={false}
         onTransientStateChange={onTransientStateChange}
-      />,
-      container
+      />
     );
   });
   return {
     container,
     cleanup: () => act(() => {
-      ReactDOM.unmountComponentAtNode(container);
+      root.unmount();
     })
   };
 };
@@ -518,12 +519,13 @@ describe('InlineExperienceRouter', () => {
 
   test('shows the shared information error fallback', () => {
     const container = document.createElement('div');
+    const root = createRoot(container);
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const Broken: React.FunctionComponent = () => { throw new Error('chart failed'); };
-    act(() => { ReactDOM.render(<InformationErrorBoundary><Broken/></InformationErrorBoundary>, container); });
+    act(() => { root.render(<InformationErrorBoundary><Broken/></InformationErrorBoundary>); });
     expect(container.querySelector('[data-layout="information-error"][role="alert"]')).not.toBeNull();
     expect(container.textContent).toContain('Unable to render this view');
-    act(() => { ReactDOM.unmountComponentAtNode(container); });
+    act(() => { root.unmount(); });
     consoleError.mockRestore();
   });
 
@@ -594,22 +596,24 @@ describe('InlineExperienceRouter', () => {
   test.each(PROJECT_INTENT_CATALOG.filter((definition) => definition.education).map((definition) => [definition.key]))('renders a safe catalog preview for %s', (intentKey) => {
     const definition = PROJECT_INTENT_CATALOG.find((item) => item.key === intentKey)!;
     const container = document.createElement('div');
-    act(() => { ReactDOM.render(<CapabilityPreview definition={definition} properties={definition.education!.previewProperties} compact={false}/>, container); });
+    const root = createRoot(container);
+    act(() => { root.render(<CapabilityPreview definition={definition} properties={definition.education!.previewProperties} compact={false}/>); });
     expect(container.querySelector('[data-layout="capability-preview"]')).not.toBeNull();
     expect(container.textContent).toContain('Demo preview - no action applied');
     expect(container.querySelector('[data-intent]')).toBeNull();
     expect(container.querySelector('[data-layout]:not([data-layout="capability-preview"])')).not.toBeNull();
-    act(() => { ReactDOM.unmountComponentAtNode(container); });
+    act(() => { root.unmount(); });
   });
 
   test('shows the capability explorer error fallback', () => {
     const container = document.createElement('div');
+    const root = createRoot(container);
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const Broken: React.FunctionComponent = () => { throw new Error('explorer failed'); };
-    act(() => { ReactDOM.render(<CapabilityExplorerErrorBoundary><Broken/></CapabilityExplorerErrorBoundary>, container); });
+    act(() => { root.render(<CapabilityExplorerErrorBoundary><Broken/></CapabilityExplorerErrorBoundary>); });
     expect(container.querySelector('[data-layout="capability-explorer-error"][role="alert"]')).not.toBeNull();
     expect(container.textContent).toContain('Unable to load the scenario guide');
-    act(() => { ReactDOM.unmountComponentAtNode(container); });
+    act(() => { root.unmount(); });
     consoleError.mockRestore();
   });
 });

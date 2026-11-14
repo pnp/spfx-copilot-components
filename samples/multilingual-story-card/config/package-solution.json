@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "CosmoPolite",
+    "id": "234b686d-e430-4d4d-a57f-2268d127f655",
+    "version": "1.0.49.0",
+    "iconPath": "images/AppIcon.png",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Stefan Bauer · N8D",
+      "websiteUrl": "https://n8d.at",
+      "privacyUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/multilingual-story-card/PRIVACY.md",
+      "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/multilingual-story-card/TERMS.md",
+      "mpnId": "Undefined-1.24.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Ask in any language or dialect: a story card that reads itself aloud"
+      },
+      "longDescription": {
+        "default": "CosmoPolite answers in the language you write in, dialects included. Ask about a place, a person or an idea and get a short story card: written in your language, with a fitting photo from open collections and its credit, in one of five designs and three layouts, light or dark, and read aloud with your browser's voices. For Microsoft 365 Copilot, with the CosmoPolite Agent. Made by Stefan Bauer · N8D."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": [
+        "Productivity"
+      ]
+    },
+    "features": [
+      {
+        "title": "CosmoPolite",
+        "description": "The CosmoPolite Copilot UX component.",
+        "id": "1a99ccbd-9e93-41dd-8959-ea4c7d58fd1b",
+        "version": "1.0.49.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/CosmoPolite.sppkg"
+  }
+}

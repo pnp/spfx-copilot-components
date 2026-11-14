@@ -1,9 +1,11 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import unzipper from 'unzipper';
 
 const root = path.resolve(import.meta.dirname, '..');
+const require = createRequire(import.meta.url);
 const packageConfig = JSON.parse(fs.readFileSync(path.join(root, 'config', 'package-solution.json'), 'utf8'));
 const bundleConfig = JSON.parse(fs.readFileSync(path.join(root, 'config', 'config.json'), 'utf8'));
 const packagePath = path.resolve(root, 'sharepoint', packageConfig.paths.zippedPackage);
@@ -34,8 +36,18 @@ const staleJavaScriptEntries = javascriptEntries.filter((entry) => !hashedJavaSc
 const configuredBundleCount = Object.keys(bundleConfig.bundles).length;
 const configuredComponents = Object.values(bundleConfig.bundles).flatMap((bundle) => bundle.components);
 const configuredManifestCount = new Set(configuredComponents.map((component) => component.manifest)).size;
-assert(configuredComponents.length === 20, `Expected 20 configured component entries, found ${configuredComponents.length}.`);
-assert(configuredManifestCount === 20, `Expected 20 unique component manifests, found ${configuredManifestCount}.`);
+assert(configuredComponents.length === 21, `Expected 21 configured component entries, found ${configuredComponents.length}.`);
+assert(configuredManifestCount === 21, `Expected 21 unique component manifests, found ${configuredManifestCount}.`);
+const ts = require('typescript');
+const operationalTools = configuredComponents.map(component => {
+  const filename = path.resolve(root, component.manifest);
+  const parsed = ts.parseConfigFileTextToJson(filename, fs.readFileSync(filename, 'utf8'));
+  assert(!parsed.error, `Invalid source manifest: ${filename}`);
+  return parsed.config.tools[0].name;
+}).filter(name => name !== 'ExploreAgentCapabilitiesTool').sort();
+const { EMPLOYEE_CAPABILITIES } = require(path.join(root, 'lib-commonjs', 'copilotComponents', 'shared', 'experiences', 'employeeCapabilities.js'));
+assert(JSON.stringify(EMPLOYEE_CAPABILITIES.map(item => item.tool).sort()) === JSON.stringify(operationalTools),
+  'The dedicated feature explorer must cover every operational component exactly once.');
 assert(javascriptEntries.length === configuredBundleCount, `Expected ${configuredBundleCount} production JavaScript file(s) for the configured bundle strategy, found ${javascriptEntries.length}.`);
 assert(staleJavaScriptEntries.length === 0, `Unhashed/stale JavaScript found: ${staleJavaScriptEntries.map((entry) => entry.path).join(', ')}`);
 assert(packagedAgentEntry, 'The production package does not contain zava-employee-agent.zip.');

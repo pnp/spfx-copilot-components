@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "558abb87-e6c8-4fe4-832f-e7fb6b8f7df5",
+  "alias": "MyCopilotAppCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "MyCopilotAppTool",
+      "description": {
+        "default": "Shows the lists and libraries on a SharePoint site and lets the user select a list to see its items. Use when the user asks to see, browse, or open the lists or the list items on a SharePoint site."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/myCopilotApp/MyCopilotAppCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

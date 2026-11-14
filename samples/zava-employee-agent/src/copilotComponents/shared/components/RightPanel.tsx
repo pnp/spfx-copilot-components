@@ -96,6 +96,7 @@ const useStyles = makeStyles({
 });
 
 export interface IRightPanelProps {
+  children?: React.ReactNode;
   title: string;
   icon: React.ReactElement;
   footnote?: string;

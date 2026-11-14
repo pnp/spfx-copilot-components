@@ -3,14 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=22.14.0 < 23.0.0"
+    "node": ">=22.14.0 <23.0.0 || >=24.0.0 <25.0.0 || >=26.0.0 <27.0.0"
   },
   "scripts": {
-    "build": "npm run check:intents && npm run check:routing-matrix && npm run check:media && npm run check:gallery && npm run check:publication && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output && npm run generate:release-evidence && npm run check:release-evidence",
+    "build": "npm run check:intents && npm run check:routing-matrix && npm run check:media && npm run check:gallery && npm run check:matrix && npm run check:journeys && npm run check:publication && heft test --clean --production && heft package-solution --production && npm run check:generated-plugin && npm run check:package-output && npm run generate:release-evidence && npm run check:release-evidence",
     "configure:intents": "node scripts/configure-intent-components.mjs",
     "check:intents": "node scripts/validate-intent-components.mjs",
     "build:visual": "node scripts/build-visual-harness.mjs",
     "capture:visual": "npm run build:visual && node scripts/capture-gallery-assets.mjs",
+    "capture:matrix": "npm run build:visual && node scripts/capture-business-matrix.mjs",
+    "capture:journeys": "npm run build:visual && node scripts/capture-zavamesh-journeys.mjs",
+    "check:journeys": "node scripts/capture-zavamesh-journeys.mjs --check",
+    "check:matrix": "node scripts/capture-business-matrix.mjs --check",
     "generate:routing-matrix": "node scripts/generate-routing-matrix.mjs",
     "check:routing-matrix": "node scripts/generate-routing-matrix.mjs --check",
     "generate:release-evidence": "node scripts/generate-release-evidence.mjs",
@@ -28,12 +32,13 @@
     "@fluentui/react-components": "9.74.6",
     "@fluentui/react-icons": "2.0.314",
     "@griffel/react": "1.7.7",
-    "@microsoft/sp-copilot-component": "1.24.0-beta.3",
-    "@microsoft/sp-http": "1.24.0-beta.3",
-    "@microsoft/sp-lodash-subset": "1.24.0-beta.3",
+    "@microsoft/sp-copilot-component": "1.24.0",
+    "@microsoft/sp-http": "1.24.0",
+    "@microsoft/sp-lodash-subset": "1.24.0",
     "d3-array": "3.2.4",
     "d3-geo": "3.1.1",
     "d3-scale": "4.0.2",
+    "d3-sankey": "0.12.3",
     "d3-shape": "3.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -44,18 +49,19 @@
     "zod-to-json-schema": "3.24.1"
   },
   "devDependencies": {
-    "@microsoft/eslint-config-spfx": "1.24.0-beta.3",
-    "@microsoft/eslint-plugin-spfx": "1.24.0-beta.3",
-    "@microsoft/spfx-heft-plugins": "1.24.0-beta.3",
-    "@microsoft/spfx-web-build-rig": "1.24.0-beta.3",
-    "@rushstack/heft": "1.2.22",
+    "@microsoft/eslint-config-spfx": "1.24.0",
+    "@microsoft/eslint-plugin-spfx": "1.24.0",
+    "@microsoft/spfx-heft-plugins": "1.24.0",
+    "@microsoft/spfx-web-build-rig": "1.24.0",
+    "@rushstack/heft": "1.3.2",
     "@types/d3-array": "3.2.1",
     "@types/d3-geo": "3.1.0",
     "@types/d3-scale": "4.0.9",
+    "@types/d3-sankey": "0.12.5",
     "@types/d3-shape": "3.1.7",
     "@types/jest": "30.0.0",
-    "@types/react": "18.2.79",
-    "@types/react-dom": "18.2.25",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
     "@types/topojson-client": "3.1.5",
     "@types/webpack-env": "~1.15.2",
     "css-loader": "~7.1.2",
@@ -67,12 +73,12 @@
     "unzipper": "0.12.3"
   },
   "overrides": {
-    "@rushstack/heft": "1.2.22",
+    "@rushstack/heft": "1.3.2",
     "qs": ">=6.15.2",
     "uri-js": "4.4.1",
     "uuid": ">=11.1.1"
   },
   "resolutions": {
-    "@types/react": "18.2.79"
+    "@types/react": "18.3.31"
   }
 }

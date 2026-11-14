@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.14.0",
+    "sdksVersions": {},
+    "version": "1.24.0-rc.0",
+    "libraryName": "viva-engage-explorer",
+    "libraryId": "fb14d469-8468-47f9-b1b7-19ccb526d30b",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "viva-engage-explorer",
+    "solutionShortDescription": "viva-engage-explorer description",
+    "skipFeatureDeployment": true,
+    "componentType": "copilotComponent"
+  }
+}

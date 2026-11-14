@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "79c31f24-cc11-468a-a997-ef8825bbeb4b",
+  "alias": "MyProfileCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ShowMyProfile",
+      "description": {
+        "default": "Shows the signed-in user's profile with their recent email messages or their calendar events for the next 7 days. Use when the user asks about their own profile, inbox, recent mail, calendar, or upcoming meetings. Do not use for SharePoint lists or list items."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/myProfile/MyProfileCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

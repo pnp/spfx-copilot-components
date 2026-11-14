@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-28T19:07:34.799Z",
+  "captureCount": 24,
+  "workspaceLayouts": [
+    "request-approval-journey",
+    "sourcing-event-readiness",
+    "supplier-obligation-ledger",
+    "global-investment-command"
+  ],
+  "errors": [],
+  "externalRuntimeRequests": 0,
+  "journey": [
+    "invalid intake blocked",
+    "draft edits preserved",
+    "reviewed submission",
+    "session reload restored",
+    "matching budget approval",
+    "processed queue",
+    "award authority limit",
+    "exact split commitment",
+    "regional geometry and totals",
+    "keyboard map drill-down",
+    "reset"
+  ],
+  "zoomMethod": "Chromium CDP Emulation.setPageScaleFactor=2; tenant/native browser zoom remains a separate manual host check",
+  "captures": [
+    {
+      "name": "requests-340",
+      "file": "ux-review/evidence/zavacore/requests-340.png",
+      "sha256": "40aa245cc9c1fdabb0cbadc28089cfbc06287e69833d324eef1e338bbe1bab98",
+      "viewport": {
+        "width": 340,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "requests-760",
+      "file": "ux-review/evidence/zavacore/requests-760.png",
+      "sha256": "2a4cde4826a34ebc112f6186b57c25a5e4f1ba471a850dceb813a72749c8bdc3",
+      "viewport": {
+        "width": 760,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "requests-1920",
+      "file": "ux-review/evidence/zavacore/requests-1920.png",
+      "sha256": "74d941fab416e08753f0a6fa3d9accbd4c21c621fbaf4b11a1d357d35f967009",
+      "viewport": {
+        "width": 1920,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "requests-200-percent",
+      "file": "ux-review/evidence/zavacore/requests-200-percent.png",
+      "sha256": "5c99fa3e9616e3ba2c30eb2dbed2cf371123bcd4aaaf59741eaa01af9840bf4c",
+      "viewport": {
+        "width": 1280,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 2,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "sourcing-340",
+      "file": "ux-review/evidence/zavacore/sourcing-340.png",
+      "sha256": "141d94d1ffa12e418f8c5e534023334403b5f6303eff48883f20792a731c89ea",
+      "viewport": {
+        "width": 340,
+        "height": 1050
+      },
+      "layout": "sourcing-command",
+      "dashboard": "sourcing-event-readiness",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "sourcing-760",
+      "file": "ux-review/evidence/zavacore/sourcing-760.png",
+      "sha256": "842fefaf425dde7511ec8351ecfd26d27592b42641391d4061cd411eca115b67",
+      "viewport": {
+        "width": 760,
+        "height": 1050
+      },
+      "layout": "sourcing-command",
+      "dashboard": "sourcing-event-readiness",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "sourcing-1920",
+      "file": "ux-review/evidence/zavacore/sourcing-1920.png",
+      "sha256": "7f761d2307490c846b5378a8eea2cddf402dc9ce0284a65922fb65c78f86ad73",
+      "viewport": {
+        "width": 1920,
+        "height": 1050
+      },
+      "layout": "sourcing-command",
+      "dashboard": "sourcing-event-readiness",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "sourcing-200-percent",
+      "file": "ux-review/evidence/zavacore/sourcing-200-percent.png",
+      "sha256": "09ab0d5f71b0a3df3fe7e6bddb92b8212c7ac799006a159676a272a6e1268b78",
+      "viewport": {
+        "width": 1280,
+        "height": 1050
+      },
+      "layout": "sourcing-command",
+      "dashboard": "sourcing-event-readiness",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 2,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "supplier-340",
+      "file": "ux-review/evidence/zavacore/supplier-340.png",
+      "sha256": "6a9cb4ed4c6ea09ea899a80cadbc6c1261c3d9618641944fc9d590f1d1fec9fb",
+      "viewport": {
+        "width": 340,
+        "height": 1050
+      },
+      "layout": "supplier-360-command",
+      "dashboard": "supplier-obligation-ledger",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "supplier-760",
+      "file": "ux-review/evidence/zavacore/supplier-760.png",
+      "sha256": "2a864cd992bfabd3c7dc067de6c0b33047d600ce1231d817a55062e5bd9a26b7",
+      "viewport": {
+        "width": 760,
+        "height": 1050
+      },
+      "layout": "supplier-360-command",
+      "dashboard": "supplier-obligation-ledger",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "supplier-1920",
+      "file": "ux-review/evidence/zavacore/supplier-1920.png",
+      "sha256": "cd5d530e8d9826abb4a7e2e0be7a69e8a58a66f091b4fa92fdaa0c8894f0a21f",
+      "viewport": {
+        "width": 1920,
+        "height": 1050
+      },
+      "layout": "supplier-360-command",
+      "dashboard": "supplier-obligation-ledger",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "supplier-200-percent",
+      "file": "ux-review/evidence/zavacore/supplier-200-percent.png",
+      "sha256": "281ddcdc07a250f7ac7be66889e3f871fec5edf2546b210e834e2fb65bc30599",
+      "viewport": {
+        "width": 1280,
+        "height": 1050
+      },
+      "layout": "supplier-360-command",
+      "dashboard": "supplier-obligation-ledger",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 2,
+      "chartModules": [],
+      "focus": true
+    },
+    {
+      "name": "spend-340",
+      "file": "ux-review/evidence/zavacore/spend-340.png",
+      "sha256": "51c71fe6fae7c7a6fccbf030a1cf075e966f09a23647e4b8b79bd85fcfa2e728",
+      "viewport": {
+        "width": 340,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "spend-760",
+      "file": "ux-review/evidence/zavacore/spend-760.png",
+      "sha256": "c28cc77d8499ec5c58dafb072bff21e0c855ce9c3ad4e4b5fe71164a2645f1eb",
+      "viewport": {
+        "width": 760,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "spend-1920",
+      "file": "ux-review/evidence/zavacore/spend-1920.png",
+      "sha256": "dde2b5b287de7102e0cb16f248c964df4090c19ff437ce815e1fc307f448ac14",
+      "viewport": {
+        "width": 1920,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "spend-200-percent",
+      "file": "ux-review/evidence/zavacore/spend-200-percent.png",
+      "sha256": "4eaf265c7aa8e051465af34e02ded0fbff9b75f666122733f5c3c2781110aa0a",
+      "viewport": {
+        "width": 1280,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 2,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "submitted-business-case",
+      "file": "ux-review/evidence/zavacore/submitted-business-case.png",
+      "sha256": "a7a8404a516c5bba00cceb3935ba231e8f7d1ac23a8b275c1b3c0f36ba7cd238",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": false
+    },
+    {
+      "name": "budget-human-review",
+      "file": "ux-review/evidence/zavacore/budget-human-review.png",
+      "sha256": "bc8b3fd2a77e14732ead24641560243000e659ea18d3844525d8589bbd77f177",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": false
+    },
+    {
+      "name": "budget-session-receipt",
+      "file": "ux-review/evidence/zavacore/budget-session-receipt.png",
+      "sha256": "700749beed068866479cd22d85a9916e347992b06cd4c1bf7f095163e266bd3a",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": false
+    },
+    {
+      "name": "approved-request-inbox",
+      "file": "ux-review/evidence/zavacore/approved-request-inbox.png",
+      "sha256": "de4730d10bade756b63c2daa84d7694694f4e08bf71e549cf2ec1e30b6d15215",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": false
+    },
+    {
+      "name": "award-human-review",
+      "file": "ux-review/evidence/zavacore/award-human-review.png",
+      "sha256": "bf9e079d27f391e28e5d99abc5458065de4c12e777ae42766de20f0675e9c4db",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "sourcing-command",
+      "dashboard": "sourcing-event-readiness",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": false
+    },
+    {
+      "name": "award-to-investment",
+      "file": "ux-review/evidence/zavacore/award-to-investment.png",
+      "sha256": "345bbcf0b2ff6cffe2595163627f0d5ec8947ba8c45eda715685fabb7108a3e2",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "regional-investment-drilldown",
+      "file": "ux-review/evidence/zavacore/regional-investment-drilldown.png",
+      "sha256": "e710b24ddcbca20f40eb62c6db515019b0683df92353bd4a68b7f587565e599c",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "spend-command-command",
+      "dashboard": "global-investment-command",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [
+        "global-investment-map",
+        "commitment-trend"
+      ],
+      "focus": true
+    },
+    {
+      "name": "reset-baseline",
+      "file": "ux-review/evidence/zavacore/reset-baseline.png",
+      "sha256": "558ed11085ebbdf8c40fedb6223069f5436b7dfd39b05d5c5c7c85d74155bfa4",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "layout": "my-requests-command",
+      "dashboard": "request-approval-journey",
+      "overflow": false,
+      "clippedControls": 0,
+      "brokenImages": 0,
+      "labeled": true,
+      "chartsLabeled": true,
+      "scale": 1,
+      "chartModules": [],
+      "focus": true
+    }
+  ]
+}

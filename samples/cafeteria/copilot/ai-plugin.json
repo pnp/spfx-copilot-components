@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "cafeteria",
+  "name_for_human": "Cafeteria Agent",
+  "description_for_human": "Browse cafeterias, today's menu, and dietary/price filters right in the Copilot conversation.",
+  "description_for_model": "Answers employee questions about workplace cafeterias: which are open now, today's menu grouped by breakfast/lunch/snacks, dishes matching dietary tags or a price limit, and a cafeteria's hours, floor, contact, and closure notices. Always call the matching tool rather than answering from memory, since cafeteria and menu data changes daily.",
+  "contact_email": "publisher@contoso.com"
+}

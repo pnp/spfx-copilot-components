@@ -16,7 +16,7 @@
     {
       "name": "ResolveInvoiceExceptionTool",
       "description": {
-        "default": "Reconcile PO, receipt, invoice, tolerance, and disposition."
+        "default": "Use when the user asks: Why does this invoice not match? Outcome: An exact three-way reconciliation and reviewed disposition. Boundary: Not generic approval."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/resolveInvoiceException/ResolveInvoiceExceptionCopilotComponentProperties.js:default;"

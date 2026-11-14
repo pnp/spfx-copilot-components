@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a9b480ec-c762-452d-8ec8-ac0d668ba299",
+  "alias": "GetMenuCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+  "tools": [
+    {
+      "name": "getMenu",
+      "description": {
+        "default": "Show the food menu for a specific cafeteria on a specific day, grouped by breakfast, lunch, and snacks."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getMenu/GetMenuCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

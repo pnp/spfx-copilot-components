@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot, type Root } from 'react-dom/client';
+import { act } from 'react';
 
 import AnimatedDetailsPanel from './AnimatedDetailsPanel';
 
@@ -10,8 +10,8 @@ const items = [
   { id: 'deductions', eyebrow: 'Allocation', title: 'Where deductions go', summary: 'Tax, pension, and benefits.' }
 ];
 
-const renderPanel = (container: HTMLDivElement): void => {
-  ReactDOM.render(
+const renderPanel = (root: Root): void => {
+  root.render(
     <AnimatedDetailsPanel
       title="Your pay explanation"
       reviewingText="Reviewing your pay details..."
@@ -20,28 +20,29 @@ const renderPanel = (container: HTMLDivElement): void => {
       items={items}
       footnote="Generated locally from sample data."
       onDismiss={() => undefined}
-    />,
-    container
+    />
   );
 };
 
 describe('AnimatedDetailsPanel', () => {
   let container: HTMLDivElement;
+  let root: Root;
 
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
+    root = createRoot(container);
   });
 
   afterEach(() => {
-    act(() => { ReactDOM.unmountComponentAtNode(container); });
+    act(() => { root.unmount(); });
     container.remove();
     jest.useRealTimers();
   });
 
   test('thinks before revealing details one at a time', () => {
     jest.useFakeTimers();
-    act(() => renderPanel(container));
+    act(() => renderPanel(root));
     expect(container.textContent).toContain('Reviewing your pay details...');
     expect(container.textContent).not.toContain('Your latest pay');
 
@@ -62,7 +63,7 @@ describe('AnimatedDetailsPanel', () => {
   test('reveals every detail immediately when reduced motion is requested', () => {
     const originalMatchMedia = window.matchMedia;
     window.matchMedia = jest.fn().mockReturnValue({ matches: true }) as typeof window.matchMedia;
-    act(() => renderPanel(container));
+    act(() => renderPanel(root));
     expect(container.textContent).toContain('Your pay details are ready.');
     expect(container.textContent).toContain('Your latest pay');
     expect(container.textContent).toContain('Why your pay changed');

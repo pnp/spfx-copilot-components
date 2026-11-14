@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7892bda6-9e1b-45cc-b99c-81d8da8a2238",
+  "alias": "EmployeeSurveysWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Zava One" },
+    "title": { "default": "Zava One: Daily signals and surveys" },
+    "description": { "default": "Participate with the privacy model visible." },
+    "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2QxZDFkMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQwIDFoMTFjNi42IDAgMTIgNS40IDEyIDEydjExTDQwIDFaIiBmaWxsPSIjMDc1ZmNlIi8+PHBhdGggZD0iTTQ5IDhoOGwtOCA4aDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExIDEzKSBzY2FsZSgxLjc1KSIgY29sb3I9IiMwNzVmY2UiIGZpbGw9IiMwNzVmY2UiPjxwYXRoIGQ9Ik0xMS43NSAyYTIuNzUgMi43NSAwIDAgMSAyLjc1IDIuNzV2MTQuNWEyLjc1IDIuNzUgMCAxIDEtNS41IDBWNC43NUEyLjc1IDIuNzUgMCAwIDEgMTEuNzUgMlptNyA1YTIuNzUgMi43NSAwIDAgMSAyLjc1IDIuNzV2OS41YTIuNzUgMi43NSAwIDEgMS01LjUgMHYtOS41QTIuNzUgMi43NSAwIDAgMSAxOC43NSA3Wm0tMTQgNWEyLjc1IDIuNzUgMCAwIDEgMi43NSAyLjc1djQuNWEyLjc1IDIuNzUgMCAwIDEtNS41IDB2LTQuNUEyLjc1IDIuNzUgMCAwIDEgNC43NSAxMlptNy04LjVjLS42OSAwLTEuMjUuNTYtMS4yNSAxLjI1djE0LjVhMS4yNSAxLjI1IDAgMCAwIDIuNSAwVjQuNzVjMC0uNjktLjU2LTEuMjUtMS4yNS0xLjI1Wm03IDVjLS42OSAwLTEuMjUuNTYtMS4yNSAxLjI1djkuNWExLjI1IDEuMjUgMCAwIDAgMi41IDB2LTkuNWMwLS42OS0uNTYtMS4yNS0xLjI1LTEuMjVabS0xNCA1Yy0uNjkgMC0xLjI1LjU2LTEuMjUgMS4yNXY0LjVhMS4yNSAxLjI1IDAgMSAwIDIuNSAwdi00LjVjMC0uNjktLjU2LTEuMjUtMS4yNS0xLjI1WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg==",
+    "properties": {
+      "description": "EmployeeSurveys"
+    }
+  }]
+}

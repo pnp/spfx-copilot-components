@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 
@@ -13,6 +13,7 @@ import { resolveCurrentUser } from '../services/CurrentUserService';
 abstract class ProjectIntentCopilotComponentBase<TProperties extends IProjectIntentProperties>
   extends BaseCopilotComponent<TProperties> {
   protected abstract intentKey: string;
+  private _root: Root | undefined;
   private _propertiesSignature?: string;
   private _propertiesVersion = 0;
   private _transientState: IIntentTransientState = {};
@@ -35,7 +36,11 @@ abstract class ProjectIntentCopilotComponentBase<TProperties extends IProjectInt
     }
     const targetDocument = this.context.domElement.ownerDocument;
 
-    ReactDOM.render(
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(
       React.createElement(
         ProjectThemeProvider,
         { theme: this.hostContext.theme, targetDocument },
@@ -51,13 +56,13 @@ abstract class ProjectIntentCopilotComponentBase<TProperties extends IProjectInt
           displayMode: this.hostContext.displayMode,
           onRequestFullscreen: canExpand ? this._handleRequestFullscreen : undefined
         })
-      ),
-      this.context.domElement
+      )
     );
   }
 
   protected onTeardown(reason: string | undefined): Promise<void> {
-    ReactDOM.unmountComponentAtNode(this.context.domElement);
+    this._root?.unmount();
+    this._root = undefined;
     return super.onTeardown(reason);
   }
 

@@ -1,0 +1,53 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Zava One"
+      },
+      "description": {
+        "default": "Company news, personal work, services, and decisions in one employee experience."
+      },
+      "components": [
+        "eee8bfe9-6d19-4450-b30b-187ef936af57",
+        "e47c0f83-19e4-4678-89a9-24e2f76ed2b2",
+        "beca2c96-a517-4dbb-9a66-39f0f5c86c7c",
+        "3b0fc43b-f8f0-46b6-9f8d-df8c02970501",
+        "75c8ae02-24bb-4d6b-b6b6-1bfc798224e1",
+        "b234af0a-51f2-4f6f-8847-848d272f2aff",
+        "2e90e4fd-75ce-424a-bc1e-380810044370",
+        "7a56a91b-1de9-4276-b3fb-344dc269a027",
+        "681c21ab-5b59-4991-a3b9-ea5a2d653c92",
+        "81bad620-987e-4564-bed3-bb1ae9033cf6",
+        "16b299ca-6ecf-4d7e-a92e-753beb3854dc",
+        "a920905f-0b9e-4e05-96af-792353cec35b",
+        "dc4b262c-ed09-439e-8f59-f4521ec2699b",
+        "169e979f-fb09-4bdc-b129-b9b253c93483",
+        "7c653a88-a294-4c28-8f3c-21185aaff1e5",
+        "363e10ef-db58-4ec8-a5d5-3728ed12a319",
+        "7398a2dd-285a-4c63-9302-212c6c4a7f1f",
+        "19beeccc-fa3d-4664-8eeb-3e4598baf4f6",
+        "d4ff5c78-145d-427b-8ef6-4a421681bcec",
+        "06fd10ff-dccc-4455-b7a2-4e5e05381d3f",
+        "2b1a7883-2f53-4e6c-8047-f1f508bfac36",
+        "1e61f5be-d599-40b0-bdae-727db9f8a138",
+        "5331369f-3b25-42de-961a-f4c20520c090",
+        "17dfe66a-44da-40db-be99-c9eba5604ec3",
+        "35367419-3664-4bf1-a865-57d48a2807d8",
+        "cc6ad2e3-a7c6-4318-87b2-74ebd6f4069a",
+        "4276d855-15d5-42ef-b1ed-bf5d568156b4",
+        "a14176ee-1791-4bf1-830d-04c2d73da9e0",
+        "9b4732b7-cf0e-4998-b05c-33573eeabc67",
+        "fc0b24a9-9db5-4cbb-88ac-b8567455d801",
+        "a366a5c5-e692-4ea6-85fd-beaf8bfd5c22",
+        "9c99cc55-cc16-4744-a32f-2d3873d6b03d",
+        "31446ac5-d087-492f-a608-611831375979",
+        "4595c404-b8fb-493c-bdda-208b969da370",
+        "2dad8e06-a08e-491a-a1b2-96996acce0e2",
+        "01cf651a-7b63-4315-b6f1-cc5c210f0d4f",
+        "08cc8263-2ccb-427e-a1da-cfd5f0a03cb1"
+      ],
+      "toolDiscovery": "dynamic"
+    }
+  ]
+}

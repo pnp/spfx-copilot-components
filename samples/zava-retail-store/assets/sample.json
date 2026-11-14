@@ -9,10 +9,10 @@
     "longDescription": [
       "Zava Retail Store is a SharePoint Copilot App built as an SPFx 1.24 Copilot Component (not a classic web part). The same React component renders in two display modes inside the Microsoft Copilot canvas: a compact inline card and an immersive full-screen executive dashboard. Copilot opens to a compact performance card — headline metrics and a sales trend — then can request expansion via requestDisplayModeAsync('fullscreen') to reveal the full experience.",
       "The full-screen experience is an executive dashboard shell (app rail + top bar) composed of modular sections: a metrics row (sales vs target, transactions, avg basket, CSAT, NPS, conversion rate), a sales trend panel, sales by category, a customer satisfaction gauge, recent customer feedback, a top-products carousel and store/region comparison. A Filters dialog lets the user pick the target store and date and enable/disable individual panels, and the whole dashboard re-flows live to match the selection.",
-      "The sample ships with mocked, Microsoft Graph-shaped data behind a swappable data service exposing a useMock flag (true for fully offline demos, false to read a live data service and Microsoft Graph for the signed-in user), so a live implementation is a drop-in replacement. The Copilot Component is surfaced as a tool (ZavaRetailTool) a declarative agent can call, rendering its own React UI inside the Copilot host. Built with the Heft build system, React 17 and Fluent UI v9 with host-driven light/dark theming."
+      "The sample ships with mocked, Microsoft Graph-shaped data behind a swappable data service exposing a useMock flag (true for fully offline demos, false to read a live data service and Microsoft Graph for the signed-in user), so a live implementation is a drop-in replacement. The Copilot Component is surfaced as a tool (ZavaRetailTool) a declarative agent can call, rendering its own React UI inside the Copilot host. Built with the Heft build system, React 18.3.1 and Fluent UI v9 with host-driven light/dark theming."
     ],
     "creationDateTime": "2026-07-06",
-    "updateDateTime": "2026-07-06",
+    "updateDateTime": "2026-10-28",
     "products": [
       "SharePoint",
       "Copilot"
@@ -28,7 +28,7 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.0"
       }
     ],
     "thumbnails": [

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+<defs><linearGradient id="front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7AC6"/><stop offset="1" stop-color="#C42A8C"/></linearGradient><linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB35C"/><stop offset="1" stop-color="#F06A2A"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="0.6" stdDeviation="0.6" flood-color="#0B1A3B" flood-opacity="0.35"/></filter></defs>
+<g id="icon" transform="rotate(5 12 12) translate(12 12) scale(0.93) translate(-10.07 -10.4)">
+  <g id="tag-back" transform="rotate(60 9.16 6.75) translate(-1.5 -1.5) rotate(45 12 12)"><path d="M7.6 7.25H20.3A1.5 1.5 0 0 1 21.6 9.45L20.65 11.3A1.5 1.5 0 0 0 20.65 12.7L21.6 14.55A1.5 1.5 0 0 1 20.3 16.75H7.6A1.5 1.5 0 0 1 6.55 16.3L2.9 12.7A1 1 0 0 1 2.9 11.3L6.55 7.7A1.5 1.5 0 0 1 7.6 7.25Z" fill="url(#back)"/></g>
+  <g filter="url(#shadow)"><g id="tag-front" transform="translate(-1.5 -1.5) rotate(45 12 12)"><path d="M7.6 7.25H20.3A1.5 1.5 0 0 1 21.6 9.45L20.65 11.3A1.5 1.5 0 0 0 20.65 12.7L21.6 14.55A1.5 1.5 0 0 1 20.3 16.75H7.6A1.5 1.5 0 0 1 6.55 16.3L2.9 12.7A1 1 0 0 1 2.9 11.3L6.55 7.7A1.5 1.5 0 0 1 7.6 7.25Z" fill="url(#front)"/></g></g>
+  <g id="details" transform="translate(-1.5 -1.5) rotate(45 12 12)">
+    <circle cx="8.4" cy="10.3" r="1.75" fill="#FFFFFF" fill-opacity="0.9"/>
+    <circle cx="8.4" cy="10.3" r="1" fill="#7A1A57"/>
+    <path d="M11.75 9.6H19.25M11.75 12H17.75M11.75 14.4H19.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="1.25" stroke-linecap="round"/>
+  </g>
+</g>
+</svg>

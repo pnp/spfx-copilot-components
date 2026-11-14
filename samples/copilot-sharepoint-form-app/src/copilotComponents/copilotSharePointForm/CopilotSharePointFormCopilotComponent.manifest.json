@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "c7e4a1b8-2d56-4f90-9a33-1e8b6c5d4a27",
+  "alias": "CopilotSharePointFormCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+  "tools": [
+    {
+      "name": "OpenDocumentSubmissionForm",
+      "description": {
+        "default": "Opens the SharePoint document form so the person can submit one file to one document library. Use when they want to submit, upload, or file a document. This tool does NOT accept a file, file bytes, base64, or document text. The person selects the file inside the rendered form's own file picker, which uploads up to 50 MB directly to SharePoint. Pass the SharePoint site URL they gave and the library title (Documents or Policies)."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/copilotSharePointForm/CopilotSharePointFormCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

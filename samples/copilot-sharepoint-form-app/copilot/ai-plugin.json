@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "name_for_human": "SharePoint document submission form",
+  "description_for_human": "Opens the form that submits a document to one SharePoint library.",
+  "description_for_model": "Use OpenDocumentSubmissionForm whenever the user asks to submit, upload, or file a document to a SharePoint document library or clicks Upload a file to the Knowledge Base. Call OpenDocumentSubmissionForm immediately even when no site URL or library is provided. Never draw an Adaptive Card or Markdown form in chat. The rendered SPFx component owns the file picker and destination fields.",
+  "contact_email": "publisher@contoso.com",
+  "namespace": "openSharePointForm",
+  "functions": [],
+  "runtimes": []
+}

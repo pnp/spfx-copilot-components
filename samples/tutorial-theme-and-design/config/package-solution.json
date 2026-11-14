@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "tutorial-theme-and-design-client-side-solution",
+    "id": "ef53ed87-1326-4027-928b-2a06c94afab7",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.5"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "tutorial-theme-and-design description"
+      },
+      "longDescription": {
+        "default": "tutorial-theme-and-design description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "tutorial-theme-and-design Feature",
+        "description": "The feature that activates elements of the tutorial-theme-and-design solution.",
+        "id": "302247dc-22c8-432b-8110-c80504c90f40",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/tutorial-theme-and-design.sppkg"
+  }
+}

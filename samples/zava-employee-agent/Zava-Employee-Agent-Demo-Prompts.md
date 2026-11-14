@@ -31,6 +31,18 @@ For a presentation-ready inline-to-full-screen narrative, use the timed
 | 18 | Team | **Who is away on my team next week?** | `GetTeamAbsenceCalendar` | `team/absence` | Absence heatmap |
 | 19 | People | **Find an accessibility expert in Helsinki.** | `FindExpert` | `people/expert` | Evidence-ranked experts |
 | 20 | People | **Show me the Customer Experience organization around Megan Bowen.** | `ExploreOrganization` | `people/organization` | Portrait-led org hierarchy |
+| 21 | Discovery | **Explore the employee and HR features this agent supports.** | `ExploreAgentCapabilitiesTool` | Dedicated feature explorer | Searchable catalog of all 20 operational tools, not the HR dashboard |
+
+### Published conversation starters
+
+The [canonical six-starter map](config/conversation-starters.json) selects, in order,
+`GetMyHRDashboard`, `RequestTimeOff`, `CompareBenefitPlans`, `GetRequiredLearning`,
+`GetApprovalInbox`, and `ExploreAgentCapabilitiesTool`. The first five are operational; the last
+discovers features. In the explorer, search for **dental** to find benefits comparison, or choose
+**Manager Team Hub** to find approvals and absence coverage. A no-match search must stay empty.
+Switching theme or host display mode must preserve the feature search rather than open a dashboard.
+Browsing never reads private HR facts or confirms a request. Trying an example sends a follow-up
+prompt only after the user clicks; normal Copilot tool routing then opens its dedicated experience.
 
 ## Parameter-prefill showcase
 

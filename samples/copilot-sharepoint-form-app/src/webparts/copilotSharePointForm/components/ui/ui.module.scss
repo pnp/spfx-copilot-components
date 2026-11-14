@@ -1,0 +1,324 @@
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--colorNeutralForeground1, #242424);
+}
+
+.control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 36px;
+  margin: 0;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--colorNeutralForeground1, #242424);
+  background: var(--colorNeutralBackground1, #ffffff);
+  border: 1px solid var(--colorNeutralStroke1, #d1d1d1);
+  border-radius: 8px;
+}
+
+.control:focus {
+  outline: 2px solid var(--colorBrandForeground1, #0f6cbd);
+  outline-offset: 1px;
+}
+
+.control[aria-invalid="true"] {
+  border-color: var(--colorPaletteRedBorder2, #eeacb2);
+}
+
+.textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  min-height: 20px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badgeRequired {
+  color: var(--colorPaletteRedForeground1, #b10e1c);
+  background: var(--colorPaletteRedBackground1, #fdf6f6);
+}
+
+.badgeVerified {
+  color: #065f46;
+  background: #ecfdf5;
+  font-weight: 700;
+  border: 1.5px solid #34d399;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24), 0 0 0 2px rgba(255, 255, 255, 0.24);
+}
+
+.badgeMissing {
+  color: var(--colorPaletteRedForeground1, #b10e1c);
+  background: var(--colorPaletteRedBackground1, #fdf6f6);
+}
+
+.error {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--colorPaletteRedForeground1, #b10e1c);
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--colorNeutralForeground2, #616161);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shell {
+  padding-top: 8px;
+  overflow: visible;
+}
+
+section.card {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+
+.hero {
+  --colorBrandBackground: #0f6cbd;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 22px 16px 16px;
+  color: #ffffff;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(56, 189, 248, 0.30) 0%, rgba(56, 189, 248, 0) 60%),
+    linear-gradient(135deg, #091e3a 0%, #0f4c81 45%, #0f6cbd 78%, #0284c7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 26px rgba(9, 30, 58, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.heroGlyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 12px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.hero h2.heading {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  line-height: 28px !important;
+}
+
+.heroSubtitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 18px;
+  overflow-wrap: anywhere;
+}
+
+button.heroExpand {
+  flex: none;
+  min-width: 32px;
+  min-height: 32px;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+}
+
+button.heroExpand:hover,
+button.heroExpand:focus,
+button.heroExpand:focus-visible {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: #ffffff !important;
+}
+
+button.heroExpand svg {
+  color: #ffffff !important;
+  fill: currentColor;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 16px 20px;
+}
+
+.destination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--colorNeutralStroke1, #d1d1d1);
+  border-radius: 8px;
+  background: var(--colorNeutralBackground1, #ffffff);
+}
+
+.destinationField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.destinationSite {
+  flex: 2 1 260px;
+}
+
+.destinationLibrary {
+  flex: 1 1 160px;
+}
+
+.destination .hint {
+  flex: 1 0 100%;
+  margin: 0;
+}
+
+button.loadLibrary {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background-color: #ffffff !important;
+  color: #242424 !important;
+  -webkit-text-fill-color: #242424 !important;
+  border: 1px solid #605e5c !important;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.loadLibrary:hover,
+button.loadLibrary:focus,
+button.loadLibrary:focus-visible {
+  background-color: #f3f2f1 !important;
+  color: #242424 !important;
+  -webkit-text-fill-color: #242424 !important;
+  border-color: #242424 !important;
+}
+
+button.loadLibrary:disabled {
+  opacity: 1 !important;
+  cursor: not-allowed;
+  background-color: #f3f2f1 !important;
+  color: #242424 !important;
+  -webkit-text-fill-color: #242424 !important;
+  border-color: #605e5c !important;
+}
+
+h2.heading {
+  margin: 0 !important;
+  padding-top: 4px !important;
+  font-size: 20px !important;
+  line-height: 32px !important;
+  font-weight: 600 !important;
+  overflow: visible !important;
+}
+
+/*
+ * SharePoint section themes can set --colorBrandBackground / themePrimary to
+ * white, and page CSS can reset button background. Re-declare the brand
+ * variable on this control, then paint every state with a solid fill so the
+ * label never sits white-on-white.
+ */
+button.submit[type="submit"] {
+  --colorBrandBackground: #0f6cbd;
+  background-color: var(--colorBrandBackground, #0f6cbd) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1px solid #0f6cbd !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+button.submit[type="submit"] span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+button.submit[type="submit"]:hover,
+button.submit[type="submit"]:focus,
+button.submit[type="submit"]:focus-visible,
+button.submit[type="submit"]:active {
+  background-color: #115ea3 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-color: #115ea3 !important;
+  opacity: 1 !important;
+}
+
+button.submit[type="submit"]:focus,
+button.submit[type="submit"]:focus-visible {
+  outline: 2px solid #ffffff !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px #0f6cbd !important;
+}
+
+button.submit[type="submit"]:active {
+  background-color: #0f548c !important;
+  border-color: #0f548c !important;
+}
+
+button.submit[type="submit"]:disabled,
+button.submit[type="submit"][aria-disabled="true"],
+button.submit[type="submit"]:disabled:hover,
+button.submit[type="submit"]:disabled:focus,
+button.submit[type="submit"]:disabled:active,
+button.submit[type="submit"][aria-disabled="true"]:hover {
+  --colorBrandBackground: #f3f2f1;
+  background-color: #f3f2f1 !important;
+  background-image: none !important;
+  color: #242424 !important;
+  -webkit-text-fill-color: #242424 !important;
+  border: 1px solid #605e5c !important;
+  box-shadow: none !important;
+  outline: 2px solid transparent !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+}
+
+button.submit[type="submit"]:disabled span,
+button.submit[type="submit"][aria-disabled="true"] span {
+  color: #242424 !important;
+  -webkit-text-fill-color: #242424 !important;
+}

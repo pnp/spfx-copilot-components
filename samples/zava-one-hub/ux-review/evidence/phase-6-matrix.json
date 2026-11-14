@@ -1,0 +1,283 @@
+{
+  "generatedAt": "2026-10-28T19:01:15.413Z",
+  "profile": {
+    "spfx": "1.24.0-beta.5",
+    "react": "18.3.1",
+    "reactDom": "18.3.1",
+    "typescript": "5.8.3",
+    "fluent": "9.74.9",
+    "griffel": "1.7.8"
+  },
+  "catalog": {
+    "solutionVersion": "1.0.0.18",
+    "businessCapabilities": 35,
+    "featureWebParts": 35,
+    "workspaceWebParts": 3,
+    "copilotComponents": 37,
+    "totalSpfxComponents": 75,
+    "uniqueGuids": 75,
+    "bundles": 2,
+    "teamsEnabledWebParts": 3,
+    "sharePointFullPageWebParts": 3
+  },
+  "validation": {
+    "jestSuites": 12,
+    "jestTests": 50,
+    "jestFailures": 0,
+    "lintWarnings": 0,
+    "inlineIntentsRendered": 35,
+    "uniqueInlineLayouts": 35,
+    "completeGalleryScreenshots": 39,
+    "workspaceStatesCaptured": 4,
+    "runtimeErrors": 0,
+    "overflowFailures": 0,
+    "brokenImageFailures": 0,
+    "copilotWorkbenchReadyComponents": 37,
+    "changedWorkflowsRevalidated": 8,
+    "inlineResizeGrowAndShrink": true,
+    "personalPortalModules": 18,
+    "personalPortalDroppableColumns": 3,
+    "personalPortalLayoutPersistsForSession": true,
+    "personalPortalControlsOnlyInEditMode": true,
+    "personalPortalVisibilitySyncsWithPersonalize": true,
+    "personalRightRailIsNonModal": true,
+    "companyPortalModules": 17,
+    "companyPortalDroppableColumns": 3,
+    "companyPortalSettingsIsolated": true,
+    "purposeBuiltCompanyExperiences": 10,
+    "recognitionContrastVerified": true,
+    "campusFoodPhotosEmbedded": 9,
+    "planMyDayThinkingDelayMs": 800,
+    "planMyDayItemRevealDelayMs": 220,
+    "mediaAssetsValidated": 28,
+    "generatedPluginFunctions": 37,
+    "uniquePluginFunctionDescriptions": 37,
+    "agentInstructionFunctionCoverage": 37,
+    "conversationStarters": 6,
+    "capabilityExplorerStarterIsLast": true,
+    "packagedAgentVersion": "1.0.0.14",
+    "publicationGalleryImages": 15,
+    "publicationGalleryCaptureMode": "rendered-element-and-authenticated-viewport",
+    "publicationGalleryMinimumWidth": 720,
+    "publicationGalleryMinimumHeight": 490,
+    "publicationGalleryMaximumHeight": 5479,
+    "publicationGalleryMatchesCurrentImplementation": true,
+    "c35PublicationWorkflowStates": 5,
+    "vacationResetPendingCount": 4,
+    "vacationResetProcessedCount": 2,
+    "vacationPostDecisionPendingCount": 3,
+    "keynoteFlowRehearsed": true,
+    "keynoteFlowRouteCheckpoints": 4,
+    "demoScriptsDocumented": 7,
+    "releaseReadinessDocumented": true,
+    "sampleMetadataPresent": true,
+    "readmeTrackerValid": true,
+    "fullscreenNaturalDocumentFlow": true,
+    "fullscreenHeaderScrollsWithDocument": true,
+    "fullscreenInternalOverflowOwners": 0,
+    "fullscreenM365HostViewportHeight": 1580,
+    "fullscreenM365DocumentScrollHeight": 8470,
+    "fullscreenComponentViewportHeight": 8470,
+    "fullscreenM365ScrollOwnerCount": 1,
+    "sppkgAppManifestVersion": "1.0.0.18",
+    "sppkgFeatureVersion": "1.0.0.18",
+    "chartScopeChangesGeometry": true,
+    "officeMarkerCount": 5,
+    "officeListCount": 5,
+    "vacationDecisionUpdatesPendingCount": true,
+    "publicationGalleryHasHorizontalClipping": false,
+    "teamsPersonalAppCaptures": 3,
+    "teamsWorkspaceHeaderHidden": true,
+    "sppkgEntries": 110,
+    "responsiveStates": 4080,
+    "responsiveFailures": 0,
+    "responsiveViewportWidths": [
+      320,
+      390,
+      560,
+      768,
+      1024,
+      1280,
+      1440,
+      1600
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "ux-review/evidence/screenshots/c06-inline.png",
+      "bytes": 381386,
+      "sha256": "84be988100f5abd37cba6388c0b1639a40200fd27b3ede0f141cdcfdeca8498e"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/c27-chart.png",
+      "bytes": 61768,
+      "sha256": "d2ec5aa2038a5a6dfe4378ebc7ccaabcaac074016fb284f8f6935916c43e91e5"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/c34-map.png",
+      "bytes": 42117,
+      "sha256": "44a76796ea9e43b151436d6af1b15dc02d8a6c0b1a344f56e6eb3abfd222eae9"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/c35-list.png",
+      "bytes": 48146,
+      "sha256": "9e7e7069fdd18875d166d69823a781ffdbb06044f02088f11049fd2f1fc6dc65"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/c35-receipt.png",
+      "bytes": 32448,
+      "sha256": "d9e031ca05320dc10c6146989e33b18ade0118afb78b94c7e6e520fae52246dd"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/company-desktop-dark.png",
+      "bytes": 1257878,
+      "sha256": "c6f7ec32cda1376c5414c4468c3311ee243484bf58b45183c0530ad5816edf7d"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/company-desktop-light.png",
+      "bytes": 1260075,
+      "sha256": "ce35e9ccd98650d0cfe4dea07df6ad18f1018a5a339855f0e20d530e7ce218e0"
+    },
+    {
+      "path": "ux-review/evidence/screenshots/company-mobile-light.png",
+      "bytes": 456577,
+      "sha256": "9cad7b3b30d8d09bf5478662900f1798f5106a560dd8eec40b9ab3297b3de6e1"
+    }
+  ],
+  "publicationScreenshots": [
+    {
+      "path": "assets/preview.png",
+      "width": 1600,
+      "height": 778,
+      "bytes": 65203,
+      "sha256": "25061fe868fb71921eec59ece23ac26a71d730ef894dfe03326f4ec915d4282e"
+    },
+    {
+      "path": "assets/screenshot-company-workspace.png",
+      "width": 1600,
+      "height": 5479,
+      "bytes": 2357179,
+      "sha256": "c1a21a27bde1ceea3ee6c42b429c7b0e7beadb8ed68db29acbc2a2c1d6f113ae"
+    },
+    {
+      "path": "assets/screenshot-personal.png",
+      "width": 1600,
+      "height": 3722,
+      "bytes": 621264,
+      "sha256": "d7781db0b9c65436b5388e9cabf13c2db9f4220196a6bf491411525561393037"
+    },
+    {
+      "path": "assets/screenshot-company-news.png",
+      "width": 1600,
+      "height": 1289,
+      "bytes": 1224706,
+      "sha256": "b2f783a096c3ebf16e79a8251993af807b1209ac38233c73be9da760cdf4cd29"
+    },
+    {
+      "path": "assets/screenshot-recognition-compose.png",
+      "width": 720,
+      "height": 681,
+      "bytes": 52360,
+      "sha256": "045125f2d3ea54d57bf3584ff4b9ab25f281df84881ff0712a54706e5b81a726"
+    },
+    {
+      "path": "assets/screenshot-sales-performance.png",
+      "width": 720,
+      "height": 719,
+      "bytes": 38084,
+      "sha256": "3c12044ea83737d9466e50ea3370e41e58b9bab672b22dda2191fd5999b5f9e6"
+    },
+    {
+      "path": "assets/screenshot-office-map.png",
+      "width": 720,
+      "height": 716,
+      "bytes": 120236,
+      "sha256": "9b62aafbc55dd1963019bf4af7c5c03000e2f9f46b7eb0daea764a676622bd4a"
+    },
+    {
+      "path": "assets/screenshot-vacation-approvals.png",
+      "width": 720,
+      "height": 660,
+      "bytes": 55095,
+      "sha256": "efa8a9e3fdf86051ce80e3586a129781f86194da2bd39bc9b81dfd5d83e5a0ff"
+    },
+    {
+      "path": "assets/screenshot-vacation-detail.png",
+      "width": 720,
+      "height": 632,
+      "bytes": 45887,
+      "sha256": "cb8d12971a2dc411b4fd451d0590285724a17a88d457de3845132589ca5b5688"
+    },
+    {
+      "path": "assets/screenshot-vacation-decision.png",
+      "width": 720,
+      "height": 490,
+      "bytes": 27342,
+      "sha256": "c50f13b374a6bbf495fe1c16eb778b7fb28a5c673af2f15f063d7c9014fbf70c"
+    },
+    {
+      "path": "assets/screenshot-vacation-receipt.png",
+      "width": 720,
+      "height": 590,
+      "bytes": 34399,
+      "sha256": "35ed469ff6736a0935b2579d8787845eaa649d242a9fbf2a4f45934ebb9e0de8"
+    },
+    {
+      "path": "assets/screenshot-vacation-updated-list.png",
+      "width": 720,
+      "height": 586,
+      "bytes": 46476,
+      "sha256": "e3b956ce816859bc5cd9a7c52269e30e5bd17682b9d9cf8f55ad730ee5e09c9a"
+    },
+    {
+      "path": "assets/screenshot-teams-combined.png",
+      "width": 1492,
+      "height": 760,
+      "bytes": 501644,
+      "sha256": "f6fec3c2b2539531ae4058afc465a49678a4b3a5ee474e10df3b1a363e669b66"
+    },
+    {
+      "path": "assets/screenshot-teams-company.png",
+      "width": 1487,
+      "height": 760,
+      "bytes": 539779,
+      "sha256": "942b9f25570ea378388d541613655bcad946819870ef77f364747b5dcfd4b2fb"
+    },
+    {
+      "path": "assets/screenshot-teams-personal.png",
+      "width": 1490,
+      "height": 760,
+      "bytes": 365114,
+      "sha256": "812b7c0c0aaa79d661dadf19aeb88b256ad4f9a71e5ca7f15d0d6ef2dae440d8"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "sharepoint/solution/zava-one-hub.sppkg",
+      "bytes": 6205983,
+      "sha256": "17b4a0bdab95d085570a0454f9cd4a9e360489b2e1ec45828cbe66ed7199fde9"
+    },
+    {
+      "path": "teams/zava-one.zip",
+      "bytes": 5265,
+      "sha256": "575723f2e8503d83cad6e15dff1d3d065b63709f6c4c9da1699f74c1e3842aa4"
+    },
+    {
+      "path": "teams/zavaOneWorkspace/TeamsSPFxApp.zip",
+      "bytes": 23830,
+      "sha256": "ba082d645833ff2656df44969fdae848376d52d96cac52209648db2e3faf8758"
+    },
+    {
+      "path": "teams/zavaOneCompanyWorkspace/TeamsSPFxApp.zip",
+      "bytes": 19793,
+      "sha256": "13430506d817e70ed7e73ad553494cb6465daa95ac59b0ca9a15e68ce30a45bf"
+    },
+    {
+      "path": "teams/zavaOnePersonalWorkspace/TeamsSPFxApp.zip",
+      "bytes": 21693,
+      "sha256": "3d427972eba23aa8068cfc1502848999c482eca8ff54bb004dfc296612eff5c4"
+    }
+  ],
+  "externalGate": "The sample author confirmed the three Teams personal apps work and supplied authenticated viewport screenshots. Modern SharePoint Top Actions, host CSP/focus, screen-reader, forced-color, and complete accessibility checks remain open.",
+  "historicalHostEvidence": "Workbench, host-resize, and non-gallery screenshot measurements retain their earlier baseline; they are not a new accessibility or host certification."
+}

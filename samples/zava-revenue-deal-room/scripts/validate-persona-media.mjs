@@ -20,4 +20,15 @@ for (const asset of provenance.assets) {
   const personKey = path.basename(asset.path, '.jpg').replace('-', ' ');
   assert(mediaSource.includes(`'${personKey}'`), `Portrait is absent from the typed media catalog: ${personKey}`);
 }
-console.log(JSON.stringify({ portraits: provenance.assets.length, sourceCopies: provenance.assets.length, hashMismatches: 0, rightsStatus: provenance.redistributionStatus }));
+const brand = JSON.parse(fs.readFileSync(path.join(root, 'assets', 'brand-provenance.json'), 'utf8').replace(/^\uFEFF/, ''));
+assert(brand.assets.length === 4, 'Expected four optimized ZavaMesh brand assets.');
+for (const asset of brand.assets) {
+  assert(hash(path.join(root, asset.runtime)) === asset.sha256, `Brand asset hash drift: ${asset.runtime}`);
+  assert(asset.rights.includes('redistribution review pending'), 'Supplied brand rights must remain explicit.');
+}
+for (const [name, size] of [['color.png', 192], ['outline.png', 32]]) {
+  const image = fs.readFileSync(path.join(root, 'copilot', name));
+  assert(image.readUInt32BE(16) === size && image.readUInt32BE(20) === size, `Wrong agent icon dimensions: ${name}`);
+}
+assert(fs.readFileSync(path.join(root, 'README.md'), 'utf8').includes('Brand redistribution'), 'README must disclose supplied brand redistribution status.');
+console.log(JSON.stringify({ portraits: provenance.assets.length, brandAssets: brand.assets.length, agentIcons: 2, sourceCopies: provenance.assets.length, hashMismatches: 0, rightsStatus: provenance.redistributionStatus }));

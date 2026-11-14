@@ -16,7 +16,7 @@
     {
       "name": "ReviewSupplierQualificationTool",
       "description": {
-        "default": "Review scoped supplier qualification and conditions."
+        "default": "Use when the user asks: Is this supplier qualified for this scope? Outcome: A conditional, expiring qualification decision. Boundary: Not onboarding capture."
       },
       "propertiesSchema": {
         "id": "$../../../lib/copilotComponents/reviewSupplierQualification/ReviewSupplierQualificationCopilotComponentProperties.js:default;"

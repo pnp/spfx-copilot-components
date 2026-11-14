@@ -1,5 +1,11 @@
 # Zava AI Project Portfolio Agent - experience and implementation plan
 
+## RC0 update - October 20, 2026
+
+The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
+
+Earlier entries below retain their implementation history. Old framework versions, test totals, byte counts, and hashes in that history are not current RC0 release evidence.
+
 This document is the source of truth for designing and implementing the Zava AI Project Portfolio
 Agent. It tracks approved scope, implementation progress, quality gates, and remaining work.
 

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "5331369f-3b25-42de-961a-f4c20520c090",
+  "alias": "GetItHelpCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "GetITHelp",
+      "description": {
+        "default": "Use when the user needs ordinary IT help or ticket status. Do not use when the user reports a security concern."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getItHelp/GetItHelpCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

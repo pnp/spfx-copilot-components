@@ -9,10 +9,10 @@
     "longDescription": [
       "Zava demonstrates dynamic UX resolution inside Microsoft Copilot. Thirty operational SPFx Copilot Components independently route natural-language intents to purpose-built information, comparison, submission, and decision experiences. A thirty-first capability explorer helps users discover the complete scenario catalog through business outcomes and safe previews.",
       "Operational components expand into one responsive full-screen application with My Work, Project, Portfolio, and Decisions dashboards. Project selection coordinates delivery, budget, AI spend, milestones, risk, team load, and benefits. Portfolio views show company investment, run-rate, value, capacity, and systemic exposure. Decisions uses one evidence-first inbox backed by the same records as the inline review components.",
-      "The sample is deterministic, offline, and safe for worldwide demonstrations. Prompt values prefill or filter UX but never submit or decide automatically. Confirmed sample actions create browser-session receipts and never write to an external system. The production package uses one optimized shared bundle, bundled personas, Fluent UI v9, React 17, Griffel owner-document styling, focused D3 visualizations, and automated plugin/package-output validation."
+      "The sample is deterministic, offline, and safe for worldwide demonstrations. Prompt values prefill or filter UX but never submit or decide automatically. Confirmed sample actions create browser-session receipts and never write to an external system. The production package uses one optimized shared bundle, bundled personas, Fluent UI v9, React 18, Griffel owner-document styling, focused D3 visualizations, and automated plugin/package-output validation."
     ],
     "creationDateTime": "2026-08-21",
-    "updateDateTime": "2026-08-21",
+    "updateDateTime": "2026-10-28",
     "products": [
       "SharePoint",
       "Copilot"
@@ -28,49 +28,283 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.0"
       }
     ],
     "thumbnails": [
-      { "name": "fullscreen-my-work.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-my-work.png", "alt": "Zava full-screen My Work dashboard" },
-      { "name": "fullscreen-project.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-project.png", "alt": "Zava full-screen Project delivery dashboard" },
-      { "name": "fullscreen-portfolio.png", "type": "image", "order": 102, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-portfolio.png", "alt": "Zava full-screen Portfolio investment command center" },
-      { "name": "fullscreen-decisions.png", "type": "image", "order": 103, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-decisions.png", "alt": "Zava full-screen Decisions inbox" },
-      { "name": "fullscreen-capability-explorer.png", "type": "image", "order": 104, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-capability-explorer.png", "alt": "Zava full-screen capability explorer" },
-      { "name": "fullscreen-mobile.png", "type": "image", "order": 105, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-mobile.png", "alt": "Zava full-screen workspace at mobile width" },
-      { "name": "fullscreen-portfolio-dark.png", "type": "image", "order": 106, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-portfolio-dark.png", "alt": "Zava Portfolio dashboard in dark mode" },
-      { "name": "fullscreen-decision-receipt.png", "type": "image", "order": 107, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-decision-receipt.png", "alt": "Zava Decisions session-only confirmation receipt" },
-      { "name": "inline-get-my-work-summary.png", "type": "image", "order": 200, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-work-summary.png", "alt": "Inline personal work summary component" },
-      { "name": "inline-get-my-tasks.png", "type": "image", "order": 201, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-tasks.png", "alt": "Inline grouped tasks component" },
-      { "name": "inline-get-my-capacity.png", "type": "image", "order": 202, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-capacity.png", "alt": "Inline personal capacity component" },
-      { "name": "inline-get-my-goal-contributions.png", "type": "image", "order": 203, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-goal-contributions.png", "alt": "Inline goal contribution component" },
-      { "name": "inline-submit-weekly-update.png", "type": "image", "order": 204, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-weekly-update.png", "alt": "Inline weekly update submission component" },
-      { "name": "inline-submit-timesheet.png", "type": "image", "order": 205, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-timesheet.png", "alt": "Inline timesheet submission component" },
-      { "name": "inline-get-project-health.png", "type": "image", "order": 206, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-health.png", "alt": "Inline project health component" },
-      { "name": "inline-get-project-timeline.png", "type": "image", "order": 207, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-timeline.png", "alt": "Inline project timeline component" },
-      { "name": "inline-get-project-milestones.png", "type": "image", "order": 208, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-milestones.png", "alt": "Inline project milestones component" },
-      { "name": "inline-get-project-risks.png", "type": "image", "order": 209, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-risks.png", "alt": "Inline project risk matrix component" },
-      { "name": "inline-get-project-budget.png", "type": "image", "order": 210, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-budget.png", "alt": "Inline project budget component" },
-      { "name": "inline-get-project-ai-spend.png", "type": "image", "order": 211, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-ai-spend.png", "alt": "Inline project AI spend control tower" },
-      { "name": "inline-get-project-team-capacity.png", "type": "image", "order": 212, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-team-capacity.png", "alt": "Inline project team capacity component" },
-      { "name": "inline-submit-project-status.png", "type": "image", "order": 213, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-project-status.png", "alt": "Inline project status submission component" },
-      { "name": "inline-submit-ai-usage.png", "type": "image", "order": 214, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-ai-usage.png", "alt": "Inline AI usage submission component" },
-      { "name": "inline-submit-project-request.png", "type": "image", "order": 215, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-project-request.png", "alt": "Inline project request component" },
-      { "name": "inline-request-ai-budget.png", "type": "image", "order": 216, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-request-ai-budget.png", "alt": "Inline AI budget request component" },
-      { "name": "inline-compare-projects.png", "type": "image", "order": 217, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-compare-projects.png", "alt": "Inline project comparison component" },
-      { "name": "inline-get-portfolio-health.png", "type": "image", "order": 218, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-health.png", "alt": "Inline portfolio health component" },
-      { "name": "inline-get-strategic-alignment.png", "type": "image", "order": 219, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-strategic-alignment.png", "alt": "Inline strategic alignment component" },
-      { "name": "inline-get-portfolio-roadmap.png", "type": "image", "order": 220, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-roadmap.png", "alt": "Inline portfolio roadmap component" },
-      { "name": "inline-get-portfolio-budget-forecast.png", "type": "image", "order": 221, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-budget-forecast.png", "alt": "Inline portfolio budget forecast component" },
-      { "name": "inline-get-portfolio-ai-spend.png", "type": "image", "order": 222, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-ai-spend.png", "alt": "Inline portfolio AI spend component" },
-      { "name": "inline-get-portfolio-capacity.png", "type": "image", "order": 223, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-capacity.png", "alt": "Inline portfolio capacity component" },
-      { "name": "inline-get-portfolio-risk-exposure.png", "type": "image", "order": 224, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-risk-exposure.png", "alt": "Inline portfolio risk exposure component" },
-      { "name": "inline-get-approval-inbox.png", "type": "image", "order": 225, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-approval-inbox.png", "alt": "Inline approval inbox component" },
-      { "name": "inline-review-project-request.png", "type": "image", "order": 226, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-project-request.png", "alt": "Inline project request review component" },
-      { "name": "inline-review-project-budget.png", "type": "image", "order": 227, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-project-budget.png", "alt": "Inline project budget review component" },
-      { "name": "inline-review-resource-assignment.png", "type": "image", "order": 228, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-resource-assignment.png", "alt": "Inline resource assignment review component" },
-      { "name": "inline-review-stage-gate.png", "type": "image", "order": 229, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-stage-gate.png", "alt": "Inline stage-gate review component" },
-      { "name": "inline-explore-agent-capabilities.png", "type": "image", "order": 230, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-explore-agent-capabilities.png", "alt": "Inline Zava capability explorer component" }
+      {
+        "name": "fullscreen-my-work.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-my-work.png",
+        "alt": "Zava full-screen My Work dashboard"
+      },
+      {
+        "name": "fullscreen-project.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-project.png",
+        "alt": "Zava full-screen Project delivery dashboard"
+      },
+      {
+        "name": "fullscreen-portfolio.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-portfolio.png",
+        "alt": "Zava full-screen Portfolio investment command center"
+      },
+      {
+        "name": "fullscreen-decisions.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-decisions.png",
+        "alt": "Zava full-screen Decisions inbox"
+      },
+      {
+        "name": "fullscreen-capability-explorer.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-capability-explorer.png",
+        "alt": "Zava full-screen capability explorer"
+      },
+      {
+        "name": "fullscreen-mobile.png",
+        "type": "image",
+        "order": 105,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-mobile.png",
+        "alt": "Zava full-screen workspace at mobile width"
+      },
+      {
+        "name": "fullscreen-portfolio-dark.png",
+        "type": "image",
+        "order": 106,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-portfolio-dark.png",
+        "alt": "Zava Portfolio dashboard in dark mode"
+      },
+      {
+        "name": "fullscreen-decision-receipt.png",
+        "type": "image",
+        "order": 107,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/fullscreen-decision-receipt.png",
+        "alt": "Zava Decisions session-only confirmation receipt"
+      },
+      {
+        "name": "inline-get-my-work-summary.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-work-summary.png",
+        "alt": "Inline personal work summary component"
+      },
+      {
+        "name": "inline-get-my-tasks.png",
+        "type": "image",
+        "order": 201,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-tasks.png",
+        "alt": "Inline grouped tasks component"
+      },
+      {
+        "name": "inline-get-my-capacity.png",
+        "type": "image",
+        "order": 202,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-capacity.png",
+        "alt": "Inline personal capacity component"
+      },
+      {
+        "name": "inline-get-my-goal-contributions.png",
+        "type": "image",
+        "order": 203,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-my-goal-contributions.png",
+        "alt": "Inline goal contribution component"
+      },
+      {
+        "name": "inline-submit-weekly-update.png",
+        "type": "image",
+        "order": 204,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-weekly-update.png",
+        "alt": "Inline weekly update submission component"
+      },
+      {
+        "name": "inline-submit-timesheet.png",
+        "type": "image",
+        "order": 205,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-timesheet.png",
+        "alt": "Inline timesheet submission component"
+      },
+      {
+        "name": "inline-get-project-health.png",
+        "type": "image",
+        "order": 206,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-health.png",
+        "alt": "Inline project health component"
+      },
+      {
+        "name": "inline-get-project-timeline.png",
+        "type": "image",
+        "order": 207,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-timeline.png",
+        "alt": "Inline project timeline component"
+      },
+      {
+        "name": "inline-get-project-milestones.png",
+        "type": "image",
+        "order": 208,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-milestones.png",
+        "alt": "Inline project milestones component"
+      },
+      {
+        "name": "inline-get-project-risks.png",
+        "type": "image",
+        "order": 209,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-risks.png",
+        "alt": "Inline project risk matrix component"
+      },
+      {
+        "name": "inline-get-project-budget.png",
+        "type": "image",
+        "order": 210,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-budget.png",
+        "alt": "Inline project budget component"
+      },
+      {
+        "name": "inline-get-project-ai-spend.png",
+        "type": "image",
+        "order": 211,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-ai-spend.png",
+        "alt": "Inline project AI spend control tower"
+      },
+      {
+        "name": "inline-get-project-team-capacity.png",
+        "type": "image",
+        "order": 212,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-project-team-capacity.png",
+        "alt": "Inline project team capacity component"
+      },
+      {
+        "name": "inline-submit-project-status.png",
+        "type": "image",
+        "order": 213,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-project-status.png",
+        "alt": "Inline project status submission component"
+      },
+      {
+        "name": "inline-submit-ai-usage.png",
+        "type": "image",
+        "order": 214,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-ai-usage.png",
+        "alt": "Inline AI usage submission component"
+      },
+      {
+        "name": "inline-submit-project-request.png",
+        "type": "image",
+        "order": 215,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-submit-project-request.png",
+        "alt": "Inline project request component"
+      },
+      {
+        "name": "inline-request-ai-budget.png",
+        "type": "image",
+        "order": 216,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-request-ai-budget.png",
+        "alt": "Inline AI budget request component"
+      },
+      {
+        "name": "inline-compare-projects.png",
+        "type": "image",
+        "order": 217,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-compare-projects.png",
+        "alt": "Inline project comparison component"
+      },
+      {
+        "name": "inline-get-portfolio-health.png",
+        "type": "image",
+        "order": 218,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-health.png",
+        "alt": "Inline portfolio health component"
+      },
+      {
+        "name": "inline-get-strategic-alignment.png",
+        "type": "image",
+        "order": 219,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-strategic-alignment.png",
+        "alt": "Inline strategic alignment component"
+      },
+      {
+        "name": "inline-get-portfolio-roadmap.png",
+        "type": "image",
+        "order": 220,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-roadmap.png",
+        "alt": "Inline portfolio roadmap component"
+      },
+      {
+        "name": "inline-get-portfolio-budget-forecast.png",
+        "type": "image",
+        "order": 221,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-budget-forecast.png",
+        "alt": "Inline portfolio budget forecast component"
+      },
+      {
+        "name": "inline-get-portfolio-ai-spend.png",
+        "type": "image",
+        "order": 222,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-ai-spend.png",
+        "alt": "Inline portfolio AI spend component"
+      },
+      {
+        "name": "inline-get-portfolio-capacity.png",
+        "type": "image",
+        "order": 223,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-capacity.png",
+        "alt": "Inline portfolio capacity component"
+      },
+      {
+        "name": "inline-get-portfolio-risk-exposure.png",
+        "type": "image",
+        "order": 224,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-portfolio-risk-exposure.png",
+        "alt": "Inline portfolio risk exposure component"
+      },
+      {
+        "name": "inline-get-approval-inbox.png",
+        "type": "image",
+        "order": 225,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-get-approval-inbox.png",
+        "alt": "Inline approval inbox component"
+      },
+      {
+        "name": "inline-review-project-request.png",
+        "type": "image",
+        "order": 226,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-project-request.png",
+        "alt": "Inline project request review component"
+      },
+      {
+        "name": "inline-review-project-budget.png",
+        "type": "image",
+        "order": 227,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-project-budget.png",
+        "alt": "Inline project budget review component"
+      },
+      {
+        "name": "inline-review-resource-assignment.png",
+        "type": "image",
+        "order": 228,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-resource-assignment.png",
+        "alt": "Inline resource assignment review component"
+      },
+      {
+        "name": "inline-review-stage-gate.png",
+        "type": "image",
+        "order": 229,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-review-stage-gate.png",
+        "alt": "Inline stage-gate review component"
+      },
+      {
+        "name": "inline-explore-agent-capabilities.png",
+        "type": "image",
+        "order": 230,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-project-tracker/assets/inline-explore-agent-capabilities.png",
+        "alt": "Inline Zava capability explorer component"
+      }
     ],
     "authors": [
       {

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "4e09d27a-fc7f-4adb-b8da-e91c9349fdc6",
+  "alias": "VivaEngageCommunityExplorer",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "exploreVivaEngageCommunities",
+      "description": {
+        "default": "Discover live Viva Engage communities. Search names and descriptions, filter public/private, sort alphabetically and inspect community details. For refinements call this tool again with the full desired parameter set; state is not shared between invocations. Never guess community IDs or navigation URLs."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/vivaEngageExplorer/VivaEngageExplorerCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

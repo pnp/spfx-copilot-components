@@ -1,0 +1,71 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-file-uploader",
+    "source": "pnp",
+    "title": "Document Intake",
+    "shortDescription": "A Copilot Component that files invoices and expense reports into a records library with complete, validated metadata, and shows recent filings.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/file-uploader",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/file-uploader",
+    "longDescription": [
+      "Files a formal document — an invoice or an expense report — into the right document library with complete metadata, from inside a Microsoft 365 Copilot conversation. The user chooses the file, the component asks only for the fields that document kind requires, the destination is derived from kind and department, and nothing is stored until the user confirms. After saving, the user sees exactly what was stored, where, and a receipt.",
+      "One manifest tool, fileDocuments, carries an intent discriminator: file (choose, validate, review, confirm — several files at once in a full-screen workspace) or recent (filter recent filings by kind, department, status and period; open any record). Runs on fictional sample data until a tenant admin switches on the live SharePoint store, whose content types supply the required fields; both stores sit behind IDocumentStoreService, so views and mappers are the same for either."
+    ],
+    "creationDateTime": "2026-09-08",
+    "updateDateTime": "2026-09-24",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0-beta.2"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "screenshot-inline.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/file-uploader/assets/screenshot-inline.png",
+        "alt": "Inline — the confirm step: a read-only summary of every field and the exact destination path, with Back to edit and Confirm and save"
+      },
+      {
+        "name": "screenshot-fullscreen.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/file-uploader/assets/screenshot-fullscreen.png",
+        "alt": "Full screen — bulk filing: a file list with per-file readiness pills, shared fields applied to all four files, per-file overrides, and Save 3 ready files"
+      },
+      {
+        "name": "screenshot-dark.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/file-uploader/assets/screenshot-dark.png",
+        "alt": "Recent filings in dark theme: chip filters and a table of filings with semantic status pills, amounts and relative filed times"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "kurt-rolland",
+        "name": "Kurt Rolland",
+        "pictureUrl": "https://github.com/kurt-rolland.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Build a Copilot Component",
+        "description": "SPFx Copilot Components overview and the BaseCopilotComponent API.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/web-parts/get-started/build-first-copilot-component"
+      }
+    ]
+  }
+]

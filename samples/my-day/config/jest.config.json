@@ -1,0 +1,4 @@
+{
+  "extends": "@microsoft/spfx-web-build-rig/profiles/default/config/jest.config.json",
+  "globals": { "IS_REACT_ACT_ENVIRONMENT": true }
+}

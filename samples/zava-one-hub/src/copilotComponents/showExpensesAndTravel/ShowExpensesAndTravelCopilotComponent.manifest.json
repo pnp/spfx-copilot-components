@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "06fd10ff-dccc-4455-b7a2-4e5e05381d3f",
+  "alias": "ShowExpensesAndTravelCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowExpensesAndTravel",
+      "description": {
+        "default": "Use when the user asks about expenses or business travel. Do not use when the user asks for an employee service directory."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showExpensesAndTravel/ShowExpensesAndTravelCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

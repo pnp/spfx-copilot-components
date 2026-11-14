@@ -42,12 +42,12 @@ The agent exposes six deliberately non-overlapping starters. The final starter a
 
 | # | Title | Prompt | Expected tool |
 | ---: | --- | --- | --- |
-| 1 | Submit a support ticket | Submit an IT support ticket because my video calls drop when I undock. | `ReportItIssue` |
-| 2 | Diagnose my Surface | Run device diagnostics for battery drain on my Surface. | `RunDeviceDiagnostics` |
-| 3 | Review approval queue | Show all pending requests awaiting my approval. | `GetApprovalQueue` |
-| 4 | Inspect fleet health | Show company fleet health by region and department. | `GetFleetHealth` |
-| 5 | Correlate an incident | Correlate signals for major incident INC-7091. | `CorrelateMajorIncident` |
-| 6 | Explore capabilities | Explore what Zava IT Concierge can do. | `ExploreAgentCapabilities` |
+| 1 | Submit a support ticket | Submit an IT support ticket because my video calls drop when I undock. | `ReportItIssueTool` |
+| 2 | Diagnose my Surface | Run device diagnostics for battery drain on my Surface. | `RunDeviceDiagnosticsTool` |
+| 3 | Review approval queue | Show all pending requests awaiting my approval. | `GetApprovalQueueTool` |
+| 4 | Inspect fleet health | Show company fleet health by region and department. | `GetFleetHealthTool` |
+| 5 | Correlate an incident | Correlate signals for major incident INC-7091. | `CorrelateMajorIncidentTool` |
+| 6 | Explore capabilities | Explore what Zava IT Concierge can do. | `ExploreAgentCapabilitiesTool` |
 
 ## Rehearsal result
 

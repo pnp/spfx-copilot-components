@@ -12,61 +12,323 @@
       "The sample is deterministic, offline, and safe for demonstrations. Prompt values filter or prefill the experience but never submit, approve, decline, delegate, declare, or apply a plan without visible review and confirmation. Production validation covers the generated 31-function plugin, all catalog entries, local media, gallery evidence, tests, and the final package."
     ],
     "creationDateTime": "2026-08-22",
-    "updateDateTime": "2026-08-25",
-    "products": ["SharePoint", "Copilot"],
+    "updateDateTime": "2026-10-28",
+    "products": [
+      "SharePoint",
+      "Copilot"
+    ],
     "metadata": [
-      { "key": "SAMPLE-TYPE", "value": "SPFx-CopilotComponent" },
-      { "key": "CLIENT-SIDE-DEV", "value": "React" },
-      { "key": "SPFX-VERSION", "value": "1.24.0-beta.2" }
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.0"
+      }
     ],
     "thumbnails": [
-      { "name": "fullscreen-personal.png", "type": "image", "order": 100, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-personal.png", "alt": "Zava Personal IT dashboard with Surface device health, support, requests, and replacement options" },
-      { "name": "fullscreen-team.png", "type": "image", "order": 101, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-team.png", "alt": "Zava Team IT dashboard with approval queue, people readiness, hardware budget, and support load" },
-      { "name": "fullscreen-portfolio.png", "type": "image", "order": 102, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-portfolio.png", "alt": "Zava IT control center with global estate risk map, incident command, spend, service, and lifecycle evidence" },
-      { "name": "fullscreen-personal-mobile.png", "type": "image", "order": 103, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-personal-mobile.png", "alt": "Zava Personal IT dashboard stacked for a mobile viewport" },
-      { "name": "fullscreen-portfolio-dark.png", "type": "image", "order": 104, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-portfolio-dark.png", "alt": "Zava IT control center rendered in dark mode" },
-      { "name": "inline-my-device-status.png", "type": "image", "order": 200, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-my-device-status.png", "alt": "Inline assigned Surface status and health component" },
-      { "name": "inline-get-device-health.png", "type": "image", "order": 201, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-device-health.png", "alt": "Inline detailed Surface battery, storage, performance, and patch health component" },
-      { "name": "inline-get-refresh-eligibility.png", "type": "image", "order": 202, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-refresh-eligibility.png", "alt": "Inline device refresh eligibility timeline component" },
-      { "name": "inline-explore-device-catalog.png", "type": "image", "order": 203, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-explore-device-catalog.png", "alt": "Inline approved Microsoft Surface catalog comparison component" },
-      { "name": "inline-configure-device-request.png", "type": "image", "order": 204, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-configure-device-request.png", "alt": "Inline Surface request configuration and review form" },
-      { "name": "inline-draft-device-justification.png", "type": "image", "order": 205, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-draft-device-justification.png", "alt": "Inline evidence-grounded device justification editor" },
-      { "name": "inline-report-it-issue.png", "type": "image", "order": 206, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-report-it-issue.png", "alt": "Inline IT issue report form with severity, diagnostics, and review" },
-      { "name": "inline-run-device-diagnostics.png", "type": "image", "order": 207, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-run-device-diagnostics.png", "alt": "Inline Surface diagnostic checks and findings component" },
-      { "name": "inline-get-my-requests.png", "type": "image", "order": 208, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-my-requests.png", "alt": "Inline personal IT requests and tickets timeline" },
-      { "name": "inline-find-knowledge-match.png", "type": "image", "order": 209, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-find-knowledge-match.png", "alt": "Inline ranked IT knowledge article match component" },
-      { "name": "inline-track-device-shipment.png", "type": "image", "order": 210, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-track-device-shipment.png", "alt": "Inline Surface imaging, shipment, delivery, and setup tracker" },
-      { "name": "inline-review-device-approval.png", "type": "image", "order": 211, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-device-approval.png", "alt": "Inline evidence-backed standard device approval component" },
-      { "name": "inline-get-approval-queue.png", "type": "image", "order": 212, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-approval-queue.png", "alt": "Inline manager approval queue with pending and completed submissions" },
-      { "name": "inline-get-team-budget.png", "type": "image", "order": 213, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-budget.png", "alt": "Inline team IT budget allocation and remaining forecast component" },
-      { "name": "inline-get-team-assets.png", "type": "image", "order": 214, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-assets.png", "alt": "Inline team people, device, compliance, and refresh risk roster" },
-      { "name": "inline-preview-request-cost.png", "type": "image", "order": 215, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-preview-request-cost.png", "alt": "Inline request cost and before-after budget impact component" },
-      { "name": "inline-review-policy-exception.png", "type": "image", "order": 216, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-policy-exception.png", "alt": "Inline policy exception evidence, safeguard, and decision component" },
-      { "name": "inline-get-team-ticket-trend.png", "type": "image", "order": 217, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-ticket-trend.png", "alt": "Inline team IT ticket volume and category trend component" },
-      { "name": "inline-delegate-approval.png", "type": "image", "order": 218, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-delegate-approval.png", "alt": "Inline approval delegation form with person, scope, and rationale" },
-      { "name": "inline-get-fleet-health.png", "type": "image", "order": 219, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-fleet-health.png", "alt": "Inline global device fleet health and regional risk map" },
-      { "name": "inline-get-device-age-distribution.png", "type": "image", "order": 220, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-device-age-distribution.png", "alt": "Inline company device age cohort distribution component" },
-      { "name": "inline-get-ticket-deflection-trend.png", "type": "image", "order": 221, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-ticket-deflection-trend.png", "alt": "Inline self-service ticket deflection and handled volume trend" },
-      { "name": "inline-get-top-it-issues.png", "type": "image", "order": 222, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-top-it-issues.png", "alt": "Inline ranked IT issue categories and cumulative impact component" },
-      { "name": "inline-get-service-health.png", "type": "image", "order": 223, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-service-health.png", "alt": "Inline Microsoft 365 service health and incident status board" },
-      { "name": "inline-get-license-reclaim.png", "type": "image", "order": 224, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-license-reclaim.png", "alt": "Inline inactive license cohorts and annual reclaim opportunity component" },
-      { "name": "inline-get-it-spend-bridge.png", "type": "image", "order": 225, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-it-spend-bridge.png", "alt": "Inline company IT budget-to-forecast spend bridge" },
-      { "name": "inline-plan-refresh-waves.png", "type": "image", "order": 226, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-plan-refresh-waves.png", "alt": "Inline device refresh wave capacity and budget plan" },
-      { "name": "inline-correlate-major-incident.png", "type": "image", "order": 227, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-correlate-major-incident.png", "alt": "Inline major incident signal correlation component" },
-      { "name": "inline-get-process-journey.png", "type": "image", "order": 228, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-process-journey.png", "alt": "Inline request process stage, owner, blocker, and next-step journey" },
-      { "name": "inline-generate-it-brief.png", "type": "image", "order": 229, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-generate-it-brief.png", "alt": "Inline company IT brief with priorities, evidence, and decisions" },
-      { "name": "inline-explore-agent-capabilities.png", "type": "image", "order": 230, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-explore-agent-capabilities.png", "alt": "Inline searchable catalog of thirty Zava IT Concierge operational tools" },
-      { "name": "inline-approval-queue-detail.png", "type": "image", "order": 300, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-approval-queue-detail.png", "alt": "Inline approval queue detail with requester, policy, budget, evidence, and decision fields" },
-      { "name": "inline-review-device-approval-confirmation.png", "type": "image", "order": 301, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-device-approval-confirmation.png", "alt": "Inline device approval explicit confirmation state before applying the session decision" },
-      { "name": "inline-configure-device-request-receipt.png", "type": "image", "order": 302, "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-configure-device-request-receipt.png", "alt": "Inline configured Surface request receipt after explicit review and confirmation" }
+      {
+        "name": "fullscreen-personal.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-personal.png",
+        "alt": "Zava Personal IT dashboard with Surface device health, support, requests, and replacement options"
+      },
+      {
+        "name": "fullscreen-team.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-team.png",
+        "alt": "Zava Team IT dashboard with approval queue, people readiness, hardware budget, and support load"
+      },
+      {
+        "name": "fullscreen-portfolio.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-portfolio.png",
+        "alt": "Zava IT control center with global estate risk map, incident command, spend, service, and lifecycle evidence"
+      },
+      {
+        "name": "fullscreen-personal-mobile.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-personal-mobile.png",
+        "alt": "Zava Personal IT dashboard stacked for a mobile viewport"
+      },
+      {
+        "name": "fullscreen-portfolio-dark.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/fullscreen-portfolio-dark.png",
+        "alt": "Zava IT control center rendered in dark mode"
+      },
+      {
+        "name": "inline-my-device-status.png",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-my-device-status.png",
+        "alt": "Inline assigned Surface status and health component"
+      },
+      {
+        "name": "inline-get-device-health.png",
+        "type": "image",
+        "order": 201,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-device-health.png",
+        "alt": "Inline detailed Surface battery, storage, performance, and patch health component"
+      },
+      {
+        "name": "inline-get-refresh-eligibility.png",
+        "type": "image",
+        "order": 202,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-refresh-eligibility.png",
+        "alt": "Inline device refresh eligibility timeline component"
+      },
+      {
+        "name": "inline-explore-device-catalog.png",
+        "type": "image",
+        "order": 203,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-explore-device-catalog.png",
+        "alt": "Inline approved Microsoft Surface catalog comparison component"
+      },
+      {
+        "name": "inline-configure-device-request.png",
+        "type": "image",
+        "order": 204,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-configure-device-request.png",
+        "alt": "Inline Surface request configuration and review form"
+      },
+      {
+        "name": "inline-draft-device-justification.png",
+        "type": "image",
+        "order": 205,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-draft-device-justification.png",
+        "alt": "Inline evidence-grounded device justification editor"
+      },
+      {
+        "name": "inline-report-it-issue.png",
+        "type": "image",
+        "order": 206,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-report-it-issue.png",
+        "alt": "Inline IT issue report form with severity, diagnostics, and review"
+      },
+      {
+        "name": "inline-run-device-diagnostics.png",
+        "type": "image",
+        "order": 207,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-run-device-diagnostics.png",
+        "alt": "Inline Surface diagnostic checks and findings component"
+      },
+      {
+        "name": "inline-get-my-requests.png",
+        "type": "image",
+        "order": 208,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-my-requests.png",
+        "alt": "Inline personal IT requests and tickets timeline"
+      },
+      {
+        "name": "inline-find-knowledge-match.png",
+        "type": "image",
+        "order": 209,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-find-knowledge-match.png",
+        "alt": "Inline ranked IT knowledge article match component"
+      },
+      {
+        "name": "inline-track-device-shipment.png",
+        "type": "image",
+        "order": 210,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-track-device-shipment.png",
+        "alt": "Inline Surface imaging, shipment, delivery, and setup tracker"
+      },
+      {
+        "name": "inline-review-device-approval.png",
+        "type": "image",
+        "order": 211,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-device-approval.png",
+        "alt": "Inline evidence-backed standard device approval component"
+      },
+      {
+        "name": "inline-get-approval-queue.png",
+        "type": "image",
+        "order": 212,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-approval-queue.png",
+        "alt": "Inline manager approval queue with pending and completed submissions"
+      },
+      {
+        "name": "inline-get-team-budget.png",
+        "type": "image",
+        "order": 213,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-budget.png",
+        "alt": "Inline team IT budget allocation and remaining forecast component"
+      },
+      {
+        "name": "inline-get-team-assets.png",
+        "type": "image",
+        "order": 214,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-assets.png",
+        "alt": "Inline team people, device, compliance, and refresh risk roster"
+      },
+      {
+        "name": "inline-preview-request-cost.png",
+        "type": "image",
+        "order": 215,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-preview-request-cost.png",
+        "alt": "Inline request cost and before-after budget impact component"
+      },
+      {
+        "name": "inline-review-policy-exception.png",
+        "type": "image",
+        "order": 216,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-policy-exception.png",
+        "alt": "Inline policy exception evidence, safeguard, and decision component"
+      },
+      {
+        "name": "inline-get-team-ticket-trend.png",
+        "type": "image",
+        "order": 217,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-team-ticket-trend.png",
+        "alt": "Inline team IT ticket volume and category trend component"
+      },
+      {
+        "name": "inline-delegate-approval.png",
+        "type": "image",
+        "order": 218,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-delegate-approval.png",
+        "alt": "Inline approval delegation form with person, scope, and rationale"
+      },
+      {
+        "name": "inline-get-fleet-health.png",
+        "type": "image",
+        "order": 219,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-fleet-health.png",
+        "alt": "Inline global device fleet health and regional risk map"
+      },
+      {
+        "name": "inline-get-device-age-distribution.png",
+        "type": "image",
+        "order": 220,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-device-age-distribution.png",
+        "alt": "Inline company device age cohort distribution component"
+      },
+      {
+        "name": "inline-get-ticket-deflection-trend.png",
+        "type": "image",
+        "order": 221,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-ticket-deflection-trend.png",
+        "alt": "Inline self-service ticket deflection and handled volume trend"
+      },
+      {
+        "name": "inline-get-top-it-issues.png",
+        "type": "image",
+        "order": 222,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-top-it-issues.png",
+        "alt": "Inline ranked IT issue categories and cumulative impact component"
+      },
+      {
+        "name": "inline-get-service-health.png",
+        "type": "image",
+        "order": 223,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-service-health.png",
+        "alt": "Inline Microsoft 365 service health and incident status board"
+      },
+      {
+        "name": "inline-get-license-reclaim.png",
+        "type": "image",
+        "order": 224,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-license-reclaim.png",
+        "alt": "Inline inactive license cohorts and annual reclaim opportunity component"
+      },
+      {
+        "name": "inline-get-it-spend-bridge.png",
+        "type": "image",
+        "order": 225,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-it-spend-bridge.png",
+        "alt": "Inline company IT budget-to-forecast spend bridge"
+      },
+      {
+        "name": "inline-plan-refresh-waves.png",
+        "type": "image",
+        "order": 226,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-plan-refresh-waves.png",
+        "alt": "Inline device refresh wave capacity and budget plan"
+      },
+      {
+        "name": "inline-correlate-major-incident.png",
+        "type": "image",
+        "order": 227,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-correlate-major-incident.png",
+        "alt": "Inline major incident signal correlation component"
+      },
+      {
+        "name": "inline-get-process-journey.png",
+        "type": "image",
+        "order": 228,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-get-process-journey.png",
+        "alt": "Inline request process stage, owner, blocker, and next-step journey"
+      },
+      {
+        "name": "inline-generate-it-brief.png",
+        "type": "image",
+        "order": 229,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-generate-it-brief.png",
+        "alt": "Inline company IT brief with priorities, evidence, and decisions"
+      },
+      {
+        "name": "inline-explore-agent-capabilities.png",
+        "type": "image",
+        "order": 230,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-explore-agent-capabilities.png",
+        "alt": "Inline searchable catalog of thirty Zava IT Concierge operational tools"
+      },
+      {
+        "name": "inline-approval-queue-detail.png",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-approval-queue-detail.png",
+        "alt": "Inline approval queue detail with requester, policy, budget, evidence, and decision fields"
+      },
+      {
+        "name": "inline-review-device-approval-confirmation.png",
+        "type": "image",
+        "order": 301,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-review-device-approval-confirmation.png",
+        "alt": "Inline device approval explicit confirmation state before applying the session decision"
+      },
+      {
+        "name": "inline-configure-device-request-receipt.png",
+        "type": "image",
+        "order": 302,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/zava-it-concierge/assets/inline-configure-device-request-receipt.png",
+        "alt": "Inline configured Surface request receipt after explicit review and confirmation"
+      }
     ],
     "authors": [
-      { "gitHubAccount": "vesajuvonen", "pictureUrl": "https://github.com/vesajuvonen.png", "name": "Vesa Juvonen" }
+      {
+        "gitHubAccount": "vesajuvonen",
+        "pictureUrl": "https://github.com/vesajuvonen.png",
+        "name": "Vesa Juvonen"
+      }
     ],
     "references": [
-      { "name": "Build your first SharePoint Copilot App", "description": "Build and package an SPFx Copilot Component with inline and full-screen experiences.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app" },
-      { "name": "Microsoft Copilot", "description": "Microsoft Copilot combines models with organizational context and extensibility.", "url": "https://www.microsoft.com/microsoft-365/copilot" },
-      { "name": "SharePoint Framework overview", "description": "Overview of SharePoint Framework client-side solutions for Microsoft 365.", "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview" }
+      {
+        "name": "Build your first SharePoint Copilot App",
+        "description": "Build and package an SPFx Copilot Component with inline and full-screen experiences.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/get-started/build-your-first-copilot-app"
+      },
+      {
+        "name": "Microsoft Copilot",
+        "description": "Microsoft Copilot combines models with organizational context and extensibility.",
+        "url": "https://www.microsoft.com/microsoft-365/copilot"
+      },
+      {
+        "name": "SharePoint Framework overview",
+        "description": "Overview of SharePoint Framework client-side solutions for Microsoft 365.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
     ]
   }
 ]

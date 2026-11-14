@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "CosmoPolite Agent",
+  "description": "Ask in any language or dialect: a story card that reads itself aloud",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "English",
+      "text": "Tell me something about Copilot Components."
+    },
+    {
+      "title": "Deutsch",
+      "text": "Erzähl mir etwas über Copilot Components."
+    },
+    {
+      "title": "العربية",
+      "text": "أخبرني شيئًا عن Copilot Components."
+    },
+    {
+      "title": "日本語",
+      "text": "Copilot Components について教えて。"
+    }
+  ],
+  "actions": [
+    {
+      "id": "cosmoPoliteAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

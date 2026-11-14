@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "d4ff5c78-145d-427b-8ef6-4a421681bcec",
+  "alias": "ShowMyEquityCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyEquity",
+      "description": {
+        "default": "Use when the user asks about personal equity or vesting. Do not use when the user asks about public company stock."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyEquity/ShowMyEquityCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

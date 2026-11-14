@@ -27,7 +27,7 @@
 // renders.
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import type { ICopilotComponentHostContext } from '@microsoft/sp-copilot-component';
@@ -48,6 +48,7 @@ export default class TimeOffTeamCopilotComponent extends BaseCopilotComponent<IT
   // separate from the team service, which reads/patches the WHOLE team.
   private _requestDataService!: ITimeOffDataService;
   private _unsubscribe?: () => void;
+  private _root: Root | undefined;
   // Bumps every time render() runs. Passed to the React tree so it can detect a
   // fresh tool invocation (vs a passive re-render from host-context changes or
   // data-service mutations) and re-seed its local UI state.
@@ -82,7 +83,11 @@ export default class TimeOffTeamCopilotComponent extends BaseCopilotComponent<IT
     const targetDocument: Document | undefined =
       this.context.domElement.ownerDocument || undefined;
 
-    ReactDOM.render(
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(
       <TimeOffTeamApp
         dataService={this._dataService}
         requestDataService={this._requestDataService}
@@ -92,8 +97,7 @@ export default class TimeOffTeamCopilotComponent extends BaseCopilotComponent<IT
         initialView={this.properties.view}
         propertiesVersion={this._propertiesVersion}
         targetDocument={targetDocument}
-      />,
-      this.context.domElement
+      />
     );
   }
 
@@ -109,9 +113,8 @@ export default class TimeOffTeamCopilotComponent extends BaseCopilotComponent<IT
       this._unsubscribe();
       this._unsubscribe = undefined;
     }
-    if (this.context && this.context.domElement) {
-      ReactDOM.unmountComponentAtNode(this.context.domElement);
-    }
+    this._root?.unmount();
+    this._root = undefined;
   }
 
   // Request fullscreen via the SPFx Copilot bridge. We don't mutate local state

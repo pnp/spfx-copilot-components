@@ -17,7 +17,7 @@ const starters=JSON.parse(fs.readFileSync(path.join(root,'config','conversation-
 for(const file of required.slice(2,7))assert(readme.includes(file),'README must link '+file);
 for(const item of screenshots.screenshots)assert(readme.includes(`assets/${item.file}`),`README must show ${item.intent}.`);
 for(const starter of starters){assert(readme.includes(starter.text),`README must show starter “${starter.title}”.`);assert(readme.includes(`\`${starter.tool}\``),`README must map starter “${starter.title}” to ${starter.tool}.`);}
-assert(readme.includes('**1.0.1**')&&readme.includes('**1.0.0.1**')&&readme.includes('**0.0.2**'),'README release versions are stale.');
+assert(readme.includes('**1.0.3**')&&readme.includes('**1.0.0.3**')&&readme.includes('**0.0.2**'),'README release versions are stale.');
 const charts=fs.readFileSync(path.join(root,'src','shared','visualizations','ServiceCharts.tsx'),'utf8');
 assert(/from\s+["']d3-geo["']/.test(charts)&&/from\s+["']world-atlas\/countries-110m\.json["']/.test(charts),'Real offline map stack is not wired.');
 assert(charts.includes('<table'),'Charts require exact-value table equivalents.');

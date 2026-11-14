@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "8b4c1019-221f-4b9c-9d62-6293ccce3aa0",
+  "alias": "SearchMenuItemsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+  "tools": [
+    {
+      "name": "searchMenuItems",
+      "description": {
+        "default": "Find dishes available today that match dietary needs, a price limit, a cafeteria, or a dish name — for example vegan options under 150."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/searchMenuItems/SearchMenuItemsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

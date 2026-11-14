@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "0f19d523-6f23-460d-9e14-b0889eda0e39",
+  "alias": "GetCafeteriaDetailsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+  "tools": [
+    {
+      "name": "getCafeteriaDetails",
+      "description": {
+        "default": "Show one cafeteria's opening hours, floor, contact, payment options, and any closure notice."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getCafeteriaDetails/GetCafeteriaDetailsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import HomeInline from '../src/copilotComponents/getMyHrDashboard/components/HomeInline';
 import HomeThemeProvider from '../src/copilotComponents/getMyHrDashboard/components/HomeThemeProvider';
@@ -13,6 +13,7 @@ import { ConfiguredFamilyInline } from '../src/copilotComponents/shared/experien
 import { getFamilyExperience } from '../src/copilotComponents/shared/experiences/familyExperienceCatalog';
 import { isZavaFamilyId, ZAVA_FAMILIES, type ZavaFamilyId } from '../src/copilotComponents/shared/models/families';
 import { MockZavaEmployeeDataService } from '../src/copilotComponents/shared/services/MockZavaEmployeeDataService';
+import EmployeeCapabilityExplorer from '../src/copilotComponents/exploreAgentCapabilities/components/EmployeeCapabilityExplorer';
 
 type WidthMode = 'narrow' | 'standard' | 'wide' | 'keynote';
 type DisplayMode = 'inline' | 'fullscreen';
@@ -26,6 +27,7 @@ interface IReviewIntent {
   params?: Record<string, string | number | boolean | string[]>;
   homeView?: HomeView;
   policyKind?: 'answer' | 'comparison';
+  explorer?: boolean;
 }
 
 const intents: ReadonlyArray<IReviewIntent> = [
@@ -48,7 +50,8 @@ const intents: ReadonlyArray<IReviewIntent> = [
   { key: 'approvalInbox', label: 'Approval inbox', family: 'team', route: 'team/approvals', params: { approvalType: 'leave' } },
   { key: 'teamAbsenceCalendar', label: 'Team absence calendar', family: 'team', route: 'team/absence', params: { startDate: '2026-08-17', endDate: '2026-08-21' } },
   { key: 'findExpert', label: 'Find expert', family: 'people', route: 'people/expert', params: { expertise: 'accessibility for a customer keynote', location: 'Helsinki' } },
-  { key: 'exploreOrganization', label: 'Explore organization', family: 'people', route: 'people/organization', params: { personId: 'megan-bowen', organizationId: 'customer-experience', depth: 3 } }
+  { key: 'exploreOrganization', label: 'Explore organization', family: 'people', route: 'people/organization', params: { personId: 'megan-bowen', organizationId: 'customer-experience', depth: 3 } },
+  { key: 'exploreAgentCapabilities', label: 'Explore employee features', family: 'home', route: 'education/features', explorer: true }
 ];
 
 const query = new URLSearchParams(window.location.search);
@@ -66,6 +69,7 @@ const widthPixels: Record<WidthMode, number> = {
 
 const InlineExperience: React.FunctionComponent<{ intent: IReviewIntent; width: number; user: ReturnType<MockZavaEmployeeDataService['getEmployeeExperience']>['user'] }> = ({ intent, width, user }) => {
   const dimensions = { width, height: 900 };
+  if (intent.explorer) return <EmployeeCapabilityExplorer />;
   if (intent.homeView) {
     return <HomeInline properties={normalizeHomeProperties({ view: intent.homeView })} propertiesVersion={1} currentUser={user} availableDisplayModes={['fullscreen']} containerDimensions={dimensions} onRequestFullscreen={() => undefined} fixedView={intent.homeView} />;
   }
@@ -113,7 +117,7 @@ const ReviewHarness: React.FunctionComponent = () => {
       <main className="stage">
         <div className={`host ${width} ${displayMode}`} data-review-ready="true">
           <HomeThemeProvider theme={theme} targetDocument={document}>
-            {displayMode === 'inline' ? <InlineExperience intent={intent} width={pixels} user={user} /> : <ZavaDashboardShell properties={normalizeHomeProperties({ view: 'summary' })} propertiesVersion={1} currentUser={user} containerDimensions={{ width: pixels, height: 1000 }} initialFamily={family} initialRoute={intent.route} initialParams={intent.params} />}
+            {displayMode === 'inline' || intent.explorer ? <InlineExperience intent={intent} width={pixels} user={user} /> : <ZavaDashboardShell properties={normalizeHomeProperties({ view: 'summary' })} propertiesVersion={1} currentUser={user} containerDimensions={{ width: pixels, height: 1000 }} initialFamily={family} initialRoute={intent.route} initialParams={intent.params} />}
           </HomeThemeProvider>
         </div>
       </main>
@@ -121,4 +125,8 @@ const ReviewHarness: React.FunctionComponent = () => {
   );
 };
 
-ReactDOM.render(<ReviewHarness />, document.getElementById('root'));
+const container = document.getElementById('root');
+if (!container) {
+  throw new Error('UX review root element is missing.');
+}
+createRoot(container).render(<ReviewHarness />);

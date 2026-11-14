@@ -28,7 +28,7 @@
 //   renders and stays honest about the source.
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, type Root } from 'react-dom/client';
 
 import { BaseCopilotComponent } from '@microsoft/sp-copilot-component';
 import type { ICopilotComponentHostContext } from '@microsoft/sp-copilot-component';
@@ -43,6 +43,7 @@ import type { ITimeOffRequestCopilotComponentProperties } from './TimeOffRequest
 export default class TimeOffRequestCopilotComponent extends BaseCopilotComponent<ITimeOffRequestCopilotComponentProperties> {
   private _dataService!: ITimeOffDataService;
   private _unsubscribe?: () => void;
+  private _root: Root | undefined;
   // Bumps every time render() runs. Passed to the React tree so it can detect a
   // fresh tool invocation (vs a passive re-render from host-context changes or
   // data-service mutations).
@@ -72,7 +73,11 @@ export default class TimeOffRequestCopilotComponent extends BaseCopilotComponent
     const targetDocument: Document | undefined =
       this.context.domElement.ownerDocument || undefined;
 
-    ReactDOM.render(
+    if (!this._root) {
+      this._root = createRoot(this.context.domElement);
+    }
+
+    this._root.render(
       <TimeOffRequestApp
         dataService={this._dataService}
         hostContext={this.hostContext}
@@ -83,8 +88,7 @@ export default class TimeOffRequestCopilotComponent extends BaseCopilotComponent
         initialNote={this.properties.note}
         propertiesVersion={this._propertiesVersion}
         targetDocument={targetDocument}
-      />,
-      this.context.domElement
+      />
     );
   }
 
@@ -100,9 +104,8 @@ export default class TimeOffRequestCopilotComponent extends BaseCopilotComponent
       this._unsubscribe();
       this._unsubscribe = undefined;
     }
-    if (this.context && this.context.domElement) {
-      ReactDOM.unmountComponentAtNode(this.context.domElement);
-    }
+    this._root?.unmount();
+    this._root = undefined;
   }
 
   // The showcase: a delegated, client-side Microsoft Graph call for the signed-in

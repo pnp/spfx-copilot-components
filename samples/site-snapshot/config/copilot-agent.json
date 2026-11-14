@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Site Snapshot"
+      },
+      "description": {
+        "default": "On-demand health snapshot of a SharePoint site."
+      },
+      "components": [
+        "22b98a60-972e-4cf9-a8f4-5f3d98db82f6"
+      ]
+    }
+  ]
+}

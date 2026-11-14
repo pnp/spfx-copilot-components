@@ -1,4 +1,4 @@
-# Zava Revenue Deal Room - designer and rehearsal review
+# ZavaMesh Revenue Deal Room - designer and rehearsal review
 
 ## Experience goal
 
@@ -6,9 +6,9 @@ The sample should feel like a high-stakes pursuit workspace inside Copilot, not 
 
 ## Visual language
 
-- Midnight-to-azure navigation communicates operational focus.
-- Azure, vermilion, marigold, and green gradients communicate progression, tension, value, and resolution.
-- Paper-toned analytical surfaces separate evidence without becoming a uniform card grid.
+- Supplied woven wordmarks, forest-green navigation, lime mesh waves and textile imagery establish ZavaMesh.
+- Green/lime brand gradients communicate momentum; red, amber and green retain decision-state meaning.
+- Bright editorial analytical surfaces separate evidence without becoming a uniform card grid.
 - Portraits identify owners, evidence sources, reviewers, and buyer influence at the decision point.
 - D3 charts use exact labels and adjacent tables; color and geometry are never the only information carriers.
 - Elevation is restrained: shell and bounded analytical tools use shadows, while page regions remain unframed.
@@ -28,7 +28,7 @@ The sample should feel like a high-stakes pursuit workspace inside Copilot, not 
 ## Interaction review
 
 - Commercial quantity and discount materially change calculations and the D3 path/selected point.
-- Region buttons and keyboard-activated map marks change selected insight.
+- Region buttons support keyboard selection; clickable map marks share the same selected insight.
 - Evidence selection changes the highlighted source.
 - Workspace navigation changes the coordinated dashboard composition.
 - Follow-up messaging occurs only after explicit user action.
@@ -38,7 +38,7 @@ The sample should feel like a high-stakes pursuit workspace inside Copilot, not 
 
 - Every SVG has `role="img"`, a specific accessible name, title, and description.
 - Forecast and map visuals include exact-value tables.
-- Map marks support Enter and Space activation.
+- Region buttons provide keyboard-accessible equivalents to clickable map marks.
 - Portraits have person-name alt text and initials fallback.
 - Semantic red, amber, and green states include text labels.
 - Reduced motion disables decorative filters/transitions without hiding data.
@@ -46,13 +46,26 @@ The sample should feel like a high-stakes pursuit workspace inside Copilot, not 
 
 ## Publication acceptance
 
-- No runtime errors, broken images, or horizontal overflow in all 13 publication captures.
+- No runtime errors, broken images, or horizontal overflow in all 13 curated publication captures.
+- Supplementary current matrix: 105 captures covering every inline intent at standard/narrow/dark,
+  four dashboards, all ten reviews/receipts and eighteen property/no-match/gate states; zero console
+  warnings/errors as well as runtime/image/overflow failures. Both sets are bound to runtime source hashes.
 - No text, badge, map label, or navigation item clipped by hidden overflow.
 - No repeated focused chart in the same full-screen composition.
 - No unexplained AI score or customer/CRM write claim.
 - Screenshot filenames and hashes match `assets/gallery-evidence.json`.
 - Gallery thumbnails are listed in `assets/sample.json` with descriptive alt text.
-- The final `.sppkg` contains one current agent ZIP, hashed JavaScript, seven unique portraits, and no stale output.
+- The final `.sppkg` contains one current ZavaMesh agent ZIP, hashed JavaScript, seven unique portraits,
+  four optimized brand images and no stale output.
+
+## ZavaMesh journey acceptance
+
+Run `npm run capture:journeys`. It proves exact live economics, invalid-input recovery, edit/confirmation
+semantics, mode/theme/route continuation, sequential independent authority, evidence gates, rationale,
+queue updates, receipt audit, storage reload/reset, labels, chart validity, keyboard activation,
+200% page-scale emulation and all four workspaces at four widths in both themes.
+Current hashes and results are in `assets/zavamesh-journey-evidence.json`; tenant-host and public
+redistribution checks remain external. Do not infer WCAG certification from automated captures.
 
 ## Rehearsal fallback
 

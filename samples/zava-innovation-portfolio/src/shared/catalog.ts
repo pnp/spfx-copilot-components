@@ -8,7 +8,7 @@ export type InnovationIntentKey =
   | 'GetInnovationPortfolioHealth' | 'LaunchInnovationChallenge' | 'ManageInnovationExperiment'
   | 'ExploreAgentCapabilities';
 
-export interface IInnovationProperties { readonly message?: string; readonly ideaId?: string; readonly period?: string; readonly region?: string; readonly theme?: string; readonly focus?: string; readonly amount?: number; readonly query?: string; }
+export interface IInnovationProperties { readonly message?: string; readonly ideaId?: string; readonly region?: string; readonly theme?: string; readonly amount?: number; readonly query?: string; }
 export interface IIntentDefinition {
   readonly key: InnovationIntentKey; readonly title: string; readonly lens: InnovationLens; readonly route: string;
   readonly operation: InnovationOperation; readonly role: string; readonly trigger: string; readonly decisionQuestion: string;

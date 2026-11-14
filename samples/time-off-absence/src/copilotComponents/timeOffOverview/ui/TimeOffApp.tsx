@@ -182,7 +182,7 @@ function TimeOffContent(props: ITimeOffContentProps): React.ReactElement {
   // same constraint that keeps Fluent v9 styling resolving in the Copilot
   // iframe. The three components stay separate for Copilot tool routing; this is
   // purely an in-component shortcut. Local state survives data-service
-  // re-renders because the class reconciles via ReactDOM.render (no remount).
+  // re-renders because the class reuses its React root (no remount).
   const [showRequest, setShowRequest] = React.useState<boolean>(false);
 
   const profile = dataService.getProfile();

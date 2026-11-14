@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "17dfe66a-44da-40db-be99-c9eba5604ec3",
+  "alias": "GetWorkplaceHelpCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "GetWorkplaceHelp",
+      "description": {
+        "default": "Use when the user needs non-emergency workplace or facilities help. Do not use when the issue is IT or security related."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/getWorkplaceHelp/GetWorkplaceHelpCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

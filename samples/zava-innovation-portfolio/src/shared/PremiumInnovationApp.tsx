@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
-  Badge, Button, Field, Input, Textarea
+  Badge, Button, Field, Input
 } from '@fluentui/react-components';
 import {
-  ArrowMaximize24Regular, Beaker24Regular, Building24Regular, CheckmarkCircle20Filled,
+  ArrowMaximize24Regular, Beaker24Regular, Building24Regular,
   ClipboardTaskListLtr24Regular, CompassNorthwest24Regular, DataTrending24Regular,
   Lightbulb24Regular, Money24Regular, Person24Regular,
   ArrowReset20Regular, Search20Regular, Settings20Regular, ShieldCheckmark20Regular, Sparkle20Regular, TargetArrow24Regular,
@@ -14,13 +14,15 @@ import { getIntent, INTENTS, LENS_LABELS } from './catalog';
 import type { IInnovationProperties, IIntentDefinition, InnovationLens } from './catalog';
 import { IDEAS, REGION_DATA, STAGE_COUNTS, TRENDS, money } from './domain';
 import { PERSONA_MEDIA } from './media';
-import { addReceipt, resetReceipts } from './sessionStore';
+import { resetReceipts } from './sessionStore';
+import { BusinessCase, Challenge, ExecutiveBrief, Experiment, Funding, IdeaSubmission, NoMatch, Recognition } from './InnovationExperiences';
+import { currency } from './operations';
+import { InnovationContext, useVisibleState, type IVisibleState } from './InnovationContext';
 import ReviewDecisionCenter from './ReviewDecisionCenter';
 import WorldInnovationMap from './WorldInnovationMap';
 import styles from './PremiumInnovationApp.module.scss';
 
-interface IProps { readonly definition:IIntentDefinition; readonly properties:IInnovationProperties; readonly currentUserName:string; readonly displayMode?:string; readonly onRequestFullscreen?:()=>void; }
-type WorkflowStage='draft'|'evidence'|'review'|'receipt';
+interface IProps { readonly definition:IIntentDefinition; readonly properties:IInnovationProperties; readonly currentUserName:string; readonly displayMode?:string; readonly onRequestFullscreen?:()=>void; readonly onVisibleState?:(state:IVisibleState)=>void; readonly hostError?:string; }
 
 const profiles:Record<InnovationLens,{name:string;role:string;headline:string;metric:string;metricLabel:string}>={
   'my-innovation':{name:'Megan Bowen',role:'Senior Program Manager',headline:'Move your strongest ideas forward with evidence and visible momentum.',metric:'3',metricLabel:'ideas in motion'},
@@ -68,7 +70,6 @@ function Waterfall():React.ReactElement{
   return <svg className={styles.chart} viewBox="0 0 680 220" role="img" aria-label="Innovation budget allocation waterfall"><title>Innovation budget bridge</title>{items.map((item,index)=><g key={item.label}><rect x={35+index*125} y={190-(item.start+item.value)*34} width="82" height={item.value*34} fill={item.tone}/><text x={76+index*125} y="210" textAnchor="middle" fontSize="11">{item.label}</text><text x={76+index*125} y={184-(item.start+item.value)*34} textAnchor="middle" fontSize="11">${item.value}m</text></g>)}</svg>;
 }
 function Donut():React.ReactElement{return <div className={styles.donutWrap} role="img" aria-label="Investment mix: 52 percent core, 29 percent adjacent, 19 percent transformational"><div className={styles.donut}/><div className={styles.legend}><span><i style={{background:'#542568'}}/>Core 52%</span><span><i style={{background:'#c49a00'}}/>Adjacent 29%</span><span><i style={{background:'#087e8b'}}/>Transform 19%</span></div></div>;}
-function PeopleRow({names}:{names:readonly string[]}):React.ReactElement{return <div className={styles.tags}>{names.map(name=><span className={styles.person} key={name}><Avatar name={name}/><span><b>{name}</b><br/><span className={styles.meta}>{profiles[Object.keys(profiles).find(key=>profiles[key as InnovationLens].name===name) as InnovationLens]?.role||'Innovation specialist'}</span></span></span>)}</div>;}
 
 const TOP_IDEAS=[
   {rank:1,title:'Invoice Exception Automation',person:'Miriam Graham',theme:'Operational efficiency',value:'$1.7m',roi:'257%',phase:'Scale',badge:'Value creator'},
@@ -79,23 +80,37 @@ const TOP_IDEAS=[
 ] as const;
 
 function TopIdeas():React.ReactElement{
-  const [acknowledged,setAcknowledged]=React.useState<string>();
-  const acknowledge=(item:typeof TOP_IDEAS[number]):void=>{setAcknowledged(item.title);addReceipt('CelebrateInnovationImpact','Joni Sherman',`${item.person}: ${item.badge} for ${item.title} and ${item.value} realized value`);};
-  return <section className={`${styles.panel} ${styles.wide} ${styles.topIdeas}`}><div className={styles.chartTitle}><div><span>Impact recognition</span><h3>Top performing ideas · by value realized</h3></div><Badge appearance="tint" color="success">Verified outcomes only</Badge></div>{acknowledged&&<div className={styles.acknowledged}><Trophy24Regular/><span><b>Impact acknowledged</b><small>{acknowledged} is ready for the company recognition story.</small></span></div>}<div className={styles.topIdeaHeader}><span>Rank & idea</span><span>Contributor</span><span>Value / ROI</span><span>Phase</span><span>Recognition</span></div><div className={styles.topIdeaList}>{TOP_IDEAS.map(item=><article className={styles.topIdeaRow} key={item.title}><div className={styles.rank}><strong>{item.rank}</strong><Trophy24Regular/></div><div><b>{item.title}</b><small>{item.theme}</small></div><div className={styles.person}><Avatar name={item.person}/><span><b>{item.person}</b><small>{item.badge}</small></span></div><div><b>{item.value}</b><small>{item.roi} ROI</small></div><Badge appearance="tint" color={item.phase==='Value realized'?'success':item.phase==='Scale'?'informative':'warning'}>{item.phase}</Badge><Button appearance={acknowledged===item.title?'primary':'secondary'} disabled={acknowledged===item.title} onClick={()=>acknowledge(item)}>{acknowledged===item.title?'Acknowledged':'Acknowledge impact'}</Button></article>)}</div><div className={styles.gamificationNote}><ShieldCheckmark20Regular/><span><b>Recognition, not a popularity contest</b><small>Rank uses verified realized value, ROI, evidence confidence, and named contribution. Submission volume and raw votes do not earn status.</small></span></div></section>;
+  return <section className={`${styles.panel} ${styles.wide} ${styles.topIdeas}`}><div className={styles.chartTitle}><div><span>Illustrative showcase ranking</span><h3>Top performing ideas · by value realized</h3></div><Badge appearance="tint">Offline examples</Badge></div><div className={styles.topIdeaHeader}><span>Rank & idea</span><span>Contributor</span><span>Value / ROI</span><span>Phase</span><span>Recognition</span></div><div className={styles.topIdeaList}>{TOP_IDEAS.map(item=><article className={styles.topIdeaRow} key={item.title}><div className={styles.rank}><strong>{item.rank}</strong><Trophy24Regular/></div><div><b>{item.title}</b><small>{item.theme}</small></div><div className={styles.person}><Avatar name={item.person}/><span><b>{item.person}</b><small>{item.badge}</small></span></div><div><b>{item.value}</b><small>{item.roi} ROI</small></div><Badge appearance="tint" color={item.phase==='Value realized'?'success':item.phase==='Scale'?'informative':'warning'}>{item.phase}</Badge><span>{item.badge}</span></article>)}</div><div className={styles.gamificationNote}><ShieldCheckmark20Regular/><span><b>Recognition requires human evidence</b><small>Use Celebrate impact to name a contribution and source, review the message, and explicitly confirm. This information view creates no receipts.</small></span></div></section>;
 }
 
-function Workflow({definition,properties,kind}:{definition:IIntentDefinition;properties:IInnovationProperties;kind:'idea'|'case'|'recognition'|'gate'|'funding'|'brief'|'challenge'|'experiment'}):React.ReactElement{
-  const [stage,setStage]=React.useState<WorkflowStage>('draft'); const [title,setTitle]=React.useState(properties.message||properties.ideaId||(kind==='challenge'?'Future of Onboarding':'Smart Onboarding Journey')); const [rationale,setRationale]=React.useState('Evidence supports a bounded next step with measurable outcomes.');
-  const labels:Record<typeof kind,string>={idea:'Idea canvas',case:'Value model',recognition:'Recognition',gate:'Gate decision',funding:'Funding decision',brief:'Executive narrative',challenge:'Challenge brief',experiment:'Experiment plan'};
-  const confirm=():void=>{addReceipt(definition.key,definition.role,`${title}: ${rationale}`);setStage('receipt');};
-  return <div data-layout={`${definition.key}-${kind}`} className={styles.grid2}><section className={styles.panel}><div className={styles.chartTitle}><h3>{labels[kind]}</h3><span>{stage==='draft'?'1. Shape':stage==='evidence'?'2. Evidence':stage==='review'?'3. Confirm':'Complete'}</span></div><div className={styles.steps}>{(['draft','evidence','review'] as WorkflowStage[]).map(item=><div className={styles.step} data-active={stage===item} key={item}/>)}</div>{stage==='receipt'?<div className={styles.receipt}><CheckmarkCircle20Filled className={styles.good}/><span><b>Session receipt created</b><br/><span className={styles.meta}>No tenant data changed. Related dashboards can reflect this mock outcome.</span></span></div>:stage==='draft'?<div className={styles.form}><Field className={styles.span} label={kind==='gate'||kind==='funding'?'Selected record':'Title or outcome'} required><Input value={title} onChange={(_,data)=>setTitle(data.value)}/></Field><Field label={kind==='funding'?'Proposed amount':'Strategic theme'}><Input defaultValue={kind==='funding'?'400000':'Employee experience'}/></Field><Field label="Accountable owner"><Input defaultValue={definition.role}/></Field><Field className={styles.span} label="Rationale or evidence"><Textarea value={rationale} onChange={(_,data)=>setRationale(data.value)}/></Field></div>:stage==='evidence'?<div className={styles.grid3}><div className={styles.panel}><h4>Strategic fit</h4><b className={styles.good}>86%</b><p className={styles.meta}>Directly supports employee experience.</p></div><div className={styles.panel}><h4>Evidence</h4><b>4 sources</b><p className={styles.meta}>Research, usage, finance, sponsor.</p></div><div className={styles.panel}><h4>Constraint</h4><b className={styles.warn}>{kind==='funding'?'H2 target':'Adoption'}</b><p className={styles.meta}>Requires explicit review.</p></div></div>:<div><p><b>{title}</b></p><p>{rationale}</p><div className={styles.question}><TargetArrow24Regular/><span>{definition.outcome}</span></div></div>}<div className={styles.actions}>{stage==='draft'&&<Button appearance="primary" disabled={!title.trim()||!rationale.trim()} onClick={()=>setStage('evidence')}>Review evidence</Button>}{stage==='evidence'&&<><Button onClick={()=>setStage('draft')}>Edit</Button><Button appearance="primary" onClick={()=>setStage('review')}>Review consequences</Button></>}{stage==='review'&&<><Button onClick={()=>setStage('evidence')}>Back</Button><Button appearance="primary" onClick={confirm}>Confirm mock action</Button></>}{stage==='receipt'&&<Button onClick={()=>setStage('draft')}>Start again</Button>}</div></section><aside className={styles.panel}>{kind==='recognition'?<div className={styles.recognition}><Trophy24Regular/><h3>Innovation impact</h3><h2>{title}</h2><p>$1.4m measured value · 31% faster onboarding</p><PeopleRow names={['Megan Bowen','Patti Fernandez']}/></div>:kind==='funding'||kind==='case'?<><h3>Financial consequence</h3><Waterfall/></>:kind==='experiment'?<><h3>Evidence confidence</h3><Bars items={[{label:'Adoption',value:68},{label:'Time saved',value:82},{label:'Quality',value:74}]}/></>:<><h3>Readiness</h3><div className={styles.donutWrap}><div className={styles.scoreRing}><strong>78</strong></div><div className={styles.legend}><span>Impact 88</span><span>Fit 84</span><span>Evidence 62</span></div></div></>}</aside></div>;
-}
 
-function MyInnovation():React.ReactElement{return <div data-layout="GetMyInnovation-personal"><div className={styles.ideaHero}><Avatar name="Megan Bowen" large/><div><h3>Good morning, Megan</h3><p className={styles.summary}>One idea needs evidence before Friday. Smart Onboarding Journey is ready for its business case.</p></div><Badge color="warning">1 action</Badge></div><div className={styles.grid3}>{IDEAS.slice(0,3).map((idea,index)=><div className={styles.panel} key={idea.id}><div className={styles.chartTitle}><h3>{idea.title}</h3><Badge color={index===0?'success':'informative'}>{idea.stage}</Badge></div><p className={styles.meta}>{idea.theme}</p><Bars items={[{label:'Impact',value:idea.impact},{label:'Readiness',value:72-index*9}]}/></div>)}</div></div>;}
-function Queue({gate=false,ideaId}:{gate?:boolean;ideaId?:string}):React.ReactElement{return <ReviewDecisionCenter startInDetail={gate} initialSubmissionId={ideaId}/>;}
-function Value():React.ReactElement{return <div data-layout="TrackInnovationValue-realization" className={styles.grid2}><section className={styles.panel}><h3>Projected vs. realized value</h3><Trend metric="value"/></section><aside className={styles.panel}><h3>Value at risk</h3><Bars items={[{label:'Onboarding',value:92},{label:'Forecasting',value:76},{label:'Knowledge',value:58},{label:'Controls',value:83}]}/><p className={styles.question}>Knowledge Discovery is $310k below its case.</p></aside></div>;}
-function Growth():React.ReactElement{const [metric,setMetric]=React.useState<'submissions'|'conversion'|'value'>('submissions');return <div data-layout="GetInnovationGrowth-trend"><div className={styles.toolbar}><div className={styles.segmented}>{(['submissions','conversion','value'] as const).map(item=><button className={styles.segment} data-active={metric===item} onClick={()=>setMetric(item)} key={item}>{item}</button>)}</div><Badge appearance="tint">12 months</Badge></div><Trend metric={metric}/><div className={styles.question}><DataTrending24Regular/>Participation is up 24%; Gate 1 conversion improved by 8 points.</div></div>;}
-function Global():React.ReactElement{const [selectedName,setSelectedName]=React.useState('APAC');const selected=REGION_DATA.find(item=>item.name===selectedName)??REGION_DATA[0];return <div data-layout="ExploreGlobalInnovation-map" className={styles.grid2}><section><WorldInnovationMap regions={REGION_DATA} selectedName={selected.name} onSelect={setSelectedName}/></section><aside className={styles.panel}><div className={styles.chartTitle}><div><span>Selected reporting region</span><h3>{selected.name}</h3></div><Badge appearance="tint" color={selected.conversion>=50?'success':selected.conversion>=44?'informative':'warning'}>{selected.conversion}% conversion</Badge></div><div className={styles.grid2}><div><b>{selected.submissions}</b><div className={styles.meta}>Submissions</div></div><div><b>{selected.conversion}%</b><div className={styles.meta}>Stage conversion</div></div></div><h3>Regional comparison</h3><Bars items={REGION_DATA.map(item=>({label:item.name,value:item.conversion}))}/><p className={styles.question}>APAC participation is healthy, but conversion trails EMEA by 16 points.</p></aside></div>;}
+function MyInnovation({properties,actor}:{properties:IInnovationProperties;actor:string}):React.ReactElement{
+  const ideas=IDEAS.filter(idea=>idea.owner===actor&&(!properties.ideaId||idea.id===properties.ideaId)&&(!properties.theme||idea.theme===properties.theme));
+  useVisibleState('GetMyInnovation',ideas.length?'information':'no-match',`${actor}: ${ideas.map(idea=>`${idea.id} ${idea.title} ${idea.stage}`).join('; ')||'No matching personal ideas'}`);
+  return <div data-layout="GetMyInnovation-personal"><div className={styles.ideaHero}><Avatar name={actor} large/><div><h3>{actor} · personal ideas</h3><p className={styles.summary}>{ideas.length} matching ideas. Status is from the deterministic catalog, not inferred progress.</p></div></div>{ideas.length?<div className={styles.grid3}>{ideas.slice(0,12).map(idea=><div className={styles.panel} key={idea.id}><div className={styles.chartTitle}><h3>{idea.title}</h3><Badge>{idea.stage}</Badge></div><p className={styles.meta}>{idea.id} · {idea.theme}</p><Bars items={[{label:'Impact',value:idea.impact},{label:'Effort',value:idea.effort}]}/><p>Next: {idea.stage==='Screening'?'Resolve reviewer evidence gaps':idea.stage==='Funding'?'Prepare capital committee conditions':'Check milestone evidence with the owner'}.</p></div>)}</div>:<p role="status">No matching personal ideas for {actor}{properties.ideaId?` / ${properties.ideaId}`:''}{properties.theme?` / ${properties.theme}`:''}.</p>}</div>;
+}
+function Queue({gate=false,ideaId}:{gate?:boolean;ideaId?:string}):React.ReactElement{return <ReviewDecisionCenter startInDetail={gate} allowDecision={gate} initialSubmissionId={ideaId}/>;}
+function Value({properties}:{properties:IInnovationProperties}):React.ReactElement{
+  const ideas=IDEAS.filter(idea=>(!properties.ideaId||idea.id===properties.ideaId)&&(!properties.theme||idea.theme===properties.theme));
+  const projected=ideas.reduce((sum,idea)=>sum+idea.projected,0),actual=ideas.reduce((sum,idea)=>sum+idea.actual,0);
+  useVisibleState('TrackInnovationValue',ideas.length?'information':'no-match',ideas.length?`${ideas.length} ideas; projected ${currency(projected)}, measured ${currency(actual)}, variance ${currency(actual-projected)}`:`No matching idea/theme: ${properties.ideaId||properties.theme}`);
+  return <div data-layout="TrackInnovationValue-realization">{ideas.length?<><Kpis items={[{label:'Scope ideas',value:String(ideas.length)},{label:'Projected',value:money(projected)},{label:'Measured',value:money(actual)},{label:'Variance',value:money(actual-projected)}]}/><div className={styles.grid2}><section className={styles.panel}><h3>Program value trend · Jan–Dec 2026</h3><Trend metric="value"/><p className={styles.meta}>Trend is the overall program series; record comparison below uses your selected scope.</p></section><aside className={styles.panel}><h3>Selected outcome ledger</h3>{ideas.slice(0,8).map(idea=><div className={styles.row} key={idea.id}><span><b>{idea.title}</b><br/>{idea.id} · {idea.owner}<br/>Projected {currency(idea.projected)} · measured {currency(idea.actual)}</span><span className={idea.actual<idea.projected?styles.warn:styles.good}>{currency(idea.actual-idea.projected)}</span></div>)}<p className={styles.meta}>Showing {Math.min(8,ideas.length)} of {ideas.length}. Aggregate includes all matching records.</p></aside></div></>:<p role="status">No matching outcome for {properties.ideaId||properties.theme}. No healthy default was substituted.</p>}</div>;
+}
+function Growth():React.ReactElement{
+  const [metric,setMetric]=React.useState<'submissions'|'conversion'|'value'>('submissions');
+  const first=TRENDS[0],last=TRENDS[TRENDS.length-1];
+  const change=metric==='conversion'?`${last.conversion-first.conversion} percentage points`:`${(((last[metric]-first[metric])/first[metric])*100).toFixed(1)}%`;
+  useVisibleState('GetInnovationGrowth','information',`${metric}; Jan–Dec 2026; change ${change}`);
+  return <div data-layout="GetInnovationGrowth-trend"><div className={styles.toolbar}><div className={styles.segmented}>{(['submissions','conversion','value'] as const).map(item=><button className={styles.segment} data-active={metric===item} onClick={()=>setMetric(item)} key={item}>{item}</button>)}</div><Badge appearance="tint">Jan–Dec 2026</Badge></div><Trend metric={metric}/><div className={styles.question}><DataTrending24Regular/>{metric}: {change} from first to final month in this mock series.</div></div>;
+}
+function Global({properties}:{properties:IInnovationProperties}):React.ReactElement{
+  const [selectedName,setSelectedName]=React.useState(properties.region||'APAC');
+  const selected=REGION_DATA.find(item=>item.name===selectedName);
+  useVisibleState('ExploreGlobalInnovation',selected?'information':'no-match',selected?`${selected.name}: ${selected.submissions} submissions; ${selected.conversion}% conversion`:`Unknown region ${selectedName}`);
+  if(!selected)return <NoMatch intent="ExploreGlobalInnovation" id={selectedName}/>;
+  const best=Math.max(...REGION_DATA.map(item=>item.conversion));
+  return <div data-layout="ExploreGlobalInnovation-map" className={styles.grid2}><section><WorldInnovationMap regions={REGION_DATA} selectedName={selected.name} onSelect={setSelectedName}/></section><aside className={styles.panel}><div className={styles.chartTitle}><div><span>Selected reporting region</span><h3>{selected.name}</h3></div><Badge appearance="tint" color={selected.conversion>=50?'success':selected.conversion>=44?'informative':'warning'}>{selected.conversion}% conversion</Badge></div><div className={styles.grid2}><div><b>{selected.submissions}</b><div className={styles.meta}>Submissions</div></div><div><b>{selected.conversion}%</b><div className={styles.meta}>Stage conversion</div></div></div><h3>Regional comparison</h3><Bars items={REGION_DATA.map(item=>({label:item.name,value:item.conversion}))}/><p className={styles.question}>{selected.name} trails the best reporting region by {best-selected.conversion} conversion points.</p></aside></div>;
+}
 function BudgetView():React.ReactElement{return <div data-layout="TrackInnovationBudget-finance" className={styles.grid2}><section className={styles.panel}><h3>Budget to forecast bridge</h3><Waterfall/></section><aside className={styles.panel}><h3>Horizon allocation</h3><Donut/><p className={styles.question}>Transformational investment is 6 points below target.</p></aside></div>;}
 function PortfolioHealth():React.ReactElement{return <div data-layout="GetInnovationPortfolioHealth-scorecard" className={styles.analyticsGrid}><section className={styles.panel}><h3>Funnel velocity</h3><Funnel compact/></section><section className={styles.panel}><h3>Health dimensions</h3><Bars items={[{label:'Velocity',value:78},{label:'Balance',value:66},{label:'Alignment',value:88},{label:'Value',value:81}]}/></section><section className={styles.panel}><h3>Investment mix</h3><Donut/></section><section className={styles.panel}><h3>Leadership exceptions</h3><div className={styles.list}><div className={styles.row}><span>Transform horizon below target</span><Badge color="warning">Watch</Badge></div><div className={styles.row}><span>APAC conversion gap</span><Badge color="warning">16 pts</Badge></div><div className={styles.row}><span>Value realization</span><Badge color="success">+9%</Badge></div></div></section></div>;}
 function Portfolio():React.ReactElement{return <div data-layout="ExploreInnovationPortfolio-command" className={styles.analyticsGrid}><section className={`${styles.panel} ${styles.wide} ${styles.stageGatePanel}`}><div className={styles.chartTitle}><div><span>Portfolio progression</span><h3>Stage-gate funnel</h3></div><span>120 ideas · 7 scaled outcomes</span></div><PortfolioStageGate/></section><section className={styles.panel}><h3>Impact vs. effort</h3><Bubble/></section><section className={styles.panel}><h3>Horizon balance</h3><Donut/><p className={styles.meta}>Target: 50% core / 30% adjacent / 20% transform</p></section><section className={styles.panel}><h3>Program momentum</h3><Trend metric="conversion"/></section><section className={styles.panel}><h3>Strategic themes</h3><Bars items={[{label:'AI & automation',value:82},{label:'Customer',value:68},{label:'Efficiency',value:61},{label:'Sustainability',value:47}]}/><p className={styles.question}>Employee experience has the strongest value conversion this quarter.</p></section><TopIdeas/></div>;}
@@ -105,10 +120,11 @@ function Explorer({properties={}}:{properties?:IInnovationProperties}):React.Rea
   const [selected,setSelected]=React.useState<IIntentDefinition>();
   const normalizedQuery=query.trim().toLowerCase();
   const results=INTENTS.filter(item=>item.operation!=='education'&&`${item.title} ${item.role} ${item.outcome} ${item.decisionQuestion} ${LENS_LABELS[item.lens]}`.toLowerCase().includes(normalizedQuery));
+  useVisibleState('ExploreAgentCapabilities',results.length?'capability-preview':'no-match',selected?`${selected.key}: ${selected.outcome}. Preview only; no tool was invoked.`:`${results.length} capabilities matching "${query}"; no action taken.`);
   return <div data-layout="ExploreAgentCapabilities-gallery" className={styles.capabilityExplorer}>
     <section className={styles.capabilityCatalog} aria-label="Available agent capabilities">
       <div className={styles.capabilityHeading}><div><span>Agent capability catalog</span><h3>16 ways to move innovation forward</h3></div><Badge appearance="tint" color="informative">{results.length} shown</Badge></div>
-      <Field label="What are you trying to accomplish?"><Input contentBefore={<Search20Regular/>} value={query} onChange={(_,data)=>setQuery(data.value)} placeholder="Search ideas, reviews, funding, programs, or insights"/></Field>
+      <Field label="What are you trying to accomplish?"><Input contentBefore={<Search20Regular/>} value={query} onChange={(_,data)=>{setQuery(data.value);setSelected(undefined);}} placeholder="Search ideas, reviews, funding, programs, or insights"/></Field>
       <div className={styles.capabilityGroups}>{OPERATIONAL_LENSES.map(lens=>{
         const items=results.filter(item=>item.lens===lens);
         if(items.length===0)return null;
@@ -123,26 +139,29 @@ function Explorer({properties={}}:{properties?:IInnovationProperties}):React.Rea
   </div>;
 }
 
-function IntentBody({definition,properties}:{definition:IIntentDefinition;properties:IInnovationProperties}):React.ReactElement{
+function IntentBody({definition,properties,actor}:{definition:IIntentDefinition;properties:IInnovationProperties;actor:string}):React.ReactElement{
   switch(definition.key){
-    case 'SubmitInnovationIdea':return <Workflow definition={definition} properties={properties} kind="idea"/>;
-    case 'GetMyInnovation':return <MyInnovation/>;
-    case 'BuildIdeaBusinessCase':return <Workflow definition={definition} properties={properties} kind="case"/>;
-    case 'CelebrateInnovationImpact':return <Workflow definition={definition} properties={properties} kind="recognition"/>;
+    case 'SubmitInnovationIdea':return <IdeaSubmission properties={properties} actor={actor}/>;
+    case 'GetMyInnovation':return <MyInnovation properties={properties} actor={actor}/>;
+    case 'BuildIdeaBusinessCase':return <BusinessCase properties={properties} actor={actor}/>;
+    case 'CelebrateInnovationImpact':return <Recognition properties={properties} actor={actor}/>;
     case 'GetInnovationReviewQueue':return <Queue/>;
     case 'ReviewIdeaGate':return <Queue gate ideaId={properties.ideaId}/>;
-    case 'ReviewInnovationFunding':return <Workflow definition={definition} properties={properties} kind="funding"/>;
-    case 'ExploreInnovationPortfolio':return <Portfolio/>;
-    case 'TrackInnovationValue':return <Value/>;
-    case 'GenerateInnovationBrief':return <Workflow definition={definition} properties={properties} kind="brief"/>;
+    case 'ReviewInnovationFunding':return <Funding properties={properties} actor={actor}/>;
+    case 'ExploreInnovationPortfolio':return <StaticContext intent={definition.key} detail="Illustrative portfolio funnel: 120 ideas, 7 scaled outcomes. Investment mix 52% core, 29% adjacent, 19% transform. No action taken."><Portfolio/></StaticContext>;
+    case 'TrackInnovationValue':return <Value properties={properties}/>;
+    case 'GenerateInnovationBrief':return <ExecutiveBrief properties={properties} actor={actor}/>;
     case 'GetInnovationGrowth':return <Growth/>;
-    case 'ExploreGlobalInnovation':return <Global/>;
-    case 'TrackInnovationBudget':return <BudgetView/>;
-    case 'GetInnovationPortfolioHealth':return <PortfolioHealth/>;
-    case 'LaunchInnovationChallenge':return <Workflow definition={definition} properties={properties} kind="challenge"/>;
-    case 'ManageInnovationExperiment':return <Workflow definition={definition} properties={properties} kind="experiment"/>;
+    case 'ExploreGlobalInnovation':return <Global properties={properties}/>;
+    case 'TrackInnovationBudget':return <StaticContext intent={definition.key} detail="Mock budget: allocated $4.8m minus committed $2.6m, spent $900k, forecast $500k equals available $800k."><BudgetView/></StaticContext>;
+    case 'GetInnovationPortfolioHealth':return <StaticContext intent={definition.key} detail="Illustrative health: velocity 78, balance 66, alignment 88, value 81. Exceptions: transform horizon, APAC conversion gap."><PortfolioHealth/></StaticContext>;
+    case 'LaunchInnovationChallenge':return <Challenge properties={properties} actor={actor}/>;
+    case 'ManageInnovationExperiment':return <Experiment properties={properties} actor={actor}/>;
     case 'ExploreAgentCapabilities':return <Explorer properties={properties}/>;
   }
+}
+function StaticContext({intent,detail,children}:{intent:string;detail:string;children:React.ReactNode}):React.ReactElement{
+  useVisibleState(intent,'information',detail);return <>{children}</>;
 }
 function lensKpis(lens:InnovationLens):readonly {label:string;value:string;detail?:string}[]{
   if(lens==='my-innovation')return [{label:'Ideas in motion',value:'3'},{label:'Next action',value:'1'},{label:'Supporters',value:'42'},{label:'Recognized value',value:'$1.4m'}];
@@ -151,19 +170,51 @@ function lensKpis(lens:InnovationLens):readonly {label:string;value:string;detai
   if(lens==='investment')return [{label:'Allocated',value:'$4.8m'},{label:'Committed',value:'$2.6m'},{label:'Available',value:'$800k'},{label:'Expected value',value:'$12.4m'}];
   return [{label:'Ideas',value:'120'},{label:'Portfolio health',value:'78'},{label:'Value realized',value:'$8.7m'},{label:'Conversion',value:'42%'}];
 }
-function LensDashboard({lens,origin,properties}:{lens:InnovationLens;origin:IIntentDefinition;properties:IInnovationProperties}):React.ReactElement{
-  const active=origin.lens===lens?origin:getIntent(lens==='my-innovation'?'GetMyInnovation':lens==='programs-pilots'?'GetInnovationGrowth':lens==='reviews-gates'?'GetInnovationReviewQueue':lens==='investment'?'TrackInnovationBudget':'GetInnovationPortfolioHealth');
-  if(lens==='enterprise-insights')return <Portfolio/>;
-  if(lens==='reviews-gates')return <ReviewDecisionCenter startInDetail={active.key==='ReviewIdeaGate'} initialSubmissionId={properties.ideaId}/>;
-  return <div className={styles.dashboardGrid}><section className={styles.panel}><h2>{active.title}</h2><IntentBody definition={active} properties={properties}/></section><aside className={styles.panel}><div className={styles.chartTitle}><h3>Work area</h3><span>{INTENTS.filter(item=>item.lens===lens).length} tools</span></div><div className={styles.list}>{INTENTS.filter(item=>item.lens===lens).map(item=><div className={styles.row} key={item.key}><span><b>{item.title}</b><br/><span className={styles.meta}>{item.decisionQuestion}</span></span><TargetArrow24Regular/></div>)}</div></aside></div>;
+const DEFAULT_TOOLS:Record<InnovationLens,Parameters<typeof getIntent>[0]>={'my-innovation':'GetMyInnovation','programs-pilots':'GetInnovationGrowth','reviews-gates':'GetInnovationReviewQueue',investment:'TrackInnovationBudget','enterprise-insights':'ExploreInnovationPortfolio',education:'ExploreAgentCapabilities'};
+export default function PremiumInnovationApp(props:IProps):React.ReactElement{
+  const invocation=JSON.stringify([props.definition.key,props.properties,props.currentUserName]);
+  return <Invocation key={invocation} {...props}/>;
 }
-function Fullscreen({definition,properties,currentUserName}:{definition:IIntentDefinition;properties:IInnovationProperties;currentUserName:string}):React.ReactElement{
-  const initial=definition.lens==='education'?'my-innovation':definition.lens;const [lens,setLens]=React.useState<InnovationLens>(initial);const [compact,setCompact]=React.useState(false);const [resetVersion,setResetVersion]=React.useState(0);const tabs:InnovationLens[]=(Object.keys(LENS_LABELS) as InnovationLens[]).filter(item=>item!=='education');const profile=profiles[lens];const navRef=React.useRef<HTMLElement>(null);
-  const resetDemo=():void=>{resetReceipts();setResetVersion(value=>value+1);};
-  const onKeys=(event:React.KeyboardEvent<HTMLElement>):void=>{if(event.key!=='ArrowDown'&&event.key!=='ArrowUp')return;event.preventDefault();const next=(tabs.indexOf(lens)+(event.key==='ArrowDown'?1:-1)+tabs.length)%tabs.length;setLens(tabs[next]);setTimeout(()=>navRef.current?.querySelectorAll<HTMLButtonElement>('[role=tab]')[next]?.focus(),0);};
-  return <div className={`${styles.root} ${styles.shell}`}><nav className={styles.nav} aria-label="Innovation work areas"><div className={styles.navBrand}><span className={styles.brandMark}><Lightbulb24Regular/></span><span>Zava Innovation</span></div><div className={styles.navList} role="tablist" aria-orientation="vertical" ref={navRef as React.RefObject<HTMLDivElement>} onKeyDown={onKeys}>{tabs.map(item=><button id={`lens-${item}`} role="tab" aria-selected={lens===item} aria-controls={`dashboard-${item}`} tabIndex={lens===item?0:-1} className={styles.navTab} data-selected={lens===item} key={item} onClick={()=>setLens(item)}>{lensIcons[item]}<span>{LENS_LABELS[item]}</span></button>)}</div><div className={styles.navMeta}>Offline showcase<br/>Deterministic mock data<br/>No tenant writes</div></nav><main className={styles.main} role="tabpanel" id={`dashboard-${lens}`} aria-labelledby={`lens-${lens}`}><div className={styles.topbar}><div className={styles.toptools}><Button icon={<Settings20Regular/>} aria-pressed={compact} onClick={()=>setCompact(value=>!value)}>{compact?'Comfortable':'Compact'}</Button><Button appearance="subtle" icon={<ArrowReset20Regular/>} onClick={resetDemo}>Reset demo data</Button><Badge appearance="tint" color="success">Live operating picture</Badge></div><div className={styles.profile}><Avatar name={profile.name}/><span><b>{profile.name}</b><br/><span className={styles.meta}>{currentUserName===profile.name?'Current profile':profile.role}</span></span></div></div><section className={styles.hero}><Avatar name={profile.name} large/><div><span className={styles.meta}>{profile.role}</span><h1>{LENS_LABELS[lens]}</h1><p>{profile.headline}</p></div><div className={styles.heroMetric}><strong>{profile.metric}</strong><span>{profile.metricLabel}</span></div></section><Kpis items={lensKpis(lens)}/><div key={`${lens}-${resetVersion}`}><LensDashboard lens={lens} origin={definition} properties={properties}/></div><p className={styles.meta}>Use the Copilot host control to return to the conversation. Opened from {definition.title}.</p></main></div>;
-}
-export default function PremiumInnovationApp({definition,properties,currentUserName,displayMode,onRequestFullscreen}:IProps):React.ReactElement{
-  if(displayMode==='fullscreen')return definition.operation==='education'?<div className={`${styles.root} ${styles.canvas}`}><Explorer properties={properties}/></div>:<Fullscreen definition={definition} properties={properties} currentUserName={currentUserName}/>;
-  return <section className={`${styles.root} ${styles.inline}`} data-intent={definition.key}><div className={styles.accent}/><div className={styles.canvas}><header className={styles.header}><div><div className={styles.brand}>Zava Innovation Hub · {LENS_LABELS[definition.lens]}</div><h2 className={styles.title}>{definition.title}</h2><p className={styles.summary}>{definition.summary}</p></div>{onRequestFullscreen&&<Button className={styles.expand} appearance="subtle" icon={<ArrowMaximize24Regular/>} onClick={onRequestFullscreen} title="View in full screen" aria-label="View in full screen"><span className={styles.expandLabel}>Expand</span></Button>}</header><Kpis items={lensKpis(definition.lens)}/><IntentBody definition={definition} properties={properties}/><div className={styles.question}>{lensIcons[definition.lens]}<span>{definition.decisionQuestion}</span></div><p className={styles.meta}>Offline deterministic showcase · accountable role: {definition.role}</p></div></section>;
+function Invocation({definition,properties,currentUserName,displayMode,onRequestFullscreen,onVisibleState,hostError}:IProps):React.ReactElement{
+  const fullscreen=displayMode==='fullscreen'&&definition.lens!=='education';
+  const [lens,setLens]=React.useState(definition.lens);
+  const [compact,setCompact]=React.useState(false);
+  const [resetVersion,setResetVersion]=React.useState(0);
+  const [primaryNoMatch,setPrimaryNoMatch]=React.useState(false);
+  const tabs:InnovationLens[]=(Object.keys(LENS_LABELS) as InnovationLens[]).filter(item=>item!=='education');
+  const navRef=React.useRef<HTMLDivElement>(null);
+  const active=fullscreen&&lens!==definition.lens?getIntent(DEFAULT_TOOLS[lens]):definition;
+  const activeProperties=active.key===definition.key?properties:{};
+  const profile=profiles[lens];
+  const visiblePrimary=React.useRef(true);
+  const primaryState=React.useRef<IVisibleState>();
+  visiblePrimary.current=active.key===definition.key;
+  const publishPrimary=React.useCallback((state:IVisibleState):void=>{primaryState.current=state;setPrimaryNoMatch(state.state==='no-match');if(visiblePrimary.current)onVisibleState?.(state);},[onVisibleState]);
+  const publish=React.useCallback((state:IVisibleState):void=>{onVisibleState?.(state);},[onVisibleState]);
+  React.useEffect(()=>{if(active.key===definition.key&&primaryState.current)onVisibleState?.(primaryState.current);},[active.key,definition.key,onVisibleState]);
+  const reset=():void=>{resetReceipts();setResetVersion(value=>value+1);};
+  const onKeys=(event:React.KeyboardEvent<HTMLDivElement>):void=>{
+    if(event.key!=='ArrowDown'&&event.key!=='ArrowUp')return;
+    event.preventDefault();
+    const next=(tabs.indexOf(lens)+(event.key==='ArrowDown'?1:-1)+tabs.length)%tabs.length;
+    setLens(tabs[next]);navRef.current?.querySelectorAll<HTMLButtonElement>('[role=tab]')[next]?.focus();
+  };
+  return <InnovationContext.Provider value={publish}><section className={`${styles.root} ${fullscreen?styles.shell:styles.inline} ${compact?styles.compact:''}`} data-intent={definition.key}>
+    <nav key="nav" hidden={!fullscreen} className={styles.nav} aria-label="Innovation work areas">
+      <div className={styles.navBrand}><span className={styles.brandMark}><Lightbulb24Regular/></span><span>Zava Innovation</span></div>
+      <div className={styles.navList} role="tablist" aria-orientation="vertical" ref={navRef} onKeyDown={onKeys}>{tabs.map(item=><button id={`lens-${item}`} role="tab" aria-selected={lens===item} aria-controls={`dashboard-${item}`} tabIndex={lens===item?0:-1} className={styles.navTab} data-selected={lens===item} key={item} onClick={()=>setLens(item)}>{lensIcons[item]}<span>{LENS_LABELS[item]}</span></button>)}</div>
+      <div className={styles.navMeta}>Offline showcase<br/>Deterministic mock data<br/>No tenant writes</div>
+    </nav>
+    <main key="main" className={fullscreen?styles.main:styles.canvas} role={fullscreen?'tabpanel':undefined} id={`dashboard-${lens}`} aria-labelledby={fullscreen?`lens-${lens}`:undefined}>
+      <div hidden={!fullscreen} className={styles.topbar}><div className={styles.toptools}><Button icon={<Settings20Regular/>} aria-pressed={compact} onClick={()=>setCompact(value=>!value)}>{compact?'Comfortable':'Compact'}</Button><Button icon={<ArrowReset20Regular/>} onClick={reset}>Reset demo data</Button><Badge appearance="tint">Mock operating picture</Badge></div><div className={styles.profile}><Avatar name={profile.name}/><span><b>{profile.name}</b><br/>{profile.role}</span></div></div>
+      <section hidden={!fullscreen} className={styles.hero}><Avatar name={profile.name} large/><div><span className={styles.meta}>{profile.role}</span><h1>{LENS_LABELS[lens]}</h1><p>{primaryNoMatch&&active.key===definition.key?'The requested selection has no matching offline record. No substitute or healthy assessment is shown.':profile.headline}</p></div><div className={styles.heroMetric}><strong>{primaryNoMatch&&active.key===definition.key?'No match':profile.metric}</strong><span>{primaryNoMatch&&active.key===definition.key?'Selection unresolved':profile.metricLabel}</span></div></section>
+      <header className={styles.header}><div><div className={styles.brand}>Zava Innovation Hub · {LENS_LABELS[active.lens]}</div><h2 className={styles.title}>{active.title}</h2><p className={styles.summary}>{active.summary}</p></div>{!fullscreen&&onRequestFullscreen&&<Button className={styles.expand} appearance="subtle" icon={<ArrowMaximize24Regular/>} onClick={onRequestFullscreen} aria-label="View in full screen"><span className={styles.expandLabel}>Expand</span></Button>}</header>
+      <div hidden={!fullscreen||(primaryNoMatch&&active.key===definition.key)}><Kpis items={lensKpis(lens)}/><p className={styles.meta}>Illustrative workspace-wide KPIs, not a selected-record assessment.</p></div>
+      {hostError&&<p role="alert" className={styles.validation}>Host operation failed: {hostError}. No success has been assumed.</p>}
+      <div key={`primary-${resetVersion}`} hidden={active.key!==definition.key}><InnovationContext.Provider value={publishPrimary}><IntentBody definition={definition} properties={properties} actor={currentUserName}/></InnovationContext.Provider></div>
+      {active.key!==definition.key&&<div key={`${active.key}-${resetVersion}`}><IntentBody definition={active} properties={activeProperties} actor={profiles[active.lens].name}/></div>}
+      <div className={styles.question}>{lensIcons[active.lens]}<span>{active.decisionQuestion}</span></div>
+      <p className={styles.meta}>Offline deterministic showcase · no tenant writes · {fullscreen?'Use the host control to return inline.':'Expand retains your current draft.'}</p>
+    </main>
+  </section></InnovationContext.Provider>;
 }

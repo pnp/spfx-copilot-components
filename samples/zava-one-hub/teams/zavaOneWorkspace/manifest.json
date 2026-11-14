@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.2",
+  "id": "f7b09607-26da-46e6-9930-8b393584e723",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://aka.ms/community/home",
+    "privacyUrl": "https://aka.ms/community/home",
+    "termsOfUseUrl": "https://aka.ms/community/home"
+  },
+  "name": {
+    "short": "Zava One",
+    "full": "Zava One - Your company, wherever you work"
+  },
+  "description": {
+    "short": "Company news, personal work, and employee services in your Teams personal app.",
+    "full": "Your company, wherever you work. Zava One brings Company and Personal experiences together in a single workspace inside your Teams personal app. Explore company news, announcements, events, and knowledge, then switch to your day, tasks, approvals, learning, and employee services. This sample uses fictional Zava data and simulated actions for demonstrations; it does not connect to live employee records. Requires the Zava One SharePoint Framework solution to be deployed in your organization's SharePoint App Catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#075FCE",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "f7b09607-26da-46e6-9930-8b393584e723",
+      "name": "Zava One",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=f7b09607-26da-46e6-9930-8b393584e723%26forceLocale={locale}",
+      "scopes": ["personal"],
+      "context": ["personalTab"]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}
