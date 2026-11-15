@@ -1,0 +1,87 @@
+[
+  {
+    "name": "pnp-spfx-copilot-components-sharepoint-content-lens",
+    "source": "pnp",
+    "title": "Content Lens",
+    "shortDescription": "A sample publishing assistant for SharePoint in Microsoft 365 Copilot: compare two pages side by side, check a page for harmful wording and against writing guidelines, or review the wording of comments. The sample shows how a Copilot UX component renders a live SharePoint page and marks the findings on it; accessibility, layout and freshness checks run without AI. It changes nothing in SharePoint and has a built-in fictional example.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/sharepoint-content-lens",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/sharepoint-content-lens",
+    "longDescription": [
+      "Content Lens is a sample publishing assistant, built as a Copilot UX component with the SharePoint Framework for people who publish SharePoint pages. A Compare tab puts two pages side by side: Copilot names where they differ in terms, dates or promises, and measured checks cover accessibility, images and links. A Page tab reads one page, published or a saved draft, with the user's own access, and asks the Microsoft 365 Copilot Chat API to check it for harmful wording and against writing guidelines that the publisher types in the component or adds from a list of common ones. The component sends the page text in numbered passages, accepts only findings that cite those passages, and shows the findings on the actual SharePoint page in the same component.",
+      "Checks that need no AI run separately: accessibility basics, layout suggestions, and dates that have passed since the page was saved. A Comments tab reviews the wording of comments beneath pages and news.",
+      "The package requests the seven delegated Microsoft Graph permissions that the Copilot Chat API requires; an administrator approves them. The Chat API is a preview API on the beta endpoint and needs the Microsoft 365 Copilot add-on license. Nothing in SharePoint is changed. A script that runs with every build checks the tool catalog, the schemas, the permission requests and the embedded agent."
+    ],
+    "creationDateTime": "2026-11-15",
+    "updateDateTime": "2026-11-15",
+    "products": [
+      "SharePoint",
+      "Microsoft Copilot"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.1"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "compare-insights.jpg",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/sharepoint-content-lens/assets/compare-insights.jpg",
+        "alt": "The Compare tab: two SharePoint pages side by side. The areas of the selected Copilot insight are framed in amber on both pages, with numbers in the page margins. The findings sidebar is set to Copilot insights, and the selected insight says that the two announcements give different event dates"
+      },
+      {
+        "name": "page-review.jpg",
+        "type": "image",
+        "order": 200,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/sharepoint-content-lens/assets/page-review.jpg",
+        "alt": "A page review in the dark theme: the page title and its saved version, a summary with three passages flagged by Copilot and four automatic findings, and the actual SharePoint page. The flagged wording is marked on the page, amber for Copilot and blue for checks without AI, each with a number in the margin. The findings list beside the page has the same numbers; a Copilot finding about accusatory wording is selected and explained"
+      },
+      {
+        "name": "comments-review.jpg",
+        "type": "image",
+        "order": 300,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/sharepoint-content-lens/assets/comments-review.jpg",
+        "alt": "A comments review: three comments of one discussion, two with a Copilot finding beside them for insult and aggressive tone, and the third marked as nothing found"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "ferrarirosso",
+        "pictureUrl": "https://github.com/ferrarirosso.png",
+        "name": "Nello D'Andrea"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of Copilot UX components",
+        "description": "Copilot components built with the SharePoint Framework.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/copilot/overview-copilot-apps"
+      },
+      {
+        "name": "SharePoint Framework 1.24 release notes",
+        "description": "What the 1.24 release adds and changes.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/release-1.24.0"
+      },
+      {
+        "name": "Avoid getting throttled or blocked in SharePoint Online",
+        "description": "The pacing and 429 handling the sample follows when it reads pages and comments.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/general-development/how-to-avoid-getting-throttled-or-blocked-in-sharepoint-online"
+      },
+      {
+        "name": "Fluent UI React v9",
+        "description": "The component library of the interface.",
+        "url": "https://react.fluentui.dev/"
+      }
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [{
+    "name": { "default": "SharePoint Content Lens" },
+    "description": { "default": "Review SharePoint wording and compare saved pages with measured checks and Copilot explanations." },
+    "toolDiscovery": "static",
+    "components": ["2271686a-5a26-499a-846d-a483060e6716"]
+  }]
+}

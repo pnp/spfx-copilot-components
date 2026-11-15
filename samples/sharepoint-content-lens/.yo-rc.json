@@ -1,0 +1,23 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "sharepoint-content-lens",
+    "environment": "spo",
+    "packageManager": "npm",
+    "skipFeatureDeployment": true,
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "react",
+    "componentName": "ContentLens",
+    "componentDescription": "Check a SharePoint page against writing guidelines and for harmful wording, with the Copilot Chat API.",
+    "plusBeta": false,
+    "isCreatingSolution": false,
+    "nodeVersion": "22.15.0",
+    "sdksVersions": {},
+    "version": "1.24.1",
+    "libraryName": "sharepoint-content-lens",
+    "libraryId": "681a3bf1-10d2-46ca-94ce-4d67c26b9901",
+    "solutionShortDescription": "Compare SharePoint pages or check one, with findings marked on the page.",
+    "isDomainIsolated": false
+  }
+}

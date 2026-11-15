@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "0.14.21",
+  "id": "e6d5bc0e-a736-4743-a902-fc6d3c3d3b99",
+  "developer": {
+    "name": "Nello D'Andrea",
+    "websiteUrl": "https://github.com/pnp/spfx-copilot-components",
+    "privacyUrl": "https://github.com/pnp/spfx-copilot-components",
+    "termsOfUseUrl": "https://github.com/pnp/spfx-copilot-components"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "SharePoint Content Lens",
+    "full": "SharePoint Content Lens"
+  },
+  "description": {
+    "short": "Compare SharePoint pages or check one, with findings marked on the page.",
+    "full": "A sample publishing assistant. Compare two SharePoint pages side by side, or check one page against your own writing guidelines, using the Microsoft Graph Copilot Chat API. Findings are marked where they occur on the page. A further tab reviews the wording of comments. Or try a fictional demo. Content Lens only reads; it never changes SharePoint content."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "contentLensAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}
