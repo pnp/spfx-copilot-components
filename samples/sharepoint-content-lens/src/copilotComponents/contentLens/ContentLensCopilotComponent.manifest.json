@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "2271686a-5a26-499a-846d-a483060e6716",
+  "alias": "ContentLensCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": { "availableDisplayModes": ["inline", "fullscreen"] },
+  "tools": [{
+    "name": "OpenSharePointContentLens",
+    "description": {
+      "default": "Open Content Lens to compare two SharePoint pages, check one page, or review the comments of a site. Inputs prefill controls only; no scan, analysis, or write occurs on launch.",
+      "de-de": "Content Lens öffnen, um zwei SharePoint-Seiten zu vergleichen, eine Seite zu prüfen oder die Kommentare einer Website durchzusehen. Angaben befüllen nur die Oberfläche; kein Scan, keine Analyse und keine Schreibaktion beim Start."
+    },
+    "propertiesSchema": { "id": "$../../../lib/copilotComponents/contentLens/ContentLensCopilotComponentProperties.js:default;" }
+  }]
+}

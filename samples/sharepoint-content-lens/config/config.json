@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "sharepoint-content-lens-copilot-component": {
+      "components": [{
+        "entrypoint": "./lib/copilotComponents/contentLens/ContentLensCopilotComponent.js",
+        "manifest": "./src/copilotComponents/contentLens/ContentLensCopilotComponent.manifest.json"
+      }]
+    }
+  },
+  "externals": {},
+  "localizedResources": { "ContentLensStrings": "lib/copilotComponents/contentLens/loc/{locale}.js" }
+}
