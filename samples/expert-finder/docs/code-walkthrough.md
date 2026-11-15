@@ -12,6 +12,12 @@ flowchart LR
     Input --> UI[React inline or fullscreen UI]
     UI --> Data[SharePoint or fictional profiles]
     UI --> Graph[User-triggered Graph actions]
+    UI --> Prepare[Prepare agenda with Copilot]
+    Prepare --> Agent
+    Agent --> Agenda[PrepareMeetingAgendaTool]
+    Agenda --> Review[Editable agenda review]
+    Review --> Save[Explicit Save to existing event]
+    Save --> Graph
 ```
 
 Copilot selects the tool and generates its arguments. The component validates the canonical skill, retrieves matching records and renders the interactive results. It does not ask another model to search. Supported skills are `SPFx`, `Copilot`, `DB` and `Spanish`; local filters refine the results of the current invocation.
@@ -23,11 +29,11 @@ Copilot selects the tool and generates its arguments. The component validates th
 | [copilot/manifest.json](../src/copilot-expert-finder/copilot/manifest.json) | Microsoft 365 app identity, branding and baseline agent reference |
 | [copilot/declarativeAgent.json](../src/copilot-expert-finder/copilot/declarativeAgent.json) and [instruction.txt](../src/copilot-expert-finder/copilot/instruction.txt) | Agent description, starters, skill mappings and drafting rules |
 | [copilot/ai-plugin.json](../src/copilot-expert-finder/copilot/ai-plugin.json) | Plugin seed; the build expands the runtime wiring |
-| [config/copilot-agent.json](../src/copilot-expert-finder/config/copilot-agent.json) | Groups the component into the agent |
+| [config/copilot-agent.json](../src/copilot-expert-finder/config/copilot-agent.json) | Groups both components into one agent and generates the static tool catalog |
 | [Component manifest](../src/copilot-expert-finder/src/copilotComponents/expertFinder/ExpertFinderCopilotComponent.manifest.json) and [typed properties](../src/copilot-expert-finder/src/copilotComponents/expertFinder/ExpertFinderCopilotComponentProperties.ts) | Tool metadata and Zod-backed input contract |
 | [ExpertFinderCopilotComponent.tsx](../src/copilot-expert-finder/src/copilotComponents/expertFinder/ExpertFinderCopilotComponent.tsx) | SPFx context, source selection, service lifetime, React rendering and public Copilot Bridge calls |
 
-SPFx hosts the component and supplies managed runtime tool discovery. Preserve package identities when updating an existing installation. See [deployment](deployment.md) for when agent synchronization is required.
+SPFx hosts both components and supplies their managed MCP transport. This sample uses the installed generator's `toolDiscovery: "static"` option so both tools are generated from the component manifests/schemas into the baseline agent; no function catalog is maintained by hand. Changes to this generated catalog require rebuilding and synchronizing the baseline. Preserve package identities when updating an existing installation. See [deployment](deployment.md) for when agent synchronization is required.
 
 ## Data and React views
 
@@ -71,21 +77,33 @@ The entry point:
 3. Calls `sendFollowUpMessageAsync` with the drafting request.
 4. Checks `isError`, handles timeout/cancellation and releases the shared pending state.
 
-The following excerpt from `_introduceExpert` shows the two Bridge operations. `contextText` comes from `buildIntroductionContext`; `options` carries the existing timeout and abort signal. The full method also checks disposal between the operations and handles failures and cleanup.
+The shared `_sendHandoff` helper performs the two Bridge operations for both introduction and agenda requests. `_introduceExpert` supplies `buildIntroductionContext` and `introductionPrompt`; `_prepareAgenda` verifies the booking before building its context. `options` carries the existing timeout and abort signal. The helper checks disposal between operations and handles failures and cleanup.
 
 ```typescript
 const bridge = this.context.copilotBridge;
 await bridge.updateModelContextAsync(
-  { content: [createCopilotTextContent(contextText)] },
+  { content: [createCopilotTextContent(handoff.context)] },
   options
 );
 const result = await bridge.sendFollowUpMessageAsync(
-  [createCopilotTextContent(introductionPrompt)],
+  [createCopilotTextContent(handoff.prompt)],
   options
 );
-if (result.isError) throw new Error('The host rejected the draft request.');
+if (result.isError) throw new Error('The host rejected the Copilot request. Inspect the conversation before trying again.');
 ```
 
 `updateModelContextAsync` publishes context without generating a response. `sendFollowUpMessageAsync` adds the user-triggered message that asks Copilot to use it. Awaiting the first call ensures the selected profile is available before the follow-up is sent; the follow-up acknowledgement is separate from the draft generated in chat.
 
-Profile fields remain untrusted data. Behavioral rules belong in the agent and follow-up. A shared guard prevents overlapping requests from different cards. The host returns an acknowledgement, while the draft appears in the Copilot conversation; the component contains no draft editor and sends no Teams message. See [invocation](copilot-invocation.md) for expected draft content and [Microsoft's context guidance](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot) for the public Bridge APIs.
+Profile fields remain untrusted data. Behavioral rules belong in the agent and follow-up. A shared guard prevents overlapping requests from different cards. The host returns an acknowledgement, while the draft appears in the Copilot conversation; the introduction action contains no draft editor and sends no Teams message. See [invocation](copilot-invocation.md) for expected draft content and [Microsoft's context guidance](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot) for the public Bridge APIs.
+
+## Meeting agenda review and save
+
+[meetingAgenda.ts](../src/copilot-expert-finder/src/copilotComponents/expertFinder/utils/meetingAgenda.ts) builds a `purpose: meetingAgenda` context with exact event/booking IDs, authoritative event times, the selected professional profile and the original objective. Each text block is limited to 9,000 UTF-8 bytes; identifiers are never truncated. Introduction and agenda actions share the same Bridge guard. Agent instructions route agenda requests separately from the introduction branch's no-tools rule.
+
+[PrepareMeetingAgendaCopilotComponent.tsx](../src/copilot-expert-finder/src/copilotComponents/prepareMeetingAgenda/PrepareMeetingAgendaCopilotComponent.tsx) is a separate component with its own Graph service and React root. Its [strict properties schema](../src/copilot-expert-finder/src/copilotComponents/prepareMeetingAgenda/PrepareMeetingAgendaCopilotComponentProperties.ts) accepts exactly `eventId`, `bookingId` and generated plain-text `agenda`. Runtime validation remains authoritative even where the generator removes unsupported schema constraints from the agent-facing catalog. Invocation reads and renders; it does not save.
+
+New meetings contain a bounded `singleValueExtendedProperties` marker with booking UUID, expert email and original UTC times. Agenda reads use `/me/events/{id}` and verify the event, organizer, marker, attendee, single-instance 30-minute time range, ETag and Teams connection. Arbitrary or legacy unmarked events are rejected. UI summary fields come from Graph rather than model arguments.
+
+[MeetingAgendaReview.tsx](../src/copilot-expert-finder/src/copilotComponents/prepareMeetingAgenda/components/MeetingAgendaReview.tsx) displays the editable draft and explicitly warns that saving may notify attendees. Save rereads the event, compares the reviewed version and sends only `body` in a conditional PATCH. [meetingAgendaBody.ts](../src/copilot-expert-finder/src/copilotComponents/expertFinder/utils/meetingAgendaBody.ts) preserves outside markup/notes/links and inserts or replaces one bounded, escaped section. Confirmation rereads the same event and checks exact agenda text, outside content and Teams link, tolerating presentation-only HTML/CSS normalization. This follows Microsoft's [event-body update guidance](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0).
+
+An identical agenda returns already saved without another PATCH. Conflicts require reload/review; an uncertain update retains the draft and offers read-only status checking, then an explicit Outlook-inspection/reload decision before another save. There is no replacement event or automatic write retry. The `If-Match` header limits conflicts where honored; the Graph event-update reference does not guarantee atomic cross-client editing. The agenda card reports inline content-size changes to the host; fullscreen sizing remains host-owned.

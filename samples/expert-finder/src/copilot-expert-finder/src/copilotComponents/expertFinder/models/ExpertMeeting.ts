@@ -6,6 +6,7 @@ export interface MeetingOrganizer {
 
 export interface CreatedMeeting {
   readonly id: string;
+  readonly bookingId: string;
   readonly teamsJoinUrl?: string;
   readonly outlookUrl?: string;
 }

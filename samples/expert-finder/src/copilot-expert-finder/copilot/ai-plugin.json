@@ -3,7 +3,7 @@
   "schema_version": "v2.4",
   "namespace": "expertFinder",
   "name_for_human": "Expert Finder",
-  "description_for_human": "Find experts by skill and explore matching profiles in Copilot.",
-  "description_for_model": "Use ExpertFinderTool to find people who can help with a specific skill. The component retrieves and displays the matching profiles. Do not invent expert identities or search results.",
+  "description_for_human": "Find experts and review a generated agenda for an existing Expert Finder meeting.",
+  "description_for_model": "Use ExpertFinderTool for expert searches. Preparing an agenda for an existing Expert Finder booking REQUIRES invoking the discovered PrepareMeetingAgendaTool with matching eventId, bookingId and the actual generated agenda. Render its review component instead of returning a prose acknowledgement. Use the runtime-discovered tool name, which may have a platform suffix. If the tool is unavailable or fails, report that the review component could not be opened; never invent a prepared/rendered/saved result. Tool invocation does not save to the calendar. Keep introductionDraft requests draft-only without tool calls.",
   "contact_email": "publisher@contoso.com"
 }

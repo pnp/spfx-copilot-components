@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
   "version": "v1.8",
   "name": "Expert Finder",
-  "description": "Find people who can help with a specific skill, and explore their profiles in an interactive directory.",
+  "description": "Find experts, book a Teams meeting through their availability, and prepare an editable agenda for the organizer to save to that meeting.",
   "instructions": "$[file('instruction.txt')]",
   "conversation_starters": [
     {
@@ -11,7 +11,7 @@
     },
     {
       "title": "Build with Copilot",
-      "text": "Find someone who can help me build a Microsoft 365 Copilot agent."
+      "text": "Find someone who can help me build a Copilot agent."
     },
     {
       "title": "Ask a database expert",

@@ -6,6 +6,7 @@ import type { AvailabilitySlot, AvailabilityStatus, ExpertAvailability } from '.
 import type { GraphAvailabilityService } from '../services/GraphAvailabilityService';
 import type { GraphMeetingService } from '../services/GraphMeetingService';
 import { MeetingConfirmationDialog } from './MeetingConfirmationDialog';
+import type { AgendaAction } from './IExpertFinderProps';
 
 const statusLabels: Record<AvailabilityStatus, { label: string; marker: string }> = {
   free: { label: 'Free', marker: 'F' }, tentative: { label: 'Tentative', marker: 'T' },
@@ -53,9 +54,10 @@ type PanelState = { email?: string; dayStart?: number } & (
   { status: 'loading' } | { status: 'ready'; availability: ExpertAvailability } | { status: 'error'; message: string }
 );
 
-export function ExpertAvailabilityPanel({ id, expert, service, meetingService, isDemo, onOpenLink }: {
+export function ExpertAvailabilityPanel({ id, expert, service, meetingService, isDemo, onOpenLink, agenda }: {
   id: string; expert: Expert; service?: GraphAvailabilityService; meetingService?: GraphMeetingService; isDemo: boolean;
   onOpenLink: (url: string) => Promise<void>;
+  agenda: AgendaAction;
 }): React.ReactElement {
   const styles = useStyles();
   const [state, setState] = React.useState<PanelState>({ status: 'loading' });
@@ -198,6 +200,6 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
       </>}
     {meetingSlot && meetingService && <MeetingConfirmationDialog expert={expert} slot={meetingSlot} service={meetingService}
       timeZone={zone} onClose={closeMeeting} onMeetingCreated={() => setNow(new Date())}
-      onAvailabilityChanged={refreshAvailability} onOpenLink={onOpenLink} />}
+      onAvailabilityChanged={refreshAvailability} onOpenLink={onOpenLink} agenda={agenda} />}
   </section>;
 }

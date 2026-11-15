@@ -9,6 +9,12 @@
           "manifest": "./src/copilotComponents/expertFinder/ExpertFinderCopilotComponent.manifest.json"
         }
       ]
+    },
+    "prepare-meeting-agenda-copilot-component": {
+      "components": [{
+        "entrypoint": "./lib/copilotComponents/prepareMeetingAgenda/PrepareMeetingAgendaCopilotComponent.js",
+        "manifest": "./src/copilotComponents/prepareMeetingAgenda/PrepareMeetingAgendaCopilotComponent.manifest.json"
+      }]
     }
   },
   "externals": {},

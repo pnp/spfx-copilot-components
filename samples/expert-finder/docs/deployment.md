@@ -50,14 +50,18 @@ Follow Microsoft's [first-component deployment tutorial](https://learn.microsoft
 
 ## Updating the sample
 
-The supplied source uses agent app version `1.0.8` and SPFx solution version `1.0.0.12`. Preserve the solution, app and component IDs when updating the same installation.
+The supplied source uses agent app version `1.0.9` and SPFx solution version `1.0.0.13`. Preserve the solution, app and component IDs when updating the same installation.
 
-This revision adds **Today** / **Next working day** availability without changing the baseline agent instructions or tool set. Rebuild and redeploy the `.sppkg` for the UI update. Use **Add to Teams** after redeployment if you also need to synchronize the included `1.0.8` baseline app. Component-only updates do not require another agent synchronization when the baseline configuration is unchanged.
+This revision includes **Today** / **Next working day** availability and the independent meeting-agenda tool, plus updated agent instructions/descriptions. Build and redeploy the `.sppkg`, then use **Add to Teams** to synchronize the changed baseline agent and start a new Copilot conversation.
+
+The sample uses the installed SPFx generator's `toolDiscovery: "static"` mode, matching the agenda demo: both tools are generated from the component manifests/schemas into the baseline catalog. No catalog is maintained by hand and the managed MCP transport is unchanged. With this configuration, future tool/schema changes also require rebuilding and synchronizing the baseline. Component-only UI changes still need only the updated `.sppkg` when the baseline is unchanged.
+
+The agenda tool can update only meetings with this revision's booking marker. Create a new controlled booking to validate it; an older unmarked event is not upgraded or replaced. Saving an agenda updates an invitation already sent and can notify attendees.
 
 | Change | Deployment action |
 | --- | --- |
 | Component implementation or UI | Build and redeploy the `.sppkg`; no additional sync if the baseline agent is unchanged |
-| Runtime tool definition only | Build and redeploy; allow discovery-cache propagation |
+| Tool definition/schema or component catalog | Build and redeploy, then use **Add to Teams** because this sample generates a static baseline catalog |
 | Agent instructions, descriptions, icons or starters | Build and redeploy, then use **Add to Teams** to synchronize the changed baseline |
 | Documentation only | No solution build or agent synchronization is needed |
 

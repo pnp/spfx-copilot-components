@@ -4,6 +4,18 @@ Use this checklist after following [deployment](deployment.md). These are checks
 
 ## Local verification on November 15, 2026
 
+### Meeting agenda revision
+
+- `npm run build` passed with the existing dependencies: TypeScript, lint, production bundles and solution packaging. The sample still has no committed automated test suite or new dependencies.
+- Archive checks confirmed SharePoint solution `1.0.0.13`, Teams app `1.0.9`, two registered components, one embedded agent ZIP and the generated `ExpertFinderTool` / `PrepareMeetingAgendaTool` catalog. Existing solution/app/search-component IDs were preserved; the agenda component has its own ID. No development hot-update assets or generated archives are committed.
+- Temporary simulated Graph/React DOM checks passed for new-booking markers, strict input/context limits, organizer/marker validation, text and HTML body preservation, literal HTML escaping, ETag-conditional body-only saves, identical-save deduplication, changed-agenda replacement, conflicts, uncertain-save reconciliation and disposal before a write.
+- UI checks covered read-only initial rendering, editing, duplicate clicks, confirmed success, unknown-status checking, conflict reload, denied reads, inline size reporting and the captured objective/booking passed after confirmed creation. Bridge checks verified context-before-follow-up ordering, the shared handoff guard and cancellation after teardown.
+- The previous availability checks passed again, including weekend/year/daylight-saving boundaries, day/period navigation, Refresh, stale responses and booking date/cancel. Sample metadata, thumbnails, local documentation links and the README view tracker were checked locally.
+
+All calendar and Bridge responses in these checks were simulated. No real event was created/updated, no baseline agent was deployed or synchronized, and no new dependency installation or full gallery CI run was performed. Real-browser visual review and deployed Copilot orchestration/save/notification checks remain pending.
+
+### Availability revision
+
 - `npm run build` passed from an isolated copy of the tracked source with the already installed dependencies, covering TypeScript, lint, production bundling and packaging. The sample has no unit-test suites.
 - Archive-integrity checks confirmed solution version `1.0.0.12`, exactly one embedded Teams agent ZIP at `1.0.8`, unchanged solution/app/component IDs and the existing single-component tool set.
 - Temporary React DOM checks covered Today / Next working day selection, Friday/weekend-to-Monday behavior, the 17:30 default boundary, year rollover, daylight-saving transitions, period navigation without refetching, Refresh preserving day/period, stale responses, error/mock states and the selected date in the booking confirmation. Cancelling the confirmation performed no write.
@@ -60,6 +72,18 @@ This section creates a real event and sends an invitation only when **Create Tea
 - Check that self-booking, past/current slots and repeated clicks cannot start another booking. A conflicting calendar or unsupported Teams provider should stop creation.
 - If a response is uncertain, inspect Outlook before retrying or reloading. A local Busy record is session state, not attendee acceptance or a reservation against later calendar changes.
 - Manage any test event's cancellation in Outlook; the component has no cancel-event operation.
+
+## Meeting agenda
+
+- Deploy the updated solution and synchronize the baseline with **Add to Teams**. Confirm the new app version and both tool registrations before using a fresh conversation.
+- Create a new controlled meeting with a live non-self expert and an optional objective. Only confirmed creation should expose **Prepare agenda with Copilot**; Cancel, mocks and uncertain creation must not request an agenda.
+- Inspect the actual agenda-tool arguments: exact event ID and booking UUID from that booking, plus generated text. Expect an objective, timed blocks totaling 30 minutes and exactly three relevant questions in the conversation language. Test specific and empty objectives.
+- Verify the independent review card loads authoritative meeting details and survives closing the original directory. Rendering/reading/editing must not update the invitation.
+- Edit and explicitly save. In Outlook, verify the same event, one agenda section, original notes and a working Teams connection. Saving may notify attendees; no replacement invitation should be created.
+- Save identical content again, then edit and save a replacement. The identical content should skip PATCH; the changed content should replace the section once. Rapid duplicate clicks must not issue duplicate writes.
+- Check that old/unmarked events, wrong booking IDs/organizers, changed meeting times, cancelled/recurring events and malformed inputs never enable an unsafe write. Agenda text containing HTML must remain literal; blank, oversized or reserved-marker content must be rejected.
+- Exercise conflict reload and uncertain-save status checking with controlled failures. Retain the draft and inspect Outlook before deliberately enabling another save; no automatic PATCH retry is expected.
+- Check light/dark themes, narrow widths, keyboard focus and inline resizing after load, editing and save-state changes. Then send an ordinary chat message and a new expert search; exercise **Introduce me** separately to verify its draft-only routing remains scoped.
 
 ## Copilot conversation
 
