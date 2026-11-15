@@ -8,12 +8,12 @@
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/expert-finder",
     "longDescription": [
       "An SPFx 1.24.1 Copilot UX component that renders an expert directory inline and in fullscreen using React, Fluent UI v9 and a SharePoint Experts list.",
-      "Explore local filters, delegated Graph photos and free/busy availability, confirmed calendar-backed Teams meetings, and selected-profile introduction drafting in the Copilot conversation.",
+      "Explore local filters, delegated Graph photos and free/busy availability for today or the next working day, confirmed calendar-backed Teams meetings, and selected-profile introduction drafting in the Copilot conversation.",
       "Learn component-to-Copilot context publishing: Introduce me awaits updateModelContextAsync with a minimal selected-profile snapshot, then uses sendFollowUpMessageAsync to request a draft in the existing conversation.",
       "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls, and live meetings require explicit confirmation."
     ],
     "creationDateTime": "2026-11-07",
-    "updateDateTime": "2026-11-07",
+    "updateDateTime": "2026-11-15",
     "products": [
       "SharePoint",
       "Microsoft Copilot"

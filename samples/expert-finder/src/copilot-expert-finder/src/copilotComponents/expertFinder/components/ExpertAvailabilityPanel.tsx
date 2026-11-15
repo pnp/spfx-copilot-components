@@ -21,6 +21,7 @@ const useStyles = makeStyles({
   root: { borderTop: `1px solid ${tokens.colorNeutralStroke2}`, paddingTop: '16px', minWidth: 0, containerType: 'inline-size' },
   header: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' },
   heading: { margin: 0, fontSize: '14px', fontWeight: 600 },
+  dayPicker: { display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px', marginBottom: '8px' },
   hint: { margin: '4px 0 12px', fontSize: '12px', lineHeight: '18px', color: tokens.colorNeutralForeground2, overflowWrap: 'anywhere' },
   navigation: { display: 'grid', gridTemplateColumns: '32px minmax(0, 1fr) 32px', alignItems: 'center', gap: '8px' },
   period: { display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', fontSize: '13px', fontWeight: 600, lineHeight: '18px' },
@@ -47,7 +48,8 @@ const useStyles = makeStyles({
   marker: { display: 'inline-grid', placeItems: 'center', width: '16px', height: '16px', borderRadius: '3px', fontSize: '10px', fontWeight: 600 }
 });
 
-type PanelState = { email?: string } & (
+type AvailabilityDay = 'today' | 'next';
+type PanelState = { email?: string; dayStart?: number } & (
   { status: 'loading' } | { status: 'ready'; availability: ExpertAvailability } | { status: 'error'; message: string }
 );
 
@@ -59,12 +61,20 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
   const [state, setState] = React.useState<PanelState>({ status: 'loading' });
   const [refresh, setRefresh] = React.useState(0);
   const [now, setNow] = React.useState(() => new Date());
+  const [day, setDay] = React.useState<AvailabilityDay>(() =>
+    now.getDay() === 0 || now.getDay() === 6 || now.getHours() * 60 + now.getMinutes() >= 17 * 60 + 30 ? 'next' : 'today');
   const [meetingSlot, setMeetingSlot] = React.useState<AvailabilitySlot>();
   const lastTrigger = React.useRef<HTMLButtonElement | null>(null);
   const refreshButton = React.useRef<HTMLButtonElement | null>(null);
   const panelElement = React.useRef<HTMLElement | null>(null);
-  const [periodIndex, setPeriodIndex] = React.useState<0 | 1>(() => new Date().getHours() >= 14 ? 1 : 0);
+  const [periodIndex, setPeriodIndex] = React.useState<0 | 1>(() => day === 'today' && now.getHours() >= 14 ? 1 : 0);
   const period = periods[periodIndex];
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9);
+  const nextWorkingDay = new Date(today.getTime());
+  do { nextWorkingDay.setDate(nextWorkingDay.getDate() + 1); }
+  while (nextWorkingDay.getDay() === 0 || nextWorkingDay.getDay() === 6);
+  const selectedDate = day === 'today' ? today : nextWorkingDay;
+  const dayStart = selectedDate.getTime();
   const unavailable = isDemo ? 'Calendar availability is not available for fictional demo profiles.'
     : !expert.email ? 'Availability unavailable: no email address.'
     : !service ? 'Calendar availability is not configured.' : undefined;
@@ -73,16 +83,16 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
     if (unavailable || !service || !expert.email) return;
     let active = true;
     const email = expert.email;
-    setState({ email, status: 'loading' });
-    service.getAvailability(email).then(availability => {
-      if (active) { setNow(new Date()); setState({ email, status: 'ready', availability }); }
+    setState({ email, dayStart, status: 'loading' });
+    service.getAvailability(email, new Date(dayStart)).then(availability => {
+      if (active) { setNow(new Date()); setState({ email, dayStart, status: 'ready', availability }); }
     }).catch((error: unknown) => {
-      if (active) setState({ email, status: 'error', message: error instanceof Error ? error.message : 'Unable to retrieve calendar availability. Please try again.' });
+      if (active) setState({ email, dayStart, status: 'error', message: error instanceof Error ? error.message : 'Unable to retrieve calendar availability. Please try again.' });
     });
     return () => { active = false; };
-  }, [expert.email, service, unavailable, refresh]);
+  }, [expert.email, service, unavailable, refresh, dayStart]);
 
-  const matches = state.email === expert.email;
+  const matches = state.email === expert.email && state.dayStart === dayStart;
   const loading = !unavailable && (!matches || state.status === 'loading');
   const availability = matches && state.status === 'ready' ? state.availability : undefined;
   const error = unavailable || (matches && state.status === 'error' ? state.message : undefined);
@@ -94,14 +104,21 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
   }, [availability]);
 
   const zone = availability?.timeZone || Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const date = availability?.date || now;
-  const dateOptions: Intl.DateTimeFormatOptions = { timeZone: zone, month: 'short', day: 'numeric', year: 'numeric' };
+  const date = availability?.date || selectedDate;
+  const dateOptions: Intl.DateTimeFormatOptions = { timeZone: zone, weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
   const dateLabel = date.toLocaleDateString('en-US', dateOptions) === now.toLocaleDateString('en-US', dateOptions)
     ? 'Today' : date.toLocaleDateString('en-US', dateOptions);
   const timeFormat = new Intl.DateTimeFormat('en-GB', { timeZone: zone, hour: '2-digit', minute: '2-digit' });
   const canBook = !isDemo && !!meetingService?.canSchedule(expert);
   const refreshAvailability = (): void => {
-    setState({ email: expert.email, status: 'loading' }); setNow(new Date()); setRefresh(value => value + 1);
+    setState({ email: expert.email, dayStart, status: 'loading' }); setNow(new Date()); setRefresh(value => value + 1);
+  };
+  const selectDay = (value: AvailabilityDay): void => {
+    const currentTime = new Date();
+    setNow(currentTime);
+    setDay(value);
+    setPeriodIndex(value === 'today' && currentTime.getHours() >= 14 ? 1 : 0);
+    setMeetingSlot(undefined);
   };
   const closeMeeting = (): void => {
     setMeetingSlot(undefined);
@@ -120,6 +137,14 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
         {error ? 'Try again' : 'Refresh'}
       </Button>}
     </div>
+    {!unavailable && <div className={styles.dayPicker} role="group" aria-label="Availability day">
+      <Button size="small" appearance={day === 'today' ? 'primary' : 'secondary'} aria-pressed={day === 'today'}
+        onClick={() => selectDay('today')}>Today</Button>
+      <Button size="small" appearance={day === 'next' ? 'primary' : 'secondary'} aria-pressed={day === 'next'}
+        onClick={() => selectDay('next')}>
+        Next working day · {nextWorkingDay.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}
+      </Button>
+    </div>}
     <p className={styles.hint}>{dateLabel} · 09:00–18:00 · {zone}</p>
     {loading ? <Spinner size="tiny" label="Checking availability…" />
       : error ? <p className={styles.hint} role={unavailable ? 'status' : 'alert'}>{error}</p>
@@ -142,7 +167,7 @@ export function ExpertAvailabilityPanel({ id, expert, service, meetingService, i
             const current = slot.start.getTime() <= now.getTime() && now.getTime() < slot.end.getTime();
             const requested = !!meetingService?.hasMeetingRequest(expert, slot);
             const actionable = canBook && displayedStatus === 'free' && slot.start.getTime() > now.getTime() && !requested;
-            const label = `${timeFormat.format(slot.start)}–${timeFormat.format(slot.end)}: ${status.label}${current ? '. Current time slot' : ''}${booked ? '. Meeting created in this session' : requested ? '. A meeting was already requested; check your calendar' : ''}`;
+            const label = `${dateLabel}, ${timeFormat.format(slot.start)}–${timeFormat.format(slot.end)}: ${status.label}${current ? '. Current time slot' : ''}${booked ? '. Meeting created in this session' : requested ? '. A meeting was already requested; check your calendar' : ''}`;
             const slotStyle = mergeClasses(styles.slot, styles[displayedStatus], current && styles.current);
             const content = <><time className={styles.slotTime} dateTime={slot.start.toISOString()} aria-hidden="true">{timeFormat.format(slot.start)}</time>
               <span aria-hidden="true">{status.marker}</span></>;

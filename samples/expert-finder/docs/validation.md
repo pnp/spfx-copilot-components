@@ -2,6 +2,16 @@
 
 Use this checklist after following [deployment](deployment.md). These are checks to perform in the target environment, not a claim that every scenario has already passed. Keep local build results separate from deployed Copilot observations.
 
+## Local verification on November 15, 2026
+
+- `npm run build` passed from an isolated copy of the tracked source with the already installed dependencies, covering TypeScript, lint, production bundling and packaging. The sample has no unit-test suites.
+- Archive-integrity checks confirmed solution version `1.0.0.12`, exactly one embedded Teams agent ZIP at `1.0.8`, unchanged solution/app/component IDs and the existing single-component tool set.
+- Temporary React DOM checks covered Today / Next working day selection, Friday/weekend-to-Monday behavior, the 17:30 default boundary, year rollover, daylight-saving transitions, period navigation without refetching, Refresh preserving day/period, stale responses, error/mock states and the selected date in the booking confirmation. Cancelling the confirmation performed no write.
+- Simulated Graph checks verified the selected local 09:00–18:00 window becomes the expected UTC request before and after daylight-saving changes, with 18 half-hour slots.
+- The updated sample metadata passed the repository JSON schema, referenced thumbnail-path checks and the existing README view-tracker validation.
+
+These checks used simulated calendar responses and existing dependencies. No live Graph request, invitation, fresh dependency installation or full gallery CI run was performed. The browser connection was unavailable, so real-browser visual review and deployed Copilot checks remain pending.
+
 ## Local verification on November 7, 2026
 
 - `npm run build` passed from an isolated copy of the tracked SPFx source using the already installed dependencies. This covered TypeScript compilation, lint, bundling and production packaging. Jest reported no test suites; no unit-test coverage is claimed.
@@ -33,16 +43,18 @@ Workbench supplies arguments directly. A successful build or Workbench rendering
 
 - Confirm the [delegated permissions](graph-permissions.md) for the SPFx principal, rather than relying on Graph Explorer consent.
 - Check a profile with a photo and one without an available photo. Cards should render independently; initials are the fallback.
-- Select **Check availability** for an expert with a valid SMTP address and accessible Exchange mailbox. Compare today's 09:00–18:00 local-time range with Outlook.
-- Move between **Morning** and **Afternoon** without a new Graph request; **Refresh** should perform a new read.
-- Switch experts while a request is pending, filter out the selected expert and leave fullscreen. Stale responses must not replace the active panel.
+- Select **Check availability** for an expert with a valid SMTP address and accessible Exchange mailbox. Compare both **Today** and **Next working day** with Outlook for the displayed 09:00–18:00 local-time range.
+- Check that Friday, Saturday and Sunday point to Monday, and that month/year boundaries and daylight-saving changes keep 09:00–18:00 in the viewer's local time. Holidays are not excluded.
+- Open the panel on a weekday before 17:30: it should default to Today, with Afternoon selected from 14:00. On weekends or from 17:30, it should default to Next working day and Morning.
+- Changing days should make one new availability request and reset to that day's initial period. Move between **Morning** and **Afternoon** without another Graph request; **Refresh** should reread the selected day and preserve the period.
+- Switch days or experts while a request is pending, filter out the selected expert and leave fullscreen. Stale responses must not replace the active day or panel.
 - Check an unavailable mailbox or denied calendar access. The UI must not invent Free slots. Mock profiles should explain that no live calendar is available.
 
 ## Confirmed Teams meetings
 
-This section creates a real event and sends an invitation only when **Create Teams meeting** is confirmed. Use intended test participants. Availability is limited to today, so there are no future slots after 18:00 local time.
+This section creates a real event and sends an invitation only when **Create Teams meeting** is confirmed. Use intended test participants. After today's last future slot, use **Next working day** to select a future date.
 
-- Select a future Free slot for another expert and inspect the organizer, attendee, date, local time, duration and optional notes. **Cancel** should create no event.
+- Select a future Free slot on each available day for another expert and inspect the organizer, attendee, selected date, local time, duration and optional notes. **Cancel** should create no event.
 - Confirm a meeting once. Verify the invitation in Outlook and the Teams or Outlook link supplied by the result.
 - Confirm the slot immediately becomes Busy and stays Busy after **Refresh**, expert changes and fullscreen changes for the same component instance, even if Graph has not updated yet.
 - Check that self-booking, past/current slots and repeated clicks cannot start another booking. A conflicting calendar or unsupported Teams provider should stop creation.

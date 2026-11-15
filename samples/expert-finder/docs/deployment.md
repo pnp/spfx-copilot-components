@@ -50,9 +50,9 @@ Follow Microsoft's [first-component deployment tutorial](https://learn.microsoft
 
 ## Updating the sample
 
-The supplied source uses agent app version `1.0.4` and SPFx solution version `1.0.0.5`. Preserve the solution, app and component IDs when updating the same installation.
+The supplied source uses agent app version `1.0.8` and SPFx solution version `1.0.0.12`. Preserve the solution, app and component IDs when updating the same installation.
 
-This revision removes the Schedule preview from the UI and its reference from the agent instructions. When upgrading from agent `1.0.3`, deploy the updated `.sppkg` and use **Add to Teams** to synchronize the changed baseline instructions.
+This revision adds **Today** / **Next working day** availability without changing the baseline agent instructions or tool set. Rebuild and redeploy the `.sppkg` for the UI update. Use **Add to Teams** after redeployment if you also need to synchronize the included `1.0.8` baseline app. Component-only updates do not require another agent synchronization when the baseline configuration is unchanged.
 
 | Change | Deployment action |
 | --- | --- |
