@@ -7,7 +7,7 @@ import type { GraphMeetingService } from '../services/GraphMeetingService';
 import { ExpertAvatar } from './ExpertAvatar';
 import { ExpertActions } from './ExpertActions';
 import { ExpertAvailabilityPanel } from './ExpertAvailabilityPanel';
-import type { IntroductionAction } from './IExpertFinderProps';
+import type { IntroductionAction, AgendaAction } from './IExpertFinderProps';
 
 const useStyles = makeStyles({
   card: { padding: '24px', borderRadius: '16px', border: `1px solid ${tokens.colorNeutralStroke2}`,
@@ -21,11 +21,12 @@ const useStyles = makeStyles({
     borderTop: `1px solid ${tokens.colorNeutralStroke2}`, color: tokens.colorNeutralForeground2, fontSize: '13px' }
 });
 
-export function ExpertCard({ expert, photo, onPhotoSettled, availabilityService, meetingService, introduction, availabilitySelected, onCheckAvailability, isDemo, onOpenLink }: {
+export function ExpertCard({ expert, photo, onPhotoSettled, availabilityService, meetingService, introduction, agenda, availabilitySelected, onCheckAvailability, isDemo, onOpenLink }: {
   expert: Expert; photo?: ExpertPhoto; onPhotoSettled: (id: string, failed: boolean) => void;
   availabilityService?: GraphAvailabilityService; availabilitySelected: boolean; onCheckAvailability: () => void;
   meetingService?: GraphMeetingService;
   introduction: IntroductionAction;
+  agenda: AgendaAction;
   isDemo: boolean; onOpenLink: (url: string) => Promise<void>;
 }): React.ReactElement {
   const styles = useStyles();
@@ -42,6 +43,6 @@ export function ExpertCard({ expert, photo, onPhotoSettled, availabilityService,
       aria-label={`Check availability for ${expert.displayName}`} aria-expanded={availabilitySelected}
       aria-controls={availabilitySelected ? availabilityId : undefined}>Check availability</Button>
     {availabilitySelected && <ExpertAvailabilityPanel id={availabilityId} expert={expert} service={availabilityService}
-      meetingService={meetingService} isDemo={isDemo} onOpenLink={onOpenLink} />}
+      meetingService={meetingService} isDemo={isDemo} onOpenLink={onOpenLink} agenda={agenda} />}
   </Card>;
 }

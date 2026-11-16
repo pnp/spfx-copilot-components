@@ -6,7 +6,7 @@ Find colleagues by skill in Microsoft 365 Copilot, explore their profiles inline
 
 When the list is absent, the same component runs with bundled fictional profiles and portraits. No custom backend or additional language model is required.
 
-The **Introduce me** action also demonstrates passing selected component state back to Copilot and requesting a response in the existing conversation through the public Copilot Bridge APIs.
+The **Introduce me** action demonstrates passing selected component state back to Copilot through the public Bridge APIs. After a confirmed booking, **Prepare agenda with Copilot** uses the same conversation to generate an agenda in an independent editable card. An explicit **Save agenda to meeting** action updates the existing invitation.
 
 ![Expert Finder showcase](assets/expert-finder-showcase.png)
 
@@ -35,6 +35,8 @@ The project uses React 18.3.1, TypeScript 5.8, Fluent UI v9, Zod and Heft. Node.
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| 1.5 | November 15, 2026 | Added Copilot-generated meeting agendas, independent review/edit/save and safe updates to the existing invitation; Teams app 1.0.9 and SharePoint solution 1.0.0.13. |
+| 1.4 | November 15, 2026 | Added Today / Next working day availability and local-date selection; updated the Teams app to 1.0.8 and SharePoint solution to 1.0.0.12. |
 | 1.3 | November 7, 2026 | Removed the unused Schedule preview; real meeting creation remains available from free availability slots. |
 | 1.2 | November 7, 2026 | Highlighted component-to-Copilot context publishing and conversational follow-ups. |
 | 1.1 | November 7, 2026 | Added PnP PowerShell provisioning for the Experts list. |
@@ -84,8 +86,9 @@ The build script already includes production bundling and packaging. Workbench c
 - Responsive fullscreen cards with local name-prefix, department and job-title filters, plus light and dark themes.
 - SharePoint data access through `SPHttpClient` using the signed-in user's permissions. The list uses a single-choice `Skill` column; a person can have separate records for different skills.
 - Parallel profile-photo loading with shimmer, per-instance caching and initials on failure.
-- On-demand calendar availability for today, 09:00–18:00 in the viewer's local time, in 30-minute slots. Morning/Afternoon navigation reuses the loaded result.
+- On-demand calendar availability for **Today** or the **Next working day**, 09:00–18:00 in the viewer's local time, in 30-minute slots. The next working day skips weekends; holidays are not considered. Changing days loads the selected date; Morning/Afternoon navigation reuses that day's result.
 - User-confirmed Teams meetings from future Free slots, with both-calendar checks and duplicate-request protection.
+- Copilot-generated 30-minute agendas grounded in the confirmed booking, session objective and expert profile, with independent review/edit and explicit saving to the same invitation.
 - Component-to-Copilot context publishing and user-triggered follow-ups through the public Bridge APIs, demonstrated by **Introduce me**: a first-person draft containing exactly three relevant questions about the selected expert's skill.
 
 ### Component-to-Copilot context and follow-up
@@ -100,6 +103,12 @@ The snapshot contains only the expert's name, job title, department, skill and s
 
 See the [implementation and Bridge call excerpt](docs/code-walkthrough.md#selected-profile-context-and-follow-up), the [expected conversation behavior](docs/copilot-invocation.md#introduce-me), and Microsoft's [component context guidance](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/copilot/provide-context-to-copilot).
 
+### Meeting agenda
+
+After booking a meeting, choose **Prepare agenda with Copilot**. The component publishes a bounded snapshot of the booking, professional profile and original **Session objective / notes**, then requests a follow-up in the existing conversation. Copilot generates an objective, timed blocks totaling 30 minutes and exactly three relevant questions, and invokes `PrepareMeetingAgendaTool` to show an editable review card. Generation and rendering do not save the agenda.
+
+The independent card reads the real event and verifies its organizer and application booking marker. **Save agenda to meeting** rereads the current body, adds or replaces one escaped agenda section, and preserves existing notes and Teams connection information. Saving can send meeting-update notifications. Repeated identical saves skip another update; uncertain outcomes offer **Check save status** without automatically repeating the write. Legacy or arbitrary unmarked events cannot be updated through this flow. See [invocation](docs/copilot-invocation.md#meeting-agenda) and the [implementation walkthrough](docs/code-walkthrough.md#meeting-agenda-review-and-save).
+
 ### Preview actions and real operations
 
 | Action | Fictional profiles | SharePoint profiles |
@@ -109,21 +118,23 @@ See the [implementation and Bridge call excerpt](docs/code-walkthrough.md#select
 | **Check availability** | Explains that fictional profiles have no calendar | Reads the selected expert's free/busy availability |
 | Select a future Free slot | Unavailable | Opens a confirmation; **Create Teams meeting** creates an event and sends a real invitation |
 | **Introduce me** | Illustrative draft for a fictional person | Draft grounded in the selected profile; sends nothing to Teams |
+| **Prepare agenda with Copilot** | Unavailable without a real booking | Generates an editable draft for the confirmed booking; no calendar write |
+| **Save agenda to meeting** | Unavailable | Updates the existing marked invitation after explicit confirmation; may notify attendees |
 
 ### Data source and limits
 
 The component checks `Experts` in the tenant root site once during initialization. HTTP 200 selects SharePoint; HTTP 404 selects mocks. Other errors are shown instead of being hidden by a fallback. An existing list without matching records shows an empty state. No tenant URL needs to be edited in the source.
 
-Mock result counts are SPFx **6**, Copilot **8**, DB **1** and Spanish **0**. The SharePoint provider supports up to 100 records per skill and reports an error if more pages are returned. Calendar navigation covers today only. Successful bookings remain marked Busy for the component session; this does not establish attendee acceptance or track later Outlook changes.
+Mock result counts are SPFx **6**, Copilot **8**, DB **1** and Spanish **0**. The SharePoint provider supports up to 100 records per skill and reports an error if more pages are returned. The panel defaults to **Next working day** on weekends or from 17:30, when no future slot remains today; otherwise it starts on **Today**. Next working day starts at Morning, while Today starts at Afternoon from 14:00. **Refresh** preserves the selected day and period. Successful bookings remain marked Busy for the component session; this does not establish attendee acceptance or track later Outlook changes.
 
 ## Documentation
 
 - [Build, local development and deployment](docs/deployment.md)
 - [Experts list provisioning, schema and manual sample data](docs/sharepoint-setup.md)
 - [Graph permissions with CLI for Microsoft 365](docs/graph-permissions.md)
-- [Copilot prompts and introduction drafting](docs/copilot-invocation.md)
+- [Copilot prompts, introductions and meeting agendas](docs/copilot-invocation.md)
 - [Code walkthrough](docs/code-walkthrough.md)
-- [Manual validation checklist and reported host checks](docs/validation.md)
+- [Validation checklist, local checks and author-reported Copilot validation](docs/validation.md)
 - [Image provenance and redistribution](assets/README.md)
 
 ## Help

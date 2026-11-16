@@ -1,6 +1,6 @@
 # Delegated Microsoft Graph permissions
 
-Expert Finder uses SPFx's `MSGraphClientV3` for live photos, calendar availability and confirmed Teams meetings. SharePoint list access uses `SPHttpClient` separately. Fictional profiles make no Graph calls, and **Introduce me** needs no additional Graph scope.
+Expert Finder uses SPFx's `MSGraphClientV3` for live photos, calendar availability, confirmed Teams meetings and agenda updates. SharePoint list access uses `SPHttpClient` separately. Fictional profiles make no Graph calls, and **Introduce me** needs no additional Graph scope.
 
 The package intentionally contains no `webApiPermissionRequests`. A tenant administrator must arrange delegated consent for the SPFx principal before using the live Graph features. The CLI commands below are administrative setup instructions; deploying or building the sample does not run them.
 
@@ -11,10 +11,11 @@ The package intentionally contains no `webApiPermissionRequests`. A tenant admin
 | Other users' profile photos | `GET /users/{UPN}/photo/$value` | `ProfilePhoto.Read.All` |
 | Calendar availability | `POST /me/calendar/getSchedule` | `Calendars.ReadBasic` |
 | Confirmed calendar-backed Teams meeting | `POST /me/events` | `Calendars.ReadWrite` |
+| Review and explicitly save a meeting agenda | `GET /me/events/{id}` and `PATCH /me/events/{id}` | `Calendars.ReadWrite` for saving (reuses the booking grant) |
 
-These permissions were checked against the current [profile-photo](https://learn.microsoft.com/en-us/graph/api/profilephoto-get?view=graph-rest-1.0#permissions), [getSchedule](https://learn.microsoft.com/en-us/graph/api/calendar-getschedule?view=graph-rest-1.0#permissions) and [create-event](https://learn.microsoft.com/en-us/graph/api/user-post-events?view=graph-rest-1.0#permissions) endpoint documentation.
+These permissions were checked against the current [profile-photo](https://learn.microsoft.com/en-us/graph/api/profilephoto-get?view=graph-rest-1.0#permissions), [getSchedule](https://learn.microsoft.com/en-us/graph/api/calendar-getschedule?view=graph-rest-1.0#permissions), [create-event](https://learn.microsoft.com/en-us/graph/api/user-post-events?view=graph-rest-1.0#permissions) and [update-event](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0#permissions) endpoint documentation.
 
-Reuse compatible existing grants. For example, `User.ReadBasic.All` or `User.Read.All` can cover photos; `Calendars.Read` or `Calendars.ReadWrite` covers availability. Enabling all live features needs photo access plus `Calendars.ReadWrite`, rather than an additional calendar-read grant. Meeting creation also reads the organizer's Teams-provider support and can reread the created event with that calendar permission. This calendar-backed flow does not use the separate online-meetings API.
+Reuse compatible existing grants. For example, `User.ReadBasic.All` or `User.Read.All` can cover photos; `Calendars.Read` or `Calendars.ReadWrite` covers availability. Enabling all live features needs photo access plus `Calendars.ReadWrite`, rather than an additional calendar-read grant. Meeting creation also reads the organizer's Teams-provider support and can reread the created event with that calendar permission. Agenda reads/updates and the event-local booking marker reuse `Calendars.ReadWrite`; no additional permission or consent flow is introduced. This calendar-backed flow does not use the separate online-meetings API.
 
 Consent does not create mailboxes, provide licenses or override Exchange sharing policies. Confirm those prerequisites separately.
 
@@ -98,6 +99,6 @@ Both IDs here are service-principal Object IDs. These are delegated permissions;
 
 Rerun step 2 and confirm the selected scope, while checking that existing scopes remain. Reload the component and validate live photos, availability and, when intended, confirmed meeting creation using the [manual checklist](validation.md). Photo failures fall back to initials; calendar failures remain an explicit unavailable state.
 
-**Create Teams meeting** sends a real invitation after confirmation. Merely opening availability or cancelling the confirmation creates no event. If a create request has an uncertain outcome, inspect Outlook before trying again.
+**Create Teams meeting** sends a real invitation after confirmation. **Save agenda to meeting** explicitly updates the existing invitation and may notify attendees. Preparing, rendering or editing the agenda alone makes no calendar write. Merely opening availability or cancelling the confirmation creates no event. If a create request has an uncertain outcome, inspect Outlook before trying again.
 
 Implementation reference: [Use MSGraphClientV3 in SPFx](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-msgraph).

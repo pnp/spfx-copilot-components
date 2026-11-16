@@ -4,8 +4,15 @@ import type { IExpertService } from '../services/IExpertService';
 import type { GraphPhotoService } from '../services/GraphPhotoService';
 import type { GraphAvailabilityService } from '../services/GraphAvailabilityService';
 import type { GraphMeetingService } from '../services/GraphMeetingService';
+import type { AgendaRequest } from '../models/MeetingAgenda';
+
+export interface AgendaAction {
+  pending: boolean;
+  onRequest: (request: AgendaRequest) => Promise<void>;
+}
 
 export interface IntroductionAction {
+  disabled?: boolean;
   pendingExpertId?: string;
   error?: { expertId: string; message: string };
   onRequest: (expert: Expert) => Promise<void>;
@@ -23,6 +30,8 @@ export interface IExpertFinderProps {
   hostContext: ICopilotComponentHostContext;
   targetDocument: Document;
   onRequestFullscreen: () => Promise<void>;
+  onContentResize: (width: number, height: number) => void;
   onOpenLink: (url: string) => Promise<void>;
   onIntroduceExpert: (expert: Expert) => Promise<void>;
+  onPrepareMeetingAgenda: (request: AgendaRequest) => Promise<void>;
 }

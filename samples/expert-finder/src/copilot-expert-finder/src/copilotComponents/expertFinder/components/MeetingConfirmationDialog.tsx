@@ -4,6 +4,7 @@ import type { Expert } from '../models/Expert';
 import type { AvailabilitySlot } from '../models/ExpertAvailability';
 import type { CreatedMeeting } from '../models/ExpertMeeting';
 import type { GraphMeetingService } from '../services/GraphMeetingService';
+import type { AgendaAction } from './IExpertFinderProps';
 
 const useStyles = makeStyles({
   summary: { display: 'grid', gridTemplateColumns: 'auto minmax(0, 1fr)', gap: '8px 16px', margin: '12px 0 20px', fontSize: '14px',
@@ -16,14 +17,18 @@ const useStyles = makeStyles({
 type MeetingState = { status: 'editing' } | { status: 'creating' }
   | { status: 'success'; meeting: CreatedMeeting } | { status: 'error'; message: string };
 
-export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onClose, onMeetingCreated, onAvailabilityChanged, onOpenLink }: {
+export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onClose, onMeetingCreated, onAvailabilityChanged, onOpenLink, agenda }: {
   expert: Expert; slot: AvailabilitySlot; service: GraphMeetingService; timeZone: string;
   onClose: () => void; onMeetingCreated: () => void; onAvailabilityChanged: () => void; onOpenLink: (url: string) => Promise<void>;
+  agenda: AgendaAction;
 }): React.ReactElement {
   const styles = useStyles();
   const [notes, setNotes] = React.useState('');
   const [state, setState] = React.useState<MeetingState>({ status: 'editing' });
   const [linkError, setLinkError] = React.useState('');
+  const [agendaState, setAgendaState] = React.useState<'idle' | 'pending' | 'requested'>('idle');
+  const [agendaError, setAgendaError] = React.useState('');
+  const agendaBusy = React.useRef(false);
   const busy = React.useRef(false);
   const active = React.useRef(true);
   React.useEffect(() => { active.current = true; return () => { active.current = false; }; }, []);
@@ -53,6 +58,20 @@ export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onC
     try { await onOpenLink(url); }
     catch { if (active.current) setLinkError('The host could not open the meeting link. You can open the event from your Outlook calendar.'); }
   };
+  const prepare = (): Promise<void> => {
+    if (state.status !== 'success' || agenda.pending || agendaBusy.current) return Promise.resolve();
+    agendaBusy.current = true; setAgendaState('pending'); setAgendaError('');
+    return agenda.onRequest({ expert: { ...expert }, meeting: state.meeting, objective: notes, timeZone }).then(() => {
+      agendaBusy.current = false;
+      if (active.current) setAgendaState('requested');
+    }).catch((error: unknown) => {
+      agendaBusy.current = false;
+      if (active.current) {
+        setAgendaState('idle');
+        setAgendaError(error instanceof Error ? error.message : 'Copilot could not request the agenda. Inspect the conversation before trying again.');
+      }
+    });
+  };
   const title = state.status === 'success' ? state.meeting.teamsJoinUrl ? 'Teams meeting created' : 'Calendar event created' : 'Confirm Teams meeting';
 
   return <Dialog open onOpenChange={(_, data) => { if (!data.open && !busy.current) onClose(); }}>
@@ -68,7 +87,7 @@ export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onC
             <dt>Time</dt><dd>{timeFormat.format(slot.start)}–{timeFormat.format(slot.end)} · {timeZone}</dd>
             <dt>Duration</dt><dd>30 minutes · Microsoft Teams</dd>
           </dl>
-          {state.status !== 'success' && <Field label="Notes (optional)" hint={`${notes.length}/1000 characters`}>
+          {state.status !== 'success' && <Field label="Session objective / notes (optional)" hint={`${notes.length}/1000 characters. Used in the invitation and shared with Copilot only when you choose Prepare agenda with Copilot.`}>
             <Textarea value={notes} maxLength={1000} rows={3} resize="vertical" disabled={creating} readOnly={locked}
               onChange={(_, data) => setNotes(data.value)} />
           </Field>}
@@ -79,6 +98,8 @@ export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onC
             ? 'The invitation has been sent. The expert can respond from their calendar.'
             : 'The event was created, but its Teams link could not be retrieved. Check the event in Outlook before taking another action.'}</p>}
           {linkError && <p className={styles.error} role="alert">{linkError}</p>}
+          {agendaState === 'requested' && <p className={styles.message} role="status">Agenda requested in Copilot. Review the agenda card before saving. Inspect the conversation before requesting again.</p>}
+          {agendaError && <p className={styles.error} role="alert">{agendaError}</p>}
         </DialogContent>
         <DialogActions className={styles.actions}>
           <Button disabled={creating} onClick={onClose}>{state.status === 'success' || locked && !creating ? 'Close' : 'Cancel'}</Button>
@@ -87,6 +108,9 @@ export function MeetingConfirmationDialog({ expert, slot, service, timeZone, onC
           </Button>}
           {teamsJoinUrl && <Button appearance="primary" onClick={() => open(teamsJoinUrl)}>Open in Teams</Button>}
           {!teamsJoinUrl && outlookUrl && <Button appearance="primary" onClick={() => open(outlookUrl)}>Open in Outlook</Button>}
+          {state.status === 'success' && <Button disabled={agenda.pending || agendaState === 'pending'} onClick={prepare}>
+            {agendaState === 'pending' ? 'Requesting agenda…' : 'Prepare agenda with Copilot'}
+          </Button>}
         </DialogActions>
       </DialogBody>
     </DialogSurface>

@@ -14,11 +14,11 @@ export class GraphAvailabilityService {
 
   public constructor(private readonly _factory: MSGraphClientFactory) {}
 
-  public async getAvailability(email: string, now = new Date()): Promise<ExpertAvailability> {
+  public async getAvailability(email: string, date = new Date()): Promise<ExpertAvailability> {
     const address = z.email().safeParse(email.trim());
     if (!address.success) throw new Error('Availability unavailable: no email address.');
-    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9);
-    const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18);
+    const start = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9);
+    const end = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 18);
     if (end.getTime() - start.getTime() !== 18 * slotDuration) {
       throw new Error('The selected local time window could not be displayed.');
     }
