@@ -13,7 +13,7 @@
       "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls. Meeting creation and agenda saving require explicit user actions; agenda generation alone does not update the calendar."
     ],
     "creationDateTime": "2026-11-07",
-    "updateDateTime": "2026-11-15",
+    "updateDateTime": "2026-11-16",
     "products": [
       "SharePoint",
       "Microsoft Copilot"

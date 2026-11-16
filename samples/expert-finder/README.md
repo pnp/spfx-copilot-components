@@ -132,9 +132,9 @@ Mock result counts are SPFx **6**, Copilot **8**, DB **1** and Spanish **0**. Th
 - [Build, local development and deployment](docs/deployment.md)
 - [Experts list provisioning, schema and manual sample data](docs/sharepoint-setup.md)
 - [Graph permissions with CLI for Microsoft 365](docs/graph-permissions.md)
-- [Copilot prompts and introduction drafting](docs/copilot-invocation.md)
+- [Copilot prompts, introductions and meeting agendas](docs/copilot-invocation.md)
 - [Code walkthrough](docs/code-walkthrough.md)
-- [Manual validation checklist and reported host checks](docs/validation.md)
+- [Validation checklist, local checks and author-reported Copilot validation](docs/validation.md)
 - [Image provenance and redistribution](assets/README.md)
 
 ## Help

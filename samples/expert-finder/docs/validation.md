@@ -2,6 +2,12 @@
 
 Use this checklist after following [deployment](deployment.md). These are checks to perform in the target environment, not a claim that every scenario has already passed. Keep local build results separate from deployed Copilot observations.
 
+## Author-reported Copilot validation on November 16, 2026
+
+The sample author confirmed that the updated sample was validated in deployed Copilot and works as expected, including Today / Next working day availability, meeting booking, Copilot-generated agenda review/editing and saving the agenda to the existing meeting. The earlier pending status in the November 15 local-verification notes is superseded by this report for the normal user journey.
+
+This is author-reported tenant validation, separate from the local build and simulated checks below. It does not claim independent verification of every failure, concurrency or accessibility case in the reusable checklist.
+
 ## Local verification on November 15, 2026
 
 ### Meeting agenda revision
@@ -12,7 +18,7 @@ Use this checklist after following [deployment](deployment.md). These are checks
 - UI checks covered read-only initial rendering, editing, duplicate clicks, confirmed success, unknown-status checking, conflict reload, denied reads, inline size reporting and the captured objective/booking passed after confirmed creation. Bridge checks verified context-before-follow-up ordering, the shared handoff guard and cancellation after teardown.
 - The previous availability checks passed again, including weekend/year/daylight-saving boundaries, day/period navigation, Refresh, stale responses and booking date/cancel. Sample metadata, thumbnails, local documentation links and the README view tracker were checked locally.
 
-All calendar and Bridge responses in these checks were simulated. No real event was created/updated, no baseline agent was deployed or synchronized, and no new dependency installation or full gallery CI run was performed. Real-browser visual review and deployed Copilot orchestration/save/notification checks remain pending.
+All calendar and Bridge responses in these checks were simulated. No real event was created/updated, no baseline agent was deployed or synchronized, and no new dependency installation or full gallery CI run was performed. Deployed Copilot checks were pending at the time of this local run; the later author-reported validation is recorded above.
 
 ### Availability revision
 
@@ -22,7 +28,7 @@ All calendar and Bridge responses in these checks were simulated. No real event 
 - Simulated Graph checks verified the selected local 09:00–18:00 window becomes the expected UTC request before and after daylight-saving changes, with 18 half-hour slots.
 - The updated sample metadata passed the repository JSON schema, referenced thumbnail-path checks and the existing README view-tracker validation.
 
-These checks used simulated calendar responses and existing dependencies. No live Graph request, invitation, fresh dependency installation or full gallery CI run was performed. The browser connection was unavailable, so real-browser visual review and deployed Copilot checks remain pending.
+These checks used simulated calendar responses and existing dependencies. No live Graph request, invitation, fresh dependency installation or full gallery CI run was performed. The browser connection was unavailable during this local run. The later author-reported Copilot validation is recorded above.
 
 ## Local verification on November 7, 2026
 
