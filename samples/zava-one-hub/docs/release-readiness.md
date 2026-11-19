@@ -1,18 +1,39 @@
 # Release readiness
 
-This document is the concise sharing and validation handoff for the fixture-first Zava One sample.
+This is the sharing and validation handoff for the fixture-first Zava One sample.
+**Source baseline: SPFx 1.24.0 GA / React 18.3.1.** Presenter documentation was refreshed on
+November 19, 2026; that is not a new package build, authenticated keynote rehearsal, or accessibility
+certification. See [current progress and open gates](../todo.md#documentation-and-finalization---november-19-2026).
+
+## Presenter and developer handoff
+
+| Need | Guide |
+| --- | --- |
+| Executive story with exact prompts, clicks, values, and timing cuts | [Five-minute keynote](../demos/keynote-5-minutes.md) |
+| Architecture, actual routing trace, lifecycle, state, MCP, and evidence | [Ten-minute technical demo](../demos/technical-demo-10-minutes.md), including a five-minute cut |
+| Broader employee/service story | [Business journey](../demos/business-journey.md) and [20-minute showcase](../demos/feature-showcase-20-minutes.md) |
+| Every prompt/tool/component/intent/route, schema, and sibling exclusion | [Intent-to-component mapping](./intent-component-mapping.md) |
+| Preflight, per-context reset, local/screenshot fallback, and recovery | [Demo operations](../demos/demo-operations.md) |
+| Short cut and discussion companion | [Demo index](../demos/README.md) |
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  SP[35 SharePoint web parts] --> Shared[Shared catalog, controllers, and React experiences]
-  CC[37 Copilot Components] --> Shared
-  WS[3 composed workspace web parts] --> Shared
-  Shared --> Store[Typed fixtures and session-local event store]
-  Shared --> Media[Embedded media and D3 visualization]
-  Agent[Declarative agent and API plugin] --> CC
+  SP[35 SharePoint feature web parts] --> App[Shared app dispatcher and React experiences]
+  CC[35 business Copilot Components] --> App
+  INF[Workspace and Explorer components] --> App
+  WS[3 composed workspace web parts] --> App
+  Agent[Agent with dynamic MCP discovery] --> CC
+  Agent --> INF
+  App --> Local[Typed fixtures and mounted local state]
+  App --> Store[C35 evented session store]
+  App --> Media[Embedded media and focused visualizations]
 ```
+
+There are **75 SPFx identities**, **37 source tools**, and two host-specific bundles.
+The GA plugin dynamically discovers tools; its static `functions` array is empty.
+Do not describe the 37 source tools as 37 statically embedded plugin functions.
 
 ## Data and action flow
 
@@ -22,91 +43,131 @@ sequenceDiagram
   participant Host as SharePoint, Teams, or Copilot
   participant Adapter as Thin host adapter
   participant Experience as Shared React experience
-  participant Store as Session-local fixture store
-  User->>Host: Ask, select, or edit
-  Host->>Adapter: Intent and host context
-  Adapter->>Experience: Normalized properties
-  Experience->>Store: Read canonical fixture
-  Store-->>Experience: Current state
-  Experience-->>User: Reviewable UI
-  User->>Experience: Explicit confirm
-  Experience->>Store: Simulated session update
-  Store-->>Experience: Labeled receipt and updated state
+  participant State as Fixture and local state
+  User->>Host: Ask or select a business task
+  Host->>Adapter: Selected intent and host context
+  Adapter->>Experience: Properties and display mode
+  Experience->>State: Read fixture
+  State-->>Experience: Current visible state
+  Experience-->>User: Information or reviewable form
+  User->>Experience: Review and explicitly confirm an action
+  Experience->>State: Simulated local update
+  State-->>Experience: Labeled outcome and updated view
 ```
+
+This describes confirmed form/decision flows, not a universal review stage for every interaction.
+Tasks uses local checkbox completion. C35 alone provides the shared vacation-decision store;
+other forms primarily use mount-local state.
 
 ## Host matrix
 
-| Surface | Count | Exposure | Validation state |
+| Surface | Count | Exposure | Evidence boundary |
 | --- | ---: | --- | --- |
-| Feature web parts | 35 | `SharePointWebPart` only | Package and hosted Workbench baseline validated |
-| Workspace web parts | 3 | SharePoint web part/full page; separate Teams personal-only app packages | Package validated; working Teams baseline confirmed by author with three authenticated screenshots |
-| Feature Copilot Components | 35 | Inline and full screen | Generated plugin and Workbench baseline validated |
-| Workspace Copilot Component | 1 | Composed full-screen workspace | Generated plugin validated |
-| Capability explorer | 1 | Isolated discovery experience | Generated plugin validated |
+| Feature web parts | 35 | `SharePointWebPart` only | Earlier package/Workbench baseline; modern page acceptance remains open |
+| Workspace web parts | 3 | SharePoint web part/full page; Teams host support | Three distributed Teams packages are personal-only, not channel apps |
+| Business Copilot Components | 35 | Inline and host-approved full screen | Source contracts present; actual GA model routing/arguments need authenticated rehearsal |
+| Workspace component | 1 | Composed workspace | Default Company; advertised `tab` is not currently consumed |
+| Capability explorer | 1 | Inline scenario discovery | Full-screen expansion renders the Company workspace, not a full-screen Explorer |
+
+The author previously confirmed the three Teams personal apps work and supplied three authenticated
+screenshots. That is a historical baseline, not complete GA host acceptance.
+
+## Demo contract and known limits
+
+- Choose the narrowest primary tool. The [mapping](./intent-component-mapping.md) covers all 35
+  business intents, both infrastructure entries, and all six starters.
+- Tool schemas advertise filters/prefills, but several active React bodies do not consume them.
+  Use the documented visible controls; never present seeded defaults as extracted prompt values.
+- Full screen composes the owning tab's modules. It does not deep-link the selected record or transfer
+  the inline draft/stage; finish the C35 confirmation inline before expanding.
+- Sales Region changes the bookings series; Period changes its label only. Office local times use a
+  fixed fixture instant. Several source/service launch buttons are presentation-only.
+- C35 reset is 4 pending / 2 processed, including two seeded decisions. Johanna's confirmed approval
+  produces `ZAVA-LEAVE-1043` and 3/3. Reset is scoped to the current runtime/browsing context.
+- Session storage is not a cross-host/cross-tab service. Neither receipts nor layout persistence
+  imply synchronized SharePoint, Teams, Copilot, or cross-device state.
+- The local harness records bridge messages and has a no-op Expand callback. It cannot certify model
+  routing, real host expansion, authentication, or follow-up answers.
 
 ## Privacy and safety
 
 - Business data, people, prices, policies, and receipts are fictional fixtures.
 - No runtime Graph, SharePoint, HR, finance, CRM, LMS, ITSM, market, or security provider is called.
-- Drafts remain local to the invocation; confirmed demo changes remain in the browser session.
-- Sensitive drafts are not placed in URLs or model-visible context.
-- Every simulated mutation requires review and explicit confirmation.
-- A simulated receipt is not evidence of a source-system write.
+- Form drafts remain local to the mounted experience; some confirmed updates persist in session
+  storage. Do not enter real private information, secrets, or credentials.
+- Review/confirmation is explicit for the demonstrated submission and decision flows. Prompt inputs
+  do not authorize actions; a simulated receipt is not evidence of a source-system write.
+- See [the state and reset boundary](../demos/demo-operations.md#deterministic-reset) before rehearsal.
 
 ## Accessibility evidence and limits
 
-Locally validated behavior includes semantic controls, visible focus, keyboard-capable layout movement,
-text alternatives for charts/maps, light/dark token use, and responsive component layouts. Publication
-screenshots were reviewed individually at their actual rendered bounds: 12 complete local experience
-captures and three authentic Teams viewport overviews. Teams crops remove only the outer four-pixel
-window frame, with every retained pixel verified against the original snapshot.
+Recorded local checks cover semantic controls, visible focus, keyboard-capable layout movement,
+text alternatives for selected charts/maps, light/dark tokens, and responsive layouts. The publication
+gallery includes 12 local captures and three authenticated Teams viewport overviews. Teams crops
+remove only the four-pixel window frame and verify retained pixels.
 
-This is not an accessibility certification. Authenticated host testing remains required for Narrator or
-JAWS, 200% zoom, forced colors, reduced motion, iframe focus, Teams chrome, and modern SharePoint page
-integration.
+This is not accessibility certification. Authenticated checks remain required for Narrator/JAWS,
+native 200% zoom, forced colors, reduced motion, iframe focus, Teams chrome, and modern SharePoint.
+Do not infer screen-reader acceptance from screenshots or responsive-state totals.
 
-## Local validation
+## Evidence and validation
 
-Run with Node.js `>=22.14.0 <23.0.0`:
+The committed [phase-6 matrix](../ux-review/evidence/phase-6-matrix.json) records:
 
-```bash
-npm ci
-npm run validate
-npm run build
+| Recorded evidence | Value | How to interpret it |
+| --- | --- | --- |
+| Jest | 50 passed / zero failures | Recorded test result, not a test execution during this documentation refresh |
+| Catalog | 35 pairs / 75 unique identities / 37 source tools / 6 starters | Validate source and discovered schemas separately from model selection |
+| Media/bundles | 28 provenance-checked assets / 2 host-specific bundles | Offline content and host isolation |
+| Screenshots | 39 engineering / 15 publication | Includes three historical authenticated Teams views |
+| Responsive sweep | 4,080 states / zero recorded failures | A separate browser run, not automatically replayed by `build` |
+| SPPKG | `1.0.0.18` / 110 entries | Artifact sizes and SHA-256 values are in the matrix's `artifacts` array |
+
+**Evidence caveat:** the matrix mixes newer package/test results with historical host fields; its
+`profile.spfx` still says `1.24.0-beta.5`. Use [package.json](../package.json) for the GA source
+baseline. Hash parity proves artifact identity, not that those older host measurements certify GA.
+Reconcile profile and host provenance during the next real clean-release evidence pass, not by
+changing a timestamp or relabeling historical screenshots.
+
+For documentation and source-routing checks:
+
+```powershell
+npm run check:routing-collisions
+npm run check:publication
 git diff --check
 ```
 
-Stop `npm start` before a clean build. The current evidence records:
+For a clean release, use a supported Node version (22.14+ in 22.x, 24.x, or 26.x), an approved
+registry, and stop task-owned watchers first:
 
-- 42 tests passed, zero failed, including Teams header/control, shared receipt, and saved/default layout regression tests;
-- three generated-text regression tests and a fresh Git-index checkout passed without regeneration;
-- 35 capability pairs and 75 unique SPFx component GUIDs;
-- 37 unique generated plugin functions and six conversation starters;
-- two host-specific bundles and 28 provenance-checked media assets;
-- 39 recaptured engineering screenshots and 15 reviewed publication screenshots;
-- three separately validated Teams personal-app ZIPs, without channel scopes;
-- 4,080 responsive browser states passed, including narrow desktop columns, dark mode, and submission journeys;
-- a validated version `1.0.0.15`, 110-entry SPPKG.
+```powershell
+npm ci
+npm run build
+```
 
-The [responsive review](./responsive-review.md) records the device-width matrix, balanced default
-column measurements, shared confirmation UX, and remaining host/accessibility gates.
-
-Artifact hashes and measured sizes are authoritative in
-[`phase-6-matrix.json`](../ux-review/evidence/phase-6-matrix.json).
+`build` includes `validate`, clean production tests, packaging, generated-plugin/schema validation,
+package audit, and evidence checks. Run `npm run check:responsive` against the running UX server
+for fresh browser evidence. Capture/update procedures are in
+[operations](../demos/demo-operations.md#evidence-and-handoff) and
+[responsive review](./responsive-review.md).
 
 ## Sharing checklist
 
-- Use the committed SPPKG in `sharepoint/solution/zava-one-hub.sppkg`.
-- Use the committed agent package in `teams/zava-one.zip`.
-- Upload the three personal-app packages separately; see [`teams/README.md`](../teams/README.md).
-- Start with [`demos/README.md`](../demos/README.md).
-- Use [`assets/sample.json`](../assets/sample.json) for gallery metadata.
-- Keep tenant-host and production gates visible in the README and TODO.
+- Share the validated [SPPkg](../sharepoint/solution/zava-one-hub.sppkg) and
+  [agent ZIP](../teams/zava-one.zip), with matching artifact evidence.
+- Upload the three personal-app packages separately; see [Teams](../teams/README.md).
+- Include [gallery metadata](../assets/sample.json), the
+  [presenter set](../demos/README.md), and the [routing contract](./intent-component-mapping.md).
+- Keep known limitations visible. Passing source/documentation checks does not close the
+  [remaining release gates](../todo.md#remaining-release-gates).
 
-## External gates
+## External and implementation gates
 
-The author confirmed the three Teams personal apps work; source snapshots are published in the gallery.
-That baseline is not a complete host or accessibility certification. Before any production claim,
-validate authenticated SharePoint pages, Teams personal-app accessibility,
-Copilot inline/full screen, CSP, focus transfer, screen readers, service permissions, privacy, retention,
-telemetry, rollback, and support ownership.
+Before calling the keynote fully signed off: rehearse real GA model routing/arguments, C35 decisions,
+expansion/collapse, news follow-up, and latency in the target tenant; reconcile unused input schemas
+and exact draft/selection continuity; complete a clean restore/build/offline run; obtain presenter and
+media approval. Track evidence and failures in [todo.md](../todo.md).
+
+Before any production claim: validate host accessibility, CSP, identity/permissions, real provider
+semantics, privacy/retention, telemetry, rollback, and service-owner approval. These are separate
+from the offline demo deliverable.

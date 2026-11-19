@@ -12,6 +12,8 @@ the broader Zava One capability set.
 - Reset vacation approvals to 4 pending / 2 processed.
 - Open Combined workspace / Company, Copilot, and the local fallback routes.
 - Use a real modern SharePoint page only for the optional Top Actions segment.
+- Keep the [intent matrix](../docs/intent-component-mapping.md) available. Prompts are routing inputs;
+  not every advertised parameter is consumed. Complete forms inline before optional expansion.
 
 ## 0:00-2:00 — Company front door
 
@@ -38,7 +40,8 @@ Ask **What's new across Zava this week?**
 - Tool: `ShowCompanyNews`
 - Route: `company/news`
 - Open **One Zava, closer to every customer**.
-- Point to named author, publication metadata, image, source label, and SharePoint handoff.
+- Point to named author, publication metadata, image, and source label. The source-link button is
+  presentation-only; do not claim a live SharePoint handoff.
 
 Ask **Find the parental leave policy for Finland.**
 
@@ -49,7 +52,8 @@ Ask **Find the parental leave policy for Finland.**
 
 ## 3:30-5:30 — Personal work and planning
 
-Switch to Personal or ask **What should I focus on today?**
+Ask **What should I focus on today?** for the focused inline view, then switch to Personal in the
+pre-opened combined workspace for planning.
 
 - Tool: `ShowMyDay`
 - Route: `personal/my-day`
@@ -71,14 +75,13 @@ Ask **Help me send praise to Johanna for making the accessibility lab welcoming.
 
 Demonstrate:
 
-1. Recipient is Johanna Lorenz.
-2. Message remains editable.
+1. Select **Send praise**; choose Johanna Lorenz.
+2. Edit the seeded message. Recipient/message defaults are not evidence of prompt prefilling.
 3. Select a Zava value and review the audience.
 4. Continue to review, then use **Edit** to prove draft retention.
 5. Confirm only if the audience wants the clearly simulated receipt.
 
-Say: "A prompt may prefill a draft, but the person still reviews the recipient, message, value, and
-audience."
+Say: "The prompt opens recognition. I choose and review the recipient, message, value, and audience."
 
 ## 7:00-9:30 — Manager decision and shared state
 
@@ -91,11 +94,14 @@ Demonstrate:
 
 1. Baseline: 4 pending / 2 processed.
 2. Select the **Johanna Lorenz** request row.
-3. Review dates, projected balance, coverage, employee note, and revision.
+3. Review displayed dates, 3 workdays, balance 11 -> 8, coverage **attention**, employee note, and revision.
 4. Select **Review decision**.
 5. Keep Approve, then select **Approve vacation request**.
 6. Read `ZAVA-LEAVE-1043` and **Session-only demo update**.
 7. Return to the list: 3 pending / 3 processed.
+
+The two processed records at baseline are seeded decisions. Do not imply the six requests were
+created by this conversation or that the update reached a separate SharePoint/Teams browser context.
 
 Optional validation cut: choose a pending request, switch Decision to Decline, and show that a reason is
 required. Cancel without changing the fixture.
@@ -109,11 +115,12 @@ Ask **Find a room for four at 14:00.**
 
 Demonstrate:
 
-1. Helsinki / October 1 / 14:00 / 60 minutes / 4 people.
+1. Verify Helsinki / the displayed future default date / 14:00 / 60 minutes / 4 people.
 2. Select **Search available rooms** and allow the loading state to appear.
 3. Select **Northern Lights**.
 4. Select **Review booking** and inspect office, date/time, duration, and capacity.
-5. Confirm only when you want the session-local receipt.
+5. Select **Confirm room booking** only when you want the simulated receipt. Availability is a static
+   capacity-filtered fixture, not a live calendar check or persisted reservation.
 
 Error cut: return to criteria and request 20 people to show an honest no-match result and recovery path.
 
@@ -124,6 +131,10 @@ Ask **My VPN is not working.**
 - Tool: `GetITHelp`
 - Route: `personal/it-help`
 - Show personal issues, known incidents, and the review-before-submit flow.
+- If no draft opens, select **Submit new issue**. Use **Network / Medium**, summary
+  **VPN cannot connect**, and description **VPN disconnects after sign-in on the managed laptop.**
+  Choose **Review IT issue**, inspect the fields, and stop before **Submit IT issue** unless showing
+  the simulated receipt. Do not enter real credentials or logs.
 
 Then ask **Help me report a suspicious email.**
 
@@ -141,8 +152,9 @@ Ask **Show EMEA bookings this quarter.**
 - Tool: `ShowSalesPerformance`
 - Route: `company/sales-performance`
 - Change Region EMEA → Americas → APAC.
-- Change Period Q1 FY27 → Q4 FY26.
-- Point out headline metrics and trend geometry updating together.
+- Show EMEA EUR 5.1M -> Americas EUR 5.9M -> APAC EUR 3.9M bookings and the changing series.
+- Period currently changes only the label; pipeline, win rate, and margin remain fixed fixtures.
+  Do not present this as historical-period analysis.
 
 Optional exact-table cut: open Equity, select a quarter using keyboard or pointer, and show the exact
 quarterly table beneath the D3 bars. Keep the received/estimate distinction visible.
@@ -167,12 +179,13 @@ Return to Personal workspace.
 1. Select **Edit layout**.
 2. Move Tasks to another column using its move handle.
 3. Hide one nonrequired panel.
-4. Select **Done editing**.
+4. Select **Done**.
 5. Open **Personalize**, restore the panel, and dismiss the rail.
 6. Refresh to show the arrangement persists within this browser session.
 
-Say: "This is explicitly session-only. It is not cross-device synchronization. Closing the browser
-session resets it to the recommended recipe."
+Say: "This persists in this browsing context's session storage. It is not cross-device or cross-host
+synchronization." Use the [targeted reset](./demo-operations.md#deterministic-reset), not an assumption
+that closing and restoring a tab cleared storage.
 
 ## 17:30-18:45 — Capability Explorer
 
@@ -190,8 +203,9 @@ Return to vacation approvals and select **Reset demo data**.
 
 - Verify 4 pending / 2 processed.
 - Show the local fallback route table.
-- Close with the evidence: 42 tests, 4,080 responsive browser states, 37 plugin functions, 39 engineering screenshots, 15 publication
-  captures, 28 bundled media assets, and one validated SPPKG.
+- Close with the [recorded evidence](../docs/release-readiness.md#evidence-and-validation): 35 business
+  tools plus two infrastructure tools, shared code, bundled media, and explicit local/tenant gates.
+  Use the actual latest command results rather than quoting old test totals as a new certification.
 
 Closing line:
 
@@ -208,5 +222,5 @@ decisions, while keeping every tool narrow, every action reviewable, and every d
 | Project leadership | Project health | **Why is Project Aurora at risk?** |
 | Executives | Goals and scorecards | **How are our customer experience goals tracking?** |
 | Communications | Events and town halls | **When is the next town hall?** |
-| Workplace | Campus menu | **What's vegetarian in Redmond today?** |
+| Workplace | Campus menu | **What's vegetarian in Redmond today?**; select Redmond in the UI because prompt scope is not applied |
 | New employee | Onboarding | **What do I need to do before my first day?** |

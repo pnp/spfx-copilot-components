@@ -1,148 +1,159 @@
-# Ten-minute technical demo
+# Zava One - ten-minute technical demo
 
-## Message
+## Goal and setup
 
-Zava One uses generated SPFx identities and thin host adapters around shared React experiences. A
-canonical catalog owns routing and packaging, while deterministic fixtures, explicit confirmation, and
-executable evidence make the sample reliable to review.
+Show how one intent maps to a generated SPFx component, a shared React body, a composed workspace,
+and an explicit fixture-only decision. Separate source contracts, executed local checks, historical
+evidence, and authenticated host acceptance.
 
-## Setup
+Before presenting, complete [operations](./demo-operations.md), open the linked files below, and keep
+the terminal output from successful checks. Do not spend the ten minutes waiting for a full build.
+Use [the intent matrix](../docs/intent-component-mapping.md) as the navigation sheet.
 
-- Open `config/zava-capabilities.mjs`, `src/shared/components/ZavaOneApp.tsx`, and the local UX harness.
-- Keep a terminal at the sample root.
-- Stop `npm start` before running a clean build.
+## 0:00-1:15 - From business language to one component
 
-## Script
+Open [the catalog](../config/zava-capabilities.mjs) beside the
+[complete matrix](../docs/intent-component-mapping.md#complete-business-intent-matrix).
 
-### 0:00-1:15 — Catalog-owned identity and routing
+Trace **C35**:
 
-Open `config/zava-capabilities.mjs`.
-
-Say: "Thirty-five capability records own the stable ID, intent, route, operation, grammar, web-part
-name, Copilot name, prompt, positive trigger, and nearest-sibling exclusion."
-
-Show these collision examples:
-
-| Prompt | Tool | Route | Excluded sibling |
-| --- | --- | --- | --- |
-| **Which approvals need me?** | `ShowMyApprovals` | `personal/approvals` | Vacation approvals |
-| **Show vacation requests waiting for my decision.** | `ReviewVacationRequests` | `personal/vacation-approvals` | Own time-off request |
-| **Find the parental leave policy for Finland.** | `FindCompanyKnowledge` | `company/knowledge` | Glossary definition |
-| **What does CXR mean at Zava?** | `FindCompanyTerm` | `company/glossary` | Broader policy search |
-
-Run `npm run check:routing-collisions` and point out the 13 tested collision pairs.
-
-### 1:15-2:30 — Shared UI, distinct host adapters
-
-Open `src/shared/components/ZavaOneApp.tsx` and the two host bases.
-
-- `ZavaOneWebPartBase` owns SharePoint properties, Top Actions, property panes, rendering, and teardown.
-- `ZavaOneCopilotComponentBase` owns display mode, model context, follow-up, resize, and teardown.
-- Both render the same `ZavaOneApp` intent branch.
-- Both use React 18 `createRoot` and explicit `unmount`.
-- `ZavaErrorBoundary` provides a no-submit fallback and route/theme reset key.
-
-Run `npm run check:react-baseline` and point out the exact RC0/React 18 pins and allowlisted
-framework-internal React 17 copies.
-
-### 2:30-3:30 — Host and bundle isolation
-
-Show the three workspace manifests and one feature manifest.
-
-- 35 feature web parts: `SharePointWebPart` only.
-- Three workspace web parts: SharePoint web part/full page plus Teams personal and channel tabs.
-- 37 Copilot Components: inline/full-screen.
-- Separate `zava-one-webparts` and `zava-one-copilot-components` bundles.
-
-Say: "Feature web parts never pull the Copilot runtime into ordinary SharePoint pages."
-
-### 3:30-5:00 — Safe state transition
-
-Open C35 in the local harness and reset it.
-
-1. Point to 4 pending / 2 processed.
-2. Open Johanna Lorenz by selecting her request row.
-3. Select **Review decision**.
-4. Select **Approve vacation request**.
-5. Read **Session-only demo update** on the receipt.
-6. Return to the queue and verify 3 pending / 3 processed.
-
-Open `src/shared/services/ZavaSessionStore.ts`.
-
-Say: "Draft state remains local. Explicit confirmation creates one deterministic decision event and
-publishes it through `useSyncExternalStore`."
-
-### 5:00-6:15 — Visualization and accessibility equivalence
-
-Open Offices and select Singapore, Los Angeles, then Helsinki.
-
-- Map markers and the button list control the same selected office.
-- IANA zones derive local time from one injected fixture instant.
-- The map has a title/description and keyboard-operable markers.
-
-Then open Equity as an optional code view:
-
-- D3 bars are keyboard-selectable.
-- The exact-value table remains available beneath the chart.
-- Received values and estimates are labeled separately.
-
-Do not claim the Sales trend is bar-clickable; demonstrate its Region and Period selectors instead.
-
-### 6:15-7:15 — Publisher and employee configuration
-
-Show `src/shared/catalog/webPartConfigurations.ts`.
-
-- Every business capability has publisher defaults.
-- Company News exposes six layout choices.
-- High-use choices appear as Top Actions; advanced settings open the property pane.
-- Combined/Company/Personal workspace modes remain immutable.
-
-State explicitly: hosted Workbench does not render Top Actions. Show this step only on a real modern
-SharePoint page, or use the configuration catalog as local evidence.
-
-### 7:15-8:20 — Agent packaging
-
-Open `copilot/declarativeAgent.json` and `copilot/instruction.txt`.
-
-- Six conversation starters cover news, knowledge, praise, sales, offices, and Explorer.
-- Explorer is last.
-- Instructions route all 37 source tools and prefer the narrowest tool.
-- Tool parameters filter or prefill; they never authorize a write.
-
-Run `npm run check:generated-plugin`.
-
-### 8:20-9:30 — Evidence pipeline
-
-Run or show the latest output from:
-
-```bash
-npm run validate
-npm run check:package-output
+```text
+"Show vacation requests waiting for my decision."
+  -> ReviewVacationRequests (tool)
+  -> ReviewVacationRequestsCopilotComponent (SPFx entry)
+  -> intent = vacationApprovals
+  -> VacationApprovalsExperience (shared React body)
+  -> personal/vacation-approvals (logical catalog route)
 ```
 
-Call out:
+Contrast **Which approvals need me?** (C05) and **Draft my own leave** (C16).
+The agent selects the tool; this is not a string-matching runtime router.
 
-- 42 tests / 0 failures, plus 4,080 passing responsive browser states;
-- 75 unique SPFx manifests;
-- 35 capabilities and 37 plugin functions;
-- 13 routing collision pairs;
-- 39 engineering screenshots and 15 reviewed publication images (12 local, three authenticated Teams);
-- 28 provenance-checked media assets;
-- one validated version `1.0.0.15`, 110-entry SPPKG and three personal-only Teams app ZIPs.
+Run `npm run check:routing-collisions`. Explain its 13 source boundary pairs, 35 documentation
+mappings/boundaries, and six canonical starter targets. This does **not** execute model routing.
 
-### 9:30-10:00 — Honest boundary
+## 1:15-2:30 - Generated identities, shared bodies
 
-Close with: "This proves the fixture sample and package locally, plus the author's working Teams
-personal-app baseline and authentic screenshots. Modern
-SharePoint Top Actions, host screen-reader behavior, CSP/focus integration, and live providers remain
-explicit external gates."
+Open:
 
-## Questions to anticipate
+- [C35 entry](../src/copilotComponents/reviewVacationRequests/ReviewVacationRequestsCopilotComponent.tsx)
+- [C35 web part](../src/webparts/vacationRequestApprovals/VacationRequestApprovalsWebPart.ts)
+- [App dispatcher](../src/shared/components/ZavaOneApp.tsx)
+- [Generator](../scripts/configure-reference-hosts.mjs)
 
-| Question | Answer |
-| --- | --- |
-| Why fixtures? | Repeatable review without permissions, data leakage, network dependency, or synthetic live success. |
-| Why 35 pairs? | SharePoint authors get independently configurable web parts; Copilot gets narrow intent tools over the same capability code. |
-| Why three Teams apps only? | Teams exposure is reserved for coherent composed workspaces, not every small feature. |
-| Where does state live? | Invocation-local drafts plus an evented session-local fixture store; no cross-device promise. |
-| Is this production-ready? | No. It is an approval-ready preview sample with explicit tenant and provider gates. |
+The two wrappers supply an immutable intent to shared code. The generator owns wrapper content,
+tool descriptions/schemas, and bundle/host registration after Yeoman creates the identities.
+Changing a tool means updating its source contract and regenerating, not hand-editing generated files.
+
+There are **75 SPFx identities**: 35 feature web parts + 3 workspace web parts + 37 Copilot Components.
+The 37 are **35 business tools + workspace + Explorer**, not 37 separate business capabilities.
+
+## 2:30-3:40 - React lifecycle and the honest expansion boundary
+
+Open the [Copilot host base](../src/shared/hosts/ZavaOneCopilotComponentBase.tsx),
+[web-part host base](../src/shared/hosts/ZavaOneWebPartBase.ts), and
+[workspace](../src/shared/components/ZavaOneExperiences.tsx).
+
+- React 18 roots persist across host rerenders and explicitly unmount on teardown/disposal.
+- The host supplies its owner document and theme; full screen is requested, not locally asserted.
+- Inline renders the focused body. Full screen switches to the composed Company/Personal workspace.
+- The owning tab is derived from the capability catalog. Workspace children omit `toolProperties`.
+  Therefore an outer persistent root does **not** imply selected-record or draft continuity.
+- Tool schemas advertise some inputs that active bodies do not consume. Show the
+  [consumption limits](../docs/intent-component-mapping.md#current-consumption-limits), especially
+  C14 and C35. Do not demonstrate seeded defaults as proof of prompt prefilling.
+
+Say: **"We distinguish the intended routing contract from what the running adapter actually carries."**
+
+## 3:40-5:10 - Execute the safe decision
+
+Open the C35 inline local route from [operations](./demo-operations.md#offline-fallback).
+
+1. Reset; verify 4 pending / 2 processed (two processed records are seeded).
+2. Open Johanna: `vac-1043`, 3 workdays, 11 -> 8 days, coverage **attention**.
+3. Review, explicitly approve, inspect `ZAVA-LEAVE-1043`, then verify 3/3 in the queue.
+4. Reset for the next run.
+
+Open [ZavaSessionStore](../src/shared/services/ZavaSessionStore.ts) and its
+[tests](../src/shared/services/ZavaSessionStore.test.ts).
+Show pending-only decisions, decline-reason validation, revision increment, event notification,
+`useSyncExternalStore`, and session-storage persistence.
+
+This store is shared within one runtime; browser session storage is not a cross-host backend.
+Other forms use mounted local state and may reset on remount/reload. A fixture receipt is never an
+HR, finance, workplace, or ITSM submission.
+
+## 5:10-6:20 - Real interaction and visual ownership
+
+- Sales: use **Region** EMEA -> APAC; bookings **EUR 5.1M -> EUR 3.9M** and series geometry change.
+  Its current trend is React-owned SVG; Period does not select a different series.
+- Offices: use the map and equivalent buttons to select one office; show bundled geography and a
+  fixed-instant IANA clock, not a live location service.
+- Optional Equity cut: keyboard-select a D3 bar and inspect the exact-value table, keeping the
+  received/estimated distinction visible. A currency label is not a live FX conversion.
+
+Source: [Company experiences](../src/shared/components/CompanyCapabilityExperiences.tsx),
+[personal workflows](../src/shared/components/PersonalWorkflowExperiences.tsx), and
+[D3 chart](../src/shared/components/DecisionBarChart.tsx) and
+[office map](../src/shared/components/OfficeMap.tsx).
+
+## 6:20-7:20 - Three hosts, not three implementations
+
+Show [bundle configuration](../config/config.json) and
+[publisher configuration](../src/shared/catalog/webPartConfigurations.ts).
+
+- 35 feature web parts: SharePoint web-part host only.
+- Three composed workspace web parts: SharePoint web part/full page, Teams host support.
+- Distributed Teams ZIPs: **personal-only**, despite the wrappers advertising TeamsTab support.
+- Two host-specific bundles keep the Copilot runtime out of ordinary web parts.
+- Top Actions/property panes are publisher controls, not prompt inputs. Workbench does not render
+  Top Actions; use a real modern SharePoint page or inspect the configuration without claiming host proof.
+
+## 7:20-8:20 - Dynamic tool discovery and bridge scope
+
+Open [agent instructions](../copilot/instruction.txt), [plugin](../copilot/ai-plugin.json), and
+[C35 schema](../src/copilotComponents/reviewVacationRequests/ReviewVacationRequestsCopilotComponentProperties.ts).
+
+GA uses one `RemoteMCPServer` runtime with dynamic discovery: the plugin's static `functions` array
+is empty. The **37 source tools** live in component manifests/schemas.
+Six starters are curated entry points, not a platform cap.
+
+News detail's **Ask Copilot about this story** sends a user-triggered follow-up. The local harness
+records it without running a model. Do not claim the Revenue sample's general text-summary or
+component-handoff protocol exists here.
+
+## 8:20-9:30 - Reproducible checks, not borrowed evidence
+
+Show prepared output for the checks actually run:
+
+```powershell
+npm run check:routing-collisions
+npm run check:publication
+npm run validate
+npm run build
+```
+
+`build` already includes `validate`, clean production tests, packaging, dynamic-plugin/schema audit,
+package audit, and release-evidence checks. A separate `check:responsive` run needs the UX server;
+the build reads existing responsive evidence rather than replaying all browser states.
+
+Use [release readiness](../docs/release-readiness.md) to distinguish the recorded 50-test result,
+4,080-state responsive report, 39 engineering captures, and 15 publication captures from new results.
+Exact package size/hashes come from the committed matrix; its old profile/host fields are not GA
+certification. Do not regenerate an evidence timestamp to make an old rehearsal appear current.
+
+## 9:30-10:00 - The boundary and next step
+
+Say: **"This is an offline employee-experience reference with shared code and human confirmation.
+Production needs authorized providers, durable workflow, and host-level acceptance. The remaining
+gates are explicit rather than hidden behind a demo-ready badge."**
+
+Open [the finalization checklist](../todo.md#remaining-release-gates). Name the next concrete gate:
+authenticated GA routing and expansion rehearsal, followed by host accessibility and clean-release
+evidence. Do not claim that documentation work completed those checks.
+
+## Five-minute cut
+
+Keep the C35 catalog trace (45s), shared host/expansion boundary (60s), full decision (90s),
+dynamic MCP/host isolation (45s), and executed checks/remaining gates (60s).
+Leave visual and publisher tours for questions; never omit explicit confirmation.

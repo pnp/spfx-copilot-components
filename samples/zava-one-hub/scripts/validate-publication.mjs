@@ -17,6 +17,7 @@ const requiredFiles = [
   'demos/technical-walkthrough.md',
   'demos/demo-operations.md',
   'docs/release-readiness.md',
+  'docs/intent-component-mapping.md',
   'docs/responsive-review.md',
   'sharepoint/solution/zava-one-hub.sppkg',
   'teams/zava-one.zip'

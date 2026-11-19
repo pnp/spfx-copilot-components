@@ -5,9 +5,9 @@
   "id": "c1f4c0ca-8c2e-4e5b-871e-71637b7440c5",
   "developer": {
     "name": "Contoso",
-    "websiteUrl": "https://www.contoso.com",
-    "privacyUrl": "https://www.contoso.com/privacy",
-    "termsOfUseUrl": "https://www.contoso.com/terms"
+    "websiteUrl": "https://pnp.github.io/",
+    "privacyUrl": "https://privacy.microsoft.com/",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
   },
   "icons": {
     "color": "color.png",

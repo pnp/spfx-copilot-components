@@ -1,6 +1,59 @@
 # Zava One - Build Plan and TODO
 
-## RC0 update - October 20, 2026
+## Documentation and finalization - November 19, 2026
+
+This section supersedes the older progress and readiness claims below. The source targets
+**SPFx 1.24.0 GA / React 18.3.1**. Earlier host screenshots and responsive runs remain historical;
+documentation work does not recertify the package or the keynote tenant.
+
+- [x] Compare the existing presenter guides with the Revenue and Procurement Zava samples and trace
+  the catalog, tool schemas, dispatcher, workspace, and session store.
+- [x] Refresh the five-minute keynote, business showcase, technical demo, and operations runbook
+  with exact prompts, visible checkpoints, stopping points, and truthful fallback behavior.
+- [x] Publish a complete C01-C35 plus workspace/explorer intent-to-component matrix, all six starter
+  targets, optional input schemas, sibling exclusions, and actual parameter/expansion limitations.
+- [x] Link the presenter set and routing contract from the README and release handoff; reconcile
+  stale GA, package, test-count, reset, and host-exposure wording.
+- [x] Run the applicable documentation/publication and routing checks; record exact results here.
+
+**Documentation status: complete and locally checked.** Start with the
+[keynote](demos/keynote-5-minutes.md), [technical demo](demos/technical-demo-10-minutes.md), and
+[intent matrix](docs/intent-component-mapping.md). The existing routing check now rejects stale
+documented prompts, tool/component names, intent keys, routes, operations, web-part names, boundaries,
+and starter targets; publication validation requires the mapping document.
+
+| Validation on November 19, 2026 | Result |
+| --- | --- |
+| `npm run check:routing-collisions` | Passed: 13 collision pairs, 35 exact mappings/boundaries, six starter targets |
+| `npm run check:publication` | Passed after final guide edits: 15 thumbnails, 14 Markdown files, 303 relative links |
+| `node --check .\scripts\validate-routing-collisions.mjs` | Passed |
+| `node --check .\scripts\validate-publication.mjs` | Passed |
+| In-memory checker regression probes | Passed: CRLF accepted; stale prompt, missing boundary, incorrect starter, duplicate mapping rejected; no files mutated |
+| Local Markdown heading-link audit | Passed: 29 section links |
+| VS Code diagnostics on changed validators and documentation | No reported errors |
+| `git diff --check` | Passed |
+| Full build, browser recapture, authenticated GA rehearsal | Not run for this documentation/validator-only change; no new package or host certification claimed |
+
+### Remaining release gates
+
+- [ ] **Keynote tenant:** rehearse all six starters and the C35 decision in authenticated GA Copilot;
+  record actual tool/argument selection, expansion/collapse, latency, context/follow-up, and receipts.
+- [ ] **Runtime contract:** reconcile advertised but unconsumed tool parameters and verify exact
+  selection/draft continuity on expansion. Until then, use the in-component controls and do not claim
+  automatic prompt prefilling or preserved full-screen drafts. See the
+  [parameter audit](docs/intent-component-mapping.md#current-consumption-limits). Include unknown
+  approval-ID handling, month-specific catalog prompts, Sales period semantics, and fixture-only
+  source/service launch controls in that acceptance pass.
+- [ ] **Clean release:** run the documented clean restore/build and offline rehearsal on a supported
+  Node.js version; validate package hashes and regenerate evidence only from successful checks.
+  Reconcile the phase-6 matrix's legacy `profile.spfx` value with its actual build provenance;
+  preserve historical host measurements instead of relabeling them GA.
+- [ ] **Host/accessibility:** complete modern SharePoint Top Actions, Teams personal-app accessibility,
+  CSP, iframe focus, screen readers, forced colors, reduced motion, and native 200% zoom checks.
+- [ ] **Publication sign-off:** obtain presenter timing/visual approval and final media redistribution
+  approval. Keep live-provider integration and production certification separate from demo readiness.
+
+## Historical RC0 update - October 20, 2026
 
 The current application baseline is SPFx 1.24.0-rc.0, React/ReactDOM 18.3.1, React types 18.3.31/18.3.7, and Heft 1.3.2. Current validation, exact packages, starter targets, findings, and external release gates are recorded in the [repository RC0 readiness report](../../RC0-updates.md). The local creation guide is synchronized byte-for-byte with the assets golden guide.
 
@@ -18,7 +71,7 @@ by [agentic-creation-rules.md](agentic-creation-rules.md).
 > **Status legend:** `- [ ]` open, `- [x]` validated, **IN PROGRESS** active, and
 > **BLOCKED: reason** externally blocked. A checkbox closes only after its named evidence exists.
 
-> **Progress (latest):** **Demo finalized and locally validated.** All 35 final-named feature
+> **Historical implementation progress (not a fresh release certification):** All 35 final-named feature
 > pairs render through 35 SharePoint-only web parts and 35 intent-specific Copilot Components. Three
 > composed workspace web parts provide Combined, Company-only, and Personal-only SharePoint/Teams modes;
 > two Copilot infrastructure entries bring the solution to 75 unique SPFx component GUIDs and 37
