@@ -11,7 +11,7 @@
       "The React component supports inline and full-screen display modes, service search, active-issue filtering, natural-language service name resolution, and issue details with impact and status updates. It also demonstrates brokered Microsoft Graph access, retry with exponential backoff, classified error handling, host-driven theming, and graceful degradation."
     ],
     "creationDateTime": "2026-07-31",
-    "updateDateTime": "2026-07-31",
+    "updateDateTime": "2026-11-14",
     "products": [
       "SharePoint",
       "Microsoft Copilot"
@@ -27,10 +27,17 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.1"
       }
     ],
     "thumbnails": [
+      {
+        "name": "full page view.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-service-health/assets/full%20page%20view.png",
+        "alt": "Full-screen M365 Service Health overview with filtering and issue details"
+      },
       {
         "name": "main page.png",
         "type": "image",
@@ -44,14 +51,7 @@
         "order": 101,
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-service-health/assets/copilot_component_rendering.png",
         "alt": "M365 Service Health component rendered in a Copilot conversation"
-      },
-      {
-        "name": "full page view.png",
-        "type": "image",
-        "order": 102,
-        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/m365-service-health/assets/full%20page%20view.png",
-        "alt": "Full-screen M365 Service Health overview with filtering and issue details"
-      }
+      }      
     ],
     "authors": [
       {
