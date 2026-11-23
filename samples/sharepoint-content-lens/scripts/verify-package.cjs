@@ -48,8 +48,10 @@ async function verify() {
   const plugin = JSON.parse(await agentZip.file('ai-plugin.json').async('string'));
   const manifest = JSON.parse(await agentZip.file('manifest.json').async('string'));
   const agent = JSON.parse(await agentZip.file('declarativeAgent.json').async('string'));
-  // The agent instructions are packaged unchanged and stay within the platform limit of 8,000 characters.
-  assert.equal(agent.instructions, fs.readFileSync(path.join(root, 'copilot/instruction.txt'), 'utf8'));
+  // A checkout can use CRLF even when the package uses LF.
+  const normalizeLineEndings = text => text.replace(/\r\n/g, '\n');
+  const sourceInstructions = fs.readFileSync(path.join(root, 'copilot/instruction.txt'), 'utf8');
+  assert.equal(normalizeLineEndings(agent.instructions), normalizeLineEndings(sourceInstructions));
   assert(agent.instructions.length <= 8000, `agent instructions have ${agent.instructions.length} characters; the limit is 8,000`);
   // The same developer in the SharePoint solution and the Teams manifest, whoever that is.
   assert(solution.developer.name, 'package-solution.json must name the developer');
