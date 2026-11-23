@@ -3,17 +3,17 @@
     "name": "pnp-spfx-copilot-components-expert-finder",
     "source": "pnp",
     "title": "Expert Finder",
-    "shortDescription": "Find colleagues by skill, explore profiles and availability, and request introduction drafts or confirmed Teams meetings in Microsoft 365 Copilot.",
+    "shortDescription": "Find colleagues by skill, check availability, book Teams meetings and review Copilot-generated agendas before saving them to the existing invitation.",
     "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/expert-finder",
     "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/expert-finder",
     "longDescription": [
       "An SPFx 1.24.1 Copilot UX component that renders an expert directory inline and in fullscreen using React, Fluent UI v9 and a SharePoint Experts list.",
-      "Explore local filters, delegated Graph photos and free/busy availability, confirmed calendar-backed Teams meetings, and selected-profile introduction drafting in the Copilot conversation.",
+      "Explore local filters, delegated Graph photos and free/busy availability for today or the next working day, confirmed Teams meetings, introduction drafts and editable Copilot-generated agendas saved to the existing invitation.",
       "Learn component-to-Copilot context publishing: Introduce me awaits updateModelContextAsync with a minimal selected-profile snapshot, then uses sendFollowUpMessageAsync to request a draft in the existing conversation.",
-      "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls, and live meetings require explicit confirmation."
+      "A missing Experts list selects bundled fictional profiles with local portraits. Mock profiles make no Graph calls. Meeting creation and agenda saving require explicit user actions; agenda generation alone does not update the calendar."
     ],
     "creationDateTime": "2026-11-07",
-    "updateDateTime": "2026-11-07",
+    "updateDateTime": "2026-11-16",
     "products": [
       "SharePoint",
       "Microsoft Copilot"

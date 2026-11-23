@@ -58,7 +58,7 @@ export function ExpertActions({ expert, isDemo, compact, onOpenLink, introductio
       </Button>
       {!compact && introduction && <Button appearance="outline"
         icon={introducing ? <Spinner size="tiny" aria-hidden="true" /> : <Sparkle20Regular />}
-        disabled={introduction.pendingExpertId !== undefined} aria-busy={introducing}
+        disabled={introduction.disabled || introduction.pendingExpertId !== undefined} aria-busy={introducing}
         aria-label={introducing ? `Requesting an introduction draft for ${expert.displayName}` : `Introduce me to ${expert.displayName} in Copilot`}
         aria-describedby={introductionError ? introductionErrorId : undefined}
         onClick={() => introduction.onRequest(expert)}>

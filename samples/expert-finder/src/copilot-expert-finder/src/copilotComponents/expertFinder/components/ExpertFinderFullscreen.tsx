@@ -7,7 +7,7 @@ import type { GraphMeetingService } from '../services/GraphMeetingService';
 import { filterExperts, emptyFilters, type ExpertFilters } from '../utils/expertFilters';
 import { ExpertSearch } from './ExpertSearch';
 import { ExpertCard } from './ExpertCard';
-import type { IntroductionAction } from './IExpertFinderProps';
+import type { IntroductionAction, AgendaAction } from './IExpertFinderProps';
 
 const useStyles = makeStyles({
   grid: { display: 'grid', alignItems: 'start', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '20px', paddingBottom: '8px',
@@ -18,11 +18,12 @@ const useStyles = makeStyles({
   hint: { margin: 0, color: tokens.colorNeutralForeground2 }
 });
 
-export function ExpertFinderFullscreen({ experts, photos, onPhotoSettled, availabilityService, meetingService, introduction, filters, onFiltersChange, isDemo, onOpenLink }: {
+export function ExpertFinderFullscreen({ experts, photos, onPhotoSettled, availabilityService, meetingService, introduction, agenda, filters, onFiltersChange, isDemo, onOpenLink }: {
   experts: Expert[]; photos: ExpertPhotos; onPhotoSettled: (id: string, failed: boolean) => void;
   availabilityService?: GraphAvailabilityService;
   meetingService?: GraphMeetingService;
   introduction: IntroductionAction;
+  agenda: AgendaAction;
   filters: ExpertFilters; onFiltersChange: (filters: ExpertFilters) => void;
   isDemo: boolean; onOpenLink: (url: string) => Promise<void>;
 }): React.ReactElement {
@@ -40,7 +41,7 @@ export function ExpertFinderFullscreen({ experts, photos, onPhotoSettled, availa
     {visible.length ? <div className={styles.grid}>{visible.map(expert =>
       <ExpertCard key={expert.id} expert={expert} photo={photos[expert.id]} onPhotoSettled={onPhotoSettled}
         availabilityService={availabilityService} meetingService={meetingService} availabilitySelected={selectedExpertId === expert.id}
-        introduction={introduction}
+        introduction={introduction} agenda={agenda}
         onCheckAvailability={() => setSelectedExpertId(expert.id)}
         isDemo={isDemo} onOpenLink={onOpenLink} />)}</div>
       : <div className={styles.empty} role="status"><Search24Regular /><strong>No experts match these filters</strong>

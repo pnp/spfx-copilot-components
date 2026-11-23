@@ -6,10 +6,12 @@
         "default": "Expert Finder"
       },
       "description": {
-        "default": "Find experts by skill and explore their profiles directly in Copilot."
+        "default": "Find experts by skill and prepare an editable agenda for an existing Expert Finder meeting."
       },
+      "toolDiscovery": "static",
       "components": [
-        "980d322c-2c03-4d8b-a05a-6b724ee174a1"
+        "980d322c-2c03-4d8b-a05a-6b724ee174a1",
+        "b4f087ce-51a0-4bb5-8cae-3eae4c7c634b"
       ]
     }
   ]

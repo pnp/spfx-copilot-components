@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "b4f087ce-51a0-4bb5-8cae-3eae4c7c634b",
+  "alias": "PrepareMeetingAgendaCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": { "availableDisplayModes": ["inline", "fullscreen"] },
+  "tools": [{
+    "name": "PrepareMeetingAgendaTool",
+    "description": { "default": "Prepare and display an agenda in the editable Expert Finder agenda review component for an already confirmed booking. REQUIRED when the user asks to prepare the meeting agenda and provides matching meetingAgenda context and eventId/bookingId. Generate the actual agenda and invoke this tool with both exact identifiers and that text; a chat acknowledgement cannot open this component. Invocation only renders a draft for review; the organizer explicitly chooses Save agenda to meeting to update the same event." },
+    "propertiesSchema": { "id": "$../../../lib/copilotComponents/prepareMeetingAgenda/PrepareMeetingAgendaCopilotComponentProperties.js:default;" }
+  }]
+}
