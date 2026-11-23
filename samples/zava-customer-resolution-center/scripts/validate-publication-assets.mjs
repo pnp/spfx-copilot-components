@@ -30,6 +30,6 @@ assert([developer.websiteUrl,developer.privacyUrl,developer.termsOfUseUrl].every
 assert(!/description|placeholder/i.test(packageSolution.metadata?.shortDescription?.default||''),'Package short description is still a scaffold placeholder.');
 assert(!/description|placeholder/i.test(packageSolution.metadata?.longDescription?.default||''),'Package long description is still a scaffold placeholder.');
 assert(plugin.contact_email==='pnp@microsoft.com','Plugin contact email must use the PnP publication contact.');
-assert(teamsManifest.developer?.name==='Microsoft 365 PnP Community','Teams manifest developer must use the PnP Community publisher.');
+assert(teamsManifest.developer?.name==='Contoso','Teams manifest developer must use the Contoso sample publisher.');
 assert(teamsManifest.description?.full?.includes('23 purpose-built'),'Teams manifest description must reflect 23 components.');
 console.log(JSON.stringify({documents:required.length,componentScreenshots:23,visualCaptures:81,visualFailures:0,uniqueLayouts:visual.uniqueLayouts,d3Geo:true,tableEquivalents:true,publisherMetadata:true}));

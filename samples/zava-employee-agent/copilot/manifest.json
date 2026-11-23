@@ -4,10 +4,10 @@
   "version": "1.0.3",
   "id": "0667b909-5102-4b2b-994c-497409ad35bf",
   "developer": {
-    "name": "Zava",
-    "websiteUrl": "https://www.contoso.com",
-    "privacyUrl": "https://www.contoso.com/privacy",
-    "termsOfUseUrl": "https://www.contoso.com/terms"
+    "name": "Contoso",
+    "websiteUrl": "https://pnp.github.io/",
+    "privacyUrl": "https://privacy.microsoft.com/",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
   },
   "icons": {
     "color": "color.png",

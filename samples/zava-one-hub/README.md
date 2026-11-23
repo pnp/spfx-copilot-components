@@ -29,7 +29,7 @@ The same shared React capability powers:
 
 - an independently configurable SharePoint web part;
 - an intent-specific Copilot inline experience;
-- the exact route inside Copilot full screen; and
+- the owning Company or Personal workspace inside Copilot full screen; and
 - one of three composed SharePoint/Teams workspace experiences.
 
 ![Explore Zava One capability explorer](./assets/preview.png)
@@ -47,12 +47,26 @@ separate from historical authenticated screenshots.
 The six starters have explicit [component targets](config/conversation-starters.json); policy lookup,
 news, praise, sales, office discovery, and capability exploration remain independent tools.
 
+**Present this sample:** [five-minute keynote](./demos/keynote-5-minutes.md) |
+[technical demo](./demos/technical-demo-10-minutes.md) |
+[business walkthrough](./demos/business-journey.md) |
+[exact intent-to-component mapping](./docs/intent-component-mapping.md).
+The mapping covers all 35 business intents, both infrastructure tools, six starters, optional
+schemas, and current input/expansion limits. [Finalization progress](./todo.md) distinguishes
+completed documentation from runtime and authenticated-host gates.
+
+**Use in Cowork:** [zava-one-hub-plugin](./zava-one-hub-plugin/README.md) is the manually created plug-in
+version of the agent, with its own agent identity and an app-level MCP connector. Package and deploy
+it to your tenant as a plug-in for use in Cowork. It connects to the separately deployed SPFx
+solution; it does not replace the SPPKG or the original generated agent. Follow the
+[plug-in packaging and deployment guide](./zava-one-hub-plugin/README.md).
+
 ## Highlights
 
 - **35 business capabilities**, each with one final-named SharePoint-only web part and one final-named
   Copilot Component generated through the SPFx Yeoman generator.
 - **Three composed workspace web parts:** Zava One, Zava One Company, and Zava One Personal. Only these
-  web parts are enabled for Teams personal and channel tabs.
+  web parts advertise Teams host support; the distributed Teams app packages are personal-only.
 - **One shared `ZavaOneWorkspace`** for SharePoint, Teams, and Copilot full screen. Company-only and
   Personal-only modes omit the top-level tab switcher.
 - **C35 vacation approvals:** ranked queue, employee portraits, policy/balance/coverage evidence,
@@ -165,11 +179,13 @@ states and all 35 focused experiences remain available in the engineering galler
 - Every feature web part is SharePoint-only. The three workspace web parts alone support
   `SharePointFullPage`, `TeamsPersonalApp`, and `TeamsTab`, allowing the composed workspaces to be used
   as locked SharePoint single-part app pages without exposing individual features as full-page apps.
-- Copilot inline answers one focused question. Full screen renders the shared workspace at the owning
-  route. The full-screen workspace uses natural document flow: its header, tabs, and content form one
+- Copilot inline answers one focused question. Full screen renders the shared workspace on the owning
+  tab, not an exact selected-record route, and does not transfer the inline draft/stage. The
+  full-screen workspace uses natural document flow: its header, tabs, and content form one
   page, and the MCP/Copilot document owns the only scrollbar. There is no fixed viewport shell, nested
-  canvas scrollbar, custom resize observer, or iframe-height negotiation. Prompt values filter or
-  prefill but never authorize or submit an operation.
+  canvas scrollbar, custom resize observer, or iframe-height negotiation. Consumed prompt values may
+  filter or prefill, but never authorize or submit an operation. Some advertised values are not yet
+  consumed; see the [parameter audit](./docs/intent-component-mapping.md#current-consumption-limits).
 - The Company tab is a full 17-experience portal by default. A pinned company-wide update hero surfaces
   current announcements and alerts, while the real shared Company components fill three independently
   stacked columns. Company has its own Edit layout, hide/restore, Personalize rail, and session-persisted
@@ -238,25 +254,30 @@ accept only intent-specific tool parameters.
 
 ## Demo Data and Safety
 
-All runtime business data is fictional and deterministic. Confirmed demo actions update an evented,
-session-local store and clearly identify simulated receipts; they never call an external provider.
-Sensitive drafts are not placed in URLs or model context. C35 demonstrates the complete state story:
-list, detail, decision, receipt, updated queue, cross-surface status, and reset.
+All runtime business data is fictional and deterministic. C35 confirmed decisions update an evented
+session-local store; most other workflows keep mounted local state. Simulated receipts never imply
+an external-provider write. Do not enter real private data. C35 demonstrates list, detail, decision,
+receipt, updated queue, and reset within one runtime/browsing context, not synchronization across
+independent SharePoint, Teams, or Copilot sessions.
 
 Persona and editorial media provenance, source URLs, usage notes, dimensions, and hashes are recorded in
 [`assets/media-provenance.json`](./assets/media-provenance.json). Runtime media is generated into one
 embedded module so keynote rendering remains offline.
 
-## Validation Snapshot
+## Recorded Validation Snapshot
+
+These are recorded evidence, not new executions during the documentation refresh. The
+[release handoff](./docs/release-readiness.md#evidence-and-validation) explains the mixed historical
+host/profile fields and the remaining GA acceptance gates.
 
 | Check | Phase 6 result |
 | --- | --- |
 | SPFx components | 75 unique GUIDs |
 | Business capabilities | 35 web-part/Copilot pairs |
-| Copilot plugin | v2.4, 37 validated functions / 6 conversation starters |
+| Copilot plugin | v2.4 dynamic MCP discovery, 37 source tools / 6 conversation starters; empty static function array |
 | Agent branding | Zava One / 192px color icon / 32px transparent outline icon |
 | SPFx bundles | 2 host-specific bundles with shared source |
-| Tests | 46 passed / 0 failed |
+| Tests | 50 passed / 0 failed in the committed matrix |
 | Inline visual smoke | 35 rendered / 35 unique layouts / 0 runtime, overflow, or image failures |
 | Copilot Workbench | 37/37 Ready baseline; 8/8 changed Personal workflows revalidated |
 | Complete screenshot gallery | 39 PNGs |
@@ -276,10 +297,11 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 
 | Gate | Status | Next action |
 | --- | --- | --- |
-| Source, generated hosts, media, and routing validation | Ready | Run `npm ci` and `npm run validate` |
-| Local visual review | Ready | Run the UX review harness and use the documented query parameters |
-| SharePoint solution package | Ready to deploy to a developer tenant | Upload the committed SPPKG to an approved app catalog |
+| Source, generated hosts, media, and routing validation | Checks available; rerun before release | Run `npm ci` and `npm run validate` |
+| Local visual review | Historical evidence present | Run the UX review harness and use the documented query parameters |
+| SharePoint solution package | Committed candidate; verify before deployment | Run the clean build/package checks, then upload to an approved app catalog |
 | Copilot Component baseline | Ready for tenant verification | Confirm all six starters and 37 tools in Copilot Workbench |
+| Manual plug-in / Cowork | Separate tenant deployment and validation | Package [zava-one-hub-plugin](./zava-one-hub-plugin/README.md) for the target tenant, deploy and assign it, then verify tools in Cowork |
 | Teams personal apps | Working baseline confirmed by sample author | Three authenticated screenshots; broader host accessibility checks remain open |
 | Modern SharePoint pages | External validation required | Verify Top Actions, responsive chrome, focus, and CSP after deployment |
 | Production use | Not claimed | Replace fixtures and complete security, privacy, accessibility, and service-owner reviews |
@@ -294,7 +316,9 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 | [Twenty-minute feature showcase](./demos/feature-showcase-20-minutes.md) | Company, Personal, forms, services, charts, maps, and personalization |
 | [90-second keynote](./demos/keynote-90-seconds.md) | Compressed alternate pitch |
 | [Demo operations](./demos/demo-operations.md) | Reset, offline fallback, and failure recovery |
+| [Intent-to-component mapping](./docs/intent-component-mapping.md) | All 35 business intents, two infrastructure tools, six starters, component classes, routes, schemas, and exclusions |
 | [Release readiness](./docs/release-readiness.md) | Host matrix, privacy, accessibility, validation, and external gates |
+| [Manual plug-in / Cowork](./zava-one-hub-plugin/README.md) | Tenant-specific packaging, plug-in deployment, and Cowork use over the existing SPFx solution |
 
 ## Minimal Path to Awesome
 
@@ -306,6 +330,38 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 3. Add a Zava One feature web part to a SharePoint page, or use one of the three composed workspace web
    parts for SharePoint/Teams testing.
 4. Add the generated Zava One agent to Microsoft 365 Copilot and test inline/full-screen routing.
+
+### Deploy the manually created plug-in for Cowork
+
+The [zava-one-hub-plugin folder](./zava-one-hub-plugin/README.md) is a separately maintained plug-in version
+of the agent, not an output of `npm run build`.
+
+| Artifact | Purpose |
+| --- | --- |
+| [SPFx solution](./sharepoint/solution/zava-one-hub.sppkg) | Deploys the component implementation and assets to SharePoint |
+| [Original agent source](./copilot/manifest.json) / [generated agent ZIP](./teams/zava-one.zip) | Original **Zava One** agent package produced by the SPFx build |
+| [Manual plug-in source](./zava-one-hub-plugin/manifest.json) / [plug-in ZIP](./zava-one-hub-plugin/zava-one-hub-plugin.zip) | Separate **Zava One Hub Plugin** agent and MCP connector, packaged for tenant deployment and use in Cowork |
+
+1. Deploy and enable the SPPKG in the target tenant first.
+2. From this sample's root, substitute your tenant's SharePoint root URL and run:
+
+   ```powershell
+   .\zava-one-hub-plugin\Package-Plugin.ps1 -TenantUrl 'https://yourtenant.sharepoint.com'
+   ```
+
+3. The helper updates both MCP endpoint URLs in the manual source files and recreates
+   `zava-one-hub-plugin.zip` with five files at the archive root. It does not deploy anything or
+   rebuild the SPFx solution. Rerun it after editing packaged files or changing tenants.
+4. Have a tenant administrator upload, deploy, and assign the resulting ZIP through the tenant's
+   supported plug-in deployment flow. Do not upload the entire source folder or substitute the
+   generated agent ZIP for this plug-in.
+5. Use the deployed plug-in in **Cowork** with an assigned account where plug-ins are enabled;
+   verify tool discovery and invoke a focused task such as **What's new across Zava this week?**
+
+The plug-in uses dynamic discovery of the same 37 SPFx tools; it does not copy their definitions
+or contain the component bundles. The original **Zava One** agent and three Teams personal apps
+remain separate. See the [plug-in guide](./zava-one-hub-plugin/README.md) for endpoint configuration,
+package contents, versioning, and tenant/Cowork acceptance checks.
 
 ### Separate Teams personal apps
 
@@ -332,18 +388,17 @@ See the [Teams app guide](./teams/README.md) for manifests, installation, and pa
 
 Prerequisites:
 
-- Node.js `>=22.14.0 <23.0.0`
+- Node.js `>=22.14.0 <23.0.0`, `24.x`, or `26.x`
 - npm and the repository lockfile
 - Yeoman `5.1.0` plus `@microsoft/generator-sharepoint@1.24.0` only when generating components
 
 ```bash
 npm ci
-npm run validate
 npm run build
 ```
 
 `npm run build` validates generated hosts, media, visual evidence, tests, the generated API plugin, and
-the final `.sppkg`.
+the final `.sppkg`; it already includes `npm run validate`. Stop task-owned watchers first.
 
 ### Review without a tenant
 
@@ -364,12 +419,19 @@ Open `http://127.0.0.1:4322`. Query parameters select an experience:
 
 ## Current Limitations
 
+- Some advertised tool inputs are not consumed; full-screen expansion opens the owning composed tab
+  without transferring the inline draft/selection. See the [runtime contract](./docs/intent-component-mapping.md#inline-full-screen-and-continuation).
+- Sales Period is label-only, office clocks use a fixed fixture instant, and several source/service
+  launch controls are presentation-only. Do not claim live integrations from their labels.
 - The Teams personal-app baseline is confirmed by the sample author. Modern SharePoint Top Actions,
   host CSP/focus, forced colors, screen readers, and complete host accessibility checks remain open.
 - The current providers are fixtures. Live Graph, SharePoint, HR, LMS, ITSM, CRM, finance, market,
   workplace, and security integrations are deferred.
 - Phase 7 final motion, per-intent edge-state expansion, localization/RTL,
   forced-color, and screen-reader host testing remain open in `todo.md`.
+- The manually maintained plug-in uses a `devPreview` app manifest. Tenant upload policy, user
+  assignment, Cowork availability, and authenticated discovery/rendering require separate checks;
+  the existing SPFx/Teams evidence does not certify this deployment path.
 - VS Code may show inherited TypeScript 6 deprecation warnings for the generator-owned ES5/node10 base
   config. The pinned TypeScript 5.8/Heft build is clean; changing the generated target is intentionally
   deferred until the SPFx baseline changes.
@@ -384,6 +446,8 @@ Open `http://127.0.0.1:4322`. Query parameters select an experience:
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Documentation | November 23, 2026 | Document the manually created tenant plug-in and Cowork deployment path; no SPFx rebuild or new tenant certification. |
+| Documentation | November 19, 2026 | Refreshed keynote, business/technical demos, operations, complete intent/component matrix, and honest finalization gates; no package rebuild or new tenant certification. |
 | Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0.0.16 | October 14, 2026 | Evergreen relative demo dates for news, mail, recent files, events, learning, leave, approvals, and freshness metadata |
 | 1.0.0.15 | October 2, 2026 | Container-responsive layouts, 4,080 browser-state checks, polished shared submission receipts, and balanced workspace defaults |

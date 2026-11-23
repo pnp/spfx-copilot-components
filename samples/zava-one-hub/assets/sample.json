@@ -9,10 +9,11 @@
     "longDescription": [
       "Zava One is an SPFx 1.24 employee experience that pairs 35 independently configurable SharePoint web parts with 35 intent-specific Copilot Components over shared React implementations. Three composed workspace web parts provide Combined, Company, and Personal experiences across SharePoint and Microsoft Teams.",
       "The sample demonstrates company news, trusted knowledge, personal work, employee services, approval workflows, charts, and a selectable world office map. Six conversation starters showcase information, verified answers, praise, sales visualization, global offices, and a capability explorer.",
-      "All business data and actions are deterministic fixtures for reliable offline demonstrations. The production SPPKG, generated agent package, 42 automated tests, 4,080 responsive browser states, and 39-image engineering gallery support repeatable evaluation. The 15-image publication gallery includes authenticated captures of the three separate Teams personal apps."
+      "All business data and actions are deterministic fixtures for reliable offline demonstrations. The SPPKG, generated agent package, recorded automated tests, 4,080-state responsive report, and 39-image engineering gallery support repeatable evaluation. The 15-image publication gallery includes authenticated captures of the three separate Teams personal apps.",
+      "The separately maintained zava-one-hub-plugin folder provides a manually packaged agent and MCP connector for tenant deployment and use in Cowork. It dynamically discovers the same tools from the deployed SPFx solution; packaging alone does not certify tenant or Cowork acceptance."
     ],
     "creationDateTime": "2026-09-26",
-    "updateDateTime": "2026-10-28",
+    "updateDateTime": "2026-11-23",
     "products": [
       "SharePoint",
       "Copilot",

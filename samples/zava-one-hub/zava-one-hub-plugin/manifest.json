@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.2",
+  "id": "61fc4ae0-03dc-4932-962d-e74bfffea7f4",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://pnp.github.io/",
+    "privacyUrl": "https://privacy.microsoft.com/",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Zava One Hub Plugin",
+    "full": "Zava One Hub Plugin - Your connected workplace"
+  },
+  "description": {
+    "short": "Zava news, personal work, and employee services.",
+    "full": "An independently packaged plug-in for the fictional Zava company. Open focused experiences for company news, trusted answers, personal work, employee services, recognition, business insights, and manager decisions. Includes a dedicated Zava One Hub agent and a connector to the separately deployed Zava One Hub SPFx solution. Uses fictional, session-local demo data; no real workplace transactions are submitted."
+  },
+  "accentColor": "#073B4C",
+  "agentConnectors": [
+    {
+      "id": "ZavaOneHubPlugin-MCP",
+      "displayName": "Zava One Hub Tools",
+      "description": "Open focused Zava company and employee experiences, or explore the connected workplace. Tools render SPFx Copilot UX components from the separately deployed Zava One Hub solution.",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://spex005.sharepoint.com/_api/mcp/spfx?solutionId=1ecc25fc-3211-40c0-9ac4-283b994bf411",
+          "authorization": {
+            "type": "None"
+          }
+        }
+      }
+    }
+  ],
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "zavaOneHubPluginAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}
