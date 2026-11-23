@@ -4,6 +4,13 @@ This is the presenter and developer routing contract for **35 business tools plu
 tools**. Start with the [five-minute keynote](../demos/keynote-5-minutes.md), use this page to inspect
 the exact destination, and use [demo operations](../demos/demo-operations.md) for reset and fallback.
 
+The [manually created plug-in](../zava-one-hub-plugin/README.md) provides a separate agent and
+app-level connector for tenant deployment and Cowork use. It discovers these same 37 tools from the
+deployed SPFx solution; it does not introduce another component catalog. The starter table below
+describes the original generated agent. The manual plug-in maintains its own
+[agent instructions and starter copy](../zava-one-hub-plugin/declarativeAgent.json), including a
+plug-in-specific discovery prompt, so revalidate routing in that entry point and in Cowork.
+
 ## What is authoritative
 
 - [Capability catalog](../config/zava-capabilities.mjs): C01-C35 IDs, canonical prompts, intent keys,

@@ -55,6 +55,12 @@ The mapping covers all 35 business intents, both infrastructure tools, six start
 schemas, and current input/expansion limits. [Finalization progress](./todo.md) distinguishes
 completed documentation from runtime and authenticated-host gates.
 
+**Use in Cowork:** [zava-one-hub-plugin](./zava-one-hub-plugin/README.md) is the manually created plug-in
+version of the agent, with its own agent identity and an app-level MCP connector. Package and deploy
+it to your tenant as a plug-in for use in Cowork. It connects to the separately deployed SPFx
+solution; it does not replace the SPPKG or the original generated agent. Follow the
+[plug-in packaging and deployment guide](./zava-one-hub-plugin/README.md).
+
 ## Highlights
 
 - **35 business capabilities**, each with one final-named SharePoint-only web part and one final-named
@@ -295,6 +301,7 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 | Local visual review | Historical evidence present | Run the UX review harness and use the documented query parameters |
 | SharePoint solution package | Committed candidate; verify before deployment | Run the clean build/package checks, then upload to an approved app catalog |
 | Copilot Component baseline | Ready for tenant verification | Confirm all six starters and 37 tools in Copilot Workbench |
+| Manual plug-in / Cowork | Separate tenant deployment and validation | Package [zava-one-hub-plugin](./zava-one-hub-plugin/README.md) for the target tenant, deploy and assign it, then verify tools in Cowork |
 | Teams personal apps | Working baseline confirmed by sample author | Three authenticated screenshots; broader host accessibility checks remain open |
 | Modern SharePoint pages | External validation required | Verify Top Actions, responsive chrome, focus, and CSP after deployment |
 | Production use | Not claimed | Replace fixtures and complete security, privacy, accessibility, and service-owner reviews |
@@ -311,6 +318,7 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 | [Demo operations](./demos/demo-operations.md) | Reset, offline fallback, and failure recovery |
 | [Intent-to-component mapping](./docs/intent-component-mapping.md) | All 35 business intents, two infrastructure tools, six starters, component classes, routes, schemas, and exclusions |
 | [Release readiness](./docs/release-readiness.md) | Host matrix, privacy, accessibility, validation, and external gates |
+| [Manual plug-in / Cowork](./zava-one-hub-plugin/README.md) | Tenant-specific packaging, plug-in deployment, and Cowork use over the existing SPFx solution |
 
 ## Minimal Path to Awesome
 
@@ -322,6 +330,38 @@ See [`phase-6-matrix.json`](./ux-review/evidence/phase-6-matrix.json),
 3. Add a Zava One feature web part to a SharePoint page, or use one of the three composed workspace web
    parts for SharePoint/Teams testing.
 4. Add the generated Zava One agent to Microsoft 365 Copilot and test inline/full-screen routing.
+
+### Deploy the manually created plug-in for Cowork
+
+The [zava-one-hub-plugin folder](./zava-one-hub-plugin/README.md) is a separately maintained plug-in version
+of the agent, not an output of `npm run build`.
+
+| Artifact | Purpose |
+| --- | --- |
+| [SPFx solution](./sharepoint/solution/zava-one-hub.sppkg) | Deploys the component implementation and assets to SharePoint |
+| [Original agent source](./copilot/manifest.json) / [generated agent ZIP](./teams/zava-one.zip) | Original **Zava One** agent package produced by the SPFx build |
+| [Manual plug-in source](./zava-one-hub-plugin/manifest.json) / [plug-in ZIP](./zava-one-hub-plugin/zava-one-hub-plugin.zip) | Separate **Zava One Hub Plugin** agent and MCP connector, packaged for tenant deployment and use in Cowork |
+
+1. Deploy and enable the SPPKG in the target tenant first.
+2. From this sample's root, substitute your tenant's SharePoint root URL and run:
+
+   ```powershell
+   .\zava-one-hub-plugin\Package-Plugin.ps1 -TenantUrl 'https://yourtenant.sharepoint.com'
+   ```
+
+3. The helper updates both MCP endpoint URLs in the manual source files and recreates
+   `zava-one-hub-plugin.zip` with five files at the archive root. It does not deploy anything or
+   rebuild the SPFx solution. Rerun it after editing packaged files or changing tenants.
+4. Have a tenant administrator upload, deploy, and assign the resulting ZIP through the tenant's
+   supported plug-in deployment flow. Do not upload the entire source folder or substitute the
+   generated agent ZIP for this plug-in.
+5. Use the deployed plug-in in **Cowork** with an assigned account where plug-ins are enabled;
+   verify tool discovery and invoke a focused task such as **What's new across Zava this week?**
+
+The plug-in uses dynamic discovery of the same 37 SPFx tools; it does not copy their definitions
+or contain the component bundles. The original **Zava One** agent and three Teams personal apps
+remain separate. See the [plug-in guide](./zava-one-hub-plugin/README.md) for endpoint configuration,
+package contents, versioning, and tenant/Cowork acceptance checks.
 
 ### Separate Teams personal apps
 
@@ -389,6 +429,9 @@ Open `http://127.0.0.1:4322`. Query parameters select an experience:
   workplace, and security integrations are deferred.
 - Phase 7 final motion, per-intent edge-state expansion, localization/RTL,
   forced-color, and screen-reader host testing remain open in `todo.md`.
+- The manually maintained plug-in uses a `devPreview` app manifest. Tenant upload policy, user
+  assignment, Cowork availability, and authenticated discovery/rendering require separate checks;
+  the existing SPFx/Teams evidence does not certify this deployment path.
 - VS Code may show inherited TypeScript 6 deprecation warnings for the generator-owned ES5/node10 base
   config. The pinned TypeScript 5.8/Heft build is clean; changing the generated target is intentionally
   deferred until the SPFx baseline changes.
@@ -403,6 +446,7 @@ Open `http://127.0.0.1:4322`. Query parameters select an experience:
 
 | Version | Date | Comments |
 | --- | --- | --- |
+| Documentation | November 23, 2026 | Document the manually created tenant plug-in and Cowork deployment path; no SPFx rebuild or new tenant certification. |
 | Documentation | November 19, 2026 | Refreshed keynote, business/technical demos, operations, complete intent/component matrix, and honest finalization gates; no package rebuild or new tenant certification. |
 | Unreleased | October 28, 2026 | Upgrade to SPFx 1.24.0 GA; React/ReactDOM 18.3.1 and Heft 1.3.2. |
 | 1.0.0.16 | October 14, 2026 | Evergreen relative demo dates for news, mail, recent files, events, learning, leave, approvals, and freshness metadata |

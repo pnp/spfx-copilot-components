@@ -118,6 +118,13 @@ GA uses one `RemoteMCPServer` runtime with dynamic discovery: the plugin's stati
 is empty. The **37 source tools** live in component manifests/schemas.
 Six starters are curated entry points, not a platform cap.
 
+For the tenant plug-in/Cowork path, show the separate
+[manual plug-in folder](../zava-one-hub-plugin/README.md). Its app manifest adds `agentConnectors`
+alongside an included declarative agent; both dynamically discover the same deployed SPFx tools.
+The [packaging helper](../zava-one-hub-plugin/Package-Plugin.ps1) sets the target tenant and creates a
+separate ZIP. It is not part of `npm run build`, does not deploy the SPPKG, and does not replace the
+original agent package. Use this as an optional packaging cut, not proof of Cowork acceptance.
+
 News detail's **Ask Copilot about this story** sends a user-triggered follow-up. The local harness
 records it without running a model. Do not claim the Revenue sample's general text-summary or
 component-handoff protocol exists here.

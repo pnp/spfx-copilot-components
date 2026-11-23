@@ -4,6 +4,8 @@ This is the sharing and validation handoff for the fixture-first Zava One sample
 **Source baseline: SPFx 1.24.0 GA / React 18.3.1.** Presenter documentation was refreshed on
 November 19, 2026; that is not a new package build, authenticated keynote rehearsal, or accessibility
 certification. See [current progress and open gates](../todo.md#documentation-and-finalization---november-19-2026).
+The November 23 documentation update also covers the separately maintained manual plug-in for
+tenant deployment and Cowork; it does not extend the earlier SPFx/Teams evidence to that package.
 
 ## Presenter and developer handoff
 
@@ -15,6 +17,33 @@ certification. See [current progress and open gates](../todo.md#documentation-an
 | Every prompt/tool/component/intent/route, schema, and sibling exclusion | [Intent-to-component mapping](./intent-component-mapping.md) |
 | Preflight, per-context reset, local/screenshot fallback, and recovery | [Demo operations](../demos/demo-operations.md) |
 | Short cut and discussion companion | [Demo index](../demos/README.md) |
+| Manual plug-in packaging, tenant deployment, and Cowork use | [zava-one-hub-plugin guide](../zava-one-hub-plugin/README.md) |
+
+## Manual plug-in and Cowork deployment
+
+[zava-one-hub-plugin](../zava-one-hub-plugin) contains the manually created plug-in version of the
+agent. It has a distinct **Zava One Hub Plugin** app/agent identity and adds an app-level
+`agentConnectors` MCP connector for plug-in consumers such as Cowork. Both that connector and the
+included agent dynamically discover the existing SPFx tools.
+
+This is separate from the [original agent definition](../copilot/manifest.json), the
+[generated agent ZIP](../teams/zava-one.zip), and the three Teams personal-app ZIPs. The manual
+plug-in contains configuration and icons, not the SPFx implementation; the SPPKG must remain
+deployed and enabled in the same tenant targeted by both MCP URLs.
+
+From the sample root, package it for the intended tenant:
+
+```powershell
+.\zava-one-hub-plugin\Package-Plugin.ps1 -TenantUrl 'https://yourtenant.sharepoint.com'
+```
+
+The helper rewrites both endpoint URLs and recreates the
+[manual plug-in ZIP](../zava-one-hub-plugin/zava-one-hub-plugin.zip). The normal SPFx build and
+release-evidence pipeline do not regenerate or audit this separate package. Use the tenant's
+supported plug-in upload/deployment flow, assign test users/groups, and verify availability and tool
+invocation in **Cowork**. Its `devPreview` app manifest and tenant policy require explicit acceptance;
+packaging is not deployment or proof of Cowork compatibility. See the
+[plug-in acceptance checklist](../zava-one-hub-plugin/README.md#validate-in-the-tenant-and-cowork).
 
 ## Architecture
 
@@ -155,6 +184,9 @@ for fresh browser evidence. Capture/update procedures are in
 
 - Share the validated [SPPkg](../sharepoint/solution/zava-one-hub.sppkg) and
   [agent ZIP](../teams/zava-one.zip), with matching artifact evidence.
+- For Cowork, separately package, deploy, and assign the
+  [manual plug-in](../zava-one-hub-plugin/README.md). Check its target tenant, five-file archive,
+  distinct identity, and authenticated Cowork invocation; it is not covered by the phase-6 matrix.
 - Upload the three personal-app packages separately; see [Teams](../teams/README.md).
 - Include [gallery metadata](../assets/sample.json), the
   [presenter set](../demos/README.md), and the [routing contract](./intent-component-mapping.md).
@@ -171,3 +203,5 @@ media approval. Track evidence and failures in [todo.md](../todo.md).
 Before any production claim: validate host accessibility, CSP, identity/permissions, real provider
 semantics, privacy/retention, telemetry, rollback, and service-owner approval. These are separate
 from the offline demo deliverable.
+For the manual plug-in, also record tenant upload acceptance, assignment, connector discovery, and
+actual Cowork rendering separately from the original agent and Teams baselines.

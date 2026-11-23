@@ -25,6 +25,31 @@
    Do not sign off model routing from Workbench or local screenshots.
 6. Verify C35 reset and the exact Johanna decision checkpoints below. Keep screenshots pre-opened.
 
+### Cowork and the manually created plug-in
+
+For a Cowork presentation, use [zava-one-hub-plugin](../zava-one-hub-plugin/README.md), not the
+SPFx-generated agent ZIP. It is the manually maintained agent-and-connector version of this sample.
+
+1. Deploy and enable the SPPKG in the presentation tenant first.
+2. From the sample root, package for that tenant:
+
+   ```powershell
+   .\zava-one-hub-plugin\Package-Plugin.ps1 -TenantUrl 'https://yourtenant.sharepoint.com'
+   ```
+
+3. Deploy and assign the resulting plug-in ZIP through the tenant's supported plug-in flow.
+   The command only updates configuration and packages files; it does not deploy or assign anything.
+4. In Cowork, use an assigned account with plug-ins enabled and verify the plug-in's dynamically
+   discovered tools. Start with **What's new across Zava this week?**, then rehearse the C35 flow.
+   When testing the included agent, look for its separate **Zava One Hub Plugin** identity.
+5. Check authenticated invocation, actual UX rendering, theme/focus behavior, and session-only
+   outcomes in Cowork. Do not treat original Copilot/Teams screenshots or a successful ZIP build as
+   Cowork validation.
+
+The helper edits the manual manifest and action file in place. Repackage after changing tenant URLs,
+instructions, or icons, and keep both MCP endpoints aligned. It does not change the original agent
+under [copilot](../copilot) or the SPFx component identities.
+
 ### Local rehearsal
 
 For tenant-free UI review, build and serve only the harness:

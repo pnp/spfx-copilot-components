@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "zavaOneHubPlugin",
+  "name_for_human": "Zava One Hub Plugin",
+  "description_for_human": "Connected company and employee experiences for the fictional Zava workplace.",
+  "description_for_model": "Open focused Zava company news, policies, personal work, employee services, recognition, business insights, and manager decisions as interactive SPFx experiences. Choose the narrowest matching tool. Use ExploreAgentCapabilities for discovery and OpenZavaWorkspace only for an explicitly broad workspace request.",
+  "contact_email": "publisher@contoso.com",
+  "functions": [],
+  "runtimes": [
+    {
+      "type": "RemoteMCPServer",
+      "auth": {
+        "type": "None"
+      },
+      "spec": {
+        "url": "https://spex005.sharepoint.com/_api/mcp/spfx?solutionId=1ecc25fc-3211-40c0-9ac4-283b994bf411"
+      },
+      "run_for_functions": [
+        "*"
+      ]
+    }
+  ]
+}
