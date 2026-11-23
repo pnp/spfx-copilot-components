@@ -12,8 +12,8 @@ Depending on the request, the component shows followed SharePoint sites, accessi
 
 ## Compatibility
 
-![SPFx 1.24.0-beta.2](https://img.shields.io/badge/SPFx-1.24.0--beta.2-green.svg)
-![Node.js v22](https://img.shields.io/badge/Node.js-v22-green.svg)
+![SPFx 1.24.1](https://img.shields.io/badge/SPFx-1.24.1.svg)
+![Node.js v24](https://img.shields.io/badge/Node.js-v24-green.svg)
 ![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Compatible with Microsoft Copilot](https://img.shields.io/badge/Microsoft%20Copilot-Compatible-green.svg)
 
@@ -34,6 +34,7 @@ Depending on the request, the component shows followed SharePoint sites, accessi
 | Version | Date | Comments |
 | ------- | ---- | -------- |
 | 1.0.7.0 | 2026-08-25 | Initial release |
+| 1.1.0.0 | 2026-11-14 | SPFx version upgrade |
 
 ## Prerequisites
 
@@ -83,7 +84,6 @@ Other build commands can be listed using `heft --help`.
 This sample illustrates the following concepts:
 
 - **Copilot Component UX** - A component with `copilotType: "Ux"` exposes `MySitesGroupInfoTool` as a tool that a declarative agent can invoke to render a custom React experience inside Copilot.
-- **Zod-based tool properties schema** - The `target`, `top`, and `query` arguments are defined with Zod and exported as JSON Schema for Copilot tool invocation.
 - **Multiple resource views** - The same component supports followed sites, accessible sites, and Microsoft 365 Groups through the `target` argument.
 - **Brokered Microsoft Graph access** - Graph requests use the SPFx-provided `MSGraphClientV3` client without manual token handling.
 - **SharePoint REST access** - Accessible sites are discovered through the SharePoint Search REST API, with a SharePoint Social API fallback for followed sites when Graph is unavailable.

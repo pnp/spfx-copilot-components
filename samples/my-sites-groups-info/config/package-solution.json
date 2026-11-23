@@ -12,7 +12,7 @@
       "websiteUrl": "https://github.com/HarminderSethi",
       "privacyUrl": "https://github.com/HarminderSethi",
       "termsOfUseUrl": "https://github.com/HarminderSethi",
-      "mpnId": "Undefined-1.24.0-beta.2"
+      "mpnId": "Undefined-1.24.1"
     },
     "webApiPermissionRequests": [
       { "resource": "Microsoft Graph", "scope": "Sites.Read.All" },

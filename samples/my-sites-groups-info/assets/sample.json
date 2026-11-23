@@ -11,7 +11,7 @@
       "The React component supports followed sites, accessible sites, and groups the user belongs to, direct site links, follow and unfollow actions, fullscreen rendering, and permission-aware group membership management for viewing, adding, and removing members."
     ],
     "creationDateTime": "2026-08-25",
-    "updateDateTime": "2026-08-25",
+    "updateDateTime": "2026-11-14",
     "products": [
       "SharePoint",
       "Microsoft Copilot"
@@ -27,17 +27,10 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.24.0-beta.2"
+        "value": "1.24.1"
       }
     ],
     "thumbnails": [
-      {
-        "name": "MainPage.png",
-        "type": "image",
-        "order": 100,
-        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-sites-groups-info/assets/MainPage.png",
-        "alt": "My Sites and Groups overview showing SharePoint sites and Microsoft 365 Groups in Copilot."
-      },
       {
         "name": "FullScreenView.png",
         "type": "image",
@@ -45,6 +38,13 @@
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-sites-groups-info/assets/FullScreenView.png",
         "alt": "Fullscreen view of followed and accessible SharePoint sites and Microsoft 365 Groups."
       },
+      {
+        "name": "MainPage.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/my-sites-groups-info/assets/MainPage.png",
+        "alt": "My Sites and Groups overview showing SharePoint sites and Microsoft 365 Groups in Copilot."
+      },      
       {
         "name": "AddRemoveGroupUsers.png",
         "type": "image",
