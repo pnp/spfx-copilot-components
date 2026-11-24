@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "wizard-form-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/wizardForm/WizardFormWebPart.js",
+          "manifest": "./src/webparts/wizardForm/WizardFormWebPart.manifest.json"
+        }
+      ]
+    },
+    "wizard-form-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/wizardForm/WizardFormCopilotComponent.js",
+          "manifest": "./src/copilotComponents/wizardForm/WizardFormCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "WizardFormWebPartStrings": "lib/webparts/wizardForm/loc/{locale}.js"
+  }
+}

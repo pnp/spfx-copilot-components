@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "wizardForm",
+  "name_for_human": "Guided Form",
+  "description_for_human": "A conversational, one-question-at-a-time form for SharePoint lists.",
+  "description_for_model": "Use open_step_by_step_form whenever the user wants to fill in, submit, add or create an item, request or entry in a SharePoint list. Call it immediately. When the person says something like Open a list form, Help me fill in a form, or Show me the guided form without naming a list, call the tool with no arguments. Pass listName or siteUrl only if the person typed that exact list name or URL in this conversation, or if the form's model context already has them from a list the person chose or opened. Never invent a list name or site URL. Pass prefill only with values the user actually gave. Never draw the form or the questions in chat and never say the item was submitted; the user reviews and submits inside the component. If the status says the list was not found or could not open, say only that the person can select their SharePoint site and list in the guided form; never claim the form is loading or open. Do not say the form was opened or prefilled unless the status message says so.",
+  "contact_email": "publisher@contoso.com"
+}

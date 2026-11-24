@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Guided Form"
+      },
+      "description": {
+        "default": "Opens a one-question-at-a-time form that adds an item to a SharePoint list. Copilot can prefill answers; you review and submit."
+      },
+      "components": [
+        "0d977123-b172-4614-b45d-ca982230b31f"
+      ],
+      "toolDiscovery": "static"
+    }
+  ]
+}
