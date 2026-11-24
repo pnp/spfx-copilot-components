@@ -86,6 +86,13 @@ export function submitUnknownStatus(listTitle: string): string {
   return `The guided form sent a save to ${target}. SharePoint took too long to respond. The outcome is not confirmed yet.`;
 }
 
+/** Status only: the save request ended without a confirmation. Never says it was submitted or not submitted. */
+export function submitUnconfirmedStatus(listTitle: string): string {
+  const safe = listName(listTitle);
+  const target = safe ? `the ${safe} list` : 'the list';
+  return `The guided form sent a save to ${target}. SharePoint stopped responding before it confirmed the save. The outcome is not confirmed yet. The person can check the list.`;
+}
+
 /** Status only: the save did not complete. Names the error kind, never answers or the item. */
 export function submitFailedStatus(listTitle: string, reason: string): string {
   const safe = listName(listTitle);

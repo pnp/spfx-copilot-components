@@ -18,8 +18,15 @@ export interface IWizardState {
   returnToReview: boolean;
   submitting: boolean;
   submitError: string;
-  /** unknown/checking: a save was sent but the outcome is not confirmed; retryable: checked and no item was found. */
+  /**
+   * unknown/checking: a save was sent but the outcome is not confirmed.
+   * retryable: the original request has ended without a confirmation and a later check found no item
+   * with all of the answers, so a deliberate Save again anyway is offered. Never reached while the
+   * original request is still pending.
+   */
   saveOutcome: SaveOutcome;
+  /** The original request has ended (without a confirmed result). While false, no new save is allowed. */
+  saveSettled: boolean;
   /** Set when the last step's Next should submit straight away (review step turned off). */
   submitRequested: boolean;
   result: ISubmitResult | undefined;
@@ -42,7 +49,9 @@ export type WizardAction =
   | { type: 'submitSuccess'; result: ISubmitResult }
   | { type: 'submitFailure'; message: string }
   | { type: 'submitUnknown'; message: string }
+  | { type: 'submitSettled'; message: string }
   | { type: 'submitCheckStart' }
+  | { type: 'submitCheckDone'; message: string }
   | { type: 'submitCheckFailed'; message: string }
   | { type: 'submitRetryAllowed'; message: string }
   | { type: 'reset'; answers?: Answers }
@@ -59,6 +68,7 @@ export function initialWizardState(answers?: Answers): IWizardState {
     submitting: false,
     submitError: '',
     saveOutcome: 'none',
+    saveSettled: false,
     submitRequested: false,
     result: undefined
   };
@@ -78,7 +88,7 @@ function clampIndex(index: number, total: number): number {
 /** Pure wizard navigation. Next only advances when the current step is valid. Hidden fields are skipped. */
 export function wizardReducer(state: IWizardState, action: WizardAction, config: IWizardConfig): IWizardState {
   const all = config.fields;
-  if (state.submitting && action.type !== 'submitSuccess' && action.type !== 'submitFailure' && action.type !== 'submitUnknown') {
+  if (state.submitting && action.type !== 'submitSuccess' && action.type !== 'submitFailure' && action.type !== 'submitUnknown' && action.type !== 'submitSettled') {
     return state;
   }
   switch (action.type) {
@@ -175,27 +185,43 @@ export function wizardReducer(state: IWizardState, action: WizardAction, config:
       if (Object.keys(errors).length > 0) {
         return { ...state, phase: 'step', index: firstInvalidIndex(visible, state.answers, config.answerChecks), direction: 'back', errors, submitRequested: false, returnToReview: config.showReview, saveOutcome: 'none' };
       }
-      return { ...state, submitting: true, submitError: '', submitRequested: false, saveOutcome: 'none' };
+      return { ...state, submitting: true, submitError: '', submitRequested: false, saveOutcome: 'none', saveSettled: false };
     }
 
     case 'submitSuccess':
-      return { ...state, submitting: false, saveOutcome: 'none', submitError: '', phase: 'done', direction: 'forward', result: action.result };
+      return { ...state, submitting: false, saveOutcome: 'none', saveSettled: false, submitError: '', phase: 'done', direction: 'forward', result: action.result };
 
+    /** Only for a definitive failure: SharePoint refused the write, or it was never sent. */
     case 'submitFailure':
-      return { ...state, submitting: false, saveOutcome: 'none', submitError: action.message || 'Something went wrong. Please try again.' };
+      return { ...state, submitting: false, saveOutcome: 'none', saveSettled: false, submitError: action.message || 'Something went wrong. Please try again.' };
 
     case 'submitUnknown':
       if (!state.submitting) {
         return state;
       }
-      return { ...state, submitting: false, saveOutcome: 'unknown', submitError: action.message };
+      return { ...state, submitting: false, saveOutcome: 'unknown', saveSettled: false, submitError: action.message };
+
+    /** The original request ended without a confirmation (connection, gateway or throttling error). */
+    case 'submitSettled':
+      if (!state.submitting && state.saveOutcome !== 'unknown' && state.saveOutcome !== 'checking') {
+        return state;
+      }
+      return {
+        ...state,
+        submitting: false,
+        saveOutcome: state.saveOutcome === 'checking' ? 'checking' : 'unknown',
+        saveSettled: true,
+        submitError: action.message
+      };
 
     case 'submitCheckStart':
-      if (state.saveOutcome !== 'unknown' || state.submitting) {
+      if ((state.saveOutcome !== 'unknown' && state.saveOutcome !== 'retryable') || state.submitting) {
         return state;
       }
       return { ...state, saveOutcome: 'checking' };
 
+    /** A check finished without confirming the save (not found yet, several matches, or too many rows). */
+    case 'submitCheckDone':
     case 'submitCheckFailed':
       if (state.saveOutcome !== 'checking') {
         return state;
@@ -203,7 +229,8 @@ export function wizardReducer(state: IWizardState, action: WizardAction, config:
       return { ...state, saveOutcome: 'unknown', submitError: action.message };
 
     case 'submitRetryAllowed':
-      if (state.saveOutcome !== 'checking' && state.saveOutcome !== 'unknown') {
+      // An empty read cannot prove that a pending write will not commit later.
+      if (!state.saveSettled || (state.saveOutcome !== 'checking' && state.saveOutcome !== 'unknown')) {
         return state;
       }
       return { ...state, saveOutcome: 'retryable', submitError: action.message };
@@ -247,6 +274,16 @@ export function screenKey(state: IWizardState): string {
 
 export function canRetrySave(state: IWizardState): boolean {
   return !state.submitting && state.saveOutcome !== 'unknown' && state.saveOutcome !== 'checking';
+}
+
+/** A new save after an unconfirmed one: offered only as a deliberate Save again anyway. */
+export function isSaveAgainAnyway(state: IWizardState): boolean {
+  return !state.submitting && state.saveOutcome === 'retryable';
+}
+
+/** Check if saved is offered while unconfirmed, and still offered next to Save again anyway. */
+export function canCheckSaved(state: IWizardState): boolean {
+  return !state.submitting && (state.saveOutcome === 'unknown' || state.saveOutcome === 'checking' || state.saveOutcome === 'retryable');
 }
 
 export function isSaveUnconfirmed(state: IWizardState): boolean {

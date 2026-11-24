@@ -32,7 +32,7 @@ import { motionEnabled, prefersReducedMotion, CHOICE_AUTO_ADVANCE_MS } from '../
 import { DEFAULT_LOADING_MESSAGE } from '../logic/config';
 import { answerCheckFor, checkAnswerFormat, type AnswerCheck } from '../logic/answerCheck';
 import { gradientBackground, gradientFor, highlightCssVars, isDarkTheme, onGradientTheme } from '../logic/surface';
-import { canRetrySave, initialWizardState, isSaveUnconfirmed, progressValue, screenKey, visibleFor, wizardReducer, type IWizardState, type WizardAction } from '../logic/navigation';
+import { canCheckSaved, canRetrySave, initialWizardState, isSaveAgainAnyway, isSaveUnconfirmed, progressValue, screenKey, visibleFor, wizardReducer, type IWizardState, type WizardAction } from '../logic/navigation';
 import { finishSummary, formatAnswer } from '../logic/payload';
 import { asHyperlink, validatedHttpsUrl } from '../logic/hyperlink';
 import { parsePrefill } from '../logic/prefill';
@@ -45,11 +45,19 @@ import { LIVE_CHECK_DEBOUNCE_MS, liveCheck } from '../logic/liveCheck';
 import { clearDraft, hasMeaningfulAnswers, readDraft, storageAvailable, writeDraft, type IDraftKeyParts, type IFormDraft } from '../logic/draft';
 import { isSafeListFormUrl } from '../logic/siteUrl';
 import { pastDateWarning } from '../logic/pastDate';
-import { loadFailedFollowUp, openedFollowUp, submitFailedStatus, submitUnknownStatus, type CopilotStatusKind } from '../logic/copilotStatus';
+import { loadFailedFollowUp, openedFollowUp, submitFailedStatus, submitUnconfirmedStatus, submitUnknownStatus, type CopilotStatusKind } from '../logic/copilotStatus';
 import { asText } from '../logic/answers';
 import { SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE, watchWithTimeout } from '../logic/sharePointWriteError';
-import { SAVE_CHECK_FAILED_MESSAGE, SAVE_NOT_FOUND_MESSAGE } from '../logic/reconcileSubmit';
-import { errorKindOf, ListFormError, type IListFormService } from '../services/IListFormService';
+import {
+  SAVE_CHECK_AGAIN_MESSAGE,
+  SAVE_CHECK_FAILED_MESSAGE,
+  SAVE_INCONCLUSIVE_MESSAGE,
+  SAVE_MULTIPLE_MESSAGE,
+  SAVE_NOT_FOUND_MESSAGE,
+  SAVE_NOT_FOUND_YET_MESSAGE,
+  SAVE_UNCONFIRMED_SETTLED_MESSAGE
+} from '../logic/reconcileSubmit';
+import { errorKindOf, isDefinitiveNonCommit, ListFormError, type IListFormService } from '../services/IListFormService';
 import { FieldGuideCard } from './FieldGuide';
 import { FinishCheck } from './FinishCheck';
 import { StepField } from './StepField';
@@ -520,6 +528,8 @@ function Wizard(props: IWizardProps): React.ReactElement {
         answers: Answers;
         submittedAt: number;
         schema: IFormSchema;
+        /** The original request has ended without a confirmed result. */
+        settled: boolean;
       }
     | undefined
   >(undefined);
@@ -663,8 +673,24 @@ function Wizard(props: IWizardProps): React.ReactElement {
     }
   }, [canStore, draftParts, props.storage, transition, onSubmitted, schema.listTitle]);
 
-  const applySaveFailure = React.useCallback((token: { work: Promise<ISubmitResult> }, error: unknown): void => {
+  /**
+   * The original request ended with an error. Only a definitive error (SharePoint refused the write,
+   * or it was never sent) allows Try again. Anything else keeps the save unconfirmed.
+   */
+  const applySaveFailure = React.useCallback((token: { work: Promise<ISubmitResult>; settled: boolean }, error: unknown): void => {
     if (inFlightRef.current && inFlightRef.current.work !== token.work) {
+      return;
+    }
+    if (!isDefinitiveNonCommit(error)) {
+      token.settled = true;
+      inFlightRef.current = token as typeof inFlightRef.current;
+      if (!mountedRef.current) {
+        return;
+      }
+      dispatch({ type: 'submitSettled', message: SAVE_UNCONFIRMED_SETTLED_MESSAGE });
+      if (onStatus) {
+        onStatus(submitUnconfirmedStatus(schema.listTitle), 'unknown', errorKindOf(error));
+      }
       return;
     }
     inFlightRef.current = undefined;
@@ -693,7 +719,7 @@ function Wizard(props: IWizardProps): React.ReactElement {
     const submittedSchema = { ...schema, fields: visibleNow };
     const submittedAt = props.now ? props.now() : Date.now();
     const work = service.submit(submittedSchema, answers);
-    const token = { work, answers, submittedAt, schema: submittedSchema };
+    const token = { work, answers, submittedAt, schema: submittedSchema, settled: false };
     inFlightRef.current = token;
     const watched = watchWithTimeout(work, SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE);
     const succeed = (result: ISubmitResult): void => applySaveSuccess(token, result);
@@ -719,17 +745,33 @@ function Wizard(props: IWizardProps): React.ReactElement {
 
   const checkIfSaved = React.useCallback((): void => {
     const token = inFlightRef.current;
-    if (!token || stateRef.current.saveOutcome !== 'unknown') {
+    const outcome = stateRef.current.saveOutcome;
+    if (!token || (outcome !== 'unknown' && outcome !== 'retryable')) {
       return;
     }
+    // Only a read that starts after the original request has ended can support a new save.
+    const settledAtStart = token.settled;
     dispatch({ type: 'submitCheckStart' });
     service.findSubmittedItem(token.schema, token.answers, token.submittedAt).then(
       (found) => {
         if (inFlightRef.current !== token || !mountedRef.current) {
           return;
         }
-        if (found) {
-          applySaveSuccess(token, found);
+        if (found.status === 'found') {
+          applySaveSuccess(token, found.result);
+          return;
+        }
+        if (found.status === 'multiple') {
+          dispatch({ type: 'submitCheckDone', message: SAVE_MULTIPLE_MESSAGE });
+          return;
+        }
+        if (found.status === 'inconclusive') {
+          dispatch({ type: 'submitCheckDone', message: SAVE_INCONCLUSIVE_MESSAGE });
+          return;
+        }
+        if (!settledAtStart) {
+          // The original POST was still pending when the read started: it may commit later.
+          dispatch({ type: 'submitCheckDone', message: token.settled ? SAVE_CHECK_AGAIN_MESSAGE : SAVE_NOT_FOUND_YET_MESSAGE });
           return;
         }
         dispatch({ type: 'submitRetryAllowed', message: SAVE_NOT_FOUND_MESSAGE });
@@ -1013,7 +1055,7 @@ function Wizard(props: IWizardProps): React.ReactElement {
             disabled={!!formatError || (isLast && !showReview && isSaveUnconfirmed(state))}
             aria-disabled={(isLast && !showReview && (state.submitting || isSaveUnconfirmed(state))) || undefined}
           >
-            {state.returnToReview && showReview ? 'Back to review' : isLast && !showReview ? (state.submitting ? 'Submitting\u2026' : 'Submit') : 'OK'}
+            {state.returnToReview && showReview ? 'Back to review' : isLast && !showReview ? (state.submitting ? 'Submitting\u2026' : isSaveAgainAnyway(state) ? 'Save again anyway' : 'Submit') : 'OK'}
             {isLast && !showReview && state.submitting ? <Spinner size="tiny" /> : <Checkmark20Regular aria-hidden="true" />}
           </button>
           {field.kind === 'note' ? (
@@ -1025,18 +1067,18 @@ function Wizard(props: IWizardProps): React.ReactElement {
           )}
         </div>
         {state.submitError ? (
-          <MessageBar intent={isSaveUnconfirmed(state) || state.saveOutcome === 'retryable' ? 'warning' : 'error'} data-testid="wiz-submit-error">
+          <MessageBar intent={isSaveUnconfirmed(state) || isSaveAgainAnyway(state) ? 'warning' : 'error'} data-testid="wiz-submit-error">
             <MessageBarBody>{state.submitError}</MessageBarBody>
           </MessageBar>
         ) : null}
-        {isSaveUnconfirmed(state) ? (
+        {canCheckSaved(state) ? (
           <div className={styles.actions}>
             <button
               type="button"
               className={mergeClasses(pillClass, state.saveOutcome === 'checking' && styles.pillBusy)}
               aria-disabled={state.saveOutcome === 'checking' || undefined}
               onClick={() => {
-                if (stateRef.current.saveOutcome === 'unknown') {
+                if (stateRef.current.saveOutcome !== 'checking') {
                   checkIfSaved();
                 }
               }}
@@ -1108,19 +1150,19 @@ function Wizard(props: IWizardProps): React.ReactElement {
         </div>
         </div>
         {state.submitError ? (
-          <MessageBar intent={isSaveUnconfirmed(state) || state.saveOutcome === 'retryable' ? 'warning' : 'error'} data-testid="wiz-submit-error">
+          <MessageBar intent={isSaveUnconfirmed(state) || isSaveAgainAnyway(state) ? 'warning' : 'error'} data-testid="wiz-submit-error">
             <MessageBarBody>{state.submitError}</MessageBarBody>
           </MessageBar>
         ) : null}
         <div className={mergeClasses(styles.actions, compact && styles.actionsPinned)} data-testid={compact ? 'wiz-footer' : undefined}>
           {backLink}
-          {isSaveUnconfirmed(state) ? (
+          {canCheckSaved(state) ? (
             <button
               type="button"
               className={mergeClasses(pillClass, state.saveOutcome === 'checking' && styles.pillBusy)}
               aria-disabled={state.saveOutcome === 'checking' || undefined}
               onClick={() => {
-                if (stateRef.current.saveOutcome === 'unknown') {
+                if (stateRef.current.saveOutcome !== 'checking') {
                   checkIfSaved();
                 }
               }}
@@ -1142,7 +1184,7 @@ function Wizard(props: IWizardProps): React.ReactElement {
             }}
             data-testid="wiz-submit"
           >
-            {state.submitting ? 'Submitting\u2026' : isSaveUnconfirmed(state) ? 'Submit' : state.submitError ? 'Try again' : 'Submit'}
+            {state.submitting ? 'Submitting\u2026' : isSaveUnconfirmed(state) ? 'Submit' : isSaveAgainAnyway(state) ? 'Save again anyway' : state.submitError ? 'Try again' : 'Submit'}
             {state.submitting ? <Spinner size="tiny" /> : <Checkmark20Regular aria-hidden="true" />}
           </button>
         </div>

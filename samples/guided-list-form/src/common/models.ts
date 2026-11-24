@@ -21,6 +21,8 @@ export interface IWizardField {
   richText: boolean;
   /** Currency: the list column's CurrencyLocaleId. Omitted on other kinds. */
   currencyLocaleId?: number;
+  /** The column has a default value, so an empty answer may still be stored as that default. */
+  hasDefault?: boolean;
 }
 
 export interface IUnsupportedColumn {

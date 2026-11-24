@@ -1,4 +1,4 @@
-import { canRetrySave, initialWizardState, isSaveUnconfirmed, progressValue, screenKey, wizardReducer, type IWizardConfig, type IWizardState, type WizardAction } from '../logic/navigation';
+import { canCheckSaved, canRetrySave, initialWizardState, isSaveAgainAnyway, isSaveUnconfirmed, progressValue, screenKey, wizardReducer, type IWizardConfig, type IWizardState, type WizardAction } from '../logic/navigation';
 import { FIELDS, V11_FIELDS, field } from './helpers';
 
 const withReview: IWizardConfig = { fields: FIELDS, showReview: true };
@@ -123,12 +123,35 @@ describe('wizard navigation', () => {
     expect(checking.saveOutcome).toBe('checking');
     expect(canRetrySave(checking)).toBe(false);
     expect(run([{ type: 'submitStart' }], withReview, checking)).toBe(checking);
-    const retryable = run([{ type: 'submitRetryAllowed', message: 'No matching item was found in the list. You can try saving again.' }], withReview, checking);
+    // The original POST is still pending: an empty check can never allow a retry.
+    expect(run([{ type: 'submitRetryAllowed', message: 'x' }], withReview, checking)).toBe(checking);
+    const notYet = run([{ type: 'submitCheckDone', message: 'Not found yet.' }], withReview, checking);
+    expect(notYet).toMatchObject({ saveOutcome: 'unknown', saveSettled: false, submitError: 'Not found yet.' });
+    expect(canRetrySave(notYet)).toBe(false);
+    const settled = run([{ type: 'submitSettled', message: 'Stopped responding.' }], withReview, notYet);
+    expect(settled).toMatchObject({ saveOutcome: 'unknown', saveSettled: true, submitting: false });
+    expect(canRetrySave(settled)).toBe(false);
+    const checkingAfter = run([{ type: 'submitCheckStart' }], withReview, settled);
+    const retryable = run([{ type: 'submitRetryAllowed', message: 'No matching item was found in the list.' }], withReview, checkingAfter);
     expect(retryable.saveOutcome).toBe('retryable');
+    expect(isSaveAgainAnyway(retryable)).toBe(true);
+    expect(canCheckSaved(retryable)).toBe(true);
     expect(canRetrySave(retryable)).toBe(true);
     const retrying = run([{ type: 'submitStart' }], withReview, retryable);
     expect(retrying.submitting).toBe(true);
     expect(retrying.saveOutcome).toBe('none');
+    expect(retrying.saveSettled).toBe(false);
+  });
+
+  it('keeps an ambiguous settlement unconfirmed straight from submitting', () => {
+    const submitting = run([...fillAll, { type: 'submitStart' }]);
+    const settled = run([{ type: 'submitSettled', message: 'Stopped responding.' }], withReview, submitting);
+    expect(settled).toMatchObject({ submitting: false, saveOutcome: 'unknown', saveSettled: true, submitError: 'Stopped responding.' });
+    expect(isSaveUnconfirmed(settled)).toBe(true);
+    expect(run([{ type: 'submitStart' }], withReview, settled)).toBe(settled);
+    const multiple = run([{ type: 'submitCheckStart' }, { type: 'submitCheckDone', message: 'More than one.' }], withReview, settled);
+    expect(multiple).toMatchObject({ saveOutcome: 'unknown', saveSettled: true });
+    expect(canRetrySave(multiple)).toBe(false);
   });
 
   it('moves an unknown save to done when a late success arrives', () => {

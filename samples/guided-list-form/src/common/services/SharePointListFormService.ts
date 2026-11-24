@@ -5,8 +5,8 @@ import { listApiUrl } from '../logic/siteUrl';
 import type { IHttpClient, IHttpResponse } from './http';
 import { JSON_HEADERS } from './http';
 import { hasSharePointWriteException, parseSharePointWriteError, requiredSubmitMessage } from '../logic/sharePointWriteError';
-import { buildReconcileItemsUrl, currentUserUrl, matchReconciledItem, readCurrentUserId, reconcileFieldFrom } from '../logic/reconcileSubmit';
-import { ListFormError, type IListFormService } from './IListFormService';
+import { buildReconcileItemsUrl, currentUserUrl, matchReconciledItems, readCurrentUserId, reconcileCreatedFrom } from '../logic/reconcileSubmit';
+import { ListFormError, type IListFormService, type ReconcileOutcome } from './IListFormService';
 
 /** Generic custom list. Libraries (101) and other templates are rejected. */
 export const CUSTOM_LIST_TEMPLATE = 100;
@@ -28,16 +28,34 @@ interface IListInfo {
   RootFolder?: { ServerRelativeUrl?: string };
 }
 
-const FIELD_SELECT = 'InternalName,Title,TypeAsString,Required,Hidden,ReadOnlyField,Choices,DisplayFormat,RichText,MaxLength,Description,CurrencyLocaleId,FieldTypeKind';
+const FIELD_SELECT = 'InternalName,Title,TypeAsString,Required,Hidden,ReadOnlyField,Choices,DisplayFormat,RichText,MaxLength,Description,CurrencyLocaleId,FieldTypeKind,DefaultValue';
 
-function failFor(response: IHttpResponse): ListFormError {
+/** Statuses where the write may still have committed: request timeout, throttling and gateway errors. */
+const AMBIGUOUS_WRITE_STATUSES: Record<number, true> = { 408: true, 429: true, 502: true, 503: true, 504: true };
+
+/**
+ * Whether a failed POST response proves no item was created. 4xx answers are SharePoint refusing the
+ * write, except 408 and 429. A 5xx counts only when SharePoint returned a parsed error body, and never
+ * for 502, 503 or 504, which can come from a gateway while the write is still running.
+ */
+export function isDefinitiveWriteStatus(status: number, parsedError: boolean): boolean {
+  if (!status || AMBIGUOUS_WRITE_STATUSES[status]) {
+    return false;
+  }
+  if (status >= 400 && status < 500) {
+    return true;
+  }
+  return status >= 500 && parsedError;
+}
+
+function failFor(response: IHttpResponse, definitive?: boolean): ListFormError {
   if (response.status === 401 || response.status === 403) {
-    return new ListFormError('accessDenied', 'You don\u2019t have access to this list.');
+    return new ListFormError('accessDenied', 'You don\u2019t have access to this list.', definitive);
   }
   if (response.status === 404) {
-    return new ListFormError('notFound', 'The list wasn\u2019t found on this site.');
+    return new ListFormError('notFound', 'The list wasn\u2019t found on this site.', definitive);
   }
-  return new ListFormError('server', `SharePoint returned HTTP ${response.status}.`);
+  return new ListFormError('server', `SharePoint returned HTTP ${response.status}.`, definitive);
 }
 
 /** Reads the list schema and creates one item, through SharePoint REST as the signed-in user. No API permissions. */
@@ -82,7 +100,7 @@ export class SharePointListFormService implements IListFormService {
 
   public async submit(schema: IFormSchema, answers: Answers): Promise<ISubmitResult> {
     if (schema.blocking.length > 0) {
-      throw new ListFormError('server', 'This list has required columns the form can\u2019t fill.');
+      throw new ListFormError('server', 'This list has required columns the form can\u2019t fill.', true);
     }
     const missing = requiredSubmitMessage(schema.fields, answers);
     if (missing) {
@@ -91,15 +109,14 @@ export class SharePointListFormService implements IListFormService {
     return this._postItem(schema, answers);
   }
 
-  public async findSubmittedItem(schema: IFormSchema, answers: Answers, submittedAt: number): Promise<ISubmitResult | undefined> {
+  public async findSubmittedItem(schema: IFormSchema, answers: Answers, submittedAt: number): Promise<ReconcileOutcome> {
     const me = await this._get(currentUserUrl(this._target.siteUrl));
     const authorId = readCurrentUserId(me);
     if (!authorId) {
       throw new ListFormError('server', 'The signed-in user could not be read, so the save could not be checked.');
     }
-    const field = reconcileFieldFrom(schema, answers);
-    const body = await this._get(buildReconcileItemsUrl(this._listApi, authorId, submittedAt, field));
-    return matchReconciledItem(body, field, schema.listUrl);
+    const body = await this._get(buildReconcileItemsUrl(this._listApi, schema.fields, authorId, submittedAt, answers));
+    return matchReconciledItems(body, schema.fields, answers, { authorId, createdFrom: reconcileCreatedFrom(submittedAt), listUrl: schema.listUrl });
   }
 
   private async _postItem(schema: IFormSchema, answers: Answers): Promise<ISubmitResult> {
@@ -111,7 +128,8 @@ export class SharePointListFormService implements IListFormService {
       if (error instanceof ListFormError) {
         throw error;
       }
-      throw new ListFormError('network', 'SharePoint couldn\u2019t be reached.');
+      // The request may have reached SharePoint before the connection failed or was aborted.
+      throw new ListFormError('network', 'SharePoint couldn\u2019t be reached.', false);
     }
     let payload: unknown;
     try {
@@ -121,13 +139,14 @@ export class SharePointListFormService implements IListFormService {
     }
     if (!response.ok) {
       const message = parseSharePointWriteError(payload, response.status);
-      if (message) {
-        throw new ListFormError('validation', message);
+      const definitive = isDefinitiveWriteStatus(response.status, !!message);
+      if (message && definitive) {
+        throw new ListFormError('validation', message, true);
       }
-      throw failFor(response);
+      throw failFor(response, definitive);
     }
     if (hasSharePointWriteException(payload)) {
-      throw new ListFormError('validation', parseSharePointWriteError(payload, response.status) || 'SharePoint couldn\u2019t save the item. Your answers are still here; try again.');
+      throw new ListFormError('validation', parseSharePointWriteError(payload, response.status) || 'SharePoint couldn\u2019t save the item. Your answers are still here; try again.', true);
     }
     const created = (payload && typeof payload === 'object' ? payload : {}) as { Id?: number; ID?: number };
     const id = typeof created.Id === 'number' ? created.Id : typeof created.ID === 'number' ? created.ID : 0;

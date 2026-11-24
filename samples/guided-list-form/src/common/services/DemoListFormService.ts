@@ -1,8 +1,10 @@
 import type { Answers, IFormSchema, ISubmitResult } from '../models';
 import { buildFormSchema, type IRawField } from '../logic/fieldTypes';
 import { buildItemPayload } from '../logic/payload';
-import { pickReconcileField, valuesEqual } from '../logic/reconcileSubmit';
-import { ListFormError, type IListFormService } from './IListFormService';
+import { matchReconciledItems, reconcileCreatedFrom } from '../logic/reconcileSubmit';
+import { ListFormError, type IListFormService, type ReconcileOutcome } from './IListFormService';
+
+const DEMO_AUTHOR_ID = 1;
 
 export type DemoScenario = 'request' | 'equipment' | 'blocked' | 'save-error' | 'library' | 'not-found' | 'milestones' | 'expenses';
 
@@ -64,6 +66,7 @@ const demoListUrl = (listTitle: string): string =>
 export class DemoListFormService implements IListFormService {
   public readonly demo: boolean = true;
   public submitted: Answers[] = [];
+  private _createdAt: number[] = [];
 
   public constructor(private readonly _scenario: DemoScenario = 'request', private readonly _delayMs: number = 0, private readonly _fieldsParam?: string, private readonly _itemUrl: string = '') {}
 
@@ -100,21 +103,18 @@ export class DemoListFormService implements IListFormService {
       throw new ListFormError('accessDenied', 'You don\u2019t have access to this list.');
     }
     this.submitted.push(JSON.parse(JSON.stringify(answers)) as Answers);
+    this._createdAt.push(Date.now());
     return { id: this.submitted.length, itemUrl: this._itemUrl, demo: true };
   }
 
-  public async findSubmittedItem(schema: IFormSchema, answers: Answers, _submittedAt: number): Promise<ISubmitResult | undefined> {
-    const wanted = buildItemPayload(schema.fields, answers);
-    const field = pickReconcileField(schema.fields, wanted);
-    if (!field) {
-      return undefined;
-    }
-    for (let i = this.submitted.length - 1; i >= 0; i--) {
-      const got = buildItemPayload(schema.fields, this.submitted[i]);
-      if (valuesEqual(field.value, got[field.name])) {
-        return { id: i + 1, itemUrl: this._itemUrl, demo: true };
-      }
-    }
-    return undefined;
+  public async findSubmittedItem(schema: IFormSchema, answers: Answers, submittedAt: number): Promise<ReconcileOutcome> {
+    const rows = this.submitted.map((saved, i) => ({
+      ...buildItemPayload(schema.fields, saved),
+      Id: i + 1,
+      AuthorId: DEMO_AUTHOR_ID,
+      Created: new Date(this._createdAt[i] || Date.now()).toISOString()
+    }));
+    const outcome = matchReconciledItems({ value: rows }, schema.fields, answers, { authorId: DEMO_AUTHOR_ID, createdFrom: reconcileCreatedFrom(submittedAt), listUrl: '', top: rows.length + 1 });
+    return outcome.status === 'found' ? { status: 'found', result: { ...outcome.result, itemUrl: this._itemUrl, demo: true } } : outcome;
   }
 }

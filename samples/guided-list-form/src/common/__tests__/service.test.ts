@@ -1,7 +1,7 @@
 import type { IHttpClient, IHttpResponse } from '../services/http';
-import { errorKindOf } from '../services/IListFormService';
+import { errorKindOf, isDefinitiveNonCommit } from '../services/IListFormService';
 import { DEMO_EQUIPMENT_FIELDS, DEMO_FIELDS, DemoListFormService } from '../services/DemoListFormService';
-import { SharePointListFormService } from '../services/SharePointListFormService';
+import { isDefinitiveWriteStatus, SharePointListFormService } from '../services/SharePointListFormService';
 
 const SITE = 'https://fabrikam.sharepoint.com/sites/it';
 
@@ -194,7 +194,7 @@ describe('SharePointListFormService', () => {
         return res(200, { Id: 7 });
       }
       if (url.indexOf('/items?') >= 0) {
-        return res(200, { value: [{ Id: 42, Title: 'Laptop', Created: created, AuthorId: 7 }] });
+        return res(200, { value: [{ Id: 42, Title: 'Laptop', Category: 'Hardware', Details: null, NeededBy: null, Created: created, AuthorId: 7 }] });
       }
       return url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST);
     });
@@ -208,10 +208,14 @@ describe('SharePointListFormService', () => {
     expect(itemsUrl).toContain("Created%20ge%20datetime'");
     expect(itemsUrl).toContain("Title%20eq%20'Laptop'");
     expect(decodeURIComponent(itemsUrl)).toContain("Created ge datetime'2026-11-24T17:59:30Z'");
+    expect(decodeURIComponent(itemsUrl)).toContain('$select=Id,Created,AuthorId,Title,Category,Details,NeededBy');
     expect(found).toEqual({
-      id: 42,
-      itemUrl: 'https://fabrikam.sharepoint.com/sites/it/Lists/ITRequests/DispForm.aspx?ID=42',
-      demo: false
+      status: 'found',
+      result: {
+        id: 42,
+        itemUrl: 'https://fabrikam.sharepoint.com/sites/it/Lists/ITRequests/DispForm.aspx?ID=42',
+        demo: false
+      }
     });
   });
 
@@ -230,8 +234,35 @@ describe('SharePointListFormService', () => {
     });
     const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
     const schema = await svc.loadSchema();
-    await expect(svc.findSubmittedItem(schema, { Title: 'Laptop', Category: 'Hardware' }, Date.parse('2026-11-24T18:00:00Z'))).resolves.toBeUndefined();
+    await expect(svc.findSubmittedItem(schema, { Title: 'Laptop', Category: 'Hardware' }, Date.parse('2026-11-24T18:00:00Z'))).resolves.toEqual({ status: 'none' });
     expect(http.posts).toHaveLength(0);
+  });
+
+  function postWith(response: IHttpResponse | Error): Promise<unknown> {
+    const http = new MockHttp((url, method) => {
+      if (method === 'POST') {
+        return response;
+      }
+      return url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST);
+    });
+    const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
+    return svc.loadSchema().then((schema) => svc.submit(schema, { Title: 'Laptop', Category: 'Hardware' }));
+  }
+
+  it('marks SharePoint refusals as definitive and gateway, throttling or network failures as not definitive', async () => {
+    const odata = { 'odata.error': { message: { value: 'Invalid value for Category.' } } };
+    await expect(postWith(res(400, odata))).rejects.toMatchObject({ kind: 'validation', definitive: true });
+    await expect(postWith(res(403))).rejects.toMatchObject({ kind: 'accessDenied', definitive: true });
+    await expect(postWith(res(500, odata))).rejects.toMatchObject({ definitive: true });
+    await expect(postWith(res(500))).rejects.toMatchObject({ kind: 'server', definitive: false });
+    await expect(postWith(res(502, odata))).rejects.toMatchObject({ definitive: false });
+    await expect(postWith(res(503))).rejects.toMatchObject({ definitive: false });
+    await expect(postWith(res(504))).rejects.toMatchObject({ definitive: false });
+    await expect(postWith(res(429, odata))).rejects.toMatchObject({ definitive: false });
+    await expect(postWith(new Error('socket hang up'))).rejects.toMatchObject({ kind: 'network', definitive: false });
+    expect(isDefinitiveNonCommit(new Error('aborted'))).toBe(false);
+    expect(isDefinitiveWriteStatus(409, false)).toBe(true);
+    expect(isDefinitiveWriteStatus(408, true)).toBe(false);
   });
 });
 

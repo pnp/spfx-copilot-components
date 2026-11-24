@@ -25,6 +25,8 @@ export interface IRawField {
   CurrencyLocaleId?: number | string;
   /** SharePoint FieldTypeKind (10 = Currency). Used when TypeAsString is missing. */
   FieldTypeKind?: number;
+  /** Column default. When set, SharePoint may fill the column even if the answer was left empty. */
+  DefaultValue?: string;
 }
 
 export const NOTE_MAX_LENGTH = 63999;
@@ -89,7 +91,8 @@ export function mapColumn(raw: IRawField): ColumnMapping {
   const title = (typeof raw.Title === 'string' && raw.Title.trim()) || internalName;
   const required = raw.Required === true;
   const description = typeof raw.Description === 'string' ? raw.Description.trim() : '';
-  const base = { internalName, title, required, description, choices: [] as string[], richText: false };
+  const hasDefault = typeof raw.DefaultValue === 'string' && raw.DefaultValue.trim() !== '';
+  const base = { internalName, title, required, description, choices: [] as string[], richText: false, ...(hasDefault ? { hasDefault: true } : {}) };
 
   switch (type) {
     case 'Text': {

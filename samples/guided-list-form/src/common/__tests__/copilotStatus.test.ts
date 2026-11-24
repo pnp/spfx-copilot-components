@@ -1,4 +1,4 @@
-import { COPILOT_INLINE_HEIGHT_PX, listModelContext, loadFailedFollowUp, openedFollowUp, pickedListFollowUp, statusChannel, submitFailedStatus, submitUnknownStatus, submittedStatus, writesModelContext } from '../logic/copilotStatus';
+import { COPILOT_INLINE_HEIGHT_PX, listModelContext, loadFailedFollowUp, openedFollowUp, pickedListFollowUp, statusChannel, submitFailedStatus, submitUnconfirmedStatus, submitUnknownStatus, submittedStatus, writesModelContext } from '../logic/copilotStatus';
 import { submittedFollowUp } from '../logic/config';
 
 describe('Copilot status lines', () => {
@@ -124,6 +124,10 @@ describe('Copilot status lines', () => {
       'The guided form sent a save to the Annual Processes list. SharePoint took too long to respond. The outcome is not confirmed yet.'
     );
     expect(submitUnknownStatus('')).toContain('the list');
+    expect(submitUnconfirmedStatus('Annual Processes')).toBe(
+      'The guided form sent a save to the Annual Processes list. SharePoint stopped responding before it confirmed the save. The outcome is not confirmed yet. The person can check the list.'
+    );
+    expect(submitUnconfirmedStatus('Annual Processes')).not.toMatch(/not submitted|\bfree\b|This site|\u2013|\u2014/);
     expect(submitUnknownStatus('Annual Processes')).not.toMatch(/not submitted|\bfree\b|\u2013|\u2014/);
     expect(statusChannel('unknown')).toBe('followUp');
     expect(writesModelContext('unknown')).toBe(true);

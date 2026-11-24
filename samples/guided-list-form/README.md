@@ -70,7 +70,7 @@ The packaged solution version in `config/package-solution.json` is `1.4.6.1`.
 - **Prefill from the conversation.** Copilot may pass answers as a JSON object keyed by column name. The person can change every value. Copilot never submits the form and is told only a status (opened, submitted, not submitted, or not confirmed yet), never the answers or item content.
 - **Supported columns.** Single line of text, multiple lines of text, choice and multi-choice, Yes/No, number, currency, date, date and time, and URL-format hyperlink (`https://` only). Optional unsupported columns are skipped; a required unsupported column blocks the form with a clear message.
 - **Question editor.** On the page web part, **Customize questions** opens a side panel for question text, examples, skip logic and answer checks, written back to the existing JSON properties.
-- **Submit stays honest.** A save that takes longer than about 20 seconds is treated as unconfirmed, not as a failed submit. The form keeps the original request, moves to saved if a late response arrives, and offers **Check if saved** before a new save is allowed. SharePoint field validation messages are shown. Empty required answers are blocked before a request is sent. After a successful save, Copilot's model context is updated to `submitted` so it does not keep saying the form is still open.
+- **Submit stays honest.** Empty required answers are blocked before a request is sent, and SharePoint field validation messages are shown. After a successful save, Copilot's model context is updated to `submitted` so it does not keep saying the form is still open. A save is never sent twice by accident (see [How an unconfirmed save is handled](#how-an-unconfirmed-save-is-handled)).
 - **Look and accessibility.** A full-bleed forest-to-teal gradient panel, cream action pills, keyboard support, a live region for each new question, and motion that turns off with **Animations off** or the system's reduced-motion setting. An optional accent colour tints the gradient; white text stays readable.
 
 This sample illustrates the following concepts:
@@ -80,6 +80,23 @@ This sample illustrates the following concepts:
 - Validating model-supplied site URLs (https, same tenant, no credentials) before any SharePoint call
 - Sending only status text back to the model, never form answers or list item content
 - A zero-permission component that reads and writes SharePoint lists as the signed-in user
+
+## How an unconfirmed save is handled
+
+The form never sends a second save while the first request is still running, and it only offers **Try again** when it is certain the first one did not create an item. No list column, hidden token or API permission is added for this.
+
+- **Saved.** SharePoint confirmed the item, or **Check if saved** found exactly one matching item. The form shows the finish screen with that item.
+- **Refused.** SharePoint answered with a definitive error, such as a validation message, access denied, list not found, or another 4xx or 5xx response with a SharePoint error body. The item was not created, so **Try again** is enabled.
+- **Not confirmed, still running.** The request has taken longer than about 20 seconds. The form keeps waiting for it. **Submit** is disabled and dimmed, and **Check if saved** is offered. A check that finds nothing says *Not found yet. SharePoint may still be saving. Check again in a moment.* and the form stays in this state. If the original request later succeeds, the form moves to saved with no second request. If it later fails with a definitive error, **Try again** is enabled.
+- **Not confirmed, request ended.** The request ended without a confirmation: the connection was lost or aborted, or SharePoint returned 408, 429, 502, 503 or 504, or a 5xx with no error body. The write may still have committed, so **Submit** stays disabled and the form asks the person to check.
+- **Save again anyway.** Only after the request has ended without a confirmation, and only after a check that started after that point finds no matching item, the form shows a warning and a deliberate **Save again anyway** button next to **Check if saved**. A check started while the request was still running never enables it.
+- **Several matches or too many rows.** If more than one item matches every answer, or the check reads a full page of recent items, the form stays unconfirmed and asks the person to look at the list. It never picks one.
+
+**How Check if saved matches.** It reads, as the signed-in user, items whose author is the current user and whose Created time is at or after the submit time less 30 seconds of clock skew. An item only counts as this save when every submitted value matches: text and choices trimmed, multiple lines of text by visible text, multi-choice as a set, dates by ISO day, date and time by minute, Yes/No as a boolean, numbers and currency by value, and links by URL and description. A column left empty must also be empty on the item, unless the column has a default value. A Title match on its own is never enough.
+
+**Remaining risk.** After a request ends without a response, SharePoint cannot be asked whether that specific request committed, and the form has no idempotency key to send. In rare cases, for example a gateway timeout while SharePoint is still writing, the first item can appear after the check. **Save again anyway** is a deliberate choice behind a warning for that reason. If the answers are important, open the list before saving again.
+
+Copilot is told only the status: *not confirmed yet* while the outcome is unknown, *submitted* once an item is confirmed, and *not submitted* only for a definitive error. It is never told the answers.
 
 ## Security
 

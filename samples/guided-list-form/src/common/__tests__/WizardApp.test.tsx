@@ -12,9 +12,11 @@ import { buildFormSchema } from '../logic/fieldTypes';
 import { DemoListFormService, type DemoScenario } from '../services/DemoListFormService';
 import { createDemoSiteDirectory, type ISiteDirectory } from '../services/sites';
 import type { CopilotStatusKind } from '../logic/copilotStatus';
-import { ListFormError, type IListFormService } from '../services/IListFormService';
+import { ListFormError, type IListFormService, type ReconcileOutcome } from '../services/IListFormService';
 import { SUBMIT_TIMEOUT_MS } from '../logic/sharePointWriteError';
-import { SAVE_NOT_FOUND_MESSAGE } from '../logic/reconcileSubmit';
+import { SAVE_MULTIPLE_MESSAGE, SAVE_NOT_FOUND_MESSAGE, SAVE_NOT_FOUND_YET_MESSAGE, SAVE_UNCONFIRMED_SETTLED_MESSAGE } from '../logic/reconcileSubmit';
+
+const NONE: ReconcileOutcome = { status: 'none' };
 
 const act = ((React as unknown as { act?: typeof legacyAct }).act || legacyAct) as typeof legacyAct;
 (globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
@@ -573,7 +575,7 @@ describe('WizardApp v1.3', () => {
           { InternalName: 'Title', Title: 'What do you need?', TypeAsString: 'Text', Required: true, MaxLength: 40, Description: 'A short summary.' }
         ]),
       submit: async () => ({ id: 1, itemUrl: '', demo: true }),
-      findSubmittedItem: async () => undefined
+      findSubmittedItem: async () => NONE
     };
     await render({ service });
     await click(q('wiz-start'));
@@ -1136,7 +1138,7 @@ describe('WizardApp timed-out saves', () => {
         posts += 1;
         return pending.promise;
       },
-      findSubmittedItem: async () => undefined
+      findSubmittedItem: async () => NONE
     };
     const statuses: string[] = [];
     await goToReview(service, {
@@ -1181,7 +1183,7 @@ describe('WizardApp timed-out saves', () => {
         posts += 1;
         return pending.promise;
       },
-      findSubmittedItem: async () => ({ id: 15, itemUrl: '', demo: false })
+      findSubmittedItem: async () => ({ status: 'found', result: { id: 15, itemUrl: '', demo: false } })
     };
     const submitted: number[] = [];
     await goToReview(service, { onSubmitted: (result) => submitted.push(result.id) });
@@ -1193,35 +1195,173 @@ describe('WizardApp timed-out saves', () => {
     expect(posts).toBe(1);
   });
 
-  it('allows a new save only after Check if saved finds no item', async () => {
+  it('keeps an empty check unconfirmed while the original POST is pending, then accepts its late success', async () => {
     const first = deferred<ISubmitResult>();
-    const second = deferred<ISubmitResult>();
+    let posts = 0;
+    let checks = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => {
+        posts += 1;
+        return first.promise;
+      },
+      findSubmittedItem: async () => {
+        checks += 1;
+        return NONE;
+      }
+    };
+    const submitted: number[] = [];
+    await goToReview(service, { onSubmitted: (result) => submitted.push(result.id) });
+    await submitUntilUnknown();
+    jest.useRealTimers();
+    await click(q('wiz-check-saved'));
+    expect(checks).toBe(1);
+    expect(text('wiz-submit-error')).toBe(SAVE_NOT_FOUND_YET_MESSAGE);
+    expect(text('wiz-submit-error')).not.toMatch(/\bfree\b|This site|\u2013|\u2014/);
+    const submit = q('wiz-submit') as HTMLButtonElement;
+    expect(submit.disabled).toBe(true);
+    expect(submit.getAttribute('aria-disabled')).toBe('true');
+    expect(text('wiz-submit')).toBe('Submit');
+    expect(q('wiz-check-saved')).not.toBeNull();
+    await act(async () => {
+      submit.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    await click(q('wiz-check-saved'));
+    expect(checks).toBe(2);
+    expect((q('wiz-submit') as HTMLButtonElement).disabled).toBe(true);
+    expect(posts).toBe(1);
+    await act(async () => {
+      first.resolve({ id: 51, itemUrl: '', demo: false });
+    });
+    await flush();
+    expect(screen()).toBe('done');
+    expect(submitted).toEqual([51]);
+    expect(posts).toBe(1);
+  });
+
+  it('blocks a retry from the last step while the original POST is pending, even after an empty check', async () => {
+    const pending = deferred<ISubmitResult>();
     let posts = 0;
     const service: IListFormService = {
       demo: false,
       loadSchema: async () => new DemoListFormService().loadSchema(),
       submit: () => {
         posts += 1;
-        return posts === 1 ? first.promise : second.promise;
+        return pending.promise;
       },
-      findSubmittedItem: async () => undefined
+      findSubmittedItem: async () => NONE
+    };
+    await render({ service, showReview: false, prefill: { Title: 'Laptop', Category: 'Software' }, host: 'Copilot' });
+    await click(q('wiz-start'));
+    for (let i = 0; i < 3; i++) {
+      await click(q('wiz-ok'));
+    }
+    jest.useFakeTimers();
+    await act(async () => {
+      (q('wiz-ok') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    await act(async () => {
+      await Promise.resolve();
+      await jest.advanceTimersByTimeAsync(SUBMIT_TIMEOUT_MS);
+      await Promise.resolve();
+    });
+    jest.useRealTimers();
+    await click(q('wiz-check-saved'));
+    expect(text('wiz-submit-error')).toBe(SAVE_NOT_FOUND_YET_MESSAGE);
+    const ok = q('wiz-ok') as HTMLButtonElement;
+    expect(ok.disabled).toBe(true);
+    expect(text('wiz-ok')).toBe('Submit');
+    await act(async () => {
+      ok.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      ok.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    });
+    await flush();
+    expect(posts).toBe(1);
+  });
+
+  it('allows Try again straight away after a definitive SharePoint error', async () => {
+    let posts = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: async () => {
+        posts += 1;
+        if (posts === 1) {
+          throw new ListFormError('validation', 'The value for Category is not valid.', true);
+        }
+        return { id: 61, itemUrl: '', demo: false };
+      },
+      findSubmittedItem: async () => NONE
+    };
+    await goToReview(service);
+    await click(q('wiz-submit'));
+    expect(text('wiz-submit-error')).toContain('Category is not valid');
+    expect(text('wiz-submit')).toBe('Try again');
+    expect(q('wiz-check-saved')).toBeNull();
+    expect((q('wiz-submit') as HTMLButtonElement).disabled).toBe(false);
+    await click(q('wiz-submit'));
+    await flush();
+    expect(posts).toBe(2);
+    expect(screen()).toBe('done');
+  });
+
+  it('keeps an ambiguous network error unconfirmed and offers Save again anyway only after a later empty check', async () => {
+    let posts = 0;
+    const checksSeen: number[] = [];
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: async () => {
+        posts += 1;
+        if (posts === 1) {
+          throw new ListFormError('network', 'SharePoint couldn\u2019t be reached.', false);
+        }
+        return { id: 71, itemUrl: '', demo: false };
+      },
+      findSubmittedItem: async () => {
+        checksSeen.push(posts);
+        return NONE;
+      }
+    };
+    const statuses: string[] = [];
+    await goToReview(service, { onStatus: (message, kind, errorKind) => statuses.push(`${kind}:${errorKind || ''}:${message}`) });
+    await click(q('wiz-submit'));
+    expect(text('wiz-submit-error')).toBe(SAVE_UNCONFIRMED_SETTLED_MESSAGE);
+    expect((q('wiz-submit') as HTMLButtonElement).disabled).toBe(true);
+    expect(text('wiz-submit')).toBe('Submit');
+    expect(q('wiz-check-saved')).not.toBeNull();
+    const unknown = statuses.find((s) => s.indexOf('unknown:network:') === 0) || '';
+    expect(unknown).toContain('not confirmed yet');
+    expect(unknown).not.toMatch(/not submitted|\bfree\b|This site|\u2013|\u2014/);
+    expect(statuses.some((s) => s.indexOf('notSubmitted:') === 0)).toBe(false);
+    await click(q('wiz-check-saved'));
+    expect(text('wiz-submit-error')).toBe(SAVE_NOT_FOUND_MESSAGE);
+    expect(text('wiz-submit')).toBe('Save again anyway');
+    expect((q('wiz-submit') as HTMLButtonElement).disabled).toBe(false);
+    expect(q('wiz-check-saved')).not.toBeNull();
+    expect(posts).toBe(1);
+    await click(q('wiz-submit'));
+    await flush();
+    expect(posts).toBe(2);
+    expect(screen()).toBe('done');
+  });
+
+  it('keeps the save unconfirmed when more than one item matches every answer', async () => {
+    const pending = deferred<ISubmitResult>();
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => pending.promise,
+      findSubmittedItem: async () => ({ status: 'multiple', count: 2 })
     };
     await goToReview(service);
     await submitUntilUnknown();
     jest.useRealTimers();
     await click(q('wiz-check-saved'));
-    expect(text('wiz-submit-error')).toBe(SAVE_NOT_FOUND_MESSAGE);
-    expect(text('wiz-submit')).toBe('Try again');
-    expect(q('wiz-submit')?.getAttribute('aria-disabled')).not.toBe('true');
-    expect(q('wiz-check-saved')).toBeNull();
-    expect(posts).toBe(1);
-    await click(q('wiz-submit'));
-    expect(posts).toBe(2);
-    await act(async () => {
-      second.resolve({ id: 16, itemUrl: '', demo: false });
-    });
-    await flush();
-    expect(screen()).toBe('done');
+    expect(text('wiz-submit-error')).toBe(SAVE_MULTIPLE_MESSAGE);
+    expect(screen()).toBe('review');
+    expect((q('wiz-submit') as HTMLButtonElement).disabled).toBe(true);
   });
 
   it('moves to a failed save when the original request later rejects', async () => {
@@ -1234,7 +1374,7 @@ describe('WizardApp timed-out saves', () => {
         posts += 1;
         return pending.promise;
       },
-      findSubmittedItem: async () => undefined
+      findSubmittedItem: async () => NONE
     };
     const statuses: string[] = [];
     await goToReview(service, {
@@ -1262,7 +1402,7 @@ describe('WizardApp timed-out saves', () => {
       demo: false,
       loadSchema: async () => new DemoListFormService().loadSchema(),
       submit: () => pending.promise,
-      findSubmittedItem: async () => undefined
+      findSubmittedItem: async () => NONE
     };
     await render({
       service,
