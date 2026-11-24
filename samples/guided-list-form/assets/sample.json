@@ -66,6 +66,27 @@
         "name": "guided-list-form-unsupported.png",
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-unsupported.png",
         "alt": "Warning that a required Approver person column cannot be collected, with a Copy link to the list's form control"
+      },
+      {
+        "type": "image",
+        "order": 105,
+        "name": "guided-list-form-page-webpart.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-page-webpart.png",
+        "alt": "Guided List Form web part on a SharePoint site page, showing the welcome card for Northwind Lumen Milestones"
+      },
+      {
+        "type": "image",
+        "order": 106,
+        "name": "guided-list-form-property-pane.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-property-pane.png",
+        "alt": "Guided Form property pane with the list selected, an empty Site URL field, Text settings, and Questions and skip logic"
+      },
+      {
+        "type": "image",
+        "order": 107,
+        "name": "guided-list-form-customize-questions.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-customize-questions.png",
+        "alt": "Customize questions editor with the Title card expanded, plus Product, Status, and Milestone date cards"
       }
     ],
     "authors": [

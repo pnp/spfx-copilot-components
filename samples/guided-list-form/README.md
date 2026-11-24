@@ -90,7 +90,7 @@ This sample illustrates the following concepts:
 
 ## Screenshots
 
-Screenshots are from the local preview with demo data (Contoso-style site names such as Lumen Team and IT Requests). Nothing was saved to a real tenant. The finish screen still shows the preview-mode note for that reason.
+The first five screenshots are from the local preview with demo data (Contoso-style site names such as Lumen Team and IT Requests). Nothing was saved to a real tenant. The finish screen still shows the preview-mode note for that reason. The last three show the web part on a SharePoint site page, with the property pane and the Customize questions editor. Account and author details are masked.
 
 The site and list picker, with a site selected and **Open the form**.
 
@@ -111,6 +111,18 @@ The finish screen after a successful submit, with **Link copied**.
 A list the form cannot fill, with **Copy link to the list's form**.
 
 ![Warning that a required Approver person column cannot be collected, with a copy link to the list form](assets/guided-list-form-unsupported.png)
+
+The web part on a SharePoint site page, on the welcome card for a list.
+
+![Guided List Form web part on a SharePoint site page, showing the welcome card for Northwind Lumen Milestones](assets/guided-list-form-page-webpart.png)
+
+The web part property pane, with the list selected and the Site URL field left empty so the form uses the current site.
+
+![Guided Form property pane with List, Text, Personal greeting, and Questions and skip logic sections](assets/guided-list-form-property-pane.png)
+
+The Customize questions editor, with the Title card open and Save and Cancel at the bottom.
+
+![Customize questions editor with the Title card expanded, plus Product, Status, and Milestone date cards](assets/guided-list-form-customize-questions.png)
 
 ## Help
 
