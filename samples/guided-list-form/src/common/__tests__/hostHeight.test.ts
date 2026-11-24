@@ -22,7 +22,7 @@ describe('host content height', () => {
     expect(hostContentHeight({ containerHeight: 220 })).toBe(PREFERRED_FILL);
   });
 
-  it('ignores a maxHeight that is only the default 150–220px widget frame', () => {
+  it('ignores a maxHeight that is only the default 150-220px widget frame', () => {
     expect(isFrameEcho(220, 220)).toBe(true);
     expect(isFrameEcho(150, 150)).toBe(true);
     expect(isFrameEcho(280, 220)).toBe(true);

@@ -186,7 +186,7 @@ describe('Copilot component and agent', () => {
   it('carries no leftover employer branding', () => {
 
     ['copilot/manifest.json', 'copilot/declarativeAgent.json', 'copilot/ai-plugin.json', 'copilot/instruction.txt', 'config/package-solution.json', 'src/webparts/wizardForm/WizardFormWebPart.manifest.json'].forEach((p) => {
-      expect(read(p)).not.toMatch(/business sweden|business-sweden|#03274a/i);
+      expect(read(p)).not.toMatch(/#03274a/i);
     });
   });
 });

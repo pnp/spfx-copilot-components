@@ -26,7 +26,7 @@ When Copilot does not name a list, or the list cannot be opened, the card shows 
 - [Microsoft Copilot extensibility](https://learn.microsoft.com/microsoft-365-copilot/extensibility/)
 - [Microsoft 365 tenant](https://learn.microsoft.com/sharepoint/dev/spfx/set-up-your-development-environment)
 
-> Get your own free development tenant by subscribing to the [Microsoft 365 developer program](https://aka.ms/m365/devprogram)
+> Get your own development tenant by subscribing to the [Microsoft 365 developer program](https://aka.ms/m365/devprogram)
 
 ## Contributors
 
@@ -52,8 +52,8 @@ The packaged solution version in `config/package-solution.json` is `1.4.6.1`.
 - Clone this repository (or [download this solution as a .ZIP file](https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/guided-list-form) then unzip it)
 - From your command line, change your current directory to the directory containing this sample (`guided-list-form`, located under `samples`)
 - In the command line run:
-  - `npm install`
-  - `npm run build` (runs the unit tests and creates `sharepoint/solution/copilot-wizard-form.sppkg`)
+ - `npm install`
+ - `npm run build` (runs the unit tests and creates `sharepoint/solution/copilot-wizard-form.sppkg`)
 - Upload `sharepoint/solution/copilot-wizard-form.sppkg` to the tenant App Catalog and deploy it. Tick **Make this solution available to all sites in the organization**.
 - For Copilot: in the App Catalog, select the app and select **Add to Teams** (or **Sync to Teams**). Wait a few minutes, then start a fresh Copilot chat.
 - In Microsoft 365 Copilot, open **Guided Form** from the agents list and ask "Open a list form" or "Help me fill in a SharePoint list form". Pick a site and a custom list, then select **Open the form**.
@@ -120,7 +120,6 @@ You can try looking at [issues related to this sample](https://github.com/pnp/sp
 
 If you encounter any issues using this sample, [create a new issue](https://github.com/pnp/spfx-copilot-components/issues/new).
 
-To reach out to first-time-issue solvers, mention them in a new comment on the related GitHub issue and they will get notified.
 
 ## Disclaimer
 

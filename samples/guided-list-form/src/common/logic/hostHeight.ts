@@ -1,5 +1,5 @@
 /**
- * Copilot Chat's widget frame often starts at about 150–220 px and will stay
+ * Copilot Chat's widget frame often starts at about 150-220 px and will stay
  * there if we copy the current offsetHeight back to the host, or if auto-resize
  * measures a short html/body. Plan an explicit pixel height, set it on the
  * component root and the document, and request that planned size.
@@ -30,7 +30,7 @@ export function positivePixels(value: number | undefined): number | undefined {
 export const PREFERRED_FILL = 600;
 
 /**
- * Default widget frames land in this band (~150–220, sometimes a little more).
+ * Default widget frames land in this band (~150-220, sometimes a little more).
  * A containerMaxHeight in this band is treated as the current frame, not a real cap.
  */
 export const FRAME_ECHO_MAX = 320;
@@ -73,7 +73,7 @@ export function isFillDisplayMode(mode: string | undefined): boolean {
 
 /**
  * A maxHeight in the default widget band, especially when it matches the current
- * frame, is the allocation the host already gave — not a cap we must honour.
+ * frame, is the allocation the host already gave - not a cap we must honour.
  */
 export function isFrameEcho(maxHeight?: number, containerHeight?: number): boolean {
   const max = positivePixels(maxHeight);
@@ -132,7 +132,7 @@ function realMaxHeight(input: IHostHeightPlanInput): number | undefined {
  * content reports (the framework's auto-resize measures html, and
  * requestSizeChangeAsync sends the same size-changed notification). So the root and
  * the document must carry an explicit height of their own. Never copy the frame's
- * current height back, or the frame stays at its 150–220px default.
+ * current height back, or the frame stays at its 150-220px default.
  * - Fill modes (fullscreen, or any non-inline mode): a fixed host height of at least
  *   PREFERRED_FILL, else the real host maximum, else the window fill, else PREFERRED_FILL.
  * - Inline: the real host maximum, else PREFERRED_FILL or the fixed height when larger.
@@ -214,7 +214,7 @@ const VIEWPORT_LOCK = 'data-wizard-host-height';
 
 /**
  * Lock html and body to the planned height so the framework auto-resize observer
- * reports that size instead of the 150–220px iframe or a height:100% echo.
+ * reports that size instead of the 150-220px iframe or a height:100% echo.
  */
 export function lockDocumentHeight(doc: Document, height: number): void {
   if (!doc.head) {

@@ -49,7 +49,7 @@ define([], function() {
     "InvalidColor": "Use a hex colour such as #0F6CBD, or leave empty.",
     "ListPlaceholder": "Select a list",
     "CustomizeQuestionsLabel": "Customize questions",
-    "CustomizeQuestionsDescription": "Set the wording, an example answer, how to check the answer, and when each question appears — without editing JSON.",
+    "CustomizeQuestionsDescription": "Set the wording, an example answer, how to check the answer, and when each question appears - without editing JSON.",
     "CustomizeQuestionsNeedList": "Choose a list first, then customize its questions.",
     "FormHeightLabel": "Form height",
     "FormHeightDescription": "Auto keeps the current default. A fixed height is useful in short or tall page sections.",
