@@ -330,6 +330,11 @@ The Copilot component and Teams personal app have no storage selector. Both alwa
 
 ### Teams personal app and packaging boundary
 
+SPFx packaging currently does not work when Copilot and Teams app packages are combined in one
+solution. The separate `teams-app` folder works around this limitation by keeping the Teams assets and
+package outside the primary SharePoint/Copilot packaging flow. It does not duplicate the app
+implementation.
+
 The primary web-part manifest does not enable `TeamsPersonalApp` or `TeamsTab`. That deliberate boundary
 prevents SPFx from automatically adding a Teams web-part ZIP to the same SPPKG that contains the Copilot
 agent package.

@@ -1,5 +1,9 @@
 # Personal Links Teams personal app
 
+The separate `teams-app` folder is required because SPFx packaging currently does not work when Copilot
+and Teams app packages are combined in one solution. This folder is a workaround for that packaging
+limitation, not a separate implementation of Personal Links.
+
 The Personal Links Teams app is packaged manually so the primary SharePoint package can continue to
 contain the Copilot declarative-agent ZIP without also generating an SPFx Teams ZIP.
 
