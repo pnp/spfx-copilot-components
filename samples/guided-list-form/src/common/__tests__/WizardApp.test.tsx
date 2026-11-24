@@ -1149,7 +1149,9 @@ describe('WizardApp timed-out saves', () => {
     expect(text('wiz-submit-error')).not.toMatch(/\bfree\b|\u2013|\u2014/);
     expect(q('wiz-check-saved')).not.toBeNull();
     expect(text('wiz-check-saved')).toBe('Check if saved');
-    expect(q('wiz-submit')?.getAttribute('aria-disabled')).toBe('true');
+    const submit = q('wiz-submit') as HTMLButtonElement;
+    expect(submit.getAttribute('aria-disabled')).toBe('true');
+    expect(submit.disabled).toBe(true);
     const unknown = statuses.find((s) => s.indexOf('unknown:') === 0) || '';
     expect(unknown).toContain('unknown:timeout:');
     expect(unknown).toContain('not confirmed yet');
@@ -1252,5 +1254,41 @@ describe('WizardApp timed-out saves', () => {
     expect(failed).toContain('notSubmitted:validation:');
     expect(failed).toContain('was not submitted');
     expect(posts).toBe(1);
+  });
+
+  it('dims and disables the last-step Submit pill while a save is unconfirmed', async () => {
+    const pending = deferred<ISubmitResult>();
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => pending.promise,
+      findSubmittedItem: async () => undefined
+    };
+    await render({
+      service,
+      showReview: false,
+      prefill: { Title: 'Laptop', Category: 'Software' },
+      host: 'Copilot'
+    });
+    await click(q('wiz-start'));
+    for (let i = 0; i < 3; i++) {
+      await click(q('wiz-ok'));
+    }
+    expect(text('wiz-ok')).toBe('Submit');
+    jest.useFakeTimers();
+    await act(async () => {
+      (q('wiz-ok') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    await act(async () => {
+      await Promise.resolve();
+      await jest.advanceTimersByTimeAsync(SUBMIT_TIMEOUT_MS);
+      await Promise.resolve();
+    });
+    const submit = q('wiz-ok') as HTMLButtonElement;
+    expect(text('wiz-submit-error')).toContain('not confirmed yet');
+    expect(q('wiz-check-saved')).not.toBeNull();
+    expect(submit.getAttribute('aria-disabled')).toBe('true');
+    expect(submit.disabled).toBe(true);
+    expect(text('wiz-ok')).toBe('Submit');
   });
 });

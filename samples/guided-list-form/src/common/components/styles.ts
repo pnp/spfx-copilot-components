@@ -489,7 +489,9 @@ export const useWizardStyles = makeStyles({
       opacity: 0.55,
       cursor: 'not-allowed',
       boxShadow: 'none',
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+      ':hover': { backgroundColor: PALETTE.pill, boxShadow: 'none', transform: 'none' },
+      ':active': { boxShadow: 'none', transform: 'none' }
     },
     ...focusRing,
     ...noMotion
@@ -507,6 +509,15 @@ export const useWizardStyles = makeStyles({
   pillBusy: {
     cursor: 'progress',
     opacity: 0.85
+  },
+  /** Dimmed, no hover: used when a pill is aria-disabled but not mid-submit. */
+  pillDisabled: {
+    opacity: 0.55,
+    cursor: 'not-allowed',
+    boxShadow: 'none',
+    pointerEvents: 'none',
+    ':hover': { backgroundColor: PALETTE.pill, boxShadow: 'none', transform: 'none' },
+    ':active': { boxShadow: 'none', transform: 'none' }
   },
   /** Underlined text link button (Back, Submit another). */
   textLink: {

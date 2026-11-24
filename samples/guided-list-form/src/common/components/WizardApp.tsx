@@ -759,6 +759,9 @@ function Wizard(props: IWizardProps): React.ReactElement {
     const field = visibleNow[s.index];
     const invalid = field ? validateValue(field, s.answers[field.internalName], answerCheckFor(field, answerChecks)) : undefined;
     const isLast = s.index === visibleNow.length - 1;
+    if (isLast && !showReview && !s.returnToReview && !canRetrySave(s)) {
+      return;
+    }
     if (invalid || (isLast && !showReview && !s.returnToReview)) {
       dispatch({ type: 'next' });
       return;
@@ -998,9 +1001,20 @@ function Wizard(props: IWizardProps): React.ReactElement {
       <>
         <div className={mergeClasses(styles.actions, compact && styles.actionsPinned)}>
           {backLink}
-          <button type="button" className={pillClass} onClick={goNext} data-testid="wiz-ok" disabled={!!formatError}>
-            {state.returnToReview && showReview ? 'Back to review' : isLast && !showReview ? 'Submit' : 'OK'}
-            <Checkmark20Regular aria-hidden="true" />
+          <button
+            type="button"
+            className={mergeClasses(
+              pillClass,
+              isLast && !showReview && state.submitting && styles.pillBusy,
+              isLast && !showReview && isSaveUnconfirmed(state) && styles.pillDisabled
+            )}
+            onClick={goNext}
+            data-testid="wiz-ok"
+            disabled={!!formatError || (isLast && !showReview && isSaveUnconfirmed(state))}
+            aria-disabled={(isLast && !showReview && (state.submitting || isSaveUnconfirmed(state))) || undefined}
+          >
+            {state.returnToReview && showReview ? 'Back to review' : isLast && !showReview ? (state.submitting ? 'Submitting\u2026' : 'Submit') : 'OK'}
+            {isLast && !showReview && state.submitting ? <Spinner size="tiny" /> : <Checkmark20Regular aria-hidden="true" />}
           </button>
           {field.kind === 'note' ? (
             <span className={styles.hint} aria-hidden="true">
@@ -1118,7 +1132,8 @@ function Wizard(props: IWizardProps): React.ReactElement {
           ) : null}
           <button
             type="button"
-            className={mergeClasses(pillClass, state.submitting && styles.pillBusy)}
+            className={mergeClasses(pillClass, state.submitting && styles.pillBusy, isSaveUnconfirmed(state) && styles.pillDisabled)}
+            disabled={isSaveUnconfirmed(state)}
             aria-disabled={state.submitting || !canRetrySave(state) || undefined}
             onClick={() => {
               if (canRetrySave(stateRef.current)) {
