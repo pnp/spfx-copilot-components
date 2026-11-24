@@ -6,26 +6,52 @@ import { validateAll } from './validation';
 /** Client-side and SharePoint write timeout used on submit. */
 export const SUBMIT_TIMEOUT_MS = 20000;
 
-export const SUBMIT_TIMEOUT_MESSAGE = 'SharePoint took too long to respond. Your answers are still here; try again.';
+export const SUBMIT_TIMEOUT_MESSAGE = 'SharePoint took too long to respond. Your answers are still here. The save is not confirmed yet. Check whether it was saved before you try again.';
+
+export interface IWatchedWork<T> {
+  /** The original work, including a successful or failed response that arrives after the timeout. */
+  work: Promise<T>;
+  /** Settles when work finishes first, or rejects with a timeout error if work is still pending. */
+  first: Promise<T>;
+}
 
 const MESSAGE_MAX = 240;
 
-export function withTimeout<T>(work: Promise<T>, ms: number = SUBMIT_TIMEOUT_MS, message: string = SUBMIT_TIMEOUT_MESSAGE): Promise<T> {
-  return new Promise<T>((resolve, reject) => {
+/**
+ * Watches a request without cancelling it. A timeout rejects `first` only; `work` still settles
+ * if SharePoint responds later. Client-side cancellation cannot guarantee the server did not commit.
+ */
+export function watchWithTimeout<T>(work: Promise<T>, ms: number = SUBMIT_TIMEOUT_MS, message: string = SUBMIT_TIMEOUT_MESSAGE): IWatchedWork<T> {
+  let settled = false;
+  const first = new Promise<T>((resolve, reject) => {
     const timer = setTimeout(() => {
-      reject(new ListFormError('timeout', message));
+      if (!settled) {
+        reject(new ListFormError('timeout', message));
+      }
     }, ms);
     work.then(
       (value) => {
+        settled = true;
         clearTimeout(timer);
         resolve(value);
       },
       (error: unknown) => {
+        settled = true;
         clearTimeout(timer);
         reject(error);
       }
     );
   });
+  // Avoid an unhandled rejection if the caller reads `first` first and attaches to `work` later.
+  work.then(
+    () => undefined,
+    () => undefined
+  );
+  return { work, first };
+}
+
+export function withTimeout<T>(work: Promise<T>, ms: number = SUBMIT_TIMEOUT_MS, message: string = SUBMIT_TIMEOUT_MESSAGE): Promise<T> {
+  return watchWithTimeout(work, ms, message).first;
 }
 
 interface IExceptionRow {

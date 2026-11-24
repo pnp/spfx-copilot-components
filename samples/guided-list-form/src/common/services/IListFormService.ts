@@ -25,4 +25,9 @@ export interface IListFormService {
   readonly demo: boolean;
   loadSchema(): Promise<IFormSchema>;
   submit(schema: IFormSchema, answers: Answers): Promise<ISubmitResult>;
+  /**
+   * Look for an item created by the current user at or after submittedAt that matches the
+   * submitted Title (or first comparable field). Does not change the list schema.
+   */
+  findSubmittedItem(schema: IFormSchema, answers: Answers, submittedAt: number): Promise<ISubmitResult | undefined>;
 }

@@ -1,5 +1,7 @@
 import type { Answers, IFormSchema, ISubmitResult } from '../models';
 import { buildFormSchema, type IRawField } from '../logic/fieldTypes';
+import { buildItemPayload } from '../logic/payload';
+import { pickReconcileField, valuesEqual } from '../logic/reconcileSubmit';
 import { ListFormError, type IListFormService } from './IListFormService';
 
 export type DemoScenario = 'request' | 'equipment' | 'blocked' | 'save-error' | 'library' | 'not-found' | 'milestones' | 'expenses';
@@ -99,5 +101,20 @@ export class DemoListFormService implements IListFormService {
     }
     this.submitted.push(JSON.parse(JSON.stringify(answers)) as Answers);
     return { id: this.submitted.length, itemUrl: this._itemUrl, demo: true };
+  }
+
+  public async findSubmittedItem(schema: IFormSchema, answers: Answers, _submittedAt: number): Promise<ISubmitResult | undefined> {
+    const wanted = buildItemPayload(schema.fields, answers);
+    const field = pickReconcileField(schema.fields, wanted);
+    if (!field) {
+      return undefined;
+    }
+    for (let i = this.submitted.length - 1; i >= 0; i--) {
+      const got = buildItemPayload(schema.fields, this.submitted[i]);
+      if (valuesEqual(field.value, got[field.name])) {
+        return { id: i + 1, itemUrl: this._itemUrl, demo: true };
+      }
+    }
+    return undefined;
   }
 }

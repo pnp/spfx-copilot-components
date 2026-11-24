@@ -6,6 +6,7 @@ import { firstInvalidIndex, validateAll, validateValue } from './validation';
 
 export type WizardPhase = 'intro' | 'step' | 'review' | 'done';
 export type Direction = 'forward' | 'back';
+export type SaveOutcome = 'none' | 'unknown' | 'checking' | 'retryable';
 
 export interface IWizardState {
   phase: WizardPhase;
@@ -17,6 +18,8 @@ export interface IWizardState {
   returnToReview: boolean;
   submitting: boolean;
   submitError: string;
+  /** unknown/checking: a save was sent but the outcome is not confirmed; retryable: checked and no item was found. */
+  saveOutcome: SaveOutcome;
   /** Set when the last step's Next should submit straight away (review step turned off). */
   submitRequested: boolean;
   result: ISubmitResult | undefined;
@@ -38,6 +41,10 @@ export type WizardAction =
   | { type: 'submitStart' }
   | { type: 'submitSuccess'; result: ISubmitResult }
   | { type: 'submitFailure'; message: string }
+  | { type: 'submitUnknown'; message: string }
+  | { type: 'submitCheckStart' }
+  | { type: 'submitCheckFailed'; message: string }
+  | { type: 'submitRetryAllowed'; message: string }
   | { type: 'reset'; answers?: Answers }
   | { type: 'restore'; answers: Answers; phase: WizardPhase; index: number };
 
@@ -51,6 +58,7 @@ export function initialWizardState(answers?: Answers): IWizardState {
     returnToReview: false,
     submitting: false,
     submitError: '',
+    saveOutcome: 'none',
     submitRequested: false,
     result: undefined
   };
@@ -70,7 +78,7 @@ function clampIndex(index: number, total: number): number {
 /** Pure wizard navigation. Next only advances when the current step is valid. Hidden fields are skipped. */
 export function wizardReducer(state: IWizardState, action: WizardAction, config: IWizardConfig): IWizardState {
   const all = config.fields;
-  if (state.submitting && action.type !== 'submitSuccess' && action.type !== 'submitFailure') {
+  if (state.submitting && action.type !== 'submitSuccess' && action.type !== 'submitFailure' && action.type !== 'submitUnknown') {
     return state;
   }
   switch (action.type) {
@@ -156,22 +164,49 @@ export function wizardReducer(state: IWizardState, action: WizardAction, config:
     }
 
     case 'submitStart': {
+      if (state.saveOutcome === 'unknown' || state.saveOutcome === 'checking') {
+        return state;
+      }
       if (state.phase !== 'review' && !state.submitRequested) {
         return state;
       }
       const visible = visibleFor(config, state.answers);
       const errors = validateAll(visible, state.answers, config.answerChecks);
       if (Object.keys(errors).length > 0) {
-        return { ...state, phase: 'step', index: firstInvalidIndex(visible, state.answers, config.answerChecks), direction: 'back', errors, submitRequested: false, returnToReview: config.showReview };
+        return { ...state, phase: 'step', index: firstInvalidIndex(visible, state.answers, config.answerChecks), direction: 'back', errors, submitRequested: false, returnToReview: config.showReview, saveOutcome: 'none' };
       }
-      return { ...state, submitting: true, submitError: '', submitRequested: false };
+      return { ...state, submitting: true, submitError: '', submitRequested: false, saveOutcome: 'none' };
     }
 
     case 'submitSuccess':
-      return { ...state, submitting: false, phase: 'done', direction: 'forward', result: action.result };
+      return { ...state, submitting: false, saveOutcome: 'none', submitError: '', phase: 'done', direction: 'forward', result: action.result };
 
     case 'submitFailure':
-      return { ...state, submitting: false, submitError: action.message || 'Something went wrong. Please try again.' };
+      return { ...state, submitting: false, saveOutcome: 'none', submitError: action.message || 'Something went wrong. Please try again.' };
+
+    case 'submitUnknown':
+      if (!state.submitting) {
+        return state;
+      }
+      return { ...state, submitting: false, saveOutcome: 'unknown', submitError: action.message };
+
+    case 'submitCheckStart':
+      if (state.saveOutcome !== 'unknown' || state.submitting) {
+        return state;
+      }
+      return { ...state, saveOutcome: 'checking' };
+
+    case 'submitCheckFailed':
+      if (state.saveOutcome !== 'checking') {
+        return state;
+      }
+      return { ...state, saveOutcome: 'unknown', submitError: action.message };
+
+    case 'submitRetryAllowed':
+      if (state.saveOutcome !== 'checking' && state.saveOutcome !== 'unknown') {
+        return state;
+      }
+      return { ...state, saveOutcome: 'retryable', submitError: action.message };
 
     case 'reset':
       return initialWizardState(action.answers);
@@ -208,4 +243,12 @@ export function progressValue(state: IWizardState, total: number): number {
 /** A stable key for the visible screen (drives transitions and focus). */
 export function screenKey(state: IWizardState): string {
   return state.phase === 'step' ? `step-${state.index}` : state.phase;
+}
+
+export function canRetrySave(state: IWizardState): boolean {
+  return !state.submitting && state.saveOutcome !== 'unknown' && state.saveOutcome !== 'checking';
+}
+
+export function isSaveUnconfirmed(state: IWizardState): boolean {
+  return state.saveOutcome === 'unknown' || state.saveOutcome === 'checking';
 }

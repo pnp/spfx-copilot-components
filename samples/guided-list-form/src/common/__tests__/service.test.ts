@@ -2,8 +2,6 @@ import type { IHttpClient, IHttpResponse } from '../services/http';
 import { errorKindOf } from '../services/IListFormService';
 import { DEMO_EQUIPMENT_FIELDS, DEMO_FIELDS, DemoListFormService } from '../services/DemoListFormService';
 import { SharePointListFormService } from '../services/SharePointListFormService';
-import { SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE } from '../logic/sharePointWriteError';
-import { ListFormError } from '../services/IListFormService';
 
 const SITE = 'https://fabrikam.sharepoint.com/sites/it';
 
@@ -155,28 +153,85 @@ describe('SharePointListFormService', () => {
     });
   });
 
-  it('times out a hung POST and does not leave the caller waiting', async () => {
-    jest.useFakeTimers();
-    try {
-      const http: import('../services/http').IHttpClient = {
-        get: async (url: string) => (url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST)),
-        post: () => new Promise(() => undefined)
-      };
-      const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
-      const schema = await svc.loadSchema();
-      const pending = svc.submit(schema, { Title: 'Laptop', Category: 'Hardware' });
-      const settled = pending.then(
-        () => 'resolved',
-        (error: unknown) => error
-      );
-      await Promise.resolve();
-      jest.advanceTimersByTime(SUBMIT_TIMEOUT_MS);
-      const error = await settled;
-      expect(error).toBeInstanceOf(ListFormError);
-      expect(error).toMatchObject({ kind: 'timeout', message: SUBMIT_TIMEOUT_MESSAGE });
-    } finally {
-      jest.useRealTimers();
-    }
+  it('leaves a hung POST pending so a late create can still be observed', async () => {
+    let resolvePost: (value: import('../services/http').IHttpResponse) => void = () => undefined;
+    const http: import('../services/http').IHttpClient = {
+      get: async (url: string) => (url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST)),
+      post: () => new Promise((resolve) => {
+        resolvePost = resolve;
+      })
+    };
+    const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
+    const schema = await svc.loadSchema();
+    const pending = svc.submit(schema, { Title: 'Laptop', Category: 'Hardware' });
+    let settled = false;
+    pending.then(
+      () => {
+        settled = true;
+      },
+      () => {
+        settled = true;
+      }
+    );
+    await Promise.resolve();
+    expect(settled).toBe(false);
+    resolvePost(res(201, { Id: 44 }));
+    await expect(pending).resolves.toEqual({
+      id: 44,
+      itemUrl: 'https://fabrikam.sharepoint.com/sites/it/Lists/ITRequests/DispForm.aspx?ID=44',
+      demo: false
+    });
+  });
+
+  it('finds a recently created item for the signed-in user without posting again', async () => {
+    const submittedAt = Date.parse('2026-11-24T18:00:00Z');
+    const created = new Date(submittedAt + 1000).toISOString();
+    const http = new MockHttp((url, method) => {
+      if (method === 'POST') {
+        return new Error('POST should not run during reconcile');
+      }
+      if (url.indexOf('/currentuser') >= 0) {
+        return res(200, { Id: 7 });
+      }
+      if (url.indexOf('/items?') >= 0) {
+        return res(200, { value: [{ Id: 42, Title: 'Laptop', Created: created, AuthorId: 7 }] });
+      }
+      return url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST);
+    });
+    const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
+    const schema = await svc.loadSchema();
+    const found = await svc.findSubmittedItem(schema, { Title: 'Laptop', Category: 'Hardware' }, submittedAt);
+    expect(http.posts).toHaveLength(0);
+    expect(http.gets.some((url) => url === `${SITE}/_api/web/currentuser?$select=Id`)).toBe(true);
+    const itemsUrl = http.gets.filter((url) => url.indexOf('/items?') >= 0)[0];
+    expect(itemsUrl).toContain('AuthorId%20eq%207');
+    expect(itemsUrl).toContain("Created%20ge%20datetime'");
+    expect(itemsUrl).toContain("Title%20eq%20'Laptop'");
+    expect(decodeURIComponent(itemsUrl)).toContain("Created ge datetime'2026-11-24T17:59:30Z'");
+    expect(found).toEqual({
+      id: 42,
+      itemUrl: 'https://fabrikam.sharepoint.com/sites/it/Lists/ITRequests/DispForm.aspx?ID=42',
+      demo: false
+    });
+  });
+
+  it('returns undefined when reconcile finds no matching item', async () => {
+    const http = new MockHttp((url, method) => {
+      if (method === 'POST') {
+        return new Error('POST should not run during reconcile');
+      }
+      if (url.indexOf('/currentuser') >= 0) {
+        return res(200, { Id: 7 });
+      }
+      if (url.indexOf('/items?') >= 0) {
+        return res(200, { value: [] });
+      }
+      return url.indexOf('/fields') >= 0 ? res(200, { value: DEMO_FIELDS }) : res(200, LIST);
+    });
+    const svc = new SharePointListFormService(http, { siteUrl: SITE, listTitle: 'IT Requests' });
+    const schema = await svc.loadSchema();
+    await expect(svc.findSubmittedItem(schema, { Title: 'Laptop', Category: 'Hardware' }, Date.parse('2026-11-24T18:00:00Z'))).resolves.toBeUndefined();
+    expect(http.posts).toHaveLength(0);
   });
 });
 

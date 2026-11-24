@@ -67,10 +67,10 @@ The packaged solution version in `config/package-solution.json` is `1.4.6.1`.
 - **Site and list picker in Copilot.** Followed and recent sites, plus a name search on the current tenant only, then a dropdown of visible custom lists. The current site is labelled with its real title in Copilot; **This site** is used only when the web part is on a SharePoint page. The primary button is **Open the form**.
 - **Change list.** In Copilot, **Change list** returns to the in-card picker without a reload. If answers have been typed, a confirm step warns that they will not be kept.
 - **Copy link.** After a successful submit in Copilot, **Copy link to item** (and **Copy link to the list's form** when the list cannot be filled) copies a same-tenant https address to the clipboard. On a SharePoint page those controls stay ordinary links.
-- **Prefill from the conversation.** Copilot may pass answers as a JSON object keyed by column name. The person can change every value. Copilot never submits the form and is told only a status (opened, submitted, or not submitted), never the answers or item content.
+- **Prefill from the conversation.** Copilot may pass answers as a JSON object keyed by column name. The person can change every value. Copilot never submits the form and is told only a status (opened, submitted, not submitted, or not confirmed yet), never the answers or item content.
 - **Supported columns.** Single line of text, multiple lines of text, choice and multi-choice, Yes/No, number, currency, date, date and time, and URL-format hyperlink (`https://` only). Optional unsupported columns are skipped; a required unsupported column blocks the form with a clear message.
 - **Question editor.** On the page web part, **Customize questions** opens a side panel for question text, examples, skip logic and answer checks, written back to the existing JSON properties.
-- **Submit stays honest.** A save that hangs is stopped after about 20 seconds with a clear error. SharePoint field validation messages are shown. Empty required answers are blocked before a request is sent. After a successful save, Copilot's model context is updated to `submitted` so it does not keep saying the form is still open.
+- **Submit stays honest.** A save that takes longer than about 20 seconds is treated as unconfirmed, not as a failed submit. The form keeps the original request, moves to saved if a late response arrives, and offers **Check if saved** before a new save is allowed. SharePoint field validation messages are shown. Empty required answers are blocked before a request is sent. After a successful save, Copilot's model context is updated to `submitted` so it does not keep saying the form is still open.
 - **Look and accessibility.** A full-bleed forest-to-teal gradient panel, cream action pills, keyboard support, a live region for each new question, and motion that turns off with **Animations off** or the system's reduced-motion setting. An optional accent colour tints the gradient; white text stays readable.
 
 This sample illustrates the following concepts:
@@ -85,7 +85,7 @@ This sample illustrates the following concepts:
 
 - **No API permissions.** The package requests no `webApiPermissionRequests` and calls only SharePoint REST on the same tenant, as the signed-in user.
 - Model-supplied site URLs must be `https` on the current tenant, with no credentials. Anything else is rejected.
-- No raw HTML is rendered. Copilot gets back status text only (opened, submitted, or not submitted, with a short reason on failure). Answers and item content are never sent to the model.
+- No raw HTML is rendered. Copilot gets back status text only (opened, submitted, not submitted, or not confirmed yet, with a short reason on failure). Answers and item content are never sent to the model.
 - Hyperlink values accept only `https://` URLs. `http://`, `javascript:`, `data:` and URLs that contain a username or password are rejected.
 
 ## Screenshots

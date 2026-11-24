@@ -13,6 +13,8 @@ import { DemoListFormService, type DemoScenario } from '../services/DemoListForm
 import { createDemoSiteDirectory, type ISiteDirectory } from '../services/sites';
 import type { CopilotStatusKind } from '../logic/copilotStatus';
 import { ListFormError, type IListFormService } from '../services/IListFormService';
+import { SUBMIT_TIMEOUT_MS } from '../logic/sharePointWriteError';
+import { SAVE_NOT_FOUND_MESSAGE } from '../logic/reconcileSubmit';
 
 const act = ((React as unknown as { act?: typeof legacyAct }).act || legacyAct) as typeof legacyAct;
 (globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
@@ -570,7 +572,8 @@ describe('WizardApp v1.3', () => {
         buildFormSchema('IT Requests', '', [
           { InternalName: 'Title', Title: 'What do you need?', TypeAsString: 'Text', Required: true, MaxLength: 40, Description: 'A short summary.' }
         ]),
-      submit: async () => ({ id: 1, itemUrl: '', demo: true })
+      submit: async () => ({ id: 1, itemUrl: '', demo: true }),
+      findSubmittedItem: async () => undefined
     };
     await render({ service });
     await click(q('wiz-start'));
@@ -1075,5 +1078,179 @@ describe('WizardApp v1.4.6.0', () => {
     expect(changeListButtons()).toHaveLength(1);
     expect(q('wiz-change-list')).not.toBeNull();
     expect(q('wiz-change-list-banner')).toBeNull();
+  });
+});
+
+describe('WizardApp timed-out saves', () => {
+  function deferred<T>(): { promise: Promise<T>; resolve: (value: T) => void; reject: (error: unknown) => void } {
+    const result: { promise: Promise<T>; resolve: (value: T) => void; reject: (error: unknown) => void } = {
+      promise: undefined as unknown as Promise<T>,
+      resolve: () => undefined,
+      reject: () => undefined
+    };
+    result.promise = new Promise<T>((resolve, reject) => {
+      result.resolve = resolve;
+      result.reject = reject;
+    });
+    return result;
+  }
+
+  async function goToReview(service: IListFormService, extra: IRenderOptions = {}): Promise<void> {
+    await render({
+      service,
+      prefill: { Title: 'Laptop', Category: 'Software' },
+      host: 'Copilot',
+      ...extra
+    });
+    await click(q('wiz-start'));
+    for (let i = 0; i < 4; i++) {
+      await click(q('wiz-ok'));
+    }
+    expect(screen()).toBe('review');
+  }
+
+  async function submitUntilUnknown(): Promise<void> {
+    jest.useFakeTimers();
+    await act(async () => {
+      (q('wiz-submit') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    expect(text('wiz-submit')).toContain('Submitting');
+    await act(async () => {
+      await Promise.resolve();
+      await jest.advanceTimersByTimeAsync(SUBMIT_TIMEOUT_MS);
+      await Promise.resolve();
+    });
+  }
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it('treats a late successful response as saved and does not send a second POST', async () => {
+    const pending = deferred<ISubmitResult>();
+    let posts = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => {
+        posts += 1;
+        return pending.promise;
+      },
+      findSubmittedItem: async () => undefined
+    };
+    const statuses: string[] = [];
+    await goToReview(service, {
+      onStatus: (message, kind, errorKind) => statuses.push(`${kind}:${errorKind || ''}:${message}`),
+      onSubmitted: () => statuses.push('submitted-callback')
+    });
+    await submitUntilUnknown();
+    expect(text('wiz-submit-error')).toContain('not confirmed yet');
+    expect(text('wiz-submit-error')).not.toContain('This site');
+    expect(text('wiz-submit-error')).not.toMatch(/\bfree\b|\u2013|\u2014/);
+    expect(q('wiz-check-saved')).not.toBeNull();
+    expect(text('wiz-check-saved')).toBe('Check if saved');
+    expect(q('wiz-submit')?.getAttribute('aria-disabled')).toBe('true');
+    const unknown = statuses.find((s) => s.indexOf('unknown:') === 0) || '';
+    expect(unknown).toContain('unknown:timeout:');
+    expect(unknown).toContain('not confirmed yet');
+    expect(unknown).not.toContain('was not submitted');
+    expect(posts).toBe(1);
+
+    await act(async () => {
+      (q('wiz-submit') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    expect(posts).toBe(1);
+
+    await act(async () => {
+      pending.resolve({ id: 42, itemUrl: '', demo: false });
+    });
+    expect(screen()).toBe('done');
+    expect(posts).toBe(1);
+    expect(statuses).toContain('submitted-callback');
+  });
+
+  it('uses Check if saved to move to done when the list already has the item', async () => {
+    const pending = deferred<ISubmitResult>();
+    let posts = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => {
+        posts += 1;
+        return pending.promise;
+      },
+      findSubmittedItem: async () => ({ id: 15, itemUrl: '', demo: false })
+    };
+    const submitted: number[] = [];
+    await goToReview(service, { onSubmitted: (result) => submitted.push(result.id) });
+    await submitUntilUnknown();
+    jest.useRealTimers();
+    await click(q('wiz-check-saved'));
+    expect(screen()).toBe('done');
+    expect(submitted).toEqual([15]);
+    expect(posts).toBe(1);
+  });
+
+  it('allows a new save only after Check if saved finds no item', async () => {
+    const first = deferred<ISubmitResult>();
+    const second = deferred<ISubmitResult>();
+    let posts = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => {
+        posts += 1;
+        return posts === 1 ? first.promise : second.promise;
+      },
+      findSubmittedItem: async () => undefined
+    };
+    await goToReview(service);
+    await submitUntilUnknown();
+    jest.useRealTimers();
+    await click(q('wiz-check-saved'));
+    expect(text('wiz-submit-error')).toBe(SAVE_NOT_FOUND_MESSAGE);
+    expect(text('wiz-submit')).toBe('Try again');
+    expect(q('wiz-submit')?.getAttribute('aria-disabled')).not.toBe('true');
+    expect(q('wiz-check-saved')).toBeNull();
+    expect(posts).toBe(1);
+    await click(q('wiz-submit'));
+    expect(posts).toBe(2);
+    await act(async () => {
+      second.resolve({ id: 16, itemUrl: '', demo: false });
+    });
+    await flush();
+    expect(screen()).toBe('done');
+  });
+
+  it('moves to a failed save when the original request later rejects', async () => {
+    const pending = deferred<ISubmitResult>();
+    let posts = 0;
+    const service: IListFormService = {
+      demo: false,
+      loadSchema: async () => new DemoListFormService().loadSchema(),
+      submit: () => {
+        posts += 1;
+        return pending.promise;
+      },
+      findSubmittedItem: async () => undefined
+    };
+    const statuses: string[] = [];
+    await goToReview(service, {
+      onStatus: (message, kind, errorKind) => statuses.push(`${kind}:${errorKind || ''}:${message}`)
+    });
+    await submitUntilUnknown();
+    await act(async () => {
+      pending.reject(new ListFormError('validation', "The required field Title cannot be empty."));
+    });
+    jest.useRealTimers();
+    await flush();
+    expect(text('wiz-submit-error')).toContain('required field Title');
+    expect(text('wiz-submit')).toBe('Try again');
+    expect(q('wiz-check-saved')).toBeNull();
+    expect(q('wiz-submit')?.getAttribute('aria-disabled')).not.toBe('true');
+    const failed = statuses.find((s) => s.indexOf('notSubmitted:') === 0) || '';
+    expect(failed).toContain('notSubmitted:validation:');
+    expect(failed).toContain('was not submitted');
+    expect(posts).toBe(1);
   });
 });

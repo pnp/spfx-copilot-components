@@ -4,7 +4,8 @@ import { buildItemPayload } from '../logic/payload';
 import { listApiUrl } from '../logic/siteUrl';
 import type { IHttpClient, IHttpResponse } from './http';
 import { JSON_HEADERS } from './http';
-import { hasSharePointWriteException, parseSharePointWriteError, requiredSubmitMessage, withTimeout } from '../logic/sharePointWriteError';
+import { hasSharePointWriteException, parseSharePointWriteError, requiredSubmitMessage } from '../logic/sharePointWriteError';
+import { buildReconcileItemsUrl, currentUserUrl, matchReconciledItem, readCurrentUserId, reconcileFieldFrom } from '../logic/reconcileSubmit';
 import { ListFormError, type IListFormService } from './IListFormService';
 
 /** Generic custom list. Libraries (101) and other templates are rejected. */
@@ -87,7 +88,18 @@ export class SharePointListFormService implements IListFormService {
     if (missing) {
       throw new ListFormError('validation', missing);
     }
-    return withTimeout(this._postItem(schema, answers));
+    return this._postItem(schema, answers);
+  }
+
+  public async findSubmittedItem(schema: IFormSchema, answers: Answers, submittedAt: number): Promise<ISubmitResult | undefined> {
+    const me = await this._get(currentUserUrl(this._target.siteUrl));
+    const authorId = readCurrentUserId(me);
+    if (!authorId) {
+      throw new ListFormError('server', 'The signed-in user could not be read, so the save could not be checked.');
+    }
+    const field = reconcileFieldFrom(schema, answers);
+    const body = await this._get(buildReconcileItemsUrl(this._listApi, authorId, submittedAt, field));
+    return matchReconciledItem(body, field, schema.listUrl);
   }
 
   private async _postItem(schema: IFormSchema, answers: Answers): Promise<ISubmitResult> {

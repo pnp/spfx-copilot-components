@@ -1,4 +1,4 @@
-import { initialWizardState, progressValue, screenKey, wizardReducer, type IWizardConfig, type IWizardState, type WizardAction } from '../logic/navigation';
+import { canRetrySave, initialWizardState, isSaveUnconfirmed, progressValue, screenKey, wizardReducer, type IWizardConfig, type IWizardState, type WizardAction } from '../logic/navigation';
 import { FIELDS, V11_FIELDS, field } from './helpers';
 
 const withReview: IWizardConfig = { fields: FIELDS, showReview: true };
@@ -110,6 +110,32 @@ describe('wizard navigation', () => {
     const done = run([{ type: 'submitSuccess', result: { id: 7, itemUrl: '', demo: true } }], withReview, submitting);
     expect(done.phase).toBe('done');
     expect(done.result && done.result.id).toBe(7);
+  });
+
+  it('treats a timeout as an unknown outcome and blocks retry until a check finds no item', () => {
+    const submitting = run([...fillAll, { type: 'submitStart' }]);
+    const unknown = run([{ type: 'submitUnknown', message: 'Not confirmed yet.' }], withReview, submitting);
+    expect(unknown).toMatchObject({ phase: 'review', submitting: false, saveOutcome: 'unknown', submitError: 'Not confirmed yet.' });
+    expect(isSaveUnconfirmed(unknown)).toBe(true);
+    expect(canRetrySave(unknown)).toBe(false);
+    expect(run([{ type: 'submitStart' }], withReview, unknown)).toBe(unknown);
+    const checking = run([{ type: 'submitCheckStart' }], withReview, unknown);
+    expect(checking.saveOutcome).toBe('checking');
+    expect(canRetrySave(checking)).toBe(false);
+    expect(run([{ type: 'submitStart' }], withReview, checking)).toBe(checking);
+    const retryable = run([{ type: 'submitRetryAllowed', message: 'No matching item was found in the list. You can try saving again.' }], withReview, checking);
+    expect(retryable.saveOutcome).toBe('retryable');
+    expect(canRetrySave(retryable)).toBe(true);
+    const retrying = run([{ type: 'submitStart' }], withReview, retryable);
+    expect(retrying.submitting).toBe(true);
+    expect(retrying.saveOutcome).toBe('none');
+  });
+
+  it('moves an unknown save to done when a late success arrives', () => {
+    const unknown = run([...fillAll, { type: 'submitStart' }, { type: 'submitUnknown', message: 'Not confirmed yet.' }]);
+    const done = run([{ type: 'submitSuccess', result: { id: 42, itemUrl: '', demo: false } }], withReview, unknown);
+    expect(done).toMatchObject({ phase: 'done', saveOutcome: 'none', submitError: '' });
+    expect(done.result && done.result.id).toBe(42);
   });
 
   it('submitStart is ignored on a normal step', () => {

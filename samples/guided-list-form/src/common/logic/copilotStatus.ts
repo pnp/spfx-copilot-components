@@ -40,14 +40,14 @@ export function pickedListFollowUp(listTitle: string): string {
 
 export { PREFERRED_FILL as COPILOT_INLINE_HEIGHT_PX } from './hostHeight';
 
-export type CopilotStatusKind = 'opened' | 'failed' | 'empty' | 'chosen' | 'submitted' | 'notSubmitted';
+export type CopilotStatusKind = 'opened' | 'failed' | 'empty' | 'chosen' | 'submitted' | 'notSubmitted' | 'unknown';
 export type CopilotStatusChannel = 'modelContext' | 'followUp';
 
 /** Chosen or opened lists stay in model context so a remount can reopen the same list. Chat follow-ups are reserved for submit results and save failures. */
 export function statusChannel(kind: CopilotStatusKind): CopilotStatusChannel {
   // Chat follow-ups are reserved for a real submit or a failed save. Chosen, opened, empty and
   // load failures (including while the person is still picking a list) stay in model context.
-  return kind === 'submitted' || kind === 'notSubmitted' ? 'followUp' : 'modelContext';
+  return kind === 'submitted' || kind === 'notSubmitted' || kind === 'unknown' ? 'followUp' : 'modelContext';
 }
 
 /** Every status, including submitted, must refresh model context so a prior "opened" state cannot linger. */
@@ -79,6 +79,13 @@ export function submittedStatus(listTitle: string): string {
   return safe ? `The guided form added a new item to the ${safe} list.` : 'The guided form added a new list item.';
 }
 
+/** Status only: a save was sent but the outcome is not confirmed yet. Never says it was not submitted. */
+export function submitUnknownStatus(listTitle: string): string {
+  const safe = listName(listTitle);
+  const target = safe ? `the ${safe} list` : 'the list';
+  return `The guided form sent a save to ${target}. SharePoint took too long to respond. The outcome is not confirmed yet.`;
+}
+
 /** Status only: the save did not complete. Names the error kind, never answers or the item. */
 export function submitFailedStatus(listTitle: string, reason: string): string {
   const safe = listName(listTitle);
@@ -91,7 +98,7 @@ export function submitFailedStatus(listTitle: string, reason: string): string {
     case 'network':
       return `The guided form did not add an item to ${target}. SharePoint could not be reached. It was not submitted.`;
     case 'timeout':
-      return `The guided form did not add an item to ${target}. SharePoint took too long to respond. It was not submitted.`;
+      return `The guided form sent a save to ${target}. SharePoint took too long to respond. The outcome is not confirmed yet.`;
     case 'validation':
       return `The guided form did not add an item to ${target}. Some answers were not accepted. It was not submitted.`;
     default:

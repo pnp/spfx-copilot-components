@@ -26,13 +26,13 @@ import {
   Sparkle16Regular
 } from '@fluentui/react-icons';
 
-import type { AnswerValue, HostKind, IFormSchema, ISubmitResult, IWizardField, IWizardTexts } from '../models';
+import type { Answers, AnswerValue, HostKind, IFormSchema, ISubmitResult, IWizardField, IWizardTexts } from '../models';
 import { describeColumns } from '../logic/fieldTypes';
 import { motionEnabled, prefersReducedMotion, CHOICE_AUTO_ADVANCE_MS } from '../logic/motion';
 import { DEFAULT_LOADING_MESSAGE } from '../logic/config';
 import { answerCheckFor, checkAnswerFormat, type AnswerCheck } from '../logic/answerCheck';
 import { gradientBackground, gradientFor, highlightCssVars, isDarkTheme, onGradientTheme } from '../logic/surface';
-import { initialWizardState, progressValue, screenKey, visibleFor, wizardReducer, type IWizardState, type WizardAction } from '../logic/navigation';
+import { canRetrySave, initialWizardState, isSaveUnconfirmed, progressValue, screenKey, visibleFor, wizardReducer, type IWizardState, type WizardAction } from '../logic/navigation';
 import { finishSummary, formatAnswer } from '../logic/payload';
 import { asHyperlink, validatedHttpsUrl } from '../logic/hyperlink';
 import { parsePrefill } from '../logic/prefill';
@@ -45,9 +45,10 @@ import { LIVE_CHECK_DEBOUNCE_MS, liveCheck } from '../logic/liveCheck';
 import { clearDraft, hasMeaningfulAnswers, readDraft, storageAvailable, writeDraft, type IDraftKeyParts, type IFormDraft } from '../logic/draft';
 import { isSafeListFormUrl } from '../logic/siteUrl';
 import { pastDateWarning } from '../logic/pastDate';
-import { loadFailedFollowUp, openedFollowUp, submitFailedStatus, type CopilotStatusKind } from '../logic/copilotStatus';
+import { loadFailedFollowUp, openedFollowUp, submitFailedStatus, submitUnknownStatus, type CopilotStatusKind } from '../logic/copilotStatus';
 import { asText } from '../logic/answers';
-import { SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE, withTimeout } from '../logic/sharePointWriteError';
+import { SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE, watchWithTimeout } from '../logic/sharePointWriteError';
+import { SAVE_CHECK_FAILED_MESSAGE, SAVE_NOT_FOUND_MESSAGE } from '../logic/reconcileSubmit';
 import { errorKindOf, ListFormError, type IListFormService } from '../services/IListFormService';
 import { FieldGuideCard } from './FieldGuide';
 import { FinishCheck } from './FinishCheck';
@@ -512,11 +513,28 @@ function Wizard(props: IWizardProps): React.ReactElement {
   const key = screenKey(state);
   const firstRender = React.useRef(true);
   const autoAdvance = React.useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const mountedRef = React.useRef(true);
+  const inFlightRef = React.useRef<
+    | {
+        work: Promise<ISubmitResult>;
+        answers: Answers;
+        submittedAt: number;
+        schema: IFormSchema;
+      }
+    | undefined
+  >(undefined);
 
   React.useEffect(() => () => {
     if (autoAdvance.current) {
       clearTimeout(autoAdvance.current);
     }
+  }, []);
+
+  React.useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
   }, []);
 
   React.useEffect(() => {
@@ -623,6 +641,43 @@ function Wizard(props: IWizardProps): React.ReactElement {
 
   const onSubmitted = props.onSubmitted;
   const onStatus = props.onStatus;
+
+  const applySaveSuccess = React.useCallback((token: { work: Promise<ISubmitResult> }, result: ISubmitResult): void => {
+    if (!inFlightRef.current || inFlightRef.current.work !== token.work) {
+      return;
+    }
+    inFlightRef.current = undefined;
+    if (!mountedRef.current) {
+      return;
+    }
+    if (canStore && draftParts) {
+      clearDraft(draftParts, props.storage);
+    }
+    transition.run('forward', () => dispatch({ type: 'submitSuccess', result }));
+    if (onSubmitted) {
+      try {
+        onSubmitted(result, schema.listTitle);
+      } catch {
+        /* Status follow-up must not leave the form stuck after a successful save. */
+      }
+    }
+  }, [canStore, draftParts, props.storage, transition, onSubmitted, schema.listTitle]);
+
+  const applySaveFailure = React.useCallback((token: { work: Promise<ISubmitResult> }, error: unknown): void => {
+    if (inFlightRef.current && inFlightRef.current.work !== token.work) {
+      return;
+    }
+    inFlightRef.current = undefined;
+    if (!mountedRef.current) {
+      return;
+    }
+    dispatch({ type: 'submitFailure', message: submitErrorMessage(error) });
+    if (onStatus) {
+      const kind = errorKindOf(error);
+      onStatus(submitFailedStatus(schema.listTitle, kind), 'notSubmitted', kind);
+    }
+  }, [onStatus, schema.listTitle]);
+
   React.useEffect(() => {
     if (state.submitRequested) {
       dispatch({ type: 'submitStart' });
@@ -633,51 +688,60 @@ function Wizard(props: IWizardProps): React.ReactElement {
     if (!state.submitting) {
       return undefined;
     }
-    let cancelled = false;
-    let settled = false;
-    const fail = (error: unknown): void => {
-      settled = true;
-      if (!cancelled) {
-        dispatch({ type: 'submitFailure', message: submitErrorMessage(error) });
-        if (onStatus) {
-          const kind = errorKindOf(error);
-          onStatus(submitFailedStatus(schema.listTitle, kind), 'notSubmitted', kind);
-        }
+    const answers = { ...stateRef.current.answers };
+    const visibleNow = visibleFor(config, answers);
+    const submittedSchema = { ...schema, fields: visibleNow };
+    const submittedAt = props.now ? props.now() : Date.now();
+    const work = service.submit(submittedSchema, answers);
+    const token = { work, answers, submittedAt, schema: submittedSchema };
+    inFlightRef.current = token;
+    const watched = watchWithTimeout(work, SUBMIT_TIMEOUT_MS, SUBMIT_TIMEOUT_MESSAGE);
+    const succeed = (result: ISubmitResult): void => applySaveSuccess(token, result);
+    const fail = (error: unknown): void => applySaveFailure(token, error);
+    watched.first.then(succeed, (error: unknown) => {
+      if (inFlightRef.current !== token) {
+        return;
       }
-    };
-    const visibleNow = visibleFor(config, stateRef.current.answers);
-    const run = async (): Promise<void> => {
-      try {
-        const result = await withTimeout(service.submit({ ...schema, fields: visibleNow }, stateRef.current.answers), SUBMIT_TIMEOUT_MS);
-        if (cancelled) {
-          settled = true;
-          return;
-        }
-        if (canStore && draftParts) {
-          clearDraft(draftParts, props.storage);
-        }
-        transition.run('forward', () => dispatch({ type: 'submitSuccess', result }));
-        settled = true;
-        if (onSubmitted) {
-          try {
-            onSubmitted(result, schema.listTitle);
-          } catch {
-            /* Status follow-up must not leave the form stuck after a successful save. */
+      if (errorKindOf(error) === 'timeout') {
+        if (mountedRef.current) {
+          dispatch({ type: 'submitUnknown', message: SUBMIT_TIMEOUT_MESSAGE });
+          if (onStatus) {
+            onStatus(submitUnknownStatus(schema.listTitle), 'unknown', 'timeout');
           }
         }
-      } catch (error) {
-        fail(error);
-      } finally {
-        if (!cancelled && !settled) {
-          fail(new ListFormError('server', ''));
-        }
+        work.then(succeed, fail);
+        return;
       }
-    };
-    run().catch(fail);
-    return () => {
-      cancelled = true;
-    };
+      fail(error);
+    });
+    return undefined;
   }, [state.submitting]);
+
+  const checkIfSaved = React.useCallback((): void => {
+    const token = inFlightRef.current;
+    if (!token || stateRef.current.saveOutcome !== 'unknown') {
+      return;
+    }
+    dispatch({ type: 'submitCheckStart' });
+    service.findSubmittedItem(token.schema, token.answers, token.submittedAt).then(
+      (found) => {
+        if (inFlightRef.current !== token || !mountedRef.current) {
+          return;
+        }
+        if (found) {
+          applySaveSuccess(token, found);
+          return;
+        }
+        dispatch({ type: 'submitRetryAllowed', message: SAVE_NOT_FOUND_MESSAGE });
+      },
+      () => {
+        if (inFlightRef.current !== token || !mountedRef.current) {
+          return;
+        }
+        dispatch({ type: 'submitCheckFailed', message: SAVE_CHECK_FAILED_MESSAGE });
+      }
+    );
+  }, [service, applySaveSuccess]);
 
   const goNext = React.useCallback((): void => {
     if (transition.isBusy()) {
@@ -947,9 +1011,27 @@ function Wizard(props: IWizardProps): React.ReactElement {
           )}
         </div>
         {state.submitError ? (
-          <MessageBar intent="error">
+          <MessageBar intent={isSaveUnconfirmed(state) || state.saveOutcome === 'retryable' ? 'warning' : 'error'} data-testid="wiz-submit-error">
             <MessageBarBody>{state.submitError}</MessageBarBody>
           </MessageBar>
+        ) : null}
+        {isSaveUnconfirmed(state) ? (
+          <div className={styles.actions}>
+            <button
+              type="button"
+              className={mergeClasses(pillClass, state.saveOutcome === 'checking' && styles.pillBusy)}
+              aria-disabled={state.saveOutcome === 'checking' || undefined}
+              onClick={() => {
+                if (stateRef.current.saveOutcome === 'unknown') {
+                  checkIfSaved();
+                }
+              }}
+              data-testid="wiz-check-saved"
+            >
+              {state.saveOutcome === 'checking' ? 'Checking\u2026' : 'Check if saved'}
+              {state.saveOutcome === 'checking' ? <Spinner size="tiny" /> : <Clock16Regular aria-hidden="true" />}
+            </button>
+          </div>
         ) : null}
       </>
     );
@@ -1012,24 +1094,40 @@ function Wizard(props: IWizardProps): React.ReactElement {
         </div>
         </div>
         {state.submitError ? (
-          <MessageBar intent="error" data-testid="wiz-submit-error">
+          <MessageBar intent={isSaveUnconfirmed(state) || state.saveOutcome === 'retryable' ? 'warning' : 'error'} data-testid="wiz-submit-error">
             <MessageBarBody>{state.submitError}</MessageBarBody>
           </MessageBar>
         ) : null}
         <div className={mergeClasses(styles.actions, compact && styles.actionsPinned)} data-testid={compact ? 'wiz-footer' : undefined}>
           {backLink}
+          {isSaveUnconfirmed(state) ? (
+            <button
+              type="button"
+              className={mergeClasses(pillClass, state.saveOutcome === 'checking' && styles.pillBusy)}
+              aria-disabled={state.saveOutcome === 'checking' || undefined}
+              onClick={() => {
+                if (stateRef.current.saveOutcome === 'unknown') {
+                  checkIfSaved();
+                }
+              }}
+              data-testid="wiz-check-saved"
+            >
+              {state.saveOutcome === 'checking' ? 'Checking\u2026' : 'Check if saved'}
+              {state.saveOutcome === 'checking' ? <Spinner size="tiny" /> : <Clock16Regular aria-hidden="true" />}
+            </button>
+          ) : null}
           <button
             type="button"
             className={mergeClasses(pillClass, state.submitting && styles.pillBusy)}
-            aria-disabled={state.submitting || undefined}
+            aria-disabled={state.submitting || !canRetrySave(state) || undefined}
             onClick={() => {
-              if (!stateRef.current.submitting) {
+              if (canRetrySave(stateRef.current)) {
                 dispatch({ type: 'submitStart' });
               }
             }}
             data-testid="wiz-submit"
           >
-            {state.submitting ? 'Submitting\u2026' : state.submitError ? 'Try again' : 'Submit'}
+            {state.submitting ? 'Submitting\u2026' : isSaveUnconfirmed(state) ? 'Submit' : state.submitError ? 'Try again' : 'Submit'}
             {state.submitting ? <Spinner size="tiny" /> : <Checkmark20Regular aria-hidden="true" />}
           </button>
         </div>

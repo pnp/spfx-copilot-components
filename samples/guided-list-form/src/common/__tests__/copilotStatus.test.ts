@@ -1,4 +1,4 @@
-import { COPILOT_INLINE_HEIGHT_PX, listModelContext, loadFailedFollowUp, openedFollowUp, pickedListFollowUp, statusChannel, submitFailedStatus, submittedStatus, writesModelContext } from '../logic/copilotStatus';
+import { COPILOT_INLINE_HEIGHT_PX, listModelContext, loadFailedFollowUp, openedFollowUp, pickedListFollowUp, statusChannel, submitFailedStatus, submitUnknownStatus, submittedStatus, writesModelContext } from '../logic/copilotStatus';
 import { submittedFollowUp } from '../logic/config';
 
 describe('Copilot status lines', () => {
@@ -48,6 +48,8 @@ describe('Copilot status lines', () => {
       'The guided form did not add an item to the Annual Processes list. The person does not have permission. It was not submitted.'
     );
     expect(submitFailedStatus('Annual Processes', 'timeout')).toContain('took too long to respond');
+    expect(submitFailedStatus('Annual Processes', 'timeout')).toContain('not confirmed yet');
+    expect(submitFailedStatus('Annual Processes', 'timeout')).not.toContain('not submitted');
     expect(submitFailedStatus('Annual Processes', 'validation')).toContain('Some answers were not accepted');
     expect(submitFailedStatus('Annual Processes', 'network')).toContain('could not be reached');
     expect(submitFailedStatus('', 'server')).toBe(
@@ -115,5 +117,26 @@ describe('Copilot status lines', () => {
       listName: 'Annual Processes',
       status: 'submitted'
     }))).not.toMatch(/New laptop|Hardware|password|DispForm/i);
+  });
+
+  it('says a timed-out save is not confirmed yet, never that it was not submitted', () => {
+    expect(submitUnknownStatus('Annual Processes')).toBe(
+      'The guided form sent a save to the Annual Processes list. SharePoint took too long to respond. The outcome is not confirmed yet.'
+    );
+    expect(submitUnknownStatus('')).toContain('the list');
+    expect(submitUnknownStatus('Annual Processes')).not.toMatch(/not submitted|\bfree\b|\u2013|\u2014/);
+    expect(statusChannel('unknown')).toBe('followUp');
+    expect(writesModelContext('unknown')).toBe(true);
+    expect(listModelContext({
+      siteUrl: 'https://contoso.sharepoint.com/sites/it',
+      listName: 'Annual Processes',
+      status: 'unknown',
+      errorKind: 'timeout'
+    })).toEqual({
+      status: 'unknown',
+      siteUrl: 'https://contoso.sharepoint.com/sites/it',
+      listName: 'Annual Processes',
+      errorKind: 'timeout'
+    });
   });
 });
