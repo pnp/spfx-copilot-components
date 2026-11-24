@@ -1,0 +1,16 @@
+node_modules/
+lib/
+lib-dts/
+lib-commonjs/
+lib-esm/
+dist/
+temp/
+release/
+teams/
+sharepoint/solution/
+.heft/
+jest-output/
+coverage/
+*.log
+*.scss.ts
+.DS_Store

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "contentLens",
+  "name_for_human": "Content Lens",
+  "description_for_human": "Open Content Lens to compare two SharePoint pages or check a page, with findings marked on the page.",
+  "description_for_model": "Open a non-mutating Content Lens UI. Launcher inputs only prefill controls. The user chooses the site and requests reads or analysis. Never invent a suffix or substitute unrelated tools. Nothing scans or analyzes on launch. No content changes. Demo is a separate explicit choice.",
+  "contact_email": "nello@dandrea.ch"
+}

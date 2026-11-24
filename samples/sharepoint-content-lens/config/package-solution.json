@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sharepoint-content-lens-client-side-solution",
+    "id": "681a3bf1-10d2-46ca-94ce-4d67c26b9901",
+    "version": "0.14.21.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Nello D'Andrea",
+      "websiteUrl": "https://github.com/pnp/spfx-copilot-components",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Compare SharePoint pages or check one, with findings marked on the page."
+      },
+      "longDescription": {
+        "default": "Compare two SharePoint pages or check one page against your own writing guidelines, with findings marked on the page. A further tab reviews comments. Fictional examples make no API calls."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "SharePoint Content Lens",
+        "description": "Compare SharePoint pages or check one, with findings marked on the page.",
+        "id": "35f75f53-c334-480c-8727-1abfe2747e2d",
+        "version": "0.14.21.0"
+      }
+    ],
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Sites.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Mail.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "People.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "OnlineMeetingTranscript.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Chat.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "ChannelMessage.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "ExternalItem.Read.All"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/sharepoint-content-lens.sppkg"
+  }
+}

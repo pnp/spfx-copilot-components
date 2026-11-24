@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "SharePoint Content Lens",
+  "description": "Compare two SharePoint pages, or check a page against your writing rules and accessibility basics. Findings are marked on the page. You can also review the wording of comments.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    { "title": "Compare two pages", "text": "Open Content Lens so I can compare two SharePoint pages." },
+    { "title": "Check a page", "text": "Open Content Lens so I can check a page against my writing rules." },
+    { "title": "Review SharePoint comments", "text": "Open Content Lens so I can choose a site and review recent comments." },
+    { "title": "Try the fictional demo", "text": "Open Content Lens so I can try its fictional demo without connecting tenant data." }
+  ],
+  "actions": [{ "id": "contentLensAction", "file": "ai-plugin.json" }]
+}
