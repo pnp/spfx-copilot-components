@@ -107,7 +107,7 @@ Copilot is told only the status: *not confirmed yet* while the outcome is unknow
 
 ## Screenshots
 
-The first five screenshots are from the local preview with demo data (Contoso-style site names such as Lumen Team and IT Requests). Nothing was saved to a real tenant. The finish screen still shows the preview-mode note for that reason. The last three show the web part on a SharePoint site page, with the property pane and the Customize questions editor. Account and author details are masked.
+The first five screenshots are from the local preview with demo data (Contoso-style site names such as Lumen Team and IT Requests). Nothing was saved to a real tenant. The finish screen still shows the preview-mode note for that reason. The next three show the web part on a SharePoint site page, with the property pane and the Customize questions editor. Account and author details are masked in those. The last one is from a tenant retest with network throttling, with the site URL masked.
 
 The site and list picker, with a site selected and **Open the form**.
 
@@ -140,6 +140,10 @@ The web part property pane, with the list selected and the Site URL field left e
 The Customize questions editor, with the Title card open and Save and Cancel at the bottom.
 
 ![Customize questions editor with the Title card expanded, plus Product, Status, and Milestone date cards](assets/guided-list-form-customize-questions.png)
+
+A save that took longer than 20 seconds on a SharePoint page. The save is not confirmed yet, **Submit** is disabled, **Check if saved** is offered, and DevTools shows the original request still pending.
+
+![Guided List Form on a SharePoint page after a save timed out, showing that the save is not confirmed yet, a Check if saved button and a disabled Submit button](assets/guided-list-form-unconfirmed-save.png)
 
 ## Help
 

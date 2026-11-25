@@ -87,6 +87,13 @@
         "name": "guided-list-form-customize-questions.png",
         "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-customize-questions.png",
         "alt": "Customize questions editor with the Title card expanded, plus Product, Status, and Milestone date cards"
+      },
+      {
+        "type": "image",
+        "order": 108,
+        "name": "guided-list-form-unconfirmed-save.png",
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/guided-list-form/assets/guided-list-form-unconfirmed-save.png",
+        "alt": "Guided List Form on a SharePoint page after a save timed out, showing that the save is not confirmed yet, a Check if saved button and a disabled Submit button"
       }
     ],
     "authors": [
