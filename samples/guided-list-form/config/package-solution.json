@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Guided Form",
+    "id": "100ad371-367d-41be-8324-f6b873b5c33b",
+    "version": "1.4.6.1",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Anand Vijayaragavan",
+      "websiteUrl": "https://www.contoso.com",
+      "privacyUrl": "https://www.contoso.com",
+      "termsOfUseUrl": "https://www.contoso.com",
+      "mpnId": "Undefined-1.24.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "A conversational, one-question-at-a-time form for SharePoint lists, on a page and in Microsoft 365 Copilot, with Yes/No, number, currency and hyperlink columns, a site and list picker in Copilot, a question editor, and a taller form."
+      },
+      "longDescription": {
+        "default": "Guided Form is a conversational, one-question-at-a-time form for SharePoint lists. It shows one question at a time with smooth transitions, keyboard support (Enter to continue), a progress bar and a review step, then creates one item in a SharePoint list. It supports single line of text, multiple lines of text, choice (single or multiple selection), date-only and date-and-time columns (times are entered in the person's own time zone and saved as UTC), Yes/No, number, currency, and hyperlink (URL format only). Other columns are skipped, and a required unsupported column blocks the form with a clear message. In Copilot, if a list is missing the person can pick a site and list in the form; the tool result tells the model honestly if the form failed to open. Works as a SharePoint page web part and as a Microsoft 365 Copilot UX component where Copilot can prefill answers but never submits. Uses SharePoint REST as the signed-in user. No API permissions are requested."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Guided Form",
+        "description": "Guided Form web part and Copilot component.",
+        "id": "7f1f7111-f511-407f-b248-f3505e2d87e8",
+        "version": "1.4.6.1"
+      }
+    ],
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/copilot-wizard-form.sppkg"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "0d977123-b172-4614-b45d-ca982230b31f",
+  "alias": "WizardFormCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "open_step_by_step_form",
+      "description": {
+        "default": "Opens a guided form that adds a new item to a SharePoint list, one question at a time. Call this immediately when the person wants to add, submit, log or request something in a SharePoint list. Call with no arguments when the person asks to open a list form, help fill in a form, or show the guided form, without naming a list. Pass listName or siteUrl only if the person typed that exact list name or URL in this conversation, or if the form's model context already has them from a list the person chose or opened. Never invent a list name or site URL. Prefill only with values they stated. The person reviews and submits the form themselves; never say it was submitted. If the status says the list was not found or could not open, say only that the person can select their SharePoint site and list in the guided form; never claim the form is loading or open. Do not say the form was opened or prefilled unless the status message says so."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/wizardForm/WizardFormCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

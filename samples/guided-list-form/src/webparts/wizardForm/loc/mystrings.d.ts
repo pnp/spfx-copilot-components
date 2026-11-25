@@ -1,0 +1,64 @@
+declare interface IWizardFormWebPartStrings {
+  PropertyPaneDescription: string;
+  ListGroupName: string;
+  TextGroupName: string;
+  BehaviourGroupName: string;
+  LogicGroupName: string;
+  SiteUrlLabel: string;
+  SiteUrlDescription: string;
+  ListNameLabel: string;
+  ListNameDescription: string;
+  ListsLoading: string;
+  ListsEmpty: string;
+  ListsError: string;
+  ListsInvalidSite: string;
+  FieldsLabel: string;
+  FieldsDescription: string;
+  SupportedNote: string;
+  FormTitleLabel: string;
+  FormTitleDescription: string;
+  IntroTextLabel: string;
+  ThankYouTextLabel: string;
+  ShowGreetingLabel: string;
+  ShowGreetingOn: string;
+  ShowGreetingOff: string;
+  QuestionTextsLabel: string;
+  QuestionTextsDescription: string;
+  FieldExamplesLabel: string;
+  FieldExamplesDescription: string;
+  SkipLogicLabel: string;
+  SkipLogicDescription: string;
+  ShowReviewLabel: string;
+  AnimationsLabel: string;
+  MotionNote: string;
+  AccentColorLabel: string;
+  AccentColorDescription: string;
+  HighlightColorLabel: string;
+  HighlightColorDescription: string;
+  LoadingMessageLabel: string;
+  LoadingMessageDescription: string;
+  OnText: string;
+  OffText: string;
+  EmptyTitle: string;
+  EmptyBodyEdit: string;
+  EmptyBodyView: string;
+  InvalidUrl: string;
+  InvalidList: string;
+  InvalidFields: string;
+  InvalidColor: string;
+  ListPlaceholder: string;
+  CustomizeQuestionsLabel: string;
+  CustomizeQuestionsDescription: string;
+  CustomizeQuestionsNeedList: string;
+  FormHeightLabel: string;
+  FormHeightDescription: string;
+  FormHeightAuto: string;
+  FormHeight480: string;
+  FormHeight600: string;
+  FormHeight800: string;
+}
+
+declare module 'WizardFormWebPartStrings' {
+  const strings: IWizardFormWebPartStrings;
+  export = strings;
+}

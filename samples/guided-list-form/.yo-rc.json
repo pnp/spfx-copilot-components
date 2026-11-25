@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "copilot-wizard-form",
+    "environment": "spo",
+    "useGulp": false,
+    "componentType": "copilotComponent",
+    "template": "react",
+    "componentName": "WizardForm",
+    "plusBeta": false,
+    "isCreatingSolution": false,
+    "nodeVersion": "24.22.1",
+    "sdksVersions": {},
+    "version": "1.24.0",
+    "libraryName": "copilot-wizard-form",
+    "libraryId": "100ad371-367d-41be-8324-f6b873b5c33b",
+    "packageManager": "npm",
+    "solutionShortDescription": "Step-by-step list form",
+    "skipFeatureDeployment": true
+  }
+}

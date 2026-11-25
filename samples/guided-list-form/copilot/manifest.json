@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.4.6.1",
+  "id": "2ff319fe-cbea-42f1-8100-4a5d46f8571b",
+  "developer": {
+    "name": "Anand Vijayaragavan",
+    "websiteUrl": "https://www.contoso.com",
+    "privacyUrl": "https://www.contoso.com",
+    "termsOfUseUrl": "https://www.contoso.com"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Guided Form",
+    "full": "Guided Form"
+  },
+  "description": {
+    "short": "A conversational, one-question-at-a-time form for SharePoint lists.",
+    "full": "Opens a one-question-at-a-time form in Microsoft 365 Copilot that adds an item to a SharePoint list. Copilot can prefill answers from the conversation; you review every answer and press Submit yourself. Supports text, multi-line text, choice, multi-choice, date, date-and-time, Yes/No, number, currency and hyperlink (URL format) columns."
+  },
+  "accentColor": "#183A35",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "declarativeAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": []
+}

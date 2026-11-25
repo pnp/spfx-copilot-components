@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="Guided Form">
+  <defs>
+    <linearGradient id="tile" x1="24" y1="8" x2="168" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#183A35"/>
+      <stop offset="1" stop-color="#0F7F72"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="40" fill="url(#tile)"/>
+  <rect x="44" y="34" width="104" height="124" rx="18" fill="rgba(247,245,241,0.10)" stroke="#F7F5F1" stroke-width="6"/>
+  <rect x="62" y="58" width="68" height="10" rx="5" fill="#F7F5F1"/>
+  <rect x="62" y="82" width="50" height="10" rx="5" fill="#F7F5F1" opacity="0.78"/>
+  <rect x="62" y="106" width="58" height="10" rx="5" fill="#F7F5F1" opacity="0.78"/>
+  <circle cx="96" cy="136" r="13" fill="#F2643D"/>
+</svg>
