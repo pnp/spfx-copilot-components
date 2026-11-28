@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "680208b9-7e54-4374-b2f8-b7681d17ffe9",
+  "alias": "AskHrForHelpCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "AskHRForHelp",
+      "description": {
+        "default": "Use when: Prepare a confidential question, review the recipient and explicitly create a session case. Do not use for: Browse the general benefits checklist. Related but separate tools: PrepareBenefitsReview."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/askHrForHelp/AskHrForHelpCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

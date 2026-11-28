@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "0241bf6c-63d6-470b-97ba-239f9a101abf",
+  "alias": "HrSupportWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Private HR support"
+      },
+      "description": {
+        "default": "Prepare a confidential question, review the recipient and explicitly create a session case."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTEwLjE1IDE0Ljc3di0uMDJhNyA3IDAgMCAxLS40LS4xMmgtLjAyQTYuOTcgNi45NyAwIDAgMSA1IDhhNyA3IDAgMCAxIDEzLjk2LS43NWMuMDQuNDEtLjMuNzUtLjcxLjc1cy0uNzQtLjM0LS44LS43NWE1LjUgNS41IDAgMSAwLTcuMjggNS45NEEyIDIgMCAwIDEgMTQgMTRhMiAyIDAgMCAxLTMuODUuNzdaTTggMTUuNWMtLjc0LS40LTEuNDItLjktMi0xLjQ5YTIuMjUgMi4yNSAwIDAgMC0yIDIuMjR2LjU4YzAgLjg5LjMyIDEuNzUuOSAyLjQzQzYuNDcgMjEuMSA4Ljg1IDIyIDEyIDIyYzMuMTUgMCA1LjUzLS45IDcuMS0yLjc0LjU4LS42OC45LTEuNTQuOS0yLjQ0di0uNTdDMjAgMTUgMTkgMTQgMTcuNzUgMTRIMTUuNWMwIC41NC0uMTIgMS4wNS0uMzQgMS41aDIuNmMuNCAwIC43NC4zNC43NC43NXYuNTdjMCAuNTQtLjE5IDEuMDYtLjU0IDEuNDctMS4yNSAxLjQ3LTMuMjIgMi4yMS01Ljk2IDIuMjEtMi43NCAwLTQuNy0uNzQtNS45Ni0yLjIxLS4zNC0uNDEtLjU0LS45My0uNTQtMS40NnYtLjU4YzAtLjQxLjM0LS43NS43NS0uNzVIOFpNOCA4YTQgNCAwIDEgMSA2LjI0IDMuMzFjLS42LS41LTEuMzktLjgxLTIuMjQtLjgxYTIuNSAyLjUgMCAxIDAgMC01IDIuNSAyLjUgMCAwIDAgMCA1Yy0uODUgMC0xLjY0LjMtMi4yNC44MUE0LjAyIDQuMDIgMCAwIDEgOCA4WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

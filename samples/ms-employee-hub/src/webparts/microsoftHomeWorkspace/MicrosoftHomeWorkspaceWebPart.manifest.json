@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "77aff969-01f4-45b9-bf8a-c6fcd29fc7e1",
+  "alias": "MicrosoftHomeWorkspaceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "SharePointFullPage",
+    "TeamsPersonalApp"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Microsoft home"
+      },
+      "description": {
+        "default": "Open the fixed Microsoft home workspace."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzA4NjU3NiIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzA4NjU3NiIgZmlsbD0iIzA4NjU3NiI+PHBhdGggZD0iTTggNmExIDEgMCAxIDEtMiAwIDEgMSAwIDAgMSAyIDBabS0xIDRhMSAxIDAgMSAwIDAtMiAxIDEgMCAwIDAgMCAyWm0xIDJhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWm0wIDNhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWm0tMSA0YTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMlptNy0zYTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMlptMyAwYTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMlptMC0zYTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMlptLTItMWExIDEgMCAxIDEtMiAwIDEgMSAwIDAgMSAyIDBabTItMmExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJabS0yLTFhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWm0tMS00di0uNzVDMTQgMy4wMSAxMyAyIDExLjc1IDJoLTYuNUM0LjAxIDIgMyAzIDMgNC4yNXYxNi41YzAgLjQxLjM0Ljc1Ljc1Ljc1aDE2LjVjLjQxIDAgLjc1LS4zNC43NS0uNzVWNy4yNUMyMSA2LjAxIDIwIDUgMTguNzUgNUgxNFptLTkuNS0uNzVjMC0uNDEuMzQtLjc1Ljc1LS43NWg2LjVjLjQxIDAgLjc1LjM0Ljc1Ljc1VjVoLS4yNUMxMS4wMSA1IDEwIDYgMTAgNy4yNVYyMEg0LjVWNC4yNVpNMTQuNSAyMHYtMS41aDJWMjBoLTJabTMuNS0yLjI1YS43NS43NSAwIDAgMC0uNzUtLjc1aC0zLjVhLjc1Ljc1IDAgMCAwLS43NS43NVYyMGgtMS41VjcuMjVjMC0uNDEuMzQtLjc1Ljc1LS43NWg2LjVjLjQxIDAgLjc1LjM0Ljc1Ljc1VjIwSDE4di0yLjI1WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

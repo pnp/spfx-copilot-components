@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/heft/v0/heft-plugin.schema.json",
+  "taskPlugins": [{
+    "pluginName": "isolated-solution-package",
+    "entryPoint": "./scripts/package-spfx.cjs",
+    "parameters": [
+      { "parameterKind": "flag", "longName": "--pretty-print-xml", "description": "Indent the generated package XML." },
+      { "parameterKind": "flag", "longName": "--no-spppkg", "description": "Write debug files without creating the solution archive." }
+    ]
+  }]
+}

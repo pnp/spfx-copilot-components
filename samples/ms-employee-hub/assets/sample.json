@@ -1,0 +1,113 @@
+[
+  {
+    "name": "pnp-sp-dev-spfx-copilot-apps-ms-employee-hub",
+    "source": "pnp",
+    "title": "Microsoft Employee Hub",
+    "shortDescription": "Four employee workspaces and 30 intent-specific Copilot components over synthetic workplace, HR, IT and business records.",
+    "url": "https://github.com/pnp/spfx-copilot-components/tree/main/samples/ms-employee-hub",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/pnp/spfx-copilot-components/tree/main/samples/ms-employee-hub",
+    "longDescription": [
+      "Browse published stories, plan leave, track technology help and compare actual bookings with forecast movements. Focused tasks retain context on expansion.",
+      "Try an inline component: A place to meet: \"Find a step-free room in London for six.\" Your learning path: \"What learning is due next?\" Device passport: \"Does my assigned laptop need attention?\" Lead conversion: \"How many partner leads in Germany became opportunities this quarter?\"",
+      "The sample developer is Contoso. Five Teams personal apps and a separate Cowork connector accompany the SPFx solution. These local fixture captures are not authenticated host evidence."
+    ],
+    "creationDateTime": "2026-11-28",
+    "updateDateTime": "2026-11-28",
+    "products": [
+      "SharePoint",
+      "Copilot",
+      "Teams"
+    ],
+    "metadata": [
+      {
+        "key": "SAMPLE-TYPE",
+        "value": "SPFx-CopilotComponent"
+      },
+      {
+        "key": "CLIENT-SIDE-DEV",
+        "value": "React"
+      },
+      {
+        "key": "SPFX-VERSION",
+        "value": "1.24.2"
+      }
+    ],
+    "thumbnails": [
+      {
+        "name": "preview.png",
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/preview.png",
+        "alt": "Seven employee experiences with copyable prompts in the read-only local explorer"
+      },
+      {
+        "name": "business.png",
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/business.png",
+        "alt": "Local Business operating review with a market map and ranked variance to plan"
+      },
+      {
+        "name": "company-phone.png",
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/company-phone.png",
+        "alt": "Microsoft home journal at phone width in the local studio"
+      },
+      {
+        "name": "room-booking.png",
+        "type": "image",
+        "order": 103,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/room-booking.png",
+        "alt": "Inline room search set to London for six people with step-free access"
+      },
+      {
+        "name": "required-learning.png",
+        "type": "image",
+        "order": 104,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/required-learning.png",
+        "alt": "Inline mandatory learning list with due dates, durations and progress for three assignments"
+      },
+      {
+        "name": "device-passport.png",
+        "type": "image",
+        "order": 105,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/device-passport.png",
+        "alt": "Inline device passport showing the assigned laptop, update status, last check-in and refresh window"
+      },
+      {
+        "name": "lead-conversion.png",
+        "type": "image",
+        "order": 106,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/lead-conversion.png",
+        "alt": "Inline Germany partner acquisition flow with the opportunity count and cohort size"
+      },
+      {
+        "name": "leave-decision.png",
+        "type": "image",
+        "order": 107,
+        "url": "https://github.com/pnp/spfx-copilot-components/raw/main/samples/ms-employee-hub/assets/leave-decision.png",
+        "alt": "Synthetic assigned leave request with the requester portrait and the decision review"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "VesaJuvonen",
+        "pictureUrl": "https://github.com/VesaJuvonen.png",
+        "name": "Vesa Juvonen"
+      }
+    ],
+    "references": [
+      {
+        "name": "Inline component and prompt index",
+        "description": "All 30 components, with a copyable example prompt, expected tool and inline screenshot for each.",
+        "url": "https://github.com/pnp/spfx-copilot-components/blob/main/samples/ms-employee-hub/Employee-Hub-Demo-Prompts.md#inline-component-and-prompt-index"
+      },
+      {
+        "name": "SharePoint Framework overview",
+        "description": "The SPFx host model used by this sample.",
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview"
+      }
+    ]
+  }
+]

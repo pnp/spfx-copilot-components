@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7a2e07b7-bdfc-4442-aa61-005171754688",
+  "alias": "EmployeeHubWorkspaceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "TeamsPersonalApp"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Employee Hub"
+      },
+      "description": {
+        "default": "Open the requested authorized workspace landing, not a task, report or capabilities list."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzI3NDk5MyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzI3NDk5MyIgZmlsbD0iIzI3NDk5MyI+PHBhdGggZD0iTTYuMjUgM0EzLjI1IDMuMjUgMCAwIDAgMyA2LjI1djExLjVDMyAxOS41NSA0LjQ2IDIxIDYuMjUgMjFoMi43Nkw5IDIwLjc1VjE5LjVINi4yNWMtLjk3IDAtMS43NS0uNzgtMS43NS0xLjc1VjguNWgxNVY5SDIxVjYuMjZDMjEgNC40NSAxOS41NCAzIDE3Ljc1IDNINi4yNVpNMTkuNSA3aC0xNXYtLjc1YzAtLjk3Ljc4LTEuNzUgMS43NS0xLjc1aDExLjVjLjk3IDAgMS43NS43OCAxLjc1IDEuNzVWN1ptLTcuMjUgOC41aDMuMjV2LTMuMjVjMC0xLjI0IDEtMi4yNSAyLjI1LTIuMjVoM2MxLjI0IDAgMi4yNSAxIDIuMjUgMi4yNXY3LjVjMCAxLjgtMS40NiAzLjI1LTMuMjUgMy4yNWgtNy41QzExLjAxIDIzIDEwIDIyIDEwIDIwLjc1di0zYzAtMS4yNCAxLTIuMjUgMi4yNS0yLjI1Wk0xNyAxMi4yNXYzLjI1aDQuNXYtMy4yNWEuNzUuNzUgMCAwIDAtLjc1LS43NWgtM2EuNzUuNzUgMCAwIDAtLjc1Ljc1Wm0tMS41IDkuMjVWMTdoLTMuMjVhLjc1Ljc1IDAgMCAwLS43NS43NXYzYzAgLjQxLjM0Ljc1Ljc1Ljc1aDMuMjVaTTE3IDE3djQuNWgyLjc1Yy45NyAwIDEuNzUtLjc4IDEuNzUtMS43NVYxN0gxN1oiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

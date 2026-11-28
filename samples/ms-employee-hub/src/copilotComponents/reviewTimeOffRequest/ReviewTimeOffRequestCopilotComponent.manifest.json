@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "25cdcb6c-e3c5-4ce9-a1ef-27ad7bf1c3db",
+  "alias": "ReviewTimeOffRequestCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ReviewTimeOffRequest",
+      "description": {
+        "default": "Use when: Review an assigned colleague's leave request and confirm a decision after inspecting coverage. Do not use for: Request my own time off. Related but separate tools: RequestTimeOff, CheckTeamCoverage."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/reviewTimeOffRequest/ReviewTimeOffRequestCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

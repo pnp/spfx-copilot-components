@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/heft/v0/heft.schema.json",
+  "extends": "@microsoft/spfx-web-build-rig/profiles/default/config/heft.json",
+  "phasesByName": {
+    "package-solution": {
+      "tasksByName": {
+        "package-solution": {
+          "taskPlugin": {
+            "pluginPackage": "ms-employee-hub",
+            "pluginName": "isolated-solution-package"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "c98f0a0b-5a5f-4d06-bf4c-dc1e554891c0",
+  "alias": "InspectMyDeviceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "InspectMyDevice",
+      "description": {
+        "default": "Use when: Inspect an assigned device, its last check-in, update and refresh window. Do not use for: Request an additional device. Related but separate tools: FindTroubleshootingGuide, SubmitITTicket, RequestEquipment."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/inspectMyDevice/InspectMyDeviceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

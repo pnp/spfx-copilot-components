@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "2ed6570c-eb3e-494d-8593-8d779a49ac49",
+  "alias": "RequestAppAccessCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "RequestAppAccess",
+      "description": {
+        "default": "Use when: Prepare a least-privilege app access request for resource-owner review; never grant access. Do not use for: Report a broken sign-in. Related but separate tools: FindTroubleshootingGuide, SubmitITTicket."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/requestAppAccess/RequestAppAccessCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

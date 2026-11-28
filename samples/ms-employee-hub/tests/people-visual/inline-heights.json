@@ -1,0 +1,226 @@
+{
+  "scope": "Local review entry, complete HubApp main including the shell header, default parameters, initial inline stage; not an authenticated host.",
+  "clock": "2026-11-27T09:00:00Z",
+  "limits": {
+    "390": 800,
+    "760": 650
+  },
+  "heights": [
+    {
+      "id": 10,
+      "width": 760,
+      "theme": "light",
+      "height": 586
+    },
+    {
+      "id": 10,
+      "width": 760,
+      "theme": "dark",
+      "height": 586
+    },
+    {
+      "id": 11,
+      "width": 760,
+      "theme": "light",
+      "height": 603
+    },
+    {
+      "id": 11,
+      "width": 760,
+      "theme": "dark",
+      "height": 603
+    },
+    {
+      "id": 12,
+      "width": 760,
+      "theme": "light",
+      "height": 563
+    },
+    {
+      "id": 12,
+      "width": 760,
+      "theme": "dark",
+      "height": 563
+    },
+    {
+      "id": 13,
+      "width": 760,
+      "theme": "light",
+      "height": 578
+    },
+    {
+      "id": 13,
+      "width": 760,
+      "theme": "dark",
+      "height": 578
+    },
+    {
+      "id": 14,
+      "width": 760,
+      "theme": "light",
+      "height": 540
+    },
+    {
+      "id": 14,
+      "width": 760,
+      "theme": "dark",
+      "height": 540
+    },
+    {
+      "id": 15,
+      "width": 760,
+      "theme": "light",
+      "height": 564
+    },
+    {
+      "id": 15,
+      "width": 760,
+      "theme": "dark",
+      "height": 564
+    },
+    {
+      "id": 16,
+      "width": 760,
+      "theme": "light",
+      "height": 476
+    },
+    {
+      "id": 16,
+      "width": 760,
+      "theme": "dark",
+      "height": 476
+    },
+    {
+      "id": 17,
+      "width": 760,
+      "theme": "light",
+      "height": 542
+    },
+    {
+      "id": 17,
+      "width": 760,
+      "theme": "dark",
+      "height": 542
+    },
+    {
+      "id": 18,
+      "width": 760,
+      "theme": "light",
+      "height": 566
+    },
+    {
+      "id": 18,
+      "width": 760,
+      "theme": "dark",
+      "height": 566
+    },
+    {
+      "id": 10,
+      "width": 390,
+      "theme": "light",
+      "height": 600
+    },
+    {
+      "id": 10,
+      "width": 390,
+      "theme": "dark",
+      "height": 600
+    },
+    {
+      "id": 11,
+      "width": 390,
+      "theme": "light",
+      "height": 598
+    },
+    {
+      "id": 11,
+      "width": 390,
+      "theme": "dark",
+      "height": 598
+    },
+    {
+      "id": 12,
+      "width": 390,
+      "theme": "light",
+      "height": 581
+    },
+    {
+      "id": 12,
+      "width": 390,
+      "theme": "dark",
+      "height": 581
+    },
+    {
+      "id": 13,
+      "width": 390,
+      "theme": "light",
+      "height": 596
+    },
+    {
+      "id": 13,
+      "width": 390,
+      "theme": "dark",
+      "height": 596
+    },
+    {
+      "id": 14,
+      "width": 390,
+      "theme": "light",
+      "height": 534
+    },
+    {
+      "id": 14,
+      "width": 390,
+      "theme": "dark",
+      "height": 534
+    },
+    {
+      "id": 15,
+      "width": 390,
+      "theme": "light",
+      "height": 560
+    },
+    {
+      "id": 15,
+      "width": 390,
+      "theme": "dark",
+      "height": 560
+    },
+    {
+      "id": 16,
+      "width": 390,
+      "theme": "light",
+      "height": 518
+    },
+    {
+      "id": 16,
+      "width": 390,
+      "theme": "dark",
+      "height": 518
+    },
+    {
+      "id": 17,
+      "width": 390,
+      "theme": "light",
+      "height": 540
+    },
+    {
+      "id": 17,
+      "width": 390,
+      "theme": "dark",
+      "height": 540
+    },
+    {
+      "id": 18,
+      "width": 390,
+      "theme": "light",
+      "height": 562
+    },
+    {
+      "id": 18,
+      "width": 390,
+      "theme": "dark",
+      "height": 562
+    }
+  ]
+}

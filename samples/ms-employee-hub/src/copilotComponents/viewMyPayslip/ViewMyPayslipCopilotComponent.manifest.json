@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "057c1ccb-7e53-4fae-99ae-58baf34a146c",
+  "alias": "ViewMyPayslipCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ViewMyPayslip",
+      "description": {
+        "default": "Use when: Inspect a completed personal pay period. Values remain masked until revealed in the view. Do not use for: Show future stock vesting. Related but separate tools: FindPublishedGuidance, ShowMyVesting."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/viewMyPayslip/ViewMyPayslipCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

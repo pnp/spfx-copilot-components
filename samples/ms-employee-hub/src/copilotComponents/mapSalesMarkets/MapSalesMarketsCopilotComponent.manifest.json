@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "84dc7c31-e8c6-47fa-97cf-f34f2e5595b0",
+  "alias": "MapSalesMarketsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "MapSalesMarkets",
+      "description": {
+        "default": "Use when: Locate covered markets by bookings volume and signed gap to phased plan. Do not use for: Explain the change between forecast cuts. Related but separate tools: ExplainForecastMovement, CompareSalesPerformance."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/mapSalesMarkets/MapSalesMarketsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

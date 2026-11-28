@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "f7c08ef1-3c94-4c7f-a076-ef369e9e1d47",
+  "alias": "RequestTimeOffCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "RequestTimeOff",
+      "description": {
+        "default": "Use when: Prepare a leave date range, check working days and review before explicitly submitting. Do not use for: Approve a colleague's leave request. Related but separate tools: CheckLeaveBalance, CheckTeamCoverage, ReviewTimeOffRequest."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/requestTimeOff/RequestTimeOffCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "1170607c-8322-42c8-8d51-5227fa18defe",
+  "alias": "FindTroubleshootingGuideCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindTroubleshootingGuide",
+      "description": {
+        "default": "Use when: Find a reviewed device troubleshooting sequence and work through its steps. Do not use for: Open a new break/fix ticket. Related but separate tools: InspectMyDevice, CheckServiceHealth, SubmitITTicket, RequestAppAccess."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findTroubleshootingGuide/FindTroubleshootingGuideCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

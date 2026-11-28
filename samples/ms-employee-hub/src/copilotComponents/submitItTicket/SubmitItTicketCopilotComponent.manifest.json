@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "342d2e9f-b3d8-4170-85bd-9f2c1306ebdc",
+  "alias": "SubmitItTicketCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "SubmitITTicket",
+      "description": {
+        "default": "Use when: Prepare a new break/fix ticket with a device, impact and optional guide. Review before submitting. Do not use for: Request new access or track an existing ticket. Related but separate tools: InspectMyDevice, FindTroubleshootingGuide, TrackMyITTicket, RequestAppAccess."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/submitItTicket/SubmitItTicketCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

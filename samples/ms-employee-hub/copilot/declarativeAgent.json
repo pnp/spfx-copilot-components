@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Employee Hub",
+  "description": "Explore workplace news, HR services, technology support and commercial insights using synthetic records.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Find the biggest market gap",
+      "text": "Which markets are furthest below bookings plan this quarter? Show me the gaps on a map."
+    },
+    {
+      "title": "Trace lead conversion",
+      "text": "How many partner leads in Germany became opportunities this quarter?"
+    },
+    {
+      "title": "Explain a forecast change",
+      "text": "What changed in Germany's quarter-end bookings forecast since the last estimate?"
+    },
+    {
+      "title": "Find a room for six",
+      "text": "Find a step-free meeting room in London for six people next Tuesday at 10 AM for 30 minutes."
+    },
+    {
+      "title": "Plan two days away",
+      "text": "Help me draft annual leave for next Thursday and Friday. How many working days would that use?"
+    },
+    {
+      "title": "Review pending time off",
+      "text": "Show me the pending time-off requests assigned to me so I can check coverage before deciding."
+    },
+    {
+      "title": "Read my pay statement",
+      "text": "Open my latest completed pay statement and keep the amounts hidden until I choose to reveal them."
+    },
+    {
+      "title": "Report a flickering display",
+      "text": "My work laptop's display flickers after it wakes up. Help me draft a support ticket."
+    },
+    {
+      "title": "Review an equipment order",
+      "text": "Show me a pending equipment order assigned to me, with its cost and policy, before I decide."
+    },
+    {
+      "title": "Find a support bottleneck",
+      "text": "Trace equipment requests from intake to resolution. Which queue holds the most?"
+    },
+    {
+      "title": "Compare regional bookings",
+      "text": "Compare EMEA bookings with the phased plan for this quarter. How far ahead or behind are we?"
+    },
+    {
+      "title": "Explore what I can ask",
+      "text": "Show me the Employee Hub components and an example prompt I can try for each."
+    }
+  ],
+  "actions": [
+    {
+      "id": "employeeHubAction",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

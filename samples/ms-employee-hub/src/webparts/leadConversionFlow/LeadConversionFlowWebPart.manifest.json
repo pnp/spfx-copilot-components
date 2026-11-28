@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "1ea2e51f-7a25-4c4e-87cc-d19a5d3b7a6c",
+  "alias": "LeadConversionFlowWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Lead conversion"
+      },
+      "description": {
+        "default": "Trace one acquisition cohort from source to opportunity. Compare converted counts and denominators by channel."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTIyIDQuNzVhMi43NSAyLjc1IDAgMCAxLTIuNzUgMi43NUg0Ljc1YTIuNzUgMi43NSAwIDEgMSAwLTUuNWgxNC41QTIuNzUgMi43NSAwIDAgMSAyMiA0Ljc1Wm0tMiA3YTIuNzUgMi43NSAwIDAgMS0yLjc1IDIuNzVINi43NWEyLjc1IDIuNzUgMCAxIDEgMC01LjVoMTAuNUEyLjc1IDIuNzUgMCAwIDEgMjAgMTEuNzVabS0zIDdhMi43NSAyLjc1IDAgMCAxLTIuNzUgMi43NWgtNC41YTIuNzUgMi43NSAwIDEgMSAwLTUuNWg0LjVBMi43NSAyLjc1IDAgMCAxIDE3IDE4Ljc1Wm0zLjUtMTRjMC0uNjktLjU2LTEuMjUtMS4yNS0xLjI1SDQuNzVhMS4yNSAxLjI1IDAgMSAwIDAgMi41aDE0LjVjLjcgMCAxLjI1LS41NiAxLjI1LTEuMjVabS0yIDdjMC0uNjktLjU2LTEuMjUtMS4yNS0xLjI1SDYuNzVhMS4yNSAxLjI1IDAgMCAwIDAgMi41aDEwLjVjLjcgMCAxLjI1LS41NiAxLjI1LTEuMjVabS0zIDdjMC0uNjktLjU2LTEuMjUtMS4yNS0xLjI1aC00LjVhMS4yNSAxLjI1IDAgMCAwIDAgMi41aDQuNWMuNyAwIDEuMjUtLjU2IDEuMjUtMS4yNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

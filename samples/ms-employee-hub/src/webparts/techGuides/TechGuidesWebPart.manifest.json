@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "fe86c61c-cd22-4899-a892-34eefda543cd",
+  "alias": "TechGuidesWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Guided fixes"
+      },
+      "description": {
+        "default": "Find a reviewed device troubleshooting sequence and work through its steps."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTE2LjI1IDJhLjc1Ljc1IDAgMCAwLS42Ny40MWwtMSAyYy0uMTEuMjMtLjEuNS4wMi43MWwuOSAxLjU4VjEyaC0uNzVhLjc1Ljc1IDAgMCAwLS43NS43NXY1Ljc1YTMuNSAzLjUgMCAxIDAgNyAwdi01Ljc1YS43NS43NSAwIDAgMC0uNzUtLjc1aC0uNzVWNi43bC45LTEuNThhLjc1Ljc1IDAgMCAwIC4wMi0uN2wtMS0yYS43NS43NSAwIDAgMC0uNjctLjQyaC0yLjVaTTE4IDEyaC0xVjYuNWEuNzUuNzUgMCAwIDAtLjEtLjM3bC0uOC0xLjQuNjEtMS4yM2gxLjU4bC42MSAxLjIzLS44IDEuNGEuNzUuNzUgMCAwIDAtLjEuMzdWMTJabS0yLjUgNi41VjE2aDR2Mi41YTIgMiAwIDEgMS00IDBabTQtNGgtNHYtMWg0djFaTTkuNTMgMi4xNGEuNzUuNzUgMCAwIDAtMS4wMy43VjYuNWExIDEgMCAwIDEtMiAwVjIuODNhLjc1Ljc1IDAgMCAwLTEuMDMtLjcgNS41IDUuNSAwIDAgMC0uNSAxMHY3LjMzYTIuNTQgMi41NCAwIDAgMCA1LjA3IDB2LTcuMzNhNS41IDUuNSAwIDAgMC0uNTEtMTBaTTEwIDYuNVY0LjEzYTQgNCAwIDAgMS0xIDYuODMuNzUuNzUgMCAwIDAtLjQ2Ljd2Ny44YTEuMDQgMS4wNCAwIDAgMS0yLjA4IDB2LTcuOGMwLS4zMS0uMTgtLjU5LS40Ni0uN2E0IDQgMCAwIDEtMS02LjgzVjYuNWEyLjUgMi41IDAgMSAwIDUgMFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

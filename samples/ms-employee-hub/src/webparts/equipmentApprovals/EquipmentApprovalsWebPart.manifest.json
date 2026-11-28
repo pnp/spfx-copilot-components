@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "74af8271-d90c-4ed6-9f4a-5ec871497c83",
+  "alias": "EquipmentApprovalsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Equipment decisions"
+      },
+      "description": {
+        "default": "Inspect an assigned colleague's order, policy and cost; review and confirm a decision."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTE4LjUgMjBhLjUuNSAwIDAgMS0uNS41aC01LjczYTYuNTIgNi41MiAwIDAgMS0xLjA4IDEuNUgxOGEyIDIgMCAwIDAgMi0yVjkuODNhMiAyIDAgMCAwLS41OS0xLjQyTDEzLjYgMi42YS41LjUgMCAwIDAtLjA1LS4wNCAyLjA3IDIuMDcgMCAwIDAtLjM0LS4yNWwtLjA1LS4wMy0uMDUtLjAzLS4xNi0uMDljLS4yLS4wOC0uNDEtLjEyLS42My0uMTRoLS4wNmEuNi42IDAgMCAwLS4wOC0uMDFINmEyIDIgMCAwIDAtMiAydjcuNWMuNDctLjIuOTgtLjM0IDEuNS0uNDJWNGMwLS4yNy4yMi0uNS41LS41aDZWOGMwIDEuMS45IDIgMiAyaDQuNXYxMFptLTUtMTUuMzggMy44OCAzLjg4SDE0YS41LjUgMCAwIDEtLjUtLjVWNC42MloiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNy41YTUuNSA1LjUgMCAxIDEtMTEgMCA1LjUgNS41IDAgMCAxIDExIDBabS0yLjE1LTIuMzVhLjUuNSAwIDAgMC0uNyAwTDUuNSAxOC43OWwtMS42NS0xLjY0YS41LjUgMCAwIDAtLjcuN2wyIDJjLjIuMi41LjIuNyAwbDQtNGEuNS41IDAgMCAwIDAtLjdaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+"
+    }
+  ]
+}

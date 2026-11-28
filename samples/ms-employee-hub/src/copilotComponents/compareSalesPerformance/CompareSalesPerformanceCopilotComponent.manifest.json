@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "36f1abc9-64e7-452f-8692-1d613621669c",
+  "alias": "CompareSalesPerformanceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "CompareSalesPerformance",
+      "description": {
+        "default": "Use when: Compare regional bookings against the phased plan and inspect weighted attainment. Do not use for: Explain why the forward forecast changed. Related but separate tools: MapSalesMarkets, ExplainForecastMovement."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/compareSalesPerformance/CompareSalesPerformanceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

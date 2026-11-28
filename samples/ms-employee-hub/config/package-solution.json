@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ms-employee-hub-client-side-solution",
+    "id": "b847948b-8a9b-4483-b335-a6343eeb1760",
+    "version": "1.0.0.2",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "developer": {
+      "name": "Contoso",
+      "websiteUrl": "https://example.invalid/employee-hub",
+      "privacyUrl": "https://example.invalid/employee-hub/privacy",
+      "termsOfUseUrl": "https://example.invalid/employee-hub/terms",
+      "mpnId": ""
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Employee Hub"
+      },
+      "longDescription": {
+        "default": "Explore workplace news, HR services, technology support and commercial insights using synthetic records."
+      },
+      "screenshotPaths": [
+        "../review/evidence/screens/company-1280.png",
+        "../review/evidence/screens/hr-1280.png",
+        "../review/evidence/screens/tech-1280.png",
+        "../review/evidence/screens/business-1280.png",
+        "../review/evidence/screens/task-09-inline-760.png"
+      ],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Employee Hub",
+        "description": "Registers the Employee Hub components and page parts.",
+        "id": "e9e76297-7307-45fc-b93d-5a2e3089bcba",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/ms-employee-hub.sppkg"
+  }
+}

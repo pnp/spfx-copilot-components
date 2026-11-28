@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "010bf7fb-52bd-48cd-acdb-20cbee21e5c3",
+  "alias": "SupportTrendsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Support trends"
+      },
+      "description": {
+        "default": "Compare received and resolved support volumes across weeks for a scoped team."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTE2Ljc1IDJoNC41NWwuMS4wMS4xLjAzLjA2LjAzYy4wOC4wMy4xNi4wOC4yMi4xNWwuMDQuMDQuMDQuMDYuMDYuMDkuMDQuMDkuMDIuMDYuMDEuMDcuMDEuMXY0LjUyYS43NS43NSAwIDAgMS0xLjUuMVY0LjU2TDE0LjA2IDExYS43NS43NSAwIDAgMS0uOTguMDdMMTMgMTEgOS45NyA4LjA5bC01LjY5IDUuNjlhLjc1Ljc1IDAgMCAxLTEuMTMtLjk4bC4wNy0uMDhMOS40NCA2LjVhLjc1Ljc1IDAgMCAxIC45OC0uMDdsLjA4LjA3IDMuMDMgMi45IDUuOS01LjloLTIuNjhhLjc1Ljc1IDAgMCAxLS43NC0uNjVsLS4wMS0uMWMwLS4zOC4yOC0uNy42NS0uNzRsLjEtLjAxWm0tMTMgMTVjLjQxIDAgLjc1LjM0Ljc1Ljc1djMuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTMuNWMwLS40MS4zNC0uNzUuNzUtLjc1Wm01Ljc1LTMuMjVhLjc1Ljc1IDAgMCAwLTEuNSAwdjcuNWEuNzUuNzUgMCAwIDAgMS41IDB2LTcuNVpNMTMuNzUgMTVjLjQxIDAgLjc1LjM0Ljc1Ljc1djUuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTUuNWMwLS40MS4zNC0uNzUuNzUtLjc1Wm01Ljc1LTQuMjVhLjc1Ljc1IDAgMCAwLTEuNSAwdjEwLjVhLjc1Ljc1IDAgMCAwIDEuNSAwdi0xMC41WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

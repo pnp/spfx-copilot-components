@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "d5c7e051-917b-4862-95cd-bc602204e42c",
+  "alias": "TraceSupportFlowCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "TraceSupportFlow",
+      "description": {
+        "default": "Use when: Trace the count of requests from intake through owning queues to outcomes. Do not use for: Analyze sales lead conversion. Related but separate tools: TraceLeadConversion, AnalyzeSupportTrends."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/traceSupportFlow/TraceSupportFlowCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

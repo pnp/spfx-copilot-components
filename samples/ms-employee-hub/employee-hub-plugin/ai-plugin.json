@@ -1,0 +1,23 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+    "schema_version": "v2.4",
+    "name_for_human": "Employee Hub",
+    "description_for_human": "Open a focused workplace experience or an evidence-backed operating review.",
+    "description_for_model": "Choose the narrowest discovered Employee Hub tool for the user's task. Preserve the supplied business scope, and never turn discussion, selection or expansion into confirmation.",
+    "namespace": "employeeHubCowork",
+    "functions": [],
+    "runtimes": [
+        {
+            "type": "RemoteMCPServer",
+            "spec": {
+                "url": "https://spfx-review.invalid/_api/mcp/spfx?solutionId=b847948b-8a9b-4483-b335-a6343eeb1760"
+            },
+            "run_for_functions": [
+                "*"
+            ],
+            "auth": {
+                "type": "None"
+            }
+        }
+    ]
+}

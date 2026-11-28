@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "388955ee-6240-4eda-aa71-540e8c54a803",
+  "alias": "CheckServiceHealthCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "CheckServiceHealth",
+      "description": {
+        "default": "Use when: Check the current incident and next update for a shared service at a workplace. Do not use for: Show the status of my individual support ticket. Related but separate tools: FindTroubleshootingGuide, TrackMyITTicket."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/checkServiceHealth/CheckServiceHealthCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

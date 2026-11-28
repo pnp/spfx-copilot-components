@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "94c59136-9bd3-496f-85c3-8a3376dc6b5d",
+  "alias": "CompanyNewsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "The story desk"
+      },
+      "description": {
+        "default": "Read or save a recent company story by topic or story ID."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzA4NjU3NiIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzA4NjU3NiIgZmlsbD0iIzA4NjU3NiI+PHBhdGggZD0iTTE4Ljc1IDIwSDUuMjVhMy4yNSAzLjI1IDAgMCAxLTMuMjQtMy4wN0wyIDE2Ljc1VjYuMjVjMC0xLjIuOTMtMi4xNyAyLjEtMi4yNEw0LjI1IDRoMTIuNWMxLjIgMCAyLjE3LjkzIDIuMjQgMi4xbC4wMS4xNVY3aC43NWMxLjIgMCAyLjE3LjkzIDIuMjQgMi4xbC4wMS4xNXY3LjVhMy4yNSAzLjI1IDAgMCAxLTMuMDcgMy4yNGwtLjE4LjAxSDUuMjVoMTMuNVptLTEzLjUtMS41aDEzLjVjLjkyIDAgMS42Ny0uNyAxLjc0LTEuNmwuMDEtLjE1di03LjVjMC0uMzgtLjI4LS43LS42NS0uNzRsLS4xLS4wMUgxOXY3Ljc1YzAgLjM4LS4yOC43LS42NS43NGwtLjEuMDFhLjc1Ljc1IDAgMCAxLS43NC0uNjVsLS4wMS0uMXYtMTBjMC0uMzgtLjI4LS43LS42NS0uNzRsLS4xLS4wMUg0LjI1Yy0uMzggMC0uNy4yOC0uNzQuNjVsLS4wMS4xdjEwLjVjMCAuOTIuNyAxLjY3IDEuNiAxLjc0bC4xNS4wMWgxMy41LTEzLjVabTctNGgzYS43NS43NSAwIDAgMSAuMSAxLjVoLTMuMWEuNzUuNzUgMCAwIDEtLjEtMS41aDMuMS0zWm0tMy0zLjVjLjQgMCAuNzQuMzQuNzQuNzV2My41YzAgLjQxLS4zMy43NS0uNzUuNzVoLTMuNWEuNzUuNzUgMCAwIDEtLjc0LS43NXYtMy41YzAtLjQxLjMzLS43NS43NS0uNzVoMy41Wm0tLjc2IDEuNWgtMnYyaDJ2LTJabTMuNzYtMS41aDNhLjc1Ljc1IDAgMCAxIC4xIDEuNWgtMy4xYS43NS43NSAwIDAgMS0uMS0xLjQ5aDMuMS0zWm0tNi41LTMuNWg5LjVhLjc1Ljc1IDAgMCAxIC4xIDEuNWgtOS42YS43NS43NSAwIDAgMS0uMS0xLjVoOS42LTkuNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

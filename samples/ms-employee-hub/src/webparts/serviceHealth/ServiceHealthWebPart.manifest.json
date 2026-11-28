@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b3e7c710-3b35-4745-aa8f-8b6e528e5eb6",
+  "alias": "ServiceHealthWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Service health"
+      },
+      "description": {
+        "default": "Check the current incident and next update for a shared service at a workplace."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0ibTguNDYgNi44IDMuMjkgMTMuNjNjLjE3LjczIDEuMi43NyAxLjQ0LjA1bDMuMjYtMTAuMTIuNTggMi4xYy4xLjMyLjM5LjU0LjcyLjU0aDMuNWEuNzUuNzUgMCAwIDAgMC0xLjVoLTIuOTNsLTEuMS0zLjk1YS43NS43NSAwIDAgMC0xLjQ0LS4wM2wtMy4yIDkuOTYtMy4zNS0xMy45Yy0uMTktLjc2LTEuMjYtLjc3LTEuNDYtLjAybC0yLjEgNy45NEgyLjc1YS43NS43NSAwIDAgMCAwIDEuNWgzLjVjLjM0IDAgLjYzLS4yMy43Mi0uNTZsMS41LTUuNjNaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "5b41bc72-8ec7-4a99-815e-0f6c97b2b9b5",
+  "alias": "PrepareBenefitsReviewCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "PrepareBenefitsReview",
+      "description": {
+        "default": "Use when: Prepare a benefits checklist and inspect deadlines without electing coverage. Do not use for: Send a private question to HR. Related but separate tools: AskHRForHelp."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/prepareBenefitsReview/PrepareBenefitsReviewCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

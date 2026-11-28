@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "a4f63910-e0f3-41ce-b2b8-c485e245b41d",
+  "alias": "RoomBookingWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "A place to meet"
+      },
+      "description": {
+        "default": "Find an eligible room for a local date and time and prepare a reservation for explicit review."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzA4NjU3NiIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzA4NjU3NiIgZmlsbD0iIzA4NjU3NiI+PHBhdGggZD0ibTEwLjgyIDIgLjEuMDIgOC41IDJjLjMuMDcuNTMuMzIuNTcuNjNsLjAxLjF2MTQuNWMwIC4zMS0uMi41OS0uNDguN2wtLjEuMDMtOC41IDJhLjc1Ljc1IDAgMCAxLS45MS0uNjNsLS4wMS0uMVYyLjc1YzAtLjQxLjMzLS43NC43Mi0uNzVoLjFabS42OCAxLjd2MTYuNmw3LTEuNjRWNS4zNGwtNy0xLjY0Wk05IDR2MS41SDUuNXYxM0g5VjIwSDQuNzVhLjc1Ljc1IDAgMCAxLS43NC0uNjVsLS4wMS0uMVY0Ljc1YzAtLjM4LjI4LS43LjY1LS43NGwuMS0uMDFIOVptNSA3YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMloiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

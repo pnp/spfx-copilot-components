@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.2",
+  "id": "ce6ec992-07ef-42c1-8c3d-c158ac69461e",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Employee Hub Plug-in",
+    "full": "Employee Hub for Copilot Cowork"
+  },
+  "description": {
+    "short": "Explore workplace stories, employee services and business results.",
+    "full": "Connect Cowork and the included Employee Hub agent to the separately deployed SPFx sample. Ask a focused question, inspect evidence and review a simulated action. All business records are synthetic; private drafts stay within their originating workspace session."
+  },
+  "accentColor": "#73438a",
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": [],
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "employeeHubCoworkAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "agentConnectors": [
+    {
+      "id": "employee-hub-tools",
+      "displayName": "Employee Hub tools",
+      "description": "Discover employee and business review tools provided by the deployed Employee Hub SPFx solution.",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://spfx-review.invalid/_api/mcp/spfx?solutionId=b847948b-8a9b-4483-b335-a6343eeb1760",
+          "authorization": { "type": "None" }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "c0dde3df-c9cf-4f7b-af63-c20344a0f84f",
+  "alias": "BookMeetingRoomCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "BookMeetingRoom",
+      "description": {
+        "default": "Use when: Find an eligible room for a local date and time and prepare a reservation for explicit review. Do not use for: Download the calendar entry for a published event. Related but separate tools: FindCompanyEvents."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/bookMeetingRoom/BookMeetingRoomCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

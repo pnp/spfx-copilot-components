@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "06908557-127f-435c-b4b6-b73306ec8ce3",
+  "alias": "TechWebWorkspaceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "SharePointFullPage",
+    "TeamsPersonalApp"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "TechWeb"
+      },
+      "description": {
+        "default": "Open the fixed TechWeb workspace."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTYuNzUgMjJhLjc1Ljc1IDAgMCAxLS4xLTEuNUg4LjVWMThINC4yNWMtMS4yIDAtMi4xNy0uOTItMi4yNC0yLjFMMiAxNS43NlY1LjI1YzAtMS4yLjkzLTIuMTcgMi4xLTIuMjRMNC4yNSAzaDE1LjVjMS4xOSAwIDIuMTYuOTMgMi4yNCAyLjF2OC44MmEyLjc1IDIuNzUgMCAwIDAtMS41LTIuMzd2LTYuM2MwLS4zOC0uMjctLjctLjY0LS43NGwtLjEtLjAxSDQuMjVjLS4zOCAwLS43LjI4LS43NC42NWwtLjAxLjF2MTAuNWMwIC4zOC4yOC43LjY1Ljc1SDExVjE4aC0xdjIuNWgxdjFjMCAuMTcuMDIuMzQuMDUuNWgtNC4zWk0xNCAxNWgtLjVjLS44MyAwLTEuNS42Ny0xLjUgMS41VjE4aDIuNXYtLjI1YS43NS43NSAwIDAgMSAxLjUgMFYxOGgzdi0uMjVhLjc1Ljc1IDAgMCAxIDEuNSAwVjE4SDIzdi0xLjVjMC0uODMtLjY3LTEuNS0xLjUtMS41SDIxdi0xYzAtLjk3LS43OC0xLjc1LTEuNzUtMS43NWgtMy41Yy0uOTcgMC0xLjc1Ljc4LTEuNzUgMS43NXYxWm0xLjUtMWMwLS4xNC4xMS0uMjUuMjUtLjI1aDMuNWMuMTQgMCAuMjUuMTEuMjUuMjV2MWgtNHYtMVpNMTIgMjEuNXYtMmgyLjV2Ljc1YS43NS43NSAwIDAgMCAxLjUgMHYtLjc1aDN2Ljc1YS43NS43NSAwIDAgMCAxLjUgMHYtLjc1SDIzdjJjMCAuODMtLjY3IDEuNS0xLjUgMS41aC04YTEuNSAxLjUgMCAwIDEtMS41LTEuNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

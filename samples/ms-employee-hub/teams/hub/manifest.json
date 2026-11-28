@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "7a2e07b7-bdfc-4442-aa61-005171754688",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "name": {
+    "short": "Employee Hub",
+    "full": "Employee Hub · Employee Hub workspace"
+  },
+  "description": {
+    "short": "Open Employee Hub in a personal workspace.",
+    "full": "Explore your authorized company, HR, technology and business workspaces. Uses synthetic records and in-memory actions. Installing this app does not grant data access. Requires this Employee Hub SPFx solution in the organization’s app catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#274993",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "7a2e07b7-bdfc-4442-aa61-005171754688",
+      "name": "Employee Hub",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=7a2e07b7-bdfc-4442-aa61-005171754688%26forceLocale={locale}",
+      "scopes": [
+        "personal"
+      ],
+      "context": [
+        "personalTab"
+      ]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}

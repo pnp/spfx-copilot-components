@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b98e878f-5b9c-486b-871e-2a678db75a85",
+  "alias": "TeamCoverageWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Coverage planner"
+      },
+      "description": {
+        "default": "Inspect available capacity for an eligible team and week without exposing absence reasons."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTE0Ljc1IDEwYy45NyAwIDEuNzUuNzggMS43NSAxLjc1djQuNzVhNC41IDQuNSAwIDAgMS05IDB2LTQuNzVjMC0uOTcuNzktMS43NSAxLjc1LTEuNzVoNS41Wm0wIDEuNWgtNS41YS4yNS4yNSAwIDAgMC0uMjUuMjV2NC43NWEzIDMgMCAwIDAgNiAwdi00Ljc1YS4yNS4yNSAwIDAgMC0uMjUtLjI1Wm0tMTEtMS41aDMuMzhjLS4zNC40MS0uNTcuOTMtLjYyIDEuNUgzLjc1YS4yNS4yNSAwIDAgMC0uMjUuMjVWMTVhMi41IDIuNSAwIDAgMCAzLjA4IDIuNDNjLjA5LjUuMjQuOTkuNDUgMS40M0E0IDQgMCAwIDEgMiAxNXYtMy4yNGMwLS45Ny43OC0xLjc1IDEuNzUtMS43NVptMTMuMTIgMGgzLjM4Yy45NyAwIDEuNzUuNzggMS43NSAxLjc1VjE1YTQgNCAwIDAgMS01LjAzIDMuODdjLjIxLS40NS4zNy0uOTMuNDYtMS40NEEyLjUgMi41IDAgMCAwIDIwLjUgMTV2LTMuMjVhLjI1LjI1IDAgMCAwLS4yNS0uMjVoLTIuNzZhMi43NCAyLjc0IDAgMCAwLS42Mi0xLjVaTTEyIDNhMyAzIDAgMSAxIDAgNiAzIDMgMCAwIDEgMC02Wm02LjUgMWEyLjUgMi41IDAgMSAxIDAgNSAyLjUgMi41IDAgMCAxIDAtNVptLTEzIDBhMi41IDIuNSAwIDEgMSAwIDUgMi41IDIuNSAwIDAgMSAwLTVabTYuNS41YTEuNSAxLjUgMCAxIDAgMCAzIDEuNSAxLjUgMCAwIDAgMC0zWm02LjUgMWExIDEgMCAxIDAgMCAyIDEgMSAwIDAgMCAwLTJabS0xMyAwYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMloiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

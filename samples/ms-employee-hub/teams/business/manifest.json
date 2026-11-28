@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "2aa8bc99-9b5d-453b-b943-c82c4318c81b",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "name": {
+    "short": "Business",
+    "full": "Business · Employee Hub workspace"
+  },
+  "description": {
+    "short": "Open Business in a personal workspace.",
+    "full": "A fixed Business experience without workspace switching. Uses synthetic records and in-memory actions. Installing this app does not grant data access. Requires this Employee Hub SPFx solution in the organization’s app catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#17694d",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "2aa8bc99-9b5d-453b-b943-c82c4318c81b",
+      "name": "Business",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=2aa8bc99-9b5d-453b-b943-c82c4318c81b%26forceLocale={locale}",
+      "scopes": [
+        "personal"
+      ],
+      "context": [
+        "personalTab"
+      ]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}

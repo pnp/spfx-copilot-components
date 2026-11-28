@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+  "alias": "CheckLeaveBalanceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "CheckLeaveBalance",
+      "description": {
+        "default": "Use when: Explain available, booked and pending leave for a selected type and period. Do not use for: Submit a new leave request. Related but separate tools: RequestTimeOff, CheckTeamCoverage."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/checkLeaveBalance/CheckLeaveBalanceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

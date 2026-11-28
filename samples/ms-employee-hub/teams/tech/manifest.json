@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "06908557-127f-435c-b4b6-b73306ec8ce3",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "name": {
+    "short": "TechWeb",
+    "full": "TechWeb · Employee Hub workspace"
+  },
+  "description": {
+    "short": "Open TechWeb in a personal workspace.",
+    "full": "A fixed TechWeb experience without workspace switching. Uses synthetic records and in-memory actions. Installing this app does not grant data access. Requires this Employee Hub SPFx solution in the organization’s app catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#175ca1",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "06908557-127f-435c-b4b6-b73306ec8ce3",
+      "name": "TechWeb",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=06908557-127f-435c-b4b6-b73306ec8ce3%26forceLocale={locale}",
+      "scopes": [
+        "personal"
+      ],
+      "context": [
+        "personalTab"
+      ]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}

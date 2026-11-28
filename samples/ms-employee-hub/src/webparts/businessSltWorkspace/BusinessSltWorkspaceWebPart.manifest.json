@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "2aa8bc99-9b5d-453b-b943-c82c4318c81b",
+  "alias": "BusinessSltWorkspaceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "SharePointFullPage",
+    "TeamsPersonalApp"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Business"
+      },
+      "description": {
+        "default": "Open the fixed Business workspace."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTIwIDkuNTRWOS40QTcuNDMgNy40MyAwIDAgMCAxMi40NiAyYS40OC40OCAwIDAgMC0uNDYuNDlWOS41YzAgLjI4LjIyLjUuNS41aDcuMDJjLjI2IDAgLjQ4LS4yLjQ4LS40NlptLTYuNS01Ljk3YzIuNTMuNCA0LjUzIDIuNCA0LjkzIDQuOTNIMTMuNVYzLjU3Wk05IDEwLjVWNS42OWE2IDYgMCAxIDAgMy4wMSAxMS42MmMtLjU3LjM4LS45Ny45OC0xLjExIDEuNjhsLS40LjAxQTcuNSA3LjUgMCAwIDEgMTAgNC4wMmMuMjgtLjAyLjUuMi41LjQ4djZhMSAxIDAgMCAwIDEgMWg2Yy4yOCAwIC41LjIyLjQ4LjVhNy40NyA3LjQ3IDAgMCAxLS4zNiAxLjg1aC0uMTJjLS43NCAwLTEuNC4zLTEuODguNzkuMy0uNS41NC0xLjA2LjctMS42NEgxMS41QTIuNSAyLjUgMCAwIDEgOSAxMC41Wm0xMSAzYTEuNSAxLjUgMCAwIDEgMyAwdjhhMS41IDEuNSAwIDAgMS0zIDB2LThaTTE3LjUgMTVjLS44MyAwLTEuNS42Ny0xLjUgMS41djVhMS41IDEuNSAwIDAgMCAzIDB2LTVjMC0uODMtLjY3LTEuNS0xLjUtMS41Wm0tNCAzYy0uODMgMC0xLjUuNjctMS41IDEuNXYyYTEuNSAxLjUgMCAwIDAgMyAwdi0yYzAtLjgzLS42Ny0xLjUtMS41LTEuNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

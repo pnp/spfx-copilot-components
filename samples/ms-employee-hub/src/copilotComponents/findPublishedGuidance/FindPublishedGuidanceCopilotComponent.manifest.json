@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "21fbf32e-c837-4060-b6af-cf8819f81f73",
+  "alias": "FindPublishedGuidanceCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindPublishedGuidance",
+      "description": {
+        "default": "Use when: Find published workplace resources by topic, title and locale, with their source and version. Do not use for: View my private pay statement. Related but separate tools: ShowRequiredLearning, ViewMyPayslip."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findPublishedGuidance/FindPublishedGuidanceCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
