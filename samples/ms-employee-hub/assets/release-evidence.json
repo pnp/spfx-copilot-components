@@ -1,5 +1,5 @@
 {
-  "scope": "Offline synthetic release candidate; no authenticated host, real model, distribution clearance or deployment.",
+  "scope": "Offline synthetic release candidate; no authenticated host, real model, publisher verification or deployment. Asset rights are recorded in src/shared/media/sources.json.",
   "version": "1.0.0.2",
   "solutionId": "b847948b-8a9b-4483-b335-a6343eeb1760",
   "agentVersion": "1.0.1",
@@ -170,7 +170,7 @@
     "inlineHeightExceptions": []
   },
   "evidenceHashes": {
-    "review/evidence/candidate.json": "43091a53cf6b9bfff8920287ad9d83937144b1b733b9b958298a2da8464b7ff0",
+    "review/evidence/candidate.json": "5fdf70034e0a5efbb5e8aec05e1e2481aa6ef329de5d6b0ab29b0d6fe63c0660",
     "review/evidence/compiled-host.json": "07388007219496da4e4af159e443f0e06d2a9b359bf0b70f490cefe9b172b3cb",
     "review/evidence/visual-matrix.json": "e3b985e7dad3fdf8b179273307b159598f7d717fadc7d200a52e787edb6201ad",
     "release/host-package-audit.json": "40da4ffa337793ca9f6ae9776cb4e2df363ec27577f978d828db0a59a24ba0ef",

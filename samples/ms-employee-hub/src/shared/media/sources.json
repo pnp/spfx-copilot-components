@@ -1,11 +1,11 @@
 {
-  "scope": "Microsoft campaign masters supplied for local design review. No assertion about depicted identities. Public redistribution and publisher approval remain open.",
+  "scope": "Contributor-confirmed rights on 2026-11-28 to use and redistribute the supplied assets with this sample, including source, packages, screenshots and recordings. No assertion about depicted identities. Publisher verification and tenant deployment approval remain separate.",
   "transform": "Browser-oriented proportional resize and metadata-free re-encoding.",
   "assets": [
     {"file":"device-workplace.jpg","collection":"microsoft","original":"Humans/CLO25-SCI-Lifestyle-006.jpg","usage":"The workplace photograph used for the SPA HRweb chapter spread.","bytes":150416,"sha256":"5a60d8cfb618e162d951bce5db74eaf99a5fb185bd916e67c1268ac055e84e7d"},
     {"file":"device-laptop.png","collection":"zava-it-concierge","original":"src/shared/assets/products/surface-laptop.png","usage":"Illustrative product-family cutout from the local sample, not the employee's exact model.","bytes":24357,"sha256":"aac7c77a8ca0ab0cf7843a05f7bf03d5183e54e90a479486d18cb551b9617550"},
     {"file":"device-headphones.png","collection":"microsoft/fluentui-emoji","original":"assets/Headphone/3D/headphone_3d.png","license":"MIT; see fluent-emoji-LICENSE.txt.","bytes":27986,"sha256":"e7c26d433340b1706f20c733558da412cbf70b1a95048d51a80eb0ed2c0a02c9"},
-    {"file":"hr-profiles.jpg","collection":"zava-one-hub","original":"assets/media/faces","entry":"Johanna-Lorenz, Diego-Siciliani, Joni-Sherman, Lee-Gu, Megan-Bowen, Grady-Archie","usage":"Illustrative fictional profiles only. Six center crops, in order; see the reference sample's assets/media-provenance.json before redistribution.","bytes":33795,"sha256":"53b55dd9ffe65b786ce0e8c113361947a5917984ca9d02ef99840dcd576ddc79"},
+    {"file":"hr-profiles.jpg","collection":"zava-one-hub","original":"assets/media/faces","entry":"Johanna-Lorenz, Diego-Siciliani, Joni-Sherman, Lee-Gu, Megan-Bowen, Grady-Archie","usage":"Illustrative fictional profiles only. Six center crops, in order; lineage is recorded in the reference sample's assets/media-provenance.json.","bytes":33795,"sha256":"53b55dd9ffe65b786ce0e8c113361947a5917984ca9d02ef99840dcd576ddc79"},
     {
       "file": "company-cover.jpg",
       "collection": "microsoft",

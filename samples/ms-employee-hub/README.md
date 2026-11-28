@@ -2,13 +2,13 @@
 
 Ask how German partner leads converted this quarter. Change **Partner** to **Inbound**, and the chart, exact counts and denominator change together. Expand the selected ribbon into Business, prepare a follow-up against that very cut and confirm one session action. The action changes the register, not the historical report.
 
-Employee Hub is an SPFx **1.24.2** sample with four authored workspaces: **Microsoft home**, **HRweb**, **TechWeb** and **Business**. The first is a workplace journal, the second is a personal service desk for working life, the third follows devices and support conversations, and the fourth is a commercial operating review. The employee portals use supplied Microsoft campaign photography and the official light/dark wordmarks. **The media-bearing sample, builds, screenshots and recording are for local review only.** Business figures and employee records are fictional; campaign subjects are not identified as those employees.
+Employee Hub is an SPFx **1.24.2** sample with four authored workspaces: **Microsoft home**, **HRweb**, **TechWeb** and **Business**. The first is a workplace journal, the second is a personal service desk for working life, the third follows devices and support conversations, and the fourth is a commercial operating review. The employee portals use supplied Microsoft campaign photography and the official light/dark wordmarks. **The contributor confirmed rights on 2026-11-28 to use and redistribute the supplied assets with this sample, including source, packages, screenshots and recordings.** This does not establish publisher verification or tenant deployment approval. Business figures and employee records are fictional; campaign subjects are not identified as those employees.
 
 ## Screenshots
 
 ![Microsoft home, HRweb, TechWeb and Business captured from the four working local landings](review/evidence/workspace-contact.png)
 
-**Open a full-size screenshot:** [Microsoft home](review/evidence/screens/company-1280.png) · [HRweb](review/evidence/screens/hr-1280.png) · [TechWeb](review/evidence/screens/tech-1280.png) · [Business](review/evidence/screens/business-1280.png) · [inline lead conversion](review/evidence/screens/task-09-inline-760.png). These same five PNGs are embedded in the [SPFx solution](sharepoint/solution/ms-employee-hub.sppkg) as App Catalog screenshots. They are captures of the running local sample with synthetic data, not signed-in host screenshots.
+**Open a full-size screenshot:** [Microsoft home](review/evidence/screens/company-1280.png) · [HRweb](review/evidence/screens/hr-1280.png) · [TechWeb](review/evidence/screens/tech-1280.png) · [Business](review/evidence/screens/business-1280.png) · [inline lead conversion](review/evidence/screens/task-09-inline-760.png). These same five PNGs are embedded in the locally built `sharepoint\solution\ms-employee-hub.sppkg` as App Catalog screenshots. They are captures of the running local sample with synthetic data, not signed-in host screenshots.
 
 For more views, see [all four phone layouts](review/evidence/workspace-phone.png) and the [30-component inline gallery](review/evidence/inline-gallery.html). No installation is needed to open the PNGs.
 
@@ -39,7 +39,7 @@ The top-level [teams/employee-hub.zip](teams/employee-hub.zip) is the **embedded
 
 ## Review it locally
 
-**Ready-made local review package:** [Download the SPFx solution](sharepoint/solution/ms-employee-hub.sppkg). The [restricted pilot instructions](docs/pilot-install.md) describe how to build a tenant-configured set. Do not upload the placeholder distribution.
+**Build the local review package:** run `npm run review:candidate` to create `sharepoint\solution\ms-employee-hub.sppkg`. Generated SPFx solutions are not checked into the repository. The [restricted pilot instructions](docs/pilot-install.md) describe how to build a tenant-configured set. Do not install the placeholder distribution in a tenant.
 
 <!-- release-fingerprint -->
 SPFx **1.0.0.2**, 3,180,822 bytes; SHA-256 `051cf8f450d640df4f8b9cb4c0f33fc3e416922aba2121cadab43147cf2664ac`. 30 Copilot tools, 34 web parts, five personal Teams apps and one separate Cowork plug-in. [Package fingerprints and evidence](assets/release-evidence.json).
@@ -114,15 +114,21 @@ npm run review:candidate
 
 [Three-minute keynote](Employee-Hub-3-Minute-Demo.md) · [Ten-minute business journey](Employee-Hub-10-Minute-Demo.md) · [Five-minute developer walkthrough](Employee-Hub-5-Minute-Tech-Demo.md) · [30-tool prompt and collision matrix](Employee-Hub-Demo-Prompts.md) · [Designer and rehearsal guide](docs/designer-rehearsal.md) · [Pilot setup, signed-in acceptance and rollback](docs/pilot-install.md).
 
-**Sample history:** Contoso is the sample developer. SPFx solution `1.0.0.0` was the local UX baseline; `1.0.0.1` added input/session continuity fixes and target-configured packaging. `1.0.0.2` adds the five App Catalog screenshots and keeps Teams authoring files outside the solution package. `npm run review:candidate` captures the current UI before building and verifies that the packaged screenshots match the linked PNGs. The [gallery manifest](assets/sample.json) is a local publication draft: its PnP catalog URLs are intended destinations, not proof of publication. `source: pnp` classifies the gallery entry; it does not change the Contoso solution or app publisher.
+**Sample history:** Contoso is the sample developer. SPFx solution `1.0.0.0` was the local UX baseline; `1.0.0.1` added input/session continuity fixes and target-configured packaging. `1.0.0.2` adds the five App Catalog screenshots and keeps Teams authoring files outside the solution package. `npm run review:candidate` captures the current UI before building and verifies that the packaged screenshots match the linked PNGs. The [gallery manifest](assets/sample.json) identifies the sample's PnP source and download destinations. `source: pnp` classifies the gallery entry; it does not change the Contoso solution or app publisher.
 
 ## Implementation map
 
 - [Capability catalog](config/hub-catalog.json), [ordered starters](config/conversation-starters.json) and [routing rehearsal cases](review/routing-cases.json): one named SPFx identity per intent. The case pairs describe expected language routing; checking source is not proof of a live Copilot model's choices.
 - [`src\hosts`](src/hosts) and [`src\shared\HubApp.tsx`](src/shared/HubApp.tsx): distinct Copilot and web-part adapters, host-owned sizing, narrow/full composition, scoped navigation and local error states.
 - [`src\shared\mockData`](src/shared/mockData): source-shaped workplace, people, technology and commercial records; immutable reporting cuts and actor/session-local mutations. Update a source here, not each host. Only allowlisted office and event records have offline SharePoint row mappers. Keys, lookups, UTC instants, time zones, publication, audience and revisions round-trip without exporting a private case, pay record or receipt. No lists are provisioned.
-- [Campaign provenance](src/shared/media/sources.json) identifies the original file, any source archive entry and the SHA-256 of every optimized image. The originals stay outside the sample. `node scripts\prepare-campaign.mjs "Q:\pics\microsoft" "Q:\pics\Logos - Microsoft"` rebuilds the derivatives locally; it is **not** required to open the studio or build from the prepared files. [Offline land geometry](src/shared/business/worldLand.json) is from public-domain Natural Earth. Secure explicit media and brand clearance or replace the restricted art before distributing any source, package, screenshot or recording.
+- [Campaign provenance](src/shared/media/sources.json) records the contributor-confirmed asset rights, original file, any source archive entry and SHA-256 of every optimized image. The originals stay outside the sample. `node scripts\prepare-campaign.mjs "Q:\pics\microsoft" "Q:\pics\Logos - Microsoft"` rebuilds the derivatives locally; it is **not** required to open the studio or build from the prepared files. [Offline land geometry](src/shared/business/worldLand.json) is from public-domain Natural Earth. Asset permission does not change third-party license notices, establish depicted identities or imply publisher endorsement.
 
 ## Before a live keynote
 
 Obtain publisher/brand approval and a named test tenant with suitable accounts and policies. In that authorized environment, enable the `.sppkg` in the App Catalog; add the four single-part app pages and independently install the five personal apps. Verify signed-in discovery, expansion/focus, permissions, actual content widths and real host chrome. Verify Cowork **separately**: the target must accept the preview app connector and discover the deployed tools. Do not substitute studio screenshots for authenticated host footage, imply a cross-host write synchronized, or treat a locally built ZIP as deployment approval.
+
+## Support and attribution
+
+Contributed by [Vesa Juvonen](https://github.com/VesaJuvonen). Contoso remains the fictional developer in the packaged sample manifests, not a verified publisher. This community sample is provided as-is for learning and synthetic-data demonstrations; report issues through this repository. Production integration, tenant installation and live-stage acceptance require separate review.
+
+<img src="https://m365-visitor-stats.azurewebsites.net/spfx-copilot-components/samples/ms-employee-hub" />

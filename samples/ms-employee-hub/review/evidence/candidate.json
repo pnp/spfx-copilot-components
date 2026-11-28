@@ -1,6 +1,6 @@
 {
-  "scope": "Uncommitted local review only. Source and package evidence are not tenant acceptance.",
-  "generated": "2026-11-28T16:50:33.815Z",
+  "scope": "Local synthetic review evidence. Source and package evidence are not authenticated host or tenant acceptance.",
+  "generated": "2026-11-28T17:01:17.302Z",
   "catalog": 30,
   "webParts": 34,
   "largestRawJs": {
@@ -30,8 +30,8 @@
   "assets": [
     {
       "source": "src/shared/media/sources.json",
-      "provenance": "User-supplied Microsoft photography, motifs and official light/dark wordmarks; local review only",
-      "sha256": "d047871278a3aba94cc9abb6d5ff6a7e2746bbb93707bb58eb88eea0b839296b"
+      "provenance": "Contributor-confirmed rights on 2026-11-28 to use and redistribute the supplied assets with this sample, including source, packages, screenshots and recordings. No assertion about depicted identities. Publisher verification and tenant deployment approval remain separate.",
+      "sha256": "bb6db889cd66393354987e8fe3be8c48b422ceacb2ed0e764863435f15a844af"
     },
     {
       "source": "src/shared/business/worldLand.json",
@@ -41,113 +41,113 @@
     {
       "source": "employee-hub-plugin/artwork.svg",
       "provenance": "Employee Hub identity family; Fluent UI System Icons, MIT",
-      "sha256": "60bfdf2e34ac8597df45a403c0fac09b89b48b49063125be9a891ffa0b62e5e5"
+      "sha256": "f9da118d15c094a9f0008721ed3925177b123bd805b5bffb320a600a884b414e"
     },
     {
       "source": "src/shared/media/device-workplace.jpg",
-      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-006.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-006.jpg (sample asset)",
       "sha256": "5a60d8cfb618e162d951bce5db74eaf99a5fb185bd916e67c1268ac055e84e7d",
       "packageMember": "ClientSideAssets/device-workplace_3f164f4b5e611b4dfeaf.jpg"
     },
     {
       "source": "src/shared/media/device-laptop.png",
-      "provenance": "zava-it-concierge/src/shared/assets/products/surface-laptop.png (local review)",
+      "provenance": "zava-it-concierge/src/shared/assets/products/surface-laptop.png (sample asset)",
       "sha256": "aac7c77a8ca0ab0cf7843a05f7bf03d5183e54e90a479486d18cb551b9617550",
       "packageMember": "ClientSideAssets/device-laptop_34bee2297e450542c898.png"
     },
     {
       "source": "src/shared/media/device-headphones.png",
-      "provenance": "microsoft/fluentui-emoji/assets/Headphone/3D/headphone_3d.png (local review)",
+      "provenance": "microsoft/fluentui-emoji/assets/Headphone/3D/headphone_3d.png (sample asset)",
       "sha256": "e7c26d433340b1706f20c733558da412cbf70b1a95048d51a80eb0ed2c0a02c9",
       "packageMember": "ClientSideAssets/device-headphones_c781c3423f9fdc685e30.png"
     },
     {
       "source": "src/shared/media/hr-profiles.jpg",
-      "provenance": "zava-one-hub/assets/media/faces#Johanna-Lorenz, Diego-Siciliani, Joni-Sherman, Lee-Gu, Megan-Bowen, Grady-Archie (local review)",
+      "provenance": "zava-one-hub/assets/media/faces#Johanna-Lorenz, Diego-Siciliani, Joni-Sherman, Lee-Gu, Megan-Bowen, Grady-Archie (sample asset)",
       "sha256": "53b55dd9ffe65b786ce0e8c113361947a5917984ca9d02ef99840dcd576ddc79",
       "packageMember": "ClientSideAssets/hr-profiles_b8409bc3ea5463744b0f.jpg"
     },
     {
       "source": "src/shared/media/company-cover.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-008.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-008.jpg (sample asset)",
       "sha256": "e7b5a4e06908a01b0396a68a7e666298dbfef9c65fc52b7d221a6de035ff1a0a",
       "packageMember": "ClientSideAssets/company-cover_a88adb6f159a1b386c56.jpg"
     },
     {
       "source": "src/shared/media/company-inset.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-088.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-088.jpg (sample asset)",
       "sha256": "dc6aeb656a368a50a52a476abbc839962dd80acf4905199f8f2d40d59cce7711",
       "packageMember": "ClientSideAssets/company-inset_4f743a05b70ea8dc9718.jpg"
     },
     {
       "source": "src/shared/media/company-edition.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-089.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-089.jpg (sample asset)",
       "sha256": "ca74462ad314557eb931f10e939e751e7eb58cd0704fb04ec5197d05ed9427ff",
       "packageMember": "ClientSideAssets/company-edition_bbf0fd623c326e8274e9.jpg"
     },
     {
       "source": "src/shared/media/company-perspective.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-086.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-086.jpg (sample asset)",
       "sha256": "ec35d5d01c94433003e12b455aada43cd92fb19516909cf3c59ba195ff19bfd8",
       "packageMember": "ClientSideAssets/company-perspective_4e6c12bab32016e73a52.jpg"
     },
     {
       "source": "src/shared/media/hr-cover.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-046.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-046.jpg (sample asset)",
       "sha256": "6a440164bbf6e8cb637a81be5637d0a9f57092edf80db620f4c59de7de76fa34",
       "packageMember": "ClientSideAssets/hr-cover_0a95a3e2db2aa4af0372.jpg"
     },
     {
       "source": "src/shared/media/hr-inset.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-001.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-001.jpg (sample asset)",
       "sha256": "2781f77487b800575b69e61ce8105722993c4965b2921d991fecf2748f43c9c8",
       "packageMember": "ClientSideAssets/hr-inset_04207a44410b7b814566.jpg"
     },
     {
       "source": "src/shared/media/hr-learning.jpg",
-      "provenance": "microsoft/Humans/CLO24-Portraits-075.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO24-Portraits-075.jpg (sample asset)",
       "sha256": "29d97c6a9ad913137cf76cc948da5cffef4c7c1a86889efdfcca055b741b6b7d",
       "packageMember": "ClientSideAssets/hr-learning_75ca2623d55937cdeb19.jpg"
     },
     {
       "source": "src/shared/media/tech-cover.jpg",
-      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-057.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-057.jpg (sample asset)",
       "sha256": "47b1dce211144b02c4c76cdc64906c1ae6942f4efd65d7faaf5f4a176957ebfe",
       "packageMember": "ClientSideAssets/tech-cover_1ec71cebb0b9d28eedc1.jpg"
     },
     {
       "source": "src/shared/media/tech-craft.jpg",
-      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-019.jpg (local review)",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-019.jpg (sample asset)",
       "sha256": "e98bbd14740c707ae578541456eefc5a6df4e45d53d60591c5b7735e45546b93",
       "packageMember": "ClientSideAssets/tech-craft_7d351f5b9196aebfcca9.jpg"
     },
     {
       "source": "src/shared/media/hr-flourish.png",
-      "provenance": "microsoft/Flourish_Customized.png (local review)",
+      "provenance": "microsoft/Flourish_Customized.png (sample asset)",
       "sha256": "0de5cbe418cbb91421bb2f4ef876d395896416ff0abfa36095f6767f83ed5df7",
       "packageMember": "ClientSideAssets/hr-flourish_923141833f86f034b157.png"
     },
     {
       "source": "src/shared/media/prism.png",
-      "provenance": "microsoft/Prism_Customized.png (local review)",
+      "provenance": "microsoft/Prism_Customized.png (sample asset)",
       "sha256": "aab9b9de2982872601e424a481dc9eaaeccea631f0da7dd28da32ea12ba99c29",
       "packageMember": "ClientSideAssets/prism_3314a4204150d3bebd4b.png"
     },
     {
       "source": "src/shared/media/campaign-ring.png",
-      "provenance": "microsoft/FY26 EVP Social Templates/FY26 EVP_ Employee Testimonial Template.pptx#ppt/media/image8.png (local review)",
+      "provenance": "microsoft/FY26 EVP Social Templates/FY26 EVP_ Employee Testimonial Template.pptx#ppt/media/image8.png (sample asset)",
       "sha256": "3a8c0312eff7e520f7d9aa19771e5a5ed15ec8a6edafd75c1028258459def84c",
       "packageMember": "ClientSideAssets/campaign-ring_bc6ed51774acbb5e1a1f.png"
     },
     {
       "source": "src/shared/media/microsoft-logo.png",
-      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Gray.png (local review)",
+      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Gray.png (sample asset)",
       "sha256": "2cec6bfcd6069fc6c56abbeac72389dd29d92294248dddc2a3259682e3254f6a",
       "packageMember": "ClientSideAssets/microsoft-logo_d70eba48fbdd36139fef.png"
     },
     {
       "source": "src/shared/media/microsoft-logo-dark.png",
-      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Wht.png (local review)",
+      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Wht.png (sample asset)",
       "sha256": "7fd3bda370899990b6caceddfef6da7124275b42968c0c4f1968b51d65f6a450",
       "packageMember": "ClientSideAssets/microsoft-logo-dark_a7eb9bdd44de856ddc48.png"
     }

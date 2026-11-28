@@ -29,8 +29,9 @@ const additional=new Map([[2,[['Open story','news-story-open.png']]],[4,[['Searc
 const imageFiles=[...new Set([...matrix.results.map(r=>r.image).filter(Boolean),...[...additional.values()].flat().map(([,file])=>`screens/${file}`),'screens/keynote-receipt.png','workspace-contact.png','workspace-phone.png','proof-contact.png','identity-sheet.png'])].sort();
 const items=await Promise.all(imageFiles.map(async image=>{const b=await read(`review/evidence/${image}`);assert.equal(b.readUInt32BE(0),0x89504e47);
   return {image,width:b.readUInt32BE(16),height:b.readUInt32BE(20),sha256:createHash('sha256').update(b).digest('hex')};}));
+const mediaSources=await json('src/shared/media/sources.json');
 const media=[
-  ['src/shared/media/sources.json','User-supplied Microsoft photography, motifs and official light/dark wordmarks; local review only'],
+  ['src/shared/media/sources.json',mediaSources.scope],
   ['src/shared/business/worldLand.json','Natural Earth public-domain map geometry; see source metadata'],
   ['employee-hub-plugin/artwork.svg','Employee Hub identity family; Fluent UI System Icons, MIT']
 ];
@@ -39,10 +40,10 @@ const files=['sharepoint/solution/ms-employee-hub.sppkg','teams/employee-hub.zip
 const packages=await Promise.all(files.map(async file=>{const content=await read(file);return {file,bytes:content.length,sha256:createHash('sha256').update(content).digest('hex')};}));
 const production=await JSZip.loadAsync(await read(files[0]));
 const packedArt=new Map(await Promise.all(Object.values(production.files).filter(f=>!f.dir&&/^ClientSideAssets\/.*\.(jpg|png)$/i.test(f.name)).map(async f=>[createHash('sha256').update(await f.async('nodebuffer')).digest('hex'),f.name])));
-for(const a of (await json('src/shared/media/sources.json')).assets){
+for(const a of mediaSources.assets){
   const source=`src/shared/media/${a.file}`,digest=createHash('sha256').update(await read(source)).digest('hex');
   assert.equal(digest,a.sha256,`Stale campaign derivative: ${a.file}`);assert(packedArt.has(digest),`Artwork missing from the SPPKG: ${a.file}`);
-  assets.push({source,provenance:`${a.collection}/${a.original}${a.entry?'#'+a.entry:''} (local review)`,sha256:digest,packageMember:packedArt.get(digest)});
+  assets.push({source,provenance:`${a.collection}/${a.original}${a.entry?'#'+a.entry:''} (sample asset)`,sha256:digest,packageMember:packedArt.get(digest)});
 }
 const hostAudit=await json('release/host-package-audit.json');
 assert.equal(hostAudit.tools,30);assert.equal(hostAudit.webParts,34);assert.equal(new Set(hostAudit.manifests.map(m=>m.id)).size,64);
@@ -55,7 +56,7 @@ const base=JSON.parse(await cowork.file('manifest.json').async('string')),action
 assert.equal(action.runtimes[0].spec.url,base.agentConnectors[0].toolSource.remoteMcpServer.mcpServerUrl);
 assert.equal(new URL(action.runtimes[0].spec.url).hostname,'spfx-review.invalid');
 const exceptions=matrix.results.filter(r=>r.mode==='inline'&&(r.width===760&&r.height>650||r.width===390&&r.height>800)).map(({route,width,height,theme})=>({route,width,height,theme}));
-const report={scope:'Uncommitted local review only. Source and package evidence are not tenant acceptance.',generated:new Date().toISOString(),catalog:catalog.length,webParts:hostAudit.webParts,largestRawJs:hostAudit.largestJs,offlineStudioSha256:createHash('sha256').update(await read('.review-build/index.html')).digest('hex'),negativeRoutingPairs:collisions.length,parameterizedExamples:matrix.routedExamples.length,zoomChecks:matrix.zoomChecks.length,renderCount:matrix.results.length,journeys:matrix.journeys,inlineHeightExceptions:exceptions,assets,packages,screenshots:items};
+const report={scope:'Local synthetic review evidence. Source and package evidence are not authenticated host or tenant acceptance.',generated:new Date().toISOString(),catalog:catalog.length,webParts:hostAudit.webParts,largestRawJs:hostAudit.largestJs,offlineStudioSha256:createHash('sha256').update(await read('.review-build/index.html')).digest('hex'),negativeRoutingPairs:collisions.length,parameterizedExamples:matrix.routedExamples.length,zoomChecks:matrix.zoomChecks.length,renderCount:matrix.results.length,journeys:matrix.journeys,inlineHeightExceptions:exceptions,assets,packages,screenshots:items};
 await mkdir(path.join(root,'review','evidence'),{recursive:true});await writeFile(path.join(root,'review','evidence','candidate.json'),JSON.stringify(report,null,2)+'\n');
 console.log(`Audited ${packages.length} local packages, ${items.length} images and ${report.renderCount} renders; ${exceptions.length} inline height exceptions.`);
 assert.deepEqual(exceptions,[],'An initial inline view exceeds the review height budget');

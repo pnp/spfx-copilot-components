@@ -11,6 +11,8 @@
       "Try an inline component: A place to meet: \"Find a step-free room in London for six.\" Your learning path: \"What learning is due next?\" Device passport: \"Does my assigned laptop need attention?\" Lead conversion: \"How many partner leads in Germany became opportunities this quarter?\"",
       "The sample developer is Contoso. Five Teams personal apps and a separate Cowork connector accompany the SPFx solution. These local fixture captures are not authenticated host evidence."
     ],
+    "creationDateTime": "2026-11-28",
+    "updateDateTime": "2026-11-28",
     "products": [
       "SharePoint",
       "Copilot",
@@ -90,7 +92,9 @@
     ],
     "authors": [
       {
-        "name": "Contoso"
+        "gitHubAccount": "VesaJuvonen",
+        "pictureUrl": "https://github.com/VesaJuvonen.png",
+        "name": "Vesa Juvonen"
       }
     ],
     "references": [

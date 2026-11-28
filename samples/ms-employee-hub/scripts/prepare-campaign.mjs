@@ -35,5 +35,5 @@ try{
     await page.unroute('http://127.0.0.1/master');
   }
 }finally{await browser.close();}
-await writeFile(path.join(dir,'sources.json'),JSON.stringify({scope:'Microsoft campaign masters supplied for local design review. No assertion about depicted identities. Public redistribution and publisher approval remain open.',transform:'Browser-oriented proportional resize and metadata-free re-encoding.',assets:manifest},null,2)+'\n');
+await writeFile(path.join(dir,'sources.json'),JSON.stringify({scope:'Contributor-confirmed rights on 2026-11-28 to use and redistribute the supplied assets with this sample, including source, packages, screenshots and recordings. No assertion about depicted identities. Publisher verification and tenant deployment approval remain separate.',transform:'Browser-oriented proportional resize and metadata-free re-encoding.',assets:manifest},null,2)+'\n');
 console.log(`Prepared ${manifest.length} campaign derivatives, ${manifest.reduce((n,x)=>n+x.bytes,0)} bytes.`);
