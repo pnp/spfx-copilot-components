@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "36e8b6f7-c3c3-482c-96b5-93455247d9a6",
+  "alias": "ShowRequiredLearningCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowRequiredLearning",
+      "description": {
+        "default": "Use when: Find a personal learning assignment, inspect its due date and record a reviewed section. Do not use for: Find the latest published travel policy. Related but separate tools: FindPublishedGuidance."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showRequiredLearning/ShowRequiredLearningCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

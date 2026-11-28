@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "c386f97a-dac6-41db-b901-8a9befe14b03",
+  "alias": "ReviewEquipmentRequestCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ReviewEquipmentRequest",
+      "description": {
+        "default": "Use when: Inspect an assigned colleague's order, policy and cost; review and confirm a decision. Do not use for: Order a new item for myself. Related but separate tools: RequestEquipment."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/reviewEquipmentRequest/ReviewEquipmentRequestCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "91419b71-f7ed-4633-92c9-77e0a8e15ff4",
+  "alias": "MyPayslipWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Pay statements"
+      },
+      "description": {
+        "default": "Inspect a completed personal pay period. Values remain masked until revealed in the view."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTQgNS4yNUM0IDQuMDEgNSAzIDYuMjUgM2g5LjVDMTYuOTkgMyAxOCA0IDE4IDUuMjVWMTRoNHYzLjc1YzAgMS44LTEuNDYgMy4yNS0zLjI1IDMuMjVoLTUuOGMuMDMtLjE2LjA1LS4zMy4wNS0uNXYtMWgzLjVWNS4yNWEuNzUuNzUgMCAwIDAtLjc1LS43NWgtOS41YS43NS43NSAwIDAgMC0uNzUuNzVWMTRINFY1LjI1Wk0xOCAxOS41aC43NWMuOTcgMCAxLjc1LS43OCAxLjc1LTEuNzVWMTUuNUgxOHY0Wk04LjI1IDdhLjc1Ljc1IDAgMCAwIDAgMS41aDUuNWEuNzUuNzUgMCAwIDAgMC0xLjVoLTUuNVptLS43NSA0Ljc1YzAtLjQxLjM0LS43NS43NS0uNzVoNS41YS43NS43NSAwIDAgMSAwIDEuNWgtNS41YS43NS43NSAwIDAgMS0uNzUtLjc1Wk0yLjUgMTVjLS44MyAwLTEuNS42Ny0xLjUgMS41djRjMCAuODMuNjcgMS41IDEuNSAxLjVoOGMuODMgMCAxLjUtLjY3IDEuNS0xLjV2LTRjMC0uODMtLjY3LTEuNS0xLjUtMS41aC04Wm03LjUgMWExIDEgMCAwIDAgMSAxdjFhMiAyIDAgMCAxLTItMmgxWm0tMSA1YzAtMS4xLjktMiAyLTJ2MWExIDEgMCAwIDAtMSAxSDlabS03LTRhMSAxIDAgMCAwIDEtMWgxYTIgMiAwIDAgMS0yIDJ2LTFabTAgMmEyIDIgMCAwIDEgMiAySDNhMSAxIDAgMCAwLTEtMXYtMVptNC41LTIuMjVhMS43NSAxLjc1IDAgMSAxIDAgMy41IDEuNzUgMS43NSAwIDAgMSAwLTMuNVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

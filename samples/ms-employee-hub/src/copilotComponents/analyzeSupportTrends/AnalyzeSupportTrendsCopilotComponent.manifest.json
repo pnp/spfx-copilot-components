@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "bcdcaafa-1147-4673-8bf5-183cd744dfe7",
+  "alias": "AnalyzeSupportTrendsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "AnalyzeSupportTrends",
+      "description": {
+        "default": "Use when: Compare received and resolved support volumes across weeks for a scoped team. Do not use for: Trace the distribution of cases through service queues. Related but separate tools: TrackMyITTicket, TraceSupportFlow."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/analyzeSupportTrends/AnalyzeSupportTrendsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

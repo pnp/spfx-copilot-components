@@ -1,0 +1,117 @@
+@mixin styles {
+  :global {
+    .hrw-edition {
+      --edition-page: color-mix(in srgb, var(--hr-paper) 96%, #a48bc5);
+      --edition-blue: var(--hr-edition-blue);
+      --edition-hairline: color-mix(in srgb,var(--hr-ink) 13%,transparent);
+      background: var(--edition-page);
+      padding: clamp(.85rem,2cqw,2rem) clamp(.85rem,2.7cqw,3rem) clamp(2rem,4cqw,4rem);
+      .hrw-kicker { font-size: .66rem; letter-spacing: .14em; }
+      .hrw-mast { padding-bottom:.1rem; }
+      .hrw-hero { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(.8rem,2cqw,2rem); align-items:center;
+        margin:clamp(1.5rem,3.8cqw,3.9rem) 0 clamp(2rem,3.95cqw,4.2rem); }
+      .hrw-welcome h2 { font-size:clamp(2.6rem,5.75cqw,5.35rem); letter-spacing:-.062em; font-weight:550; line-height:1.04; margin:.34em 0; }
+      .hrw-welcome h2 em { color:var(--edition-blue); font-size:1.13em; }
+      .hrw-welcome p { font-size:clamp(1.05rem,1.7cqw,1.65rem); margin:.65em 0 .95em; line-height:1.4; }
+      .hrw-first-due { font-size:.75rem; margin-top:.75rem; }
+      .hrw-primary { background:#2754b8; color:white; border-radius:.42rem; padding:.72rem 1.2rem; }
+    }
+    .hrw-mark { display:inline-block; flex:none; width:1.3rem; height:1.3rem; }
+    .hrw-kicker .hrw-mark,.hrw-private-tag .hrw-mark { width:1rem;height:1rem; }
+    .hrw-private-tag { display:inline-flex; align-items:center; gap:.45rem; color:var(--hr-muted); font-weight:500; font-size:.77rem; }
+    .hrw-campaign { position:relative; isolation:isolate; width:100%; aspect-ratio:1.56; }
+    .hrw-campaign-composition { position:absolute; inset:0; }
+    .hrw-campaign-composition::before {content:'';position:absolute;left:8%;top:1%;width:34%;aspect-ratio:1;
+      border-radius:50%;background:radial-gradient(circle at 75% 65%,#fda78f 0 25%,#ffda51 26% 40%,#df528e 41% 47%,#bd399f 48% 70%,#9948aa 100%);}
+    .hrw-campaign-cover { position:absolute; inset:0 1% 0 22%; border-radius:36% 36% 4% 4% / 43% 43% 5% 5%;
+      background:#a6d8fa url('../media/hr-cover.jpg') 48% 34%/cover no-repeat; box-shadow:0 .8rem 1.8rem #40599c13; }
+    .hrw-campaign-cover::after { content:'';position:absolute;inset:43% 0 0;border-radius:0 0 5% 5%;
+      background:linear-gradient(180deg,transparent 10%,#142b5f66 65%,#102752b8); }
+    .hrw-campaign-flourish { position:absolute; left:8%;top:1%;width:34%;aspect-ratio:1;border-radius:50%;
+      background:url('../media/hr-flourish.png') 33% 98%/133% auto no-repeat; }
+    .hrw-campaign-inset { position:absolute; left:1%; bottom:-1%; width:32%; height:42%; transform:rotate(-7deg); border:clamp(4px,.45cqw,8px) solid #fbfafc;
+      border-radius:8% 8% 35% 8%; box-shadow:0 .7rem 1.5rem #252b5a26; background:#efe9ec url('../media/hr-inset.jpg') 48% 32%/cover no-repeat; }
+    .hrw-campaign-note { position:absolute; bottom:40%;left:0; transform:rotate(-8deg); padding:3% 3.4%; border-radius:.4rem;
+      color:#352d29;background:#f9dd79; box-shadow:0 .3rem .6rem #57462912; line-height:1.1; }
+    .hrw-campaign-note small { display:block; font-size:clamp(.47rem,.6cqw,.65rem); font-weight:680; text-transform:uppercase; letter-spacing:.08em; }
+    .hrw-campaign-note strong { display:block; font-size:clamp(.85rem,1.9cqw,1.72rem); font-weight:520; margin-top:.25em;letter-spacing:-.05em; }
+    .hrw-campaign-note i { position:absolute; top:-.6em;right:-.43em;color:#6b3976;font-size:clamp(1.4rem,3.6cqw,2.8rem);font-weight:300;font-style:normal; }
+    .hrw-campaign figcaption { position:absolute; right:6%; bottom:6%; color:#fff; font-size:clamp(.75rem,1.25cqw,1.2rem);
+      font-weight:500; line-height:1.25; text-align:end; text-shadow:0 1px 5px #142345; }
+    .hrw-campaign figcaption strong { display:block; font-size:1.55em; font-weight:610; letter-spacing:-.045em; }
+    .hrw-sectionhead,.hrw-desk-heading { display:flex;align-items:center;justify-content:space-between;gap:.75rem; }
+    .hrw-sectionhead { margin-bottom:clamp(.9rem,1.6cqw,1.6rem); }
+    .hrw-sectionhead h3 { margin:.12em 0 0; font-size:clamp(1.7rem,3.3cqw,3rem); }
+    .hrw-desk { display:grid; grid-template-columns:minmax(0,1.36fr) minmax(0,1.05fr) minmax(0,.86fr); gap:clamp(.65rem,1.4cqw,1.45rem); }
+    .hrw-desk > section { min-width:0; padding:clamp(1rem,1.65cqw,1.8rem); border-radius:.78rem;
+      border:1px solid var(--edition-hairline); display:flex; flex-direction:column; }
+    .hrw-desk h4 { font-size:clamp(1.25rem,2.15cqw,2.05rem); line-height:1.09; letter-spacing:-.045em; margin:.62em 0 .42em; }
+    .hrw-desk-agenda { background:var(--hr-paper); }
+    .hrw-count { border-radius:1rem; padding:.22rem .58rem; background:var(--hr-lilac); color:var(--hr-tint-ink); font-size:.72rem; white-space:nowrap; }
+    .hrw-desk-agenda ol { list-style:none; padding:0; margin:.12rem 0 auto; }
+    .hrw-task-line { width:100%; text-align:start; display:grid; align-items:center; grid-template-columns:auto minmax(0,1fr) auto; gap:.7rem;
+      background:transparent; color:inherit; border:0;border-bottom:1px solid var(--edition-hairline);border-radius:0; padding:.7rem 0; }
+    .hrw-task-line time { min-width:2.55rem; background:var(--edition-page);border:1px solid var(--edition-hairline); border-radius:.36rem; text-align:center; line-height:1.1;padding:.28rem .3rem; }
+    .hrw-task-line time small { text-transform:uppercase;letter-spacing:.05em;font-size:.57rem; }
+    .hrw-task-line time b { font-size:1.05rem;font-weight:600; }
+    .hrw-task-line small,.hrw-task-line strong,.hrw-task-line time b { display:block; }
+    .hrw-task-line span small { font-size:.7rem; font-weight:500; color:var(--hr-muted); }
+    .hrw-task-line strong { font-size:.97rem;font-weight:610;line-height:1.25; margin-top:.13rem; }
+    .hrw-task-line i { font-style:normal;font-size:1.24rem;color:var(--hr-muted); }
+    .hrw-desk-private { background:var(--hr-lilac); color:var(--hr-tint-ink); }
+    .hrw-desk-time { background:var(--hr-sand); color:var(--hr-tint-ink); }
+    .hrw-desk-private .hrw-kicker,.hrw-desk-time .hrw-kicker,.hrw-benefits-note .hrw-kicker { color:inherit; }
+    .hrw-desk-private p,.hrw-desk-time p {font-size:.94rem;line-height:1.45;max-width:37ch;margin:.4rem 0 1rem; }
+    .hrw-privacy-dots { font-size:1.85rem; letter-spacing:.07em;color:inherit;line-height:1.2; }
+    .hrw-desk-links { display:flex;flex-direction:column;align-items:flex-start;margin-top:auto;border-top:1px solid #77749550;padding-top:.45rem;}
+    .hrw-text-action { display:inline-flex;align-items:center;gap:.55rem;width:fit-content;max-width:100%;border:0;border-radius:0;color:inherit;background:transparent;
+      padding:.5rem 0;line-height:1.3;text-align:start;font-weight:625;font-size:.92rem; }
+    .hrw-text-action:hover { text-decoration:underline;text-underline-offset:.2em; }
+    .hrw-text-action span { font-size:1.1em;font-weight:450; }
+    .hrw-desk-agenda > .hrw-text-action { margin-top:.2rem;color:var(--edition-blue); }
+    .hrw-week-strip { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.15rem;margin:.5rem 0 .65rem; }
+    .hrw-week-strip time { line-height:1.25; text-align:center;padding:.3rem .1rem;border-block:1px solid #72634255; }
+    .hrw-week-strip small,.hrw-week-strip b { display:block; }
+    .hrw-week-strip small { font-size:.65rem; }.hrw-week-strip b {font-weight:600;}
+    .hrw-closed { text-decoration:line-through; }
+    .hrw-feature-story { display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1.05fr) minmax(0,.78fr);gap:clamp(1rem,2.4cqw,2.5rem);
+      align-items:center; margin-top:clamp(1.5rem,3.8cqw,3.7rem);border-top:1px solid var(--edition-hairline);padding-top:clamp(1.2rem,2.8cqw,2.8rem);}
+    .hrw-story-photo { width:100%;aspect-ratio:1.43; border-radius:.55rem 4rem .55rem .55rem;background:#d6e5f5 url('../media/hr-learning.jpg') center 38%/cover no-repeat;}
+    .hrw-story-copy h3 { margin:.3em 0;font-size:clamp(1.8rem,3.25cqw,3rem); }
+    .hrw-story-copy p,.hrw-manager-note p,.hrw-benefits-note p { line-height:1.45;font-size:.96rem;max-width:45ch; margin-bottom:.55rem; }
+    .hrw-benefits-note { padding-inline-start:clamp(.9rem,2cqw,2rem);border-inline-start:2px solid #a48bc5; }
+    .hrw-benefits-note h4 { font-size:clamp(1.2rem,1.7cqw,1.6rem); margin:.45em 0; }
+    .hrw-benefits-note .hrw-text-action { display:flex; }
+    .hrw-manager-note { display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(.8rem,2cqw,2rem); align-items:center;
+      border-block:1px solid var(--edition-hairline);margin-top:clamp(1.8rem,3.2cqw,3.1rem);padding:clamp(1rem,1.8cqw,2rem) 0; }
+    .hrw-manager-note > .hrw-mark { width:2.15rem;height:2.15rem;color:var(--edition-blue); }
+    .hrw-manager-note h3 { font-size:1.45rem;margin:.24em 0; }
+    .hrw-manager-note p { max-width:65ch; margin:0; }.hrw-manager-note .hrw-text-action { display:flex; }
+  }
+  @container hrweb (max-width:55rem) {
+    :global {
+      .hrw-desk { grid-template-columns:1.2fr 1fr; }
+      .hrw-desk-time { grid-column:1/-1; }
+      .hrw-desk-time h4 br { display:none; }
+      .hrw-desk-time .hrw-week-strip { max-width:18rem; }
+      .hrw-feature-story { grid-template-columns:1fr 1fr; }
+      .hrw-benefits-note { grid-column:1/-1; }
+    }
+  }
+  @container hrweb (max-width:36rem) {
+    :global {
+      .hrw-edition .hrw-hero { grid-template-columns:1fr;gap:1.35rem;margin:1.65rem 0 1.8rem; }
+      .hrw-edition .hrw-welcome h2 { font-size:clamp(2.6rem,10.8cqw,3.75rem); margin:.25em 0; }
+      .hrw-campaign { width:min(100%,26rem);margin-inline:auto; }
+      .hrw-campaign-note small { font-size:.48rem; }
+      .hrw-sectionhead { align-items:flex-end; }.hrw-sectionhead .hrw-private-tag { max-width:7rem;font-size:.72rem; }
+      .hrw-mast .hrw-private-tag { display:none; }
+      .hrw-desk,.hrw-feature-story { grid-template-columns:1fr; }
+      .hrw-desk-time,.hrw-benefits-note { grid-column:auto; }
+      .hrw-feature-story { margin-top:1.7rem; }
+      .hrw-desk h4 br { display:none; }
+      .hrw-manager-note { grid-template-columns:1fr; }.hrw-manager-note>.hrw-mark { display:none; }
+      .hrw-desk-links { flex-direction:row;flex-wrap:wrap;gap:.8rem; }
+    }
+  }
+}

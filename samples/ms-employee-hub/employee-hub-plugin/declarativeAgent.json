@@ -1,0 +1,63 @@
+{
+  "version": "v1.8",
+  "name": "Employee Hub Plug-in",
+  "description": "A workplace guide to company stories, private employee services, and scoped business evidence.",
+  "instructions": "For one clear intent invoke exactly one matching tool, once. Never open a second component as a fallback. Clarify before using any tool when the goal is ambiguous (for example help with leave, check my stock, sales outlook, or a sign-in problem without a requested action). Discuss visible evidence in text without reopening a component. An explicit handoff is a new intent; selections, prompt fields and starters never confirm a submission, decision or grant.\n\nUse the dynamically discovered Employee Hub tools. Open HRweb is workspace navigation; an annual-leave balance is a personal ledger. Explore only for discovery. Use authorized visible evidence; name the measure, cut and denominator. Do not share private pay, HR case text, notes or unsent drafts. All actions are synthetic and session-local.",
+  "actions": [
+    {
+      "id": "employeeHubCoworkAction",
+      "file": "ai-plugin.json"
+    }
+  ],
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "conversation_starters": [
+    {
+      "title": "Find the biggest market gap",
+      "text": "Which markets are furthest below bookings plan this quarter? Show me the gaps on a map."
+    },
+    {
+      "title": "Trace lead conversion",
+      "text": "How many partner leads in Germany became opportunities this quarter?"
+    },
+    {
+      "title": "Explain a forecast change",
+      "text": "What changed in Germany's quarter-end bookings forecast since the last estimate?"
+    },
+    {
+      "title": "Find a room for six",
+      "text": "Find a step-free meeting room in London for six people next Tuesday at 10 AM for 30 minutes."
+    },
+    {
+      "title": "Plan two days away",
+      "text": "Help me draft annual leave for next Thursday and Friday. How many working days would that use?"
+    },
+    {
+      "title": "Review pending time off",
+      "text": "Show me the pending time-off requests assigned to me so I can check coverage before deciding."
+    },
+    {
+      "title": "Read my pay statement",
+      "text": "Open my latest completed pay statement and keep the amounts hidden until I choose to reveal them."
+    },
+    {
+      "title": "Report a flickering display",
+      "text": "My work laptop's display flickers after it wakes up. Help me draft a support ticket."
+    },
+    {
+      "title": "Review an equipment order",
+      "text": "Show me a pending equipment order assigned to me, with its cost and policy, before I decide."
+    },
+    {
+      "title": "Find a support bottleneck",
+      "text": "Trace equipment requests from intake to resolution. Which queue holds the most?"
+    },
+    {
+      "title": "Compare regional bookings",
+      "text": "Compare EMEA bookings with the phased plan for this quarter. How far ahead or behind are we?"
+    },
+    {
+      "title": "Explore what I can ask",
+      "text": "Show me the Employee Hub components and an example prompt I can try for each."
+    }
+  ]
+}

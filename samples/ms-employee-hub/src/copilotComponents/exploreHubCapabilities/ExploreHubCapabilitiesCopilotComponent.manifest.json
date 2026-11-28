@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "524a29cf-9ccb-4367-85a3-035080b6c6a6",
+  "alias": "ExploreHubCapabilitiesCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExploreHubCapabilities",
+      "description": {
+        "default": "Use when: Browse and preview the 28 operational capabilities without taking action. Do not use for: Open a specific workspace or perform a known task. Related but separate tools: OpenEmployeeHub."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/exploreHubCapabilities/ExploreHubCapabilitiesCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

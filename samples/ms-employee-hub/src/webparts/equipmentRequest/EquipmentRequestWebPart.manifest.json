@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7a4c8772-b2bc-492d-bee3-e852d322dac8",
+  "alias": "EquipmentRequestWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Equipment desk"
+      },
+      "description": {
+        "default": "Prepare an equipment order with catalog cost, lead time and rationale; review before confirming."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTEwLjYgMi41MWMuOS0uMzYgMS45LS4zNiAyLjggMGw3LjUgMy4wNGMuNjcuMjcgMS4xLjkxIDEuMSAxLjYydjkuNjZjMCAuNzEtLjQzIDEuMzUtMS4xIDEuNjJsLTcuNSAzLjA0Yy0uOS4zNy0xLjkuMzctMi44IDBsLTcuNS0zLjA0Yy0uNjctLjI3LTEuMS0uOTEtMS4xLTEuNjJWNy4xN2MwLS43LjQzLTEuMzUgMS4xLTEuNjJsNy41LTMuMDRabTIuMjUgMS40YTIuMjUgMi4yNSAwIDAgMC0xLjcgMGwtMS45Ljc3IDcuNTIgMi45MyAyLjY3LTEuMDMtNi42LTIuNjhabTEuODQgNC41TDcuMjEgNS41IDQuNiA2LjU2IDEyIDkuNDVsMi43LTEuMDRaTTMuNSAxNi44M2MwIC4xLjA2LjIuMTYuMjNsNy41IDMuMDQuMDkuMDR2LTkuMzhMMy41IDcuNzV2OS4wOFptOS4zNSAzLjI3IDcuNS0zLjA0Yy4wOS0uMDQuMTUtLjEzLjE1LS4yM1Y3Ljc3bC03Ljc1IDN2OS4zN2wuMS0uMDRaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+"
+    }
+  ]
+}

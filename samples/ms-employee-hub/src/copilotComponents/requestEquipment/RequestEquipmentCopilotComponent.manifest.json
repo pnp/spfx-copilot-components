@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "15094742-3c56-4d7c-a7ee-7662e5e099c2",
+  "alias": "RequestEquipmentCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "RequestEquipment",
+      "description": {
+        "default": "Use when: Prepare an equipment order with catalog cost, lead time and rationale; review before confirming. Do not use for: Approve a colleague's equipment order. Related but separate tools: InspectMyDevice, ReviewEquipmentRequest."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/requestEquipment/RequestEquipmentCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

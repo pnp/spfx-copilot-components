@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ae3249b6-ed1b-459a-b737-224f19f9bec2",
+  "alias": "AppAccessRequestWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "App access"
+      },
+      "description": {
+        "default": "Prepare a least-privilege app access request for resource-owner review; never grant access."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTE4LjI1IDdhMS4yNSAxLjI1IDAgMSAxLTIuNSAwIDEuMjUgMS4yNSAwIDAgMSAyLjUgMFpNMTUuNSAyLjA1QTYuNTUgNi41NSAwIDAgMCA5LjA2IDkuN2MuMDIuMS0uMDIuMi0uMDcuMjVsLTYuMjQgNi4yM2MtLjUxLjUyLS44IDEuMjItLjggMS45NXYyLjE3YzAgLjk3Ljc4IDEuNzUgMS43NSAxLjc1aDIuNWMuOTcgMCAxLjc1LS43OCAxLjc1LTEuNzV2LTEuMjVIOS43Yy42OSAwIDEuMjUtLjU2IDEuMjUtMS4yNXYtMS43NWgxLjc1Yy42NyAwIDEuMjItLjU0IDEuMjUtMS4yYTYuNTUgNi41NSAwIDAgMCA4LjEtNi4zNSA2LjQ3IDYuNDcgMCAwIDAtNi41NS02LjQ1Wk0xMC40NSA4LjZhNS4wNSA1LjA1IDAgMCAxIDUuMDUtNS4wNWMyLjggMCA1LjA1IDIuMTggNS4wNSA0Ljk1YTUuMDUgNS4wNSAwIDAgMS03LjA2IDQuNjEuNzUuNzUgMCAwIDAtMS4wNC42OXYuNzVIMTAuN2MtLjcgMC0xLjI1LjU2LTEuMjUgMS4yNXYxLjc1SDcuN2MtLjcgMC0xLjI1LjU2LTEuMjUgMS4yNXYxLjVjMCAuMTQtLjExLjI1LS4yNS4yNUgzLjdhLjI1LjI1IDAgMCAxLS4yNS0uMjV2LTIuMTdjMC0uMzMuMTMtLjY1LjM3LS44OWw2LjIzLTYuMjNjLjQyLS40Mi41OC0xIC40OS0xLjU3LS4wNi0uMy0uMS0uNTgtLjEtLjg0WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "491e21a2-72b7-426a-9539-2de963756245",
+  "alias": "SalesPerformanceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Bookings scorecard"
+      },
+      "description": {
+        "default": "Compare regional bookings against the phased plan and inspect weighted attainment."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTUuNzUgM0M2Ljk5IDMgOCA0IDggNS4yNXYxMy41YTIuMjUgMi4yNSAwIDEgMS00LjUgMFY1LjI1QzMuNSA0IDQuNSAzIDUuNzUgM1ptNi41IDRjMS4yNCAwIDIuMjUgMSAyLjI1IDIuMjV2OS41YTIuMjUgMi4yNSAwIDEgMS00LjUgMHYtOS41QzEwIDggMTEgNyAxMi4yNSA3Wm02LjUgNGMxLjI0IDAgMi4yNSAxIDIuMjUgMi4yNXY1LjVhMi4yNSAyLjI1IDAgMSAxLTQuNSAwdi01LjVjMC0xLjI0IDEtMi4yNSAyLjI1LTIuMjVabS0xMy02LjVhLjc1Ljc1IDAgMCAwLS43NS43NXYxMy41YS43NS43NSAwIDAgMCAxLjUgMFY1LjI1YS43NS43NSAwIDAgMC0uNzUtLjc1Wm02LjUgNGEuNzUuNzUgMCAwIDAtLjc1Ljc1djkuNWEuNzUuNzUgMCAwIDAgMS41IDB2LTkuNWEuNzUuNzUgMCAwIDAtLjc1LS43NVptNi41IDRhLjc1Ljc1IDAgMCAwLS43NS43NXY1LjVhLjc1Ljc1IDAgMCAwIDEuNSAwdi01LjVhLjc1Ljc1IDAgMCAwLS43NS0uNzVaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+"
+    }
+  ]
+}

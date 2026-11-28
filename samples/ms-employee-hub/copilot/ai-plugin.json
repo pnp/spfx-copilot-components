@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "employeeHub",
+  "name_for_human": "Employee Hub",
+  "description_for_human": "Workplace, HR, technology and commercial questions in one employee hub.",
+  "description_for_model": "Use the most specific authorized Employee Hub tool for the request. Do not equate reports, drafts or selections with approvals or grants. Use only visible aggregate evidence for discussion. Private records stay in the app."
+}

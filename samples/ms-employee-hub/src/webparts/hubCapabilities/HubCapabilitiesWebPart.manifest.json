@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "0c4b15da-7547-4d27-83f1-2ee02b0c3bf1",
+  "alias": "HubCapabilitiesWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Explore the hub"
+      },
+      "description": {
+        "default": "Browse and preview the 28 operational capabilities without taking action."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzI3NDk5MyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzI3NDk5MyIgZmlsbD0iIzI3NDk5MyI+PHBhdGggZD0iTTEzIDUuNzVhLjc1Ljc1IDAgMCAwLTEuNSAwdjEuNkEyLjc1IDIuNzUgMCAwIDAgMTAuMzUgMTJsLTEuMyAzLjIzYS43NS43NSAwIDAgMCAxLjQuNTZsMS4yMy0zLjA5YTIuNzYgMi43NiAwIDAgMCAxLjE0IDBsMS4yMyAzLjA5YS43NS43NSAwIDAgMCAxLjQtLjU2TDE0LjE1IDEyQTIuNzQgMi43NCAwIDAgMCAxMyA3LjM1di0xLjZaTTExIDEwYTEuMjUgMS4yNSAwIDEgMSAyLjUgMCAxLjI1IDEuMjUgMCAwIDEtMi41IDBaTTYuNSAyQTIuNSAyLjUgMCAwIDAgNCA0LjV2MTVBMi41IDIuNSAwIDAgMCA2LjUgMjJoMTMuMjVhLjc1Ljc1IDAgMCAwIDAtMS41SDYuNWExIDEgMCAwIDEtMS0xaDE0LjI1Yy40MSAwIC43NS0uMzQuNzUtLjc1VjQuNUEyLjUgMi41IDAgMCAwIDE4IDJINi41Wk0xOSAxOEg1LjVWNC41YTEgMSAwIDAgMSAxLTFIMThhMSAxIDAgMCAxIDEgMVYxOFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

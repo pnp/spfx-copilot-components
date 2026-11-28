@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "9c47c2ab-70a4-4353-b536-532f90bdec5b",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Employee Hub",
+    "full": "Microsoft Employee Hub"
+  },
+  "description": {
+    "short": "Your employee workspace for information, review and simulated actions.",
+    "full": "Explore workplace news, HR services, technology support and commercial insights using synthetic records."
+  },
+  "accentColor": "#424297",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "employeeHubAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "a9f89e52-f7da-4d6d-9c66-6c60a65da68d",
+  "alias": "ReadCompanyNewsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ReadCompanyNews",
+      "description": {
+        "default": "Use when: Read or save a recent company story by topic or story ID. Do not use for: Find the next town hall. Related but separate tools: FindCompanyEvents."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/readCompanyNews/ReadCompanyNewsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

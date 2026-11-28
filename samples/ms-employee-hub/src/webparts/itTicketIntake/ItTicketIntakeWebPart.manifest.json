@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "4ae2d93e-9a48-4d3c-b5c7-59e189ed5491",
+  "alias": "ItTicketIntakeWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Get technology help"
+      },
+      "description": {
+        "default": "Prepare a new break/fix ticket with a device, impact and optional guide. Review before submitting."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTYuNzUgMjJhLjc1Ljc1IDAgMCAxLS4xLTEuNUg4LjVWMThINC4yNWMtMS4yIDAtMi4xNy0uOTItMi4yNC0yLjFMMiAxNS43NlYxM2gxLjV2Mi43NWMwIC4zOC4yOC43LjY1Ljc1aDE1LjZjLjM4IDAgLjctLjI4Ljc0LS42NVYxM0gyMnYyLjc1YzAgMS4yLS45MiAyLjE3LTIuMDkgMi4yNWgtNC40djIuNWgxLjc1YS43NS43NSAwIDAgMSAuMSAxLjVINi43NVpNMTQgMThoLTR2Mi41aDRWMThaTTMuNSA5LjVIMlY1LjI1YzAtMS4yLjkzLTIuMTcgMi4xLTIuMjRMNC4yNSAzaDE1LjVjMS4xOSAwIDIuMTYuOTMgMi4yNCAyLjF2NC40aC0xLjVWNS4yNWMwLS4zOC0uMjctLjctLjY0LS43NGwtLjEtLjAxSDQuMjVjLS4zOCAwLS43LjI4LS43NC42NWwtLjAxLjFWOS41Wm02LjItMy4wM2EuNzUuNzUgMCAwIDAtMS4zOC0uMDNMNi40OSAxMC41SDIuNzVhLjc1Ljc1IDAgMCAwIDAgMS41aDQuMjNjLjMgMCAuNTYtLjE3LjY4LS40NGwxLjMtMi44OSAyLjM0IDUuODZhLjc1Ljc1IDAgMCAwIDEuMzUuMWwyLjY1LTQuNSAxLjA5IDEuNTVjLjE0LjIuMzcuMzIuNjEuMzJoNC4yNWEuNzUuNzUgMCAwIDAgMC0xLjVoLTMuODZsLTEuNTMtMi4xOGEuNzUuNzUgMCAwIDAtMS4yNi4wNWwtMi40NyA0LjE5TDkuNyA2LjQ3WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

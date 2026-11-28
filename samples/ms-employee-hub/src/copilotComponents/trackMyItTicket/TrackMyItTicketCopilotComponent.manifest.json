@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "e44acf2c-939d-4797-8d83-51bdcced943d",
+  "alias": "TrackMyItTicketCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "TrackMyITTicket",
+      "description": {
+        "default": "Use when: Inspect an existing personal ticket thread and its next owner. Do not use for: Report a new device problem. Related but separate tools: CheckServiceHealth, SubmitITTicket, AnalyzeSupportTrends."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/trackMyItTicket/TrackMyItTicketCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

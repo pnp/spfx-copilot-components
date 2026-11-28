@@ -1,0 +1,111 @@
+@mixin styles {
+  &[data-hr-mode="full"] :global {
+    .hrw-task { --book-accent:#715eac; --book-tint:color-mix(in srgb,var(--hr-paper) 94%,#b5a8d7);
+      padding:clamp(1rem,2.4cqw,2.6rem) clamp(.85rem,2.7cqw,3rem); background:var(--book-tint); }
+    .hrw-task[data-hr-book^="time-"],.hrw-task[data-hr-book="coverage"],.hrw-task[data-hr-book="leave-decisions"] {
+      --book-accent:#ad7944; --book-tint:color-mix(in srgb,var(--hr-paper) 94%,#ceae82);
+    }
+    .hrw-task[data-hr-book="learning"],.hrw-task[data-hr-book="benefits"] { --book-accent:#6f7a9c; }
+    .hrw-task-title { max-width:76rem; margin-bottom:clamp(1rem,2.45cqw,2.5rem); }
+    .hrw-task-title .hrw-kicker::before { content:''; width:1.55rem;height:2px;background:var(--book-accent); }
+    .hrw-task-title h2 { font-size:clamp(2rem,4.7cqw,4.1rem); line-height:1.03; }
+    .hrw-task-title p { font-size:clamp(1rem,1.3cqw,1.18rem); }
+    .hrw-task .hrw-columns { grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr); gap:clamp(.85rem,2.1cqw,2rem); }
+    .hrw-task .hrw-paper { padding:clamp(1rem,2.2cqw,2.1rem); border:1px solid var(--hr-line);background:var(--hr-paper);border-radius:.7rem; }
+    .hrw-task .hrw-aside { padding:clamp(1rem,2.1cqw,2rem); border:1px solid color-mix(in srgb,var(--hr-ink) 12%,transparent);border-radius:.7rem; }
+    .hrw-task .hrw-source { border-top:0; }
+    .hrw-task .hrw-tools { gap:1.2rem; }
+    .hrw-task [type="date"] { font-variant-numeric:tabular-nums; }
+    .hrw-task .hrw-receipt { background:var(--hr-paper); border:1px solid var(--hr-line);border-inline-start:4px solid var(--book-accent);padding:clamp(1rem,2.3cqw,2rem); }
+    .hrw-task[data-hr-book="time-request"] .hrw-columns { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); align-items:start; }
+    .hrw-impact { border-inline-start:3px solid var(--book-accent); padding:1rem 1.15rem; }
+    .hrw-impact h4 { font-size:1.35rem; letter-spacing:-.03em; }
+    .hrw-ledger-sheet { grid-column:1/-1; display:grid;grid-template-columns: minmax(0,1fr) minmax(0,1fr);gap:clamp(1.2rem,4cqw,4rem);
+      align-items:start; padding:clamp(1rem,2.1cqw,2rem);border:1px solid var(--hr-line);border-radius:.65rem;background:var(--hr-sand);color:var(--hr-tint-ink); }
+    .hrw-ledger-sheet .hrw-kicker { color:inherit; }
+    .hrw-ledger-sheet h3 { margin:.3em 0; }.hrw-ledger-sheet p { font-size:.92rem; }
+    .hrw-ledger-sheet .hrw-lines { margin:0; }
+    .hrw-balance-meter { margin:1.25rem 0 1.45rem; }
+    .hrw-meter-strip { display:flex; background:var(--hr-line);width:100%;height:.65rem;border-radius:.4rem; overflow:hidden; }
+    .hrw-meter-strip i {flex-basis:0;}.hrw-meter-available {background:#496795;}.hrw-meter-booked{background:#b89e79;}
+    .hrw-meter-pending{background:repeating-linear-gradient(-55deg,#56496e 0 3px,#bdaeca 3px 6px);}
+    .hrw-balance-meter p { margin:.4rem 0 0;font-size:.81rem; }
+    .hrw-month {background:var(--hr-paper);border:1px solid var(--hr-line);border-top:4px solid var(--book-accent);border-radius:.65rem;
+      padding:clamp(.8rem,1.55cqw,1.45rem);min-width:0;}
+    .hrw-month header { display:flex; align-items:center;justify-content:space-between;gap:.45rem; }
+    .hrw-month header h4 { margin:.18em 0;font-size:clamp(1.4rem,2.25cqw,2rem);letter-spacing:-.045em; }
+    .hrw-month-controls,.hrw-picker-switch { display:flex;align-items:center;gap:.35rem; }
+    .hrw-month-controls button { border:1px solid var(--hr-line);color:inherit;background:var(--hr-paper);border-radius:50%;
+      display:grid;place-items:center;min-width:2.1rem;min-height:2.1rem;padding:0;line-height:1;font-size:1.45rem; }
+    .hrw-picker-switch { margin:.8rem 0;flex-wrap:wrap;font-size:.8rem; }
+    .hrw-picker-switch > span { margin-right:.25rem;color:var(--hr-muted); }
+    .hrw-picker-switch button { font:inherit;border:1px solid var(--hr-line);border-radius:2rem;color:var(--hr-muted);background:var(--hr-paper);padding:.32rem .65rem; }
+    .hrw-picker-switch button[aria-pressed=true] {border-color:var(--hr-blue);color:var(--hr-blue);box-shadow:none;background:var(--hr-soft);}
+    .hrw-month table { table-layout:fixed;border-collapse:separate;border-spacing:0 .2rem;width:100%;margin:.65rem 0; }
+    .hrw-month th {text-align:center;font-size:.72rem;font-weight:600; color:var(--hr-muted);border-bottom:1px solid var(--hr-line);padding:.2rem 0 .4rem; }
+    .hrw-month td { text-align:center; font-variant-numeric:tabular-nums; padding:0; }
+    .hrw-date-choice,.hrw-month td>span { display:block;width:100%;padding:.28rem .02rem; min-height:1.9rem; font-size:.92rem;line-height:1.35;
+      font-weight:550; border:1px solid transparent; border-radius:.25rem; box-shadow:none; background:transparent;color:inherit; }
+    .hrw-date-choice {position:relative;}
+    .hrw-date-choice input {position:absolute;inset:0;cursor:pointer;width:100%;height:100%;margin:0;opacity:0;}
+    .hrw-date-choice:has(input:focus-visible) {outline:3px solid var(--colorStrokeFocus2,#335dc2);outline-offset:1px;}
+    .hrw-date-choice input:disabled {cursor:not-allowed;}
+    .hrw-date-choice input:disabled + span {opacity:.68;}
+    .hrw-date-choice input[aria-current=date] + span {text-decoration:underline;text-underline-offset:.18em;}
+    .hrw-day-range { color:#233b6e; background:#dae6fa; }
+    .hrw-day-edge { background:#294d88;color:white;border-radius:.28rem; }
+    .hrw-day-closed { color:var(--hr-muted);background:var(--hr-soft); }
+    .hrw-month-key { display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--hr-muted);font-size:.73rem; }
+    .hrw-month-key i { width:.7rem;height:.7rem;background:#294d88;border-radius:.15rem; }
+    .hrw-reading-lead { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:end;gap:clamp(.75rem,1.5cqw,1.45rem);
+      padding-bottom:1.4rem;margin-bottom:1.2rem;border-bottom:1px solid var(--hr-line); }
+    .hrw-reading-lead h3 { font-size:clamp(1.4rem,2.4cqw,2.35rem); }
+    .hrw-reading-lead p,.hrw-tranche-no { font-size:.8rem;color:var(--hr-muted); }
+    .hrw-lesson-photo { aspect-ratio:1.25;background:#d7dfdc url('../media/hr-learning.jpg') 52% 38%/cover no-repeat;border-radius:.45rem 2.7rem .45rem .45rem;}
+    .hrw-chapter-progress { display:flex;gap:.22rem; margin:1.15rem 0; }
+    .hrw-chapter-progress i { flex:1;height:.4rem;background:var(--hr-line);border-radius:1rem; }
+    .hrw-chapter-progress .hrw-checked { background:var(--hr-blue); }.hrw-chapter-progress .hrw-reading { background:#987fb7; }
+    .hrw-task .hrw-outline { list-style:decimal-leading-zero;padding-left:1.75rem; }
+    .hrw-outline li {border-bottom:1px solid var(--hr-line); }.hrw-outline li::marker{font-size:.76rem;font-weight:600;}
+    .hrw-task .hrw-outline button[aria-current="step"] { border-color:transparent;border-inline-start:3px solid var(--hr-blue);border-radius:0; }
+    .hrw-calendar-stamp { display:grid;width:4.7rem;text-align:center;margin:1.15rem 0 .85rem;
+      border:1px solid #977a52;border-radius:.4rem;background:#fffcf6;color:#4a392a; }
+    .hrw-calendar-stamp span { display:block;padding:.16rem 0;text-transform:uppercase;letter-spacing:.13em;background:#f4d8ac;border-radius:.4rem .4rem 0 0;font-size:.73rem;font-weight:650; }
+    .hrw-calendar-stamp b {font-weight:550;font-size:2.2rem;line-height:1.28;}
+    .hrw-task .hrw-checks label {padding:.78rem .2rem; border-bottom:1px solid var(--hr-line);}
+    .hrw-task .hrw-checks input { accent-color:var(--hr-blue); flex-shrink:0; }
+    .hrw-task[data-hr-book="pay-statements"] .hrw-paper { border-top:4px solid #78689b; }
+    .hrw-task .hrw-private { border:0;border-top:1px dashed var(--hr-line);border-radius:0;padding:1.1rem 0 .1rem;background:transparent; }
+    .hrw-mask-rule {display:block;letter-spacing:.14em;font-size:1.6rem;line-height:1.3;color:var(--hr-ink); }
+    .hrw-pay-guide { list-style:decimal-leading-zero; padding-left:1.8rem; margin:1rem 0 1.2rem; }
+    .hrw-pay-guide li { padding:.65rem 0 .65rem .35rem;border-bottom:1px solid #77749550; }
+    .hrw-pay-guide li::marker { font-size:.72rem; }
+    .hrw-pay-guide strong,.hrw-pay-guide span { display:block; }.hrw-pay-guide span{font-size:.9rem;line-height:1.36;}
+    .hrw-task .hrw-timeline { display:flex;flex-wrap:wrap;gap:.6rem; }
+    .hrw-task .hrw-timeline li { flex:1 1 7.5rem; border:0;border-top:3px solid var(--book-accent);background:var(--book-tint);padding:.65rem .75rem;margin:0; }
+    .hrw-task .hrw-timeline li::before {content:none;}.hrw-tranche-no {display:block;margin-bottom:.3rem;}
+    .hrw-task[data-hr-book="rewards"] .hrw-aside::after { content:'';display:block;width:100%;height:4.2rem;margin-top:.7rem;background:url('../media/hr-flourish.png') right center/contain no-repeat; }
+    .hrw-roster { display:flex; gap:2px;height:1.2rem; }.hrw-roster i { flex:1;min-width:0;border-radius:2px; background:var(--hr-line);}
+    .hrw-roster .hrw-on { background:var(--hr-blue); }.hrw-roster .hrw-reserved {background:repeating-linear-gradient(-60deg,#b09567 0 3px,#f5dbad 3px 6px);}
+    .hrw-task .hrw-bands {grid-template-columns:repeat(auto-fit,minmax(min(100%,5.4rem),1fr));gap:.45rem;}
+    .hrw-roster-key { color:var(--hr-muted);font-size:.77rem;line-height:1.4; }
+    .hrw-evidence-brief,.hrw-delivery-card {margin:1rem 0;padding:.6rem 0;border-block:1px solid #77749550;}
+    .hrw-evidence-brief > div,.hrw-delivery-card > div {display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.38rem 0;}
+    .hrw-evidence-brief dt,.hrw-delivery-card dt {font-size:.85rem;}
+    .hrw-evidence-brief dd,.hrw-delivery-card dd {margin:0;text-align:end;font-weight:625;}
+    .hrw-evidence-brief dd {font-variant-numeric:tabular-nums;}
+  }
+  @container hrweb (max-width:45rem) {
+    &[data-hr-mode="full"] :global {
+      .hrw-task .hrw-columns,.hrw-task[data-hr-book="time-request"] .hrw-columns,.hrw-ledger-sheet { grid-template-columns:minmax(0,1fr); }
+      .hrw-ledger-sheet{gap:.65rem;}
+    }
+  }
+  @container hrweb (max-width:30rem) {
+    &[data-hr-mode="full"] :global {
+      .hrw-reading-lead {grid-template-columns:1fr;}.hrw-lesson-photo{aspect-ratio:1.8;}
+      .hrw-month header {flex-wrap:wrap;}
+      .hrw-month table{border-spacing:0 .12rem;}
+    }
+  }
+}

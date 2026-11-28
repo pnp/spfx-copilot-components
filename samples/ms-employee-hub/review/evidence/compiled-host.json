@@ -1,0 +1,1898 @@
+{
+  "sha256": "051cf8f450d640df4f8b9cb4c0f33fc3e416922aba2121cadab43147cf2664ac",
+  "bytes": 3180822,
+  "simulation": "Packaged JS with local synthetic SPFx/bridge callbacks; no authenticated host or model",
+  "uniqueComponents": 64,
+  "completed": 130,
+  "semanticProbes": [
+    {
+      "id": 21,
+      "control": "Next step",
+      "visibleUiChanged": true,
+      "publishedContextChanged": true
+    },
+    {
+      "id": 14,
+      "control": "Next year",
+      "visibleUiChanged": true,
+      "publishedContextChanged": true
+    }
+  ],
+  "stateProbes": [
+    {
+      "id": 2,
+      "sameInstance": true,
+      "bookmarkSurvivedTheme": true,
+      "retainedInSavedFilter": true,
+      "isolatedOnIdentityChange": true
+    }
+  ],
+  "unknownReferences": [
+    {
+      "id": 21,
+      "key": "guideId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 24,
+      "key": "itemId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 5,
+      "key": "resourceId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 17,
+      "key": "requestId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 28,
+      "key": "appId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 10,
+      "key": "courseId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 22,
+      "key": "deviceId",
+      "stage": "draft"
+    },
+    {
+      "id": 20,
+      "key": "serviceId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 1,
+      "key": "eventId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 16,
+      "key": "teamId",
+      "stage": "denied"
+    },
+    {
+      "id": 13,
+      "key": "awardId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 3,
+      "key": "marketId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 2,
+      "key": "storyId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 26,
+      "key": "teamId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 4,
+      "key": "officeId",
+      "stage": "draft"
+    },
+    {
+      "id": 25,
+      "key": "requestId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 19,
+      "key": "deviceId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 27,
+      "key": "queueId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 6,
+      "key": "evidenceId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 23,
+      "key": "ticketId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 9,
+      "key": "marketId",
+      "stage": "unavailable"
+    },
+    {
+      "id": 7,
+      "key": "marketId",
+      "stage": "unavailable"
+    }
+  ],
+  "errors": [],
+  "visited": [
+    {
+      "kind": "CopilotComponent",
+      "id": 21,
+      "alias": "FindTroubleshootingGuideCopilotComponent",
+      "guid": "1170607c-8322-42c8-8d51-5227fa18defe",
+      "mode": "inline",
+      "route": "tech/guides",
+      "parameters": false,
+      "headings": [
+        "Reconnect a second screen",
+        "Connect the display directly to the powered dock and select its USB-C input."
+      ],
+      "layout": "tech-guides-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 21,
+      "alias": "FindTroubleshootingGuideCopilotComponent",
+      "guid": "1170607c-8322-42c8-8d51-5227fa18defe",
+      "mode": "inline",
+      "route": "tech/guides",
+      "parameters": true,
+      "headings": [
+        "Reconnect a second screen",
+        "Connect the display directly to the powered dock and select its USB-C input."
+      ],
+      "layout": "tech-guides-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 21,
+      "alias": "FindTroubleshootingGuideCopilotComponent",
+      "guid": "1170607c-8322-42c8-8d51-5227fa18defe",
+      "mode": "full",
+      "route": "tech/guides",
+      "parameters": true,
+      "headings": [
+        "Reconnect a second screen",
+        "Connect the display directly to the powered dock and select its USB-C input.",
+        "Carry the reference forward"
+      ],
+      "layout": "tech-guides-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 21,
+      "alias": "FindTroubleshootingGuideCopilotComponent",
+      "guid": "1170607c-8322-42c8-8d51-5227fa18defe",
+      "mode": "inline",
+      "route": "tech/guides",
+      "parameters": false,
+      "headings": [
+        "Reconnect a second screen",
+        "Connect the display directly to the powered dock and select its USB-C input."
+      ],
+      "layout": "tech-guides-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 12,
+      "alias": "ViewMyPayslipCopilotComponent",
+      "guid": "057c1ccb-7e53-4fae-99ae-58baf34a146c",
+      "mode": "inline",
+      "route": "hr/pay-statements",
+      "parameters": false,
+      "headings": [
+        "Your pay statement.",
+        "Oct 1 – Oct 31, 2026"
+      ],
+      "layout": "hr-pay-statements-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 12,
+      "alias": "ViewMyPayslipCopilotComponent",
+      "guid": "057c1ccb-7e53-4fae-99ae-58baf34a146c",
+      "mode": "inline",
+      "route": "hr/pay-statements",
+      "parameters": true,
+      "headings": [
+        "Your pay statement.",
+        "Oct 1 – Oct 31, 2026"
+      ],
+      "layout": "hr-pay-statements-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 12,
+      "alias": "ViewMyPayslipCopilotComponent",
+      "guid": "057c1ccb-7e53-4fae-99ae-58baf34a146c",
+      "mode": "full",
+      "route": "hr/pay-statements",
+      "parameters": true,
+      "headings": [
+        "Your pay statement.",
+        "Oct 1 – Oct 31, 2026",
+        "Earnings & deductions"
+      ],
+      "layout": "hr-pay-statements-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 24,
+      "alias": "RequestEquipmentCopilotComponent",
+      "guid": "15094742-3c56-4d7c-a7ee-7662e5e099c2",
+      "mode": "inline",
+      "route": "tech/equipment-request",
+      "parameters": false,
+      "headings": [
+        "Equip your workspace"
+      ],
+      "layout": "tech-equipment-request-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 24,
+      "alias": "RequestEquipmentCopilotComponent",
+      "guid": "15094742-3c56-4d7c-a7ee-7662e5e099c2",
+      "mode": "inline",
+      "route": "tech/equipment-request",
+      "parameters": true,
+      "headings": [
+        "Equip your workspace"
+      ],
+      "layout": "tech-equipment-request-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 24,
+      "alias": "RequestEquipmentCopilotComponent",
+      "guid": "15094742-3c56-4d7c-a7ee-7662e5e099c2",
+      "mode": "full",
+      "route": "tech/equipment-request",
+      "parameters": true,
+      "headings": [
+        "Equip your workspace",
+        "Fit for your desk"
+      ],
+      "layout": "tech-equipment-request-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 5,
+      "alias": "FindPublishedGuidanceCopilotComponent",
+      "guid": "21fbf32e-c837-4060-b6af-cf8819f81f73",
+      "mode": "inline",
+      "route": "company/guidance",
+      "parameters": false,
+      "headings": [
+        "The field guide"
+      ],
+      "layout": "company-5-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 5,
+      "alias": "FindPublishedGuidanceCopilotComponent",
+      "guid": "21fbf32e-c837-4060-b6af-cf8819f81f73",
+      "mode": "inline",
+      "route": "company/guidance",
+      "parameters": true,
+      "headings": [
+        "The field guide"
+      ],
+      "layout": "company-5-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 5,
+      "alias": "FindPublishedGuidanceCopilotComponent",
+      "guid": "21fbf32e-c837-4060-b6af-cf8819f81f73",
+      "mode": "full",
+      "route": "company/guidance",
+      "parameters": true,
+      "headings": [
+        "The field guide"
+      ],
+      "layout": "company-5-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 17,
+      "alias": "ReviewTimeOffRequestCopilotComponent",
+      "guid": "25cdcb6c-e3c5-4ce9-a1ef-27ad7bf1c3db",
+      "mode": "inline",
+      "route": "hr/leave-decisions",
+      "parameters": false,
+      "headings": [
+        "Time-off reviews."
+      ],
+      "layout": "hr-leave-decisions-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 17,
+      "alias": "ReviewTimeOffRequestCopilotComponent",
+      "guid": "25cdcb6c-e3c5-4ce9-a1ef-27ad7bf1c3db",
+      "mode": "inline",
+      "route": "hr/leave-decisions",
+      "parameters": true,
+      "headings": [
+        "Review time off.",
+        "Maya Reed"
+      ],
+      "layout": "hr-leave-decisions-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 17,
+      "alias": "ReviewTimeOffRequestCopilotComponent",
+      "guid": "25cdcb6c-e3c5-4ce9-a1ef-27ad7bf1c3db",
+      "mode": "full",
+      "route": "hr/leave-decisions",
+      "parameters": true,
+      "headings": [
+        "Review time off.",
+        "Maya Reed",
+        "Check cover first."
+      ],
+      "layout": "hr-leave-decisions-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 28,
+      "alias": "RequestAppAccessCopilotComponent",
+      "guid": "2ed6570c-eb3e-494d-8593-8d779a49ac49",
+      "mode": "inline",
+      "route": "tech/app-access",
+      "parameters": false,
+      "headings": [
+        "Request app access"
+      ],
+      "layout": "tech-app-access-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 28,
+      "alias": "RequestAppAccessCopilotComponent",
+      "guid": "2ed6570c-eb3e-494d-8593-8d779a49ac49",
+      "mode": "inline",
+      "route": "tech/app-access",
+      "parameters": true,
+      "headings": [
+        "Request app access"
+      ],
+      "layout": "tech-app-access-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 28,
+      "alias": "RequestAppAccessCopilotComponent",
+      "guid": "2ed6570c-eb3e-494d-8593-8d779a49ac49",
+      "mode": "full",
+      "route": "tech/app-access",
+      "parameters": true,
+      "headings": [
+        "Request app access",
+        "Design Studio"
+      ],
+      "layout": "tech-app-access-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 10,
+      "alias": "ShowRequiredLearningCopilotComponent",
+      "guid": "36e8b6f7-c3c3-482c-96b5-93455247d9a6",
+      "mode": "inline",
+      "route": "hr/learning",
+      "parameters": false,
+      "headings": [
+        "Your learning path."
+      ],
+      "layout": "hr-learning-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 10,
+      "alias": "ShowRequiredLearningCopilotComponent",
+      "guid": "36e8b6f7-c3c3-482c-96b5-93455247d9a6",
+      "mode": "inline",
+      "route": "hr/learning",
+      "parameters": true,
+      "headings": [
+        "Your learning path.",
+        "Before the room fills"
+      ],
+      "layout": "hr-learning-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 10,
+      "alias": "ShowRequiredLearningCopilotComponent",
+      "guid": "36e8b6f7-c3c3-482c-96b5-93455247d9a6",
+      "mode": "full",
+      "route": "hr/learning",
+      "parameters": true,
+      "headings": [
+        "Your learning path.",
+        "Make meetings work for everyone",
+        "Before the room fills"
+      ],
+      "layout": "hr-learning-full-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 8,
+      "alias": "CompareSalesPerformanceCopilotComponent",
+      "guid": "36f1abc9-64e7-452f-8692-1d613621669c",
+      "mode": "inline",
+      "route": "business/scorecard",
+      "parameters": false,
+      "headings": [
+        "Covered regions: 96.6% of phased plan."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 8,
+      "alias": "CompareSalesPerformanceCopilotComponent",
+      "guid": "36f1abc9-64e7-452f-8692-1d613621669c",
+      "mode": "inline",
+      "route": "business/scorecard",
+      "parameters": true,
+      "headings": [
+        "EMEA: 79.5% of phased plan."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 8,
+      "alias": "CompareSalesPerformanceCopilotComponent",
+      "guid": "36f1abc9-64e7-452f-8692-1d613621669c",
+      "mode": "full",
+      "route": "business/scorecard",
+      "parameters": true,
+      "headings": [
+        "EMEA: 79.5% of phased plan.",
+        "$7.0m booked."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 22,
+      "alias": "SubmitItTicketCopilotComponent",
+      "guid": "342d2e9f-b3d8-4170-85bd-9f2c1306ebdc",
+      "mode": "inline",
+      "route": "tech/ticket-intake",
+      "parameters": false,
+      "headings": [
+        "Report an IT problem"
+      ],
+      "layout": "tech-ticket-intake-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 22,
+      "alias": "SubmitItTicketCopilotComponent",
+      "guid": "342d2e9f-b3d8-4170-85bd-9f2c1306ebdc",
+      "mode": "inline",
+      "route": "tech/ticket-intake",
+      "parameters": true,
+      "headings": [
+        "Report an IT problem"
+      ],
+      "layout": "tech-ticket-intake-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 22,
+      "alias": "SubmitItTicketCopilotComponent",
+      "guid": "342d2e9f-b3d8-4170-85bd-9f2c1306ebdc",
+      "mode": "full",
+      "route": "tech/ticket-intake",
+      "parameters": true,
+      "headings": [
+        "Report an IT problem",
+        "Studio laptop 14"
+      ],
+      "layout": "tech-ticket-intake-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 14,
+      "alias": "CheckLeaveBalanceCopilotComponent",
+      "guid": "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+      "mode": "inline",
+      "route": "hr/time-balance",
+      "parameters": false,
+      "headings": [
+        "Your time-away ledger.",
+        "20 days available"
+      ],
+      "layout": "hr-time-balance-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 14,
+      "alias": "CheckLeaveBalanceCopilotComponent",
+      "guid": "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+      "mode": "inline",
+      "route": "hr/time-balance",
+      "parameters": true,
+      "headings": [
+        "Your time-away ledger.",
+        "20 days available"
+      ],
+      "layout": "hr-time-balance-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 14,
+      "alias": "CheckLeaveBalanceCopilotComponent",
+      "guid": "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+      "mode": "full",
+      "route": "hr/time-balance",
+      "parameters": true,
+      "headings": [
+        "Your time-away ledger.",
+        "20 days available",
+        "Behind the balance"
+      ],
+      "layout": "hr-time-balance-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 14,
+      "alias": "CheckLeaveBalanceCopilotComponent",
+      "guid": "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+      "mode": "inline",
+      "route": "hr/time-balance",
+      "parameters": false,
+      "headings": [
+        "Your time-away ledger.",
+        "20 days available"
+      ],
+      "layout": "hr-time-balance-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 20,
+      "alias": "CheckServiceHealthCopilotComponent",
+      "guid": "388955ee-6240-4eda-aa71-540e8c54a803",
+      "mode": "inline",
+      "route": "tech/service-health",
+      "parameters": false,
+      "headings": [
+        "Guest Wi-Fi in Redmond"
+      ],
+      "layout": "tech-service-health-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 20,
+      "alias": "CheckServiceHealthCopilotComponent",
+      "guid": "388955ee-6240-4eda-aa71-540e8c54a803",
+      "mode": "inline",
+      "route": "tech/service-health",
+      "parameters": true,
+      "headings": [
+        "Guest Wi-Fi in Redmond"
+      ],
+      "layout": "tech-service-health-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 20,
+      "alias": "CheckServiceHealthCopilotComponent",
+      "guid": "388955ee-6240-4eda-aa71-540e8c54a803",
+      "mode": "full",
+      "route": "tech/service-health",
+      "parameters": true,
+      "headings": [
+        "Guest Wi-Fi in Redmond",
+        "Investigating"
+      ],
+      "layout": "tech-service-health-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 29,
+      "alias": "ExploreHubCapabilitiesCopilotComponent",
+      "guid": "524a29cf-9ccb-4367-85a3-035080b6c6a6",
+      "mode": "inline",
+      "route": "isolated/explore",
+      "parameters": false,
+      "headings": [
+        "What can I ask?"
+      ],
+      "layout": "explore-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 29,
+      "alias": "ExploreHubCapabilitiesCopilotComponent",
+      "guid": "524a29cf-9ccb-4367-85a3-035080b6c6a6",
+      "mode": "inline",
+      "route": "isolated/explore",
+      "parameters": true,
+      "headings": [
+        "What can I ask?"
+      ],
+      "layout": "explore-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 29,
+      "alias": "ExploreHubCapabilitiesCopilotComponent",
+      "guid": "524a29cf-9ccb-4367-85a3-035080b6c6a6",
+      "mode": "full",
+      "route": "isolated/explore",
+      "parameters": true,
+      "headings": [
+        "What can I ask?"
+      ],
+      "layout": "explore-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 11,
+      "alias": "PrepareBenefitsReviewCopilotComponent",
+      "guid": "5b41bc72-8ec7-4a99-815e-0f6c97b2b9b5",
+      "mode": "inline",
+      "route": "hr/benefits",
+      "parameters": false,
+      "headings": [
+        "Plan your benefits review."
+      ],
+      "layout": "hr-benefits-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 11,
+      "alias": "PrepareBenefitsReviewCopilotComponent",
+      "guid": "5b41bc72-8ec7-4a99-815e-0f6c97b2b9b5",
+      "mode": "inline",
+      "route": "hr/benefits",
+      "parameters": true,
+      "headings": [
+        "Plan your benefits review."
+      ],
+      "layout": "hr-benefits-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 11,
+      "alias": "PrepareBenefitsReviewCopilotComponent",
+      "guid": "5b41bc72-8ec7-4a99-815e-0f6c97b2b9b5",
+      "mode": "full",
+      "route": "hr/benefits",
+      "parameters": true,
+      "headings": [
+        "Plan your benefits review."
+      ],
+      "layout": "hr-benefits-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 1,
+      "alias": "FindCompanyEventsCopilotComponent",
+      "guid": "3e5303d4-729b-4e8d-9993-0c5380e7646b",
+      "mode": "inline",
+      "route": "company/events",
+      "parameters": false,
+      "headings": [
+        "Upcoming events"
+      ],
+      "layout": "company-1-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 1,
+      "alias": "FindCompanyEventsCopilotComponent",
+      "guid": "3e5303d4-729b-4e8d-9993-0c5380e7646b",
+      "mode": "inline",
+      "route": "company/events",
+      "parameters": true,
+      "headings": [
+        "Upcoming events"
+      ],
+      "layout": "company-1-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 1,
+      "alias": "FindCompanyEventsCopilotComponent",
+      "guid": "3e5303d4-729b-4e8d-9993-0c5380e7646b",
+      "mode": "full",
+      "route": "company/events",
+      "parameters": true,
+      "headings": [
+        "Upcoming events",
+        "One world town hall",
+        "Plan your visit"
+      ],
+      "layout": "company-1-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 16,
+      "alias": "CheckTeamCoverageCopilotComponent",
+      "guid": "8bc9f5e8-1d5d-4152-b20f-a79c235adcfc",
+      "mode": "inline",
+      "route": "hr/coverage",
+      "parameters": false,
+      "headings": [
+        "Plan team coverage.",
+        "Cover needed"
+      ],
+      "layout": "hr-coverage-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 16,
+      "alias": "CheckTeamCoverageCopilotComponent",
+      "guid": "8bc9f5e8-1d5d-4152-b20f-a79c235adcfc",
+      "mode": "inline",
+      "route": "hr/coverage",
+      "parameters": true,
+      "headings": [
+        "Plan team coverage.",
+        "Cover needed"
+      ],
+      "layout": "hr-coverage-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 16,
+      "alias": "CheckTeamCoverageCopilotComponent",
+      "guid": "8bc9f5e8-1d5d-4152-b20f-a79c235adcfc",
+      "mode": "full",
+      "route": "hr/coverage",
+      "parameters": true,
+      "headings": [
+        "Plan team coverage.",
+        "Week of Nov 30, 2026",
+        "Cover needed"
+      ],
+      "layout": "hr-coverage-full-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 18,
+      "alias": "AskHrForHelpCopilotComponent",
+      "guid": "680208b9-7e54-4374-b2f8-b7681d17ffe9",
+      "mode": "inline",
+      "route": "hr/hr-support",
+      "parameters": false,
+      "headings": [
+        "Ask HR privately."
+      ],
+      "layout": "hr-hr-support-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 18,
+      "alias": "AskHrForHelpCopilotComponent",
+      "guid": "680208b9-7e54-4374-b2f8-b7681d17ffe9",
+      "mode": "inline",
+      "route": "hr/hr-support",
+      "parameters": true,
+      "headings": [
+        "Ask HR privately."
+      ],
+      "layout": "hr-hr-support-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 18,
+      "alias": "AskHrForHelpCopilotComponent",
+      "guid": "680208b9-7e54-4374-b2f8-b7681d17ffe9",
+      "mode": "full",
+      "route": "hr/hr-support",
+      "parameters": true,
+      "headings": [
+        "Ask HR privately.",
+        "What would you like to ask?",
+        "Where your question goes."
+      ],
+      "layout": "hr-hr-support-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 13,
+      "alias": "ShowMyVestingCopilotComponent",
+      "guid": "99201260-9a9d-4f2f-abd5-b3917efa6df7",
+      "mode": "inline",
+      "route": "hr/rewards",
+      "parameters": false,
+      "headings": [
+        "Your vesting timeline.",
+        "Growth award"
+      ],
+      "layout": "hr-rewards-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 13,
+      "alias": "ShowMyVestingCopilotComponent",
+      "guid": "99201260-9a9d-4f2f-abd5-b3917efa6df7",
+      "mode": "inline",
+      "route": "hr/rewards",
+      "parameters": true,
+      "headings": [
+        "Your vesting timeline.",
+        "Growth award"
+      ],
+      "layout": "hr-rewards-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 13,
+      "alias": "ShowMyVestingCopilotComponent",
+      "guid": "99201260-9a9d-4f2f-abd5-b3917efa6df7",
+      "mode": "full",
+      "route": "hr/rewards",
+      "parameters": true,
+      "headings": [
+        "Your vesting timeline.",
+        "Growth award",
+        "Units & illustration"
+      ],
+      "layout": "hr-rewards-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 3,
+      "alias": "MapSalesMarketsCopilotComponent",
+      "guid": "84dc7c31-e8c6-47fa-97cf-f34f2e5595b0",
+      "mode": "inline",
+      "route": "business/markets",
+      "parameters": false,
+      "headings": [
+        "Germany is $1.6m below phased plan.",
+        "Germany"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 3,
+      "alias": "MapSalesMarketsCopilotComponent",
+      "guid": "84dc7c31-e8c6-47fa-97cf-f34f2e5595b0",
+      "mode": "inline",
+      "route": "business/markets",
+      "parameters": true,
+      "headings": [
+        "Germany is $1.6m below phased plan.",
+        "Germany"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 3,
+      "alias": "MapSalesMarketsCopilotComponent",
+      "guid": "84dc7c31-e8c6-47fa-97cf-f34f2e5595b0",
+      "mode": "full",
+      "route": "business/markets",
+      "parameters": true,
+      "headings": [
+        "Germany is $1.6m below phased plan.",
+        "Gap by market"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 2,
+      "alias": "ReadCompanyNewsCopilotComponent",
+      "guid": "a9f89e52-f7da-4d6d-9c66-6c60a65da68d",
+      "mode": "inline",
+      "route": "company/news",
+      "parameters": false,
+      "headings": [
+        "Latest news"
+      ],
+      "layout": "company-2-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 2,
+      "alias": "ReadCompanyNewsCopilotComponent",
+      "guid": "a9f89e52-f7da-4d6d-9c66-6c60a65da68d",
+      "mode": "inline",
+      "route": "company/news",
+      "parameters": true,
+      "headings": [
+        "Design stories"
+      ],
+      "layout": "company-2-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 2,
+      "alias": "ReadCompanyNewsCopilotComponent",
+      "guid": "a9f89e52-f7da-4d6d-9c66-6c60a65da68d",
+      "mode": "full",
+      "route": "company/news",
+      "parameters": true,
+      "headings": [
+        "Design stories",
+        "Small changes. Wider doors."
+      ],
+      "layout": "company-2-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 26,
+      "alias": "AnalyzeSupportTrendsCopilotComponent",
+      "guid": "bcdcaafa-1147-4673-8bf5-183cd744dfe7",
+      "mode": "inline",
+      "route": "tech/manager-trends",
+      "parameters": false,
+      "headings": [
+        "48 received · 33 resolved"
+      ],
+      "layout": "tech-manager-trends-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 26,
+      "alias": "AnalyzeSupportTrendsCopilotComponent",
+      "guid": "bcdcaafa-1147-4673-8bf5-183cd744dfe7",
+      "mode": "inline",
+      "route": "tech/manager-trends",
+      "parameters": true,
+      "headings": [
+        "48 received · 33 resolved"
+      ],
+      "layout": "tech-manager-trends-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 26,
+      "alias": "AnalyzeSupportTrendsCopilotComponent",
+      "guid": "bcdcaafa-1147-4673-8bf5-183cd744dfe7",
+      "mode": "full",
+      "route": "tech/manager-trends",
+      "parameters": true,
+      "headings": [
+        "See the friction.\nHelp the flow.",
+        "A little less waiting.\nA little more doing.",
+        "Intake outpaced closures."
+      ],
+      "layout": "tech-manager-trends-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 4,
+      "alias": "BookMeetingRoomCopilotComponent",
+      "guid": "c0dde3df-c9cf-4f7b-af63-c20344a0f84f",
+      "mode": "inline",
+      "route": "company/room-booking",
+      "parameters": false,
+      "headings": [
+        "Find a room"
+      ],
+      "layout": "company-4-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 4,
+      "alias": "BookMeetingRoomCopilotComponent",
+      "guid": "c0dde3df-c9cf-4f7b-af63-c20344a0f84f",
+      "mode": "inline",
+      "route": "company/room-booking",
+      "parameters": true,
+      "headings": [
+        "Find a room"
+      ],
+      "layout": "company-4-inline"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 4,
+      "alias": "BookMeetingRoomCopilotComponent",
+      "guid": "c0dde3df-c9cf-4f7b-af63-c20344a0f84f",
+      "mode": "full",
+      "route": "company/room-booking",
+      "parameters": true,
+      "headings": [
+        "Find a room",
+        "The day at a glance."
+      ],
+      "layout": "company-4-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 25,
+      "alias": "ReviewEquipmentRequestCopilotComponent",
+      "guid": "c386f97a-dac6-41db-b901-8a9befe14b03",
+      "mode": "inline",
+      "route": "tech/equipment-decisions",
+      "parameters": false,
+      "headings": [
+        "Equipment decisions"
+      ],
+      "layout": "tech-equipment-decisions-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 25,
+      "alias": "ReviewEquipmentRequestCopilotComponent",
+      "guid": "c386f97a-dac6-41db-b901-8a9befe14b03",
+      "mode": "inline",
+      "route": "tech/equipment-decisions",
+      "parameters": true,
+      "headings": [
+        "27-inch studio display"
+      ],
+      "layout": "tech-equipment-decisions-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 25,
+      "alias": "ReviewEquipmentRequestCopilotComponent",
+      "guid": "c386f97a-dac6-41db-b901-8a9befe14b03",
+      "mode": "full",
+      "route": "tech/equipment-decisions",
+      "parameters": true,
+      "headings": [
+        "27-inch studio display",
+        "Before you decide"
+      ],
+      "layout": "tech-equipment-decisions-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 19,
+      "alias": "InspectMyDeviceCopilotComponent",
+      "guid": "c98f0a0b-5a5f-4d06-bf4c-dc1e554891c0",
+      "mode": "inline",
+      "route": "tech/devices",
+      "parameters": false,
+      "headings": [
+        "Studio laptop 14"
+      ],
+      "layout": "tech-devices-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 19,
+      "alias": "InspectMyDeviceCopilotComponent",
+      "guid": "c98f0a0b-5a5f-4d06-bf4c-dc1e554891c0",
+      "mode": "inline",
+      "route": "tech/devices",
+      "parameters": true,
+      "headings": [
+        "Studio laptop 14"
+      ],
+      "layout": "tech-devices-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 19,
+      "alias": "InspectMyDeviceCopilotComponent",
+      "guid": "c98f0a0b-5a5f-4d06-bf4c-dc1e554891c0",
+      "mode": "full",
+      "route": "tech/devices",
+      "parameters": true,
+      "headings": [
+        "Studio laptop 14",
+        "Plan your update"
+      ],
+      "layout": "tech-devices-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 27,
+      "alias": "TraceSupportFlowCopilotComponent",
+      "guid": "d5c7e051-917b-4862-95cd-bc602204e42c",
+      "mode": "inline",
+      "route": "tech/manager-flow",
+      "parameters": false,
+      "headings": [
+        "Procurement → Awaiting"
+      ],
+      "layout": "tech-manager-flow-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 27,
+      "alias": "TraceSupportFlowCopilotComponent",
+      "guid": "d5c7e051-917b-4862-95cd-bc602204e42c",
+      "mode": "inline",
+      "route": "tech/manager-flow",
+      "parameters": true,
+      "headings": [
+        "Procurement → Awaiting"
+      ],
+      "layout": "tech-manager-flow-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 27,
+      "alias": "TraceSupportFlowCopilotComponent",
+      "guid": "d5c7e051-917b-4862-95cd-bc602204e42c",
+      "mode": "full",
+      "route": "tech/manager-flow",
+      "parameters": true,
+      "headings": [
+        "Trace support flow",
+        "Procurement → Awaiting",
+        "How to read this flow"
+      ],
+      "layout": "tech-manager-flow-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "inline",
+      "route": "company/home",
+      "parameters": false,
+      "headings": [
+        "Microsoft home"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "inline",
+      "route": "tech/home",
+      "parameters": true,
+      "headings": [
+        "TechWeb"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "full",
+      "route": "tech/home",
+      "parameters": true,
+      "headings": [
+        "More flow.\nLess friction.",
+        "Right where you left off.",
+        "A little care.\nA lot of good work."
+      ],
+      "layout": "tech-service-home-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "full",
+      "route": "company/home",
+      "parameters": true,
+      "headings": [
+        "A world of\npossibility.\nMade by us.",
+        "Your day,\na little clearer.",
+        "In good company."
+      ],
+      "layout": "company-0-full"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "full",
+      "route": "hr/home",
+      "parameters": true,
+      "headings": [
+        "Good morning,\nTest colleague.",
+        "Your next right step.",
+        "A new perspective\nstarts here."
+      ],
+      "layout": "hr-personal-home-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "full",
+      "route": "tech/home",
+      "parameters": true,
+      "headings": [
+        "More flow.\nLess friction.",
+        "Right where you left off.",
+        "A little care.\nA lot of good work."
+      ],
+      "layout": "tech-service-home-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 30,
+      "alias": "OpenEmployeeHubCopilotComponent",
+      "guid": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+      "mode": "full",
+      "route": "business/home",
+      "parameters": true,
+      "headings": [
+        "Where growth\nneeds attention.",
+        "Covered markets are $1.0m below plan.",
+        "Gap by market"
+      ],
+      "layout": "business-operating-review"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 6,
+      "alias": "PrepareGrowthActionCopilotComponent",
+      "guid": "e319ced2-b094-4907-931c-c4a971ea6479",
+      "mode": "inline",
+      "route": "business/actions",
+      "parameters": false,
+      "headings": [
+        "Give the finding an owner."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 6,
+      "alias": "PrepareGrowthActionCopilotComponent",
+      "guid": "e319ced2-b094-4907-931c-c4a971ea6479",
+      "mode": "inline",
+      "route": "business/actions",
+      "parameters": true,
+      "headings": [
+        "Give the finding an owner."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 6,
+      "alias": "PrepareGrowthActionCopilotComponent",
+      "guid": "e319ced2-b094-4907-931c-c4a971ea6479",
+      "mode": "full",
+      "route": "business/actions",
+      "parameters": true,
+      "headings": [
+        "Give the finding an owner.",
+        "4 Dec 2026",
+        "0 recorded actions"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 23,
+      "alias": "TrackMyItTicketCopilotComponent",
+      "guid": "e44acf2c-939d-4797-8d83-51bdcced943d",
+      "mode": "inline",
+      "route": "tech/my-requests",
+      "parameters": false,
+      "headings": [
+        "My IT conversations"
+      ],
+      "layout": "tech-my-requests-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 23,
+      "alias": "TrackMyItTicketCopilotComponent",
+      "guid": "e44acf2c-939d-4797-8d83-51bdcced943d",
+      "mode": "inline",
+      "route": "tech/my-requests",
+      "parameters": true,
+      "headings": [
+        "Display flickers after waking"
+      ],
+      "layout": "tech-my-requests-inline-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 23,
+      "alias": "TrackMyItTicketCopilotComponent",
+      "guid": "e44acf2c-939d-4797-8d83-51bdcced943d",
+      "mode": "full",
+      "route": "tech/my-requests",
+      "parameters": true,
+      "headings": [
+        "Display flickers after waking",
+        "Linked evidence"
+      ],
+      "layout": "tech-my-requests-full-information"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 9,
+      "alias": "TraceLeadConversionCopilotComponent",
+      "guid": "ec028c80-f8a6-4af6-903e-4a3b2ce9a195",
+      "mode": "inline",
+      "route": "business/leads",
+      "parameters": false,
+      "headings": [
+        "20 of 100 leads became opportunities."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 9,
+      "alias": "TraceLeadConversionCopilotComponent",
+      "guid": "ec028c80-f8a6-4af6-903e-4a3b2ce9a195",
+      "mode": "inline",
+      "route": "business/leads",
+      "parameters": true,
+      "headings": [
+        "8 of 60 partner leads became opportunities."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 9,
+      "alias": "TraceLeadConversionCopilotComponent",
+      "guid": "ec028c80-f8a6-4af6-903e-4a3b2ce9a195",
+      "mode": "full",
+      "route": "business/leads",
+      "parameters": true,
+      "headings": [
+        "8 of 60 partner leads became opportunities.",
+        "From intake to outcome",
+        "Opportunity yield"
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 15,
+      "alias": "RequestTimeOffCopilotComponent",
+      "guid": "f7c08ef1-3c94-4c7f-a076-ef369e9e1d47",
+      "mode": "inline",
+      "route": "hr/time-request",
+      "parameters": false,
+      "headings": [
+        "Your time off.",
+        "Submitted requests"
+      ],
+      "layout": "hr-time-request-inline-selection"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 15,
+      "alias": "RequestTimeOffCopilotComponent",
+      "guid": "f7c08ef1-3c94-4c7f-a076-ef369e9e1d47",
+      "mode": "inline",
+      "route": "hr/time-request",
+      "parameters": true,
+      "headings": [
+        "Request time off."
+      ],
+      "layout": "hr-time-request-inline-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 15,
+      "alias": "RequestTimeOffCopilotComponent",
+      "guid": "f7c08ef1-3c94-4c7f-a076-ef369e9e1d47",
+      "mode": "full",
+      "route": "hr/time-request",
+      "parameters": true,
+      "headings": [
+        "Request time off.",
+        "When would you like to be away?",
+        "Entitlement ledger"
+      ],
+      "layout": "hr-time-request-full-draft"
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 7,
+      "alias": "ExplainForecastMovementCopilotComponent",
+      "guid": "feb28b52-11f3-4c6d-b43e-de6307768087",
+      "mode": "inline",
+      "route": "business/forecast",
+      "parameters": false,
+      "headings": [
+        "Germany’s forecast fell to $5.6m."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 7,
+      "alias": "ExplainForecastMovementCopilotComponent",
+      "guid": "feb28b52-11f3-4c6d-b43e-de6307768087",
+      "mode": "inline",
+      "route": "business/forecast",
+      "parameters": true,
+      "headings": [
+        "Germany’s forecast fell to $5.6m."
+      ]
+    },
+    {
+      "kind": "CopilotComponent",
+      "id": 7,
+      "alias": "ExplainForecastMovementCopilotComponent",
+      "guid": "feb28b52-11f3-4c6d-b43e-de6307768087",
+      "mode": "full",
+      "route": "business/forecast",
+      "parameters": true,
+      "headings": [
+        "Germany’s forecast fell to $5.6m.",
+        "Slippage: −$1.0m."
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 26,
+      "alias": "SupportTrendsWebPart",
+      "guid": "010bf7fb-52bd-48cd-acdb-20cbee21e5c3",
+      "mode": "inline",
+      "route": "tech/manager-trends",
+      "parameters": true,
+      "headings": [
+        "48 received · 33 resolved"
+      ],
+      "layout": "tech-manager-trends-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 30,
+      "alias": "TechWebWorkspaceWebPart",
+      "guid": "06908557-127f-435c-b4b6-b73306ec8ce3",
+      "mode": "full",
+      "route": "tech/home",
+      "parameters": false,
+      "headings": [
+        "More flow.\nLess friction.",
+        "Right where you left off.",
+        "A little care.\nA lot of good work."
+      ],
+      "layout": "tech-service-home-full-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 18,
+      "alias": "HrSupportWebPart",
+      "guid": "0241bf6c-63d6-470b-97ba-239f9a101abf",
+      "mode": "inline",
+      "route": "hr/hr-support",
+      "parameters": true,
+      "headings": [
+        "Ask HR privately."
+      ],
+      "layout": "hr-hr-support-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 29,
+      "alias": "HubCapabilitiesWebPart",
+      "guid": "0c4b15da-7547-4d27-83f1-2ee02b0c3bf1",
+      "mode": "inline",
+      "route": "isolated/explore",
+      "parameters": true,
+      "headings": [
+        "What can I ask?"
+      ],
+      "layout": "explore-inline"
+    },
+    {
+      "kind": "WebPart",
+      "id": 9,
+      "alias": "LeadConversionFlowWebPart",
+      "guid": "1ea2e51f-7a25-4c4e-87cc-d19a5d3b7a6c",
+      "mode": "inline",
+      "route": "business/leads",
+      "parameters": true,
+      "headings": [
+        "8 of 60 partner leads became opportunities."
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 15,
+      "alias": "TimeOffRequestWebPart",
+      "guid": "358af55f-7333-498f-82b4-f9be0882318b",
+      "mode": "inline",
+      "route": "hr/time-request",
+      "parameters": true,
+      "headings": [
+        "Request time off."
+      ],
+      "layout": "hr-time-request-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 30,
+      "alias": "BusinessSltWorkspaceWebPart",
+      "guid": "2aa8bc99-9b5d-453b-b943-c82c4318c81b",
+      "mode": "full",
+      "route": "business/home",
+      "parameters": false,
+      "headings": [
+        "Where growth\nneeds attention.",
+        "Covered markets are $1.0m below plan.",
+        "Gap by market"
+      ],
+      "layout": "business-operating-review"
+    },
+    {
+      "kind": "WebPart",
+      "id": 17,
+      "alias": "LeaveApprovalsWebPart",
+      "guid": "25828882-31e8-4352-8790-4cdc95386c7f",
+      "mode": "inline",
+      "route": "hr/leave-decisions",
+      "parameters": true,
+      "headings": [
+        "Review time off.",
+        "Maya Reed"
+      ],
+      "layout": "hr-leave-decisions-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 7,
+      "alias": "ForecastBridgeWebPart",
+      "guid": "3983112d-2c84-4616-b3cb-a983c7f10a74",
+      "mode": "inline",
+      "route": "business/forecast",
+      "parameters": true,
+      "headings": [
+        "Germany’s forecast fell to $5.6m."
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 14,
+      "alias": "LeaveBalanceWebPart",
+      "guid": "4e653978-5557-4dcc-b507-56d9d1e46679",
+      "mode": "inline",
+      "route": "hr/time-balance",
+      "parameters": true,
+      "headings": [
+        "Your time-away ledger.",
+        "20 days available"
+      ],
+      "layout": "hr-time-balance-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 8,
+      "alias": "SalesPerformanceWebPart",
+      "guid": "491e21a2-72b7-426a-9539-2de963756245",
+      "mode": "inline",
+      "route": "business/scorecard",
+      "parameters": true,
+      "headings": [
+        "EMEA: 79.5% of phased plan."
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 22,
+      "alias": "ItTicketIntakeWebPart",
+      "guid": "4ae2d93e-9a48-4d3c-b5c7-59e189ed5491",
+      "mode": "inline",
+      "route": "tech/ticket-intake",
+      "parameters": true,
+      "headings": [
+        "Report an IT problem"
+      ],
+      "layout": "tech-ticket-intake-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 1,
+      "alias": "CompanyEventsWebPart",
+      "guid": "5140ced1-a39d-42eb-9b66-1f4be1bb814e",
+      "mode": "inline",
+      "route": "company/events",
+      "parameters": true,
+      "headings": [
+        "Upcoming events"
+      ],
+      "layout": "company-1-inline"
+    },
+    {
+      "kind": "WebPart",
+      "id": 3,
+      "alias": "SalesMarketMapWebPart",
+      "guid": "6149f9cb-13b4-4f7a-99af-547712ea7cfb",
+      "mode": "inline",
+      "route": "business/markets",
+      "parameters": true,
+      "headings": [
+        "Germany is $1.6m below phased plan.",
+        "Germany"
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 25,
+      "alias": "EquipmentApprovalsWebPart",
+      "guid": "74af8271-d90c-4ed6-9f4a-5ec871497c83",
+      "mode": "inline",
+      "route": "tech/equipment-decisions",
+      "parameters": true,
+      "headings": [
+        "27-inch studio display"
+      ],
+      "layout": "tech-equipment-decisions-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 11,
+      "alias": "BenefitsReviewWebPart",
+      "guid": "6c889f8b-6337-41f4-8f69-92db39cc929e",
+      "mode": "inline",
+      "route": "hr/benefits",
+      "parameters": true,
+      "headings": [
+        "Plan your benefits review."
+      ],
+      "layout": "hr-benefits-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 30,
+      "alias": "MicrosoftHomeWorkspaceWebPart",
+      "guid": "77aff969-01f4-45b9-bf8a-c6fcd29fc7e1",
+      "mode": "full",
+      "route": "company/home",
+      "parameters": false,
+      "headings": [
+        "A world of\npossibility.\nMade by us.",
+        "Your day,\na little clearer.",
+        "In good company."
+      ],
+      "layout": "company-0-full"
+    },
+    {
+      "kind": "WebPart",
+      "id": 30,
+      "alias": "EmployeeHubWorkspaceWebPart",
+      "guid": "7a2e07b7-bdfc-4442-aa61-005171754688",
+      "mode": "full",
+      "route": "company/home",
+      "parameters": false,
+      "headings": [
+        "A world of\npossibility.\nMade by us.",
+        "Your day,\na little clearer.",
+        "In good company."
+      ],
+      "layout": "company-0-full"
+    },
+    {
+      "kind": "WebPart",
+      "id": 24,
+      "alias": "EquipmentRequestWebPart",
+      "guid": "7a4c8772-b2bc-492d-bee3-e852d322dac8",
+      "mode": "inline",
+      "route": "tech/equipment-request",
+      "parameters": true,
+      "headings": [
+        "Equip your workspace"
+      ],
+      "layout": "tech-equipment-request-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 27,
+      "alias": "SupportFlowWebPart",
+      "guid": "7f3e5bdc-b419-4132-93c2-dba8e86829c4",
+      "mode": "inline",
+      "route": "tech/manager-flow",
+      "parameters": true,
+      "headings": [
+        "Procurement → Awaiting"
+      ],
+      "layout": "tech-manager-flow-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 23,
+      "alias": "MyItRequestsWebPart",
+      "guid": "8df54d79-38c4-4f7e-8722-6e96d4bef901",
+      "mode": "inline",
+      "route": "tech/my-requests",
+      "parameters": true,
+      "headings": [
+        "Display flickers after waking"
+      ],
+      "layout": "tech-my-requests-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 12,
+      "alias": "MyPayslipWebPart",
+      "guid": "91419b71-f7ed-4633-92c9-77e0a8e15ff4",
+      "mode": "inline",
+      "route": "hr/pay-statements",
+      "parameters": true,
+      "headings": [
+        "Your pay statement.",
+        "Oct 1 – Oct 31, 2026"
+      ],
+      "layout": "hr-pay-statements-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 2,
+      "alias": "CompanyNewsWebPart",
+      "guid": "94c59136-9bd3-496f-85c3-8a3376dc6b5d",
+      "mode": "inline",
+      "route": "company/news",
+      "parameters": true,
+      "headings": [
+        "Design stories"
+      ],
+      "layout": "company-2-inline"
+    },
+    {
+      "kind": "WebPart",
+      "id": 4,
+      "alias": "RoomBookingWebPart",
+      "guid": "a4f63910-e0f3-41ce-b2b8-c485e245b41d",
+      "mode": "inline",
+      "route": "company/room-booking",
+      "parameters": true,
+      "headings": [
+        "Find a room"
+      ],
+      "layout": "company-4-inline"
+    },
+    {
+      "kind": "WebPart",
+      "id": 28,
+      "alias": "AppAccessRequestWebPart",
+      "guid": "ae3249b6-ed1b-459a-b737-224f19f9bec2",
+      "mode": "inline",
+      "route": "tech/app-access",
+      "parameters": true,
+      "headings": [
+        "Request app access"
+      ],
+      "layout": "tech-app-access-inline-draft"
+    },
+    {
+      "kind": "WebPart",
+      "id": 6,
+      "alias": "GrowthActionPlanWebPart",
+      "guid": "af37118a-522b-421d-9df3-51d8a0ef631b",
+      "mode": "inline",
+      "route": "business/actions",
+      "parameters": true,
+      "headings": [
+        "Give the finding an owner."
+      ]
+    },
+    {
+      "kind": "WebPart",
+      "id": 20,
+      "alias": "ServiceHealthWebPart",
+      "guid": "b3e7c710-3b35-4745-aa8f-8b6e528e5eb6",
+      "mode": "inline",
+      "route": "tech/service-health",
+      "parameters": true,
+      "headings": [
+        "Guest Wi-Fi in Redmond"
+      ],
+      "layout": "tech-service-health-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 16,
+      "alias": "TeamCoverageWebPart",
+      "guid": "b98e878f-5b9c-486b-871e-2a678db75a85",
+      "mode": "inline",
+      "route": "hr/coverage",
+      "parameters": true,
+      "headings": [
+        "Plan team coverage.",
+        "Cover needed"
+      ],
+      "layout": "hr-coverage-inline-selection"
+    },
+    {
+      "kind": "WebPart",
+      "id": 10,
+      "alias": "RequiredLearningWebPart",
+      "guid": "c4d6977f-6ceb-434b-aa85-dea20997fa44",
+      "mode": "inline",
+      "route": "hr/learning",
+      "parameters": true,
+      "headings": [
+        "Your learning path.",
+        "Before the room fills"
+      ],
+      "layout": "hr-learning-inline-selection"
+    },
+    {
+      "kind": "WebPart",
+      "id": 30,
+      "alias": "HRwebWorkspaceWebPart",
+      "guid": "c9d7030a-ca94-4a61-aafc-c340cd98fbd3",
+      "mode": "full",
+      "route": "hr/home",
+      "parameters": false,
+      "headings": [
+        "Good morning,\nTest colleague.",
+        "Your next right step.",
+        "A new perspective\nstarts here."
+      ],
+      "layout": "hr-personal-home-full-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 19,
+      "alias": "MyDevicesWebPart",
+      "guid": "e0009ade-df62-4cff-878c-a1c5c17362eb",
+      "mode": "inline",
+      "route": "tech/devices",
+      "parameters": true,
+      "headings": [
+        "Studio laptop 14"
+      ],
+      "layout": "tech-devices-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 5,
+      "alias": "PolicyGuidanceWebPart",
+      "guid": "fd488af6-3193-4cca-8e47-66e491046b2d",
+      "mode": "inline",
+      "route": "company/guidance",
+      "parameters": true,
+      "headings": [
+        "The field guide"
+      ],
+      "layout": "company-5-inline"
+    },
+    {
+      "kind": "WebPart",
+      "id": 13,
+      "alias": "MyVestingWebPart",
+      "guid": "fb9e0b3b-3076-40e1-bb82-df51baab9ca0",
+      "mode": "inline",
+      "route": "hr/rewards",
+      "parameters": true,
+      "headings": [
+        "Your vesting timeline.",
+        "Growth award"
+      ],
+      "layout": "hr-rewards-inline-information"
+    },
+    {
+      "kind": "WebPart",
+      "id": 21,
+      "alias": "TechGuidesWebPart",
+      "guid": "fe86c61c-cd22-4899-a892-34eefda543cd",
+      "mode": "inline",
+      "route": "tech/guides",
+      "parameters": true,
+      "headings": [
+        "Reconnect a second screen",
+        "Connect the display directly to the powered dock and select its USB-C input."
+      ],
+      "layout": "tech-guides-inline-information"
+    }
+  ]
+}

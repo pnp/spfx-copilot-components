@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "e319ced2-b094-4907-931c-c4a971ea6479",
+  "alias": "PrepareGrowthActionCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "PrepareGrowthAction",
+      "description": {
+        "default": "Use when: Prepare and review an owned follow-up on an authorized commercial evidence cut. Recording requires an explicit confirmation. Do not use for: Explain the lead conversion ratio. Related but separate tools: ExplainForecastMovement, TraceLeadConversion."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/prepareGrowthAction/PrepareGrowthActionCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

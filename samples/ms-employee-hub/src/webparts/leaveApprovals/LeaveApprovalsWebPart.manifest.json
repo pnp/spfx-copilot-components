@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "25828882-31e8-4352-8790-4cdc95386c7f",
+  "alias": "LeaveApprovalsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Leave decisions"
+      },
+      "description": {
+        "default": "Review an assigned colleague's leave request and confirm a decision after inspecting coverage."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTE3Ljc1IDNDMTkuNTUgMyAyMSA0LjQ2IDIxIDYuMjV2NS43N2MtLjQ2LS4zLS45Ny0uNTMtMS41LS43VjguNWgtMTV2OS4yNWMwIC45Ny43OCAxLjc1IDEuNzUgMS43NWg1LjA2Yy4xOC41My40MiAxLjA0LjcxIDEuNUg2LjI1QTMuMjUgMy4yNSAwIDAgMSAzIDE3Ljc1VjYuMjVDMyA0LjQ1IDQuNDYgMyA2LjI1IDNoMTEuNVptMCAxLjVINi4yNWMtLjk3IDAtMS43NS43OC0xLjc1IDEuNzVWN2gxNXYtLjc1YzAtLjk3LS43OC0xLjc1LTEuNzUtMS43NVptNS4yNSAxM2E1LjUgNS41IDAgMSAxLTExIDAgNS41IDUuNSAwIDAgMSAxMSAwWm0tMi4xNS0yLjM1YS41LjUgMCAwIDAtLjcgMGwtMy42NSAzLjY0LTEuNjUtMS42NGEuNS41IDAgMCAwLS43LjdsMiAyYy4yLjIuNS4yLjcgMGw0LTRhLjUuNSAwIDAgMCAwLS43WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

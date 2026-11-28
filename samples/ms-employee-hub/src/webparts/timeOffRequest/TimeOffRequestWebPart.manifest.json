@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "358af55f-7333-498f-82b4-f9be0882318b",
+  "alias": "TimeOffRequestWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Plan time away"
+      },
+      "description": {
+        "default": "Prepare a leave date range, check working days and review before explicitly submitting."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTE3Ljc1IDNDMTkuNTUgMyAyMSA0LjQ1IDIxIDYuMjV2NC43NmEzLjMgMy4zIDAgMCAwLTEuNS4yMlY4LjVoLTE1djkuMjVjMCAuOTcuNzggMS43NSAxLjc1IDEuNzVoNS4yOWwtLjAyLjA4LS4zNiAxLjQySDYuMjVBMy4yNSAzLjI1IDAgMCAxIDMgMTcuNzVWNi4yNUMzIDQuNDUgNC40NSAzIDYuMjUgM2gxMS41Wm0wIDEuNUg2LjI1Yy0uOTcgMC0xLjc1Ljc4LTEuNzUgMS43NVY3aDE1di0uNzVjMC0uOTctLjc4LTEuNzUtMS43NS0xLjc1Wk0xMy4yIDE4LjU3bDUuOS01LjlhMi4yOSAyLjI5IDAgMCAxIDMuMjMgMy4yM2wtNS45IDUuOWMtLjM1LjM1LS43OC42LTEuMjUuN2wtMS44My40N2MtLjguMi0xLjUyLS41My0xLjMyLTEuMzJsLjQ2LTEuODNjLjEyLS40Ny4zNi0uOS43LTEuMjVaTTkgMTUuNzVhMS4yNSAxLjI1IDAgMSAwLTIuNSAwIDEuMjUgMS4yNSAwIDAgMCAyLjUgMFptNC4yNSAwYTEuMjUgMS4yNSAwIDEgMC0yLjUgMCAxLjI1IDEuMjUgMCAwIDAgMi41IDBabS00LjI1LTRhMS4yNSAxLjI1IDAgMSAwLTIuNSAwIDEuMjUgMS4yNSAwIDAgMCAyLjUgMFptNC4yNSAwYTEuMjUgMS4yNSAwIDEgMC0yLjUgMCAxLjI1IDEuMjUgMCAwIDAgMi41IDBabTQuMjUgMGExLjI1IDEuMjUgMCAxIDAtMi41IDAgMS4yNSAxLjI1IDAgMCAwIDIuNSAwWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

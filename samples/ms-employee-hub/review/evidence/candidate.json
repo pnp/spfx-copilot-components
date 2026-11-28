@@ -1,0 +1,679 @@
+{
+  "scope": "Uncommitted local review only. Source and package evidence are not tenant acceptance.",
+  "generated": "2026-11-28T16:50:33.815Z",
+  "catalog": 30,
+  "webParts": 34,
+  "largestRawJs": {
+    "name": "ClientSideAssets/employee-hub-webparts_b4fb08aef5c3fccc1346.js",
+    "bytes": 123527
+  },
+  "offlineStudioSha256": "adeab1cbc2857e34edaf9e29a83fee0a219e2ad8d88908413bd1d124d3eab997",
+  "negativeRoutingPairs": 30,
+  "parameterizedExamples": 30,
+  "zoomChecks": 64,
+  "renderCount": 640,
+  "journeys": [
+    "Commercial rehearsal 1: 8/60 → 12/40 → original selected flow → explicit #06 receipt.",
+    "Commercial rehearsal 2: 8/60 → 12/40 → original selected flow → explicit #06 receipt.",
+    "Ticket validation, re-edit, expansion, one explicit submission, exact local tracking and fresh-instance isolation.",
+    "Independent equipment decision explicitly confirmed; exact order leaves the pending queue.",
+    "Latest news lists three published stories; keyboard expansion, bookmarking and the full reader retain the chosen story.",
+    "Location-based room search, explicit selection and confirmation, retained full-screen criteria and same-slot conflict on a second search.",
+    "Mandatory learning timeline and recorded section, isolated benefits planning windows, and explicitly revealed, re-masked pay split.",
+    "Personal request history → dated request with optional private handoff → confirmation and pending row; independent manager searches a photographed requester and sees the confirmed decision on the updated row.",
+    "Device passport switches both the selected asset and its local campaign/product artwork; laptop on a narrow dark canvas, headset at inline width.",
+    "Explorer lists all 28 components with unique, copyable example prompts; search and preview do not invoke a task.",
+    "Company newsroom saves, scoped search, geographic office-to-room handoff, corporate objectives and 21 inspectable public closing prices.",
+    "All-up workspace switching, four fixed homes, denied Business access, keyboard draft protection and redacted discussion."
+  ],
+  "inlineHeightExceptions": [],
+  "assets": [
+    {
+      "source": "src/shared/media/sources.json",
+      "provenance": "User-supplied Microsoft photography, motifs and official light/dark wordmarks; local review only",
+      "sha256": "d047871278a3aba94cc9abb6d5ff6a7e2746bbb93707bb58eb88eea0b839296b"
+    },
+    {
+      "source": "src/shared/business/worldLand.json",
+      "provenance": "Natural Earth public-domain map geometry; see source metadata",
+      "sha256": "be3c5829e558a17f41552280e78a89b96416e804819cf196bd385fd64f5de34e"
+    },
+    {
+      "source": "employee-hub-plugin/artwork.svg",
+      "provenance": "Employee Hub identity family; Fluent UI System Icons, MIT",
+      "sha256": "60bfdf2e34ac8597df45a403c0fac09b89b48b49063125be9a891ffa0b62e5e5"
+    },
+    {
+      "source": "src/shared/media/device-workplace.jpg",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-006.jpg (local review)",
+      "sha256": "5a60d8cfb618e162d951bce5db74eaf99a5fb185bd916e67c1268ac055e84e7d",
+      "packageMember": "ClientSideAssets/device-workplace_3f164f4b5e611b4dfeaf.jpg"
+    },
+    {
+      "source": "src/shared/media/device-laptop.png",
+      "provenance": "zava-it-concierge/src/shared/assets/products/surface-laptop.png (local review)",
+      "sha256": "aac7c77a8ca0ab0cf7843a05f7bf03d5183e54e90a479486d18cb551b9617550",
+      "packageMember": "ClientSideAssets/device-laptop_34bee2297e450542c898.png"
+    },
+    {
+      "source": "src/shared/media/device-headphones.png",
+      "provenance": "microsoft/fluentui-emoji/assets/Headphone/3D/headphone_3d.png (local review)",
+      "sha256": "e7c26d433340b1706f20c733558da412cbf70b1a95048d51a80eb0ed2c0a02c9",
+      "packageMember": "ClientSideAssets/device-headphones_c781c3423f9fdc685e30.png"
+    },
+    {
+      "source": "src/shared/media/hr-profiles.jpg",
+      "provenance": "zava-one-hub/assets/media/faces#Johanna-Lorenz, Diego-Siciliani, Joni-Sherman, Lee-Gu, Megan-Bowen, Grady-Archie (local review)",
+      "sha256": "53b55dd9ffe65b786ce0e8c113361947a5917984ca9d02ef99840dcd576ddc79",
+      "packageMember": "ClientSideAssets/hr-profiles_b8409bc3ea5463744b0f.jpg"
+    },
+    {
+      "source": "src/shared/media/company-cover.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-008.jpg (local review)",
+      "sha256": "e7b5a4e06908a01b0396a68a7e666298dbfef9c65fc52b7d221a6de035ff1a0a",
+      "packageMember": "ClientSideAssets/company-cover_a88adb6f159a1b386c56.jpg"
+    },
+    {
+      "source": "src/shared/media/company-inset.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-088.jpg (local review)",
+      "sha256": "dc6aeb656a368a50a52a476abbc839962dd80acf4905199f8f2d40d59cce7711",
+      "packageMember": "ClientSideAssets/company-inset_4f743a05b70ea8dc9718.jpg"
+    },
+    {
+      "source": "src/shared/media/company-edition.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-089.jpg (local review)",
+      "sha256": "ca74462ad314557eb931f10e939e751e7eb58cd0704fb04ec5197d05ed9427ff",
+      "packageMember": "ClientSideAssets/company-edition_bbf0fd623c326e8274e9.jpg"
+    },
+    {
+      "source": "src/shared/media/company-perspective.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-086.jpg (local review)",
+      "sha256": "ec35d5d01c94433003e12b455aada43cd92fb19516909cf3c59ba195ff19bfd8",
+      "packageMember": "ClientSideAssets/company-perspective_4e6c12bab32016e73a52.jpg"
+    },
+    {
+      "source": "src/shared/media/hr-cover.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-046.jpg (local review)",
+      "sha256": "6a440164bbf6e8cb637a81be5637d0a9f57092edf80db620f4c59de7de76fa34",
+      "packageMember": "ClientSideAssets/hr-cover_0a95a3e2db2aa4af0372.jpg"
+    },
+    {
+      "source": "src/shared/media/hr-inset.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-001.jpg (local review)",
+      "sha256": "2781f77487b800575b69e61ce8105722993c4965b2921d991fecf2748f43c9c8",
+      "packageMember": "ClientSideAssets/hr-inset_04207a44410b7b814566.jpg"
+    },
+    {
+      "source": "src/shared/media/hr-learning.jpg",
+      "provenance": "microsoft/Humans/CLO24-Portraits-075.jpg (local review)",
+      "sha256": "29d97c6a9ad913137cf76cc948da5cffef4c7c1a86889efdfcca055b741b6b7d",
+      "packageMember": "ClientSideAssets/hr-learning_75ca2623d55937cdeb19.jpg"
+    },
+    {
+      "source": "src/shared/media/tech-cover.jpg",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-057.jpg (local review)",
+      "sha256": "47b1dce211144b02c4c76cdc64906c1ae6942f4efd65d7faaf5f4a176957ebfe",
+      "packageMember": "ClientSideAssets/tech-cover_1ec71cebb0b9d28eedc1.jpg"
+    },
+    {
+      "source": "src/shared/media/tech-craft.jpg",
+      "provenance": "microsoft/Humans/CLO25-SCI-Lifestyle-019.jpg (local review)",
+      "sha256": "e98bbd14740c707ae578541456eefc5a6df4e45d53d60591c5b7735e45546b93",
+      "packageMember": "ClientSideAssets/tech-craft_7d351f5b9196aebfcca9.jpg"
+    },
+    {
+      "source": "src/shared/media/hr-flourish.png",
+      "provenance": "microsoft/Flourish_Customized.png (local review)",
+      "sha256": "0de5cbe418cbb91421bb2f4ef876d395896416ff0abfa36095f6767f83ed5df7",
+      "packageMember": "ClientSideAssets/hr-flourish_923141833f86f034b157.png"
+    },
+    {
+      "source": "src/shared/media/prism.png",
+      "provenance": "microsoft/Prism_Customized.png (local review)",
+      "sha256": "aab9b9de2982872601e424a481dc9eaaeccea631f0da7dd28da32ea12ba99c29",
+      "packageMember": "ClientSideAssets/prism_3314a4204150d3bebd4b.png"
+    },
+    {
+      "source": "src/shared/media/campaign-ring.png",
+      "provenance": "microsoft/FY26 EVP Social Templates/FY26 EVP_ Employee Testimonial Template.pptx#ppt/media/image8.png (local review)",
+      "sha256": "3a8c0312eff7e520f7d9aa19771e5a5ed15ec8a6edafd75c1028258459def84c",
+      "packageMember": "ClientSideAssets/campaign-ring_bc6ed51774acbb5e1a1f.png"
+    },
+    {
+      "source": "src/shared/media/microsoft-logo.png",
+      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Gray.png (local review)",
+      "sha256": "2cec6bfcd6069fc6c56abbeac72389dd29d92294248dddc2a3259682e3254f6a",
+      "packageMember": "ClientSideAssets/microsoft-logo_d70eba48fbdd36139fef.png"
+    },
+    {
+      "source": "src/shared/media/microsoft-logo-dark.png",
+      "provenance": "Logos - Microsoft/MSFT_logo_rgb_C-Wht.png (local review)",
+      "sha256": "7fd3bda370899990b6caceddfef6da7124275b42968c0c4f1968b51d65f6a450",
+      "packageMember": "ClientSideAssets/microsoft-logo-dark_a7eb9bdd44de856ddc48.png"
+    }
+  ],
+  "packages": [
+    {
+      "file": "sharepoint/solution/ms-employee-hub.sppkg",
+      "bytes": 3180822,
+      "sha256": "051cf8f450d640df4f8b9cb4c0f33fc3e416922aba2121cadab43147cf2664ac"
+    },
+    {
+      "file": "teams/employee-hub.zip",
+      "bytes": 10781,
+      "sha256": "a50fbe991e3cde56efbf4d11e2b8a99fe2e9a4a9a5e3fdc460688074343adce3"
+    },
+    {
+      "file": "release/teams/employee-hub-hub.zip",
+      "bytes": 4258,
+      "sha256": "8752ad4e300a50b464522b36ce7baefd2a47f66dbf2591d419531f4b7e3f07f7"
+    },
+    {
+      "file": "release/teams/employee-hub-company.zip",
+      "bytes": 5881,
+      "sha256": "abfe6bf5986f233bf972d8e9f691ac639eae339337d3732db7e23cf9e82e1111"
+    },
+    {
+      "file": "release/teams/employee-hub-hr.zip",
+      "bytes": 7341,
+      "sha256": "a9ec31b0a11474078bd143ff1c1c98fa9d42b70e3a32ab893cbd0d810517ffdb"
+    },
+    {
+      "file": "release/teams/employee-hub-tech.zip",
+      "bytes": 6162,
+      "sha256": "1f83a914bf7db8cf8b5f6426b1dfea5633fd88334d236dc7e3988825d1c16f2f"
+    },
+    {
+      "file": "release/teams/employee-hub-business.zip",
+      "bytes": 5032,
+      "sha256": "cb42e2c1036d881f41089b9002c678968552f427eb8de7426451d573c131b2e7"
+    },
+    {
+      "file": "release/cowork/employee-hub-local-review.zip",
+      "bytes": 8642,
+      "sha256": "1c7d6f2ff5e5094444bb8bee116f862ef5d62530a1fbc25d7ad56dba33678054"
+    }
+  ],
+  "screenshots": [
+    {
+      "image": "identity-sheet.png",
+      "width": 1380,
+      "height": 910,
+      "sha256": "25505853f8bb9cc7e006aaeca92315e1be2d416b015aca815e4be62c21ea5296"
+    },
+    {
+      "image": "proof-contact.png",
+      "width": 1440,
+      "height": 1124,
+      "sha256": "84576089e103a5cb33f28b1d15cef667b04f9a27e427e6943efcc7503266db01"
+    },
+    {
+      "image": "screens/benefits-checklist.png",
+      "width": 760,
+      "height": 809,
+      "sha256": "d796467203ccfecfd2d5480863195dc09492a0d60db3f8bdb70d8160ca2b3a4d"
+    },
+    {
+      "image": "screens/business-1280-dark.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "1310d967006238194c5071916f31e248e937bd62474eb78f450f3339f788a83d"
+    },
+    {
+      "image": "screens/business-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "19ed3e2053405dc62f495c2c139ce356dbbf0d9dc27a9a90d58d8d53a29a63af"
+    },
+    {
+      "image": "screens/business-390-dark.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "fb064fe5c0bcd75eddafd8b450958a6d2117e6a0960ce0b4763545970d66420b"
+    },
+    {
+      "image": "screens/business-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "adbe7b4ca9c4108e26ea07c4011d4504c2c03ec9508211eacd0bf691d29ae90d"
+    },
+    {
+      "image": "screens/company-1280-dark.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "2ca9f3a16ac6f607122219c6dc3f4215884b5e59a20f7b93726e7c09f2b3e90c"
+    },
+    {
+      "image": "screens/company-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "e5dcf3110966988d0ed889ab524d0bced4706b990bfda7ea0dc34dc209d257b2"
+    },
+    {
+      "image": "screens/company-390-dark.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "12bf326d9673b35a0f3e00b68731ffc1a2afb19bd7c417995201b20ef294254e"
+    },
+    {
+      "image": "screens/company-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "40e82eb43093c58b1991f32bcdfa4e6cd8a3a77211047d6289971eff7d50a97d"
+    },
+    {
+      "image": "screens/device-headset.png",
+      "width": 760,
+      "height": 527,
+      "sha256": "8bfd5fe33a9cb380d8783e7ab5743a3f5b55f47f6461726984ea3c08d7d86c04"
+    },
+    {
+      "image": "screens/device-passport-phone.png",
+      "width": 390,
+      "height": 708,
+      "sha256": "ccba8be26f45e7ebd2e83a68419bfff699555da7c5850c85af0bd00d617998af"
+    },
+    {
+      "image": "screens/hr-1280-dark.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "a654e169f490977c2be166fdd075aa73e2c6ac22972b044845cf27744ffe9561"
+    },
+    {
+      "image": "screens/hr-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "b1d98d7fa2ccf93a7e3449d70ce7f72125a10df83e7a8baa1277c15ec5f8358e"
+    },
+    {
+      "image": "screens/hr-390-dark.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "4949b79128fe8df6fdf6d8358eedd07dbd4c39bf6f203f7a48ac5c9977e90472"
+    },
+    {
+      "image": "screens/hr-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "166314d61659e31a9935646589e621104c80b096551a81abfb3389c522cb6ca1"
+    },
+    {
+      "image": "screens/keynote-receipt.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "6c0178c67ca124b35a3612cf52d28ab65d1cb2a3a5d96cf45738fd140e955d2e"
+    },
+    {
+      "image": "screens/learning-in-progress.png",
+      "width": 760,
+      "height": 790,
+      "sha256": "77a3dd2856af9d4401c650c902fc78c7be967b2b9b982c2e8f8343d28066cc3e"
+    },
+    {
+      "image": "screens/leave-decision-detail.png",
+      "width": 760,
+      "height": 685,
+      "sha256": "8daa05c566eb71ca0ac5e5c9210d925ffb3e9bb1f76fdc18c8bcaf6fb4f0270f"
+    },
+    {
+      "image": "screens/leave-decision-updated.png",
+      "width": 760,
+      "height": 839,
+      "sha256": "0916f2002d525a8c634baeabc68ae5ed40fe83e012e1dbfb2e4e50e397f7a8ff"
+    },
+    {
+      "image": "screens/news-story-open.png",
+      "width": 760,
+      "height": 735,
+      "sha256": "c5b35cfb478ba54e8b155ef58d800e6470bae41603e99cf53ceea67d2b7c52da"
+    },
+    {
+      "image": "screens/pay-split-revealed.png",
+      "width": 760,
+      "height": 828,
+      "sha256": "649f5b5081b5668fe0bff4d605b17e9fa61044f21f186b26440f074b2d37c3b0"
+    },
+    {
+      "image": "screens/room-receipt.png",
+      "width": 760,
+      "height": 611,
+      "sha256": "06356acfe135baaa6910b748a22119fa6925db5ee8514bca90687a6026995b69"
+    },
+    {
+      "image": "screens/room-review.png",
+      "width": 760,
+      "height": 645,
+      "sha256": "95db0bc374a8e6f972ccf48cff426fc080503d3596c39bebb637beda1ea51fc0"
+    },
+    {
+      "image": "screens/room-search-results.png",
+      "width": 760,
+      "height": 485,
+      "sha256": "b39f876e446c1a828166d11582a6707e1e813ae6ba587943dda3592f27610c3a"
+    },
+    {
+      "image": "screens/task-01-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "3cdc06e7b56d07758c4bcdaefb7390ef554da28d2fa095e1e67622a3247c6e80"
+    },
+    {
+      "image": "screens/task-01-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "37aec054b59a7dff19858c58870794e316e205f6484407cc96cddddba1cd6a03"
+    },
+    {
+      "image": "screens/task-02-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "62ac1dd07e173d68b7ce8bd63b723770319910546123ff91e715b99ed58fbdd5"
+    },
+    {
+      "image": "screens/task-02-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "d1488736baa5f3622092d5b73d52fc7cb5dd5bbf6dde3e1d79dba69f9c2e9bb8"
+    },
+    {
+      "image": "screens/task-03-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "66c96d414eac042ee17c94cc75b2013ab2fab3935eef67364acf65e8d04e677a"
+    },
+    {
+      "image": "screens/task-04-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "ff69c0f1917c6bc5f8f4bdf43a39d706cddefc9b974f178e3253c5d68831cf1a"
+    },
+    {
+      "image": "screens/task-04-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "7adea5dc911fd9aef8be52b3b96ec2b5ad5a4fab7714beaa4914a53baa9457c1"
+    },
+    {
+      "image": "screens/task-05-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "390dcd70cf5c48a3ceb61298ed6a82143829491fafdcd2cbe9406e50f8b45859"
+    },
+    {
+      "image": "screens/task-06-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "8f89654b72d1be0c1537a586a0b51bfe51bd51f41d7cf30d6e8e9f548ca89eef"
+    },
+    {
+      "image": "screens/task-07-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "49b86f622fcd2247ed09637b75fd6c2d7c6fbee46c9a998963defe4e5a5e4e38"
+    },
+    {
+      "image": "screens/task-08-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "61f9d3397005a18babb6db7729e49c988d1cafcbc44408d8476c2907c4d282de"
+    },
+    {
+      "image": "screens/task-09-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "2501937dcdd944cc728c55fe66c89216bc5fa6e73acc33531669deadff5c839f"
+    },
+    {
+      "image": "screens/task-09-full-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "25aec98df4dea58caccbc6e46d39086e23a4afc5f29e993f9f01b67412816be3"
+    },
+    {
+      "image": "screens/task-09-inline-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "c98804c308fa89d8554f251848201347f8322ce108c1383c3a436a9f85af7624"
+    },
+    {
+      "image": "screens/task-09-inline-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "e4e043d4c1d88c368dd766d324a2f26f7189ca36cd728f9661f282041e2d7bc4"
+    },
+    {
+      "image": "screens/task-09-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "ed4816b05c6bbce58b8950462add54067c26440a4020be3583e6ce188fe75fa3"
+    },
+    {
+      "image": "screens/task-10-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "63d63eee3a2f28b866e8f4e14f5cc4b050f2e290f54432d6759d6a84638797b6"
+    },
+    {
+      "image": "screens/task-11-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "936c9f92cbbce96427516ed98a5c5fb014aaaeb3c8b379cc0dd70b5b4997952f"
+    },
+    {
+      "image": "screens/task-12-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "9a0ca5c33830de873a5bd4bfc0bbc549588e12996349530444ddfe64221a967b"
+    },
+    {
+      "image": "screens/task-13-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "1fa9e7109057a7e3771f7fa8929ce0db4ca5c3df3c8b69bb5fcefd840c384e5e"
+    },
+    {
+      "image": "screens/task-14-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "32af79c250b55779f9a62a748aff4e79370114c08bf2aeab78707562aeead5fb"
+    },
+    {
+      "image": "screens/task-15-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "9e47416556995dcf7994a8f9c6436b3370a612564230fe31006a8ab649a25e59"
+    },
+    {
+      "image": "screens/task-15-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "dc96e60f326ab22b11e8e7be44ca19c6121b4956de7d691fc2663ff3d15e565d"
+    },
+    {
+      "image": "screens/task-16-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "0aabf7d5ffe323c97d5eb91f238ec3f9b303f75a10da2d28a1e093777e2f2f5e"
+    },
+    {
+      "image": "screens/task-17-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "7822343b5450d57b179423c014c57c72f904e6c1eed8ef7826660837176d01c9"
+    },
+    {
+      "image": "screens/task-18-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "1b1162638413736f888be92cc023f28e1b0999e83888d8ce2a46acb7eb216d1d"
+    },
+    {
+      "image": "screens/task-19-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "193efc7eebf2a64bb6b247e4ed028a0314d55f598bf13fd6755861995a1b8477"
+    },
+    {
+      "image": "screens/task-20-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "4b60f521867ec2b7373ec4354a183f5289b71c512d2e42c94d65de3a3916a8a0"
+    },
+    {
+      "image": "screens/task-21-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "b9075f58db8e7e1ae7ae83780a0922983e362619f9b2a5027d2a5218ed41a163"
+    },
+    {
+      "image": "screens/task-22-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "89e6a0e9fdd9600f87c4f5246b4fd163e9548aec533df55070eaf89127bfc7f5"
+    },
+    {
+      "image": "screens/task-22-full-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "fd4d35da9d8c77c392a7058edb20510642749cb5d1996ccfc583b92a815cbc3d"
+    },
+    {
+      "image": "screens/task-22-inline-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "9a92d40414d0f1e200985dde4515eb6a86b4591838594ff1f53d9ef9ed30ce65"
+    },
+    {
+      "image": "screens/task-22-inline-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "9c6b250e9b20336fe3db899d4f2e9d57557be1386078cad284e16b8191eddc72"
+    },
+    {
+      "image": "screens/task-22-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "aeef6301412583f794e0f975e5067a270739741b2480fe713998bb70a300b5f5"
+    },
+    {
+      "image": "screens/task-23-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "b39af73ccc6ec64deb1aa00a15bcf1cd9ea35ee10024c5bd4b65ac26d573ecff"
+    },
+    {
+      "image": "screens/task-24-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "656350058d94c8aa052a60be6842d543b3c6a34c69c02c4853de147f6209cd86"
+    },
+    {
+      "image": "screens/task-25-full-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "bf0e60bd5c05ac39b6884d3c15fc9f0a7d161b71d9aa3cdcd38857ef2c5eb95e"
+    },
+    {
+      "image": "screens/task-25-full-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "f59d8d281785fc897ede9e9016eb140bc9a5c6c0d3b0d43f8815e78edc552a8a"
+    },
+    {
+      "image": "screens/task-25-inline-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "766f16f9c8e6779bf22c7754262b4e2517a83ad61b28f543ad30f4471e832a4c"
+    },
+    {
+      "image": "screens/task-25-inline-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "0c22324d88f3ea0938ca3a50a56a5435bd265c706a8b945989bd2d90609062b3"
+    },
+    {
+      "image": "screens/task-25-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "36d5ebb97253a29532e7ba0d17bf3b73b7527eec471a757d213f9ba209a4a355"
+    },
+    {
+      "image": "screens/task-26-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "e417b39278b4038fe6d353041265fe0ddf0796e633b07b1db9a90985cc564498"
+    },
+    {
+      "image": "screens/task-27-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "6adc6cd729466b445e4f06f08dde9ed63d306f0219f3ca5545d28462189358f3"
+    },
+    {
+      "image": "screens/task-28-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "3adbc3906cb351ac140da32f61611b268fd1976fff0b3b25720e4ec63af12291"
+    },
+    {
+      "image": "screens/task-29-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "7c973a863d0eaa7551d1a1e83fcfc8890358d797bb33bba50c222412280e2cd4"
+    },
+    {
+      "image": "screens/task-30-inline-760.png",
+      "width": 760,
+      "height": 840,
+      "sha256": "1fa5d78a2b020e143be88a934bd78094b44b8420bd6645e0b79ab92e0c499e41"
+    },
+    {
+      "image": "screens/tech-1280-dark.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "0c2b3a2883127dbbb99118d36843bbd081ecf380261abe2c61d82f97bf6811d9"
+    },
+    {
+      "image": "screens/tech-1280.png",
+      "width": 1280,
+      "height": 840,
+      "sha256": "2af1c8512c30ed59b22e31baea8de9bba2abce61010420e4debaf13a5d19d33b"
+    },
+    {
+      "image": "screens/tech-390-dark.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "5e1d9fd99a2f680aa17a06c971561211963fcb1eb168e09ab34d0526309b9999"
+    },
+    {
+      "image": "screens/tech-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ab31879c237eec67a4c50f20ff4dd164bc8aa64714990f84b7fb6161c48d36aa"
+    },
+    {
+      "image": "screens/time-off-review.png",
+      "width": 760,
+      "height": 593,
+      "sha256": "cb18b128a84d65b7b067f6ba1fae6ba024b852435faa34ead08193d40f0fe636"
+    },
+    {
+      "image": "screens/time-off-submitted.png",
+      "width": 760,
+      "height": 567,
+      "sha256": "b28a719a6763eae151109954dc9d6067e8f93444de26bfd23385cc2d72e77cc2"
+    },
+    {
+      "image": "workspace-contact.png",
+      "width": 1440,
+      "height": 1124,
+      "sha256": "ea850f02063145432fa02d96db4cb7e5228f068fc20fe48498d72ea4a4335c6b"
+    },
+    {
+      "image": "workspace-phone.png",
+      "width": 1440,
+      "height": 950,
+      "sha256": "a890b019f0d2efa69fd284a44df955b6c8c03c05b8d35c2839a2754b83e256ed"
+    }
+  ]
+}

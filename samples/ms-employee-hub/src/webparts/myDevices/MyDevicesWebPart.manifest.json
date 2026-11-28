@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "e0009ade-df62-4cff-878c-a1c5c17362eb",
+  "alias": "MyDevicesWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Device passport"
+      },
+      "description": {
+        "default": "Inspect an assigned device, its last check-in, update and refresh window."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTYuMjUgNEM1LjAxIDQgNCA1IDQgNi4yNXY3LjVDNCAxNC45OSA1IDE2IDYuMjUgMTZoMTEuNWMxLjI0IDAgMi4yNS0xIDIuMjUtMi4yNXYtNy41QzIwIDUuMDEgMTkgNCAxNy43NSA0SDYuMjVaTTUuNSA2LjI1YzAtLjQxLjM0LS43NS43NS0uNzVoMTEuNWMuNDEgMCAuNzUuMzQuNzUuNzV2Ny41YzAgLjQxLS4zNC43NS0uNzUuNzVINi4yNWEuNzUuNzUgMCAwIDEtLjc1LS43NXYtNy41Wk0yLjc1IDE3LjVhLjc1Ljc1IDAgMCAwIDAgMS41aDE4LjVhLjc1Ljc1IDAgMCAwIDAtMS41SDIuNzVaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48L2c+PC9zdmc+"
+    }
+  ]
+}

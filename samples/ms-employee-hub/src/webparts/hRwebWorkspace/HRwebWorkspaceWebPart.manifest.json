@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "c9d7030a-ca94-4a61-aafc-c340cd98fbd3",
+  "alias": "HRwebWorkspaceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "SharePointFullPage",
+    "TeamsPersonalApp"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "HRweb"
+      },
+      "description": {
+        "default": "Open the fixed HRweb workspace."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTEwIDEyYTUgNSAwIDEgMCAwLTEwIDUgNSAwIDAgMCAwIDEwWm0wLTguNWEzLjUgMy41IDAgMSAxIDAgNyAzLjUgMy41IDAgMCAxIDAtN1ptLTUuNzUgMTJoOS4xMmwxLjc3LTEuNUg0LjI0QzMuMDIgMTQgMiAxNSAyIDE2LjI1di41OGMwIC44OS4zMiAxLjc1LjkgMi40M0M0LjQ2IDIxLjEgNi44NSAyMiAxMCAyMmMuNyAwIDEuMzctLjA1IDItLjE0di0xLjUyYy0uNjIuMS0xLjI4LjE2LTIgLjE2LTIuNzQgMC00LjctLjc1LTUuOTYtMi4yMS0uMzUtLjQxLS41NC0uOTMtLjU0LTEuNDZ2LS41OGMwLS40Mi4zMy0uNzUuNzUtLjc1Wm0xMi41Mi0xLjU4YTEuMTIgMS4xMiAwIDAgMSAxLjQ2IDBsMy4zNyAyLjg3Yy4yNS4yMi40LjUzLjQuODZ2NC40OWMwIC40Ny0uMzkuODYtLjg3Ljg2aC0xLjI3YS44Ni44NiAwIDAgMS0uODYtLjg2di0yLjQ1YS43LjcgMCAwIDAtLjY5LS42OUgxNi43YS43LjcgMCAwIDAtLjY5Ljd2Mi40NGMwIC40Ny0uMzkuODYtLjg2Ljg2aC0xLjI3YS44Ni44NiAwIDAgMS0uODctLjg2di00LjVjMC0uMzIuMTUtLjYzLjQtLjg1bDMuMzctMi44N1oiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

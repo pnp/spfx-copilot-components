@@ -1,0 +1,272 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "employee-hub-copilot": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/analyzeSupportTrends/AnalyzeSupportTrendsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/analyzeSupportTrends/AnalyzeSupportTrendsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/askHrForHelp/AskHrForHelpCopilotComponent.js",
+          "manifest": "./src/copilotComponents/askHrForHelp/AskHrForHelpCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/bookMeetingRoom/BookMeetingRoomCopilotComponent.js",
+          "manifest": "./src/copilotComponents/bookMeetingRoom/BookMeetingRoomCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/checkLeaveBalance/CheckLeaveBalanceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/checkLeaveBalance/CheckLeaveBalanceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/checkServiceHealth/CheckServiceHealthCopilotComponent.js",
+          "manifest": "./src/copilotComponents/checkServiceHealth/CheckServiceHealthCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/checkTeamCoverage/CheckTeamCoverageCopilotComponent.js",
+          "manifest": "./src/copilotComponents/checkTeamCoverage/CheckTeamCoverageCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/compareSalesPerformance/CompareSalesPerformanceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/compareSalesPerformance/CompareSalesPerformanceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/explainForecastMovement/ExplainForecastMovementCopilotComponent.js",
+          "manifest": "./src/copilotComponents/explainForecastMovement/ExplainForecastMovementCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/exploreHubCapabilities/ExploreHubCapabilitiesCopilotComponent.js",
+          "manifest": "./src/copilotComponents/exploreHubCapabilities/ExploreHubCapabilitiesCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findCompanyEvents/FindCompanyEventsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findCompanyEvents/FindCompanyEventsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findPublishedGuidance/FindPublishedGuidanceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findPublishedGuidance/FindPublishedGuidanceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/findTroubleshootingGuide/FindTroubleshootingGuideCopilotComponent.js",
+          "manifest": "./src/copilotComponents/findTroubleshootingGuide/FindTroubleshootingGuideCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/inspectMyDevice/InspectMyDeviceCopilotComponent.js",
+          "manifest": "./src/copilotComponents/inspectMyDevice/InspectMyDeviceCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/mapSalesMarkets/MapSalesMarketsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/mapSalesMarkets/MapSalesMarketsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/openEmployeeHub/OpenEmployeeHubCopilotComponent.js",
+          "manifest": "./src/copilotComponents/openEmployeeHub/OpenEmployeeHubCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/prepareBenefitsReview/PrepareBenefitsReviewCopilotComponent.js",
+          "manifest": "./src/copilotComponents/prepareBenefitsReview/PrepareBenefitsReviewCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/prepareGrowthAction/PrepareGrowthActionCopilotComponent.js",
+          "manifest": "./src/copilotComponents/prepareGrowthAction/PrepareGrowthActionCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/readCompanyNews/ReadCompanyNewsCopilotComponent.js",
+          "manifest": "./src/copilotComponents/readCompanyNews/ReadCompanyNewsCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/requestAppAccess/RequestAppAccessCopilotComponent.js",
+          "manifest": "./src/copilotComponents/requestAppAccess/RequestAppAccessCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/requestEquipment/RequestEquipmentCopilotComponent.js",
+          "manifest": "./src/copilotComponents/requestEquipment/RequestEquipmentCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/requestTimeOff/RequestTimeOffCopilotComponent.js",
+          "manifest": "./src/copilotComponents/requestTimeOff/RequestTimeOffCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/reviewEquipmentRequest/ReviewEquipmentRequestCopilotComponent.js",
+          "manifest": "./src/copilotComponents/reviewEquipmentRequest/ReviewEquipmentRequestCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/reviewTimeOffRequest/ReviewTimeOffRequestCopilotComponent.js",
+          "manifest": "./src/copilotComponents/reviewTimeOffRequest/ReviewTimeOffRequestCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showMyVesting/ShowMyVestingCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showMyVesting/ShowMyVestingCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/showRequiredLearning/ShowRequiredLearningCopilotComponent.js",
+          "manifest": "./src/copilotComponents/showRequiredLearning/ShowRequiredLearningCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/submitItTicket/SubmitItTicketCopilotComponent.js",
+          "manifest": "./src/copilotComponents/submitItTicket/SubmitItTicketCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/traceLeadConversion/TraceLeadConversionCopilotComponent.js",
+          "manifest": "./src/copilotComponents/traceLeadConversion/TraceLeadConversionCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/traceSupportFlow/TraceSupportFlowCopilotComponent.js",
+          "manifest": "./src/copilotComponents/traceSupportFlow/TraceSupportFlowCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/trackMyItTicket/TrackMyItTicketCopilotComponent.js",
+          "manifest": "./src/copilotComponents/trackMyItTicket/TrackMyItTicketCopilotComponent.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/copilotComponents/viewMyPayslip/ViewMyPayslipCopilotComponent.js",
+          "manifest": "./src/copilotComponents/viewMyPayslip/ViewMyPayslipCopilotComponent.manifest.json"
+        }
+      ]
+    },
+    "employee-hub-webparts": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/appAccessRequest/AppAccessRequestWebPart.js",
+          "manifest": "./src/webparts/appAccessRequest/AppAccessRequestWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/benefitsReview/BenefitsReviewWebPart.js",
+          "manifest": "./src/webparts/benefitsReview/BenefitsReviewWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/businessSltWorkspace/BusinessSltWorkspaceWebPart.js",
+          "manifest": "./src/webparts/businessSltWorkspace/BusinessSltWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/companyEvents/CompanyEventsWebPart.js",
+          "manifest": "./src/webparts/companyEvents/CompanyEventsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/companyNews/CompanyNewsWebPart.js",
+          "manifest": "./src/webparts/companyNews/CompanyNewsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/employeeHubWorkspace/EmployeeHubWorkspaceWebPart.js",
+          "manifest": "./src/webparts/employeeHubWorkspace/EmployeeHubWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/equipmentApprovals/EquipmentApprovalsWebPart.js",
+          "manifest": "./src/webparts/equipmentApprovals/EquipmentApprovalsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/equipmentRequest/EquipmentRequestWebPart.js",
+          "manifest": "./src/webparts/equipmentRequest/EquipmentRequestWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/forecastBridge/ForecastBridgeWebPart.js",
+          "manifest": "./src/webparts/forecastBridge/ForecastBridgeWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/growthActionPlan/GrowthActionPlanWebPart.js",
+          "manifest": "./src/webparts/growthActionPlan/GrowthActionPlanWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/hrSupport/HrSupportWebPart.js",
+          "manifest": "./src/webparts/hrSupport/HrSupportWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/hRwebWorkspace/HRwebWorkspaceWebPart.js",
+          "manifest": "./src/webparts/hRwebWorkspace/HRwebWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/hubCapabilities/HubCapabilitiesWebPart.js",
+          "manifest": "./src/webparts/hubCapabilities/HubCapabilitiesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/itTicketIntake/ItTicketIntakeWebPart.js",
+          "manifest": "./src/webparts/itTicketIntake/ItTicketIntakeWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/leadConversionFlow/LeadConversionFlowWebPart.js",
+          "manifest": "./src/webparts/leadConversionFlow/LeadConversionFlowWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/leaveApprovals/LeaveApprovalsWebPart.js",
+          "manifest": "./src/webparts/leaveApprovals/LeaveApprovalsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/leaveBalance/LeaveBalanceWebPart.js",
+          "manifest": "./src/webparts/leaveBalance/LeaveBalanceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/microsoftHomeWorkspace/MicrosoftHomeWorkspaceWebPart.js",
+          "manifest": "./src/webparts/microsoftHomeWorkspace/MicrosoftHomeWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/myDevices/MyDevicesWebPart.js",
+          "manifest": "./src/webparts/myDevices/MyDevicesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/myItRequests/MyItRequestsWebPart.js",
+          "manifest": "./src/webparts/myItRequests/MyItRequestsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/myPayslip/MyPayslipWebPart.js",
+          "manifest": "./src/webparts/myPayslip/MyPayslipWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/myVesting/MyVestingWebPart.js",
+          "manifest": "./src/webparts/myVesting/MyVestingWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/policyGuidance/PolicyGuidanceWebPart.js",
+          "manifest": "./src/webparts/policyGuidance/PolicyGuidanceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/requiredLearning/RequiredLearningWebPart.js",
+          "manifest": "./src/webparts/requiredLearning/RequiredLearningWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/roomBooking/RoomBookingWebPart.js",
+          "manifest": "./src/webparts/roomBooking/RoomBookingWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/salesMarketMap/SalesMarketMapWebPart.js",
+          "manifest": "./src/webparts/salesMarketMap/SalesMarketMapWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/salesPerformance/SalesPerformanceWebPart.js",
+          "manifest": "./src/webparts/salesPerformance/SalesPerformanceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/serviceHealth/ServiceHealthWebPart.js",
+          "manifest": "./src/webparts/serviceHealth/ServiceHealthWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/supportFlow/SupportFlowWebPart.js",
+          "manifest": "./src/webparts/supportFlow/SupportFlowWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/supportTrends/SupportTrendsWebPart.js",
+          "manifest": "./src/webparts/supportTrends/SupportTrendsWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/teamCoverage/TeamCoverageWebPart.js",
+          "manifest": "./src/webparts/teamCoverage/TeamCoverageWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/techGuides/TechGuidesWebPart.js",
+          "manifest": "./src/webparts/techGuides/TechGuidesWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/techWebWorkspace/TechWebWorkspaceWebPart.js",
+          "manifest": "./src/webparts/techWebWorkspace/TechWebWorkspaceWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/timeOffRequest/TimeOffRequestWebPart.js",
+          "manifest": "./src/webparts/timeOffRequest/TimeOffRequestWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {}
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "fd488af6-3193-4cca-8e47-66e491046b2d",
+  "alias": "PolicyGuidanceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "The field guide"
+      },
+      "description": {
+        "default": "Find published workplace resources by topic, title and locale, with their source and version."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzA4NjU3NiIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzA4NjU3NiIgZmlsbD0iIzA4NjU3NiI+PHBhdGggZD0iTTE0LjgyIDExLjhhMy43MiAzLjcyIDAgMSAwLTEuMDIgMS4wMmwyLjQ3IDIuNDcuMDcuMDZhLjcyLjcyIDAgMCAwIC45NS0xLjA5bC0yLjQ3LTIuNDZabS0zLjEtNC4zNWEyLjI4IDIuMjggMCAxIDEgMCA0LjU1IDIuMjggMi4yOCAwIDAgMSAwLTQuNTVaTTYuNSAyQTIuNSAyLjUgMCAwIDAgNCA0LjV2MTVBMi41IDIuNSAwIDAgMCA2LjUgMjJoMTMuMjVhLjc1Ljc1IDAgMCAwIDAtMS41SDYuNWExIDEgMCAwIDEtMS0xaDE0LjI1Yy40MSAwIC43NS0uMzQuNzUtLjc1VjQuNUEyLjUgMi41IDAgMCAwIDE4IDJINi41Wk0xOSAxOEg1LjVWNC41YTEgMSAwIDAgMSAxLTFIMThhMSAxIDAgMCAxIDEgMVYxOFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

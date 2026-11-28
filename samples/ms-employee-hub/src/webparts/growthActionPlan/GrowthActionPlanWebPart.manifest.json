@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "af37118a-522b-421d-9df3-51d8a0ef631b",
+  "alias": "GrowthActionPlanWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Evidence to action"
+      },
+      "description": {
+        "default": "Prepare and review an owned follow-up on an authorized commercial evidence cut. Recording requires an explicit confirmation."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTEzLjk5IDRhMi4yNSAyLjI1IDAgMCAwLTIuMjQtMmgtMy41Yy0xLjE2IDAtMi4xMS44Ny0yLjI0IDJINC4yNUMzLjAxIDQgMiA1IDIgNi4yNXYxMy41QzIgMjAuOTkgMyAyMiA0LjI1IDIyaDguNTZhNi41MiA2LjUyIDAgMCAxLTEuMDgtMS41SDQuMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi4yNWMwLS40MS4zNC0uNzUuNzUtLjc1aDIuMTNjLjQuNiAxLjA5IDEgMS44NyAxaDMuNWMuNzggMCAxLjQ3LS40IDEuODctMWgyLjEzYy40MSAwIC43NS4zNC43NS43NXY0LjgzYTYuNTUgNi41NSAwIDAgMSAxLjUtLjA2VjYuMjVDMTggNS4wMSAxNyA0IDE1Ljc1IDRoLTEuNzZabTAgLjEuMDEuMTVWNC4xWm0tNS43NC0uNmgzLjVhLjc1Ljc1IDAgMCAxIDAgMS41aC0zLjVhLjc1Ljc1IDAgMCAxIDAtMS41Wm0zLjcgMTAuNmE2LjU0IDYuNTQgMCAwIDEgMi4xNS0yLjE0bC45My0uOTNhLjc1Ljc1IDAgMSAwLTEuMDYtMS4wNkw5IDE0Ljk0bC0xLjk3LTEuOTdhLjc1Ljc1IDAgMCAwLTEuMDYgMS4wNmwyLjUgMi41Yy4zLjMuNzcuMyAxLjA2IDBsMi40My0yLjQzWk0yMyAxNy41YTUuNSA1LjUgMCAxIDAtMTEgMCA1LjUgNS41IDAgMCAwIDExIDBabS01IC41djIuNWEuNS41IDAgMSAxLTEgMFYxOGgtMi41YS41LjUgMCAwIDEgMC0xSDE3di0yLjVhLjUuNSAwIDEgMSAxIDBWMTdoMi41YS41LjUgMCAwIDEgMCAxSDE4WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

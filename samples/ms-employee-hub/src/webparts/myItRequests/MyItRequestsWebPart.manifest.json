@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "8df54d79-38c4-4f7e-8722-6e96d4bef901",
+  "alias": "MyItRequestsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Your conversations"
+      },
+      "description": {
+        "default": "Inspect an existing personal ticket thread and its next owner."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3NWNhMSIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3NWNhMSIgZmlsbD0iIzE3NWNhMSI+PHBhdGggZD0iTTkuNTYgM2E3LjUgNy41IDAgMCAwLTYuOCAxMC42N2wtLjcyIDIuODRjLS4yMy45Mi41OSAxLjc1IDEuNSAxLjUzbDIuOTMtLjdBNy41IDcuNSAwIDEgMCA5LjU2IDNabS02IDcuNWE2IDYgMCAxIDEgMy4zMyA1LjM3bC0uMjQtLjEyLS4yNy4wNy0yLjc4LjY2LjY5LTIuNy4wNy0uMjgtLjEzLS4yNWE1Ljk3IDUuOTcgMCAwIDEtLjY3LTIuNzVabTExIDEwLjVhNy40NyA3LjQ3IDAgMCAxLTUuMS0yIDguMjggOC4yOCAwIDAgMCAyLjE4LS4yNiA1Ljk3IDUuOTcgMCAwIDAgNS42LjEzbC4yNC0uMTIuMjYuMDdjLjkyLjIyIDEuOTYuNDQgMi43NC42LS4xOC0uNzQtLjQxLTEuNzUtLjY0LTIuNjRsLS4wNy0uMjguMTMtLjI1YTUuOTcgNS45NyAwIDAgMC0yLjA5LTcuOCA4LjQ0IDguNDQgMCAwIDAtLjgtMi4wNCA3LjUgNy41IDAgMCAxIDQuMzUgMTAuMjZsLjY3IDIuOGMuMi45LS41NyAxLjctMS40NyAxLjUtLjcyLS4xNS0xLjg3LS4zOS0yLjkxLS42My0uOTQuNDItMS45OS42Ni0zLjA5LjY2WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

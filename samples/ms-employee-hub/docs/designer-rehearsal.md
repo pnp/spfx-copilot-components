@@ -1,0 +1,14 @@
+# Designer and SLT rehearsal guide
+
+Read [the four landings](../review/evidence/workspace-contact.png) beside [the phone captures](../review/evidence/workspace-phone.png). Use the working [gallery](../review/evidence/inline-gallery.html), not just the contact sheets. The studio renders the actual React bodies; it does not reproduce Teams, SharePoint or Copilot chrome. Use the fixed clock in the [three-minute script](../Employee-Hub-3-Minute-Demo.md) to compare known figures; repeat a separate run at the current date to check real cut and local-time behavior.
+
+| Surface | Acceptance cue | Reject when |
+|---|---|---|
+| Microsoft home | Read a dated story inline, save it and find it in Saved. Use the office atlas to start a room search for that office. | A list of stories becomes a dropdown; saving or expanding loses the selected story; a published event silently becomes a reservation. |
+| HRweb | See deadlines on the mandatory-learning timeline. Pay is masked until revealed. Show a requester's portrait in the decision list **and** detail and update their row only after confirmation. | A private value, medical reason or free-text note enters chat; a reviewer can decide their own request; a pay pie exposes amounts while masked. |
+| TechWeb | Switch the device and artwork together. Follow one reviewed guide step, then inspect an existing ticket by exact ID. | A guide advances on screen but context stays on the prior step; an unknown ticket silently resolves to another person's conversation. |
+| Business | Read Germany's booked-to-date gap, partner 8/60 vs inbound 12/40, and two forecast cuts as distinct measures. Expand a selected ribbon into Business and cite it in one action. | The masthead says Business SLT, the signed gap is reversed, the denominator changes on expansion, an immature cohort becomes zero, or confirming rewrites report history. |
+
+Use Tab, Shift+Tab, Enter and Space for the chart selection, its data table, room results and decision queue. At 320 and 390 px check order, legibility, focus and a usable first action. At 200% zoom inspect both disclosure and dismissal; test dark backgrounds and the light wordmark. There must be no off-screen submit button, duplicate host navigation or false automatic message. Inspect one of each localized office time, date range and currency unit. Narration is English; English locale variants and office time zones are not a translated application.
+
+**Sign-off:** in [the tracker](../todo.md) record reviewer, package SHA, fixture/role, width, host and actual result. A visual decision by the product owner, distribution rights, signed-in screen reader/high contrast/CSP, and the timed venue rehearsal each require their own owner. Do not copy restricted media into presentations or external galleries before clearance. For a missed cue, reset the session and follow the [captioned local recording](../review/evidence/commercial-rehearsal.webm); never describe it as a tenant capture.

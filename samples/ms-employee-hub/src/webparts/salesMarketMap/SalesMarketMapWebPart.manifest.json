@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "6149f9cb-13b4-4f7a-99af-547712ea7cfb",
+  "alias": "SalesMarketMapWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Market atlas"
+      },
+      "description": {
+        "default": "Locate covered markets by bookings volume and signed gap to phased plan."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTEwLjk1IDIuMDVBMTAgMTAgMCAxIDEgNC4xIDE4LjEzYTEwIDEwIDAgMCAxIDYuODMtMTYuMDhoLjAyWk0xMiAzLjVoLS4xNmMuMTIuMjUuMjYuNTMuMzcuODUuMzUuOTIuNjcgMi4yOC4xIDMuNDktLjUyIDEuMTEtMS40MiAxLjQtMi4wOSAxLjU3bC0uMDguMDJjLS42Ni4xNy0uOS4yNC0xLjEuNTItLjE2LjI1LS4xNC41OC4wNyAxLjI1bC4wNC4xNGMuMDkuMjYuMTguNTcuMjMuODcuMDcuMzYuMDkuODItLjE1IDEuMjctLjIzLjQ1LS41NC43NS0uOS45NS0uMzQuMTgtLjcuMjUtLjk2LjNsLS4wOS4wMmMtLjUxLjA5LS43Ni4xMy0xIC4zOS0uMTkuMi0uMy41NS0uMzggMS4wN2wtLjA2LjY1di4xMmMtLjAzLjI0LS4wNS41Mi0uMS43NmE4LjQ4IDguNDggMCAwIDAgMTAuNTggMS41OGwtLjMxLS4zNWMtLjM0LS40My0uNzktMS4xNi0uNjMtMi4wMy4wNy0uNDIuMy0uNzcuNTEtMS4wNC4yMi0uMjcuNDktLjUyLjcyLS43NGwuMTYtLjE0Yy4xOC0uMTcuMzMtLjMuNDYtLjQ0LjE3LS4xOC4yMS0uMjYuMjEtLjI3LjA3LS4yMi0uMDEtLjM4LS4xLS40NWEuMy4zIDAgMCAwLS4yLS4wNi43NS43NSAwIDAgMC0uNC4xNC45MS45MSAwIDAgMS0uODMuMDhjLS4yNy0uMS0uNDEtLjMxLS40OS0uNDNhMi43NSAyLjc1IDAgMCAxLS4yNy0uNzdsLS4xMi0uNTUtLjA0LS4yMWE0LjEgNC4xIDAgMCAwLS4xMy0uNTRsLS4wMi0uMDRhNi4yMyA2LjIzIDAgMCAwLS4zLS40MmwtLjEtLjE0Yy0uMTYtLjIxLS4zNi0uNDctLjUyLS43MS0uMi0uMy0uNDItLjctLjQ5LTEuMWExLjM5IDEuMzkgMCAwIDEgLjU0LTEuMzggMTMgMTMgMCAwIDAgMS44My0xLjk3Yy4yOS0uMzYuNTQtLjcuNzMtLjk1QTguNDYgOC40NiAwIDAgMCAxMiAzLjVabTUuNzMgMi4yMi0uNzYuOThjLS42Ljc1LTEuNCAxLjY4LTIuMDUgMi4xOS4wMy4xLjEuMjYuMjYuNWExMC43MyAxMC43MyAwIDAgMCAuNTYuNzdjLjE4LjIzLjQyLjU0LjUyLjg0LjEuMjMuMTUuNTIuMi43NmwuMDUuMjUuMDguMzdjLjYtLjE3IDEuMi0uMDcgMS42Ny4zLjYuNDYuODYgMS4yOC42MiAyLjA3LS4xMS4zNi0uMzYuNjYtLjU2Ljg3bC0uNTYuNTMtLjEzLjEyYy0uMjMuMi0uNDIuNC0uNTcuNTdhLjkuOSAwIDAgMC0uMi4zNmMtLjA0LjIyLjA2LjUxLjMyLjg0YTMuMTQgMy4xNCAwIDAgMCAuMzguNCA4LjQ4IDguNDggMCAwIDAgLjE3LTEyLjcyWk0zLjUgMTJjMCAxLjQuMzQgMi43Mi45NCAzLjg4LjA4LS41Ni4yNi0xLjI1Ljc0LTEuNzdhMi45MSAyLjkxIDAgMCAxIDEuOTMtLjg2Yy4yNS0uMDQuNC0uMDguNS0uMTRhLjcuNyAwIDAgMCAuMy0uMzJjMC0uMDMuMDMtLjEgMC0uMzMtLjA0LS4xOC0uMS0uMzgtLjE4LS42M2wtLjA2LS4yYy0uMTgtLjYtLjQ4LTEuNi4xMi0yLjUuNTMtLjggMS4zNi0xIDEuOS0xLjEzbC4xNi0uMDRjLjU2LS4xNS44OC0uMjggMS4xLS43Ni4zLS42My4xOC0xLjQ4LS4xNC0yLjMyYTcuNjEgNy42MSAwIDAgMC0uNTgtMS4yQTguNSA4LjUgMCAwIDAgMy41IDEyWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

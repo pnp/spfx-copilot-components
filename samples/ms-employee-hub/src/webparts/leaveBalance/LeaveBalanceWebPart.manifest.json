@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "4e653978-5557-4dcc-b507-56d9d1e46679",
+  "alias": "LeaveBalanceWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Time away ledger"
+      },
+      "description": {
+        "default": "Explain available, booked and pending leave for a selected type and period."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzY5NDc5YyIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzY5NDc5YyIgZmlsbD0iIzY5NDc5YyI+PHBhdGggZD0iTTE3Ljc1IDNDMTkuNTUgMyAyMSA0LjQ2IDIxIDYuMjV2MTEuNWMwIDEuOC0xLjQ2IDMuMjUtMy4yNSAzLjI1SDYuMjVBMy4yNSAzLjI1IDAgMCAxIDMgMTcuNzVWNi4yNUMzIDQuNDUgNC40NiAzIDYuMjUgM2gxMS41Wm0xLjc1IDUuNWgtMTV2OS4yNWMwIC45Ny43OCAxLjc1IDEuNzUgMS43NWgxMS41Yy45NyAwIDEuNzUtLjc4IDEuNzUtMS43NVY4LjVabS0xMS43NSA2YTEuMjUgMS4yNSAwIDEgMSAwIDIuNSAxLjI1IDEuMjUgMCAwIDEgMC0yLjVabTQuMjUgMGExLjI1IDEuMjUgMCAxIDEgMCAyLjUgMS4yNSAxLjI1IDAgMCAxIDAtMi41Wm0tNC4yNS00YTEuMjUgMS4yNSAwIDEgMSAwIDIuNSAxLjI1IDEuMjUgMCAwIDEgMC0yLjVabTQuMjUgMGExLjI1IDEuMjUgMCAxIDEgMCAyLjUgMS4yNSAxLjI1IDAgMCAxIDAtMi41Wm00LjI1IDBhMS4yNSAxLjI1IDAgMSAxIDAgMi41IDEuMjUgMS4yNSAwIDAgMSAwLTIuNVptMS41LTZINi4yNWMtLjk3IDAtMS43NS43OC0xLjc1IDEuNzVWN2gxNXYtLjc1YzAtLjk3LS43OC0xLjc1LTEuNzUtMS43NVoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

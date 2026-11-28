@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "feb28b52-11f3-4c6d-b43e-de6307768087",
+  "alias": "ExplainForecastMovementCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ExplainForecastMovement",
+      "description": {
+        "default": "Use when: Explain signed changes between two forecast cuts for the same market and quarter. Do not use for: Compare booked-to-date performance with phased plan. Related but separate tools: MapSalesMarkets, PrepareGrowthAction, CompareSalesPerformance."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/explainForecastMovement/ExplainForecastMovementCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "3e5303d4-729b-4e8d-9993-0c5380e7646b",
+  "alias": "FindCompanyEventsCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "FindCompanyEvents",
+      "description": {
+        "default": "Use when: Find an upcoming published event, compare local times, or download its calendar entry. Do not use for: Reserve an accessible meeting room. Related but separate tools: ReadCompanyNews, BookMeetingRoom."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/findCompanyEvents/FindCompanyEventsCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

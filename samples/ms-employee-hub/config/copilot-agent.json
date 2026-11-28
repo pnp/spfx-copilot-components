@@ -1,0 +1,46 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "Employee Hub"
+      },
+      "description": {
+        "default": "Explore workplace news, HR services, technology support and commercial insights using synthetic records."
+      },
+      "components": [
+        "3e5303d4-729b-4e8d-9993-0c5380e7646b",
+        "a9f89e52-f7da-4d6d-9c66-6c60a65da68d",
+        "84dc7c31-e8c6-47fa-97cf-f34f2e5595b0",
+        "c0dde3df-c9cf-4f7b-af63-c20344a0f84f",
+        "21fbf32e-c837-4060-b6af-cf8819f81f73",
+        "e319ced2-b094-4907-931c-c4a971ea6479",
+        "feb28b52-11f3-4c6d-b43e-de6307768087",
+        "36f1abc9-64e7-452f-8692-1d613621669c",
+        "ec028c80-f8a6-4af6-903e-4a3b2ce9a195",
+        "36e8b6f7-c3c3-482c-96b5-93455247d9a6",
+        "5b41bc72-8ec7-4a99-815e-0f6c97b2b9b5",
+        "057c1ccb-7e53-4fae-99ae-58baf34a146c",
+        "99201260-9a9d-4f2f-abd5-b3917efa6df7",
+        "365dcf79-ba29-4ae3-8395-8ac74280c58f",
+        "f7c08ef1-3c94-4c7f-a076-ef369e9e1d47",
+        "8bc9f5e8-1d5d-4152-b20f-a79c235adcfc",
+        "25cdcb6c-e3c5-4ce9-a1ef-27ad7bf1c3db",
+        "680208b9-7e54-4374-b2f8-b7681d17ffe9",
+        "c98f0a0b-5a5f-4d06-bf4c-dc1e554891c0",
+        "388955ee-6240-4eda-aa71-540e8c54a803",
+        "1170607c-8322-42c8-8d51-5227fa18defe",
+        "342d2e9f-b3d8-4170-85bd-9f2c1306ebdc",
+        "e44acf2c-939d-4797-8d83-51bdcced943d",
+        "15094742-3c56-4d7c-a7ee-7662e5e099c2",
+        "c386f97a-dac6-41db-b901-8a9befe14b03",
+        "bcdcaafa-1147-4673-8bf5-183cd744dfe7",
+        "d5c7e051-917b-4862-95cd-bc602204e42c",
+        "2ed6570c-eb3e-494d-8593-8d779a49ac49",
+        "524a29cf-9ccb-4367-85a3-035080b6c6a6",
+        "e35ea73d-54a4-4c27-ab9c-9cf0de709615"
+      ],
+      "toolDiscovery": "dynamic"
+    }
+  ]
+}

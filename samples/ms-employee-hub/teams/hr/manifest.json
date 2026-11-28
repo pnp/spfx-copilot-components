@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.29/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.29",
+  "version": "1.0.1",
+  "id": "c9d7030a-ca94-4a61-aafc-c340cd98fbd3",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://example.invalid/employee-hub",
+    "privacyUrl": "https://example.invalid/employee-hub/privacy",
+    "termsOfUseUrl": "https://example.invalid/employee-hub/terms"
+  },
+  "name": {
+    "short": "HRweb",
+    "full": "HRweb · Employee Hub workspace"
+  },
+  "description": {
+    "short": "Open HRweb in a personal workspace.",
+    "full": "A fixed HRweb experience without workspace switching. Uses synthetic records and in-memory actions. Installing this app does not grant data access. Requires this Employee Hub SPFx solution in the organization’s app catalog."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#69479c",
+  "defaultInstallScope": "personal",
+  "staticTabs": [
+    {
+      "entityId": "c9d7030a-ca94-4a61-aafc-c340cd98fbd3",
+      "name": "HRweb",
+      "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=c9d7030a-ca94-4a61-aafc-c340cd98fbd3%26forceLocale={locale}",
+      "scopes": [
+        "personal"
+      ],
+      "context": [
+        "personalTab"
+      ]
+    }
+  ],
+  "validDomains": [
+    "*.login.microsoftonline.com",
+    "*.sharepoint.com"
+  ],
+  "webApplicationInfo": {
+    "id": "00000003-0000-0ff1-ce00-000000000000",
+    "resource": "https://{teamSiteDomain}"
+  }
+}

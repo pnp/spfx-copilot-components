@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "99201260-9a9d-4f2f-abd5-b3917efa6df7",
+  "alias": "ShowMyVestingCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "ShowMyVesting",
+      "description": {
+        "default": "Use when: Inspect a personal award schedule, held units and future vesting milestones. Do not use for: Show company share prices or a payslip. Related but separate tools: ViewMyPayslip."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/showMyVesting/ShowMyVestingCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

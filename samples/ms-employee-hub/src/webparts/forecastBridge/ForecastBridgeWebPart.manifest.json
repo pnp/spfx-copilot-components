@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "3983112d-2c84-4616-b3cb-a983c7f10a74",
+  "alias": "ForecastBridgeWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Forecast bridge"
+      },
+      "description": {
+        "default": "Explain signed changes between two forecast cuts for the same market and quarter."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzE3Njk0ZCIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzE3Njk0ZCIgZmlsbD0iIzE3Njk0ZCI+PHBhdGggZD0iTTkgNS41YTMuNSAzLjUgMCAwIDEtMyAzLjQ2VjE1YTMgMyAwIDAgMCAzIDNoMi42OWwtLjk3LS45N2EuNzUuNzUgMCAxIDEgMS4wNi0xLjA2bDIuMjUgMi4yNWMuMy4zLjMuNzcgMCAxLjA2bC0yLjI1IDIuMjVhLjc1Ljc1IDAgMSAxLTEuMDYtMS4wNmwuOTctLjk3SDlBNC41IDQuNSAwIDAgMSA0LjUgMTVWOC44NkEzLjUgMy41IDAgMSAxIDkgNS41Wm0tMS41IDBhMiAyIDAgMSAwLTQgMCAyIDIgMCAwIDAgNCAwWm0xNC41IDEzYTMuNSAzLjUgMCAxIDEtNC0zLjQ2VjlhMyAzIDAgMCAwLTMtM2gtMS45NGwuOTcuOTdhLjc1Ljc1IDAgMCAxLTEuMDYgMS4wNmwtMi4yNS0yLjI1YS43NS43NSAwIDAgMSAwLTEuMDZsMi4yNS0yLjI1YS43NS43NSAwIDEgMSAxLjA2IDEuMDZsLS45Ny45N0gxNUE0LjUgNC41IDAgMCAxIDE5LjUgOXY2LjE0QTMuNSAzLjUgMCAwIDEgMjIgMTguNVptLTEuNSAwYTIgMiAwIDEgMC00IDAgMiAyIDAgMCAwIDQgMFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvZz48L3N2Zz4="
+    }
+  ]
+}

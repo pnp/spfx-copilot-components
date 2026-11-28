@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "5140ced1-a39d-42eb-9b66-1f4be1bb814e",
+  "alias": "CompanyEventsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Employee Hub"
+      },
+      "title": {
+        "default": "Around the calendar"
+      },
+      "description": {
+        "default": "Find an upcoming published event, compare local times, or download its calendar entry."
+      },
+      "properties": {},
+      "iconImageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NhZDJkZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzA4NjU3NiIgZD0iTTM5IDFoMTNhMTEgMTEgMCAwIDEgMTEgMTF2MTN6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjU1IiBkPSJNNTEgMmgyYTkgOSAwIDAgMSA5IDl2MnoiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDEyKSBzY2FsZSgxLjcpIiBjb2xvcj0iIzA4NjU3NiIgZmlsbD0iIzA4NjU3NiI+PHBhdGggZD0iTTE3Ljc1IDNDMTkuNTUgMyAyMSA0LjQ2IDIxIDYuMjV2NS43N2MtLjQ2LS4zLS45Ny0uNTMtMS41LS43VjguNWgtMTV2OS4yNWMwIC45Ny43OCAxLjc1IDEuNzUgMS43NWg1LjA2Yy4xOC41My40MiAxLjA0LjcxIDEuNUg2LjI1QTMuMjUgMy4yNSAwIDAgMSAzIDE3Ljc1VjYuMjVDMyA0LjQ1IDQuNDYgMyA2LjI1IDNoMTEuNVptMCAxLjVINi4yNWMtLjk3IDAtMS43NS43OC0xLjc1IDEuNzVWN2gxNXYtLjc1YzAtLjk3LS43OC0xLjc1LTEuNzUtMS43NVptNS4yNSAxM2E1LjUgNS41IDAgMSAwLTExIDAgNS41IDUuNSAwIDAgMCAxMSAwWk0xNy41IDE0Yy4yOCAwIC41LjIyLjUuNVYxN2gyYS41LjUgMCAwIDEgMCAxaC0yLjVhLjUuNSAwIDAgMS0uNS0uNXYtM2MwLS4yOC4yMi0uNS41LS41WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9nPjwvc3ZnPg=="
+    }
+  ]
+}

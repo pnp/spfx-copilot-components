@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "e35ea73d-54a4-4c27-ab9c-9cf0de709615",
+  "alias": "OpenEmployeeHubCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+  "capabilities": {
+    "availableDisplayModes": [
+      "inline",
+      "fullscreen"
+    ]
+  },
+  "tools": [
+    {
+      "name": "OpenEmployeeHub",
+      "description": {
+        "default": "Use when: Open the requested authorized workspace landing, not a task, report or capabilities list. Do not use for: List the kinds of questions the hub can answer. Related but separate tools: ExploreHubCapabilities."
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/openEmployeeHub/OpenEmployeeHubCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}
